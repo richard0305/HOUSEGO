@@ -1,15 +1,276 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
-    
- 
-    <TextView 
+    android:orientation="vertical"
+    tools:ignore="HardcodedText,ContentDescription,RtlSymmetry,RtlHardcoded" >
+
+    <ImageView
+        android:id="@+id/iv_my_back"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="智信"
-        android:gravity="center"
-        android:textSize="48sp"
-        />
-</LinearLayout>
+        android:layout_height="180dp"
+        android:background="@drawable/first_back" />
+
+    <TextView
+        android:id="@+id/tv_login_regist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/iv_my_back"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:text="登录/注册"
+        android:textColor="#ffffff"
+        android:textSize="18sp" />
+
+   <com.dum.housego.util.CircleImageView
+       android:id="@+id/ivPhoto"
+       android:layout_marginTop="20dp"
+       android:layout_width="100dp"
+       android:layout_height="100dp"
+       android:layout_centerHorizontal="true"
+       android:src="@drawable/touxiang" />
+
+   <RelativeLayout
+       android:id="@+id/rl_Myershoufang"
+       android:layout_width="match_parent"
+       android:layout_height="35dp"
+       android:layout_alignParentLeft="true"
+       android:layout_below="@+id/iv_my_back"
+       android:layout_marginTop="18dp" >
+
+       <ImageView
+           android:id="@+id/imageView1"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentLeft="true"
+           android:layout_centerVertical="true"
+           android:layout_alignTop="@+id/textView2"
+           android:layout_marginLeft="20dp"
+           
+           android:src="@drawable/iphone_16px" />
+
+       <TextView
+           android:id="@+id/textView2"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentLeft="true"
+           android:layout_centerVertical="true"
+           android:gravity="center_vertical"
+           android:paddingLeft="50dp"
+           android:text="我的二手房"
+           android:textSize="18sp" />
+
+       <ImageView
+           android:id="@+id/imageView2"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_centerVertical="true"
+           android:layout_marginRight="20dp"
+           android:layout_alignParentRight="true"
+           android:src="@drawable/gray_right" />
+
+   </RelativeLayout>
+   
+   <RelativeLayout
+       android:id="@+id/rl_Myrenting"
+       android:layout_width="match_parent"
+       android:layout_height="35dp"
+       android:layout_below="@+id/rl_Myershoufang"
+       android:layout_alignParentLeft="true"
+       android:layout_marginTop="10dp" >
+
+       <ImageView
+           android:id="@+id/imageView3"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentLeft="true"
+           android:layout_alignTop="@+id/textView3"
+           android:layout_centerVertical="true"
+           android:layout_marginLeft="20dp"
+           android:src="@drawable/iphone_16px" />
+
+       <TextView
+           android:id="@+id/textView3"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentLeft="true"
+           android:layout_centerVertical="true"
+           android:gravity="center_vertical"
+           android:paddingLeft="50dp"
+           android:text="我的出租"
+           android:textSize="18sp" />
+
+       <ImageView
+           android:id="@+id/imageView4"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_centerVertical="true"
+           android:layout_marginRight="20dp"
+           android:layout_alignParentRight="true"
+           android:src="@drawable/gray_right" />
+
+</RelativeLayout>
+
+   <RelativeLayout
+       android:id="@+id/rl_Myentrust"
+       android:layout_width="match_parent"
+       android:layout_height="35dp"
+       android:layout_below="@+id/rl_Myrenting"
+       android:layout_marginTop="10dp" >
+
+       <ImageView
+           android:id="@+id/imageView5"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentLeft="true"
+           android:layout_alignTop="@+id/textView5"
+           android:layout_marginLeft="20dp"
+           android:layout_centerVertical="true"
+           android:src="@drawable/iphone_16px" />
+
+       <TextView
+           android:id="@+id/textView5"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentLeft="true"
+           android:layout_centerVertical="true"
+           android:gravity="center_vertical"
+           android:paddingLeft="50dp"
+           android:text="我的委托"
+           android:textSize="18sp" />
+
+       <ImageView
+           android:id="@+id/imageView6"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentRight="true"
+           android:layout_centerVertical="true"
+           android:layout_marginRight="20dp"
+           android:src="@drawable/gray_right" />
+   </RelativeLayout>
+   
+    <RelativeLayout
+       android:id="@+id/rl_Yuyueguanli"
+       android:layout_width="match_parent"
+       android:layout_height="35dp"
+       android:layout_below="@+id/rl_Myentrust"
+       android:layout_marginTop="10dp" >
+
+       <ImageView
+           android:id="@+id/imageView7"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentLeft="true"
+           android:layout_alignTop="@+id/textView7"
+           android:layout_centerVertical="true"
+           android:layout_marginLeft="20dp"
+           android:src="@drawable/iphone_16px" />
+
+       <TextView
+           android:id="@+id/textView7"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentLeft="true"
+           android:layout_centerVertical="true"
+           android:gravity="center_vertical"
+           android:paddingLeft="50dp"
+           android:text="预约管理"
+           android:textSize="18sp" />
+
+       <ImageView
+           android:id="@+id/imageView8"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentRight="true"
+           android:layout_centerVertical="true"
+           android:layout_marginRight="20dp"
+           android:src="@drawable/gray_right" />
+   </RelativeLayout>
+   
+     <RelativeLayout
+       android:id="@+id/rl_Histroy"
+       android:layout_width="match_parent"
+       android:layout_height="35dp"
+       android:layout_below="@+id/rl_Yuyueguanli"
+       android:layout_marginTop="10dp" >
+
+       <ImageView
+           android:id="@+id/imageView9"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_centerVertical="true"
+           android:layout_alignParentLeft="true"
+           android:layout_alignTop="@+id/textView9"
+           android:layout_marginLeft="20dp"
+           android:src="@drawable/iphone_16px" />
+
+       <TextView
+           android:id="@+id/textView9"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentLeft="true"
+           android:layout_centerVertical="true"
+           android:gravity="center_vertical"
+           android:paddingLeft="50dp"
+           android:text="历史记录"
+           android:textSize="18sp" />
+
+       <ImageView
+           android:id="@+id/imageView10"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentRight="true"
+           android:layout_centerVertical="true"
+           android:layout_marginRight="20dp"
+           android:src="@drawable/gray_right" />
+   </RelativeLayout>
+   
+       <Button
+        android:id="@+id/btn_line"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/rl_Histroy"
+        android:layout_height="1dp"
+        android:background="#c9c9cb" />
+     
+      <RelativeLayout
+       android:id="@+id/rl_settings"
+       android:layout_width="match_parent"
+       android:layout_height="35dp"
+       android:layout_below="@+id/btn_line"
+       android:layout_marginTop="5dp" >
+
+       <ImageView
+           android:id="@+id/imageView11"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentLeft="true"
+           android:layout_centerVertical="true"
+           android:layout_alignTop="@+id/textView11"
+           android:layout_marginLeft="20dp"
+           android:src="@drawable/iphone_16px" />
+
+       <TextView
+           android:id="@+id/textView11"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentLeft="true"
+           android:layout_centerVertical="true"
+           android:gravity="center_vertical"
+           android:paddingLeft="50dp"
+           android:text="设置"
+           android:textSize="18sp" />
+
+       <ImageView
+           android:id="@+id/imageView12"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentRight="true"
+           android:layout_centerVertical="true"
+           android:layout_marginRight="20dp"
+           android:src="@drawable/gray_right" />
+   </RelativeLayout>
+     
+     
+  </RelativeLayout>

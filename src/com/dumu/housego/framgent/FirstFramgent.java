@@ -1,7 +1,16 @@
 package com.dumu.housego.framgent;
 
+import com.dumu.housego.AgentMainActivity;
+import com.dumu.housego.BlockTradeMainActivity;
+import com.dumu.housego.ErShouFangMainActivity;
+import com.dumu.housego.HousePuchaseMainActivity;
+import com.dumu.housego.MapHouseMainActivity;
+import com.dumu.housego.NewHouseMainActivity;
+import com.dumu.housego.ProprietorMainActivity;
 import com.dumu.housego.R;
+import com.dumu.housego.RentingMainActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -28,7 +37,7 @@ public class FirstFramgent extends Fragment {
 	private RadioButton rbShopHouse;
 	private RelativeLayout rlHouseDetails;
 	private RelativeLayout rlShopHouseGuide;
-	private TextView tvMonthNumber,tvPriceNumber,tvHouseNumber;
+	private TextView tvMonthNumber, tvPriceNumber, tvHouseNumber;
 	private LinearLayout llSearch;
 
 	// private layout
@@ -44,33 +53,96 @@ public class FirstFramgent extends Fragment {
 
 	private void setListener() {
 		rbBigBussnies.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
-				
-				
+				startActivity(new Intent(getActivity(), BlockTradeMainActivity.class));
+
 			}
 		});
-		
+
+		rbErShouFang.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				startActivity(new Intent(getActivity(), ErShouFangMainActivity.class));
+
+			}
+		});
+
+		rbJinJiRen.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				startActivity(new Intent(getActivity(), AgentMainActivity.class));
+
+			}
+		});
+
+		rbMapHouse.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				startActivity(new Intent(getActivity(), MapHouseMainActivity.class));
+
+			}
+		});
+
+		rbNewHouse.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				startActivity(new Intent(getActivity(), NewHouseMainActivity.class));
+
+			}
+		});
+
+		rbShopHouse.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				startActivity(new Intent(getActivity(), HousePuchaseMainActivity.class));
+
+			}
+		});
+
+		rbYeZhuWeiTuo.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				startActivity(new Intent(getActivity(), ProprietorMainActivity.class));
+
+			}
+		});
+
+		rbZuFang.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				startActivity(new Intent(getActivity(), RentingMainActivity.class));
+
+			}
+		});
+
 	}
 
 	private void setViews(View view) {
-		etFirstSearch=(EditText) view.findViewById(R.id.et_first_search);
-		lvShopHouseGudie=(ListView) view.findViewById(R.id.lv_ShopGuide);
-		rlHouseDetails=(RelativeLayout) view.findViewById(R.id.HouseDetails);
-		rlShopHouseGuide=(RelativeLayout) view.findViewById(R.id.ShopHouseGuide);
-		tvHouseNumber=(TextView) view.findViewById(R.id.tv_housenumber);
-		tvMonthNumber=(TextView) view.findViewById(R.id.tv_number);
-		tvPriceNumber=(TextView) view.findViewById(R.id.tv_pricenumber);
-		rbBigBussnies=(RadioButton) view.findViewById(R.id.rb_dazongjiaoyi);
-		rbErShouFang=(RadioButton) view.findViewById(R.id.rb_ershoufang);
-		rbJinJiRen=(RadioButton) view.findViewById(R.id.rb_jingjiren);
-		rbMapHouse=(RadioButton) view.findViewById(R.id.rb_dituzhaofang);
-		rbNewHouse=(RadioButton) view.findViewById(R.id.rb_xinfang);
-		rbShopHouse=(RadioButton) view.findViewById(R.id.rb_goufangxuzhi);
-		rbYeZhuWeiTuo=(RadioButton) view.findViewById(R.id.rb_yezhuweituo);
-		rbZuFang=(RadioButton) view.findViewById(R.id.rb_zufang);
-		llSearch=(LinearLayout) view.findViewById(R.id.ll_search);
-		
+		etFirstSearch = (EditText) view.findViewById(R.id.et_first_search);
+		lvShopHouseGudie = (ListView) view.findViewById(R.id.lv_ShopGuide);
+		rlHouseDetails = (RelativeLayout) view.findViewById(R.id.HouseDetails);
+		rlShopHouseGuide = (RelativeLayout) view.findViewById(R.id.ShopHouseGuide);
+		tvHouseNumber = (TextView) view.findViewById(R.id.tv_housenumber);
+		tvMonthNumber = (TextView) view.findViewById(R.id.tv_number);
+		tvPriceNumber = (TextView) view.findViewById(R.id.tv_pricenumber);
+		rbBigBussnies = (RadioButton) view.findViewById(R.id.rb_dazongjiaoyi);
+		rbErShouFang = (RadioButton) view.findViewById(R.id.rb_ershoufang);
+		rbJinJiRen = (RadioButton) view.findViewById(R.id.rb_jingjiren);
+		rbMapHouse = (RadioButton) view.findViewById(R.id.rb_dituzhaofang);
+		rbNewHouse = (RadioButton) view.findViewById(R.id.rb_xinfang);
+		rbShopHouse = (RadioButton) view.findViewById(R.id.rb_goufangxuzhi);
+		rbYeZhuWeiTuo = (RadioButton) view.findViewById(R.id.rb_yezhuweituo);
+		rbZuFang = (RadioButton) view.findViewById(R.id.rb_zufang);
+		llSearch = (LinearLayout) view.findViewById(R.id.ll_search);
+
 	}
 }

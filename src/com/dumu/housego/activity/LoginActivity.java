@@ -126,13 +126,12 @@ public class LoginActivity extends Activity {
 		tabStrip.setTextSpacing(100);
 		
 		
-		GradientDrawable drawable=new GradientDrawable();
-		drawable.setShape(GradientDrawable.RECTANGLE); // »­¿ò
-		drawable.setStroke(1, R.color.send_code_rectangle);
-		drawable.setColor(getResources().getColor(R.color.send_code_back));
-//		btnLoginSendCode.
-//		setBackgroundDrawable(drawable);
-
+		GradientDrawable dra=new GradientDrawable();
+		dra.setShape(GradientDrawable.RECTANGLE); // »­¿ò
+		dra.setStroke(1, R.color.send_code_rectangle);
+		dra.setColor(getResources().getColor(R.color.send_code_back));
+//		btnLoginSendCode.setBackgroundDrawable(dra);
+		
 	}
 
 	private void setViews() {

@@ -6,7 +6,7 @@
 
     <uses-sdk
         android:minSdkVersion="17"
-        android:targetSdkVersion="21" />
+        android:targetSdkVersion="24" />
 
     <application
         android:allowBackup="true"
@@ -28,8 +28,49 @@
             android:label="@string/title_activity_login" >
         </activity>
         <activity
-            android:name="com.dumu.housego.activity.RegistActivity"
+            android:name=".activity.RegistActivity"
             android:label="@string/title_activity_regist" >
+        </activity>
+        
+        
+        <activity
+            android:name="com.dumu.housego.ErShouFangMainActivity"
+            android:label="@string/title_activity_er_shou_fang_main" >
+        </activity>
+        
+            <activity
+            android:name="com.dumu.housego.NewHouseMainActivity"
+            android:label="@string/title_activity_new_house_main" >
+        </activity>
+        
+            <activity
+            android:name="com.dumu.housego.RentingMainActivity"
+            android:label="@string/title_activity_renting_main" >
+        </activity>
+       
+        <activity
+            android:name="com.dumu.housego.AgentMainActivity"
+            android:label="@string/title_activity_agent_main" >
+        </activity>
+        
+            <activity
+            android:name="com.dumu.housego.ProprietorMainActivity"
+            android:label="@string/title_activity_proprietor_main" >
+        </activity>
+        
+                <activity
+            android:name="com.dumu.housego.BlockTradeMainActivity"
+            android:label="@string/title_activity_block_trade_main" >
+        </activity>
+        
+          <activity
+            android:name="com.dumu.housego.MapHouseMainActivity"
+            android:label="@string/title_activity_map_house_main" >
+        </activity>
+        
+              <activity
+            android:name="com.dumu.housego.HousePuchaseMainActivity"
+            android:label="@string/title_activity_house_puchase_main" >
         </activity>
     </application>
 
