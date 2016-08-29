@@ -23,7 +23,7 @@
         android:textColor="#ffffff"
         android:textSize="18sp" />
 
-   <com.dum.housego.util.CircleImageView
+   <com.dumu.housego.util.CircleImageView
        android:id="@+id/ivPhoto"
        android:layout_marginTop="20dp"
        android:layout_width="100dp"

@@ -3,4 +3,6 @@
     <item android:drawable="@drawable/icon_home_selected" android:state_checked="true"></item>
     <item android:drawable="@drawable/icon_home_normal" android:state_checked="false"></item>
 
+    <item android:drawable="@color/button_ckeck" android:state_checked="true"></item>
+    <item android:drawable="@color/button_unckeck" android:state_checked="false"></item>
 </selector>

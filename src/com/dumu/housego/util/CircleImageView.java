@@ -1,4 +1,4 @@
-package com.dum.housego.util;
+package com.dumu.housego.util;
 
 import android.content.Context;
 import android.graphics.Bitmap;

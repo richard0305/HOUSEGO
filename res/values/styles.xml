@@ -5,6 +5,9 @@
     <color name="newhousebuttonuncheck">#A9A9A9</color>
     
     
+    <!-- main下面的四个button选中颜色 -->
+    <color name="button_unckeck">#B5B5B5</color>
+    <color name="button_ckeck">#ED1B24</color>
     
     
 

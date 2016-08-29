@@ -41,6 +41,7 @@ public class MainActivity extends FragmentActivity{
 		
 		
 		setViews();
+		rbFrist.setTextColor(getResources().getColor(R.color.button_ckeck));
 		setViewPagerAdapter();
 		setListeners();
 		
@@ -77,15 +78,31 @@ public class MainActivity extends FragmentActivity{
 				
 				case 0:
 					rbFrist.setChecked(true);
+					rbFrist.setTextColor(getResources().getColor(R.color.button_ckeck));
+					rbMessage.setTextColor(getResources().getColor(R.color.button_unckeck));
+					rbHouse.setTextColor(getResources().getColor(R.color.button_unckeck));
+					rbMy.setTextColor(getResources().getColor(R.color.button_unckeck));
 					break;
 				case 1:
 					rbMessage.setChecked(true);
+					rbFrist.setTextColor(getResources().getColor(R.color.button_unckeck));
+					rbMessage.setTextColor(getResources().getColor(R.color.button_ckeck));
+					rbHouse.setTextColor(getResources().getColor(R.color.button_unckeck));
+					rbMy.setTextColor(getResources().getColor(R.color.button_unckeck));
 					break;
 				case 2:
 					rbHouse.setChecked(true);
+					rbFrist.setTextColor(getResources().getColor(R.color.button_unckeck));
+					rbMessage.setTextColor(getResources().getColor(R.color.button_unckeck));
+					rbHouse.setTextColor(getResources().getColor(R.color.button_ckeck));
+					rbMy.setTextColor(getResources().getColor(R.color.button_unckeck));
 					break;
 				case 3:
 					rbMy.setChecked(true);
+					rbFrist.setTextColor(getResources().getColor(R.color.button_unckeck));
+					rbMessage.setTextColor(getResources().getColor(R.color.button_unckeck));
+					rbHouse.setTextColor(getResources().getColor(R.color.button_unckeck));
+					rbMy.setTextColor(getResources().getColor(R.color.button_ckeck));
 					break;
 				}
 			}

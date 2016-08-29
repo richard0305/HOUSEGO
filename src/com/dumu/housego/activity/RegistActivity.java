@@ -1,6 +1,9 @@
 package com.dumu.housego.activity;
 
 import com.dumu.housego.R;
+import com.dumu.housego.presenter.IPhoneCodePresenter;
+import com.dumu.housego.presenter.PhoneCodePresenter;
+import com.dumu.housego.view.IPhoneCodeView;
 
 import android.app.Activity;
 import android.graphics.drawable.GradientDrawable;
@@ -8,17 +11,21 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-public class RegistActivity extends Activity {
+public class RegistActivity extends Activity implements IPhoneCodeView{
 	private Button btnSendCode,btnRegist;
 	private LinearLayout llBackLogin;
+	private IPhoneCodePresenter presenter;
+	private EditText etPhoneNumber;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_regist);
+		presenter=new PhoneCodePresenter(this);
 		setViews();
 		setOptains();
 		setListener();
@@ -38,7 +45,17 @@ public class RegistActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				Toast.makeText(RegistActivity.this, "暂时没有接入数据", Toast.LENGTH_SHORT).show();
+			
+				new Thread(
+						new Runnable() { 
+							public void run() {
+								String number=etPhoneNumber.getText().toString()+"";	
+								presenter.LoadMob(number);
+							
+							}
+						}
+						
+						).start();
 				
 			}
 		});
@@ -72,6 +89,18 @@ public class RegistActivity extends Activity {
 		btnSendCode=(Button) findViewById(R.id.btn_sendcode);
 		llBackLogin=(LinearLayout) findViewById(R.id.ll_back_login);
 		btnRegist=(Button) findViewById(R.id.btn_Regist);
+		etPhoneNumber=(EditText) findViewById(R.id.et_phonenumb);
+		
+	}
+
+	@Override
+	public void setData(String infomation) {
+		Toast.makeText(RegistActivity.this, infomation, Toast.LENGTH_SHORT).show();
+	}
+
+	@Override
+	public void showData() {
+		// TODO Auto-generated method stub
 		
 	}
 
