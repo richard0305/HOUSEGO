@@ -16,56 +16,66 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
+            android:windowSoftInputMode="adjustNothing"
             android:name=".activity.MainActivity"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
-           
         </activity>
         <activity
             android:name=".activity.LoginActivity"
-            android:label="@string/title_activity_login" >
+            android:label="@string/title_activity_login"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
         </activity>
         <activity
             android:name=".activity.RegistActivity"
-            android:label="@string/title_activity_regist" >
+            android:label="@string/title_activity_regist"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
         </activity>
         <activity
             android:name=".ErShouFangMainActivity"
-            android:label="@string/title_activity_er_shou_fang_main" >
+            android:label="@string/title_activity_er_shou_fang_main"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
         </activity>
         <activity
             android:name=".NewHouseMainActivity"
-            android:label="@string/title_activity_new_house_main" >
+            android:label="@string/title_activity_new_house_main"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
         </activity>
         <activity
             android:name=".RentingMainActivity"
-            android:label="@string/title_activity_renting_main" >
+            android:label="@string/title_activity_renting_main"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
         </activity>
         <activity
             android:name=".AgentMainActivity"
-            android:label="@string/title_activity_agent_main" >
+            android:label="@string/title_activity_agent_main"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
         </activity>
         <activity
             android:name=".ProprietorMainActivity"
-            android:label="@string/title_activity_proprietor_main" >
+            android:label="@string/title_activity_proprietor_main"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
         </activity>
         <activity
             android:name=".BlockTradeMainActivity"
-            android:label="@string/title_activity_block_trade_main" >
+            android:label="@string/title_activity_block_trade_main"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
         </activity>
         <activity
             android:name=".MapHouseMainActivity"
-            android:label="@string/title_activity_map_house_main" >
+            android:label="@string/title_activity_map_house_main"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
         </activity>
         <activity
             android:name=".HousePuchaseMainActivity"
-            android:label="@string/title_activity_house_puchase_main" >
+            android:label="@string/title_activity_house_puchase_main"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
         </activity>
         <activity
             android:name=".WelcomeMainActivity"
             android:label="@string/title_activity_welcome_main"
             android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
-             <intent-filter>
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />

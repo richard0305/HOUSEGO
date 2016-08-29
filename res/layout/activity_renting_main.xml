@@ -6,7 +6,7 @@
     tools:ignore="ObsoleteLayoutParam,UseCompoundDrawables,TextFields,HardcodedText,RtlHardcoded,ContentDescription,UselessParent,LabelFor" >
 
     <RelativeLayout
-        android:id="@+id/rl_ershoufang_title"
+        android:id="@+id/rl_renting_title"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="#e12442" >
@@ -30,7 +30,7 @@
             android:src="@drawable/msg_white_40x31" />
 
         <LinearLayout
-            android:id="@+id/ll_ershoufang_back"
+            android:id="@+id/ll_renting_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -58,7 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_toLeftOf="@+id/iv_location"
-            android:layout_toRightOf="@+id/ll_ershoufang_back"
+            android:layout_toRightOf="@+id/ll_renting_back"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:background="#6e1020"
@@ -72,7 +72,7 @@
                 android:src="@drawable/search1" />
 
             <EditText
-                android:id="@+id/et_ershoufang_search"
+                android:id="@+id/et_renting_search"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_centerVertical="true"
