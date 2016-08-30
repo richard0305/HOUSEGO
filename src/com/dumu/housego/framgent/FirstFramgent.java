@@ -1,5 +1,7 @@
 package com.dumu.housego.framgent;
 
+import java.util.List;
+
 import com.dumu.housego.AgentMainActivity;
 import com.dumu.housego.BlockTradeMainActivity;
 import com.dumu.housego.ErShouFangMainActivity;
@@ -9,6 +11,12 @@ import com.dumu.housego.NewHouseMainActivity;
 import com.dumu.housego.ProprietorMainActivity;
 import com.dumu.housego.R;
 import com.dumu.housego.RentingMainActivity;
+import com.dumu.housego.adapter.RecommendHouseAdapter;
+import com.dumu.housego.entity.RecommendData;
+import com.dumu.housego.entity.RecommendNews;
+import com.dumu.housego.presenter.IRecommendHousePresenter;
+import com.dumu.housego.presenter.RecommendHousePresenter;
+import com.dumu.housego.view.IShopGuideView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,7 +32,10 @@ import android.widget.RadioButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-public class FirstFramgent extends Fragment {
+public class FirstFramgent extends Fragment implements IShopGuideView{
+	private RecommendHouseAdapter recommendAdapter;
+	private List<RecommendNews>recommends;
+	private IRecommendHousePresenter presenter;
 	private EditText etFirstSearch;
 	private ListView lvShopHouseGudie;
 	private RadioButton rbErShouFang;
@@ -40,14 +51,16 @@ public class FirstFramgent extends Fragment {
 	private TextView tvMonthNumber, tvPriceNumber, tvHouseNumber;
 	private LinearLayout llSearch;
 
-	// private layout
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.framgent_first, null);
-
+		presenter=new RecommendHousePresenter(this);
+		presenter.LoadRecommend();
 		setViews(view);
 		setListener();
+		presenter=new RecommendHousePresenter(this);
+		presenter.LoadRecommend();
 		return view;
 	}
 
@@ -127,6 +140,9 @@ public class FirstFramgent extends Fragment {
 	}
 
 	private void setViews(View view) {
+		
+		
+		
 		etFirstSearch = (EditText) view.findViewById(R.id.et_first_search);
 		lvShopHouseGudie = (ListView) view.findViewById(R.id.lv_ShopGuide);
 		rlHouseDetails = (RelativeLayout) view.findViewById(R.id.HouseDetails);
@@ -145,4 +161,15 @@ public class FirstFramgent extends Fragment {
 		llSearch = (LinearLayout) view.findViewById(R.id.ll_search);
 
 	}
+
+	@Override
+	public void showData(List<RecommendNews> recommends) {
+	
+		this.recommends=recommends;
+		recommendAdapter=new RecommendHouseAdapter(recommends, getActivity());
+		lvShopHouseGudie.setAdapter(recommendAdapter);
+		
+	}
+
+	
 }

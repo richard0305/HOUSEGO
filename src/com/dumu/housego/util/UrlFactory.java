@@ -9,5 +9,11 @@ public class UrlFactory {
 		return PhoneCode;
 	}
 	
+	//wap°æÊ×Ò³ÍÆ¼ö
+	public static String GetRecommendHouseUrl() {
+
+		String PhoneCode = "http://www.taoshenfang.com/index.php?g=api&m=house&a=position&posid=12";
+		return PhoneCode;
+	}
 
 }

@@ -96,20 +96,20 @@ public final class R {
     public static final class id {
         public static final int HouseDetails=0x7f090046;
         public static final int ShopHouseGuide=0x7f09004d;
-        public static final int action_settings=0x7f090072;
+        public static final int action_settings=0x7f090075;
         public static final int all=0x7f090022;
         public static final int btn_Login=0x7f09000c;
         public static final int btn_Regist=0x7f090033;
         public static final int btn_house_login=0x7f09004f;
         public static final int btn_line=0x7f090024;
-        public static final int btn_quicklogin_sendcode=0x7f09006f;
+        public static final int btn_quicklogin_sendcode=0x7f090072;
         public static final int btn_sendcode=0x7f090032;
         public static final int building=0x7f09001e;
         public static final int et_ershoufang_search=0x7f090005;
         public static final int et_first_search=0x7f09003b;
-        public static final int et_login_lock=0x7f09006e;
-        public static final int et_login_lock_quick=0x7f090071;
-        public static final int et_login_phonenumber=0x7f09006b;
+        public static final int et_login_lock=0x7f090071;
+        public static final int et_login_lock_quick=0x7f090074;
+        public static final int et_login_phonenumber=0x7f09006e;
         public static final int et_password=0x7f09002b;
         public static final int et_phonenumb=0x7f09002a;
         public static final int et_renting_search=0x7f090036;
@@ -133,13 +133,14 @@ public final class R {
         public static final int imageView9=0x7f090062;
         public static final int ivPhoto=0x7f090052;
         public static final int iv_MsM=0x7f090002;
-        public static final int iv_iphone=0x7f09006a;
+        public static final int iv_iphone=0x7f09006d;
         public static final int iv_location=0x7f090001;
-        public static final int iv_lock=0x7f09006d;
-        public static final int iv_lock_quick=0x7f090070;
+        public static final int iv_lock=0x7f090070;
+        public static final int iv_lock_quick=0x7f090073;
         public static final int iv_my_back=0x7f090050;
         public static final int iv_newhouse_ad=0x7f090016;
         public static final int iv_newhouse_back=0x7f090015;
+        public static final int iv_recommend_img=0x7f09006a;
         public static final int iv_welcome=0x7f090037;
         public static final int ll_back_login=0x7f090027;
         public static final int ll_ershoufang_back=0x7f090003;
@@ -183,9 +184,9 @@ public final class R {
         public static final int rl_Myrenting=0x7f090055;
         public static final int rl_Yuyueguanli=0x7f09005d;
         public static final int rl_ershoufang_title=0x7f090000;
-        public static final int rl_login_lock=0x7f09006c;
+        public static final int rl_login_lock=0x7f09006f;
         public static final int rl_newhouse_title=0x7f090014;
-        public static final int rl_phonenumber=0x7f090069;
+        public static final int rl_phonenumber=0x7f09006c;
         public static final int rl_renting_title=0x7f090034;
         public static final int rl_settings=0x7f090065;
         public static final int rl_title=0x7f090006;
@@ -205,6 +206,8 @@ public final class R {
         public static final int tv_number=0x7f09004c;
         public static final int tv_price=0x7f09004a;
         public static final int tv_pricenumber=0x7f090049;
+        public static final int tv_recommend_content=0x7f09006b;
+        public static final int tv_recommend_title=0x7f090069;
         public static final int tv_regist=0x7f090008;
         public static final int tv_version=0x7f090038;
         public static final int two=0x7f090019;
@@ -227,8 +230,9 @@ public final class R {
         public static final int framgent_house=0x7f03000d;
         public static final int framgent_message=0x7f03000e;
         public static final int framgent_my=0x7f03000f;
-        public static final int login_general=0x7f030010;
-        public static final int login_shortcut=0x7f030011;
+        public static final int item_recommend_house=0x7f030010;
+        public static final int login_general=0x7f030011;
+        public static final int login_shortcut=0x7f030012;
     }
     public static final class menu {
         public static final int agent_main=0x7f080000;
