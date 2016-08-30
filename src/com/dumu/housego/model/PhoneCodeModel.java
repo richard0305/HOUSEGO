@@ -1,9 +1,11 @@
 package com.dumu.housego.model;
 
+import com.android.volley.RequestQueue;
 import com.android.volley.Response.ErrorListener;
 import com.android.volley.Response.Listener;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.dumu.housego.app.HouseGoApp;
 import com.dumu.housego.entity.RegistPhoneCode;
 import com.dumu.housego.model.IModel.AsycnCallBack;
@@ -13,10 +15,12 @@ import com.google.gson.Gson;
 import android.util.Log;
 
 public class PhoneCodeModel implements IPhoneCodeModel{
-	
+	private RequestQueue queue;
 	
 	public PhoneCodeModel() {
 		super();
+		this.queue = Volley.newRequestQueue(HouseGoApp.getContext());
+		
 	}
 
 	@Override
@@ -42,7 +46,7 @@ public class PhoneCodeModel implements IPhoneCodeModel{
 				
 			}
 		});
-		HouseGoApp.getQueue().add(request);
+		queue.add(request);
 		
 	}
 

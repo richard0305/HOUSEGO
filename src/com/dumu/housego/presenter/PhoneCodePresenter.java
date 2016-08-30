@@ -23,7 +23,7 @@ public class PhoneCodePresenter implements IPhoneCodePresenter {
 			
 			@Override
 			public void onSuccess(Object success) {
-				String infomation=(String) success;
+				String infomation= success.toString();
 				view.setData(infomation);
 				
 			}
