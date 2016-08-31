@@ -58,7 +58,7 @@ public class RecommendHouseAdapter extends BaseAdapter {
 			holder = (ViewHolder) convertView.getTag();
 		}
 		RecommendNews recommend=getItem(position);
-		Glide.with(context).load(recommend.getUrl()).into(holder.ivRecommendImg);
+		Glide.with(context).load("http://www.taoshenfang.com"+recommend.getUrl()).into(holder.ivRecommendImg);
 		holder.tvRecommendContent.setText(recommend.getDescription());
 		holder.tvRecommendTitle.setText(recommend.getTitle());
 		

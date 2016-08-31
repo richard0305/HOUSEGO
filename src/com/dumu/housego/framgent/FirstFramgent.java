@@ -32,7 +32,9 @@ import android.widget.RadioButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-public class FirstFramgent extends Fragment implements IShopGuideView{
+public class FirstFramgent extends Fragment 
+implements IShopGuideView
+{
 	private RecommendHouseAdapter recommendAdapter;
 	private List<RecommendNews>recommends;
 	private IRecommendHousePresenter presenter;
@@ -55,8 +57,8 @@ public class FirstFramgent extends Fragment implements IShopGuideView{
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.framgent_first, null);
-		presenter=new RecommendHousePresenter(this);
-		presenter.LoadRecommend();
+//		presenter=new RecommendHousePresenter(this);
+//		presenter.LoadRecommend();
 		setViews(view);
 		setListener();
 		presenter=new RecommendHousePresenter(this);
