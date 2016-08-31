@@ -2,7 +2,6 @@ package com.dumu.housego.presenter;
 
 import java.util.List;
 
-import com.dumu.housego.entity.RecommendData;
 import com.dumu.housego.entity.RecommendNews;
 import com.dumu.housego.model.IModel.AsycnCallBack;
 import com.dumu.housego.model.IRecommendHouseModel;

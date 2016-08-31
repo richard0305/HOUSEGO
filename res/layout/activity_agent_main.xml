@@ -2,15 +2,81 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.dumu.housego.AgentMainActivity" >
+    tools:context="com.dumu.housego.AgentMainActivity"
+    tools:ignore="TextFields,HardcodedText,RtlHardcoded,InefficientWeight,ContentDescription,LabelFor" >
 
-    <TextView
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:id="@+id/rl_agent_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:background="#ffffff" >
+
+        <ImageView
+            android:id="@+id/iv_agent_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/gray_left" />
+
+        <ImageView
+            android:id="@+id/iv_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/msg_gray_44x34" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:textSize="18sp"
+            android:text="经纪人列表" />
+
+    </RelativeLayout>
+    <Button
+        android:id="@+id/btn_line"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/rl_agent_title"
+        android:layout_height="1dp"
+        android:background="#c9c9cb" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@+id/btn_line"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal" >
+
+        <EditText
+            android:id="@+id/et_ershoufang_search"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_weight="4.43"
+            android:background="@null"
+            android:ems="10"
+            android:gravity="center"
+            android:text="请输入商圈、小区或经纪人的姓名、电话"
+            android:textColor="#D8D7DA"
+            android:textSize="14sp" />
+        
+        <ImageView
+            android:id="@+id/iv_agent_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/search_red_30x30" />
+    </LinearLayout>
 
 </RelativeLayout>

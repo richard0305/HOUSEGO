@@ -3,11 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:ignore="HardcodedText" >
+    
+    
 
     <RadioGroup
         android:id="@+id/rg_control"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:background="#ffffff"
         android:orientation="horizontal" >
@@ -70,7 +72,14 @@
         android:id="@+id/viewpage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/rg_control" >
+        android:layout_above="@+id/btn_line" >
     </android.support.v4.view.ViewPager>
+    
+    <Button
+        android:id="@+id/btn_line"
+        android:layout_width="match_parent"
+        android:layout_above="@+id/rg_control"
+        android:layout_height="1dp"
+        android:background="#c9c9cb" />
 
 </RelativeLayout>

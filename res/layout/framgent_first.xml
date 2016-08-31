@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.dumu.housego.util.MyReboundScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/first_scrollview"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
+    android:background="#F3F3F3"
     android:orientation="vertical"
     tools:ignore="HardcodedText,UselessParent,RtlSymmetry,RtlHardcoded,DisableBaselineAlignment,ContentDescription,UseCompoundDrawables" >
 
@@ -55,8 +56,16 @@
                     android:text="深圳"
                     android:textColor="#000000"
                     android:textSize="16sp" />
+                <Button 
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#CEDDED"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    />
 
                 <ImageView
+                    android:layout_marginLeft="10dp"
                     android:id="@+id/imageView1"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
@@ -75,11 +84,15 @@
             </LinearLayout>
         </LinearLayout>
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:background="#ffffff" />
+
         <LinearLayout
             android:id="@+id/ll_two"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:background="#ffffff"
             android:orientation="horizontal" >
 
@@ -92,7 +105,7 @@
                 android:drawableTop="@drawable/main01"
                 android:gravity="center_horizontal"
                 android:text="二手房"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
 
             <RadioButton
                 android:id="@+id/rb_xinfang"
@@ -103,7 +116,7 @@
                 android:drawableTop="@drawable/main02"
                 android:gravity="center_horizontal"
                 android:text="新房"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
 
             <RadioButton
                 android:id="@+id/rb_zufang"
@@ -114,7 +127,7 @@
                 android:drawableTop="@drawable/main03"
                 android:gravity="center_horizontal"
                 android:text="租房"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
 
             <RadioButton
                 android:id="@+id/rb_jingjiren"
@@ -125,14 +138,17 @@
                 android:drawableTop="@drawable/main04"
                 android:gravity="center_horizontal"
                 android:text="经纪人"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
         </LinearLayout>
+         <Button
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:background="#ffffff" />
 
         <LinearLayout
             android:id="@+id/ll_tree"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:background="#ffffff"
             android:orientation="horizontal" >
 
@@ -145,7 +161,7 @@
                 android:drawableTop="@drawable/main05"
                 android:gravity="center_horizontal"
                 android:text="业主委托"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
 
             <RadioButton
                 android:id="@+id/rb_dazongjiaoyi"
@@ -156,7 +172,7 @@
                 android:drawableTop="@drawable/main06"
                 android:gravity="center_horizontal"
                 android:text="大宗交易"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
 
             <RadioButton
                 android:id="@+id/rb_dituzhaofang"
@@ -167,7 +183,7 @@
                 android:drawableTop="@drawable/main07"
                 android:gravity="center_horizontal"
                 android:text="地图找房"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
 
             <RadioButton
                 android:id="@+id/rb_goufangxuzhi"
@@ -178,16 +194,36 @@
                 android:drawableTop="@drawable/main08"
                 android:gravity="center_horizontal"
                 android:text="购房须知"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
         </LinearLayout>
+        
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="15dp"
+            android:background="#ffffff" />
 
         <RelativeLayout
             android:id="@+id/HouseDetails"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:background="#ffffff"
             android:layout_marginTop="20dp"
             android:orientation="horizontal" >
 
+            <Button
+              android:id="@+id/btn_line"
+              android:layout_width="match_parent"
+              android:layout_height="1dp"
+              android:layout_alignParentLeft="true"
+              android:layout_alignParentTop="true"
+              android:background="#c9c9cb" />
+            <Button
+              android:id="@+id/btn_line2"
+              android:layout_width="match_parent"
+              android:layout_height="1dp"
+              android:layout_alignParentBottom="true"
+              android:layout_alignParentLeft="true"
+              android:background="#c9c9cb" />
             <TextView
                 android:layout_width="290dp"
                 android:layout_height="40dp"
@@ -204,10 +240,14 @@
                 android:paddingRight="20dp"
                 android:src="@drawable/right1" />
         </RelativeLayout>
-
+<Button
+          android:layout_width="match_parent"
+          android:layout_height="10dp"
+          android:background="#ffffff" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#ffffff"
             android:orientation="horizontal" >
 
             <TextView
@@ -217,6 +257,7 @@
                 android:layout_weight="1"
                 android:paddingLeft="10dp"
                 android:text="全市均价" />
+         
 
             <TextView
                 android:id="@+id/monthnumber"
@@ -229,6 +270,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#ffffff"
             android:orientation="horizontal" >
 
             <LinearLayout
@@ -277,11 +319,16 @@
                     android:text="套" />
             </LinearLayout>
         </LinearLayout>
-
+        <Button 
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="#ffffff"/>
+        
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="20dp"
+            android:background="#ffffff"
             android:orientation="vertical" >
 
             <RelativeLayout
@@ -290,6 +337,20 @@
                 android:layout_height="40dp"
                 android:orientation="horizontal" >
 
+                      <Button
+              android:id="@+id/btn_line3"
+              android:layout_width="match_parent"
+              android:layout_height="1dp"
+              android:layout_alignParentLeft="true"
+              android:layout_alignParentTop="true"
+              android:background="#c9c9cb" />
+            <Button
+              android:id="@+id/btn_line4"
+              android:layout_width="match_parent"
+              android:layout_height="1dp"
+              android:layout_alignParentBottom="true"
+              android:layout_alignParentLeft="true"
+              android:background="#c9c9cb" />
                 <TextView
                     android:layout_width="290dp"
                     android:layout_height="40dp"
@@ -307,12 +368,16 @@
                     android:src="@drawable/right1" />
             </RelativeLayout>
 
-            <ListView
+            <com.dumu.housego.util.ListViewForScrollView
                 android:id="@+id/lv_ShopGuide"
                 android:layout_width="match_parent"
-                android:layout_height="100dp" >
-            </ListView>
+                android:layout_height="match_parent" >
+            </com.dumu.housego.util.ListViewForScrollView>
+          
+            
         </LinearLayout>
+        
+         
     </LinearLayout>
 
 </com.dumu.housego.util.MyReboundScrollView>

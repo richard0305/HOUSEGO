@@ -26,12 +26,12 @@
         android:layout_toLeftOf="@+id/iv_recommend_img"
         android:text="在工业用地上建起来的住宅，产权年限为50年，入市价格低于市场价。"
         android:textColor="#BDBBBC"
-        android:textSize="14sp" />
+        android:textSize="16sp" />
 
     <ImageView
         android:id="@+id/iv_recommend_img"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="10dp"

@@ -1,6 +1,8 @@
 package com.dumu.housego.entity;
 
-public class RecommendNews {
+import java.io.Serializable;
+
+public class RecommendNews implements Serializable {
 	private String title;
 	private String description;
 	private String thumb;

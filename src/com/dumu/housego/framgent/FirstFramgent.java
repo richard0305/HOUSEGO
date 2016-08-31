@@ -11,8 +11,8 @@ import com.dumu.housego.NewHouseMainActivity;
 import com.dumu.housego.ProprietorMainActivity;
 import com.dumu.housego.R;
 import com.dumu.housego.RentingMainActivity;
+import com.dumu.housego.WebRecommedNewsMainActivity;
 import com.dumu.housego.adapter.RecommendHouseAdapter;
-import com.dumu.housego.entity.RecommendData;
 import com.dumu.housego.entity.RecommendNews;
 import com.dumu.housego.presenter.IRecommendHousePresenter;
 import com.dumu.housego.presenter.RecommendHousePresenter;
@@ -25,18 +25,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
-public class FirstFramgent extends Fragment 
-implements IShopGuideView
-{
+public class FirstFramgent extends Fragment implements IShopGuideView {
 	private RecommendHouseAdapter recommendAdapter;
-	private List<RecommendNews>recommends;
+	private List<RecommendNews> recommends;
 	private IRecommendHousePresenter presenter;
 	private EditText etFirstSearch;
 	private ListView lvShopHouseGudie;
@@ -52,16 +53,15 @@ implements IShopGuideView
 	private RelativeLayout rlShopHouseGuide;
 	private TextView tvMonthNumber, tvPriceNumber, tvHouseNumber;
 	private LinearLayout llSearch;
-
-
+	private ScrollView scrollview;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.framgent_first, null);
-//		presenter=new RecommendHousePresenter(this);
-//		presenter.LoadRecommend();
+		// presenter=new RecommendHousePresenter(this);
+		// presenter.LoadRecommend();
 		setViews(view);
 		setListener();
-		presenter=new RecommendHousePresenter(this);
+		presenter = new RecommendHousePresenter(this);
 		presenter.LoadRecommend();
 		return view;
 	}
@@ -139,12 +139,25 @@ implements IShopGuideView
 			}
 		});
 
+		lvShopHouseGudie.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> arg0, View view, int position, long id) {
+				Intent i = new Intent(getActivity(), WebRecommedNewsMainActivity.class);
+				String url = "http://www.taoshenfang.com" + recommends.get(position).getThumb();
+				String title=recommends.get(position).getTitle();
+				String content=recommends.get(position).getDescription();
+				i.putExtra("content", content);
+				i.putExtra("url", url);
+				i.putExtra("title", title);
+				startActivity(i);
+			}
+		});
+
 	}
 
 	private void setViews(View view) {
-		
-		
-		
+
 		etFirstSearch = (EditText) view.findViewById(R.id.et_first_search);
 		lvShopHouseGudie = (ListView) view.findViewById(R.id.lv_ShopGuide);
 		rlHouseDetails = (RelativeLayout) view.findViewById(R.id.HouseDetails);
@@ -162,16 +175,17 @@ implements IShopGuideView
 		rbZuFang = (RadioButton) view.findViewById(R.id.rb_zufang);
 		llSearch = (LinearLayout) view.findViewById(R.id.ll_search);
 
+		scrollview=(ScrollView) view.findViewById(R.id.first_scrollview);
+		scrollview.smoothScrollTo(0, 0);
 	}
 
 	@Override
 	public void showData(List<RecommendNews> recommends) {
-	
-		this.recommends=recommends;
-		recommendAdapter=new RecommendHouseAdapter(recommends, getActivity());
+
+		this.recommends = recommends;
+		recommendAdapter = new RecommendHouseAdapter(recommends, getActivity());
 		lvShopHouseGudie.setAdapter(recommendAdapter);
-		
+
 	}
 
-	
 }

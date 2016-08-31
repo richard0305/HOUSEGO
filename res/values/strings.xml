@@ -15,5 +15,8 @@
     <string name="title_activity_map_house_main">淘深房</string>
     <string name="title_activity_house_puchase_main">淘深房</string>
     <string name="title_activity_welcome_main">淘深房</string>
+    <string name="title_activity_web_recommed_news_main">WebRecommedNewsMainActivity</string>
+    <string name="title_activity_my_setting_main">MySettingMainActivity</string>
+    <string name="title_activity_personal_main">PersonalMainActivity</string>
 
 </resources>

@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.bumptech.glide.Glide;
 import com.dumu.housego.R;
-import com.dumu.housego.entity.RecommendData;
 import com.dumu.housego.entity.RecommendNews;
 
 import android.content.Context;
@@ -58,7 +57,8 @@ public class RecommendHouseAdapter extends BaseAdapter {
 			holder = (ViewHolder) convertView.getTag();
 		}
 		RecommendNews recommend=getItem(position);
-		Glide.with(context).load("http://www.taoshenfang.com"+recommend.getUrl()).into(holder.ivRecommendImg);
+		String url="http://www.taoshenfang.com"+recommend.getThumb();
+		Glide.with(context).load(url).into(holder.ivRecommendImg);
 		holder.tvRecommendContent.setText(recommend.getDescription());
 		holder.tvRecommendTitle.setText(recommend.getTitle());
 		

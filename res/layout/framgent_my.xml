@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#F3F3F3"
     tools:ignore="HardcodedText,ContentDescription,RtlSymmetry,RtlHardcoded" >
     <LinearLayout 
         android:layout_width="match_parent"
@@ -17,7 +18,7 @@
         android:id="@+id/iv_my_back"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:background="@drawable/first_back" />
+        android:background="@drawable/mybackground" />
 
     <TextView
         android:id="@+id/tv_login_regist"
@@ -30,18 +31,11 @@
         android:textColor="#ffffff"
         android:textSize="18sp" />
 
-   <com.dumu.housego.util.CircleImageView
-       android:id="@+id/ivPhoto"
-       android:layout_marginTop="20dp"
-       android:layout_width="100dp"
-       android:layout_height="100dp"
-       android:layout_centerHorizontal="true"
-       android:src="@drawable/touxiang" />
-
    <RelativeLayout
        android:id="@+id/rl_Myershoufang"
        android:layout_width="match_parent"
        android:layout_height="35dp"
+       android:background="#ffffff"
        android:layout_alignParentLeft="true"
        android:layout_below="@+id/iv_my_back"
        android:layout_marginTop="18dp" >
@@ -81,6 +75,7 @@
        android:id="@+id/rl_Myrenting"
        android:layout_width="match_parent"
        android:layout_height="35dp"
+       android:background="#ffffff"
        android:layout_below="@+id/rl_Myershoufang"
        android:layout_alignParentLeft="true"
        android:layout_marginTop="10dp" >
@@ -120,6 +115,7 @@
        android:id="@+id/rl_Myentrust"
        android:layout_width="match_parent"
        android:layout_height="35dp"
+       android:background="#ffffff"
        android:layout_below="@+id/rl_Myrenting"
        android:layout_marginTop="10dp" >
 
@@ -157,6 +153,7 @@
        android:id="@+id/rl_Yuyueguanli"
        android:layout_width="match_parent"
        android:layout_height="35dp"
+       android:background="#ffffff"
        android:layout_below="@+id/rl_Myentrust"
        android:layout_marginTop="10dp" >
 
@@ -194,6 +191,7 @@
        android:id="@+id/rl_Histroy"
        android:layout_width="match_parent"
        android:layout_height="35dp"
+       android:background="#ffffff"
        android:layout_below="@+id/rl_Yuyueguanli"
        android:layout_marginTop="10dp" >
 
@@ -226,52 +224,90 @@
            android:layout_marginRight="20dp"
            android:src="@drawable/gray_right" />
    </RelativeLayout>
-   
-       <Button
-        android:id="@+id/btn_line"
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_below="@+id/rl_Histroy"
-        android:layout_height="1dp"
-        android:background="#c9c9cb" />
      
       <RelativeLayout
-       android:id="@+id/rl_settings"
-       android:layout_width="match_parent"
-       android:layout_height="35dp"
-       android:layout_below="@+id/btn_line"
-       android:layout_marginTop="5dp" >
+          
+          android:id="@+id/rl_settings"
+          android:layout_width="match_parent"
+          android:layout_height="35dp"
+          android:layout_below="@+id/rl_Histroy"
+          android:layout_marginTop="20dp"
+          android:background="#ffffff" >
 
-       <ImageView
-           android:id="@+id/imageView11"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:layout_alignParentLeft="true"
-           android:layout_centerVertical="true"
-           android:layout_marginLeft="20dp"
-           android:src="@drawable/iphone_16px" />
+          <ImageView
+              android:id="@+id/imageView11"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_alignParentLeft="true"
+              android:layout_centerVertical="true"
+              android:layout_marginLeft="20dp"
+              android:src="@drawable/iphone_16px" />
 
-       <TextView
-           android:id="@+id/textView11"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:layout_alignParentLeft="true"
-           android:layout_centerVertical="true"
-           android:gravity="center_vertical"
-           android:paddingLeft="50dp"
-           android:text="设置"
-           android:textSize="18sp" />
+          <TextView
+              android:id="@+id/textView11"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_alignParentLeft="true"
+              android:layout_centerVertical="true"
+              android:gravity="center_vertical"
+              android:paddingLeft="50dp"
+              android:text="设置"
+              android:textSize="18sp" />
 
-       <ImageView
-           android:id="@+id/imageView12"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:layout_alignParentRight="true"
-           android:layout_centerVertical="true"
-           android:layout_marginRight="20dp"
-           android:src="@drawable/gray_right" />
-   </RelativeLayout>
-     
+          <ImageView
+              android:id="@+id/imageView12"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_alignParentRight="true"
+              android:layout_centerVertical="true"
+              android:layout_marginRight="20dp"
+              android:src="@drawable/gray_right" />
+
+          <Button
+              android:id="@+id/btn_line"
+              android:layout_width="match_parent"
+              android:layout_height="1dp"
+              android:layout_alignParentLeft="true"
+              android:layout_alignParentTop="true"
+              android:background="#c9c9cb" />
+      </RelativeLayout>
+
+      <com.dumu.housego.util.CircleImageView
+          android:id="@+id/iv_my_Photo"
+          android:layout_width="80dp"
+          android:layout_height="80dp"
+          android:layout_above="@+id/tv_login_regist"
+          android:layout_alignLeft="@+id/tv_login_regist"
+          android:layout_marginBottom="26dp"
+          android:src="@drawable/touxiang2" />
+
+      <Button
+          android:layout_width="match_parent"
+          android:layout_height="10dp"
+          android:layout_alignParentLeft="true"
+          android:layout_below="@+id/rl_Myershoufang"
+          android:background="#ffffff" />
+
+      <Button
+          android:layout_width="match_parent"
+          android:layout_height="10dp"
+          android:layout_alignParentLeft="true"
+          android:layout_below="@+id/rl_Myrenting"
+          android:background="#ffffff" />
+
+      <Button
+          android:layout_width="match_parent"
+          android:layout_height="10dp"
+          android:layout_alignParentLeft="true"
+          android:layout_below="@+id/rl_Myentrust"
+          android:background="#ffffff" />
+
+      <Button
+          android:layout_width="match_parent"
+          android:layout_height="10dp"
+          android:layout_alignParentLeft="true"
+          android:layout_below="@+id/rl_Yuyueguanli"
+          android:background="#ffffff" />
      
   </RelativeLayout>
   </LinearLayout>
