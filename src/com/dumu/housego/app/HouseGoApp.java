@@ -31,7 +31,6 @@ public class HouseGoApp extends Application{
 	@Override
 	public void onCreate() {
 		super.onCreate();
-		
 		housegoapp=this;
 		context = this;
 		Queue = Volley.newRequestQueue(context);

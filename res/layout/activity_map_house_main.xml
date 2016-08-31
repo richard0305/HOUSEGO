@@ -2,15 +2,118 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.dumu.housego.MapHouseMainActivity" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+    <RelativeLayout
+        android:id="@+id/rl_map_house_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#ffffff" >
+        
+         <Button
+              android:id="@+id/btn_line2"
+              android:layout_width="match_parent"
+              android:layout_height="1dp"
+              android:layout_alignParentBottom="true"
+              android:layout_alignParentLeft="true"
+              android:background="#c9c9cb" />
 
+        <ImageView
+            android:id="@+id/iv_map_house_MsM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="16dp"
+            android:src="@drawable/msg_gray_44x34" />
+
+        <LinearLayout
+            android:id="@+id/ll_map_house_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10dp"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:src="@drawable/gray_left" />
+
+        
+            
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/iv_map_house_search"
+            android:layout_toRightOf="@+id/ll_map_house_back"
+            android:layout_marginLeft="20dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="horizontal" >
+            
+            <RadioButton 
+                android:id="@+id/btn_ershoufang"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:button="@null"
+                android:gravity="center"
+                android:checked="true"
+                android:textSize="15sp"
+                android:textColor="#B5B5B5"
+                android:layout_height="match_parent"
+                android:text="二手房"
+                />
+               <RadioButton  
+                android:id="@+id/btn_newhouse"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:textSize="15sp"
+                android:button="@null"
+                   android:textColor="#B5B5B5"
+                android:gravity="center"
+             android:layout_height="match_parent"
+                android:text="新房"
+                />
+                  <RadioButton 
+                android:id="@+id/btn_renting"
+                android:layout_width="0dp"
+                android:textSize="15sp"
+                   android:textColor="#B5B5B5"
+                android:layout_weight="1"
+                android:button="@null"
+                android:gravity="center"
+               android:layout_height="match_parent"
+                android:text="租房"
+                />
+            
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_map_house_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@+id/iv_map_house_MsM"
+            android:src="@drawable/search_gray_40x38" />
+
+    </RelativeLayout>
+    
+       <android.support.v4.view.ViewPager
+        android:id="@+id/viewpage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rl_map_house_title" >
+    </android.support.v4.view.ViewPager>
+    
+    
+    
 </RelativeLayout>

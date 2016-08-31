@@ -184,7 +184,7 @@ public class FirstFramgent extends Fragment implements IShopGuideView {
 
 		this.recommends = recommends;
 		recommendAdapter = new RecommendHouseAdapter(recommends, getActivity());
-		lvShopHouseGudie.setAdapter(recommendAdapter);
+//		lvShopHouseGudie.setAdapter(recommendAdapter);
 
 	}
 

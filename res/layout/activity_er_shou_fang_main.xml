@@ -69,7 +69,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_gravity="center_vertical"
-                android:src="@drawable/search1" />
+                android:src="@drawable/search_white_30x30" />
 
             <EditText
                 android:id="@+id/et_ershoufang_search"

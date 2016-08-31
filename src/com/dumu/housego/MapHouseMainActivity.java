@@ -2,33 +2,66 @@ package com.dumu.housego;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
 
 public class MapHouseMainActivity extends Activity {
-
+	private RadioButton rbErShouFang,rbNewHouse,rbRenting;
+	private LinearLayout llMapHouseBack;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_map_house_main);
+		setViews();
+		setListeners();
+		rbErShouFang.setTextColor(getResources().getColor(R.color.button_ckeck));
+	}
+	private void setViews() {
+		rbErShouFang=(RadioButton) findViewById(R.id.btn_ershoufang);
+		rbNewHouse=(RadioButton) findViewById(R.id.btn_newhouse);
+		rbRenting=(RadioButton) findViewById(R.id.btn_renting);
+		llMapHouseBack=(LinearLayout) findViewById(R.id.ll_map_house_back);
+	}
+	private void setListeners() {
+		
+		rbErShouFang.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				rbErShouFang.setTextColor(getResources().getColor(R.color.button_ckeck));
+				rbNewHouse.setTextColor(getResources().getColor(R.color.button_unckeck));
+				rbRenting.setTextColor(getResources().getColor(R.color.button_unckeck));
+			}
+		});
+		
+		rbNewHouse.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				rbErShouFang.setTextColor(getResources().getColor(R.color.button_unckeck));
+				rbNewHouse.setTextColor(getResources().getColor(R.color.button_ckeck));
+				rbRenting.setTextColor(getResources().getColor(R.color.button_unckeck));
+			}
+		});
+		rbRenting.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				rbErShouFang.setTextColor(getResources().getColor(R.color.button_unckeck));
+				rbNewHouse.setTextColor(getResources().getColor(R.color.button_unckeck));
+				rbRenting.setTextColor(getResources().getColor(R.color.button_ckeck));
+			}
+		});
+		
+		llMapHouseBack.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				finish();
+				
+			}
+		});
+		
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.map_house_main, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
+	
 }

@@ -8,8 +8,13 @@ import com.dumu.housego.framgent.FirstFramgent;
 import com.dumu.housego.framgent.HouseFramgent;
 import com.dumu.housego.framgent.MessageFramgent;
 import com.dumu.housego.framgent.MyFramgent;
+import com.dumu.housego.util.utils;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -46,7 +51,12 @@ public class MainActivity extends FragmentActivity{
 		setListeners();
 		
 		
+		
 	}
+
+
+		
+	
 
 	private void setViews() {
 		rgControl = (RadioGroup) findViewById(R.id.rg_control);
