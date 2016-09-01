@@ -1,6 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+       android:background="#F3F3F3"
     android:layout_height="match_parent"
     tools:context="com.dumu.housego.activity.LoginActivity"
     tools:ignore="RtlSymmetry,HardcodedText,RtlHardcoded,UselessParent,TextFields,ContentDescription" >
@@ -54,48 +55,95 @@
         android:id="@+id/et_smscode"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_below="@+id/et_phonenumb"
-        android:layout_marginTop="5dp"
-        android:background="@null"
+        android:layout_below="@+id/btn_line2"
+        android:background="#ffffff"
         android:hint="请输入短信验证码"
         android:paddingLeft="10dp"
         android:textSize="16sp" />
+    
+    <Button
+            android:id="@+id/btn_line3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/et_smscode"
+            android:layout_alignParentLeft="true"
+            android:background="#c9c9cb" />
 
     <EditText
         android:id="@+id/et_password"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_below="@+id/et_smscode"
-        android:layout_marginTop="5dp"
-        android:background="@null"
+        android:layout_below="@+id/btn_line3"
+        android:background="#ffffff"
         android:hint="请输入新密码(至少6位)"
         android:paddingLeft="10dp"
         android:textSize="16sp" />
+    
+    <Button
+            android:id="@+id/btn_line4"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/et_password"
+            android:layout_alignParentLeft="true"
+            android:background="#c9c9cb" />
 
     <EditText
         android:id="@+id/et_repassword"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_below="@+id/et_password"
-        android:layout_marginTop="5dp"
-        android:background="@null"
+        android:layout_below="@+id/btn_line4"
+        android:background="#ffffff"
         android:hint="请再次输入密码"
         android:paddingLeft="10dp"
         android:textSize="16sp" />
+    <Button
+            android:id="@+id/btn_line5"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/et_repassword"
+            android:layout_alignParentLeft="true"
+            android:background="#c9c9cb" />
 
     
 
+    <RelativeLayout 
+        android:id="@+id/rl_regist_phonenumber"
+        android:layout_width="match_parent"
+         android:layout_marginTop="17dp"
+        android:layout_height="40dp"
+         android:layout_below="@+id/rl_title"
+         android:background="#ffffff"
+        >
     <EditText
         android:id="@+id/et_phonenumb"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/rl_title"
-        android:layout_marginTop="17dp"
-        android:background="@null"
+       android:background="@null"
         android:hint="请输入手机号码"
         android:paddingLeft="10dp"
         android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/btn_sendcode"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:layout_marginRight="26dp"
+        android:background="#c9c9cb"
+        android:text="发送验证码"
+        android:textSize="14sp" />
+
+    </RelativeLayout>
+    <Button
+            android:id="@+id/btn_line2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/rl_regist_phonenumber"
+            android:layout_alignParentLeft="true"
+            android:background="#c9c9cb" />
     
     
     
@@ -103,7 +151,8 @@
         android:id="@+id/ll_regist_type"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_below="@+id/et_repassword"
+        android:background="#ffffff"
+        android:layout_below="@+id/btn_line5"
         android:orientation="horizontal"
         >
 
@@ -142,23 +191,19 @@
         
     </LinearLayout>
     
-   
-    
-
-    <Button
-        android:id="@+id/btn_sendcode"
-        android:layout_width="100dp"
-        android:layout_height="30dp"
-        android:layout_alignBaseline="@+id/et_phonenumb"
-        android:layout_alignRight="@+id/btn_Regist"
-        android:layout_marginRight="24dp"
-        android:background="#ffffff"
-        android:text="发送验证码"
-        android:textSize="14sp" />
+      <Button
+            android:id="@+id/btn_line6"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/ll_regist_type"
+            android:layout_alignParentLeft="true"
+            android:background="#c9c9cb" />
 
     <Button
         android:id="@+id/btn_Regist"
         android:layout_width="match_parent"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
         android:layout_height="46dp"
         android:layout_below="@+id/et_repassword"
         android:layout_centerHorizontal="true"
@@ -166,9 +211,5 @@
         android:background="#ee3a43"
         android:text="立即注册"
         android:textColor="#ffffff" />
-
- 
-
-   
 
 </RelativeLayout>

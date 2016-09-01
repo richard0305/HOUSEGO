@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#c9c9cb"
     tools:context="com.dumu.housego.BlockTradeMainActivity" >
 
     
@@ -84,6 +85,61 @@
             </EditText>
         </LinearLayout>
     </RelativeLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_below="@+id/rl_block_trade_title" >
+         
+        <Spinner 
+            android:paddingLeft="20dp"
+            android:id="@+id/maphouse_sp1"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:background="#F2F2F2"
+            android:layout_gravity="center_vertical"
+            android:spinnerMode="dropdown"
+            android:layout_height="match_parent"
+            android:entries="@array/maphousearea"
+            />
+        
+        <Button 
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#c9c9cb"
+            />
+        <Spinner 
+            android:id="@+id/maphouse_sp2"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:background="#F2F2F2"
+            android:paddingLeft="30dp"
+            
+            android:layout_gravity="center_vertical"
+            android:spinnerMode="dropdown"
+            android:layout_height="match_parent"
+            android:entries="@array/maphousesaixuan"
+            />
+         <Button 
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#c9c9cb"
+            />
+         <Spinner 
+            android:id="@+id/maphouse_sp3"
+            android:layout_width="0dp"
+            android:spinnerMode="dropdown"
+            android:layout_weight="1"
+            android:background="#F2F2F2"
+             android:paddingLeft="30dp"
+            android:layout_height="match_parent"
+            android:entries="@array/maphousepaixun"
+            />
+        
+    </LinearLayout>
     
 
 

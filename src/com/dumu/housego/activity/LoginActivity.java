@@ -2,6 +2,7 @@ package com.dumu.housego.activity;
 
 import java.util.ArrayList;
 
+import com.dumu.housego.FindPasswordMainActivity;
 import com.dumu.housego.R;
 
 import android.app.Activity;
@@ -21,7 +22,7 @@ import android.widget.TextView;
 
 public class LoginActivity extends Activity {
 	private TextView tvCancle;
-	private TextView tvRegist;
+	private TextView tvRegist,tvForgivepw;
 	private Button btnLogin,btnLoginSendCode;
 	
 	 ViewPager pager = null;
@@ -73,6 +74,16 @@ public class LoginActivity extends Activity {
 				
 			}
 		});
+		
+		tvForgivepw.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				startActivity(new Intent(LoginActivity.this, FindPasswordMainActivity.class));
+				
+			}
+		});
+		
 
 		
 	}
@@ -141,6 +152,7 @@ public class LoginActivity extends Activity {
 		tvCancle=(TextView) findViewById(R.id.tv_cancle);
 		tvRegist=(TextView) findViewById(R.id.tv_regist);
 		btnLoginSendCode=(Button) findViewById(R.id.btn_quicklogin_sendcode);
+		tvForgivepw=(TextView) findViewById(R.id.tv_forgivepw);
 		
 		View general = LayoutInflater.from(this).inflate(R.layout.login_general, null);
 		View shortcut = LayoutInflater.from(this).inflate(R.layout.login_shortcut, null);

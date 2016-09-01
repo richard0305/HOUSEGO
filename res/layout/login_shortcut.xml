@@ -2,23 +2,30 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="#ffffff"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:ignore="RtlSymmetry,ContentDescription,RtlHardcoded,HardcodedText,TextFields" >
 
     <Button
         android:id="@+id/btn_line"
-        android:layout_marginTop="10dp"
         android:layout_below="@+id/rl_phonenumber"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#fefefe" />
+        android:background="#c9c9cb" />
 
     <RelativeLayout
-        android:layout_marginTop="20dp"
         android:id="@+id/rl_phonenumber"
+        android:background="#ffffff"
         android:layout_width="match_parent"
-        android:layout_height="40dp" >
+        android:layout_height="50dp" >
+        
+        <Button
+        android:id="@+id/btn_line3"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#c9c9cb" />
 
         <ImageView
             android:id="@+id/iv_iphone"
@@ -32,7 +39,7 @@
         <EditText
             android:id="@+id/et_login_phonenumber"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="50dp"
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@+id/iv_iphone"
             android:background="@null"
@@ -42,23 +49,22 @@
 
         <Button
             android:id="@+id/btn_quicklogin_sendcode"
-            android:layout_width="wrap_content"
+            android:layout_width="80dp"
             android:layout_height="30dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="20dp"
-            android:background="#ffffff"
+            android:background="#c9c9cb"
             android:text="发送验证码"
             android:textSize="14sp" />
 
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_marginTop="10dp"
         android:id="@+id/rl_login_lock"
         android:layout_width="match_parent"
         
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:layout_below="@+id/btn_line" >
 
         <ImageView
@@ -73,13 +79,20 @@
         <EditText
             android:id="@+id/et_login_lock_quick"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="50dp"
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@+id/iv_lock_quick"
             android:background="@null"
             android:hint="请输入短信验证码"
             android:textSize="16sp" >
         </EditText>
+        
+        <Button
+        android:id="@+id/btn_line4"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_height="1dp"
+        android:background="#c9c9cb" />
     </RelativeLayout>
 
 </RelativeLayout>

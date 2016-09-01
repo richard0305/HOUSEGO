@@ -4,21 +4,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#ffffff"
     tools:ignore="RtlSymmetry,ContentDescription,RtlHardcoded,HardcodedText,TextFields" >
-
     <Button
         android:id="@+id/btn_line"
-        android:layout_marginTop="10dp"
         android:layout_below="@+id/rl_phonenumber"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#fefefe" />
+        android:background="#c9c9cb" />
 
     <RelativeLayout
-        android:layout_marginTop="20dp"
         android:id="@+id/rl_phonenumber"
+        android:background="#ffffff"
         android:layout_width="match_parent"
-        android:layout_height="40dp" >
+        android:layout_height="50dp" >
+        
+   <Button
+        android:id="@+id/btn_line5"
+       android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#c9c9cb" />
 
         <ImageView
             android:id="@+id/iv_iphone"
@@ -32,7 +38,7 @@
         <EditText
             android:id="@+id/et_login_phonenumber"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="50dp"
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@+id/iv_iphone"
             android:background="@null"
@@ -42,10 +48,10 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_marginTop="10dp"
         android:id="@+id/rl_login_lock"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
+        android:background="#ffffff"
         android:layout_below="@+id/btn_line" >
 
         <ImageView
@@ -60,7 +66,7 @@
         <EditText
             android:id="@+id/et_login_lock"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="50dp"
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@+id/iv_lock"
             android:background="@null"
@@ -68,5 +74,11 @@
             android:textSize="16sp" >
         </EditText>
     </RelativeLayout>
+    <Button
+        android:id="@+id/btn_line6"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/rl_login_lock"
+        android:layout_height="1dp"
+        android:background="#c9c9cb" />
 
 </RelativeLayout>

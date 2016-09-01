@@ -1,6 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="#c9c9cb"
     android:layout_height="match_parent"
     tools:context="com.dumu.housego.ErShouFangMainActivity"
     tools:ignore="ObsoleteLayoutParam,UseCompoundDrawables,TextFields,HardcodedText,RtlHardcoded,ContentDescription,UselessParent,LabelFor" >
@@ -69,7 +70,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_gravity="center_vertical"
-                android:src="@drawable/search1" />
+                android:src="@drawable/search_white_30x30" />
 
             <EditText
                 android:id="@+id/et_renting_search"
@@ -84,6 +85,66 @@
             </EditText>
         </LinearLayout>
     </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentLeft="true"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_below="@+id/rl_renting_title" >
+         
+        <Spinner 
+            android:paddingLeft="20dp"
+            android:id="@+id/maphouse_sp1"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:background="#F2F2F2"
+            android:layout_gravity="center_vertical"
+            android:spinnerMode="dropdown"
+            android:layout_height="match_parent"
+            android:entries="@array/ershoufangarea"
+            />
+        
+      
+        <Spinner 
+            android:id="@+id/maphouse_sp2"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:background="#F2F2F2"
+            android:paddingLeft="20dp"
+            android:layout_gravity="center_vertical"
+            android:spinnerMode="dropdown"
+            android:layout_height="match_parent"
+            android:entries="@array/ershoufangtotal"
+            />
+         <Button 
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#c9c9cb"
+            />
+         <Spinner 
+            android:id="@+id/maphouse_sp3"
+            android:layout_width="0dp"
+            android:spinnerMode="dropdown"
+            android:layout_weight="1"
+            android:background="#F2F2F2"
+             android:paddingLeft="30dp"
+            android:layout_height="match_parent"
+            android:entries="@array/ershoufanghousetype"
+            />
+            <Spinner 
+            android:id="@+id/maphouse_sp4"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:background="#F2F2F2"
+            android:paddingLeft="30dp"
+            android:layout_gravity="center_vertical"
+            android:spinnerMode="dropdown"
+            android:layout_height="match_parent"
+            android:entries="@array/ershoufangmore"
+            />
+        
+    </LinearLayout>
     
 
 </RelativeLayout>

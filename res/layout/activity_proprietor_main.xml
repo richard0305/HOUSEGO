@@ -53,9 +53,9 @@
 <ImageView
     android:id="@+id/iv_proprietor"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
+    android:layout_height="92dp"
     android:layout_below="@+id/rl_title"
-    android:src="@drawable/propritor3" />
+    android:src="@drawable/propirtor6" />
 
 <RelativeLayout
     android:id="@+id/rl_ershoufang_proprietor"

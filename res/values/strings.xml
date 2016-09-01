@@ -18,5 +18,6 @@
     <string name="title_activity_web_recommed_news_main">WebRecommedNewsMainActivity</string>
     <string name="title_activity_my_setting_main">MySettingMainActivity</string>
     <string name="title_activity_personal_main">PersonalMainActivity</string>
+    <string name="title_activity_find_password_main">FindPasswordMainActivity</string>
 
 </resources>
