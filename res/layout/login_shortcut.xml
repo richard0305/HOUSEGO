@@ -44,7 +44,7 @@
             android:layout_toRightOf="@+id/iv_iphone"
             android:background="@null"
             android:hint="请输入手机号码"
-            android:textSize="16sp" >
+            android:textSize="14sp" >
         </EditText>
 
         <Button
@@ -84,7 +84,7 @@
             android:layout_toRightOf="@+id/iv_lock_quick"
             android:background="@null"
             android:hint="请输入短信验证码"
-            android:textSize="16sp" >
+            android:textSize="14sp" >
         </EditText>
         
         <Button

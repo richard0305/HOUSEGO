@@ -38,15 +38,15 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:textSize="18sp"
-            android:text="经纪人列表" />
-
+            android:text="经纪人列表"
+            android:textSize="16sp" />
     </RelativeLayout>
+
     <Button
         android:id="@+id/btn_line"
         android:layout_width="match_parent"
-        android:layout_below="@+id/rl_agent_title"
         android:layout_height="1dp"
+        android:layout_below="@+id/rl_agent_title"
         android:background="#c9c9cb" />
 
     <LinearLayout
@@ -55,95 +55,91 @@
         android:layout_height="45dp"
         android:layout_below="@+id/btn_line"
         android:layout_centerHorizontal="true"
-       android:background="#F0F0F0"
+        android:background="#F0F0F0"
         android:orientation="horizontal" >
 
         <EditText
             android:id="@+id/et_ershoufang_search"
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:layout_weight="4.43"
-             android:layout_marginLeft="20dp"
-       	android:background="#ffffff"
-            android:ems="10"
             android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="4.43"
+            android:background="#ffffff"
+            android:ems="10"
             android:text="请输入商圈、小区或经纪人的姓名、电话"
             android:textColor="#D8D7DA"
             android:textSize="14sp" >
 
             <requestFocus />
         </EditText>
-        
+
         <ImageView
             android:id="@+id/iv_agent_search"
             android:layout_width="wrap_content"
-            android:layout_marginLeft="10dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
             android:layout_marginRight="15dp"
             android:src="@drawable/search_red_30x30" />
     </LinearLayout>
-    
-     <Button 
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:id="@+id/btn_1"
-            android:background="#c9c9cb"
-             android:layout_below="@+id/ll_agent_search"
-            />
+
+    <Button
+        android:id="@+id/btn_1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/ll_agent_search"
+        android:background="#c9c9cb" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentLeft="true"
-        android:orientation="horizontal"
+        android:layout_below="@+id/btn_1"
         android:gravity="center"
-        android:layout_below="@+id/btn_1" >
-         
-        <Spinner 
-            android:paddingLeft="20dp"
+        android:orientation="horizontal" >
+
+        <Spinner
             android:id="@+id/maphouse_sp1"
             android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
             android:layout_weight="1"
             android:background="#F2F2F2"
-            android:layout_gravity="center_vertical"
-            android:spinnerMode="dropdown"
-            android:layout_height="match_parent"
             android:entries="@array/maphousearea"
-            />
-        
-        <Button 
+            android:paddingLeft="20dp"
+            android:spinnerMode="dropdown" />
+
+        <Button
             android:layout_width="1dp"
             android:layout_height="match_parent"
-            android:background="#c9c9cb"
-            />
-        <Spinner 
+            android:background="#c9c9cb" />
+
+        <Spinner
             android:id="@+id/maphouse_sp2"
             android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
             android:layout_weight="1"
             android:background="#F2F2F2"
-            android:paddingLeft="30dp"
-            
-            android:layout_gravity="center_vertical"
-            android:spinnerMode="dropdown"
-            android:layout_height="match_parent"
             android:entries="@array/maphousesaixuan"
-            />
-         <Button 
+            android:paddingLeft="30dp"
+            android:spinnerMode="dropdown" />
+
+        <Button
             android:layout_width="1dp"
             android:layout_height="match_parent"
-            android:background="#c9c9cb"
-            />
-         <Spinner 
+            android:background="#c9c9cb" />
+
+        <Spinner
             android:id="@+id/maphouse_sp3"
             android:layout_width="0dp"
-            android:spinnerMode="dropdown"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="#F2F2F2"
-             android:paddingLeft="30dp"
-            android:layout_height="match_parent"
             android:entries="@array/maphousepaixun"
-            />
-        
+            android:paddingLeft="30dp"
+            android:spinnerMode="dropdown" />
     </LinearLayout>
 
 </RelativeLayout>

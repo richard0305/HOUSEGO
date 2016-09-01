@@ -100,8 +100,18 @@
         </activity>
         <activity
             android:name=".FindPasswordMainActivity"
+            android:label="@string/title_activity_find_password_main"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".RentingProprietorActivity"
             android:theme="@android:style/Theme.Holo.Light.NoActionBar"
-            android:label="@string/title_activity_find_password_main" >
+            android:label="@string/title_activity_renting_proprietor" >
+        </activity>
+        <activity
+            android:name=".ErshouFangProprietorActivity"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+            android:label="@string/title_activity_ershou_fang_proprietor" >
         </activity>
     </application>
 

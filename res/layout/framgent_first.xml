@@ -27,7 +27,7 @@
                 android:layout_marginTop="50dp"
                 android:text="聚焦深圳总价300万一下房源"
                 android:textColor="#ffffff"
-                android:textSize="22sp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -36,7 +36,7 @@
                 android:layout_marginTop="10dp"
                 android:text="买房 卖方 找淘深房"
                 android:textColor="#ffffff"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
 
             <LinearLayout
                 android:id="@+id/ll_search"
@@ -55,7 +55,7 @@
                     android:gravity="center"
                     android:text="深圳"
                     android:textColor="#000000"
-                    android:textSize="16sp" />
+                    android:textSize="14sp" />
                 <Button 
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
@@ -80,7 +80,7 @@
                     android:background="#ffffff"
                     android:hint="请输入房名/小区名/地域名"
                     android:paddingLeft="5dp"
-                    android:textSize="16sp" />
+                    android:textSize="14sp" />
             </LinearLayout>
         </LinearLayout>
 
@@ -102,10 +102,11 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:button="@null"
-                android:drawableTop="@drawable/main01"
+                android:drawableTop="@drawable/er1"
                 android:gravity="center_horizontal"
                 android:text="二手房"
-                android:textSize="14sp" />
+                android:typeface="sans"
+                android:textSize="12sp" />
 
             <RadioButton
                 android:id="@+id/rb_xinfang"
@@ -113,10 +114,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:button="@null"
-                android:drawableTop="@drawable/main02"
+                android:drawableTop="@drawable/main2"
                 android:gravity="center_horizontal"
                 android:text="新房"
-                android:textSize="14sp" />
+                android:textSize="12sp" />
 
             <RadioButton
                 android:id="@+id/rb_zufang"
@@ -124,10 +125,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:button="@null"
-                android:drawableTop="@drawable/main03"
+                android:drawableTop="@drawable/main3"
                 android:gravity="center_horizontal"
                 android:text="租房"
-                android:textSize="14sp" />
+                android:textSize="12sp" />
 
             <RadioButton
                 android:id="@+id/rb_jingjiren"
@@ -135,10 +136,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:button="@null"
-                android:drawableTop="@drawable/main04"
+                android:drawableTop="@drawable/main4"
                 android:gravity="center_horizontal"
                 android:text="经纪人"
-                android:textSize="14sp" />
+                android:textSize="12sp" />
         </LinearLayout>
          <Button
             android:layout_width="match_parent"
@@ -158,10 +159,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:button="@null"
-                android:drawableTop="@drawable/main05"
+                android:drawableTop="@drawable/main5"
                 android:gravity="center_horizontal"
                 android:text="业主委托"
-                android:textSize="14sp" />
+                android:textSize="12sp" />
 
             <RadioButton
                 android:id="@+id/rb_dazongjiaoyi"
@@ -169,10 +170,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:button="@null"
-                android:drawableTop="@drawable/main06"
+                android:drawableTop="@drawable/main6"
                 android:gravity="center_horizontal"
                 android:text="大宗交易"
-                android:textSize="14sp" />
+                android:textSize="12sp" />
 
             <RadioButton
                 android:id="@+id/rb_dituzhaofang"
@@ -180,10 +181,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:button="@null"
-                android:drawableTop="@drawable/main07"
+                android:drawableTop="@drawable/main7"
                 android:gravity="center_horizontal"
                 android:text="地图找房"
-                android:textSize="14sp" />
+                android:textSize="12sp" />
 
             <RadioButton
                 android:id="@+id/rb_goufangxuzhi"
@@ -191,10 +192,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:button="@null"
-                android:drawableTop="@drawable/main08"
+                android:drawableTop="@drawable/main8"
                 android:gravity="center_horizontal"
                 android:text="购房须知"
-                android:textSize="14sp" />
+                android:textSize="12sp" />
         </LinearLayout>
         
         <Button
@@ -224,13 +225,14 @@
               android:layout_alignParentBottom="true"
               android:layout_alignParentLeft="true"
               android:background="#c9c9cb" />
+            
             <TextView
                 android:layout_width="290dp"
                 android:layout_height="40dp"
                 android:gravity="center_vertical"
                 android:paddingLeft="10dp"
                 android:text="房价行情"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -257,7 +259,6 @@
                 android:layout_weight="1"
                 android:paddingLeft="10dp"
                 android:text="全市均价" />
-         
 
             <TextView
                 android:id="@+id/monthnumber"
@@ -287,7 +288,7 @@
                     android:paddingLeft="10dp"
                     android:text="15435"
                     android:textColor="#DC4B1D"
-                    android:textSize="20sp" />
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/tv_price"
@@ -310,7 +311,7 @@
                     android:gravity="center"
                     android:text="15435"
                     android:textColor="#ff13c953"
-                    android:textSize="20sp" />
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/tv_number"
@@ -357,7 +358,7 @@
                     android:gravity="center_vertical"
                     android:paddingLeft="10dp"
                     android:text="购房指南"
-                    android:textSize="20sp" />
+                    android:textSize="18sp" />
 
                 <ImageView
                     android:layout_width="wrap_content"

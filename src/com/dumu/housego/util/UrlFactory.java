@@ -12,8 +12,22 @@ public class UrlFactory {
 	//wap版首页推荐
 	public static String GetRecommendHouseUrl() {
 
-		String PhoneCode = "http://www.taoshenfang.com/index.php?g=api&m=house&a=position&posid=12";
-		return PhoneCode;
+		String path = "http://www.taoshenfang.com/index.php?g=api&m=house&a=position&posid=12";
+		return path;
 	}
 
+	//二手房列表页推荐
+		public static String GetErShouFangUrl() {
+
+			String path = "http://www.taoshenfang.com/index.php?g=api&m=house&a=position&posid=8";
+			return path;
+		}
+		
+		
+		//wap版新房推荐房源
+		public static String GetWapNewHouseUrl() {
+
+			String path = "http://www.taoshenfang.com/index.php?g=api&m=house&a=position&posid=13";
+			return path;
+		}
 }

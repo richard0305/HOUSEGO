@@ -29,7 +29,7 @@
         android:layout_marginBottom="30dp"
         android:text="登录/注册"
         android:textColor="#ffffff"
-        android:textSize="18sp" />
+        android:textSize="16sp" />
 
    <RelativeLayout
        android:id="@+id/rl_Myershoufang"
@@ -47,7 +47,7 @@
            android:layout_alignParentLeft="true"
            android:layout_centerVertical="true"
            android:layout_marginLeft="20dp"
-           android:src="@drawable/iphone_16px" />
+           android:src="@drawable/ershoufang1" />
 
        <TextView
            android:id="@+id/textView2"
@@ -58,7 +58,7 @@
            android:gravity="center_vertical"
            android:paddingLeft="50dp"
            android:text="我的二手房"
-           android:textSize="18sp" />
+           android:textSize="16sp" />
 
        <ImageView
            android:id="@+id/imageView2"
@@ -87,7 +87,7 @@
            android:layout_alignParentLeft="true"
            android:layout_centerVertical="true"
            android:layout_marginLeft="20dp"
-           android:src="@drawable/iphone_16px" />
+           android:src="@drawable/xinfang" />
 
        <TextView
            android:id="@+id/textView3"
@@ -98,7 +98,7 @@
            android:gravity="center_vertical"
            android:paddingLeft="50dp"
            android:text="我的出租"
-           android:textSize="18sp" />
+           android:textSize="16sp" />
 
        <ImageView
            android:id="@+id/imageView4"
@@ -126,7 +126,7 @@
            android:layout_alignParentLeft="true"
            android:layout_marginLeft="20dp"
            android:layout_centerVertical="true"
-           android:src="@drawable/iphone_16px" />
+           android:src="@drawable/wodeweituo" />
 
        <TextView
            android:id="@+id/textView5"
@@ -137,7 +137,7 @@
            android:gravity="center_vertical"
            android:paddingLeft="50dp"
            android:text="我的委托"
-           android:textSize="18sp" />
+           android:textSize="16sp" />
 
        <ImageView
            android:id="@+id/imageView6"
@@ -164,7 +164,7 @@
            android:layout_alignParentLeft="true"
            android:layout_centerVertical="true"
            android:layout_marginLeft="20dp"
-           android:src="@drawable/iphone_16px" />
+           android:src="@drawable/yuyueguanli" />
 
        <TextView
            android:id="@+id/textView7"
@@ -175,7 +175,7 @@
            android:gravity="center_vertical"
            android:paddingLeft="50dp"
            android:text="预约管理"
-           android:textSize="18sp" />
+           android:textSize="16sp" />
 
        <ImageView
            android:id="@+id/imageView8"
@@ -202,7 +202,7 @@
            android:layout_centerInParent="true"
            android:layout_alignParentLeft="true"
            android:layout_marginLeft="20dp"
-           android:src="@drawable/iphone_16px" />
+           android:src="@drawable/lishijilu" />
 
        <TextView
            android:id="@+id/textView9"
@@ -213,7 +213,7 @@
            android:gravity="center_vertical"
            android:paddingLeft="50dp"
            android:text="历史记录"
-           android:textSize="18sp" />
+           android:textSize="16sp" />
 
        <ImageView
            android:id="@+id/imageView10"
@@ -241,7 +241,7 @@
               android:layout_alignParentLeft="true"
               android:layout_centerVertical="true"
               android:layout_marginLeft="20dp"
-              android:src="@drawable/iphone_16px" />
+              android:src="@drawable/shezhi" />
 
           <TextView
               android:id="@+id/textView11"
@@ -252,7 +252,7 @@
               android:gravity="center_vertical"
               android:paddingLeft="50dp"
               android:text="设置"
-              android:textSize="18sp" />
+              android:textSize="16sp" />
 
           <ImageView
               android:id="@+id/imageView12"

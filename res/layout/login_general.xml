@@ -43,7 +43,7 @@
             android:layout_toRightOf="@+id/iv_iphone"
             android:background="@null"
             android:hint="请输入手机号码"
-            android:textSize="16sp" >
+            android:textSize="14sp" >
         </EditText>
     </RelativeLayout>
 
@@ -71,7 +71,7 @@
             android:layout_toRightOf="@+id/iv_lock"
             android:background="@null"
             android:hint="请输入密码"
-            android:textSize="16sp" >
+            android:textSize="14sp" >
         </EditText>
     </RelativeLayout>
     <Button
