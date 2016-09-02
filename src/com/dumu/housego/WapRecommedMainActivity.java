@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class WebRecommedNewsMainActivity extends Activity {
+public class WapRecommedMainActivity extends Activity {
 	private TextView tvTitle,tvContent;
 	private ImageView ivPic;
 	private LinearLayout llRecommendBack;

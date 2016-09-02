@@ -1,10 +1,20 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.dumu.housego.util.MyReboundScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/newHouse_scrollview"
     tools:context="com.dumu.housego.NewHouseMainActivity"
     tools:ignore="ButtonStyle,TextFields,HardcodedText,RtlHardcoded,InefficientWeight,ContentDescription,LabelFor" >
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+        <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+         > 
+        
     <RelativeLayout
         android:id="@+id/rl_newhouse_title"
         android:layout_width="match_parent"
@@ -183,28 +193,41 @@
             android:textColor="#A9A9A9" />
     </LinearLayout>
 
+        <Button
+            android:layout_marginTop="10dp"
+        android:id="@+id/btn_line2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/ll_housetype3"
+        android:background="#c9c9cb" />
     <TextView
         android:id="@+id/loushizixun"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_below="@+id/ll_housetype3"
+        android:layout_height="40dp"
+        android:layout_below="@+id/btn_line2"
         android:gravity="center_vertical"
-        android:paddingLeft="5dp"
+        android:background="#ffffff"
+        android:paddingLeft="10dp"
         android:text="楼市资讯"
-        android:textSize="18sp" />
+        android:textSize="16sp" />
 
     <Button
         android:id="@+id/btn_line"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_below="@+id/loushizixun"
-        android:background="#fefefe" />
+        android:background="#c9c9cb" />
 
-    <ListView
+    <com.dumu.housego.util.ListViewForScrollView
         android:id="@+id/lv_loushizixun"
+        android:background="#ffffff"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/btn_line" >
-    </ListView>
+    </com.dumu.housego.util.ListViewForScrollView>
 
 </RelativeLayout>
+
+    </LinearLayout>
+
+</com.dumu.housego.util.MyReboundScrollView>

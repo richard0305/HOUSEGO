@@ -8,26 +8,31 @@ public class UrlFactory {
 		String PhoneCode = "http://www.taoshenfang.com/index.php?g=api&m=sms&a=reg&mob=" + mob;
 		return PhoneCode;
 	}
-	
-	//wap版首页推荐
+
+	// wap版首页推荐
 	public static String GetRecommendHouseUrl() {
 
 		String path = "http://www.taoshenfang.com/index.php?g=api&m=house&a=position&posid=12";
 		return path;
 	}
 
-	//二手房列表页推荐
-		public static String GetErShouFangUrl() {
+	// 二手房列表页推荐
+	public static String GetErShouFangUrl() {
+		String path = "http://www.taoshenfang.com/index.php?g=api&m=house&a=position&posid=8";
+		return path;
+	}
+	
+	
 
-			String path = "http://www.taoshenfang.com/index.php?g=api&m=house&a=position&posid=8";
-			return path;
-		}
-		
-		
-		//wap版新房推荐房源
-		public static String GetWapNewHouseUrl() {
+	// wap版新房推荐房源
+	public static String GetWapNewHouseUrl() {
+		String path = "http://www.taoshenfang.com/index.php?g=api&m=house&a=position&posid=13";
+		return path;
+	}
 
-			String path = "http://www.taoshenfang.com/index.php?g=api&m=house&a=position&posid=13";
-			return path;
-		}
+	// wap版新房咨询房源
+	public static String GetWapNewHouseRecommendUrl() {
+		String path = "http://www.taoshenfang.com/index.php?g=api&m=house&a=position&posid=14";
+		return path;
+	}
 }
