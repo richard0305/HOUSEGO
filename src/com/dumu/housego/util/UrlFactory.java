@@ -17,14 +17,14 @@ public class UrlFactory {
 	}
 
 	// 二手房列表页推荐
-	public static String GetErShouFangUrl() {
+	public static String GetErShouFangRecommendUrl() {
 		String path = "http://www.taoshenfang.com/index.php?g=api&m=house&a=position&posid=8";
 		return path;
 	}
 	
 	
 
-	// wap版新房推荐房源
+	// wap版新房推荐房源 
 	public static String GetWapNewHouseUrl() {
 		String path = "http://www.taoshenfang.com/index.php?g=api&m=house&a=position&posid=13";
 		return path;

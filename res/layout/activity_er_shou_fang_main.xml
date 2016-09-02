@@ -87,6 +87,7 @@
     </RelativeLayout>
     
     <LinearLayout
+        android:id="@+id/ll_ershoufang_spinner"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_alignParentLeft="true"
@@ -144,8 +145,15 @@
             android:layout_height="match_parent"
             android:entries="@array/ershoufangmore"
             />
-        
     </LinearLayout>
+    
+    <ListView 
+        android:id="@+id/lv_ershoufang_recommend"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff"
+        android:layout_below="@+id/ll_ershoufang_spinner"
+        ></ListView>
     
 
 </RelativeLayout>

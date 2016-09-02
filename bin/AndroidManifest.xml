@@ -40,9 +40,9 @@
         </activity>
         <activity
             android:name=".NewHouseMainActivity"
-            android:windowSoftInputMode="stateHidden"
             android:label="@string/title_activity_new_house_main"
-            android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".RentingMainActivity"
@@ -106,13 +106,18 @@
         </activity>
         <activity
             android:name=".RentingProprietorActivity"
-            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
-            android:label="@string/title_activity_renting_proprietor" >
+            android:label="@string/title_activity_renting_proprietor"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
         </activity>
         <activity
             android:name=".ErshouFangProprietorActivity"
-            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
-            android:label="@string/title_activity_ershou_fang_proprietor" >
+            android:label="@string/title_activity_ershou_fang_proprietor"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".WebErSshouFangMainActivity"
+              android:theme="@android:style/Theme.Holo.Light.NoActionBar" 
+            android:label="@string/title_activity_web_er_sshou_fang_main" >
         </activity>
     </application>
 
