@@ -1,8 +1,5 @@
 package com.dumu.housego;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
@@ -25,18 +22,28 @@ public class WebErSshouFangMainActivity extends Activity {
 		
 	}
 	private void setwebView() {
+		// 不用缓存，从服务器加载最新的
+		webView.clearCache(true);
 		
+		
+		webView.getSettings().setJavaScriptEnabled(true);  
 			url = getIntent().getStringExtra("url");
-			String urlx=url.replaceAll("amp;", "");
 			
-			// 不用缓存，从服务器加载最新的
-			webView.clearCache(true);
-			// String url = "http://176.3.16.123:8080/html4/07jd.html";
+			
+			Log.i("yanglijun","---------------------------------------"+ url);
+//			String urlx=url.replaceAll("&amp;", "&");
+//			Log.i("yanglijun","==========================================="+ urlx);
+			
+			
+			
+			
+//			String llurl="http://www.taoshenfang.com/index.php?a=shows&catid=6&id=4.html";
+		
 			// 加载网页
 			
 			
-			Log.i("yanglijun", "+++++++++++++++++++++++++++++++++++"+urlx);
-			webView.loadUrl(urlx);
+//			Log.i("yanglijun", "+++++++++++++++++++++++++++++++++++"+urlx);
+			webView.loadUrl(url);
 			// 单击超链接，启动系统的浏览器
 			// 解决方法 new webViewClient
 			webView.setWebViewClient(new WebViewClient() {

@@ -1,6 +1,18 @@
 package com.dumu.housego.entity;
 
 public class ErShouFangRecommendData {
+	 private String id;
+	 private String catid;
+	 private String module;
+	 private String modelid;
+	
+	 
+	 private String listorder;
+	 private String expiration;
+	 private String extention;
+	 private String synedit;
+	 
+	
      private String title;
      private String province;
      private String xiaoquname;
@@ -17,10 +29,19 @@ public class ErShouFangRecommendData {
      private String province_name;
      private String city_name;
      private String area_name;
-	public ErShouFangRecommendData(String title, String province, String xiaoquname, String zongjia,
-			String jianzhumianji, String ting, String shi, String thumb, String city, String area, String posid,
-			String style, String url, String province_name, String city_name, String area_name) {
+	public ErShouFangRecommendData(String id, String catid, String module, String modelid, String listorder,
+			String expiration, String extention, String synedit, String title, String province, String xiaoquname,
+			String zongjia, String jianzhumianji, String ting, String shi, String thumb, String city, String area,
+			String posid, String style, String url, String province_name, String city_name, String area_name) {
 		super();
+		this.id = id;
+		this.catid = catid;
+		this.module = module;
+		this.modelid = modelid;
+		this.listorder = listorder;
+		this.expiration = expiration;
+		this.extention = extention;
+		this.synedit = synedit;
 		this.title = title;
 		this.province = province;
 		this.xiaoquname = xiaoquname;
@@ -40,6 +61,54 @@ public class ErShouFangRecommendData {
 	}
 	public ErShouFangRecommendData() {
 		super();
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getCatid() {
+		return catid;
+	}
+	public void setCatid(String catid) {
+		this.catid = catid;
+	}
+	public String getModule() {
+		return module;
+	}
+	public void setModule(String module) {
+		this.module = module;
+	}
+	public String getModelid() {
+		return modelid;
+	}
+	public void setModelid(String modelid) {
+		this.modelid = modelid;
+	}
+	public String getListorder() {
+		return listorder;
+	}
+	public void setListorder(String listorder) {
+		this.listorder = listorder;
+	}
+	public String getExpiration() {
+		return expiration;
+	}
+	public void setExpiration(String expiration) {
+		this.expiration = expiration;
+	}
+	public String getExtention() {
+		return extention;
+	}
+	public void setExtention(String extention) {
+		this.extention = extention;
+	}
+	public String getSynedit() {
+		return synedit;
+	}
+	public void setSynedit(String synedit) {
+		this.synedit = synedit;
 	}
 	public String getTitle() {
 		return title;
@@ -139,14 +208,14 @@ public class ErShouFangRecommendData {
 	}
 	@Override
 	public String toString() {
-		return "ErShouFangRecommendData [title=" + title + ", province=" + province + ", xiaoquname=" + xiaoquname
-				+ ", zongjia=" + zongjia + ", jianzhumianji=" + jianzhumianji + ", ting=" + ting + ", shi=" + shi
-				+ ", thumb=" + thumb + ", city=" + city + ", area=" + area + ", posid=" + posid + ", style=" + style
-				+ ", url=" + url + ", province_name=" + province_name + ", city_name=" + city_name + ", area_name="
-				+ area_name + "]";
+		return "ErShouFangRecommendData [id=" + id + ", catid=" + catid + ", module=" + module + ", modelid=" + modelid
+				+ ", listorder=" + listorder + ", expiration=" + expiration + ", extention=" + extention + ", synedit="
+				+ synedit + ", title=" + title + ", province=" + province + ", xiaoquname=" + xiaoquname + ", zongjia="
+				+ zongjia + ", jianzhumianji=" + jianzhumianji + ", ting=" + ting + ", shi=" + shi + ", thumb=" + thumb
+				+ ", city=" + city + ", area=" + area + ", posid=" + posid + ", style=" + style + ", url=" + url
+				+ ", province_name=" + province_name + ", city_name=" + city_name + ", area_name=" + area_name + "]";
 	}
-     
-     
+
      
      
      

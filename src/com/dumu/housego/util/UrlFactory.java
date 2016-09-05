@@ -35,4 +35,36 @@ public class UrlFactory {
 		String path = "http://www.taoshenfang.com/index.php?g=api&m=house&a=position&posid=14";
 		return path;
 	}
+	
+	
+	// 出租房列表页推荐
+	public static String GetRentingUrl() {
+		String path = "http://www.taoshenfang.com/index.php?g=api&m=house&a=position&posid=9";
+		return path;
+	}
+	
+	
+	
+	// 出租房列表页推荐
+		public static String GetBlockTradeListUrl() {
+			String path = "http://www.taoshenfang.com/index.php?g=api&m=house&a=position&posid=10";
+			return path;
+		}
+		
+		
+		
+		//获取指定栏目内容列表接口
+		public static String GetAssignContentListUrl() {
+			String path = "http://www.taoshenfang.com/index.php?g=api&m=house&a=lists";
+			return path;
+		}
+		
+		
+		
+		
+		
+	
+	
+	
+	
 }

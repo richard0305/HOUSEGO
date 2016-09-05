@@ -22,6 +22,10 @@ public class ErShouFangReconmendJSONParse {
 			ErShouFangRecommendData n = new ErShouFangRecommendData();
 			JSONObject obj2=obj.getJSONObject("data");
 			
+			n.setId(obj.getString("id"));
+			n.setCatid(obj.getString("catid"));
+			n.setPosid(obj.getString("posid"));
+			
 			n.setTitle(obj2.getString("title"));
 			n.setXiaoquname(obj2.getString("xiaoquname"));
 			n.setZongjia(obj2.getString("zongjia"));
@@ -32,7 +36,7 @@ public class ErShouFangReconmendJSONParse {
 			n.setCity(obj2.getString("city"));
 			n.setArea(obj2.getString("area"));
 			n.setUrl(obj2.getString("url"));
-			n.setProvince(obj2.getString("province_name"));
+			n.setProvince_name(obj2.getString("province_name"));
 			n.setCity_name(obj2.getString("city_name"));
 			n.setArea_name(obj2.getString("area_name"));
 			ershoufangrecommends.add(n);

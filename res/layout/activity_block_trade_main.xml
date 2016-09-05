@@ -87,6 +87,7 @@
     </RelativeLayout>
     
     <LinearLayout
+        android:id="@+id/blocktrade_ll_spinner"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentLeft="true"
@@ -140,6 +141,14 @@
             />
         
     </LinearLayout>
+    
+ 
+      <ListView
+                android:id="@+id/lv_blocktrade"
+                android:layout_below="@+id/blocktrade_ll_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+            </ListView>
     
 
 
