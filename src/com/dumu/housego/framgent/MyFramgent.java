@@ -1,10 +1,13 @@
 package com.dumu.housego.framgent;
 
+import com.bumptech.glide.Glide;
 import com.dumu.housego.MySettingMainActivity;
 import com.dumu.housego.PersonalMainActivity;
 import com.dumu.housego.R;
 import com.dumu.housego.activity.LoginActivity;
 import com.dumu.housego.activity.MainActivity;
+import com.dumu.housego.app.HouseGoApp;
+import com.dumu.housego.entity.UserInfo;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -26,13 +29,21 @@ public class MyFramgent extends Fragment {
 	private RelativeLayout rlMyrenting;
 	private RelativeLayout rlMyershoufang;
 	private ImageView ivMyPic;
-	
+	private UserInfo userinfo;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View view=inflater.inflate(R.layout.framgent_my, null);
 		setViews(view);
 		setListener();
+		
+		userinfo=HouseGoApp.getContext().getCurrentUserInfo();
+		tvLoginRegist.setText(userinfo.getNickname()+"");
+		String imgurl=userinfo.getUserpic();
+		Glide.with(getContext()).load(imgurl).into(ivMyPic);
+		
+		
+		
 		return view;
 	}
 
@@ -68,6 +79,8 @@ public class MyFramgent extends Fragment {
 		
 	}
 
+	
+	
 	private void setViews(View view) {
 		tvLoginRegist=(TextView) view.findViewById(R.id.tv_login_regist);
 		rlSetting=(RelativeLayout) view.findViewById(R.id.rl_settings);
@@ -77,5 +90,9 @@ public class MyFramgent extends Fragment {
 		rlMyentrust=(RelativeLayout) view.findViewById(R.id.rl_Myentrust);
 		rlYuyueguanli=(RelativeLayout) view.findViewById(R.id.rl_Yuyueguanli);
 		ivMyPic=(ImageView) view.findViewById(R.id.iv_my_Photo);
+		
+		
+		
+		
 	}
 }

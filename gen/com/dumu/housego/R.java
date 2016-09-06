@@ -222,7 +222,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int TextView10=0x7f0a0034;
         public static final int TextView12=0x7f0a002d;
         public static final int TextView4=0x7f0a0046;
-        public static final int action_settings=0x7f0a00eb;
+        public static final int action_settings=0x7f0a00ee;
         public static final int all=0x7f0a0081;
         public static final int blocktrade_ll_spinner=0x7f0a0011;
         public static final int btn1=0x7f0a0065;
@@ -243,7 +243,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int btn_map_trans=0x7f0a0066;
         public static final int btn_map_zhoubian=0x7f0a0068;
         public static final int btn_newhouse=0x7f0a0062;
-        public static final int btn_quicklogin_sendcode=0x7f0a00e8;
+        public static final int btn_quicklogin_sendcode=0x7f0a00ea;
         public static final int btn_renting=0x7f0a0063;
         public static final int btn_renting_submit=0x7f0a0036;
         public static final int btn_sendcode=0x7f0a003a;
@@ -256,9 +256,8 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int et_find_repassword=0x7f0a0040;
         public static final int et_find_smscode=0x7f0a003c;
         public static final int et_first_search=0x7f0a00b1;
-        public static final int et_login_lock=0x7f0a00e7;
-        public static final int et_login_lock_quick=0x7f0a00ea;
-        public static final int et_login_phonenumber=0x7f0a00e4;
+        public static final int et_genal_login_lock=0x7f0a00e7;
+        public static final int et_genal_login_phonenumber=0x7f0a00e4;
         public static final int et_password=0x7f0a0094;
         public static final int et_phonenumb=0x7f0a0097;
         public static final int et_qiwangzujin=0x7f0a0028;
@@ -266,6 +265,8 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int et_renting_proprietor_title=0x7f0a001c;
         public static final int et_renting_search=0x7f0a00a0;
         public static final int et_repassword=0x7f0a0095;
+        public static final int et_short_login_lock_quick=0x7f0a00ed;
+        public static final int et_short_login_phonenumber=0x7f0a00e9;
         public static final int et_smscode=0x7f0a0093;
         public static final int first=0x7f0a0058;
         public static final int first_scrollview=0x7f0a00ae;
@@ -292,7 +293,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int iv_iphone=0x7f0a00e3;
         public static final int iv_location=0x7f0a0002;
         public static final int iv_lock=0x7f0a00e6;
-        public static final int iv_lock_quick=0x7f0a00e9;
+        public static final int iv_lock_quick=0x7f0a00ec;
         public static final int iv_map_house_MsM=0x7f0a005e;
         public static final int iv_map_house_search=0x7f0a0060;
         public static final int iv_my_Photo=0x7f0a00d7;
@@ -371,9 +372,10 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int rl_ershoufang_proprietor=0x7f0a008e;
         public static final int rl_ershoufang_title=0x7f0a0013;
         public static final int rl_find_phonenumber=0x7f0a0038;
+        public static final int rl_genal_login_lock=0x7f0a00e5;
         public static final int rl_goufangliucheng=0x7f0a0045;
         public static final int rl_jiaoyibaoxian=0x7f0a0044;
-        public static final int rl_login_lock=0x7f0a00e5;
+        public static final int rl_login_lock=0x7f0a00e8;
         public static final int rl_map_house_title=0x7f0a005d;
         public static final int rl_newhouse_title=0x7f0a0073;
         public static final int rl_personal_info=0x7f0a008b;
@@ -389,6 +391,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int rl_setting_tdc=0x7f0a006d;
         public static final int rl_setting_update=0x7f0a006b;
         public static final int rl_settings=0x7f0a00d3;
+        public static final int rl_short_login_lock=0x7f0a00eb;
         public static final int rl_title=0x7f0a0018;
         public static final int rl_zhuyishixiang1=0x7f0a0048;
         public static final int rl_zhuyishixiang2=0x7f0a0049;

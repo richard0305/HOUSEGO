@@ -4,6 +4,15 @@ import java.util.ArrayList;
 
 import com.dumu.housego.FindPasswordMainActivity;
 import com.dumu.housego.R;
+import com.dumu.housego.app.HouseGoApp;
+import com.dumu.housego.entity.User;
+import com.dumu.housego.framgent.MyFramgent;
+import com.dumu.housego.presenter.ILoginPresenter;
+import com.dumu.housego.presenter.ILoginUserInfoPresenter;
+import com.dumu.housego.presenter.LoginPresenter;
+import com.dumu.housego.presenter.LoginUserInfoPresenter;
+import com.dumu.housego.view.ILoginUserInfoView;
+import com.dumu.housego.view.ILoginView;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -18,12 +27,24 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class LoginActivity extends Activity {
+public class LoginActivity extends Activity implements ILoginView,ILoginUserInfoView{
 	private TextView tvCancle;
 	private TextView tvRegist,tvForgivepw;
-	private Button btnLogin,btnLoginSendCode;
+	private Button btnLogin,btnShortLoginSendCode;
+	private ILoginPresenter generalpresenter;
+	
+	private EditText etGeneralUsername;
+	private EditText etGeneralPassword;
+	
+	private EditText etShortUsername;
+	private EditText etShortLoginSendCode;
+	
+	private User user;
+	private ILoginUserInfoPresenter userinfoPresenter;
 	
 	 ViewPager pager = null;
 	 PagerTabStrip tabStrip = null;
@@ -39,7 +60,8 @@ public class LoginActivity extends Activity {
 		setOptains();
 		setAdapter();
 		setListener();
-
+		generalpresenter=new LoginPresenter(this);
+		userinfoPresenter=new LoginUserInfoPresenter(this);
 	}
 
 	private void setListener() {
@@ -57,6 +79,8 @@ public class LoginActivity extends Activity {
 			}
 		});
 
+		
+		
 		tvCancle.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -80,6 +104,19 @@ public class LoginActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				startActivity(new Intent(LoginActivity.this, FindPasswordMainActivity.class));
+				
+			}
+		});
+		
+		
+		btnLogin.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				String Gphonenum=etGeneralUsername.getText().toString();
+				String password=etGeneralPassword.getText().toString();
+				generalpresenter.login(Gphonenum, password);
+				
 				
 			}
 		});
@@ -146,22 +183,55 @@ public class LoginActivity extends Activity {
 	}
 
 	private void setViews() {
+		View general = LayoutInflater.from(this).inflate(R.layout.login_general, null);
+		View shortcut = LayoutInflater.from(this).inflate(R.layout.login_shortcut, null);
 		pager = (ViewPager) this.findViewById(R.id.login_viewpager);
 		tabStrip = (PagerTabStrip) this.findViewById(R.id.login_tabstrip);
 		btnLogin=(Button) findViewById(R.id.btn_Login);
 		tvCancle=(TextView) findViewById(R.id.tv_cancle);
 		tvRegist=(TextView) findViewById(R.id.tv_regist);
-		btnLoginSendCode=(Button) findViewById(R.id.btn_quicklogin_sendcode);
+		btnShortLoginSendCode=(Button)shortcut.findViewById(R.id.btn_quicklogin_sendcode);
 		tvForgivepw=(TextView) findViewById(R.id.tv_forgivepw);
 		
-		View general = LayoutInflater.from(this).inflate(R.layout.login_general, null);
-		View shortcut = LayoutInflater.from(this).inflate(R.layout.login_shortcut, null);
+
 		
+		etGeneralUsername=(EditText) general.findViewById(R.id.et_genal_login_phonenumber);
+		etGeneralPassword=(EditText) general.findViewById(R.id.et_genal_login_lock);
 		
+		etShortUsername=(EditText) shortcut.findViewById(R.id.et_short_login_phonenumber);
+		etShortLoginSendCode=(EditText) shortcut.findViewById(R.id.et_short_login_lock_quick);
 		viewContainter.add(general);
 		viewContainter.add(shortcut);
 		titleContainer.add("普通登录");
 		titleContainer.add("验证码快捷登录");
+	}
+
+	@Override
+	public void loginFail(String errorMessage) {
+		Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_SHORT).show();
+		
+	}
+
+	@Override
+	public void loginSuccess() {
+		Toast.makeText(getApplicationContext(), "登陆成功", Toast.LENGTH_SHORT).show();
+		
+	
+		user=HouseGoApp.getContext().getCurrentUser();
+		String userid=user.getUserid();
+		userinfoPresenter.login(userid);
+		
+		
+	}
+
+	@Override
+	public void loginUserInfoFail(String errorMessage) {
+		Toast.makeText(getApplicationContext(), "获取用户信息失败", Toast.LENGTH_SHORT).show();
+	}
+
+	@Override
+	public void loginUserInfoSuccess() {
+		startActivity(new Intent(getApplicationContext(), MyFramgent.class));
 	}
 
 }

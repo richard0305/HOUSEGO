@@ -8,6 +8,38 @@ public class UrlFactory {
 		String PhoneCode = "http://www.taoshenfang.com/index.php?g=api&m=sms&a=reg&mob=" + mob;
 		return PhoneCode;
 	}
+	
+	
+	
+	// 注册--接口
+	public static String PostRegistUrl() {
+		
+		String path = "http://www.taoshenfang.com/index.php?g=Member&m=Public&a=api_register";
+		return path;
+		
+	}
+	
+	// 登录--接口
+	public static String PostLoginUrl() {
+		
+		String path = "http://www.taoshenfang.com/index.php?g=Member&m=Public&a=api_dologin";
+		return path;
+		
+	}
+	
+	// 获取登录用户的信息
+		public static String PostLoginUserInfoUrl() {
+			
+			String path = "http://www.taoshenfang.com/index.php?g=Member&m=Public&a=api_getuserinfo";
+			return path;
+		}
+	
+	
+	
+	
+	
+	
+	
 
 	// wap版首页推荐
 	public static String GetRecommendHouseUrl() {

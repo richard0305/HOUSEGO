@@ -1,6 +1,7 @@
 package com.dumu.housego.entity;
 
 public class User {
+	private String userid;
 	private String username;
 	private String modelid;//注册模型（35：普通会员，36：经纪人）
 	private String password;
@@ -9,8 +10,9 @@ public class User {
 	
 	
 	
-	public User(String username, String modelid, String password, String password2, String yzm) {
+	public User(String userid,String username, String modelid, String password, String password2, String yzm) {
 		super();
+		this.userid=userid;
 		this.username = username;
 		this.modelid = modelid;
 		this.password = password;
@@ -27,6 +29,18 @@ public class User {
 	
 	
 	
+	public String getUserid() {
+		return userid;
+	}
+
+
+
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
+
+
+
 	public String getUsername() {
 		return username;
 	}
@@ -57,15 +71,14 @@ public class User {
 	public void setYzm(String yzm) {
 		this.yzm = yzm;
 	}
-	
-	
-	
+
+
+
 	@Override
 	public String toString() {
-		return "User [username=" + username + ", modelid=" + modelid + ", password=" + password + ", password2="
-				+ password2 + ", yzm=" + yzm + "]";
+		return "User [userid=" + userid + ", username=" + username + ", modelid=" + modelid + ", password=" + password
+				+ ", password2=" + password2 + ", yzm=" + yzm + "]";
 	}
-	
 	
 	
 	
