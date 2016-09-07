@@ -4,16 +4,42 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
     
- 
+ <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:background="#ee3a43" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:paddingLeft="5dp"
+            android:text="消息"
+            android:textColor="#ffffff"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:id="@+id/ll_back_login"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal" >
+        </LinearLayout>
+    </RelativeLayout>
        <Button
-        android:id="@+id/btn_house_login"
+        android:id="@+id/btn_message_null"
         android:layout_width="200dp"
         android:layout_height="40dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="165dp"
         android:gravity="center"
-        android:background="#ee3a43"
-        android:text="立即登录"
+        android:background="#09c566"
+        android:text="消息列表为空"
+        android:textColor="#ffffff"
         android:textSize="16sp" />
 </RelativeLayout>

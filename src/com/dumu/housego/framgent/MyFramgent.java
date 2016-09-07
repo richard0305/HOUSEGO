@@ -39,7 +39,6 @@ public class MyFramgent extends Fragment {
 		setListener();
 		
 		userinfo=HouseGoApp.getContext().getCurrentUserInfo();
-//		Log.i("yanglijun", "aaaaaaaaaaaaabbbbbbbbbbbbbb"+userinfo.toString());
 		if(userinfo!=null){
 			Log.i("yanglijun", "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"+userinfo.toString());
 		tvLoginRegist.setText(userinfo.getNickname()+"");

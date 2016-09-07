@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.dumu.housego.R;
+import com.dumu.housego.app.HouseGoApp;
+import com.dumu.housego.entity.UserInfo;
 import com.dumu.housego.framgent.FirstFramgent;
 import com.dumu.housego.framgent.HouseFramgent;
 import com.dumu.housego.framgent.MessageFramgent;
@@ -23,6 +25,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
@@ -37,7 +40,7 @@ public class MainActivity extends FragmentActivity{
 	private ViewPager viewPager;
 	private PagerAdapter pagerAdapter;
 	private List<Fragment> fragments;
-
+	private UserInfo userinfo;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -71,8 +74,8 @@ public class MainActivity extends FragmentActivity{
 	private void setViewPagerAdapter() {
 		fragments = new ArrayList<Fragment>();
 		fragments.add(new FirstFramgent());
-		fragments.add(new HouseFramgent());
 		fragments.add(new MessageFramgent());
+		fragments.add(new HouseFramgent());
 		fragments.add(new MyFramgent());
 		pagerAdapter = new MyPagerAdapter(getSupportFragmentManager());
 		viewPager.setAdapter(pagerAdapter);
@@ -99,6 +102,14 @@ public class MainActivity extends FragmentActivity{
 					rbMessage.setTextColor(getResources().getColor(R.color.button_ckeck));
 					rbHouse.setTextColor(getResources().getColor(R.color.button_unckeck));
 					rbMy.setTextColor(getResources().getColor(R.color.button_unckeck));
+					
+					//判断是否登录，没有登录，跳转到登录界面
+					userinfo=HouseGoApp.getContext().getCurrentUserInfo();
+					if(userinfo==null){
+						startActivity(new Intent(MainActivity.this, LoginActivity.class));
+					}
+					
+					
 					break;
 				case 2:
 					rbHouse.setChecked(true);
@@ -136,6 +147,8 @@ public class MainActivity extends FragmentActivity{
 					break;
 				case R.id.message:
 					viewPager.setCurrentItem(1);
+					
+				
 					break;
 				case R.id.house:
 					viewPager.setCurrentItem(2);
