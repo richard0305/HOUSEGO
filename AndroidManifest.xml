@@ -33,6 +33,7 @@
             android:label="@string/title_activity_regist"
             android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
         </activity>
+        
         <activity
             android:name=".ErShouFangMainActivity"
             android:label="@string/title_activity_er_shou_fang_main"

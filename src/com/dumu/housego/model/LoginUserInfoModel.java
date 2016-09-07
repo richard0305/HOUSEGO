@@ -53,7 +53,7 @@ public class LoginUserInfoModel implements ILoginUserInfoModel{
 					userinfo.setLoginnum(obj.getString("loginnum"));
 					userinfo.setEmail(obj.getString("email"));
 					userinfo.setGroupid(obj.getString("groupid"));
-					userinfo.setAreaid(obj.getString("Areaid"));
+					userinfo.setAreaid(obj.getString("areaid"));
 					userinfo.setAmount(obj.getString("amount"));
 					userinfo.setPoint(obj.getString("point"));
 					userinfo.setModelid(obj.getString("modelid"));

@@ -231,7 +231,7 @@ public class LoginActivity extends Activity implements ILoginView,ILoginUserInfo
 
 	@Override
 	public void loginUserInfoSuccess() {
-		startActivity(new Intent(getApplicationContext(), MyFramgent.class));
+		startActivity(new Intent(getApplicationContext(), MainActivity.class));
 	}
 
 }

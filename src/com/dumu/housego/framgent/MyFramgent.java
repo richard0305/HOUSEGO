@@ -12,6 +12,7 @@ import com.dumu.housego.entity.UserInfo;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -38,24 +39,20 @@ public class MyFramgent extends Fragment {
 		setListener();
 		
 		userinfo=HouseGoApp.getContext().getCurrentUserInfo();
+//		Log.i("yanglijun", "aaaaaaaaaaaaabbbbbbbbbbbbbb"+userinfo.toString());
+		if(userinfo!=null){
+			Log.i("yanglijun", "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"+userinfo.toString());
 		tvLoginRegist.setText(userinfo.getNickname()+"");
 		String imgurl=userinfo.getUserpic();
 		Glide.with(getContext()).load(imgurl).into(ivMyPic);
 		
-		
+		}
 		
 		return view;
 	}
 
 	private void setListener() {
-		tvLoginRegist.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-			Intent i=new Intent(getActivity(), LoginActivity.class);
-			startActivity(i);
-			}
-		});
+	
 		
 		ivMyPic.setOnClickListener(new OnClickListener() {
 			
@@ -82,7 +79,7 @@ public class MyFramgent extends Fragment {
 	
 	
 	private void setViews(View view) {
-		tvLoginRegist=(TextView) view.findViewById(R.id.tv_login_regist);
+		tvLoginRegist=(TextView) view.findViewById(R.id.tv_my_login_regist);
 		rlSetting=(RelativeLayout) view.findViewById(R.id.rl_settings);
 		rlHistory=(RelativeLayout) view.findViewById(R.id.rl_Histroy);
 		rlMyershoufang=(RelativeLayout) view.findViewById(R.id.rl_Myershoufang);

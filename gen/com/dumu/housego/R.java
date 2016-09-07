@@ -415,8 +415,8 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int tv_forgivepw=0x7f0a0056;
         public static final int tv_house_puchase=0x7f0a004f;
         public static final int tv_housenumber=0x7f0a00c1;
-        public static final int tv_login_regist=0x7f0a00c7;
         public static final int tv_logincancle=0x7f0a001a;
+        public static final int tv_my_login_regist=0x7f0a00c7;
         public static final int tv_number=0x7f0a00c2;
         public static final int tv_personal_nichen=0x7f0a0088;
         public static final int tv_personal_phone=0x7f0a008a;
