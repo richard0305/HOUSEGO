@@ -107,7 +107,7 @@
             android:textSize="16sp" />
 
         <TextView 
-            android:id="@+id/tv_personal_nichen"
+            android:id="@+id/tv_personal_nickname"
                  android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:gravity="center_vertical"

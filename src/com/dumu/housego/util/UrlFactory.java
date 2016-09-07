@@ -34,8 +34,11 @@ public class UrlFactory {
 			return path;
 		}
 	
-	
-	
+	//更改个人信息
+		public static String PostChangeUserInfoUrl() {
+			String path = "http://www.taoshenfang.com/index.php?g=api&m=user&a=api_doprofile";
+			return path;
+			}
 	
 	
 	

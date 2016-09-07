@@ -33,7 +33,6 @@
             android:label="@string/title_activity_regist"
             android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
         </activity>
-        
         <activity
             android:name=".ErShouFangMainActivity"
             android:label="@string/title_activity_er_shou_fang_main"
@@ -117,8 +116,13 @@
         </activity>
         <activity
             android:name=".WebErSshouFangMainActivity"
-              android:theme="@android:style/Theme.Holo.Light.NoActionBar" 
-            android:label="@string/title_activity_web_er_sshou_fang_main" >
+            android:label="@string/title_activity_web_er_sshou_fang_main"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".ChangeUserInfoActivity"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+            android:label="@string/title_activity_change_user_info" >
         </activity>
     </application>
 

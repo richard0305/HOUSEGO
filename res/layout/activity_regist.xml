@@ -163,7 +163,7 @@
             android:layout_marginLeft="16dp"
             android:gravity="center"
             android:text="注册类型："
-            android:textSize="18sp" />
+            android:textSize="16sp" />
       
       <RadioGroup 
         android:id="@+id/rg_regist_type"
