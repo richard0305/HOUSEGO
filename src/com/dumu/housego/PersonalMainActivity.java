@@ -8,7 +8,11 @@ import java.io.IOException;
 import com.bumptech.glide.Glide;
 import com.dumu.housego.app.HouseGoApp;
 import com.dumu.housego.entity.UserInfo;
+import com.dumu.housego.model.IChangeHeadPhotoModel;
+import com.dumu.housego.presenter.ChangeHeadPhotoPresenter;
+import com.dumu.housego.presenter.IChangeHeadPhotoPresenter;
 import com.dumu.housego.util.CircleImageView;
+import com.dumu.housego.view.IChangeHeadPhotoView;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -29,7 +33,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class PersonalMainActivity extends Activity {
+public class PersonalMainActivity extends Activity implements IChangeHeadPhotoView{
 	private LinearLayout llPersonalBack;
 	private RelativeLayout rlPersonalInfo, rlMyTouxiang;
 	private TextView tvPersonalNickname,tvPersonalPhone;
@@ -37,6 +41,8 @@ public class PersonalMainActivity extends Activity {
 	private CircleImageView ivPersonalPhoto;
 	private Bitmap head;//头像Bitmap
     private static String path="/sdcard/myHead/";//sd路径
+    private IChangeHeadPhotoPresenter headpresenter;
+    
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -55,6 +61,8 @@ public class PersonalMainActivity extends Activity {
 			tvPersonalPhone.setText(userinfo.getUsername());
 		}
 		
+		
+		headpresenter=new ChangeHeadPhotoPresenter(this);
 		
 		
 	}
@@ -170,6 +178,10 @@ public class PersonalMainActivity extends Activity {
 	                    /**
 	                     * 上传服务器代码
 	                     */
+	                	String userid=userinfo.getUserid();
+	                	headpresenter.ChangeHead(userid, head);
+	                	
+	                	
 	                    setPicToView(head);//保存在SD卡中
 	                    ivPersonalPhoto.setImageBitmap(head);//用ImageView显示出来
 	                }
@@ -228,4 +240,17 @@ public class PersonalMainActivity extends Activity {
 
 
 }
+
+	@Override
+	public void changeHeadFail(String errorMessage) {
+		Toast.makeText(getApplicationContext(), "头像更换失败！", Toast.LENGTH_SHORT).show();
+		
+	}
+
+	@Override
+	public void changeHeadSuccess(String picUrl) {
+		
+		Glide.with(getApplicationContext()).load(picUrl).into(ivPersonalPhoto);
+	Toast.makeText(getApplicationContext(), "头像更换成功！", Toast.LENGTH_SHORT).show();
+	}
 }

@@ -1,5 +1,6 @@
 package com.dumu.housego.model;
 
+import java.io.ByteArrayOutputStream;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,36 +17,38 @@ import com.dumu.housego.entity.UserInfo;
 import com.dumu.housego.util.CommonRequest;
 import com.dumu.housego.util.UrlFactory;
 
-public class ChangeUserInfoModel implements IChangeUserInfoModel {
+import android.graphics.Bitmap;
+import android.graphics.Bitmap.CompressFormat;
+import android.util.Base64;
+
+public class ChangeHeadPhotoModel implements IChangeHeadPhotoModel {
 	private UserInfo userinfo;
 
-	public ChangeUserInfoModel() {
+	public ChangeHeadPhotoModel() {
 		super();
 	}
 
+
+
 	@Override
-	public void change(final String userid, final String nickname, final String about,final String sex, final AsycnCallBack back) {
-		String url=UrlFactory.PostChangeUserInfoUrl();
+	public void changeHead(final String userid, final Bitmap bitmap, final AsycnCallBack back) {
+		String url=UrlFactory.PostChangeHeadPhotoUrl();
 		CommonRequest request=new CommonRequest(Request.Method.POST, url, new Listener<String>() {
 
 			@Override
 			public void onResponse(String response) {
 				try {
 					JSONObject obj = new JSONObject(response);
-					if (obj.getInt("success") == 54) {
-						String infomation=obj.getString("info").toString();
+					if (obj.getBoolean("success")==true) {
+						String picurl=obj.getString("avatarUrls").toString();
+						back.onSuccess(picurl);
 						userinfo=HouseGoApp.getContext().getCurrentUserInfo();
-						userinfo.setAbout(about);
-						userinfo.setNickname(nickname);
-						userinfo.setSex(sex);
+						userinfo.setUserpic(picurl);
 						
 						HouseGoApp app=HouseGoApp.getContext();
 						app.SaveCurrentUserInfo(userinfo);
 						
-						back.onSuccess(infomation);
-					} else {
-						back.onError(obj.getString("info"));
-					}
+					} 
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
@@ -55,17 +58,21 @@ public class ChangeUserInfoModel implements IChangeUserInfoModel {
 
 			@Override
 			public void onErrorResponse(VolleyError error) {
-				// TODO Auto-generated method stub
+				back.onError(error.getMessage());
 				
 			}
 		}){
 			@Override
 			protected Map<String, String> getParams() throws AuthFailureError {
 				Map<String, String> params = new HashMap<String, String>();
+				
+			   	ByteArrayOutputStream baos = new ByteArrayOutputStream();//outputstream  
+			 
+                bitmap.compress(CompressFormat.PNG, 100, baos);  
+                byte[] appicon = baos.toByteArray();// 转为byte数组  
+                String avatar=Base64.encodeToString(appicon, Base64.DEFAULT);
 				params.put("userid", userid);
-				params.put("nickname", nickname);
-				params.put("about", about);
-				params.put("sex", sex);
+				params.put("__avatar1", avatar);
 				return params;
 			}
 		};

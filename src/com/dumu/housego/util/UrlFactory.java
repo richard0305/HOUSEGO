@@ -39,8 +39,15 @@ public class UrlFactory {
 			String path = "http://www.taoshenfang.com/index.php?g=api&m=user&a=api_doprofile";
 			return path;
 			}
+		
+		
+	//更改个人头像
+		public static String PostChangeHeadPhotoUrl() {
+			String path ="http://www.taoshenfang.com/index.php?g=api&m=user&a=api_uploadavatar";
+			return path;
+		}
 	
-	
+		
 	
 	
 
