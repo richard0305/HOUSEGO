@@ -4,7 +4,10 @@ import java.util.List;
 
 import com.dumu.housego.adapter.ErShouFangRecommendAdapter;
 import com.dumu.housego.entity.ErShouFangRecommendData;
+import com.dumu.housego.entity.FourDataPrograma;
+import com.dumu.housego.presenter.ErShouFangProgramaPresenter;
 import com.dumu.housego.presenter.ErShouFangRecommendPresenter;
+import com.dumu.housego.presenter.IFourDataProgramePresenter;
 import com.dumu.housego.presenter.IRecommendHousePresenter;
 import com.dumu.housego.view.IErShouFangRecommendView;
 
@@ -23,8 +26,9 @@ public class ErShouFangMainActivity extends Activity implements IErShouFangRecom
 	private LinearLayout llErshoufang;
 	private ErShouFangRecommendAdapter adapter;
 	private ListView lvErshoufangRecommend;
-	private IRecommendHousePresenter presenter;
+	private IFourDataProgramePresenter presenter;
 	private List<ErShouFangRecommendData> ershoufangrecommends;
+	private FourDataPrograma fourdata;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +36,12 @@ public class ErShouFangMainActivity extends Activity implements IErShouFangRecom
 		setContentView(R.layout.activity_er_shou_fang_main);
 		setViews();
 		setListener();
-		presenter = new ErShouFangRecommendPresenter(this);
-		presenter.LoadRecommend();
+		presenter = new ErShouFangProgramaPresenter(this);
+		
+		fourdata=new FourDataPrograma();
+		fourdata.setCatid("6");
+		fourdata.setPage("1");
+		presenter.LoadProgrameData(fourdata);;
 
 	}
 
@@ -49,16 +57,16 @@ public class ErShouFangMainActivity extends Activity implements IErShouFangRecom
 
 		lvErshoufangRecommend.setOnItemClickListener(new OnItemClickListener() {
 
-			@Override
+//			@Override
 			public void onItemClick(AdapterView<?> arg0, View view, int position, long id) {
-
-				Intent i = new Intent(ErShouFangMainActivity.this, WebErSshouFangMainActivity.class);
-				String url = "http://www.taoshenfang.com/index.php?a=shows&catid="
-						+ ershoufangrecommends.get(position).getCatid() + "&id="
-						+ ershoufangrecommends.get(position).getId();
-				Log.i("yanglijun", "<<<<<<<<<<<<<<<<<<<" + url);
-				i.putExtra("url", url);
-				startActivity(i);
+//
+//				Intent i = new Intent(ErShouFangMainActivity.this, WebErSshouFangMainActivity.class);
+//				String url = "http://www.taoshenfang.com/index.php?a=shows&catid="
+//						+ ershoufangrecommends.get(position).getCatid() + "&id="
+//						+ ershoufangrecommends.get(position).getId();
+//				Log.i("yanglijun", "<<<<<<<<<<<<<<<<<<<" + url);
+//				i.putExtra("url", url);
+//				startActivity(i);
 			}
 		});
 

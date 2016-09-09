@@ -69,11 +69,11 @@ public class ErShouFangRecommendAdapter extends BaseAdapter {
 		holder.tvPrice.setText(n.getZongjia()+"");
 		holder.tvAddress.setText("ÉîÛÚ "+n.getCity_name()+" "+n.getXiaoquname());
 		
-//	 String price=(n.getZongjia())*(10000)/n.getJianzhumianji();
+		int zongjia=Integer.parseInt(n.getZongjia().trim());
+		int mianji=Integer.parseInt(n.getJianzhumianji().trim());
+	 int price=(zongjia)*(10000)/mianji;
 	 
-	 
-	 
-//		holder.tvMeterPrice.setText(n.getZongjia()*(10000)/n.getJianzhumianji()+"");
+		holder.tvMeterPrice.setText(price+"Ôª/©O");
 		
 		
 		return convertView;

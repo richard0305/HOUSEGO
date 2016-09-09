@@ -156,12 +156,14 @@ public class PersonalMainActivity extends Activity implements IChangeHeadPhotoVi
 	
 	  protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 	        switch (requestCode) {
+	        
 	        case 1:
 	            if (resultCode == RESULT_OK) {
 	                cropPhoto(data.getData());//²Ã¼ôÍ¼Æ¬
 	            }
 	 
 	            break;
+	            
 	        case 2:
 	            if (resultCode == RESULT_OK) {
 	                File temp = new File(Environment.getExternalStorageDirectory()
@@ -170,6 +172,7 @@ public class PersonalMainActivity extends Activity implements IChangeHeadPhotoVi
 	            }
 	 
 	            break;
+	            
 	        case 3:
 	            if (data != null) {
 	                Bundle extras = data.getExtras();
@@ -200,6 +203,7 @@ public class PersonalMainActivity extends Activity implements IChangeHeadPhotoVi
      * @param uri
      */
     public void cropPhoto(Uri uri) {
+    	
         Intent intent = new Intent("com.android.camera.action.CROP");
         intent.setDataAndType(uri, "image/*");
         intent.putExtra("crop", "true");
@@ -211,6 +215,7 @@ public class PersonalMainActivity extends Activity implements IChangeHeadPhotoVi
         intent.putExtra("outputY", 150);
         intent.putExtra("return-data", true);
         startActivityForResult(intent, 3);
+        
     }
     private void setPicToView(Bitmap mBitmap) {
          String sdStatus = Environment.getExternalStorageState();  

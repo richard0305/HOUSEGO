@@ -49,8 +49,15 @@ public class UrlFactory {
 	
 		
 	
-	
+	//获取指定栏目内容列表接口
+	//适用于  新房 二手房 租房 大宗交易 四个栏目
+			public static String PostFourDataProgramaUrl() {
+			String path ="http://www.taoshenfang.com/index.php?g=api&m=house&a=lists";
+			return path;
+		}
 
+			
+			
 	// wap版首页推荐
 	public static String GetRecommendHouseUrl() {
 
