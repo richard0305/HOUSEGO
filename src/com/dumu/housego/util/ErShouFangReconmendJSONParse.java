@@ -26,8 +26,8 @@ public class ErShouFangReconmendJSONParse {
 			n.setCatid(obj.getString("catid"));
 			n.setPosid(obj.getString("posid"));
 			n.setTitle(obj.getString("title"));
-			n.setZongjia(obj.getString("zongjia"));
-			n.setJianzhumianji(obj.getString("jianzhumianji"));
+//			n.setZongjia(obj.getString("zongjia"));
+//			n.setJianzhumianji(obj.getString("jianzhumianji"));
 			n.setTing(obj.getString("ting"));
 			n.setShi(obj.getString("shi"));
 			n.setThumb(obj.getString("thumb"));

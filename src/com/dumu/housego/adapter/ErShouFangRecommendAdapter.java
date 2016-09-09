@@ -65,15 +65,15 @@ public class ErShouFangRecommendAdapter extends BaseAdapter {
 		Glide.with(context).load(url).into(holder.ivImg);
 		
 		holder.tvTitle.setText(n.getTitle()+"");
-		holder.tvArea.setText(n.getShi()+"室"+n.getTing()+"厅 "+n.getJianzhumianji()+"㎡ 南");
-		holder.tvPrice.setText(n.getZongjia()+"");
-		holder.tvAddress.setText("深圳 "+n.getCity_name()+" "+n.getXiaoquname());
+//		holder.tvArea.setText(n.getShi()+"室"+n.getTing()+"厅 "+n.getJianzhumianji()+"㎡ 南");
+//		holder.tvPrice.setText(n.getZongjia()+"");
+//		holder.tvAddress.setText("深圳 "+n.getCity_name()+" "+n.getXiaoquname());
 		
-		int zongjia=Integer.parseInt(n.getZongjia().trim());
-		int mianji=Integer.parseInt(n.getJianzhumianji().trim());
-	 int price=(zongjia)*(10000)/mianji;
+//		int zongjia=Integer.parseInt(n.getZongjia().trim());
+//		int mianji=Integer.parseInt(n.getJianzhumianji().trim());
+//	 int price=(zongjia)*(10000)/mianji;
 	 
-		holder.tvMeterPrice.setText(price+"元/㎡");
+//		holder.tvMeterPrice.setText(price+"元/㎡");
 		
 		
 		return convertView;

@@ -1,7 +1,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="#c9c9cb"
     android:layout_height="match_parent"
     tools:context="com.dumu.housego.ErShouFangMainActivity"
     tools:ignore="ObsoleteLayoutParam,UseCompoundDrawables,TextFields,HardcodedText,RtlHardcoded,ContentDescription,UselessParent,LabelFor" >
@@ -86,6 +85,7 @@
         </LinearLayout>
     </RelativeLayout>
     <LinearLayout
+        android:id="@+id/ll_renting_spinner"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_alignParentLeft="true"
@@ -145,6 +145,15 @@
             />
         
     </LinearLayout>
+    
+       <com.dumu.housego.util.ListViewForScrollView
+           android:id="@+id/lv_renting_list"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:layout_alignParentBottom="true"
+           android:layout_below="@+id/ll_renting_spinner" >
+
+            </com.dumu.housego.util.ListViewForScrollView>
     
 
 </RelativeLayout>

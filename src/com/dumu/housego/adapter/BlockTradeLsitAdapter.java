@@ -66,8 +66,8 @@ public class BlockTradeLsitAdapter extends BaseAdapter {
 		Glide.with(context).load(url).into(holder.ivImg);
 		
 		holder.tvTitle.setText(n.getTitle()+"");
-		holder.tvPrice.setText(n.getZongjia()+"");
-		holder.tvAddress.setText(n.getProvince_name()+" "+n.getCity_name()+" "+n.getArea_name());
+//		holder.tvPrice.setText(n.getZongjia()+"");
+//		holder.tvAddress.setText(n.getProvince_name()+" "+n.getCity_name()+" "+n.getArea_name());
 		
 //	 String price=(n.getZongjia())*(10000)/n.getJianzhumianji();
 	 

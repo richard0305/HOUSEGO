@@ -4,9 +4,11 @@ import java.util.List;
 
 import com.dumu.housego.adapter.BlockTradeLsitAdapter;
 import com.dumu.housego.entity.BlockTradeList;
-import com.dumu.housego.presenter.BlockTradeListPresenter;
+import com.dumu.housego.entity.FourDataPrograma;
+import com.dumu.housego.presenter.BlockTradeProgramaPresenter;
+import com.dumu.housego.presenter.IFourDataProgramePresenter;
 import com.dumu.housego.presenter.IRecommendHousePresenter;
-import com.dumu.housego.view.IBlockTradeListView;
+import com.dumu.housego.view.IBlockTradeProgramaView;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -19,20 +21,24 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
 
-public class BlockTradeMainActivity extends Activity implements IBlockTradeListView{
+public class BlockTradeMainActivity extends Activity implements IBlockTradeProgramaView{
 	private LinearLayout llBlockTradeBack;
 	private ListView lvBlockTrade;
-	private IRecommendHousePresenter presenter;
+	private IFourDataProgramePresenter presenter;
 	private BlockTradeLsitAdapter adapter;
 	private List<BlockTradeList> blocktrades; 
+	private FourDataPrograma fourdata;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_block_trade_main);
 		setViews();
 		setListener();
-		presenter=new BlockTradeListPresenter(this);
-		presenter.LoadRecommend();
+		presenter=new BlockTradeProgramaPresenter(this);
+		fourdata=new FourDataPrograma();
+		fourdata.setCatid("7");
+		fourdata.setPage("1");
+		presenter.LoadProgrameData(fourdata);;
 		
 	}
 	private void setViews() {
@@ -70,7 +76,6 @@ public class BlockTradeMainActivity extends Activity implements IBlockTradeListV
 	@Override
 	public void showData(List<BlockTradeList> blocktrades) {
 		this.blocktrades=blocktrades;
-		
 		adapter=new BlockTradeLsitAdapter(blocktrades, getApplicationContext());
 		lvBlockTrade.setAdapter(adapter);
 	}
