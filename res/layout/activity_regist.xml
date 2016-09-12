@@ -1,10 +1,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-       android:background="#F3F3F3"
     android:layout_height="match_parent"
+    android:background="#F3F3F3"
     tools:context="com.dumu.housego.activity.LoginActivity"
-    tools:ignore="RtlSymmetry,HardcodedText,RtlHardcoded,UselessParent,TextFields,ContentDescription" >
+    tools:ignore="RtlSymmetry,HardcodedText,RtlHardcoded,UselessParent,TextFields,ContentDescription,ObsoleteLayoutParam,UseCompoundDrawables,Deprecated" >
 
     <RelativeLayout
         android:id="@+id/rl_title"
@@ -77,6 +77,7 @@
         android:background="#ffffff"
         android:hint="请输入新密码(至少6位)"
         android:paddingLeft="10dp"
+        android:password="true"
         android:textSize="16sp" />
     
     <Button
@@ -94,6 +95,7 @@
         android:layout_below="@+id/btn_line4"
         android:background="#ffffff"
         android:hint="请再次输入密码"
+        android:password="true"
         android:paddingLeft="10dp"
         android:textSize="16sp" />
     <Button
@@ -121,6 +123,7 @@
         android:layout_alignParentLeft="true"
        android:background="@null"
         android:hint="请输入手机号码"
+        android:maxLength="11"
         android:paddingLeft="10dp"
         android:textSize="16sp" />
 

@@ -97,7 +97,7 @@
          
         <Spinner 
             android:paddingLeft="20dp"
-            android:id="@+id/maphouse_sp1"
+            android:id="@+id/ershoufang_quyu_sp1"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:background="#F2F2F2"
@@ -109,7 +109,7 @@
         
       
         <Spinner 
-            android:id="@+id/maphouse_sp2"
+            android:id="@+id/ershoufang_quyu_sp2"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:background="#F2F2F2"
@@ -125,7 +125,7 @@
             android:background="#c9c9cb"
             />
          <Spinner 
-            android:id="@+id/maphouse_sp3"
+            android:id="@+id/ershoufang_quyu_sp3"
             android:layout_width="0dp"
             android:spinnerMode="dropdown"
             android:layout_weight="1"
@@ -135,7 +135,7 @@
             android:entries="@array/ershoufanghousetype"
             />
             <Spinner 
-            android:id="@+id/maphouse_sp4"
+            android:id="@+id/ershoufang_quyu_sp4"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:background="#F2F2F2"

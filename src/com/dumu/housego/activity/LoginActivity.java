@@ -46,6 +46,11 @@ public class LoginActivity extends Activity implements ILoginView,ILoginUserInfo
 	private User user;
 	private ILoginUserInfoPresenter userinfoPresenter;
 	
+	 Thread thread=null;
+	 private boolean tag=true;
+	    private int i=60;
+	    public boolean  isChange=false;
+	
 	 ViewPager pager = null;
 	 PagerTabStrip tabStrip = null;
 	 ArrayList<View> viewContainter = new ArrayList<View>();

@@ -48,6 +48,43 @@ public class UrlFactory {
 		}
 	
 		
+		
+	//已注册用户忘记密码-获取验证码
+		public static String PostFindPasswordCodeUrl() {
+			String path ="http://www.taoshenfang.com/index.php?g=api&m=sms&a=lost_getyzm";
+			return path;
+		}
+		
+		
+		//注册用户 修改密码
+				public static String PostFindPasswordUrl() {
+					String path ="http://www.taoshenfang.com/index.php?g=member&m=public&a=mod_pwd";
+					return path;
+				}	
+		
+		//检测手机号码是否可以注册会员
+				public static String PostCheckPhoneRegistUrl() {
+					String path ="http://www.taoshenfang.com/index.php?g=api&m=sms&a=check_mob";
+					return path;
+				}		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	
 	//获取指定栏目内容列表接口
 	//适用于  新房 二手房 租房 大宗交易 四个栏目

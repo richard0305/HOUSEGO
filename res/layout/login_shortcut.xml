@@ -43,6 +43,7 @@
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@+id/iv_iphone"
             android:background="@null"
+            android:maxLength="11"
             android:hint="请输入手机号码"
             android:textSize="14sp" >
         </EditText>

@@ -43,6 +43,7 @@
             android:layout_toRightOf="@+id/iv_iphone"
             android:background="@null"
             android:hint="请输入手机号码"
+            android:maxLength="11"
             android:textSize="14sp" >
         </EditText>
     </RelativeLayout>
@@ -70,10 +71,19 @@
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@+id/iv_lock"
             android:background="@null"
+             android:password="true"
             android:hint="请输入密码"
             android:textSize="14sp" >
         </EditText>
+       
     </RelativeLayout>
+    <Button
+        android:id="@+id/btn_line3"
+        android:layout_below="@+id/rl_genal_login_lock"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        
+        android:background="#c9c9cb" />
     <Button
         android:id="@+id/btn_line6"
         android:layout_width="match_parent"

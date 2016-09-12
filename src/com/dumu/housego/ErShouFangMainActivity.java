@@ -1,5 +1,6 @@
 package com.dumu.housego;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.dumu.housego.adapter.ErShouFangRecommendAdapter;
@@ -19,8 +20,11 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 
 public class ErShouFangMainActivity extends Activity implements IErShouFangRecommendView {
 	private LinearLayout llErshoufang;
@@ -29,6 +33,17 @@ public class ErShouFangMainActivity extends Activity implements IErShouFangRecom
 	private IFourDataProgramePresenter presenter;
 	private List<ErShouFangRecommendData> ershoufangrecommends;
 	private FourDataPrograma fourdata;
+	private Spinner ershoufangQuyuSp1;
+	private Spinner ershoufangQuyuSp2;
+	private Spinner ershoufangQuyuSp3;
+	private Spinner ershoufangQuyuSp4;
+
+	private List<String> spinnerList1 = new ArrayList<String>();
+	private List<String> spinnerList2 = new ArrayList<String>();
+	private List<String> spinnerList3 = new ArrayList<String>();
+	private List<String> spinnerList4 = new ArrayList<String>();
+	private ArrayAdapter<String> Spinneradapter;    
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -36,13 +51,27 @@ public class ErShouFangMainActivity extends Activity implements IErShouFangRecom
 		setContentView(R.layout.activity_er_shou_fang_main);
 		setViews();
 		setListener();
-		presenter = new ErShouFangProgramaPresenter(this);
 		
-		fourdata=new FourDataPrograma();
+		spinnerList1.add("yanglijun");    
+		spinnerList1.add("richard");    
+		spinnerList1.add("ÑîÁ¢¾ü");    
+		spinnerList1.add("ÑîÀö¾ý");    
+		spinnerList1.add("Ñî´º»Ô");  
+		
+		
+		
+		
+		presenter = new ErShouFangProgramaPresenter(this);
+
+		fourdata = new FourDataPrograma();
 		fourdata.setCatid("6");
 		fourdata.setPage("1");
-		presenter.LoadProgrameData(fourdata);;
-
+		presenter.LoadProgrameData(fourdata);
+		Spinneradapter=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, spinnerList1); 
+		Spinneradapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);  
+		ershoufangQuyuSp1.setAdapter(Spinneradapter); 
+		String str=(String) ershoufangQuyuSp1.getSelectedItem();
+		Log.i("yanglijun","<<<<<<<<<<<<<<<------¡·¡·¡·¡·¡·¡·¡·¡·¡·¡·¡·Str"+str);
 	}
 
 	private void setListener() {
@@ -57,16 +86,18 @@ public class ErShouFangMainActivity extends Activity implements IErShouFangRecom
 
 		lvErshoufangRecommend.setOnItemClickListener(new OnItemClickListener() {
 
-//			@Override
+			// @Override
 			public void onItemClick(AdapterView<?> arg0, View view, int position, long id) {
-//
-//				Intent i = new Intent(ErShouFangMainActivity.this, WebErSshouFangMainActivity.class);
-//				String url = "http://www.taoshenfang.com/index.php?a=shows&catid="
-//						+ ershoufangrecommends.get(position).getCatid() + "&id="
-//						+ ershoufangrecommends.get(position).getId();
-//				Log.i("yanglijun", "<<<<<<<<<<<<<<<<<<<" + url);
-//				i.putExtra("url", url);
-//				startActivity(i);
+				//
+				// Intent i = new Intent(ErShouFangMainActivity.this,
+				// WebErSshouFangMainActivity.class);
+				// String url =
+				// "http://www.taoshenfang.com/index.php?a=shows&catid="
+				// + ershoufangrecommends.get(position).getCatid() + "&id="
+				// + ershoufangrecommends.get(position).getId();
+				// Log.i("yanglijun", "<<<<<<<<<<<<<<<<<<<" + url);
+				// i.putExtra("url", url);
+				// startActivity(i);
 			}
 		});
 
@@ -75,6 +106,10 @@ public class ErShouFangMainActivity extends Activity implements IErShouFangRecom
 	private void setViews() {
 		llErshoufang = (LinearLayout) findViewById(R.id.ll_ershoufang_back);
 		lvErshoufangRecommend = (ListView) findViewById(R.id.lv_ershoufang_recommend);
+		ershoufangQuyuSp1=(Spinner) findViewById(R.id.ershoufang_quyu_sp1);
+		ershoufangQuyuSp2=(Spinner) findViewById(R.id.ershoufang_quyu_sp2);
+		ershoufangQuyuSp3=(Spinner) findViewById(R.id.ershoufang_quyu_sp3);
+		ershoufangQuyuSp4=(Spinner) findViewById(R.id.ershoufang_quyu_sp4);
 	}
 
 	@Override
