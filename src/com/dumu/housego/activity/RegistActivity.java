@@ -44,7 +44,7 @@ public class RegistActivity extends Activity implements IPhoneCodeView,IRegistVi
 	private RadioButton rbAgent;
 
 	 Thread thread=null;
-	 private boolean tag=true;
+	 private boolean tag12=true;
 	    private int i=60;
 	    public boolean  isChange=false;
 	@Override
@@ -55,6 +55,8 @@ public class RegistActivity extends Activity implements IPhoneCodeView,IRegistVi
 		registpresenter=new RegistPresenter(this);
 		checkPresenter=new CheckPhoneRegistPresenter(this);
 		setViews();
+		btnRegist.setEnabled(false);
+		btnSendCode.setEnabled(false);
 		setOptains();
 		setListener();
 
@@ -133,7 +135,7 @@ public class RegistActivity extends Activity implements IPhoneCodeView,IRegistVi
 		thread = new Thread() {
             @Override
             public void run() {
-                if (tag) {
+                if (tag12) {
                     while (i > 0) {
                         i--;
                         if (RegistActivity.this== null) {
@@ -157,10 +159,10 @@ public class RegistActivity extends Activity implements IPhoneCodeView,IRegistVi
                             throw new RuntimeException(e);
                         }
                     }
-                    tag = false;
+                    tag12 = false;
                 }
                 i = 60;
-                tag = true;
+                tag12 = true;
                 if (RegistActivity.this != null) {
                 	RegistActivity.this.runOnUiThread(new Runnable() {
                         @Override

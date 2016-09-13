@@ -27,10 +27,11 @@ public class FindPasswordMainActivity extends Activity implements IFindPasswordC
 	
 	private IFindPasswordCodePresenter findcodepresenter;
 	private IFindPasswordPresenter findpasswordpresenter;
-	 Thread thread=null;
-	 private boolean tag=true;
-	    private int i=60;
-	    public boolean  isChange=false;
+	private Thread thread=null;
+	private boolean tag=true;
+	private int i=60;
+	public boolean  isChange=false;
+	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -41,9 +42,8 @@ public class FindPasswordMainActivity extends Activity implements IFindPasswordC
 		findcodepresenter=new FindPasswordCodePresenter(this);
 		findpasswordpresenter=new FindPasswordPresenter(this);
 		
-		
-		
 	}
+	
 	private void setListener() {
 		llFindPasswordBack.setOnClickListener(new OnClickListener() {
 			
@@ -53,16 +53,16 @@ public class FindPasswordMainActivity extends Activity implements IFindPasswordC
 			}
 		});
 		
+		
+		
 		btnFindSubmit.setOnClickListener(new OnClickListener() {
-			
 			@Override
 			public void onClick(View v) {
-				Log.i("yanglijun", "----====+++++======，点击了按钮");
 				String phonenum=etFindPhonenumb.getText().toString();
 				String smscode=etFindSmscode.getText().toString();
 				String password=etFindPassword.getText().toString();
 				String password2=etFindRepassword.getText().toString();
-				
+				Log.i("yanglijun", "----====+++++======，点击了按钮"+phonenum+smscode+password+password2);
 				findpasswordpresenter.FindPassword(phonenum, smscode, password, password2);
 			}
 		});
@@ -144,28 +144,32 @@ public class FindPasswordMainActivity extends Activity implements IFindPasswordC
 		btnFindSubmit=(Button) findViewById(R.id.btn_find_submit);
 	}
 	
+	
 	@Override
 	public void FindCodeFail(String errorMessage) {
 		Toast.makeText(getApplicationContext(), ""+errorMessage, Toast.LENGTH_SHORT).show();
-		
 	}
+	
 	
 	@Override
 	public void FindCodeSuccess() {
 		Toast.makeText(getApplicationContext(), "发送成功！", Toast.LENGTH_SHORT).show();
 	}
 	
+	
 	@Override
 	public void FindPasswordFail(String errorMessage) {
 		Toast.makeText(getApplicationContext(), ""+errorMessage, Toast.LENGTH_SHORT).show();
-		
 	}
+	
 	
 	@Override
 	public void FindPasswordSuccess() {
 		Toast.makeText(getApplicationContext(), "密码修改成功！", Toast.LENGTH_SHORT).show();
 		finish();
-		
 	}
+	
+	
+
 
 }

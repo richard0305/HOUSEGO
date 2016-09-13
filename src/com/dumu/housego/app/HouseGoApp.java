@@ -2,18 +2,19 @@ package com.dumu.housego.app;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
+import com.dumu.housego.R;
 import com.dumu.housego.entity.User;
 import com.dumu.housego.entity.UserInfo;
 
 import android.app.Application;
 
-public class HouseGoApp extends Application{
+public class HouseGoApp extends Application {
 	private static HouseGoApp context;
 	private static RequestQueue Queue;
 	private static HouseGoApp housegoapp;
 	private User user;
 	private UserInfo userinfo;
-	
+
 	public static HouseGoApp getContext() {
 		return context;
 	}
@@ -27,7 +28,6 @@ public class HouseGoApp extends Application{
 
 	}
 
-	
 	public static HouseGoApp getHousegoapp() {
 		return housegoapp;
 	}
@@ -38,8 +38,12 @@ public class HouseGoApp extends Application{
 		housegoapp=this;
 		context = this;
 		Queue = Volley.newRequestQueue(context);
+		
+		
+		
+		   
 	}
-	
+
 	/**
 	 * 保存当前用户
 	 */
@@ -51,7 +55,7 @@ public class HouseGoApp extends Application{
 		return this.user;
 
 	}
-	
+
 	/**
 	 * 保存当前用户信息
 	 */
@@ -63,6 +67,5 @@ public class HouseGoApp extends Application{
 		return this.userinfo;
 
 	}
-	
-	
+
 }

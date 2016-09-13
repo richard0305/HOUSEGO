@@ -21,13 +21,16 @@
             android:orientation="vertical" >
 
             <TextView
+                android:id="@+id/tv_frist_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="50dp"
                 android:text="聚焦深圳总价300万一下房源"
                 android:textColor="#ffffff"
-                android:textSize="20sp" />
+                android:fontFamily="Microsoft YaHei"
+                android:textSize="20sp" 
+               />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -35,6 +38,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
                 android:text="买房 卖方 找淘深房"
+                      android:fontFamily="Microsoft YaHei"
                 android:textColor="#ffffff"
                 android:textSize="16sp" />
 

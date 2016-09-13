@@ -54,6 +54,7 @@ public class FirstFramgent extends Fragment implements IShopGuideView {
 	private TextView tvMonthNumber, tvPriceNumber, tvHouseNumber;
 	private LinearLayout llSearch;
 	private ScrollView scrollview;
+	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.framgent_first, null);
@@ -172,7 +173,8 @@ public class FirstFramgent extends Fragment implements IShopGuideView {
 		rbYeZhuWeiTuo = (RadioButton) view.findViewById(R.id.rb_yezhuweituo);
 		rbZuFang = (RadioButton) view.findViewById(R.id.rb_zufang);
 		llSearch = (LinearLayout) view.findViewById(R.id.ll_search);
-
+		
+		
 		scrollview=(ScrollView) view.findViewById(R.id.first_scrollview);
 		scrollview.smoothScrollTo(0, 0);
 	}
