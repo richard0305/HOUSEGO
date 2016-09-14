@@ -4,6 +4,7 @@ import com.dumu.housego.app.HouseGoApp;
 import com.dumu.housego.entity.UserInfo;
 import com.dumu.housego.presenter.ChangeUserInfoPresenter;
 import com.dumu.housego.presenter.IChangeUserInfoPresenter;
+import com.dumu.housego.util.FontHelper;
 import com.dumu.housego.view.IChangeUserInfoView;
 
 import android.app.Activity;
@@ -29,6 +30,7 @@ public class ChangeUserInfoActivity extends Activity implements IChangeUserInfoV
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_change_user_info);
+		FontHelper.injectFont(findViewById(android.R.id.content));
 		setViews();
 		setListener();
 		changePresenter=new ChangeUserInfoPresenter(this);

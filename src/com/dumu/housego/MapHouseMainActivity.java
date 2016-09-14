@@ -1,5 +1,7 @@
 package com.dumu.housego;
 
+import com.dumu.housego.util.FontHelper;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +16,7 @@ public class MapHouseMainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_map_house_main);
+		FontHelper.injectFont(findViewById(android.R.id.content));
 		setViews();
 		setListeners();
 		rbErShouFang.setTextColor(getResources().getColor(R.color.button_ckeck));

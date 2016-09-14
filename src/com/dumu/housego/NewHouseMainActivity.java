@@ -6,6 +6,7 @@ import com.dumu.housego.adapter.NewHouseRecommendAdapter;
 import com.dumu.housego.entity.NewHouseRecommendData;
 import com.dumu.housego.presenter.IRecommendHousePresenter;
 import com.dumu.housego.presenter.NewHouseRecommendPresenter;
+import com.dumu.housego.util.FontHelper;
 import com.dumu.housego.view.INewHouseRecommendView;
 
 import android.app.Activity;
@@ -34,6 +35,7 @@ public class NewHouseMainActivity extends Activity implements INewHouseRecommend
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_new_house_main);
+		FontHelper.injectFont(findViewById(android.R.id.content));
 		setViews();
 		setListener();
 		presenter=new NewHouseRecommendPresenter(this);

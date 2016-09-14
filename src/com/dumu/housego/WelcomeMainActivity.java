@@ -1,6 +1,7 @@
 package com.dumu.housego;
 
 import com.dumu.housego.activity.MainActivity;
+import com.dumu.housego.util.FontHelper;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -24,6 +25,7 @@ public class WelcomeMainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		view = View.inflate(this, R.layout.activity_welcome_main, null);
 		setContentView(view);
+		FontHelper.injectFont(findViewById(android.R.id.content));
 		initData();
 	}
 

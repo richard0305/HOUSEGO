@@ -2,6 +2,7 @@ package com.dumu.housego;
 
 import com.dumu.housego.activity.LoginActivity;
 import com.dumu.housego.activity.MainActivity;
+import com.dumu.housego.util.FontHelper;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -18,6 +19,7 @@ public class MySettingMainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_my_setting_main);
+		FontHelper.injectFont(findViewById(android.R.id.content));
 		setViews();
 		setListener();
 	}

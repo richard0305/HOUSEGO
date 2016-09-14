@@ -10,6 +10,7 @@ import com.dumu.housego.presenter.ErShouFangProgramaPresenter;
 import com.dumu.housego.presenter.ErShouFangRecommendPresenter;
 import com.dumu.housego.presenter.IFourDataProgramePresenter;
 import com.dumu.housego.presenter.IRecommendHousePresenter;
+import com.dumu.housego.util.FontHelper;
 import com.dumu.housego.view.IErShouFangRecommendView;
 
 import android.app.Activity;
@@ -49,6 +50,7 @@ public class ErShouFangMainActivity extends Activity implements IErShouFangRecom
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_er_shou_fang_main);
+		FontHelper.injectFont(findViewById(android.R.id.content));
 		setViews();
 		setListener();
 		

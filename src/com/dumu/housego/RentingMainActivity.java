@@ -7,6 +7,7 @@ import com.dumu.housego.entity.ErShouFangRecommendData;
 import com.dumu.housego.entity.FourDataPrograma;
 import com.dumu.housego.presenter.IFourDataProgramePresenter;
 import com.dumu.housego.presenter.RentingProgramaPresenter;
+import com.dumu.housego.util.FontHelper;
 import com.dumu.housego.util.ListViewForScrollView;
 import com.dumu.housego.view.IErShouFangRecommendView;
 import com.dumu.housego.view.IRentingProgramaView;
@@ -33,6 +34,7 @@ public class RentingMainActivity extends Activity implements IRentingProgramaVie
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_renting_main);
+		FontHelper.injectFont(findViewById(android.R.id.content));
 		setViews();
 		setListener();
 		

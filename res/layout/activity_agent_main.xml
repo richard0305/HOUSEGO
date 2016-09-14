@@ -2,7 +2,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#c9c9cb"
     tools:context="com.dumu.housego.AgentMainActivity"
     tools:ignore="TextFields,HardcodedText,RtlHardcoded,InefficientWeight,ContentDescription,LabelFor" >
 
@@ -92,6 +91,7 @@
         android:background="#c9c9cb" />
 
     <LinearLayout
+        android:id="@+id/ll_agent_spinner"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentLeft="true"
@@ -141,5 +141,12 @@
             android:paddingLeft="30dp"
             android:spinnerMode="dropdown" />
     </LinearLayout>
+    
+    <ListView 
+        android:id="@+id/lv_agent_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/ll_agent_spinner"
+        ></ListView>
 
 </RelativeLayout>

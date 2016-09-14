@@ -16,6 +16,7 @@ import com.dumu.housego.adapter.RecommendHouseAdapter;
 import com.dumu.housego.entity.RecommendNews;
 import com.dumu.housego.presenter.IRecommendHousePresenter;
 import com.dumu.housego.presenter.RecommendHousePresenter;
+import com.dumu.housego.util.FontHelper;
 import com.dumu.housego.view.IShopGuideView;
 
 import android.content.Intent;
@@ -62,6 +63,7 @@ public class FirstFramgent extends Fragment implements IShopGuideView {
 		setListener();
 		presenter = new RecommendHousePresenter(this);
 		presenter.LoadRecommend();
+		FontHelper.injectFont(view);
 		return view;
 	}
 

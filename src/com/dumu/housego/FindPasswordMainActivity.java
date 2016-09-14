@@ -4,6 +4,7 @@ import com.dumu.housego.presenter.FindPasswordCodePresenter;
 import com.dumu.housego.presenter.FindPasswordPresenter;
 import com.dumu.housego.presenter.IFindPasswordCodePresenter;
 import com.dumu.housego.presenter.IFindPasswordPresenter;
+import com.dumu.housego.util.FontHelper;
 import com.dumu.housego.view.IFindPasswordCodeView;
 import com.dumu.housego.view.IFindPasswordView;
 
@@ -37,6 +38,7 @@ public class FindPasswordMainActivity extends Activity implements IFindPasswordC
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_find_password_main);
+		FontHelper.injectFont(findViewById(android.R.id.content));
 		setViews();
 		setListener();
 		findcodepresenter=new FindPasswordCodePresenter(this);
@@ -78,12 +80,11 @@ public class FindPasswordMainActivity extends Activity implements IFindPasswordC
 		           
 		            String phonenum=etFindPhonenumb.getText().toString();
 					findcodepresenter.FindCode(phonenum);
-					
 					 changeBtnGetCode();
-			            
 			}
 		});
 	}
+	
 	
 	
 	protected void changeBtnGetCode() {

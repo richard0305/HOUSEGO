@@ -8,6 +8,7 @@ import com.dumu.housego.activity.LoginActivity;
 import com.dumu.housego.activity.MainActivity;
 import com.dumu.housego.app.HouseGoApp;
 import com.dumu.housego.entity.UserInfo;
+import com.dumu.housego.util.FontHelper;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -46,7 +47,7 @@ public class MyFramgent extends Fragment {
 		Glide.with(getContext()).load(imgurl).into(ivMyPic);
 		
 		}
-		
+		FontHelper.injectFont(view);
 		return view;
 	}
 

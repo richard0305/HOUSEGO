@@ -1,5 +1,7 @@
 package com.dumu.housego;
 
+import com.dumu.housego.util.FontHelper;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
@@ -15,7 +17,7 @@ public class WebErSshouFangMainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_web_er_sshou_fang_main);
-		
+		FontHelper.injectFont(findViewById(android.R.id.content));
 		webView = (WebView) findViewById(R.id.web_ershoufang);
 		 
 		 setwebView();

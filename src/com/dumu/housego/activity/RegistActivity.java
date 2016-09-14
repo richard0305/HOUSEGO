@@ -9,6 +9,7 @@ import com.dumu.housego.presenter.IPhoneCodePresenter;
 import com.dumu.housego.presenter.IRegistPresenter;
 import com.dumu.housego.presenter.PhoneCodePresenter;
 import com.dumu.housego.presenter.RegistPresenter;
+import com.dumu.housego.util.FontHelper;
 import com.dumu.housego.view.ICheckPhoneRegistView;
 import com.dumu.housego.view.IPhoneCodeView;
 import com.dumu.housego.view.IRegistView;
@@ -59,7 +60,7 @@ public class RegistActivity extends Activity implements IPhoneCodeView,IRegistVi
 		btnSendCode.setEnabled(false);
 		setOptains();
 		setListener();
-
+		FontHelper.injectFont(findViewById(android.R.id.content));
 	}
 
 	private void setListener() {

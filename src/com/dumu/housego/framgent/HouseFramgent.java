@@ -2,6 +2,7 @@ package com.dumu.housego.framgent;
 
 import com.dumu.housego.R;
 import com.dumu.housego.activity.LoginActivity;
+import com.dumu.housego.util.FontHelper;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,6 +21,7 @@ public class HouseFramgent extends Fragment {
 		View view=inflater.inflate(R.layout.framgent_house, null);
 		setViews(view);
 		setListener();
+		FontHelper.injectFont(view);
 		return view;
 	}
 

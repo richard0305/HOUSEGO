@@ -10,6 +10,7 @@ import com.dumu.housego.framgent.FirstFramgent;
 import com.dumu.housego.framgent.HouseFramgent;
 import com.dumu.housego.framgent.MessageFramgent;
 import com.dumu.housego.framgent.MyFramgent;
+import com.dumu.housego.util.FontHelper;
 import com.dumu.housego.util.utils;
 
 import android.app.Activity;
@@ -47,13 +48,12 @@ public class MainActivity extends FragmentActivity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		
 		setViews();
 		rbFrist.setTextColor(getResources().getColor(R.color.button_ckeck));
 		setViewPagerAdapter();
 		setListeners();
 		
-		
+		FontHelper.injectFont(findViewById(android.R.id.content));
 		
 	}
 

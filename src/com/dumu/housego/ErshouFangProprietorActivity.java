@@ -1,5 +1,7 @@
 package com.dumu.housego;
 
+import com.dumu.housego.util.FontHelper;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -14,6 +16,7 @@ public class ErshouFangProprietorActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_ershou_fang_proprietor);
+		FontHelper.injectFont(findViewById(android.R.id.content));
 		setViews();
 		setListeners();
 	}

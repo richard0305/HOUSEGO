@@ -8,6 +8,7 @@ import com.dumu.housego.entity.FourDataPrograma;
 import com.dumu.housego.presenter.BlockTradeProgramaPresenter;
 import com.dumu.housego.presenter.IFourDataProgramePresenter;
 import com.dumu.housego.presenter.IRecommendHousePresenter;
+import com.dumu.housego.util.FontHelper;
 import com.dumu.housego.view.IBlockTradeProgramaView;
 
 import android.app.Activity;
@@ -32,6 +33,7 @@ public class BlockTradeMainActivity extends Activity implements IBlockTradeProgr
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_block_trade_main);
+		FontHelper.injectFont(findViewById(android.R.id.content));
 		setViews();
 		setListener();
 		presenter=new BlockTradeProgramaPresenter(this);

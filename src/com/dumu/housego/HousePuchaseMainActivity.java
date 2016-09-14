@@ -1,5 +1,7 @@
 package com.dumu.housego;
 
+import com.dumu.housego.util.FontHelper;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +14,7 @@ public class HousePuchaseMainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_house_puchase_main);
+		FontHelper.injectFont(findViewById(android.R.id.content));
 	setViews();
 	setListener();
 	}

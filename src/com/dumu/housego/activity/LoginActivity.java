@@ -11,6 +11,7 @@ import com.dumu.housego.presenter.ILoginPresenter;
 import com.dumu.housego.presenter.ILoginUserInfoPresenter;
 import com.dumu.housego.presenter.LoginPresenter;
 import com.dumu.housego.presenter.LoginUserInfoPresenter;
+import com.dumu.housego.util.FontHelper;
 import com.dumu.housego.view.ILoginUserInfoView;
 import com.dumu.housego.view.ILoginView;
 
@@ -67,6 +68,7 @@ public class LoginActivity extends Activity implements ILoginView,ILoginUserInfo
 		setListener();
 		generalpresenter=new LoginPresenter(this);
 		userinfoPresenter=new LoginUserInfoPresenter(this);
+		FontHelper.injectFont(findViewById(android.R.id.content));
 	}
 
 	private void setListener() {
@@ -90,6 +92,7 @@ public class LoginActivity extends Activity implements ILoginView,ILoginUserInfo
 			
 			@Override
 			public void onClick(View v) {
+				startActivity(new Intent(LoginActivity.this, MainActivity.class));
 				finish();
 				
 			}

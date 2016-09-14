@@ -1,6 +1,7 @@
 package com.dumu.housego;
 
 import com.bumptech.glide.Glide;
+import com.dumu.housego.util.FontHelper;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -19,6 +20,7 @@ public class WapRecommedMainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_web_recommed_news_main);
+		FontHelper.injectFont(findViewById(android.R.id.content));
 		String url = getIntent().getStringExtra("url");
 		String title = getIntent().getStringExtra("title");
 		String content = getIntent().getStringExtra("content");

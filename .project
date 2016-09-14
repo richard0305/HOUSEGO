@@ -30,4 +30,10 @@
 		<nature>com.android.ide.eclipse.adt.AndroidNature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<variableList>
+		<variable>
+			<name>calligraphy</name>
+			<value>file:/C:/Users/Administrator/Desktop/calligraphy-2.2.0.aar</value>
+		</variable>
+	</variableList>
 </projectDescription>

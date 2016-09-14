@@ -12,6 +12,7 @@ import com.dumu.housego.model.IChangeHeadPhotoModel;
 import com.dumu.housego.presenter.ChangeHeadPhotoPresenter;
 import com.dumu.housego.presenter.IChangeHeadPhotoPresenter;
 import com.dumu.housego.util.CircleImageView;
+import com.dumu.housego.util.FontHelper;
 import com.dumu.housego.view.IChangeHeadPhotoView;
 
 import android.app.Activity;
@@ -47,6 +48,7 @@ public class PersonalMainActivity extends Activity implements IChangeHeadPhotoVi
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_personal_main);
+		FontHelper.injectFont(findViewById(android.R.id.content));
 		setViews();
 		setListeners();
 		
