@@ -34,6 +34,9 @@ public class CheckPhoneRegistModel implements ICheckPhoneRegistModel{
 					if (obj.getString("success")=="30") {
 						String info=obj.getString("info");
 						back.onSuccess(info);
+					}else{
+						String error=obj.getString("info");
+						back.onError(error);
 					}
 				} catch (JSONException e) {
 					e.printStackTrace();

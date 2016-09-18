@@ -66,7 +66,7 @@
             android:layout_marginLeft="10dp"
             android:gravity="center_vertical"
             android:text="标  题"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
 
         <EditText
             android:id="@+id/et_renting_proprietor_title"
@@ -79,7 +79,7 @@
             android:ems="10"
             android:gravity="center_vertical"
             android:hint="请输入标题"
-            android:textSize="16sp" >
+            android:textSize="14sp" >
         </EditText>
     </RelativeLayout>
 
@@ -97,7 +97,7 @@
             android:layout_marginLeft="10dp"
             android:gravity="center_vertical"
             android:text="房源地址"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
 
         <EditText
             android:id="@+id/et_renting_proprietor_address"
@@ -110,7 +110,7 @@
             android:ems="10"
             android:gravity="center_vertical"
             android:hint="请输入房源地址"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -129,7 +129,7 @@
             android:gravity="center_vertical"
             android:paddingLeft="10dp"
             android:text="房源区域"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
 
         <ImageView
             android:id="@+id/imageView3"
@@ -140,7 +140,7 @@
             android:layout_marginRight="15dp"
             android:src="@drawable/gray_right" />
 
-        <EditText
+        <TextView
             android:id="@+id/EditText01"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -150,8 +150,8 @@
             android:background="@null"
             android:ems="10"
             android:gravity="center_vertical"
-            android:hint="请选择"
-            android:textSize="16sp" />
+            android:text="请选择"
+            android:textSize="14sp" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -169,7 +169,7 @@
             android:gravity="center_vertical"
             android:paddingLeft="10dp"
             android:text="房  型"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
 
         <ImageView
             android:id="@+id/ImageView01"
@@ -180,7 +180,7 @@
             android:layout_marginRight="15dp"
             android:src="@drawable/gray_right" />
 
-        <EditText
+        <TextView
             android:id="@+id/EditText02"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -190,8 +190,8 @@
             android:background="@null"
             android:ems="10"
             android:gravity="center_vertical"
-            android:hint="请选择"
-            android:textSize="16sp" />
+            android:text="请选择"
+            android:textSize="14sp" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -210,7 +210,7 @@
             android:gravity="center_vertical"
             android:paddingLeft="10dp"
             android:text="出租方式"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
 
         <ImageView
             android:id="@+id/ImageView02"
@@ -221,7 +221,7 @@
             android:layout_marginRight="15dp"
             android:src="@drawable/gray_right" />
 
-        <EditText
+        <TextView
             android:id="@+id/EditText03"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -231,8 +231,8 @@
             android:background="@null"
             android:ems="10"
             android:gravity="center_vertical"
-            android:hint="请选择"
-            android:textSize="16sp" />
+            android:text="请选择"
+            android:textSize="14sp" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -250,7 +250,7 @@
             android:gravity="center_vertical"
             android:paddingLeft="10dp"
             android:text="支付方式"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
 
         <ImageView
             android:id="@+id/ImageView04"
@@ -261,7 +261,7 @@
             android:layout_marginRight="15dp"
             android:src="@drawable/gray_right" />
 
-        <EditText
+        <TextView
             android:id="@+id/EditText05"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -271,8 +271,8 @@
             android:background="@null"
             android:ems="10"
             android:gravity="center_vertical"
-            android:hint="请选择"
-            android:textSize="16sp" />
+            android:text="请选择"
+            android:textSize="14sp" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -290,7 +290,7 @@
             android:gravity="center_vertical"
             android:paddingLeft="10dp"
             android:text="装  修"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
 
         <ImageView
             android:id="@+id/ImageView05"
@@ -301,18 +301,20 @@
             android:layout_marginRight="15dp"
             android:src="@drawable/gray_right" />
 
-        <EditText
+        <TextView
             android:id="@+id/EditText06"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="27dp"
+            android:layout_alignTop="@+id/ImageView05"
+            android:layout_marginLeft="72dp"
+            android:layout_toRightOf="@+id/TextView06"
             android:background="@null"
             android:ems="10"
             android:gravity="center_vertical"
-            android:hint="请选择"
-            android:textSize="16sp" />
+            android:text="请选择"
+            android:textSize="14sp" />
+
+
     </RelativeLayout>
 
     <RelativeLayout
@@ -339,7 +341,7 @@
             android:background="@null"
             android:ems="10"
             android:gravity="center_vertical"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/TextView07"
@@ -351,7 +353,7 @@
             android:layout_marginLeft="10dp"
             android:gravity="center_vertical"
             android:text="期望酬金"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -367,7 +369,7 @@
             android:layout_marginLeft="10dp"
             android:gravity="center_vertical"
             android:text="是否隐藏手机号码"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
 
         <ImageView
             android:id="@+id/imageView2"
@@ -392,7 +394,7 @@
             android:layout_marginLeft="10dp"
             android:gravity="center_vertical"
             android:text="是否发布"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
 
         <ImageView
             android:id="@+id/imageView7"
@@ -417,7 +419,7 @@
             android:layout_marginLeft="10dp"
             android:gravity="center_vertical"
             android:text="委托经纪人/委托平台"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
 
         <ImageView
             android:id="@+id/imageView5"

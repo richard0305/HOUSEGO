@@ -32,30 +32,30 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class LoginActivity extends Activity implements ILoginView,ILoginUserInfoView{
+public class LoginActivity extends Activity implements ILoginView, ILoginUserInfoView {
 	private TextView tvCancle;
-	private TextView tvRegist,tvForgivepw;
-	private Button btnLogin,btnShortLoginSendCode;
+	private TextView tvRegist, tvForgivepw;
+	private Button btnLogin, btnShortLoginSendCode;
 	private ILoginPresenter generalpresenter;
-	
+
 	private EditText etGeneralUsername;
 	private EditText etGeneralPassword;
-	
+
 	private EditText etShortUsername;
 	private EditText etShortLoginSendCode;
-	
+
 	private User user;
 	private ILoginUserInfoPresenter userinfoPresenter;
-	
-	 Thread thread=null;
-	 private boolean tag=true;
-	    private int i=60;
-	    public boolean  isChange=false;
-	
-	 ViewPager pager = null;
-	 PagerTabStrip tabStrip = null;
-	 ArrayList<View> viewContainter = new ArrayList<View>();
-	 ArrayList<String> titleContainer = new ArrayList<String>();
+
+	Thread thread = null;
+	private boolean tag = true;
+	private int i = 60;
+	public boolean isChange = false;
+
+	ViewPager pager = null;
+	PagerTabStrip tabStrip = null;
+	ArrayList<View> viewContainter = new ArrayList<View>();
+	ArrayList<String> titleContainer = new ArrayList<String>();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -66,8 +66,8 @@ public class LoginActivity extends Activity implements ILoginView,ILoginUserInfo
 		setOptains();
 		setAdapter();
 		setListener();
-		generalpresenter=new LoginPresenter(this);
-		userinfoPresenter=new LoginUserInfoPresenter(this);
+		generalpresenter = new LoginPresenter(this);
+		userinfoPresenter = new LoginUserInfoPresenter(this);
 		FontHelper.injectFont(findViewById(android.R.id.content));
 	}
 
@@ -86,68 +86,64 @@ public class LoginActivity extends Activity implements ILoginView,ILoginUserInfo
 			}
 		});
 
-		
-		
 		tvCancle.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
-				startActivity(new Intent(LoginActivity.this, MainActivity.class));
+				// startActivity(new Intent(LoginActivity.this,
+				// MainActivity.class));
 				finish();
-				
+
 			}
 		});
-		
+
 		tvRegist.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				startActivity(new Intent(LoginActivity.this, RegistActivity.class));
-				
+
 			}
 		});
-		
+
 		tvForgivepw.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				startActivity(new Intent(LoginActivity.this, FindPasswordMainActivity.class));
-				
+
 			}
 		});
-		
-		
+
 		btnLogin.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
-				String Gphonenum=etGeneralUsername.getText().toString();
-				String password=etGeneralPassword.getText().toString();
+				String Gphonenum = etGeneralUsername.getText().toString();
+				String password = etGeneralPassword.getText().toString();
 				generalpresenter.login(Gphonenum, password);
-				
-				
+
 			}
 		});
-		
 
-		
 	}
 
 	private void setAdapter() {
 		pager.setAdapter(new PagerAdapter() {
 
-			//viewpager中的组件数量
+			// viewpager中的组件数量
 			@Override
 			public int getCount() {
 				return viewContainter.size();
 			}
-          //滑动切换的时候销毁当前的组件
+
+			// 滑动切换的时候销毁当前的组件
 			@Override
-			public void destroyItem(ViewGroup container, int position,
-					Object object) {
+			public void destroyItem(ViewGroup container, int position, Object object) {
 				((ViewPager) container).removeView(viewContainter.get(position));
 			}
-          //每次滑动的时候生成的组件
+
+			// 每次滑动的时候生成的组件
 			@Override
 			public Object instantiateItem(ViewGroup container, int position) {
 				((ViewPager) container).addView(viewContainter.get(position));
@@ -169,7 +165,7 @@ public class LoginActivity extends Activity implements ILoginView,ILoginUserInfo
 				return titleContainer.get(position);
 			}
 		});
-		
+
 	}
 
 	private void setOptains() {
@@ -180,14 +176,13 @@ public class LoginActivity extends Activity implements ILoginView,ILoginUserInfo
 		// 设置当前tab页签的下划线颜色
 		tabStrip.setTabIndicatorColor(getResources().getColor(R.color.tab_red));
 		tabStrip.setTextSpacing(100);
-		
-		
-		GradientDrawable dra=new GradientDrawable();
+
+		GradientDrawable dra = new GradientDrawable();
 		dra.setShape(GradientDrawable.RECTANGLE); // 画框
 		dra.setStroke(1, R.color.send_code_rectangle);
 		dra.setColor(getResources().getColor(R.color.send_code_back));
-//		btnLoginSendCode.setBackgroundDrawable(dra);
-		
+		// btnLoginSendCode.setBackgroundDrawable(dra);
+
 	}
 
 	private void setViews() {
@@ -195,19 +190,17 @@ public class LoginActivity extends Activity implements ILoginView,ILoginUserInfo
 		View shortcut = LayoutInflater.from(this).inflate(R.layout.login_shortcut, null);
 		pager = (ViewPager) this.findViewById(R.id.login_viewpager);
 		tabStrip = (PagerTabStrip) this.findViewById(R.id.login_tabstrip);
-		btnLogin=(Button) findViewById(R.id.btn_Login);
-		tvCancle=(TextView) findViewById(R.id.tv_cancle);
-		tvRegist=(TextView) findViewById(R.id.tv_regist);
-		btnShortLoginSendCode=(Button)shortcut.findViewById(R.id.btn_quicklogin_sendcode);
-		tvForgivepw=(TextView) findViewById(R.id.tv_forgivepw);
-		
+		btnLogin = (Button) findViewById(R.id.btn_Login);
+		tvCancle = (TextView) findViewById(R.id.tv_cancle);
+		tvRegist = (TextView) findViewById(R.id.tv_regist);
+		btnShortLoginSendCode = (Button) shortcut.findViewById(R.id.btn_quicklogin_sendcode);
+		tvForgivepw = (TextView) findViewById(R.id.tv_forgivepw);
 
-		
-		etGeneralUsername=(EditText) general.findViewById(R.id.et_genal_login_phonenumber);
-		etGeneralPassword=(EditText) general.findViewById(R.id.et_genal_login_lock);
-		
-		etShortUsername=(EditText) shortcut.findViewById(R.id.et_short_login_phonenumber);
-		etShortLoginSendCode=(EditText) shortcut.findViewById(R.id.et_short_login_lock_quick);
+		etGeneralUsername = (EditText) general.findViewById(R.id.et_genal_login_phonenumber);
+		etGeneralPassword = (EditText) general.findViewById(R.id.et_genal_login_lock);
+
+		etShortUsername = (EditText) shortcut.findViewById(R.id.et_short_login_phonenumber);
+		etShortLoginSendCode = (EditText) shortcut.findViewById(R.id.et_short_login_lock_quick);
 		viewContainter.add(general);
 		viewContainter.add(shortcut);
 		titleContainer.add("普通登录");
@@ -217,19 +210,17 @@ public class LoginActivity extends Activity implements ILoginView,ILoginUserInfo
 	@Override
 	public void loginFail(String errorMessage) {
 		Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_SHORT).show();
-		
+
 	}
 
 	@Override
 	public void loginSuccess() {
 		Toast.makeText(getApplicationContext(), "登陆成功", Toast.LENGTH_SHORT).show();
-		
-	
-		user=HouseGoApp.getContext().getCurrentUser();
-		String userid=user.getUserid();
+
+		user = HouseGoApp.getContext().getCurrentUser();
+		String userid = user.getUserid();
 		userinfoPresenter.login(userid);
-		
-		
+
 	}
 
 	@Override

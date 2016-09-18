@@ -23,5 +23,6 @@
     <string name="title_activity_ershou_fang_proprietor">ErshouFangProprietorActivity</string>
     <string name="title_activity_web_er_sshou_fang_main">WebErSshouFangMainActivity</string>
     <string name="title_activity_change_user_info">ChangeUserInfoActivity</string>
+    <string name="title_activity_my_renting_house">MyRentingHouseActivity</string>
 
 </resources>

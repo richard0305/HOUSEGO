@@ -15,9 +15,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 
 public class MessageFramgent extends Fragment {
-	private Button btnMessageNull;
+	private RelativeLayout rlMessageNo;
 	private UserInfo userinfo;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -32,7 +33,7 @@ public class MessageFramgent extends Fragment {
 		}else{
 			//登录后，检测用户是否有Message，没有则显示消息为空按钮
 			if(userinfo.getMessage()!="0"){
-				btnMessageNull.setVisibility(View.GONE);
+				rlMessageNo.setVisibility(View.VISIBLE);
 			}
 		}
 		
@@ -45,6 +46,6 @@ public class MessageFramgent extends Fragment {
 	}
 
 	private void setViews(View view) {
-		btnMessageNull=(Button) view.findViewById(R.id.btn_message_null);
+		rlMessageNo=(RelativeLayout) view.findViewById(R.id.rl_message_no);
 	}
 }

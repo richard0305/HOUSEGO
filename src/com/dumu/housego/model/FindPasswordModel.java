@@ -12,8 +12,11 @@ import com.android.volley.Response.ErrorListener;
 import com.android.volley.Response.Listener;
 import com.android.volley.VolleyError;
 import com.dumu.housego.app.HouseGoApp;
+import com.dumu.housego.entity.UserInfo;
 import com.dumu.housego.util.CommonRequest;
 import com.dumu.housego.util.UrlFactory;
+
+import android.util.Log;
 
 public class FindPasswordModel implements IFindPasswordModel{
 
@@ -31,7 +34,18 @@ public class FindPasswordModel implements IFindPasswordModel{
 					JSONObject obj = new JSONObject(response);
 					if (obj.getString("success")=="51") {
 						String info=obj.getString("info");
+						
+						UserInfo userinfo=HouseGoApp.getContext().getCurrentUserInfo();
+						userinfo.setPassword(password);
+						
+						HouseGoApp app=HouseGoApp.getContext();
+						app.SaveCurrentUserInfo(userinfo);
+						
+						Log.e("yanglijun", "<<<____+++++____>>>>>>"+info);
 						back.onSuccess(info);
+					}else{
+						String error=obj.getString("info");
+						back.onError(error);
 					}
 				} catch (JSONException e) {
 					e.printStackTrace();

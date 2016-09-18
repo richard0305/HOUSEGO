@@ -1,6 +1,7 @@
 package com.dumu.housego.framgent;
 
 import com.bumptech.glide.Glide;
+import com.dumu.housego.MyRentingHouseAgentActivity;
 import com.dumu.housego.MySettingMainActivity;
 import com.dumu.housego.PersonalMainActivity;
 import com.dumu.housego.R;
@@ -70,6 +71,16 @@ public class MyFramgent extends Fragment {
 			public void onClick(View v) {
 				Intent i3=new Intent(getActivity(), MySettingMainActivity.class);
 				startActivity(i3);
+				
+			}
+		});
+		
+		rlMyrenting.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent i4=new Intent(getActivity(), MyRentingHouseAgentActivity.class);
+				startActivity(i4);
 				
 			}
 		});
