@@ -67,5 +67,6 @@ public class HouseGoApp extends Application {
 		return this.userinfo;
 
 	}
+	
 
 }

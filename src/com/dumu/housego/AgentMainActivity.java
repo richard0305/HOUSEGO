@@ -30,10 +30,8 @@ public class AgentMainActivity extends Activity implements IAgentModelDataView{
 		setContentView(R.layout.activity_agent_main);
 		FontHelper.injectFont(findViewById(android.R.id.content));
 		presenter=new AgentModelDataPresenter(this);
-		String ct="南山区";
-		String page="1";
-		String bq="销售达人";
-		presenter.FindAgentModelData(ct, page, bq);
+		String catid="52";
+		presenter.FindAgentModelData(catid);
 		setViews();
 		setListener();
 		

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+     <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    <RelativeLayout
+        android:layout_margin="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+    <ImageView
+        android:id="@+id/iv_agentdata_pic"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/appicon80x80" />
+
+    <TextView
+        android:id="@+id/tv_agentdata_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/iv_agentdata_pic"
+        android:layout_marginLeft="15dp"
+        android:paddingTop="3dp"
+        android:layout_toRightOf="@+id/iv_agentdata_pic"
+        android:text="xiumin55" />
+
+    <TextView
+        android:id="@+id/tv_agentdata_level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tv_agentdata_name"
+        android:layout_alignBottom="@+id/tv_agentdata_name"
+        android:layout_marginLeft="15dp"
+        android:textColor="#ff0000"
+        android:layout_toRightOf="@+id/tv_agentdata_name"
+        android:text="高级经纪人" />
+
+    <TextView
+        android:id="@+id/tv_agentdata_mainarea"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#969696"
+        android:layout_marginTop="3dp"
+        android:layout_alignLeft="@+id/tv_agentdata_name"
+        android:layout_below="@+id/tv_agentdata_name"
+        android:textSize="12sp"
+        android:text="东莞,惠州" />
+
+    <TextView
+        android:id="@+id/tv_agentdata_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:textColor="#969696"
+        android:layout_marginTop="3dp"
+        android:layout_alignLeft="@+id/tv_agentdata_mainarea"
+        android:layout_below="@+id/tv_agentdata_mainarea"
+        android:text="电话：" />
+
+    <TextView
+        android:id="@+id/tv_agentdata_phone1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:layout_alignBaseline="@+id/tv_agentdata_phone"
+        android:layout_alignBottom="@+id/tv_agentdata_phone"
+        android:layout_toRightOf="@+id/tv_agentdata_phone"
+        android:text="4008560008-20002" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tv_agentdata_mainarea"
+        android:layout_alignBottom="@+id/tv_agentdata_mainarea"
+        android:layout_marginRight="20dp"
+        android:layout_alignParentRight="true" >
+
+        <TextView
+            android:id="@+id/tv_agentdata_point"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView1"
+            android:layout_toRightOf="@+id/textView1"
+            android:text="89%"
+            android:textColor="#ff0000"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="好评率:"
+            android:textColor="#969696"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_agentdata_biaoqian"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/iv_agentdata_pic"
+        android:layout_alignLeft="@+id/tv_agentdata_phone"
+        android:text="客户热评"
+        android:paddingBottom="3dp"
+        android:textSize="12sp" />
+	</RelativeLayout>
+	</RelativeLayout>
+</RelativeLayout>

@@ -27,6 +27,12 @@ public class MessageFramgent extends Fragment {
 		setViews(view);
 		setListener();
 		
+		FontHelper.injectFont(view);
+		return view;
+	}
+	
+	@Override
+	public void onResume() {
 		//判断是否登录，没有登录，跳转到登录界面
 		userinfo=HouseGoApp.getContext().getCurrentUserInfo();
 		if(userinfo==null){
@@ -36,10 +42,9 @@ public class MessageFramgent extends Fragment {
 				rlMessageNo.setVisibility(View.VISIBLE);
 			}
 		}
-		
-		FontHelper.injectFont(view);
-		return view;
+		super.onResume();
 	}
+	
 	
 	private void setListener() {
 		

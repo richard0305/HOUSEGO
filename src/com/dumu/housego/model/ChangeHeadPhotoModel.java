@@ -48,6 +48,7 @@ public class ChangeHeadPhotoModel implements IChangeHeadPhotoModel {
 						HouseGoApp app=HouseGoApp.getContext();
 						app.SaveCurrentUserInfo(userinfo);
 						
+						
 					} 
 				} catch (JSONException e) {
 					e.printStackTrace();
@@ -71,6 +72,8 @@ public class ChangeHeadPhotoModel implements IChangeHeadPhotoModel {
                 bitmap.compress(CompressFormat.PNG, 100, baos);  
                 byte[] appicon = baos.toByteArray();// 转为byte数组  
                 String avatar=Base64.encodeToString(appicon, Base64.DEFAULT);
+                
+                
 				params.put("userid", userid);
 				params.put("__avatar1", avatar);
 				return params;

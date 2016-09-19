@@ -40,17 +40,32 @@ public class MyFramgent extends Fragment {
 		setViews(view);
 		setListener();
 		
-		userinfo=HouseGoApp.getContext().getCurrentUserInfo();
-		if(userinfo!=null){
-			Log.i("yanglijun", "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"+userinfo.toString());
-		tvLoginRegist.setText(userinfo.getNickname()+"");
-		String imgurl=userinfo.getUserpic();
-		Glide.with(getContext()).load(imgurl).into(ivMyPic);
+
 		
-		}
 		FontHelper.injectFont(view);
 		return view;
 	}
+	
+	@Override
+	public void onResume() {
+		
+		userinfo=HouseGoApp.getContext().getCurrentUserInfo();
+		if(userinfo!=null){
+		tvLoginRegist.setText(userinfo.getNickname()+"");
+		String imgurl=userinfo.getUserpic();
+		Glide.with(getContext()).load(imgurl).into(ivMyPic);
+		tvLoginRegist.setClickable(false);
+		ivMyPic.setClickable(true);
+		}else{
+			ivMyPic.setClickable(false);
+			tvLoginRegist.setClickable(true);
+		}
+		
+		super.onResume();
+	}
+	
+	
+	
 
 	private void setListener() {
 	
@@ -82,6 +97,14 @@ public class MyFramgent extends Fragment {
 				Intent i4=new Intent(getActivity(), MyRentingHouseAgentActivity.class);
 				startActivity(i4);
 				
+			}
+		});
+		
+		tvLoginRegist.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+					startActivity(new Intent(getContext(), LoginActivity.class));
 			}
 		});
 		

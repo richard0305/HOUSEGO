@@ -41,7 +41,7 @@ public class PersonalMainActivity extends Activity implements IChangeHeadPhotoVi
 	private UserInfo userinfo;
 	private CircleImageView ivPersonalPhoto;
 	private Bitmap head;//头像Bitmap
-    private static String path="/sdcard/myHead/";//sd路径
+    private static String path="/sdcard/HouseGo/";//sd路径
     private IChangeHeadPhotoPresenter headpresenter;
     
 	@Override
@@ -51,6 +51,15 @@ public class PersonalMainActivity extends Activity implements IChangeHeadPhotoVi
 		FontHelper.injectFont(findViewById(android.R.id.content));
 		setViews();
 		setListeners();
+		
+		headpresenter=new ChangeHeadPhotoPresenter(this);
+		
+		
+	}
+	
+	
+	@Override
+	protected void onResume() {
 		
 		userinfo=HouseGoApp.getContext().getCurrentUserInfo();
 		if(userinfo==null){
@@ -62,12 +71,10 @@ public class PersonalMainActivity extends Activity implements IChangeHeadPhotoVi
 			tvPersonalNickname.setText(userinfo.getNickname());
 			tvPersonalPhone.setText(userinfo.getUsername());
 		}
-		
-		
-		headpresenter=new ChangeHeadPhotoPresenter(this);
-		
-		
+		super.onResume();
 	}
+	
+	
 
 	private void setListeners() {
 		llPersonalBack.setOnClickListener(new OnClickListener() {
@@ -178,7 +185,8 @@ public class PersonalMainActivity extends Activity implements IChangeHeadPhotoVi
 	        case 3:
 	            if (data != null) {
 	                Bundle extras = data.getExtras();
-	                head = extras.getParcelable("data");
+	                head = 
+	                		extras.getParcelable("data");
 	                if(head!=null){
 	                    /**
 	                     * 上传服务器代码
@@ -188,7 +196,10 @@ public class PersonalMainActivity extends Activity implements IChangeHeadPhotoVi
 	                	
 	                	
 	                    setPicToView(head);//保存在SD卡中
-	                    ivPersonalPhoto.setImageBitmap(head);//用ImageView显示出来
+	                	UserInfo userinfo1 = HouseGoApp.getContext().getCurrentUserInfo();
+	                	String url1=userinfo.getUserpic();
+	        			Glide.with(getApplicationContext()).load(url1).into(ivPersonalPhoto);
+//	                    ivPersonalPhoto.setImageBitmap(head);//用ImageView显示出来
 	                }
 	            }
 	            break;

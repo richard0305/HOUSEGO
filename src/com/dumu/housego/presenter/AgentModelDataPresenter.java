@@ -22,8 +22,8 @@ public class AgentModelDataPresenter implements IAgentModelDataPresenter{
 	}
 
 	@Override
-	public void FindAgentModelData(String ct, String page, String bp) {
-		model.FindAgentModelData(ct, page, bp, new AsycnCallBack() {
+	public void FindAgentModelData(String catid) {
+		model.FindAgentModelData(catid, new AsycnCallBack() {
 			
 			@Override
 			public void onSuccess(Object success) {

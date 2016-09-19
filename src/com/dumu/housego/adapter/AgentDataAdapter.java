@@ -49,43 +49,43 @@ public class AgentDataAdapter extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		ViewHolder holder;
 		if(convertView==null){
-			convertView=Inflater.inflate(R.layout.item_ershoufang_recommend, null);
+			convertView=Inflater.inflate(R.layout.item_agent_data_list, null);
 			holder = new ViewHolder();
-			holder.ivImg=(ImageView) convertView.findViewById(R.id.iv_ershoufang_img);
-			holder.tvAddress=(TextView) convertView.findViewById(R.id.tv_ershoufang_address);
-			holder.tvArea=(TextView) convertView.findViewById(R.id.tv_ershoufang_price_area);
-			holder.tvMeterPrice=(TextView) convertView.findViewById(R.id.tv_ershoufang_price_meter);
-			holder.tvPrice=(TextView) convertView.findViewById(R.id.tv_ershoufang_totalprice);
-			holder.tvTitle=(TextView) convertView.findViewById(R.id.tv_ershoufang_title);
+			holder.ivAgentdataPic=(ImageView) convertView.findViewById(R.id.iv_agentdata_pic);
+			holder.tvAgentdataBiaoqian=(TextView) convertView.findViewById(R.id.tv_agentdata_biaoqian);
+			holder.tvAgentdataLevel=(TextView) convertView.findViewById(R.id.tv_agentdata_level);
+			holder.tvAgentdataMainarea=(TextView) convertView.findViewById(R.id.tv_agentdata_mainarea);
+			holder.tvAgentdataName=(TextView) convertView.findViewById(R.id.tv_agentdata_name);
+			holder.tvAgentdataPhone1=(TextView) convertView.findViewById(R.id.tv_agentdata_phone1);
+			holder.tvAgentdataPoint=(TextView) convertView.findViewById(R.id.tv_agentdata_point);
+			
+		
 			convertView.setTag(holder);
 		}else{
 			holder = (ViewHolder) convertView.getTag();
 		}
 		AgentData n=getItem(position);
-//		
-//		String url=;
-//		Glide.with(context).load(url).into(holder.ivImg);
+			String url=n.getUserpic();
+		Glide.with(context).load(url).into(holder.ivAgentdataPic);
 		
-//		holder.tvTitle.setText(n.getTitle()+"");
-//		holder.tvPrice.setText(n.getZongjia()+"");
-//		holder.tvAddress.setText(n.getProvince_name()+" "+n.getCity_name()+" "+n.getArea_name());
-		
-//	 String price=(n.getZongjia())*(10000)/n.getJianzhumianji();
-	 
-	 
-	 
-//		holder.tvMeterPrice.setText(n.getZongjia()*(10000)/n.getJianzhumianji()+"");
+		holder.tvAgentdataBiaoqian.setText(n.getBiaoqian());
+		holder.tvAgentdataLevel.setText(n.getDengji());
+		holder.tvAgentdataMainarea.setText(n.getMainarea());
+		holder.tvAgentdataName.setText(n.getRealname());
+		holder.tvAgentdataPhone1.setText(n.getCtel());
+		holder.tvAgentdataPoint.setText("98");
 		
 		
 		return convertView;
 	}
 	
 	class ViewHolder {
-		TextView tvTitle;
-		TextView tvArea;
-		TextView tvPrice;
-		TextView tvAddress;
-		TextView tvMeterPrice;
-		ImageView ivImg;
+		TextView tvAgentdataPoint;
+		TextView tvAgentdataBiaoqian;
+		TextView tvAgentdataPhone1;
+		TextView tvAgentdataMainarea;
+		TextView tvAgentdataLevel;
+		TextView tvAgentdataName;
+		ImageView ivAgentdataPic;
 	}
 }

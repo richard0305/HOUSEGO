@@ -15,6 +15,7 @@ import com.android.volley.Response.Listener;
 import com.android.volley.VolleyError;
 import com.dumu.housego.app.HouseGoApp;
 import com.dumu.housego.entity.AgentData;
+import com.dumu.housego.util.AgentDataListJSONParse;
 import com.dumu.housego.util.CommonRequest;
 import com.dumu.housego.util.UrlFactory;
 
@@ -28,7 +29,7 @@ public class AgentModelDataModel implements IAgentModelDataModel {
 	}
 
 	@Override
-	public void FindAgentModelData(final String ct,final String page,final String bq, final AsycnCallBack back) {
+	public void FindAgentModelData(final String catid, final AsycnCallBack back) {
 		String url=UrlFactory.PostAgentmodelUrl();
 		CommonRequest request=new CommonRequest(Request.Method.POST, url,new Listener<String>() {
 
@@ -37,11 +38,14 @@ public class AgentModelDataModel implements IAgentModelDataModel {
 				
 				
 				try {
-					JSONArray array = new JSONArray(response); 
+					agentdatas=AgentDataListJSONParse.parseSearch(response);
 					
-					Log.i("yanglijun", "<<<<>>>>___<<<<>>>>response"+array);
+					Log.i("yanglijun", "<<<<>>>>___<<<<>>>>-----array"+agentdatas);
 					
-					back.onSuccess(array);
+					
+					
+					
+					back.onSuccess(agentdatas);
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
@@ -59,9 +63,7 @@ public class AgentModelDataModel implements IAgentModelDataModel {
 			@Override
 			protected Map<String, String> getParams() throws AuthFailureError {
 				Map<String, String> params = new HashMap<String, String>();
-				params.put("ct", ct);
-				params.put("page", page);
-				params.put("bq", bq);
+				params.put("catid", catid);
 				return params;
 			}
 		};
