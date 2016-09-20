@@ -26,7 +26,7 @@ public class MessageFramgent extends Fragment {
 		
 		setViews(view);
 		setListener();
-		
+	
 		FontHelper.injectFont(view);
 		return view;
 	}

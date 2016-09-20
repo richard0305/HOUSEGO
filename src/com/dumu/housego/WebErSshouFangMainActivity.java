@@ -17,7 +17,6 @@ public class WebErSshouFangMainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_web_er_sshou_fang_main);
-		FontHelper.injectFont(findViewById(android.R.id.content));
 		webView = (WebView) findViewById(R.id.web_ershoufang);
 		 
 		 setwebView();
@@ -33,18 +32,6 @@ public class WebErSshouFangMainActivity extends Activity {
 			
 			
 			Log.i("yanglijun","---------------------------------------"+ url);
-//			String urlx=url.replaceAll("&amp;", "&");
-//			Log.i("yanglijun","==========================================="+ urlx);
-			
-			
-			
-			
-//			String llurl="http://www.taoshenfang.com/index.php?a=shows&catid=6&id=4.html";
-		
-			// 加载网页
-			
-			
-//			Log.i("yanglijun", "+++++++++++++++++++++++++++++++++++"+urlx);
 			webView.loadUrl(url);
 			// 单击超链接，启动系统的浏览器
 			// 解决方法 new webViewClient

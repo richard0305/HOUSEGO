@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <Button
+        android:id="@+id/btn_house_histroy_Login"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="184dp"
+        android:background="#EE3A43"
+        android:text="立即登录"
+        android:textColor="#ffffff"
+        android:textSize="14sp" />
+
+</RelativeLayout>

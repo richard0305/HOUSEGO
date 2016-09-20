@@ -1,19 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    tools:ignore="ObsoleteLayoutParam,HardcodedText,ButtonStyle,UselessParent" >
 
-    <Button
-        android:id="@+id/btn_house_login"
-        android:layout_width="200dp"
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="165dp"
-        android:gravity="center"
-        android:background="#ee3a43"
-        android:text="立即登录"
-        android:textSize="16sp" />
+        android:layout_alignParentTop="true"
+        android:background="#ffffff" >
+
+        <LinearLayout
+            android:id="@+id/ll_contorl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+  
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/tv_look_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:padding="5dp"
+                android:text="看房日程"
+                android:background="@drawable/selector_house_date"
+                android:textColor="#EE3A43"
+                android:textSize="12sp" />
+
+            <Button
+                 android:id="@+id/tv_look_histroy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                 android:background="@drawable/selector_house_histroy"
+                android:padding="5dp"
+                android:text="看房日记"
+                android:textColor="#EE3A43"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </RelativeLayout>
+    
+    <com.dumu.housego.util.NoScrollViewPager
+        android:id="@+id/house_viewpage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rl_title" >
+        
+    </com.dumu.housego.util.NoScrollViewPager>
 
 </RelativeLayout>

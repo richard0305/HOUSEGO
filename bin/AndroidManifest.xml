@@ -89,57 +89,62 @@
         </activity>
         <activity
             android:name=".WapRecommedMainActivity"
-            android:windowSoftInputMode="stateHidden"
             android:label="@string/title_activity_web_recommed_news_main"
-            android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".MySettingMainActivity"
-            android:windowSoftInputMode="stateHidden"
             android:label="@string/title_activity_my_setting_main"
-            android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".PersonalMainActivity"
-            android:windowSoftInputMode="stateHidden"
             android:label="@string/title_activity_personal_main"
-            android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".FindPasswordMainActivity"
-            android:windowSoftInputMode="stateHidden"
             android:label="@string/title_activity_find_password_main"
-            android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".RentingProprietorActivity"
-            android:windowSoftInputMode="stateHidden"
             android:label="@string/title_activity_renting_proprietor"
-            android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".ErshouFangProprietorActivity"
-            android:windowSoftInputMode="stateHidden"
             android:label="@string/title_activity_ershou_fang_proprietor"
-            android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".WebErSshouFangMainActivity"
-            android:windowSoftInputMode="stateHidden"
             android:label="@string/title_activity_web_er_sshou_fang_main"
-            android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".ChangeUserInfoActivity"
-            android:windowSoftInputMode="stateHidden"
             android:label="@string/title_activity_change_user_info"
-            android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".MyRentingHouseAgentActivity"
-            android:windowSoftInputMode="stateHidden"
-            android:theme="@android:style/Theme.Holo.Light.NoActionBar" 
-            android:label="@string/title_activity_my_renting_house" >
+            android:label="@string/title_activity_my_renting_house"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
+        <activity
+            android:name=".WebHousePriceDetailActivity"
+             android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+            android:label="@string/title_activity_web_house_price_detail" >
         </activity>
     </application>
 

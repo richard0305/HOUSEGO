@@ -11,12 +11,7 @@ import com.dumu.housego.framgent.HouseFramgent;
 import com.dumu.housego.framgent.MessageFramgent;
 import com.dumu.housego.framgent.MyFramgent;
 import com.dumu.housego.util.FontHelper;
-import com.dumu.housego.util.utils;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -26,7 +21,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
-import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
@@ -106,7 +100,7 @@ public class MainActivity extends FragmentActivity{
 					//判断是否登录，没有登录，跳转到登录界面
 					userinfo=HouseGoApp.getContext().getCurrentUserInfo();
 					if(userinfo==null){
-						startActivity(new Intent(MainActivity.this, LoginActivity.class));
+						startActivity(new Intent(getApplicationContext(), LoginActivity.class));
 					}
 					
 					

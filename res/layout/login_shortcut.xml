@@ -55,7 +55,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="20dp"
-            android:background="#c9c9cb"
+            android:background="@drawable/shap_code_button"
             android:text="发送验证码"
             android:textSize="14sp" />
 

@@ -58,7 +58,7 @@ public class RegistActivity extends Activity implements IPhoneCodeView,IRegistVi
 		setViews();
 		btnRegist.setEnabled(false);
 		btnSendCode.setEnabled(false);
-		setOptains();
+		
 		setListener();
 		FontHelper.injectFont(findViewById(android.R.id.content));
 	}
@@ -182,17 +182,7 @@ public class RegistActivity extends Activity implements IPhoneCodeView,IRegistVi
 
 	
 
-	private void setOptains() {
-		/*
-		 * 给 button 添加边框及底色
-		 */
-		GradientDrawable drawable = new GradientDrawable();
-		drawable.setShape(GradientDrawable.RECTANGLE); // 画框
-		drawable.setStroke(1, R.color.send_code_rectangle);
-		drawable.setColor(getResources().getColor(R.color.send_code_back));
-		btnSendCode.setBackgroundDrawable(drawable);
 
-	}
 
 	private void setViews() {
 		btnSendCode = (Button) findViewById(R.id.btn_sendcode);

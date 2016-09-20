@@ -12,6 +12,7 @@ import com.dumu.housego.ProprietorMainActivity;
 import com.dumu.housego.R;
 import com.dumu.housego.RentingMainActivity;
 import com.dumu.housego.WapRecommedMainActivity;
+import com.dumu.housego.WebHousePriceDetailActivity;
 import com.dumu.housego.adapter.RecommendHouseAdapter;
 import com.dumu.housego.entity.RecommendNews;
 import com.dumu.housego.presenter.IRecommendHousePresenter;
@@ -55,7 +56,6 @@ public class FirstFramgent extends Fragment implements IShopGuideView {
 	private TextView tvMonthNumber, tvPriceNumber, tvHouseNumber;
 	private LinearLayout llSearch;
 	private ScrollView scrollview;
-	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.framgent_first, null);
@@ -152,6 +152,16 @@ public class FirstFramgent extends Fragment implements IShopGuideView {
 				i.putExtra("url", url);
 				i.putExtra("title", title);
 				startActivity(i);
+			}
+		});
+		
+		
+		rlHouseDetails.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				startActivity(new Intent(getActivity(), WebHousePriceDetailActivity.class));
+				
 			}
 		});
 

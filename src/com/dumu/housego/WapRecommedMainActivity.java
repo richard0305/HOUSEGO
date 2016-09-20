@@ -19,7 +19,7 @@ public class WapRecommedMainActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_web_recommed_news_main);
+		setContentView(R.layout.activity_recommend_newsl);
 		FontHelper.injectFont(findViewById(android.R.id.content));
 		String url = getIntent().getStringExtra("url");
 		String title = getIntent().getStringExtra("title");

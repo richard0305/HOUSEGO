@@ -90,8 +90,8 @@ public class LoginActivity extends Activity implements ILoginView, ILoginUserInf
 
 			@Override
 			public void onClick(View v) {
-				// startActivity(new Intent(LoginActivity.this,
-				// MainActivity.class));
+//				 startActivity(new Intent(LoginActivity.this,
+//				 MainActivity.class));
 				finish();
 
 			}

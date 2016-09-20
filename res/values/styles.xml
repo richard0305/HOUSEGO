@@ -1,4 +1,6 @@
 <resources>
+    
+    
     <!-- 新房button文字字样 -->
     
     <color name="newhousebuttoncheck">#ff0000</color>
