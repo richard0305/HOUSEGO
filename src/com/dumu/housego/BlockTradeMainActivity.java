@@ -61,14 +61,16 @@ public class BlockTradeMainActivity extends Activity implements IBlockTradeProgr
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View view, int position, long id) {
 				
-				Intent i = new Intent(BlockTradeMainActivity.this, WebErSshouFangMainActivity.class);
+				Intent i = new Intent(BlockTradeMainActivity.this, BlockTradeDetailActivity.class);
 				String Id=blocktrades.get(position).getId();
 				String catid=blocktrades.get(position).getCatid();
 				String posid=blocktrades.get(position).getPosid();
 				
 				Log.i("yanglijun", ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"+Id+catid+posid);
-				String url = blocktrades.get(position).getUrl();
-				i.putExtra("url", url);
+//				String url = blocktrades.get(position).getUrl();
+				i.putExtra("id", Id);
+				i.putExtra("catid", catid);
+				i.putExtra("posid", posid);
 				startActivity(i);
 			}
 		});

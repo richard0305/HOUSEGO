@@ -1,0 +1,388 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.dumu.housego.BlockTradeDetailActivity"
+    tools:ignore="HardcodedText,RtlHardcoded,ContentDescription,UselessParent" >
+
+<RelativeLayout
+        android:id="@+id/rl_block_trade_title"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#e12442" >
+
+        <ImageView
+            android:id="@+id/iv_block_trade_detail_MsM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="16dp"
+            android:src="@drawable/msg_white_40x31" />
+
+        <LinearLayout
+            android:id="@+id/ll_block_trade_detail_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10dp"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:src="@drawable/white_left" />
+            
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_block_trade_detail_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:textColor="#ffffff"
+            android:text="三科麓湾" />
+
+    </RelativeLayout>	
+    
+
+	   <com.dumu.housego.util.MyReboundScrollView
+        android:layout_below="@+id/rl_block_trade_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+            
+            <!-- 框內內容，scrollView -->
+            
+            <RelativeLayout 
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <TextView
+                    android:id="@+id/tv_block_trade_detail_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:text="城建仁山智水花园" />
+
+                
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/tv_block_trade_detail_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_below="@+id/tv_block_trade_detail_content"
+                    android:textSize="12sp"
+                    android:text="勾地需付款:" />
+
+                <TextView
+                    android:id="@+id/TextView01"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/textView2"
+                    android:layout_below="@+id/textView2"
+                    android:layout_marginTop="10dp"
+                    android:text="更新时间:"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tv_block_trade_detail_goudi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/textView2"
+                    android:textSize="12sp"
+                    android:layout_toRightOf="@+id/textView2"
+                    android:text="0.01元" />
+
+                <TextView
+                    android:id="@+id/tv_block_trade_detail_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/TextView01"
+                    android:layout_alignBottom="@+id/TextView01"
+                    android:layout_toRightOf="@+id/TextView01"
+                    android:layout_marginTop="10dp"
+                    android:textSize="12sp"
+                    android:text="2016-09-21" />
+
+                <TextView
+                    android:id="@+id/tv_block_trade_detail_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/tv_block_trade_detail_date"
+                    android:layout_alignBottom="@+id/tv_block_trade_detail_date"
+                    android:layout_alignRight="@+id/textView5"
+                    android:textSize="12sp"
+                    android:text="400-8888-8888" />
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="30dp"
+                    android:layout_height="15dp"
+                    android:layout_above="@+id/tv_block_trade_detail_date"
+                    android:layout_alignParentRight="true"
+                    android:background="#E12442"
+                    android:gravity="center"
+                    android:layout_marginRight="10dp"
+                    android:text="勾地"
+                    android:textColor="#ffffff"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/tv_block_trade_detail_phone"
+                    android:layout_toLeftOf="@+id/tv_block_trade_detail_phone"
+                    android:textSize="12sp"
+                    android:text="电话:" />
+                
+            </RelativeLayout>
+            
+            <Button 
+               android:layout_width="match_parent"
+               android:layout_marginTop="10dp"
+               android:background="#c9c9cb"
+               android:layout_height="10dp"
+               />
+            
+            <TextView 
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="基本信息"
+               android:layout_margin="10dp"
+               android:textSize="13sp"
+               android:textColor="#000000"/>
+            <Button 
+               android:layout_width="match_parent"
+               android:background="#c9c9cb"
+               android:layout_height="1dp"
+               />
+            
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:text="所在地区:"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/textView1"
+                    android:layout_below="@+id/textView1"
+                    android:layout_marginTop="10dp"
+                    android:text="合作方式:"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/textView3"
+                    android:layout_below="@+id/textView3"
+                    android:layout_marginTop="10dp"
+                    android:text="物业类型:"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/textView4"
+                    android:layout_below="@+id/textView4"
+                    android:layout_marginTop="10dp"
+                    android:text="联系人:"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/textView7"
+                    android:layout_below="@+id/textView7"
+                    android:layout_marginTop="10dp"
+                    android:text="位置:"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tv_block_trade_detail_area"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/textView3"
+                    android:layout_toRightOf="@+id/textView1"
+                    android:text="光明新区 光明"
+                    android:textColor="#000000"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tv_block_trade_detail_hezuofangshi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/textView4"
+                    android:layout_alignLeft="@+id/tv_block_trade_detail_area"
+                    android:text="整体转让"
+                    android:textColor="#000000"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tv_block_trade_detail_wuyeleixing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/textView4"
+                    android:layout_alignBottom="@+id/textView4"
+                    android:layout_toRightOf="@+id/textView4"
+                    android:text="商业用房"
+                    android:textColor="#000000"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tv_block_trade_detail_lianxiren"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/textView7"
+                    android:layout_alignBottom="@+id/textView7"
+                    android:layout_toRightOf="@+id/textView7"
+                    android:text="sd"
+                    android:textColor="#000000"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tv_block_trade_detail_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/textView8"
+                    android:layout_alignBottom="@+id/textView8"
+                    android:layout_toRightOf="@+id/textView8"
+                    android:text="葵涌街道喜用高速出口"
+                    android:textColor="#000000"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/TextView03"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/tv_block_trade_detail_area"
+                    android:layout_alignBottom="@+id/tv_block_trade_detail_area"
+                    android:layout_marginLeft="19dp"
+                    android:layout_toRightOf="@+id/tv_block_trade_detail_address"
+                    android:text="预算金额:"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/TextView04"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/tv_block_trade_detail_hezuofangshi"
+                    android:layout_alignBottom="@+id/tv_block_trade_detail_hezuofangshi"
+                    android:layout_alignLeft="@+id/TextView03"
+                    android:text="使用年限:"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/TextView05"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/tv_block_trade_detail_wuyeleixing"
+                    android:layout_alignBottom="@+id/tv_block_trade_detail_wuyeleixing"
+                    android:layout_alignLeft="@+id/TextView04"
+                    android:text="建筑面积:"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tv_block_trade_detail_jianzhumianji"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/TextView05"
+                    android:layout_alignBottom="@+id/TextView05"
+                    android:layout_toRightOf="@+id/TextView05"
+                    android:text="200㎡"
+                    android:textColor="#000000"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tv_block_trade_detail_shiyongnianxian"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/TextView04"
+                    android:layout_alignBottom="@+id/TextView04"
+                    android:layout_toRightOf="@+id/TextView04"
+                    android:text="30年"
+                    android:textColor="#000000"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tv_block_trade_detail_yusuanjine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/TextView03"
+                    android:layout_alignBottom="@+id/TextView03"
+                    android:layout_toRightOf="@+id/TextView03"
+                    android:text="400万"
+                    android:textColor="#000000"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+            
+            <Button 
+               android:layout_width="match_parent"
+               android:layout_marginTop="10dp"
+               android:background="#c9c9cb"
+               android:layout_height="10dp"
+               />
+            <TextView 
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="详细介绍"
+               android:layout_margin="10dp"
+               android:textSize="13sp"
+               android:textColor="#000000"/>
+            <Button 
+               android:layout_width="match_parent"
+               android:background="#c9c9cb"
+               android:layout_height="1dp"
+               />
+            
+            <TextView 
+                android:id="@+id/tv_block_trade_detail_xiangxijieshao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="三科麓湾目前在售178-215平联排和276平双拼别墅"
+                android:padding="10dp"
+                android:textSize="12sp"
+                />
+            
+             <Button 
+               android:layout_width="match_parent"
+               android:background="#ffffff"
+               android:layout_height="10dp"
+               />
+            
+            
+            
+            
+            
+            <!-- 框內內容，scrollView -->
+            
+	       </LinearLayout>
+  </com.dumu.housego.util.MyReboundScrollView>
+
+</RelativeLayout>

@@ -1,6 +1,8 @@
 package com.dumu.housego.entity;
 
-public class BlockTradeList {
+import java.io.Serializable;
+
+public class BlockTradeList implements Serializable{
 	 private String id;
 	 private String catid;
 	 private String posid;

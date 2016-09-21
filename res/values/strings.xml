@@ -25,5 +25,6 @@
     <string name="title_activity_change_user_info">ChangeUserInfoActivity</string>
     <string name="title_activity_my_renting_house">MyRentingHouseActivity</string>
     <string name="title_activity_web_house_price_detail">WebHousePriceDetailActivity</string>
+    <string name="title_activity_er_shou_fang_details">ErShouFangDetailsActivity</string>
 
 </resources>

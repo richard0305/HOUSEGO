@@ -91,15 +91,15 @@ public class ErShouFangMainActivity extends Activity implements IErShouFangRecom
 			// @Override
 			public void onItemClick(AdapterView<?> arg0, View view, int position, long id) {
 				//
-				// Intent i = new Intent(ErShouFangMainActivity.this,
-				// WebErSshouFangMainActivity.class);
+				 Intent i = new Intent(ErShouFangMainActivity.this,
+				 ErShouFangDetailsActivity.class);
 				// String url =
 				// "http://www.taoshenfang.com/index.php?a=shows&catid="
 				// + ershoufangrecommends.get(position).getCatid() + "&id="
 				// + ershoufangrecommends.get(position).getId();
 				// Log.i("yanglijun", "<<<<<<<<<<<<<<<<<<<" + url);
 				// i.putExtra("url", url);
-				// startActivity(i);
+				 startActivity(i);
 			}
 		});
 
