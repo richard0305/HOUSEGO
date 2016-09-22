@@ -66,6 +66,7 @@ public class AgentDataAdapter extends BaseAdapter {
 		}
 		AgentData n=getItem(position);
 			String url=n.getUserpic();
+			
 		Glide.with(context).load(url).into(holder.ivAgentdataPic);
 		holder.tvAgentdataBiaoqian.setText(n.getBiaoqian());
 		holder.tvAgentdataLevel.setText(n.getDengji());

@@ -1,10 +1,10 @@
 <com.dumu.housego.util.MyReboundScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/newHouse_scrollview"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/newHouse_scrollview"
     tools:context="com.dumu.housego.NewHouseMainActivity"
-    tools:ignore="ButtonStyle,TextFields,HardcodedText,RtlHardcoded,InefficientWeight,ContentDescription,LabelFor" >
+    tools:ignore="ButtonStyle,TextFields,HardcodedText,RtlHardcoded,InefficientWeight,ContentDescription,LabelFor,RtlSymmetry" >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -92,7 +92,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="#ffffff"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:text="福田"
             android:textColor="#A9A9A9" />
 
@@ -101,7 +101,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:background="#ffffff"
             android:text="两居"
             android:textColor="#A9A9A9" />
@@ -111,7 +111,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:background="#ffffff"
             android:text="精装修"
             android:textColor="#A9A9A9" />
@@ -130,7 +130,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="#ffffff"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:text="龙岗"
             android:textColor="#A9A9A9" />
 
@@ -141,7 +141,7 @@
             android:layout_weight="1"
             android:background="#ffffff"
             android:text="三居"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textColor="#A9A9A9" />
 
         <Button
@@ -149,7 +149,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:background="#ffffff"
             android:text="在售楼房"
             android:textColor="#A9A9A9" />
@@ -167,7 +167,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:background="#ffffff"
             android:text="罗湖"
             android:textColor="#A9A9A9" />
@@ -178,7 +178,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="#ffffff"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:text="四居"
             android:textColor="#A9A9A9" />
 
@@ -188,9 +188,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="#ffffff"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:text="全部"
-            android:textColor="#A9A9A9" />
+            android:textColor="#ff0000" />
     </LinearLayout>
 
         <Button
@@ -209,7 +209,7 @@
         android:background="#ffffff"
         android:paddingLeft="10dp"
         android:text="楼市资讯"
-        android:textSize="16sp" />
+        android:textSize="14sp" />
 
     <Button
         android:id="@+id/btn_line"
@@ -227,7 +227,75 @@
     </com.dumu.housego.util.ListViewForScrollView>
 
 </RelativeLayout>
+	    <Button
+        android:id="@+id/btn_line3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#c9c9cb" />
+	    
+	    <TextView 
+               android:id="@+id/tv_newhouse_morenews"
+               android:layout_marginLeft="10dp"
+               android:layout_marginRight="10dp"
+               android:layout_height="40dp"
+               android:text="查看更多"
+               android:layout_marginTop="10dp"
+               android:background="#D1D1D1"
+               android:textColor="#000000"
+               android:textSize="14sp"
+               android:gravity="center"
+               android:layout_width="match_parent"/>
+<Button
+            android:layout_marginTop="10dp"
+        android:id="@+id/btn_line4"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#c9c9cb" />
+<TextView 
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="热销房源"
+               android:layout_margin="10dp"
+               android:textSize="14sp"
+               android:textColor="#000000"/>
 
+  <Button 
+               android:layout_width="match_parent"
+               android:background="#c9c9cb"
+               android:layout_height="1dp"
+               />
+  <com.dumu.housego.util.ListViewForScrollView
+        android:id="@+id/lv_rexiaofangyuan"
+        android:background="#ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         >
+    </com.dumu.housego.util.ListViewForScrollView>
+    
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#c9c9cb" />
+	    
+	    <TextView 
+               android:id="@+id/tv_newhouse_morenews_rexiao"
+               android:layout_marginLeft="10dp"
+               android:layout_marginRight="10dp"
+               android:layout_height="40dp"
+               android:text="查看更多"
+               android:layout_marginTop="10dp"
+               android:background="#D1D1D1"
+               android:textColor="#000000"
+               android:textSize="14sp"
+               android:gravity="center"
+               android:layout_width="match_parent"/>
+	    
+	    
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="#ffffff" />
+	    
     </LinearLayout>
 
 </com.dumu.housego.util.MyReboundScrollView>

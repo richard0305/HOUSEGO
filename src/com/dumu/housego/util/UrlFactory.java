@@ -79,13 +79,11 @@ public class UrlFactory {
 	
 	
 	//根据推荐位列表获取对应内容
-	public static String PostRecommendListToDetailUrl(String catid,String id) {
-		String path = "http://www.taoshenfang.com/index.php?a=api_shows&catid="+catid+"&id="+id;
+	public static String PostRecommendListToDetailUrl() {
+		String path ="http://www.taoshenfang.com/index.php?a=api_shows";
 		return path;
 	}
 	
-	
-
 	// 获取指定栏目内容列表接口
 	// 适用于 新房 二手房 租房 大宗交易 四个栏目
 	public static String PostFourDataProgramaUrl() {
@@ -107,7 +105,7 @@ public class UrlFactory {
 	}
 
 	// wap版新房推荐房源
-	public static String GetWapNewHouseUrl() {
+	public static String GetWapNewHouseHotUrl() {
 		String path = "http://www.taoshenfang.com/index.php?g=api&m=house&a=position&posid=13";
 		return path;
 	}

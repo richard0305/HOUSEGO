@@ -2,11 +2,16 @@ package com.dumu.housego;
 
 import java.util.List;
 
+import com.dumu.housego.adapter.NewHouseHotAdapter;
 import com.dumu.housego.adapter.NewHouseRecommendAdapter;
+import com.dumu.housego.entity.NewHouseHotRecommend;
 import com.dumu.housego.entity.NewHouseRecommendData;
+import com.dumu.housego.presenter.INewHouseHotPresenter;
 import com.dumu.housego.presenter.IRecommendHousePresenter;
+import com.dumu.housego.presenter.NewHouseHotPresenter;
 import com.dumu.housego.presenter.NewHouseRecommendPresenter;
 import com.dumu.housego.util.FontHelper;
+import com.dumu.housego.view.INewHouseHotView;
 import com.dumu.housego.view.INewHouseRecommendView;
 
 import android.app.Activity;
@@ -21,15 +26,20 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ScrollView;
+import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 
-public class NewHouseMainActivity extends Activity implements INewHouseRecommendView{
+public class NewHouseMainActivity extends Activity implements INewHouseRecommendView,INewHouseHotView{
 	private ImageView ivNewHouseBack;
 	private List<NewHouseRecommendData>newRecommends;
-	private ListView lvLoushizixun;
+	private ListView lvLoushizixun,lvRexiaofangyuan;
 	private IRecommendHousePresenter presenter;
 	private NewHouseRecommendAdapter adapter;
 	private ScrollView scrollview;
+	private TextView tv_newhouse_morenews_rexiao;
+	private INewHouseHotPresenter hotPresenter;
+	private List<NewHouseHotRecommend> newhousehots;
+	private NewHouseHotAdapter hotadapter;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +49,9 @@ public class NewHouseMainActivity extends Activity implements INewHouseRecommend
 		setViews();
 		setListener();
 		presenter=new NewHouseRecommendPresenter(this);
+		hotPresenter=new NewHouseHotPresenter(this);
 		presenter.LoadRecommend();
+		hotPresenter.LoadNewHouseHot();
 	}
 	private void setListener() {
 		ivNewHouseBack.setOnClickListener(new OnClickListener() {
@@ -66,11 +78,22 @@ public class NewHouseMainActivity extends Activity implements INewHouseRecommend
 			}
 		});
 		
+		tv_newhouse_morenews_rexiao.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				startActivity(new Intent(getApplicationContext(), NewHouseListActivity.class));
+				
+			}
+		});
+		
 	}
 	private void setViews() {
 		ivNewHouseBack=(ImageView) findViewById(R.id.iv_newhouse_back);
 		lvLoushizixun=(ListView) findViewById(R.id.lv_loushizixun);
-	
+		lvRexiaofangyuan=(ListView) findViewById(R.id.lv_rexiaofangyuan);
+		tv_newhouse_morenews_rexiao=(TextView) findViewById(R.id.tv_newhouse_morenews_rexiao);
+		
 		scrollview=(ScrollView)findViewById(R.id.newHouse_scrollview);
 		scrollview.smoothScrollTo(0, 0);
 	
@@ -80,6 +103,13 @@ public class NewHouseMainActivity extends Activity implements INewHouseRecommend
 		this.newRecommends=newrecommends;
 		adapter=new NewHouseRecommendAdapter(newrecommends, getApplicationContext());
 		lvLoushizixun.setAdapter(adapter);
+	}
+	@Override
+	public void showNewHouseHot(List<NewHouseHotRecommend> newhousehots) {
+		this.newhousehots=newhousehots;
+		hotadapter=new NewHouseHotAdapter(newhousehots, getApplicationContext());
+		lvRexiaofangyuan.setAdapter(hotadapter);
+		
 	}
 
 }

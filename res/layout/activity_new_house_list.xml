@@ -1,0 +1,164 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.dumu.housego.NewHouseListActivity" >
+	
+    <RelativeLayout
+        android:id="@+id/rl_newhouselist_title"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#e12442" >
+
+        <LinearLayout
+            android:id="@+id/ll_newhouselist_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:src="@drawable/white_left" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="返回"
+                 android:layout_gravity="center"
+                android:textColor="#ffffff"
+                android:textSize="14sp" />
+            
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/iv_location"
+            android:layout_toRightOf="@+id/ll_newhouselist_back"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="#6e1020"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/search_white_30x30" />
+
+            <EditText
+                android:id="@+id/et_ershoufang_search"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:background="@null"
+                android:text="请输入小区或商圈名"
+                android:textColor="#f2f2f2"
+                android:textSize="12sp" >
+            </EditText>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/ll_newhouselist_back"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/location_white_40x31" />
+
+    </RelativeLayout>
+    
+    <LinearLayout
+        android:id="@+id/ll_newhouselist_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentLeft="true"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_below="@+id/rl_newhouselist_title" >
+         
+        <Spinner 
+            android:paddingLeft="20dp"
+            android:id="@+id/ershoufang_quyu_sp1"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:background="#F2F2F2"
+            android:layout_gravity="center_vertical"
+            android:spinnerMode="dropdown"
+            android:layout_height="match_parent"
+            android:entries="@array/ershoufangarea"
+            />
+        
+      
+        <Spinner 
+            android:id="@+id/ershoufang_quyu_sp2"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:background="#F2F2F2"
+            android:paddingLeft="20dp"
+            android:layout_gravity="center_vertical"
+            android:spinnerMode="dropdown"
+            android:layout_height="match_parent"
+            android:entries="@array/ershoufangtotal"
+            />
+         <Button 
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#c9c9cb"
+            />
+         <Spinner 
+            android:id="@+id/ershoufang_quyu_sp3"
+            android:layout_width="0dp"
+            android:spinnerMode="dropdown"
+            android:layout_weight="1"
+            android:background="#F2F2F2"
+             android:paddingLeft="30dp"
+            android:layout_height="match_parent"
+            android:entries="@array/ershoufanghousetype"
+            />
+            <Spinner 
+            android:id="@+id/ershoufang_quyu_sp4"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:background="#F2F2F2"
+            android:paddingLeft="30dp"
+            android:layout_gravity="center_vertical"
+            android:spinnerMode="dropdown"
+            android:layout_height="match_parent"
+            android:entries="@array/ershoufangmore"
+            />
+    </LinearLayout>
+    
+     <com.dumu.housego.util.MyReboundScrollView
+        android:layout_below="@+id/ll_newhouselist_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+            
+        <com.dumu.housego.util.ListViewForScrollView
+        android:id="@+id/lv_newhouselist"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff"
+        ></com.dumu.housego.util.ListViewForScrollView>  
+              
+              
+              
+              
+           </LinearLayout>
+  </com.dumu.housego.util.MyReboundScrollView>
+    
+    
+</RelativeLayout>

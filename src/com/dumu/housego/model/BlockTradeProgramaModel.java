@@ -44,11 +44,9 @@ public class BlockTradeProgramaModel implements IFourDataProgramaModel{
 
 			@Override
 			public void onResponse(String response) {
-				Log.i("YANGLIJUN", "<<<<<<<<<<<<<<<<<<---->>>>>>>>>>----data"+response);
 				try {
 					List<BlockTradeList> blocktrades;
 					blocktrades = BlockTradeListJSONParse.parseSearch(response);
-					Log.i("YANGLIJUN", "<<<<<<<<<<<<<<<<<<---->>>>>>>>>>----data"+blocktrades);
 					
 					back.onSuccess(blocktrades);
 				} catch (JSONException e) {
@@ -70,8 +68,6 @@ public class BlockTradeProgramaModel implements IFourDataProgramaModel{
 				Map<String, String> params = new HashMap<String, String>();
 				params.put("catid", fourdata.getCatid());
 				params.put("page", fourdata.getPage());
-//				params.put("catid", fourdata.getCatid());
-//				params.put("catid", fourdata.getCatid());
 				
 				return params;
 			}

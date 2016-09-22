@@ -150,6 +150,10 @@
             android:name=".ErShouFangDetailsActivity"
             android:label="@string/title_activity_er_shou_fang_details" >
         </activity>
+        <activity
+            android:name=".NewHouseListActivity"
+            android:label="@string/title_activity_new_house_list" >
+        </activity>
     </application>
 
 </manifest>

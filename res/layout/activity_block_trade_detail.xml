@@ -61,6 +61,16 @@
             
             <!-- 框內內容，scrollView -->
             
+            <ImageView 
+                android:id="@+id/iv_block_trade_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                
+                android:layout_gravity="center_horizontal"
+                />
+            
+            
+            
             <RelativeLayout 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -123,12 +133,12 @@
                     android:layout_height="wrap_content"
                     android:layout_alignBaseline="@+id/tv_block_trade_detail_date"
                     android:layout_alignBottom="@+id/tv_block_trade_detail_date"
-                    android:layout_alignRight="@+id/textView5"
+                    android:layout_alignRight="@+id/tv_block_trade_goudiimage"
                     android:textSize="12sp"
                     android:text="400-8888-8888" />
 
                 <TextView
-                    android:id="@+id/textView5"
+                    android:id="@+id/tv_block_trade_goudiimage"
                     android:layout_width="30dp"
                     android:layout_height="15dp"
                     android:layout_above="@+id/tv_block_trade_detail_date"
@@ -262,7 +272,7 @@
                     android:layout_alignBaseline="@+id/textView7"
                     android:layout_alignBottom="@+id/textView7"
                     android:layout_toRightOf="@+id/textView7"
-                    android:text="sd"
+                    android:text=""
                     android:textColor="#000000"
                     android:textSize="12sp" />
 
