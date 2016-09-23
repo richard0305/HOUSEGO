@@ -17,6 +17,7 @@ import com.dumu.housego.view.INewHouseRecommendView;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -87,6 +88,17 @@ public class NewHouseMainActivity extends Activity implements INewHouseRecommend
 			}
 		});
 		
+		lvRexiaofangyuan.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				Intent i1=new Intent(getApplicationContext(), NewHouseDetailActivity.class);
+//				i1.putExtra(name, value);
+				startActivity(i1);
+				
+			}
+		});
+		
 	}
 	private void setViews() {
 		ivNewHouseBack=(ImageView) findViewById(R.id.iv_newhouse_back);
@@ -108,6 +120,7 @@ public class NewHouseMainActivity extends Activity implements INewHouseRecommend
 	public void showNewHouseHot(List<NewHouseHotRecommend> newhousehots) {
 		this.newhousehots=newhousehots;
 		hotadapter=new NewHouseHotAdapter(newhousehots, getApplicationContext());
+		Log.i("richard==================", "11111111111---------------------"+newhousehots);
 		lvRexiaofangyuan.setAdapter(hotadapter);
 		
 	}

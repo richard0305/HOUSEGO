@@ -11,9 +11,13 @@ import com.dumu.housego.util.ListViewForScrollView;
 import com.dumu.housego.view.INewHouseListView;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.LinearLayout;
 
 public class NewHouseListActivity extends Activity implements INewHouseListView{
@@ -49,6 +53,22 @@ public class NewHouseListActivity extends Activity implements INewHouseListView{
 			}
 		});
 		
+		lv_newhouselist.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				NewHouseList n=newhouselists.get(position);
+				Intent i=new Intent(getApplicationContext(), NewHouseDetailActivity.class);
+				String Id=n.getId();
+				String catid=n.getCatid();
+				i.putExtra("id", Id);
+				i.putExtra("catid", catid);
+				
+				Log.i("YANGLIJUN", "---->>>>>>>>>><<<<<<<<<<<<<<<<<<<========================="+Id+"   "+catid);
+				startActivity(i);
+				
+			}
+		});
 	}
 	
 	@Override

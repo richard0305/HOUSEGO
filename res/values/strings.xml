@@ -27,5 +27,6 @@
     <string name="title_activity_web_house_price_detail">WebHousePriceDetailActivity</string>
     <string name="title_activity_er_shou_fang_details">ErShouFangDetailsActivity</string>
     <string name="title_activity_new_house_list">NewHouseListActivity</string>
+    <string name="title_activity_new_house_detail">NewHouseDetailActivity</string>
 
 </resources>

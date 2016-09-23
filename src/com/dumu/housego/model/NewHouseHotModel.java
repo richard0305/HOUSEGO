@@ -39,7 +39,7 @@ public class NewHouseHotModel implements INewHouseHotModel {
 					String json = HttpUtils.isToString(is);
 					List<NewHouseHotRecommend> newhousehots;
 					newhousehots = NewHouseHotJSONParse.parseSearch(json);
-					Log.i("YANGLIJUN", "---->>>>>>>>>>"+newhousehots);
+					Log.i("YANGLIJUN", "---->>>>>>>>>><<<<<<<<<<<<<<<<<<<========================="+newhousehots);
 					return newhousehots;
 				} catch (JSONException e) {
 					e.printStackTrace();

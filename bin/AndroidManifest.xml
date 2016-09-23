@@ -148,11 +148,18 @@
         </activity>
         <activity
             android:name=".ErShouFangDetailsActivity"
-            android:label="@string/title_activity_er_shou_fang_details" >
+            android:label="@string/title_activity_er_shou_fang_details"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
         </activity>
         <activity
             android:name=".NewHouseListActivity"
-            android:label="@string/title_activity_new_house_list" >
+            android:label="@string/title_activity_new_house_list"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".NewHouseDetailActivity"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+            android:label="@string/title_activity_new_house_detail" >
         </activity>
     </application>
 
