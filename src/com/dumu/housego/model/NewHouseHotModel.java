@@ -46,6 +46,7 @@ public class NewHouseHotModel implements INewHouseHotModel {
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
+				
 				return null;
 			}
 

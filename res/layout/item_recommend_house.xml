@@ -16,7 +16,7 @@
         android:layout_marginTop="18dp"
         android:layout_toLeftOf="@+id/iv_recommend_img"
         android:text="刚需高攀不起深圳房价  工业产权房或成上车选择"
-        android:textSize="16sp" />
+        android:textSize="14sp" />
 
     <TextView
         android:id="@+id/tv_recommend_content"
@@ -30,7 +30,7 @@
         android:layout_marginBottom="10dp"
         android:text="在工业用地上建起来的住宅，产权年限为50年，入市价格低于市场价。"
         android:textColor="#BDBBBC"
-        android:textSize="14sp" />
+        android:textSize="12sp" />
 
     <ImageView
         android:id="@+id/iv_recommend_img"

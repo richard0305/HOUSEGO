@@ -77,12 +77,18 @@ public class UrlFactory {
 	
 	
 	
+	//根据推荐位列表获取对应内容
+		public static String GetRecommendListToDetailUrl(String catid,String id ) {
+			String path ="http://www.taoshenfang.com/index.php?a=api_shows&catid="+catid+"&id="+id;
+			return path;
+		}
 	
 	//根据推荐位列表获取对应内容
 	public static String PostRecommendListToDetailUrl() {
 		String path ="http://www.taoshenfang.com/index.php?a=api_shows";
 		return path;
 	}
+	
 	
 	// 获取指定栏目内容列表接口
 	// 适用于 新房 二手房 租房 大宗交易 四个栏目

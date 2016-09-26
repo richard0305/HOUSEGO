@@ -54,11 +54,11 @@ public class ErShouFangMainActivity extends Activity implements IErShouFangRecom
 		setViews();
 		setListener();
 		
-		spinnerList1.add("yanglijun");    
-		spinnerList1.add("richard");    
-		spinnerList1.add("ÑîÁ¢¾ü");    
-		spinnerList1.add("ÑîÀö¾ı");    
-		spinnerList1.add("Ñî´º»Ô");  
+		spinnerList1.add("ÇøÓò");    
+		spinnerList1.add("ÂŞºş");    
+		spinnerList1.add("¸£É½");    
+		spinnerList1.add("ÄÏÉ½");    
+		spinnerList1.add("Áú¸Ú");  
 		
 		
 		

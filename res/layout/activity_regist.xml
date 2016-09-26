@@ -21,7 +21,7 @@
             android:paddingLeft="5dp"
             android:text="注册"
             android:textColor="#ffffff"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
 
         <LinearLayout
             android:id="@+id/ll_back_login"
@@ -47,19 +47,19 @@
                 android:text="登录"
                 android:gravity="center"
                 android:textColor="#ffffff"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
         </LinearLayout>
     </RelativeLayout>
 
     <EditText
         android:id="@+id/et_smscode"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:layout_below="@+id/btn_line2"
         android:background="#ffffff"
         android:hint="请输入短信验证码"
         android:paddingLeft="10dp"
-        android:textSize="16sp" />
+        android:textSize="14sp" />
     
     <Button
             android:id="@+id/btn_line3"
@@ -72,13 +72,13 @@
     <EditText
         android:id="@+id/et_password"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:layout_below="@+id/btn_line3"
         android:background="#ffffff"
         android:hint="请输入新密码(至少6位)"
         android:paddingLeft="10dp"
         android:password="true"
-        android:textSize="16sp" />
+        android:textSize="14sp" />
     
     <Button
             android:id="@+id/btn_line4"
@@ -91,13 +91,13 @@
     <EditText
         android:id="@+id/et_repassword"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:layout_below="@+id/btn_line4"
         android:background="#ffffff"
         android:hint="请再次输入密码"
         android:password="true"
         android:paddingLeft="10dp"
-        android:textSize="16sp" />
+        android:textSize="14sp" />
     <Button
             android:id="@+id/btn_line5"
             android:layout_width="match_parent"
@@ -112,21 +112,10 @@
         android:id="@+id/rl_regist_phonenumber"
         android:layout_width="match_parent"
          android:layout_marginTop="17dp"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
          android:layout_below="@+id/rl_title"
          android:background="#ffffff"
         >
-    <EditText
-        android:id="@+id/et_phonenumb"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_alignParentLeft="true"
-       android:background="@null"
-        android:hint="请输入手机号码"
-        android:maxLength="11"
-        android:focusable="true"
-        android:paddingLeft="10dp"
-        android:textSize="16sp" />
 
     <Button
         android:id="@+id/btn_sendcode"
@@ -139,6 +128,22 @@
         android:background="@drawable/shap_code_button"
         android:text="发送验证码"
         android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/et_phonenumb"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@null"
+        android:ems="10"
+        android:clickable="true"
+        android:hint="请输入手机号码"
+        android:maxLength="11"
+        android:paddingLeft="10dp"
+        android:textSize="14sp" >
+
+    </EditText>
 
     </RelativeLayout>
     <Button
@@ -154,7 +159,7 @@
     <LinearLayout 
         android:id="@+id/ll_regist_type"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:background="#ffffff"
         android:layout_below="@+id/btn_line5"
         android:orientation="horizontal"
@@ -165,15 +170,18 @@
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_marginLeft="16dp"
-            android:gravity="center"
+            android:layout_gravity="center"
             android:text="注册类型："
-            android:textSize="16sp" />
+            android:gravity="center"
+            android:textSize="14sp" />
       
       <RadioGroup 
         android:id="@+id/rg_regist_type"
         android:layout_width="match_parent"
         android:orientation="horizontal"
         android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+          android:layout_gravity="center"
         android:layout_alignBaseline="@+id/textView2"
         android:layout_alignBottom="@+id/textView2"
         android:layout_alignLeft="@+id/rg_regist_type"
@@ -182,13 +190,18 @@
         
          <RadioButton
         android:id="@+id/rb_domestic_consumer"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="1"
         android:checked="true"
+       android:textSize="14sp"
+        
         android:layout_height="40dp"
         android:text="普通用户" />
           <RadioButton
         android:id="@+id/rb_agent"
-        android:layout_width="wrap_content"
+       android:layout_width="0dp"
+        android:layout_weight="1"
+        android:textSize="14sp"
         android:layout_height="40dp"
         android:text="经纪人" />
     </RadioGroup>
@@ -214,7 +227,7 @@
         android:layout_marginTop="63dp"
         android:background="#ee3a43"
         android:text="立即注册"
-        android:textSize="16sp"
+        android:textSize="14sp"
         android:textColor="#ffffff" />
 
 </RelativeLayout>

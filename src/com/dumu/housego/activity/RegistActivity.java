@@ -80,7 +80,9 @@ public class RegistActivity extends Activity implements IPhoneCodeView,IRegistVi
 				presenter.LoadMob(number + "");
 				btnSendCode.setClickable(true);
 	            isChange = true;
+	            
 	            changeBtnGetCode();
+	            
 				
 			}
 		});
@@ -110,7 +112,7 @@ public class RegistActivity extends Activity implements IPhoneCodeView,IRegistVi
 			public void onTextChanged(CharSequence s, int start, int before, int count) {
 				if(s.length()==11){
 					btnRegist.setEnabled(true);
-					btnSendCode.setEnabled(true);
+//					btnSendCode.setEnabled(true);
 					String mob=etPhoneNum.getText().toString();
 					checkPresenter.checkPhone(mob);
 					
@@ -219,14 +221,28 @@ public class RegistActivity extends Activity implements IPhoneCodeView,IRegistVi
 
 	@Override
 	public void CheckSuccess(String info) {
+		
+		
+			
+		
+			btnSendCode.setEnabled(true);
+		
 		Log.i("yanglijun","info=------------------>>>>>>>>>>>>>>>>>>>>>" +info+"");
 		Toast.makeText(getApplicationContext(), info+"", Toast.LENGTH_SHORT).show();
-	
-		
 	}
+	
+	
 
 	@Override
 	public void CheckFail(String errorMessage) {
+		if(!errorMessage.equals("可以注册")){
+			btnSendCode.setText(errorMessage);
+			btnSendCode.setEnabled(false);
+		}else{
+			btnSendCode.setEnabled(true);
+			btnSendCode.setText("发送验证码");
+		}
+		
 		Toast.makeText(getApplicationContext(), errorMessage+"", Toast.LENGTH_SHORT).show();
 		
 	}
