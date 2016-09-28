@@ -61,6 +61,7 @@ public class NewHouseDetailActivity extends Activity implements INewHouseDetailV
 		
 		
 	}
+	
 
 	@Override
 	public void showData(NewHouseDetail newhousedetail) {
@@ -73,7 +74,6 @@ public class NewHouseDetailActivity extends Activity implements INewHouseDetailV
 		}else{
 			ivNewHouseDetail.setImageResource(R.drawable.touxiang);
 		}
-		
 		tvNewHouseDetailTitle.setText(newhousedetail.getTitle());
 		tvNewhousedetailPrice.setText(newhousedetail.getJunjia());
 		

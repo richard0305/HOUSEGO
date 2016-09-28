@@ -35,8 +35,6 @@ public class BlockTradeDetailActivity extends Activity implements IBlockTradeDet
 		setViews();
 		setListener();
 		
-//		int id=getIntent().getStringExtra("id");
-//		String catid=getIntent().getStringExtra("catid");
 		
 		String catid=getIntent().getStringExtra("catid");
 		String id=getIntent().getStringExtra("id");
@@ -44,9 +42,9 @@ public class BlockTradeDetailActivity extends Activity implements IBlockTradeDet
 		iv_block_trade_detail.setImageResource(R.drawable.touxiang);
 		presenter=new BlockTradeDetailPresenter(this);
 		
-		presenter.FindBlockTradedetail(catid, id);	
+		presenter.FindBlockTradedetail(catid, id);
 		
-		
+		Show();
 		
 		
 	}
@@ -97,31 +95,49 @@ public class BlockTradeDetailActivity extends Activity implements IBlockTradeDet
 	public void showData(BlockTradeDetail blocktradedetail) {
 		this.blocktradedetail=blocktradedetail;
 		
-		if(blocktradedetail.getThumb()!=null){
-			String url="http://www.taoshenfang.com"+blocktradedetail.getThumb();
-			Log.e("yanglijun", "------========---------+++++++++"+url);
-			Glide.with(getApplicationContext()).load(url).into(iv_block_trade_detail);
-		}else{
-			iv_block_trade_detail.setImageResource(R.drawable.touxiang);
-		}
+				
+//			private static void showView(){
+//				if(blocktradedetail.getThumb()!=null){
+//					String url="http://www.taoshenfang.com"+blocktradedetail.getThumb();
+//					Log.e("yanglijun", "------========---------+++++++++"+url);
+//					Glide.with(getApplicationContext()).load(url).into(iv_block_trade_detail);
+//				}else{
+//					iv_block_trade_detail.setImageResource(R.drawable.touxiang);
+//				}
+				
+		
+			
+//				tv_block_trade_detail_title.setText(blocktradedetail.getTitle());
+//				tv_block_trade_detail_content.setText(blocktradedetail.getTitle());
+		
+		
+		
+//				tv_block_trade_detail_goudi.setText(blocktradedetail.getGoudijine());
+//				
+//				String date=TimeTurnDate.getStandardTime(blocktradedetail.getUpdatetime());
+//				tv_block_trade_detail_date.setText(date);
+//				tv_block_trade_detail_phone.setText(blocktradedetail.getTel());
+//				
+//				tv_block_trade_detail_area.setText(blocktradedetail.getCityname()+" "+blocktradedetail.getAreaname());
+//				tv_block_trade_detail_yusuanjine.setText(blocktradedetail.getZongjia());
+//				tv_block_trade_detail_hezuofangshi.setText(blocktradedetail.getHezuofangshi());
+//				tv_block_trade_detail_shiyongnianxian.setText(blocktradedetail.getShiyongnianxian());
+//				tv_block_trade_detail_wuyeleixing.setText(blocktradedetail.getWuyetype());
+//				tv_block_trade_detail_jianzhumianji.setText(blocktradedetail.getZhandimianji());
+//				tv_block_trade_detail_lianxiren.setText(blocktradedetail.getUsername());
+//				tv_block_trade_detail_address.setText(blocktradedetail.getAddress());
+//				tv_block_trade_detail_xiangxijieshao.setText(blocktradedetail.getDescription());
+//			}
+				
+	}
+	
+	private void Show(){
 		
 		tv_block_trade_detail_title.setText(blocktradedetail.getTitle());
 		tv_block_trade_detail_content.setText(blocktradedetail.getTitle());
-		tv_block_trade_detail_goudi.setText(blocktradedetail.getGoudijine());
-		
-		String date=TimeTurnDate.getStandardTime(blocktradedetail.getUpdatetime());
-		tv_block_trade_detail_date.setText(date);
-		tv_block_trade_detail_phone.setText(blocktradedetail.getTel());
-		
-		tv_block_trade_detail_area.setText(blocktradedetail.getCityname()+" "+blocktradedetail.getAreaname());
-		tv_block_trade_detail_yusuanjine.setText(blocktradedetail.getZongjia());
-		tv_block_trade_detail_hezuofangshi.setText(blocktradedetail.getHezuofangshi());
-		tv_block_trade_detail_shiyongnianxian.setText(blocktradedetail.getShiyongnianxian());
-		tv_block_trade_detail_wuyeleixing.setText(blocktradedetail.getWuyetype());
-		tv_block_trade_detail_jianzhumianji.setText(blocktradedetail.getZhandimianji());
-		tv_block_trade_detail_lianxiren.setText(blocktradedetail.getUsername());
-		tv_block_trade_detail_address.setText(blocktradedetail.getAddress());
-		tv_block_trade_detail_xiangxijieshao.setText(blocktradedetail.getDescription());
 		
 	}
+	
+
+	
 }

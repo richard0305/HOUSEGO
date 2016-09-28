@@ -21,6 +21,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -144,11 +145,11 @@ public class RegistActivity extends Activity implements IPhoneCodeView,IRegistVi
                         if (RegistActivity.this== null) {
                             break;
                         }
-                        //当文本框内容改变时，结束循环。
-//                        if (isChange && !btnCode.isClickable()) {
-//                            isChange = false;
-//                            break;
-//                        }
+//                        当文本框内容改变时，结束循环。
+                        if (isChange && !btnSendCode.isClickable()) {
+                            isChange = false;
+                            break;
+                        }
                         RegistActivity.this.runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
@@ -228,7 +229,12 @@ public class RegistActivity extends Activity implements IPhoneCodeView,IRegistVi
 			btnSendCode.setEnabled(true);
 		
 		Log.i("yanglijun","info=------------------>>>>>>>>>>>>>>>>>>>>>" +info+"");
-		Toast.makeText(getApplicationContext(), info+"", Toast.LENGTH_SHORT).show();
+		
+		Toast toast=Toast.makeText(getApplicationContext(),  info+"", Toast.LENGTH_SHORT);
+	
+		toast.setGravity(Gravity.CENTER, 0, 0);
+		
+		toast.show();
 	}
 	
 	
@@ -243,7 +249,12 @@ public class RegistActivity extends Activity implements IPhoneCodeView,IRegistVi
 			btnSendCode.setText("发送验证码");
 		}
 		
-		Toast.makeText(getApplicationContext(), errorMessage+"", Toast.LENGTH_SHORT).show();
+		Toast toast=Toast.makeText(getApplicationContext(),  errorMessage+"", Toast.LENGTH_SHORT);
+	
+		toast.setGravity(Gravity.CENTER, 0, 0);
+		
+		toast.show();
+		
 		
 	}
 

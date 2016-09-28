@@ -42,13 +42,10 @@ public class MySettingMainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				
-				
-				HouseGoApp app=HouseGoApp.getHousegoapp();
-			User user=app.getCurrentUser();
-			user.setUserid(null);
-			app.SaveCurrentUser(user);
-			
-			onDestroy();
+				Intent logoutIntent = new Intent(getApplicationContext(), LoginActivity.class);
+                logoutIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(logoutIntent);	
+		
 			}
 		});
 		

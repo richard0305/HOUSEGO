@@ -13,12 +13,15 @@ import com.dumu.housego.view.IErShouFangRecommendView;
 import com.dumu.housego.view.IRentingProgramaView;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
@@ -52,6 +55,20 @@ public class RentingMainActivity extends Activity implements IRentingProgramaVie
 			@Override
 			public void onClick(View v) {
 				RentingMainActivity.this.finish();
+				
+			}
+		});
+		lvRenting.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				
+				String catid=ershoufangrecommends.get(position).getCatid();
+				String Id=ershoufangrecommends.get(position).getId();
+				Intent i=new Intent(getApplicationContext(),RentingDetailActivity.class);
+				i.putExtra("catid", catid);
+				i.putExtra("id", Id);
+				startActivity(i);
 				
 			}
 		});

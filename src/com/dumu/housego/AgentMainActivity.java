@@ -10,6 +10,7 @@ import com.dumu.housego.util.FontHelper;
 import com.dumu.housego.view.IAgentModelDataView;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -50,8 +51,8 @@ public class AgentMainActivity extends Activity implements IAgentModelDataView{
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				
-				
+				Intent i=new Intent(getApplicationContext(), AgentDetailActivity.class);
+				startActivity(i);
 			}
 		});
 		

@@ -8,7 +8,7 @@ public class RemoveBOM {
 		return data;
 		}
 
-		if (data.startsWith("UTF-8")) {
+		if (data.startsWith("\ufeff")) {
 		return data.substring(1);
 		} else {
 		return data;

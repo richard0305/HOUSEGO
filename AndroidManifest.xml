@@ -158,8 +158,18 @@
         </activity>
         <activity
             android:name=".NewHouseDetailActivity"
+            android:label="@string/title_activity_new_house_detail"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".RentingDetailActivity"
+            android:label="@string/title_activity_renting_detail"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".AgentDetailActivity"
             android:theme="@android:style/Theme.Holo.Light.NoActionBar"
-            android:label="@string/title_activity_new_house_detail" >
+            android:label="@string/title_activity_agent_detail" >
         </activity>
     </application>
 
