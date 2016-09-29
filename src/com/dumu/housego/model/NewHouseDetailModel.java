@@ -26,91 +26,45 @@ public class NewHouseDetailModel implements INewHouseDetailaModel{
 		super();
 	}
 
-	
 	@Override
-	public void FindNewHouseDetail(final String catid, final String id, final AsycnCallBack back) {
-		String url=UrlFactory.PostRecommendListToDetailUrl();
-		
-		Log.i("----------", "yanglijun------==========="+url);
-		
-	CommonRequest request=new CommonRequest(Request.Method.POST, url, new Listener<String>() {
+	public void FindNewHouseDetail(final int catid, final int id, AsycnCallBack back) {
+		String url=UrlFactory.GetRecommendListToDetailUrl(catid, id);
+		CommonRequest request=new CommonRequest(Request.Method.GET, url, new Listener<String>() {
 
 			@Override
 			public void onResponse(String response) {
-				
-				
-				Log.i("===============", "yanglijun------"+response.toString());
-				Log.e("===============", "yanglijun------"+response.toString());
-				try {
-				JSONObject obj=new JSONObject(response);
-					nhb=new NewHouseDetail();
-					nhb.setThumb(obj.getString("thumb"));
-					nhb.setTitle(obj.getString("title"));
-					nhb.setJunjia(obj.getString("junjia"));
-					back.onSuccess(nhb);
-				} catch (JSONException e) {
-					e.printStackTrace();
-				}
-				
-			
-				
-				
+				Log.e("yanglijun", "NewHouseDetailModel==="+response);
 				
 			}
 		}, new ErrorListener() {
 
 			@Override
 			public void onErrorResponse(VolleyError error) {
-				back.onError(error.getMessage());
+				// TODO Auto-generated method stub
 				
 			}
-		}){
-		@Override
-		protected Map<String, String> getParams() throws AuthFailureError {
-			Map<String, String> params = new HashMap<String, String>();
-			params.put("catid", catid);
-			params.put("id", id);
-			return params;
-		}
-	};
+		})
+//		{
+//			
+//			@Override
+//			protected Map<String, String> getParams() throws AuthFailureError {
+//				Map<String, String> params=new HashMap<String, String>();
+//				params.put("catid", catid+"");
+//				params.put("id", id+"");
+//				return params;
+//			}
+//			
+//			@Override
+//			public Map<String, String> getHeaders() throws AuthFailureError {
+//				  HashMap<String, String> headers = new HashMap<String, String>();
+//	                // do not add anything here
+//	                return headers;
+//			}
+//			
+//		}
+		;
 		HouseGoApp.getQueue().add(request);
-		
-//		StringRequest request=new StringRequest( url, new Listener<String>() {
-//
-//			@Override
-//			public void onResponse(String response) {
-//				try {
-//					
-//					Log.i("===============", "yanglijun------"+response);
-////					String data=RemoveBOM.removeBOM(response);
-////					if(response != null && response.startsWith("\ufeff"))
-////					{
-////						response =  response.substring(1);
-////					}
-////					JSONObject obj = new JSONObject(response);
-//					
-//					JSONObject obj=new JSONObject(response);
-//					nhb.setThumb(obj.getString("thumb"));
-//					nhb.setTitle(obj.getString("title"));
-//					nhb.setJunjia(obj.getString("junjia"));
-//					
-//					back.onSuccess(nhb);
-//				} catch (JSONException e) {
-//					e.printStackTrace();
-//				}
-//				
-//			}
-//		}, new ErrorListener() {
-//
-//			@Override
-//			public void onErrorResponse(VolleyError error) {
-//				back.onError(error.getMessage());
-//				
-//			}
-//		});
-//		
-//		HouseGoApp.getQueue().add(request);
-//		
 	}
+
 
 }

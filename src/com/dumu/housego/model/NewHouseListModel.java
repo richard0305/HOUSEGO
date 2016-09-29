@@ -60,6 +60,8 @@ public class NewHouseListModel implements IFourDataProgramaModel{
 				
 				return params;
 			}
+			
+		
 		};
 		HouseGoApp.getQueue().add(request);
 

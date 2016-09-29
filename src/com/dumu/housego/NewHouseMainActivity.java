@@ -93,7 +93,9 @@ public class NewHouseMainActivity extends Activity implements INewHouseRecommend
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				Intent i1=new Intent(getApplicationContext(), NewHouseDetailActivity.class);
-//				i1.putExtra(name, value);
+				NewHouseHotRecommend hot=	newhousehots.get(position);
+				i1.putExtra("Id", hot.getId());
+				i1.putExtra("catid", hot.getCatid());
 				startActivity(i1);
 				
 			}

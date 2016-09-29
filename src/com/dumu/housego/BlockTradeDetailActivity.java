@@ -9,6 +9,8 @@ import com.dumu.housego.view.IBlockTradeDetailView;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -19,13 +21,29 @@ import android.widget.Toast;
 
 public class BlockTradeDetailActivity extends Activity implements IBlockTradeDetailView{
 	private LinearLayout llBlockTradeDetailBack;
-	private BlockTradeDetail blocktradedetail;
+	private BlockTradeDetail b;
 	private IBlockTradeDetailPresenter presenter;
 	private TextView tv_block_trade_goudiimage,tv_block_trade_detail_title,tv_block_trade_detail_content,tv_block_trade_detail_goudi
 	,tv_block_trade_detail_date,tv_block_trade_detail_phone,tv_block_trade_detail_area,tv_block_trade_detail_yusuanjine
 	,tv_block_trade_detail_hezuofangshi,tv_block_trade_detail_shiyongnianxian,tv_block_trade_detail_wuyeleixing,
 	tv_block_trade_detail_jianzhumianji,tv_block_trade_detail_lianxiren,tv_block_trade_detail_address,tv_block_trade_detail_xiangxijieshao;
 	private ImageView iv_block_trade_detail;
+	
+	private Handler handler=new Handler(){
+		@Override
+		public void handleMessage(Message msg) {
+			switch (msg.what) {
+			case 1:
+				b=(BlockTradeDetail) msg.obj;
+				Log.e("==============", "`````+++++++++~~~~~~"+b);
+				Show();
+				break;
+
+			default:
+				break;
+			}
+		}
+	};
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +62,8 @@ public class BlockTradeDetailActivity extends Activity implements IBlockTradeDet
 		
 		presenter.FindBlockTradedetail(catid, id);
 		
-		Show();
+	
+		
 		
 		
 	}
@@ -93,9 +112,14 @@ public class BlockTradeDetailActivity extends Activity implements IBlockTradeDet
 	
 	@Override
 	public void showData(BlockTradeDetail blocktradedetail) {
-		this.blocktradedetail=blocktradedetail;
+		
 		
 				
+		Message msg=new Message();
+		msg.what=1;
+		msg.obj=blocktradedetail;
+		handler.sendMessage(msg);
+		
 //			private static void showView(){
 //				if(blocktradedetail.getThumb()!=null){
 //					String url="http://www.taoshenfang.com"+blocktradedetail.getThumb();
@@ -133,8 +157,8 @@ public class BlockTradeDetailActivity extends Activity implements IBlockTradeDet
 	
 	private void Show(){
 		
-		tv_block_trade_detail_title.setText(blocktradedetail.getTitle());
-		tv_block_trade_detail_content.setText(blocktradedetail.getTitle());
+		tv_block_trade_detail_title.setText(b.getTitle());
+		tv_block_trade_detail_content.setText(b.getTitle());
 		
 	}
 	

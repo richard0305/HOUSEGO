@@ -32,17 +32,17 @@ public class NewHouseDetailActivity extends Activity implements INewHouseDetailV
 		setViews();
 		setListener();
 		
-		String id=getIntent().getStringExtra("id");
-		String catid=getIntent().getStringExtra("catid");
+		int id=Integer.valueOf(getIntent().getStringExtra("Id"));
+		int catid=Integer.valueOf(getIntent().getStringExtra("catid"));
+		
 		
 		
 		presenter=new NewHouseDetailPresenter(this);
 		presenter.FindNewHousedetail(catid, id);
 		
-		
-		
 	}
 
+	
 	private void setViews() {
 		llNewHouseDetailBack=(LinearLayout) findViewById(R.id.ll_new_house_detail_back);
 		ivNewHouseDetail=(ImageView) findViewById(R.id.iv_new_house_detail);
@@ -63,9 +63,11 @@ public class NewHouseDetailActivity extends Activity implements INewHouseDetailV
 	}
 	
 
+
+
 	@Override
-	public void showData(NewHouseDetail newhousedetail) {
-		this.newhousedetail=newhousedetail;
+	public void showNewHouseDetailData(NewHouseDetail newhousedetail) {
+	this.newhousedetail=newhousedetail;
 		
 		if(newhousedetail.getThumb()!=null){
 			String url="http://www.taoshenfang.com"+newhousedetail.getThumb();

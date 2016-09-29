@@ -4,5 +4,5 @@ import com.dumu.housego.entity.BlockTradeDetail;
 import com.dumu.housego.entity.NewHouseDetail;
 
 public interface  INewHouseDetailView {
-	void showData(NewHouseDetail newhousedetail);
+	void showNewHouseDetailData(NewHouseDetail newhousedetail);
 }

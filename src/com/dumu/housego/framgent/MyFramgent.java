@@ -20,6 +20,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -33,7 +34,7 @@ public class MyFramgent extends Fragment {
 	private RelativeLayout rlMyershoufang;
 	private ImageView ivMyPic;
 	private UserInfo userinfo;
-
+private LinearLayout llMysettingAgentLogin,llMysettingPuTongLogin,llMysettingNologin;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View view=inflater.inflate(R.layout.framgent_my, null);
@@ -56,7 +57,16 @@ public class MyFramgent extends Fragment {
 		Glide.with(getContext()).load(imgurl).into(ivMyPic);
 		tvLoginRegist.setClickable(false);
 		ivMyPic.setClickable(true);
+		
+		if(userinfo.getModelid().equals("35")){
+			llMysettingPuTongLogin.setVisibility(View.VISIBLE);
 		}else{
+			llMysettingAgentLogin.setVisibility(View.VISIBLE);
+		}
+		
+		
+		}else{
+			llMysettingNologin.setVisibility(View.VISIBLE);
 			ivMyPic.setClickable(false);
 			tvLoginRegist.setClickable(true);
 		}
@@ -122,7 +132,9 @@ public class MyFramgent extends Fragment {
 		rlYuyueguanli=(RelativeLayout) view.findViewById(R.id.rl_Yuyueguanli);
 		ivMyPic=(ImageView) view.findViewById(R.id.iv_my_Photo);
 		
-		
+		llMysettingNologin=(LinearLayout) view.findViewById(R.id.ll_mysetting_nologin);
+		llMysettingAgentLogin=(LinearLayout) view.findViewById(R.id.ll_mysetting_agent_login);
+		llMysettingPuTongLogin=(LinearLayout) view.findViewById(R.id.ll_mysetting_putong_login);
 		
 		
 	}

@@ -75,10 +75,14 @@ public class UrlFactory {
 	
 	
 	
-	
+	//根据推荐位列表获取对应内容
+			public static String GetRecommendListToDetailUrl1(String catid,String id ) {
+				String path ="http://www.taoshenfang.com/index.php?a=api_shows&catid="+catid+"&id="+id;
+				return path;
+			}
 	
 	//根据推荐位列表获取对应内容
-		public static String GetRecommendListToDetailUrl(String catid,String id ) {
+		public static String GetRecommendListToDetailUrl(int catid,int id ) {
 			String path ="http://www.taoshenfang.com/index.php?a=api_shows&catid="+catid+"&id="+id;
 			return path;
 		}

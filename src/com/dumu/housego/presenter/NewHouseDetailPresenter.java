@@ -25,25 +25,22 @@ public class NewHouseDetailPresenter implements INewHouseDetailPresenter{
 
 
 	@Override
-	public void FindNewHousedetail(String catid, String id) {
+	public void FindNewHousedetail(int catid, int id) {
 		model.FindNewHouseDetail(catid, id, new AsycnCallBack() {
 			
 			@Override
 			public void onSuccess(Object success) {
-				NewHouseDetail nhd=(NewHouseDetail) success;
-				view.showData(nhd);
 				
 			}
 			
 			@Override
 			public void onError(Object error) {
-				// TODO Auto-generated method stub
 				
 			}
 		});
+			
 		
+
+
 	}
-
-
-
 }

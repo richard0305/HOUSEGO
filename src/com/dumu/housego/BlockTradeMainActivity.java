@@ -7,7 +7,6 @@ import com.dumu.housego.entity.BlockTradeList;
 import com.dumu.housego.entity.FourDataPrograma;
 import com.dumu.housego.presenter.BlockTradeProgramaPresenter;
 import com.dumu.housego.presenter.IFourDataProgramePresenter;
-import com.dumu.housego.presenter.IRecommendHousePresenter;
 import com.dumu.housego.util.FontHelper;
 import com.dumu.housego.view.IBlockTradeProgramaView;
 
@@ -18,9 +17,9 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.AdapterView.OnItemClickListener;
 
 public class BlockTradeMainActivity extends Activity implements IBlockTradeProgramaView{
 	private LinearLayout llBlockTradeBack;

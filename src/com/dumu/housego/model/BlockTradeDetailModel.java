@@ -45,13 +45,12 @@ public class BlockTradeDetailModel implements IBlockTradeDetailaModel{
 			protected BlockTradeDetail doInBackground(String... params) {
 
 				try {
-					String url = UrlFactory.GetRecommendListToDetailUrl(catid, id);
+					String url = UrlFactory.GetRecommendListToDetailUrl1(catid, id);
 					b=new BlockTradeDetail();
 					Document doc=Jsoup.connect(url).get();
 					b.setTitle(doc.getElementsByClass("house_title").text());
+					b.setGoudijine(doc.getElementsByClass("total_price").text().replaceAll("\\D+", ""));
 					b.setThumb(doc.getElementsByAttribute("img origin-src").toString());
-					
-					Log.e("=====1111111111111111111", "``````````````````"+b.getThumb());
 //					JSONObject obj=new JSONObject(e);
 					
 //					InputStream is = HttpUtils.get(url);

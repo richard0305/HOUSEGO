@@ -61,7 +61,7 @@ public class NewHouseListActivity extends Activity implements INewHouseListView{
 				Intent i=new Intent(getApplicationContext(), NewHouseDetailActivity.class);
 				String Id=n.getId();
 				String catid=n.getCatid();
-				i.putExtra("id", Id);
+				i.putExtra("Id", Id);
 				i.putExtra("catid", catid);
 				
 				Log.i("YANGLIJUN", "---->>>>>>>>>><<<<<<<<<<<<<<<<<<<========================="+Id+"   "+catid);
