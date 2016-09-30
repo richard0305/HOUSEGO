@@ -1,6 +1,5 @@
 package com.dumu.housego.activity;
 
-import com.dumu.housego.FindPasswordMainActivity;
 import com.dumu.housego.R;
 import com.dumu.housego.entity.User;
 import com.dumu.housego.presenter.CheckPhoneRegistPresenter;
@@ -16,7 +15,6 @@ import com.dumu.housego.view.IRegistView;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -47,8 +45,10 @@ public class RegistActivity extends Activity implements IPhoneCodeView,IRegistVi
 
 	 Thread thread=null;
 	 private boolean tag12=true;
-	    private int i=60;
-	    public boolean  isChange=false;
+	 private int i=60;
+	 public boolean  isChange=false;
+	 
+	 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
