@@ -6,6 +6,9 @@ import java.util.List;
 import org.xutils.x;
 import org.xutils.view.annotation.ViewInject;
 
+import com.dumu.housego.framgent.GZErShouFramgent;
+import com.dumu.housego.framgent.GZNewFramgent;
+
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -40,40 +43,6 @@ public class PuTongMyGuanZhuActivity extends FragmentActivity {
 	}
 
 	private void setListener() {
-		viewPager.setOnPageChangeListener(new OnPageChangeListener() {
-			
-			@Override
-			public void onPageSelected(int position) {
-				switch (position) {
-				case 0:
-					btnErShou.setChecked(true);
-					btnErShou.setTextColor(getResources().getColor(R.color.button_ckeck));
-					btnNew.setTextColor(getResources().getColor(R.color.button_unckeck));
-					break;
-				case 1:
-					btnNew.setChecked(true);
-					btnNew.setTextColor(getResources().getColor(R.color.button_ckeck));
-					btnErShou.setTextColor(getResources().getColor(R.color.button_unckeck));
-					break;
-
-				default:
-					break;
-				}
-				
-			}
-			
-			@Override
-			public void onPageScrolled(int arg0, float arg1, int arg2) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void onPageScrollStateChanged(int arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-		});
 		
 		rgGuanZhu.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			
@@ -82,9 +51,13 @@ public class PuTongMyGuanZhuActivity extends FragmentActivity {
 				switch (checkedId) {
 				case R.id.guanzhu_ershou:
 					viewPager.setCurrentItem(0);
+					btnErShou.setTextColor(getResources().getColor(R.color.button_ckeck));
+					btnNew.setTextColor(getResources().getColor(R.color.button_unckeck));
 					break;
 				case R.id.guanzhu_new:
 					viewPager.setCurrentItem(1);
+					btnNew.setTextColor(getResources().getColor(R.color.button_ckeck));
+					btnErShou.setTextColor(getResources().getColor(R.color.button_unckeck));
 					break;
 			
 				}

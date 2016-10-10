@@ -1,7 +1,7 @@
 package com.dumu.housego.entity;
 
 public class ErShouFangDetails {
-	 private int id;
+	 private String id;
 	   private String catid;
 	   private String typeid;
 	   private String title;
@@ -98,7 +98,8 @@ public class ErShouFangDetails {
 	   private String relation;
 	   private String cityname;
 	   private String areaname;
-	public ErShouFangDetails(int id, String catid, String typeid, String title, String style, String thumb,
+	   private String xiaoquName;
+	public ErShouFangDetails(String id, String catid, String typeid, String title, String style, String thumb,
 			String keywords, String tags, String description, String posid, String url, String listorder, String status,
 			String sysadd, String islink, String username, String inputtime, String updatetime, String views,
 			String yesterdayviews, String dayviews, String weekviews, String monthviews, String viewsupdatetime,
@@ -114,7 +115,8 @@ public class ErShouFangDetails {
 			String shuifeijiexi, String xiaoqu, String loudong, String menpai, String curceng, String pub_type,
 			String jjr_id, String fenpei_time, String lock, String chenghu, String contract, String idcard,
 			String zaishou, String content, String paginationtype, String maxcharperpage, String template,
-			String paytype, String allow_comment, String relation, String cityname, String areaname) {
+			String paytype, String allow_comment, String relation, String cityname, String areaname,
+			String xiaoquName) {
 		super();
 		this.id = id;
 		this.catid = catid;
@@ -213,15 +215,16 @@ public class ErShouFangDetails {
 		this.relation = relation;
 		this.cityname = cityname;
 		this.areaname = areaname;
+		this.xiaoquName = xiaoquName;
 	}
 	public ErShouFangDetails() {
 		super();
 	}
-	public int getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setId(String string) {
+		this.id = string;
 	}
 	public String getCatid() {
 		return catid;
@@ -799,6 +802,12 @@ public class ErShouFangDetails {
 	public void setAreaname(String areaname) {
 		this.areaname = areaname;
 	}
+	public String getXiaoquName() {
+		return xiaoquName;
+	}
+	public void setXiaoquName(String xiaoquName) {
+		this.xiaoquName = xiaoquName;
+	}
 	@Override
 	public String toString() {
 		return "ErShouFangDetails [id=" + id + ", catid=" + catid + ", typeid=" + typeid + ", title=" + title
@@ -828,12 +837,19 @@ public class ErShouFangDetails {
 				+ idcard + ", zaishou=" + zaishou + ", content=" + content + ", paginationtype=" + paginationtype
 				+ ", maxcharperpage=" + maxcharperpage + ", template=" + template + ", paytype=" + paytype
 				+ ", allow_comment=" + allow_comment + ", relation=" + relation + ", cityname=" + cityname
-				+ ", areaname=" + areaname + "]";
+				+ ", areaname=" + areaname + ", xiaoquName=" + xiaoquName + "]";
 	}
 	   
 	   
 	   
+	}
+	
+	
+	
 	   
 	   
 	   
-}
+	   
+	   
+	   
+

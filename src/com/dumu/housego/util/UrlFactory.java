@@ -170,7 +170,12 @@ public class UrlFactory {
 			String path = TSFURL+"index.php?g=api&m=house&a=guanzhu_add";
 			return path;
 		}
-	
+		
+		// ÎÒµÄ¹Ø×¢
+				public static String PostGuanZhuErShouUrl() {
+					String path = TSFURL+"index.php?g=api&m=user&a=guanzhu";
+					return path;
+				}
 	
 	
 	
