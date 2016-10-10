@@ -7,9 +7,7 @@ import com.dumu.housego.adapter.ErShouFangRecommendAdapter;
 import com.dumu.housego.entity.ErShouFangRecommendData;
 import com.dumu.housego.entity.FourDataPrograma;
 import com.dumu.housego.presenter.ErShouFangProgramaPresenter;
-import com.dumu.housego.presenter.ErShouFangRecommendPresenter;
 import com.dumu.housego.presenter.IFourDataProgramePresenter;
-import com.dumu.housego.presenter.IRecommendHousePresenter;
 import com.dumu.housego.util.FontHelper;
 import com.dumu.housego.view.IErShouFangRecommendView;
 
@@ -25,7 +23,6 @@ import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
 
 public class ErShouFangMainActivity extends Activity implements IErShouFangRecommendView {
 	private LinearLayout llErshoufang;
@@ -114,7 +111,7 @@ public class ErShouFangMainActivity extends Activity implements IErShouFangRecom
 	@Override
 	public void showData(List<ErShouFangRecommendData> ershoufangrecommends) {
 		this.ershoufangrecommends = ershoufangrecommends;
-
+		Log.e("2016-10-10", "2016-10-10"+ershoufangrecommends);
 		adapter = new ErShouFangRecommendAdapter(ershoufangrecommends, getApplicationContext());
 		lvErshoufangRecommend.setAdapter(adapter);
 

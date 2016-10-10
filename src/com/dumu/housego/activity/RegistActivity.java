@@ -9,6 +9,7 @@ import com.dumu.housego.presenter.IRegistPresenter;
 import com.dumu.housego.presenter.PhoneCodePresenter;
 import com.dumu.housego.presenter.RegistPresenter;
 import com.dumu.housego.util.FontHelper;
+import com.dumu.housego.util.MyToastShowCenter;
 import com.dumu.housego.view.ICheckPhoneRegistView;
 import com.dumu.housego.view.IPhoneCodeView;
 import com.dumu.housego.view.IRegistView;
@@ -230,11 +231,7 @@ public class RegistActivity extends Activity implements IPhoneCodeView,IRegistVi
 		
 		Log.i("yanglijun","info=------------------>>>>>>>>>>>>>>>>>>>>>" +info+"");
 		
-		Toast toast=Toast.makeText(getApplicationContext(),  info+"", Toast.LENGTH_SHORT);
-	
-		toast.setGravity(Gravity.CENTER, 0, 0);
-		
-		toast.show();
+		MyToastShowCenter.CenterToast(getApplicationContext(), info);
 	}
 	
 	
@@ -249,11 +246,8 @@ public class RegistActivity extends Activity implements IPhoneCodeView,IRegistVi
 			btnSendCode.setText("·¢ËÍÑéÖ¤Âë");
 		}
 		
-		Toast toast=Toast.makeText(getApplicationContext(),  errorMessage+"", Toast.LENGTH_SHORT);
-	
-		toast.setGravity(Gravity.CENTER, 0, 0);
+		MyToastShowCenter.CenterToast(getApplicationContext(), errorMessage);
 		
-		toast.show();
 		
 		
 	}

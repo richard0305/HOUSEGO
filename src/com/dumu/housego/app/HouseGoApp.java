@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
+import org.xutils.x;
+
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.dumu.housego.R;
@@ -48,6 +50,8 @@ public class HouseGoApp extends Application {
 		housegoapp=this;
 		context = this;
 		Queue = Volley.newRequestQueue(context);
+		x.Ext.init(getHousegoapp());
+		x.Ext.setDebug(true);
 		
 		
 		

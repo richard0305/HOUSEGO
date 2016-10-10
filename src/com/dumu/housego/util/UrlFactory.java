@@ -1,6 +1,8 @@
 package com.dumu.housego.util;
 
 public class UrlFactory {
+	
+	 public static String TSFURL="http://www.taoshenfang.com/"; 
 
 	// 注册--获取短信验证码
 	public static String GetPhoneCodeUrl(String mob) {
@@ -162,4 +164,15 @@ public class UrlFactory {
 		return path;
 	}
 
+	
+	// 关注房源接口
+		public static String PostGuanZhuHouseUrl() {
+			String path = TSFURL+"index.php?g=api&m=house&a=guanzhu_add";
+			return path;
+		}
+	
+	
+	
+	
+	
 }

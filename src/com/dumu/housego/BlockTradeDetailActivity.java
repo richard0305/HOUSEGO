@@ -36,7 +36,7 @@ public class BlockTradeDetailActivity extends Activity implements IBlockTradeDet
 			case 1:
 				b=(BlockTradeDetail) msg.obj;
 				Log.e("==============", "`````+++++++++~~~~~~"+b);
-				Show();
+//				Show();
 				break;
 
 			default:

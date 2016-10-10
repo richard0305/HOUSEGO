@@ -1,9 +1,13 @@
 package com.dumu.housego.framgent;
 
+import org.xutils.x;
+import org.xutils.view.annotation.ViewInject;
+
 import com.bumptech.glide.Glide;
 import com.dumu.housego.MyRentingHouseAgentActivity;
 import com.dumu.housego.MySettingMainActivity;
 import com.dumu.housego.PersonalMainActivity;
+import com.dumu.housego.PuTongMyGuanZhuActivity;
 import com.dumu.housego.R;
 import com.dumu.housego.activity.LoginActivity;
 import com.dumu.housego.activity.MainActivity;
@@ -34,11 +38,13 @@ public class MyFramgent extends Fragment {
 	private RelativeLayout rlMyershoufang;
 	private ImageView ivMyPic;
 	private UserInfo userinfo;
+	private RelativeLayout rlPTMyGuanZhu;
 private LinearLayout llMysettingAgentLogin,llMysettingPuTongLogin,llMysettingNologin;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View view=inflater.inflate(R.layout.framgent_my, null);
 		setViews(view);
+		x.view().inject(view);
 		setListener();
 		
 
@@ -118,6 +124,17 @@ private LinearLayout llMysettingAgentLogin,llMysettingPuTongLogin,llMysettingNol
 			}
 		});
 		
+		rlPTMyGuanZhu.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				startActivity(new Intent(getActivity(), PuTongMyGuanZhuActivity.class));
+				
+			}
+		});
+		
+		
 	}
 
 	
@@ -135,7 +152,7 @@ private LinearLayout llMysettingAgentLogin,llMysettingPuTongLogin,llMysettingNol
 		llMysettingNologin=(LinearLayout) view.findViewById(R.id.ll_mysetting_nologin);
 		llMysettingAgentLogin=(LinearLayout) view.findViewById(R.id.ll_mysetting_agent_login);
 		llMysettingPuTongLogin=(LinearLayout) view.findViewById(R.id.ll_mysetting_putong_login);
-		
+		rlPTMyGuanZhu=(RelativeLayout) view.findViewById(R.id.rl_putong_myguanzhu);
 		
 	}
 }
