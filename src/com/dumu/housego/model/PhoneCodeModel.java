@@ -32,8 +32,8 @@ public class PhoneCodeModel implements IPhoneCodeModel{
 			@Override
 			public void onResponse(String response) {
 				Gson gson=new Gson();
-				RegistPhoneCode info=gson.fromJson(response, RegistPhoneCode.class);
-				Log.i("yanglijun", "info"+info);
+				RegistPhoneCode phone=gson.fromJson(response, RegistPhoneCode.class);
+				String info=phone.getInfo();
 				
 				back.onSuccess(info);
 				

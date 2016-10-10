@@ -20,7 +20,7 @@ import com.dumu.housego.util.CommonRequest;
 import com.dumu.housego.util.HttpUtils;
 import com.dumu.housego.util.UrlFactory;
 
-public class UserModel implements IUserModel, ILoginModel {
+public class UserModel implements IUserModel, ILoginModel,IYzmLoginModel {
 
 	private User user;
 
@@ -120,6 +120,57 @@ public class UserModel implements IUserModel, ILoginModel {
 			}
 		};
 		HouseGoApp.getQueue().add(request);
+	}
+
+	
+	
+	
+	//ÑéÖ¤ÂëµÇÂ½
+	@Override
+	public void Yzmlogin(final String shortnumber, final String shortYZM,final AsycnCallBack back) {
+		String url=UrlFactory.PostYZMLoginUrl();
+		CommonRequest request=new CommonRequest(Request.Method.POST, url, new Listener<String>() {
+
+			@Override
+			public void onResponse(String response) {
+				try {
+					JSONObject obj = new JSONObject(response);
+					if(obj.getInt("success") == 45){
+						String userid = obj.getString("userid");
+						user=new User();
+						user.setUserid(userid);
+					HouseGoApp app=HouseGoApp.getContext();
+					app.SaveCurrentUser(user);
+					
+					String infomation=obj.getString("info").toString();
+					back.onSuccess(infomation);
+					}else {
+						back.onError(obj.getString("info"));
+					}
+					
+				} catch (JSONException e) {
+					e.printStackTrace();
+				}
+				
+			}
+		}, new ErrorListener() {
+
+			@Override
+			public void onErrorResponse(VolleyError error) {
+				// TODO Auto-generated method stub
+			}
+		}){
+			
+			@Override
+			protected Map<String, String> getParams() throws AuthFailureError {
+				Map<String, String> params = new HashMap<String, String>();
+				params.put("mob", shortnumber);
+				params.put("yzm", shortYZM);
+				return params;
+			}
+		};
+		HouseGoApp.getQueue().add(request);
+		
 	}
 
 }

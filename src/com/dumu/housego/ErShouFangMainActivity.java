@@ -88,17 +88,14 @@ public class ErShouFangMainActivity extends Activity implements IErShouFangRecom
 
 		lvErshoufangRecommend.setOnItemClickListener(new OnItemClickListener() {
 
-			// @Override
+			 @Override
 			public void onItemClick(AdapterView<?> arg0, View view, int position, long id) {
 				//
-				 Intent i = new Intent(ErShouFangMainActivity.this,
-				 ErShouFangDetailsActivity.class);
-				// String url =
-				// "http://www.taoshenfang.com/index.php?a=shows&catid="
-				// + ershoufangrecommends.get(position).getCatid() + "&id="
-				// + ershoufangrecommends.get(position).getId();
-				// Log.i("yanglijun", "<<<<<<<<<<<<<<<<<<<" + url);
-				// i.putExtra("url", url);
+				 Intent i = new Intent(ErShouFangMainActivity.this,ErShouFangDetailsActivity.class);
+				 String catid=ershoufangrecommends.get(position).getCatid();
+				 String ID=ershoufangrecommends.get(position).getId();
+				 i.putExtra("catid", catid);
+				 i.putExtra("id", ID);
 				 startActivity(i);
 			}
 		});

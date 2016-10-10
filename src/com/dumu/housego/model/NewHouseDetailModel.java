@@ -27,9 +27,10 @@ public class NewHouseDetailModel implements INewHouseDetailaModel{
 	}
 
 	@Override
-	public void FindNewHouseDetail(final int catid, final int id, AsycnCallBack back) {
-		String url=UrlFactory.GetRecommendListToDetailUrl(catid, id);
-		CommonRequest request=new CommonRequest(Request.Method.GET, url, new Listener<String>() {
+	public void FindNewHouseDetail(final String catid, final String id, AsycnCallBack back) {
+		String url=UrlFactory.PostRecommendListToDetailUrl();
+		Log.e("yanglijun", "201565423==="+id+"   "+catid);
+		CommonRequest request=new CommonRequest(Request.Method.POST, url, new Listener<String>() {
 
 			@Override
 			public void onResponse(String response) {
@@ -41,18 +42,18 @@ public class NewHouseDetailModel implements INewHouseDetailaModel{
 			@Override
 			public void onErrorResponse(VolleyError error) {
 				// TODO Auto-generated method stub
-				
+				Log.v("========2016-10-8", "yanglijun"+error.getMessage());
 			}
 		})
-//		{
-//			
-//			@Override
-//			protected Map<String, String> getParams() throws AuthFailureError {
-//				Map<String, String> params=new HashMap<String, String>();
-//				params.put("catid", catid+"");
-//				params.put("id", id+"");
-//				return params;
-//			}
+		{
+			
+			@Override
+			protected Map<String, String> getParams() throws AuthFailureError {
+				Map<String, String> params=new HashMap<String, String>();
+				params.put("catid", catid);
+				params.put("id", id);
+				return params;
+			}
 //			
 //			@Override
 //			public Map<String, String> getHeaders() throws AuthFailureError {
@@ -61,7 +62,7 @@ public class NewHouseDetailModel implements INewHouseDetailaModel{
 //	                return headers;
 //			}
 //			
-//		}
+		}
 		;
 		HouseGoApp.getQueue().add(request);
 	}

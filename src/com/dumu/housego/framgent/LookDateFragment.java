@@ -52,7 +52,7 @@ public class LookDateFragment extends Fragment implements CarouselViewPager.OnPa
 		private void initViews(View rootView) {
 	        mCarouselView = (CarouselViewPager) rootView.findViewById(R.id.mCarouselView);
 	        pointLayout = (LinearLayout) rootView.findViewById(R.id.pointLayout);
-	        btnHouseDateLogin=(Button) rootView.findViewById(R.id.btn_house_date_Login);
+	        btnHouseDateLogin=(Button) rootView.findViewById(R.id.btn_house_Login);
 	    }
 
 	    private void initData() {

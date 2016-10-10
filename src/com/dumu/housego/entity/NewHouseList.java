@@ -10,6 +10,7 @@ public class NewHouseList {
 	private String 	junjia;
 	private String cityname;
 	private String areaname;
+	
 	public NewHouseList(String id, String catid, String typeid, String title, String thumb, String loupandizhi,
 			String junjia, String cityname, String areaname) {
 		super();

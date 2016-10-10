@@ -24,6 +24,24 @@ public class UrlFactory {
 		return path;
 
 	}
+	
+	//验证码登陆
+	
+	public static String PostYZMLoginUrl() {
+
+		String path = "http://www.taoshenfang.com/index.php?g=api&m=sms&a=mob_login_yzm";
+		return path;
+	}
+	
+	public static String PostYZMLogincodeUrl() {
+
+		String path = "http://www.taoshenfang.com/index.php?g=api&m=sms&a=getyzm";
+		return path;
+	}
+	
+
+	
+	
 
 	// 获取登录用户的信息
 	public static String PostLoginUserInfoUrl() {
@@ -76,7 +94,7 @@ public class UrlFactory {
 	
 	
 	//根据推荐位列表获取对应内容
-			public static String GetRecommendListToDetailUrl1(String catid,String id ) {
+			public static String GetRecommendListToDetailUrlString(String catid,String id ) {
 				String path ="http://www.taoshenfang.com/index.php?a=api_shows&catid="+catid+"&id="+id;
 				return path;
 			}

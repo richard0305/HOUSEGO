@@ -1,34 +1,84 @@
 package com.dumu.housego;
 
+import com.dumu.housego.entity.BlockTradeDetail;
+import com.dumu.housego.entity.ErShouFangDetails;
+import com.dumu.housego.presenter.ErShouFangDetailPresenter;
+import com.dumu.housego.presenter.IErShouFangDetailPresenter;
+import com.dumu.housego.view.IErShouFangDetailView;
+
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.os.Handler;
+import android.os.Message;
+import android.util.Log;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.RadioButton;
 
-public class ErShouFangDetailsActivity extends Activity {
+public class ErShouFangDetailsActivity extends Activity implements IErShouFangDetailView{
+	
+	private RadioButton rbErshoufangGuanzhu;
+	private ErShouFangDetails e;
+	private IErShouFangDetailPresenter esfPresenter;
+	
+	private Handler handler=new Handler(){
+		@Override
+		public void handleMessage(Message msg) {
+			switch (msg.what) {
+			case 1:
+				e=(ErShouFangDetails) msg.obj;
+				Log.e("==============", "`````+++++++++~~~~~~"+e);
+				Show();
+				break;
 
+			default:
+				break;
+			}
+		}
+	};
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_er_shou_fang_details);
+		initViews();
+		initListener();
+		esfPresenter=new ErShouFangDetailPresenter(this);
+		String catid=getIntent().getStringExtra("catid");
+		String id=getIntent().getStringExtra("id");
+		esfPresenter.FindErShouFangdetail(catid, id);
+		
+		Log.e("2016-10-9 9:10", "yanglijun-------"+catid+"   "+id);
+	}
+	private void initListener() {
+		rbErshoufangGuanzhu.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				
+			}
+		});
+		
+	}
+	private void initViews() {
+		rbErshoufangGuanzhu=(RadioButton) findViewById(R.id.rb_ershoufangguanzhu);
+		
+	}
+	
+	@Override
+	public void showErshoufangData(ErShouFangDetails ershoufangdetail) {
+		Message msg=new Message();
+		msg.what=1;
+		msg.obj=ershoufangdetail;
+		handler.sendMessage(msg);
+		
+	}
+	
+	
+	private void Show(){
+	
+		
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.er_shou_fang_details, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
 }

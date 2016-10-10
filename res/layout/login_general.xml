@@ -84,6 +84,32 @@
         android:layout_height="1dp"
         
         android:background="#c9c9cb" />
+    
+    
+    
+     <Button 
+            android:id="@+id/btn_general_Login"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:text="立即登录"
+            android:background="#ee3a43"
+            android:layout_below="@+id/btn_line3"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            />
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <Button
         android:id="@+id/btn_line6"
         android:layout_width="match_parent"

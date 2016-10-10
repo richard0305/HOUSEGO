@@ -50,7 +50,9 @@
 
         <Button
             android:id="@+id/btn_quicklogin_sendcode"
-            android:layout_width="80dp"
+            android:layout_width="wrap_content"
+            android:paddingLeft="5dp"
+        android:paddingRight="5dp"
             android:layout_height="30dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
@@ -94,6 +96,22 @@
         android:layout_alignParentBottom="true"
         android:layout_height="1dp"
         android:background="#c9c9cb" />
+        
     </RelativeLayout>
+    
+      
+        <Button 
+            android:id="@+id/btn_short_Login"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:text="立即登录"
+            android:background="#ee3a43"
+            android:layout_below="@+id/rl_short_login_lock"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            />
 
 </RelativeLayout>

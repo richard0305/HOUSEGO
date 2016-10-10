@@ -1,5 +1,11 @@
 package com.dumu.housego.app;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.dumu.housego.R;
@@ -7,6 +13,10 @@ import com.dumu.housego.entity.User;
 import com.dumu.housego.entity.UserInfo;
 
 import android.app.Application;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
+import android.util.Base64;
 
 public class HouseGoApp extends Application {
 	private static HouseGoApp context;
@@ -68,5 +78,49 @@ public class HouseGoApp extends Application {
 
 	}
 	
+	/**
+     * 使用SharedPreferences保存用户登录信息
+     * @param context
+     * @param username
+     * @param password
+     */
+    public static void saveLoginInfo(Context context,UserInfo userinfo){
+        //获取SharedPreferences对象
+        SharedPreferences sharedPre=context.getSharedPreferences("config", context.MODE_PRIVATE);
+        //获取Editor对象
+        Editor editor=sharedPre.edit();
+        //设置参数
+        
+        try {
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            ObjectOutputStream oos = new ObjectOutputStream(baos);
+            oos.writeObject(userinfo);
+            String string64 = new String(Base64.encode(baos.toByteArray(),
+                    0));
+          //提交
+            editor.putString("token", string64).commit();
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+    }
+    
+    public static UserInfo getLoginInfo(Context context) {
+    	UserInfo userinfo = null;
+        try {
+            String base64 = context.getSharedPreferences("config", context.MODE_PRIVATE).getString("token", "");
+            if (base64.equals("")) {
+                return null;
+            }
+            byte[] base64Bytes = Base64.decode(base64.getBytes(), 1);
+            ByteArrayInputStream bais = new ByteArrayInputStream(base64Bytes);
+            ObjectInputStream ois = new ObjectInputStream(bais);
+            userinfo = (UserInfo) ois.readObject();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return userinfo;
+    
+    }
 
 }

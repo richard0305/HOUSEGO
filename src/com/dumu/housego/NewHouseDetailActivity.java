@@ -32,10 +32,10 @@ public class NewHouseDetailActivity extends Activity implements INewHouseDetailV
 		setViews();
 		setListener();
 		
-		int id=Integer.valueOf(getIntent().getStringExtra("Id"));
-		int catid=Integer.valueOf(getIntent().getStringExtra("catid"));
+		String id=getIntent().getStringExtra("Id");
+		String catid=getIntent().getStringExtra("catid");
 		
-		
+		Log.e("2016-10-8", "17:16"+id+"      "+catid);
 		
 		presenter=new NewHouseDetailPresenter(this);
 		presenter.FindNewHousedetail(catid, id);

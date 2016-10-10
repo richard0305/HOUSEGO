@@ -25,7 +25,7 @@ public class NewHouseDetailPresenter implements INewHouseDetailPresenter{
 
 
 	@Override
-	public void FindNewHousedetail(int catid, int id) {
+	public void FindNewHousedetail(String catid, String id) {
 		model.FindNewHouseDetail(catid, id, new AsycnCallBack() {
 			
 			@Override

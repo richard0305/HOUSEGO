@@ -19,6 +19,8 @@ import com.dumu.housego.util.CommonRequest;
 import com.dumu.housego.util.NewHouseListJSONParse;
 import com.dumu.housego.util.UrlFactory;
 
+import android.util.Log;
+
 public class NewHouseListModel implements IFourDataProgramaModel{
 	private List<NewHouseList>newhouselists;
 	
@@ -36,7 +38,7 @@ public class NewHouseListModel implements IFourDataProgramaModel{
 				try {
 					List<NewHouseList> newhouselists;
 					newhouselists = NewHouseListJSONParse.parseSearch(response);
-					
+					Log.e("0000000000000000000000000000000", "yanglijun"+response);
 					back.onSuccess(newhouselists);
 				} catch (JSONException e) {
 					e.printStackTrace();

@@ -50,6 +50,15 @@ public class MainActivity extends FragmentActivity{
 		FontHelper.injectFont(findViewById(android.R.id.content));
 		
 	}
+	
+	@Override
+	protected void onResume() {
+		HouseGoApp app=HouseGoApp.getContext();
+		userinfo=app.getLoginInfo(getApplicationContext());
+		app.SaveCurrentUserInfo(userinfo);
+		
+		super.onResume();
+	}
 
 
 		
@@ -102,6 +111,7 @@ public class MainActivity extends FragmentActivity{
 					if(userinfo==null){
 						startActivity(new Intent(getApplicationContext(), LoginActivity.class));
 					}
+					
 					
 					
 					break;
