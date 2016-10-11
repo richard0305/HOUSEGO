@@ -176,7 +176,12 @@ public class UrlFactory {
 					String path = TSFURL+"index.php?g=api&m=user&a=guanzhu";
 					return path;
 				}
-	
+				
+		// È¡Ïû¹Ø×¢
+				public static String PostGuanZhuDeleteUrl() {
+					String path = TSFURL+"index.php?g=api&m=user&a=guanzhu_del";
+					return path;
+			}
 	
 	
 	

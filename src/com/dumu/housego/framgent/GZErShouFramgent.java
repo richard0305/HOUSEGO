@@ -16,6 +16,7 @@ import com.dumu.housego.entity.UserInfo;
 import com.dumu.housego.presenter.GuanZhuErShouPresenter;
 import com.dumu.housego.presenter.IGuanZhuErShouPresenter;
 import com.dumu.housego.util.MyToastShowCenter;
+import com.dumu.housego.util.SwipeListView;
 import com.dumu.housego.view.IGuanZhuErShouView;
 
 import android.content.Intent;
@@ -32,7 +33,7 @@ public class GZErShouFramgent extends Fragment implements IGuanZhuErShouView{
 	private IGuanZhuErShouPresenter presenter;
 	private UserInfo userinfo;
 	private List<ErShouFangDetails>ershoufangdetails;
-	private ListView lvGuanZhuErShou;
+	private SwipeListView lvGuanZhuErShou;
 	private GuanZhuErShouLsitAdapter adapter;
 	
 	
@@ -49,7 +50,7 @@ public class GZErShouFramgent extends Fragment implements IGuanZhuErShouView{
 	}
 	
 	private void initViews(View view) {
-		lvGuanZhuErShou=(ListView) view.findViewById(R.id.lv_guanzhu_ershou);
+		lvGuanZhuErShou=(SwipeListView) view.findViewById(R.id.lv_guanzhu_ershou);
 		
 	}
 
@@ -90,7 +91,7 @@ public class GZErShouFramgent extends Fragment implements IGuanZhuErShouView{
 	@Override
 	public void showGuanZhuSuccess(List<ErShouFangDetails> ershoufangdetails) {
 		this.ershoufangdetails=ershoufangdetails;
-		adapter=new GuanZhuErShouLsitAdapter(ershoufangdetails, getContext());
+		adapter=new GuanZhuErShouLsitAdapter(ershoufangdetails, getContext(), lvGuanZhuErShou.getRightViewWidth());
 		lvGuanZhuErShou.setAdapter(adapter);
 		
 	}
