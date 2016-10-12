@@ -97,19 +97,19 @@ public class UrlFactory {
 	
 	//根据推荐位列表获取对应内容
 			public static String GetRecommendListToDetailUrlString(String catid,String id ) {
-				String path ="http://www.taoshenfang.com/index.php?a=api_shows&catid="+catid+"&id="+id;
+				String path ="http://www.taoshenfang.com/index.php?g=api&m=house&a=api_shows&catid="+catid+"&id="+id;
 				return path;
 			}
 	
 	//根据推荐位列表获取对应内容
 		public static String GetRecommendListToDetailUrl(int catid,int id ) {
-			String path ="http://www.taoshenfang.com/index.php?a=api_shows&catid="+catid+"&id="+id;
+			String path ="http://www.taoshenfang.com/index.php?g=api&m=house&a=api_shows&catid="+catid+"&id="+id;
 			return path;
 		}
 	
 	//根据推荐位列表获取对应内容
 	public static String PostRecommendListToDetailUrl() {
-		String path ="http://www.taoshenfang.com/index.php?a=api_shows";
+		String path ="http://www.taoshenfang.com/index.php?g=api&m=house&a=api_shows";
 		return path;
 	}
 	

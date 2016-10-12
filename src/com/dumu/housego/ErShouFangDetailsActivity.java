@@ -1,7 +1,10 @@
 package com.dumu.housego;
 
+import org.xutils.x;
+import org.xutils.view.annotation.ViewInject;
+
+import com.bumptech.glide.Glide;
 import com.dumu.housego.app.HouseGoApp;
-import com.dumu.housego.entity.BlockTradeDetail;
 import com.dumu.housego.entity.ErShouFangDetails;
 import com.dumu.housego.entity.UserInfo;
 import com.dumu.housego.presenter.ErShouFangDetailPresenter;
@@ -9,6 +12,7 @@ import com.dumu.housego.presenter.GuanZhuHousePresenter;
 import com.dumu.housego.presenter.IErShouFangDetailPresenter;
 import com.dumu.housego.presenter.IGuanZhuHousePresenter;
 import com.dumu.housego.util.MyToastShowCenter;
+import com.dumu.housego.util.TimeTurnDate;
 import com.dumu.housego.view.IErShouFangDetailView;
 import com.dumu.housego.view.IGuanZhuHouseView;
 
@@ -19,8 +23,10 @@ import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
+import android.widget.TextView;
 
 public class ErShouFangDetailsActivity extends Activity implements IErShouFangDetailView,IGuanZhuHouseView{
 	
@@ -30,13 +36,56 @@ public class ErShouFangDetailsActivity extends Activity implements IErShouFangDe
 	private IGuanZhuHousePresenter guanzhuPresenter;
 	private LinearLayout llBackErshoufangdetails;
 	private UserInfo userinfo;
+	@ViewInject(R.id.iv_housepic)ImageView ivIMG;
+	@ViewInject(R.id.tv_ershoufangdetails)TextView tvtitle;
+	@ViewInject(R.id.ershoufang_shoujia)TextView tvShoujia;
+	@ViewInject(R.id.ershoufang_huxing)TextView tvHuXing;
+	@ViewInject(R.id.tv_junjia)TextView tvJunjia;
+	@ViewInject(R.id.tv_louceng)TextView tvLouceng;
+	@ViewInject(R.id.tv_zhuangxiu)TextView tvZhuangxiu;
+	@ViewInject(R.id.Tv_fangling)TextView TvFangling;
+	@ViewInject(R.id.tv_kanfangshijian)TextView tvKanfangshijian;
+	@ViewInject(R.id.tv_guapaishijian)TextView tvguapaishijian;
+	@ViewInject(R.id.tv_chaoxiang)TextView tvChaoxiang;
+	@ViewInject(R.id.tv_louxing)TextView tvLouxing;
+	@ViewInject(R.id.tv_quyu)TextView tvQuyu;
+	@ViewInject(R.id.Tv_xiaoqu)TextView TvXiaoqu;
+	@ViewInject(R.id.Tv_fangyuanbianhao)TextView TvFangyuanbianhao;
+	@ViewInject(R.id.ershoufang_mianji)TextView tvershoufang_mianji;
+	
+	@ViewInject(R.id.tv_hexinmaidian1)TextView tvHexinmaidian;
+	@ViewInject(R.id.tv_jiaotongchuxing1)TextView tvJiaotongchuxing;
+	
+	@ViewInject(R.id.tv_wuyeleixing)TextView tvWuyeleixing;
+	@ViewInject(R.id.tv_maifangjiatingweiyi)TextView tvMaifangjiatingweiyi;
+	@ViewInject(R.id.tv_jushangcijiaoyi)TextView tvJushangcijiaoyi;
+	@ViewInject(R.id.tv_maifangjiatingshoutao)TextView tvMaifangjiatingshoutao;
+	@ViewInject(R.id.tv_jizhengfangshi)TextView tvJizhengfangshi;
+	@ViewInject(R.id.tv_housearea)TextView tvHousearea;
+	@ViewInject(R.id.tv_zhuanrangshuifei)TextView tvZhuanrangshuifei;
+	@ViewInject(R.id.tv_daikuanleixing)TextView tvDaikuanleixing;
+	@ViewInject(R.id.tv_daikuanjine)TextView tvDaikuanjine;
+	@ViewInject(R.id.tv_daikuanqixian)TextView tvDaikuanqixian;
+	
+	@ViewInject(R.id.tv_jizhunlilv)TextView tvJizhunlilv;
+	@ViewInject(R.id.tv_lixi)TextView tvLixi;
+	@ViewInject(R.id.tv_housetotilprice)TextView tvHousetotilprice;
+	@ViewInject(R.id.tv_weekhistroy)TextView tvWeekhistroy;
+	@ViewInject(R.id.tv_totalhistroy)TextView tvTotalhistroy;
+	
+	
+	
+	
+	
+	
+	
+	
 	private Handler handler=new Handler(){
 		@Override
 		public void handleMessage(Message msg) {
 			switch (msg.what) {
 			case 1:
 				e=(ErShouFangDetails) msg.obj;
-//				Log.e("==============", "`````+++++++++~~~~~~"+e);
 				Show();
 				break;
 
@@ -50,6 +99,7 @@ public class ErShouFangDetailsActivity extends Activity implements IErShouFangDe
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_er_shou_fang_details);
+		x.view().inject(this);
 		initViews();
 		initListener();
 		esfPresenter=new ErShouFangDetailPresenter(this);
@@ -75,8 +125,8 @@ public class ErShouFangDetailsActivity extends Activity implements IErShouFangDe
 					MyToastShowCenter.CenterToast(getApplicationContext(), "还没有登录，请先登录！");
 				}else{
 					//登录后，检测用户是否有Message，没有则显示消息为空按钮
-//					String fromid=e.getId()+"";
-					String fromid="185";
+					String fromid=e.getId()+"";
+//					String fromid="185";
 					String fromtable="ershou";
 					String userid=userinfo.getUserid();
 					String username=userinfo.getUsername();
@@ -116,7 +166,54 @@ public class ErShouFangDetailsActivity extends Activity implements IErShouFangDe
 	
 	
 	private void Show(){
+		String url="http://www.taoshenfang.com"+e.getThumb();
+		Glide.with(this).load(url).into(ivIMG);
+		tvtitle.setText(e.getTitle());
+		tvShoujia.setText(e.getZongjia()+"万");
+		tvHuXing.setText(e.getShi()+"室"+e.getTing()+"厅");
+		tvershoufang_mianji.setText(e.getJianzhumianji()+"平米");
+		tvChaoxiang.setText(e.getChaoxiang()+"");
+		tvguapaishijian.setText(e.getGuapaidate()+"");
+		
+		double zongjia=Integer.valueOf(e.getZongjia()).doubleValue();
+		double mianji=Integer.valueOf(e.getJianzhumianji()).doubleValue();
+		double junjia=zongjia/mianji;
+		int x=(int) (junjia+0.5);
+		tvJunjia.setText(x+"万元/平");
+		
+		
+		tvLouceng.setText(e.getCeng()+"/"+e.getZongceng());
+		tvLouxing.setText(e.getJianzhutype()+"");
+		tvQuyu.setText(e.getCityname()+" "+e.getAreaname());
+		tvZhuangxiu.setText(e.getZhuangxiu()+"");
+		TvFangling.setText(e.getFangling()+"年");
+		TvFangyuanbianhao.setText(e.getBianhao()+"");
+		TvXiaoqu.setText(e.getXiaoqu()+"");
+//		
+		tvHexinmaidian.setText(e.getHexinmaidian());
+		tvJiaotongchuxing.setText(e.getJiaotong());
+//		
+		tvWuyeleixing.setText(e.getJiaoyiquanshu());
+		if(e.getIsweiyi().equals("是")){
+			tvMaifangjiatingweiyi.setText("唯一");
+		}else{
+			tvMaifangjiatingweiyi.setText("非唯一");
+		}
 	
+		tvJushangcijiaoyi.setText(e.getShangcijiaoyi());;
+////		tvMaifangjiatingshoutao.setText(e.get);
+////		tvJizhengfangshi.setText(e.get);
+		tvHousearea.setText(e.getJianzhumianji());;
+////		tvZhuanrangshuifei.setText(e.getz);
+////		tvDaikuanleixing.setText(e.get);
+////		tvDaikuanjine;
+////		tvDaikuanqixian;
+////		tvJizhunlilv;
+////		tvLixi;
+////		tvHousetotilprice;
+//		
+		tvWeekhistroy.setText(e.getWeekviews());
+		tvTotalhistroy.setText(e.getViews());
 		
 	}
 

@@ -32,7 +32,6 @@ public class ErShouFangDetailPresenter implements IErShouFangDetailPresenter{
 			
 			@Override
 			public void onError(Object error) {
-				// TODO Auto-generated method stub
 				
 			}
 		});

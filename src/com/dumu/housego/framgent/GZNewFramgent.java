@@ -10,6 +10,7 @@ import com.dumu.housego.entity.ErShouFangDetails;
 import com.dumu.housego.entity.NewHouseDetail;
 import com.dumu.housego.entity.UserInfo;
 import com.dumu.housego.framgent.GZErShouFramgent.GuanZhuErShouLsitAdapter.ViewHolder;
+import com.dumu.housego.presenter.GuanZhuNewPresenter;
 import com.dumu.housego.presenter.IGuanZhuDeletePresenter;
 import com.dumu.housego.presenter.IGuanZhuNewPresenter;
 import com.dumu.housego.util.MyToastShowCenter;
@@ -41,21 +42,26 @@ public class GZNewFramgent extends Fragment implements IGuanZhuNewView{
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 	View view=inflater.inflate(R.layout.fragment_guanzhu_new, null);
-	
 	initView(view);
 	setListener();
+	presenter=new GuanZhuNewPresenter(this);
+	userinfo=HouseGoApp.getContext().getCurrentUserInfo();
+	String username=userinfo.getUsername();
+	presenter.LoadGuanZhuNew(username);
+	
+	
 	return view;
 	}
 	
-	@Override
-	public void onResume() {
-		userinfo=HouseGoApp.getContext().getCurrentUserInfo();
-		String username=userinfo.getUsername();
-		presenter.LoadGuanZhuNew(username);;
-		MyToastShowCenter.CenterToast(getActivity(), "发送了数据");
-		super.onResume();
-	}
-	
+//	@Override
+//	public void onResume() {
+//		userinfo=HouseGoApp.getContext().getCurrentUserInfo();
+//		String username=userinfo.getUsername();
+//		presenter.LoadGuanZhuNew(username);;
+//		MyToastShowCenter.CenterToast(getActivity(), "发送了数据");
+//		super.onResume();
+//	}
+//	
 	
 	private void setListener() {
 		// TODO Auto-generated method stub
@@ -73,7 +79,12 @@ public class GZNewFramgent extends Fragment implements IGuanZhuNewView{
 	@Override
 	public void showGuanZhuSuccess(List<NewHouseDetail> newhousedetails) {
 		this.newhousedetails=newhousedetails;
-		adapter=new GuanZhuNewLsitAdapter(newhousedetails, getActivity(), listview.getRightViewWidth());
+		if(newhousedetails!=null){
+			adapter=new GuanZhuNewLsitAdapter(newhousedetails, getActivity(), listview.getRightViewWidth());
+		}else{
+			MyToastShowCenter.CenterToast(getContext(), "你还没有关注新房！");
+		}
+	
 	}
 
 

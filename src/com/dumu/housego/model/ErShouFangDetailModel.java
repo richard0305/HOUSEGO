@@ -4,8 +4,11 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.json.JSONException;
+
 import com.dumu.housego.entity.ErShouFangDetails;
 import com.dumu.housego.entity.RecommendNews;
+import com.dumu.housego.util.ErShouFangDetialJSONParse;
 import com.dumu.housego.util.HttpUtils;
 import com.dumu.housego.util.UrlFactory;
 
@@ -30,10 +33,12 @@ public class ErShouFangDetailModel implements IErShouFangDetailaModel{
 					map.put("id", id);
 					Log.e("---2016-10-9 17:13++++", "----------"+url);
 					String json=HttpUtils.isToString(HttpUtils.post(url, map));
+					ErShouFangDetails ershoufangdetails=ErShouFangDetialJSONParse.parseSearch(json);
 					
-					
-					Log.e("---2016-10-9 17:13++++", "----------"+json);
+					return ershoufangdetails;
 				} catch (IOException e) {
+					e.printStackTrace();
+				} catch (JSONException e) {
 					e.printStackTrace();
 				}
 				return null;
