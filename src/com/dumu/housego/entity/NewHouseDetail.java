@@ -1,7 +1,7 @@
 package com.dumu.housego.entity;
 
 public class NewHouseDetail {
-	    private int id;
+	    private String id;
 	    private String  catid;
 	    private String  typeid;
 	    private String  title;
@@ -30,12 +30,14 @@ public class NewHouseDetail {
 	    private String  updatetime;
 	    private String  jingweidu;
 	    private String  zuobiaodizhi;
-		public NewHouseDetail(int id, String catid, String typeid, String title, String style, String thumb,
+	    private String shiarea;
+	    private String mianjiarea;
+		public NewHouseDetail(String id, String catid, String typeid, String title, String style, String thumb,
 				String kaifashang, String fukuanfangshi, String huxingintro, String chanquannianxian, String yangbantu,
 				String shijingtu, String kaipandate, String xiaoqutu, String loupandongtai, String loupandizhi,
 				String zaishou, String xiaoqutype, String jiaofangdate, String inputtime, String contacttel,
 				String fangwuyongtu, String zhulihuxing, String loupantupian, String username, String junjia,
-				String updatetime, String jingweidu, String zuobiaodizhi) {
+				String updatetime, String jingweidu, String zuobiaodizhi,String shiarea,String mianjiarea) {
 			super();
 			this.id = id;
 			this.catid = catid;
@@ -66,15 +68,17 @@ public class NewHouseDetail {
 			this.updatetime = updatetime;
 			this.jingweidu = jingweidu;
 			this.zuobiaodizhi = zuobiaodizhi;
+			this.shiarea=shiarea;
+			this.mianjiarea=mianjiarea;
 		}
 		public NewHouseDetail() {
 			super();
 		}
-		public int getId() {
+		public String getId() {
 			return id;
 		}
-		public void setId(int id) {
-			this.id = id;
+		public void setId(String string) {
+			this.id = string;
 		}
 		public String getCatid() {
 			return catid;
@@ -244,6 +248,20 @@ public class NewHouseDetail {
 		public void setZuobiaodizhi(String zuobiaodizhi) {
 			this.zuobiaodizhi = zuobiaodizhi;
 		}
+		
+		public String getShiarea() {
+			return shiarea;
+		}
+		public void setShiarea(String shiarea) {
+			this.shiarea = shiarea;
+		}
+		
+		public String getMainjiarea() {
+			return mianjiarea;
+		}
+		public void setMainjiarea(String mianjiarea) {
+			this.mianjiarea = mianjiarea;
+		}
 		@Override
 		public String toString() {
 			return "NewHouseDetail [id=" + id + ", catid=" + catid + ", typeid=" + typeid + ", title=" + title
@@ -255,8 +273,13 @@ public class NewHouseDetail {
 					+ ", inputtime=" + inputtime + ", contacttel=" + contacttel + ", fangwuyongtu=" + fangwuyongtu
 					+ ", zhulihuxing=" + zhulihuxing + ", loupantupian=" + loupantupian + ", username=" + username
 					+ ", junjia=" + junjia + ", updatetime=" + updatetime + ", jingweidu=" + jingweidu
-					+ ", zuobiaodizhi=" + zuobiaodizhi + "]";
+					+ ", zuobiaodizhi=" + zuobiaodizhi + ", shiarea=" + shiarea + ", mianjiarea=" + mianjiarea + "]";
 		}
+		
+		
+		
+		
+
 	    
 	    
 	    

@@ -41,7 +41,8 @@ public class PersonalMainActivity extends Activity implements IChangeHeadPhotoVi
 	private UserInfo userinfo;
 	private CircleImageView ivPersonalPhoto;
 	private Bitmap head;//Í·ÏñBitmap
-    private static String path="/sdcard/HouseGo/";//sdÂ·¾¶
+	private	 File file=new File("/sdcard/HouseGo/");
+    private static String path=File.pathSeparator;//sdÂ·¾¶
     private IChangeHeadPhotoPresenter headpresenter;
     
 	@Override

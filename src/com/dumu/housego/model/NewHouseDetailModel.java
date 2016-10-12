@@ -8,9 +8,11 @@ import org.json.JSONObject;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
+import com.android.volley.Request.Method;
 import com.android.volley.Response.ErrorListener;
 import com.android.volley.Response.Listener;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 import com.dumu.housego.app.HouseGoApp;
 import com.dumu.housego.entity.NewHouseDetail;
 import com.dumu.housego.util.CommonRequest;
@@ -29,12 +31,15 @@ public class NewHouseDetailModel implements INewHouseDetailaModel{
 	@Override
 	public void FindNewHouseDetail(final String catid, final String id, AsycnCallBack back) {
 		String url=UrlFactory.PostRecommendListToDetailUrl();
-		Log.e("yanglijun", "201565423==="+id+"   "+catid);
-		CommonRequest request=new CommonRequest(Request.Method.POST, url, new Listener<String>() {
+		
+		Log.e("NewHouseDetailActivity", "¿ªÊ¼ÁË");
+		Log.e("NewHouseDetailActivity", "url = " + url);
+		
+		StringRequest request = new StringRequest(url, new Listener<String>() {
 
 			@Override
 			public void onResponse(String response) {
-				Log.e("yanglijun", "NewHouseDetailModel==="+response);
+				Log.e("NewHouseDetailActivity", "response"+response);
 				
 			}
 		}, new ErrorListener() {
@@ -42,29 +47,54 @@ public class NewHouseDetailModel implements INewHouseDetailaModel{
 			@Override
 			public void onErrorResponse(VolleyError error) {
 				// TODO Auto-generated method stub
-				Log.v("========2016-10-8", "yanglijun"+error.getMessage());
+				
 			}
 		})
-		{
-			
+		
+		 {
 			@Override
 			protected Map<String, String> getParams() throws AuthFailureError {
-				Map<String, String> params=new HashMap<String, String>();
-				params.put("catid", catid);
-				params.put("id", id);
-				return params;
+				Map<String, String> map = new HashMap<String, String>();
+				map.put("catid", catid);
+				map.put("id", id);
+				return map;
 			}
+		};
+		HouseGoApp.getQueue().add(request);
+		
+//		CommonRequest request=new CommonRequest(Request.Method.POST, url, new Listener<String>() {
+//			@Override
+//			public void onResponse(String response) {
+//				Log.e("NewHouseDetailActivity", "response"+response);
+//				
+//			}
+//		}, new ErrorListener() {
+//
+//			@Override
+//			public void onErrorResponse(VolleyError error) {
+//				// TODO Auto-generated method stub
+//				Log.v("========2016-10-8", "yanglijun"+error.getMessage());
+//			}
+//		})
+//		{
 //			
 //			@Override
-//			public Map<String, String> getHeaders() throws AuthFailureError {
-//				  HashMap<String, String> headers = new HashMap<String, String>();
-//	                // do not add anything here
-//	                return headers;
+//			protected Map<String, String> getParams() throws AuthFailureError {
+//				Map<String, String> params=new HashMap<String, String>();
+//				params.put("catid", catid);
+//				params.put("id", id);
+//				return params;
 //			}
-//			
-		}
-		;
-		HouseGoApp.getQueue().add(request);
+////			
+////			@Override
+////			public Map<String, String> getHeaders() throws AuthFailureError {
+////				  HashMap<String, String> headers = new HashMap<String, String>();
+////	                // do not add anything here
+////	                return headers;
+////			}
+////			
+//		};
+//		HouseGoApp.getQueue().add(request);
 	}
 
 

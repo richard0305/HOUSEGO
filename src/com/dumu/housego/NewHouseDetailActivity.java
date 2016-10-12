@@ -24,6 +24,8 @@ public class NewHouseDetailActivity extends Activity implements INewHouseDetailV
 	private  NewHouseDetail newhousedetail;
 	private  INewHouseDetailPresenter presenter;
 	
+	private  static String TAG =  "NewHouseDetailActivity";
+	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +36,8 @@ public class NewHouseDetailActivity extends Activity implements INewHouseDetailV
 		
 		String id=getIntent().getStringExtra("Id");
 		String catid=getIntent().getStringExtra("catid");
-		
-		Log.e("2016-10-8", "17:16"+id+"      "+catid);
+		Log.i(TAG, id);
+		Log.i(TAG, catid);
 		
 		presenter=new NewHouseDetailPresenter(this);
 		presenter.FindNewHousedetail(catid, id);

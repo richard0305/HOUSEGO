@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:layout_height="match_parent" >
+    
+   <RelativeLayout
+       android:id="@+id/item_left"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+          >
+                    <ImageView
+            android:id="@+id/iv_guanzhuershou"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/touxiang3" />
+
+            <TextView
+                android:id="@+id/tv_guanzhu_new_shi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/tv_guanzhu_title"
+                android:layout_below="@+id/tv_guanzhu_title"
+                android:layout_marginTop="10dp"
+                android:text="1-3室"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_guanzhu_fangxing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/tv_guanzhu_new_shi"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/tv_guanzhu_new_shi"
+                android:text="/"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_guanzhu_new_area"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/tv_guanzhu_fangxing"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/tv_guanzhu_fangxing"
+                android:text="76平米"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_guanzhu_new_junjia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/tv_guanzhu_new_area"
+                android:layout_toLeftOf="@+id/textView1"
+                android:text="45"
+                android:textColor="#ff0000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_guanzhu_loupandizhi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/tv_guanzhu_new_shi"
+                android:layout_below="@+id/tv_guanzhu_new_shi"
+                android:layout_marginTop="6dp"
+                android:text="楼盘地址:"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_guanzhu_new_loupandizhi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/tv_guanzhu_loupandizhi"
+                android:layout_toRightOf="@+id/tv_guanzhu_loupandizhi"
+                android:text="厚街大道与博览大道交汇处"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_guanzhu_new_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/tv_guanzhu_new_loupandizhi"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="15dp"
+                android:text="075586168881"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_guanzhu_new_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:layout_alignLeft="@+id/tv_guanzhu_loupandizhi"
+                android:layout_below="@+id/tv_guanzhu_loupandizhi"
+                android:layout_marginTop="6dp"
+                android:text="开盘时间:2015-08-15 / 交房时间:2016-11-30"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_guanzhu_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_alignTop="@+id/iv_guanzhuershou"
+                android:layout_toRightOf="@+id/iv_guanzhuershou"
+                android:text="深圳大鹏新区葵涌"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/tv_guanzhu_new_junjia"
+                android:layout_alignBottom="@+id/tv_guanzhu_new_junjia"
+                android:layout_alignRight="@+id/tv_guanzhu_new_phone"
+                android:text="元/平米"
+                android:textColor="#ff0000"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
+        
+         <RelativeLayout
+        android:id="@+id/item_right"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@color/gray" >
+
+        <TextView
+            android:id="@+id/item_right_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="取消关注"
+            android:textColor="@color/floralwhite" />
+
+     
+    </RelativeLayout>
+
+</LinearLayout>

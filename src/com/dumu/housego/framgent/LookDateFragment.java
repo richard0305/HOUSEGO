@@ -3,8 +3,8 @@ package com.dumu.housego.framgent;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.dumu.housego.ErShouFangMainActivity;
 import com.dumu.housego.R;
-import com.dumu.housego.activity.LoginActivity;
 import com.dumu.housego.util.CarouselPagerAdapter;
 import com.dumu.housego.util.CarouselViewPager;
 
@@ -41,7 +41,7 @@ public class LookDateFragment extends Fragment implements CarouselViewPager.OnPa
 				
 				@Override
 				public void onClick(View v) {
-					startActivity(new Intent(getActivity(), LoginActivity.class));
+					startActivity(new Intent(getActivity(), ErShouFangMainActivity.class));
 					
 					
 				}

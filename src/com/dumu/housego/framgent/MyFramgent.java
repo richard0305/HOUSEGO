@@ -1,7 +1,6 @@
 package com.dumu.housego.framgent;
 
 import org.xutils.x;
-import org.xutils.view.annotation.ViewInject;
 
 import com.bumptech.glide.Glide;
 import com.dumu.housego.MyRentingHouseAgentActivity;
@@ -10,7 +9,6 @@ import com.dumu.housego.PersonalMainActivity;
 import com.dumu.housego.PuTongMyGuanZhuActivity;
 import com.dumu.housego.R;
 import com.dumu.housego.activity.LoginActivity;
-import com.dumu.housego.activity.MainActivity;
 import com.dumu.housego.app.HouseGoApp;
 import com.dumu.housego.entity.UserInfo;
 import com.dumu.housego.util.FontHelper;
@@ -18,7 +16,6 @@ import com.dumu.housego.util.FontHelper;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -60,7 +57,7 @@ private LinearLayout llMysettingAgentLogin,llMysettingPuTongLogin,llMysettingNol
 		if(userinfo!=null){
 		tvLoginRegist.setText(userinfo.getNickname()+"");
 		String imgurl=userinfo.getUserpic();
-		Glide.with(getContext()).load(imgurl).into(ivMyPic);
+		Glide.with(getActivity()).load(imgurl).into(ivMyPic);
 		tvLoginRegist.setClickable(false);
 		ivMyPic.setClickable(true);
 		
@@ -120,7 +117,7 @@ private LinearLayout llMysettingAgentLogin,llMysettingPuTongLogin,llMysettingNol
 			
 			@Override
 			public void onClick(View v) {
-					startActivity(new Intent(getContext(), LoginActivity.class));
+					startActivity(new Intent(getActivity(), LoginActivity.class));
 			}
 		});
 		

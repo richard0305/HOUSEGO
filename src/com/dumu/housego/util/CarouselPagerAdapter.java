@@ -1,11 +1,11 @@
 package com.dumu.housego.util;
 
+import java.util.List;
+
 import android.support.v4.view.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-
-import java.util.List;
 
 /**
  * @Author: pyz

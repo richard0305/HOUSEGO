@@ -14,8 +14,8 @@ import android.util.AttributeSet;
  */
 public class CarouselViewPager extends ViewPager {
 
-    private int displayTime = 3000;//å›¾ç‰‡å±•ç¤ºçš„æ—¶é—´ï¼Œé»˜è®¤ä¸º3ç§’
-    private CarouselDirection direction = CarouselDirection.LEFT;//å›¾ç‰‡è‡ªåŠ¨æ»‘åŠ¨çš„æ–¹å‘å‘å·¦
+    private int displayTime = 3000;//Í¼Æ¬Õ¹Ê¾µÄÊ±¼ä£¬Ä¬ÈÏÎª3Ãë
+    private CarouselDirection direction = CarouselDirection.LEFT;//Í¼Æ¬×Ô¶¯»¬¶¯µÄ·½ÏòÏò×ó
 
     public CarouselViewPager(Context context) {
         super(context);
@@ -26,7 +26,7 @@ public class CarouselViewPager extends ViewPager {
     }
 
     /**
-     * è®¾ç½®å›¾ç‰‡å±•ç¤ºæ—¶é—´
+     * ÉèÖÃÍ¼Æ¬Õ¹Ê¾Ê±¼ä
      * @param time
      */
     public void setDisplayTime(int time){
@@ -34,7 +34,7 @@ public class CarouselViewPager extends ViewPager {
     }
 
     /**
-     * è®¾ç½®å›¾ç‰‡è‡ªåŠ¨æ»‘åŠ¨çš„æ–¹å‘
+     * ÉèÖÃÍ¼Æ¬×Ô¶¯»¬¶¯µÄ·½Ïò
      * @param direction
      */
     public void setDirection(CarouselDirection direction) {
@@ -42,7 +42,7 @@ public class CarouselViewPager extends ViewPager {
     }
 
     /**
-     * å¼€å§‹è‡ªåŠ¨è½®æ’­
+     * ¿ªÊ¼×Ô¶¯ÂÖ²¥
      */
     public void start(){
         stop();
@@ -50,14 +50,14 @@ public class CarouselViewPager extends ViewPager {
     }
 
     /**
-     * åœæ­¢è‡ªåŠ¨è½®æ’­
+     * Í£Ö¹×Ô¶¯ÂÖ²¥
      */
     public void stop(){
         removeCallbacks(automaticDisplay);
     }
 
     /**
-     * å›¾ç‰‡è½®æ’­æ–¹å‘æšä¸¾ç±»
+     * Í¼Æ¬ÂÖ²¥·½ÏòÃ¶¾ÙÀà
      */
     public enum CarouselDirection {
         LEFT,RIGHT
@@ -71,26 +71,26 @@ public class CarouselViewPager extends ViewPager {
     };
 
     /**
-     * å›¾ç‰‡è½®æ’­
+     * Í¼Æ¬ÂÖ²¥
      * @param direction
      */
     private synchronized void display(CarouselDirection direction) {
         PagerAdapter pagerAdapter = getAdapter();
         if (pagerAdapter != null ) {
-            int count = pagerAdapter.getCount();//å›¾ç‰‡çš„å¼ æ•°
-            int currentItem = getCurrentItem();//å½“å‰å±•ç¤ºåˆ°ç¬¬å‡ å¼ 
+            int count = pagerAdapter.getCount();//Í¼Æ¬µÄÕÅÊı
+            int currentItem = getCurrentItem();//µ±Ç°Õ¹Ê¾µ½µÚ¼¸ÕÅ
 
             switch (direction) {
                 case LEFT:
                     currentItem++;
-                    //å½“å‰å±•ç¤ºçš„å›¾ç‰‡ä¸ºæœ€åä¸€å¼ æ—¶ï¼Œåˆ™è¿”å›ç¬¬ä¸€å¼ 
+                    //µ±Ç°Õ¹Ê¾µÄÍ¼Æ¬Îª×îºóÒ»ÕÅÊ±£¬Ôò·µ»ØµÚÒ»ÕÅ
                     if (currentItem >= count ){
                         currentItem = 0;
                     }
                     break;
                 case RIGHT:
                     currentItem--;
-                    //å½“å‰å±•ç¤ºçš„å›¾ç‰‡ä¸ºæœ€åä¸€å¼ æ—¶ï¼Œåˆ™è¿”å›ç¬¬ä¸€å¼ 
+                    //µ±Ç°Õ¹Ê¾µÄÍ¼Æ¬Îª×îºóÒ»ÕÅÊ±£¬Ôò·µ»ØµÚÒ»ÕÅ
                     if (currentItem < 0){
                         currentItem = count-1;
                     }
@@ -101,6 +101,8 @@ public class CarouselViewPager extends ViewPager {
         start();
     }
 
+
+    
     @Override
     protected void onFinishInflate() {
         addOnPageChangeListener(new OnPageChangeListener() {
