@@ -189,6 +189,11 @@ public class ErShouFangDetailsActivity extends Activity implements IErShouFangDe
 		
 		mMapView=(MapView) findViewById(R.id.map_bmapView);
 		mBaiduMAP=mMapView.getMap();
+		
+		
+		/**
+		 * 改变地图的比例尺
+		 */
 //		MapStatusUpdate msu=MapStatusUpdateFactory.zoomTo(15.0f);
 //		mBaiduMAP.setMapStatus(msu);
 		
@@ -272,6 +277,7 @@ public class ErShouFangDetailsActivity extends Activity implements IErShouFangDe
 			LatLng latLng=new LatLng(latitude, longitude);
 			MapStatusUpdate msu=MapStatusUpdateFactory.newLatLng(latLng);
 			mBaiduMAP.animateMapStatus(msu);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -284,15 +290,12 @@ public class ErShouFangDetailsActivity extends Activity implements IErShouFangDe
 	@Override
 	public void GuanZhuSuccess(String info) {
 		MyToastShowCenter.CenterToast(getApplicationContext(), info);
-		
 	}
-
-
+	
 
 	@Override
 	public void GuanZhuFail(String errorinfo) {
 		MyToastShowCenter.CenterToast(getApplicationContext(), errorinfo);
-		
 	}
 
 }
