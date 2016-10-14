@@ -3,6 +3,12 @@ package com.dumu.housego;
 import org.xutils.x;
 import org.xutils.view.annotation.ViewInject;
 
+import com.baidu.mapapi.SDKInitializer;
+import com.baidu.mapapi.map.BaiduMap;
+import com.baidu.mapapi.map.MapStatusUpdate;
+import com.baidu.mapapi.map.MapStatusUpdateFactory;
+import com.baidu.mapapi.map.MapView;
+import com.baidu.mapapi.model.LatLng;
 import com.bumptech.glide.Glide;
 import com.dumu.housego.app.HouseGoApp;
 import com.dumu.housego.entity.ErShouFangDetails;
@@ -35,7 +41,11 @@ public class ErShouFangDetailsActivity extends Activity implements IErShouFangDe
 	private IErShouFangDetailPresenter esfPresenter;
 	private IGuanZhuHousePresenter guanzhuPresenter;
 	private LinearLayout llBackErshoufangdetails;
+	
 	private UserInfo userinfo;
+	private BaiduMap mBaiduMAP;
+	private MapView mMapView;
+	
 	@ViewInject(R.id.iv_housepic)ImageView ivIMG;
 	@ViewInject(R.id.tv_ershoufangdetails)TextView tvtitle;
 	@ViewInject(R.id.ershoufang_shoujia)TextView tvShoujia;
@@ -98,6 +108,9 @@ public class ErShouFangDetailsActivity extends Activity implements IErShouFangDe
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		
+        
 		setContentView(R.layout.activity_er_shou_fang_details);
 		x.view().inject(this);
 		initViews();
@@ -110,6 +123,26 @@ public class ErShouFangDetailsActivity extends Activity implements IErShouFangDe
 		
 		Log.e("2016-10-9 9:10", "yanglijun-------"+catid+"   "+id);
 	}
+	
+	
+	  @Override  
+	    protected void onDestroy() {  
+	        super.onDestroy();  
+	        //在activity执行onDestroy时执行mMapView.onDestroy()，实现地图生命周期管理  
+	        mMapView.onDestroy();  
+	    }  
+	    @Override  
+	    protected void onResume() {  
+	        super.onResume();  
+	        //在activity执行onResume时执行mMapView. onResume ()，实现地图生命周期管理  
+	        mMapView.onResume();  
+	        }  
+	    @Override  
+	    protected void onPause() {  
+	        super.onPause();  
+	        //在activity执行onPause时执行mMapView. onPause ()，实现地图生命周期管理  
+	        mMapView.onPause();  
+	        }  
 	
 	
 	
@@ -153,6 +186,13 @@ public class ErShouFangDetailsActivity extends Activity implements IErShouFangDe
 	private void initViews() {
 		rbErshoufangGuanzhu=(RadioButton) findViewById(R.id.rb_ershoufangguanzhu);
 		llBackErshoufangdetails=(LinearLayout) findViewById(R.id.ll_back_ershoufangdetails);
+		
+		mMapView=(MapView) findViewById(R.id.map_bmapView);
+		mBaiduMAP=mMapView.getMap();
+//		MapStatusUpdate msu=MapStatusUpdateFactory.zoomTo(15.0f);
+//		mBaiduMAP.setMapStatus(msu);
+		
+		
 	}
 	
 	@Override
@@ -214,6 +254,28 @@ public class ErShouFangDetailsActivity extends Activity implements IErShouFangDe
 //		
 		tvWeekhistroy.setText(e.getWeekviews());
 		tvTotalhistroy.setText(e.getViews());
+		
+		/**
+		 *  设置百度地图
+		 *  定位到房源经纬度 
+		 */
+		try {
+			String jwd=e.getJingweidu();
+			String[] arr=jwd.split(",");
+			String j=arr[0].toString();
+			String w=arr[1].toString();
+			
+			double latitude=Double.valueOf(j);
+			double longitude=Double.valueOf(w);
+			MyToastShowCenter.CenterToast(getApplicationContext(),"经"+latitude+" 纬"+longitude);
+			
+			LatLng latLng=new LatLng(latitude, longitude);
+			MapStatusUpdate msu=MapStatusUpdateFactory.newLatLng(latLng);
+			mBaiduMAP.animateMapStatus(msu);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 		
 	}
 

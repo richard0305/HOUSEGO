@@ -30,6 +30,8 @@ public class NewHouseDetailPresenter implements INewHouseDetailPresenter{
 			
 			@Override
 			public void onSuccess(Object success) {
+				NewHouseDetail e=(NewHouseDetail) success;
+				view.showNewHouseDetailData(e);
 				
 			}
 			

@@ -30,7 +30,7 @@ public class GuanZhuNewJSONParse {
 					n.setTitle(obj2.getString("title"));
 					n.setThumb(obj2.getString("thumb"));
 					n.setShiarea(obj2.getString("shiarea"));
-					n.setMainjiarea(obj2.getString("mianjiarea"));
+					n.setMianjiarea(obj2.getString("mianjiarea"));
 					n.setJunjia(obj2.getString("junjia"));
 					n.setLoupandizhi(obj2.getString("loupandizhi"));
 					n.setContacttel(obj2.getString("contacttel"));

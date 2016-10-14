@@ -1,114 +1,60 @@
 package com.dumu.housego.entity;
 
 public class BlockTradeDetail {
-	private int id;
-
+	private String id;
 	private String catid;
-
 	private String typeid;
-
 	private String title;
-
 	private String style;
-
 	private String thumb;
-
 	private String keywords;
-
 	private String tags;
-
 	private String description;
-
 	private String posid;
-
 	private String url;
-
 	private String listorder;
-
 	private String status;
-
 	private String sysadd;
-
 	private String islink;
-
 	private String username;
-
 	private String inputtime;
-
 	private String updatetime;
-
 	private String views;
-
 	private String yesterdayviews;
-
 	private String dayviews;
-
 	private String weekviews;
-
 	private String monthviews;
-
 	private String viewsupdatetime;
-
 	private String address;
-
 	private String city;
-
 	private String area;
-
 	private String province;
-
 	private String jingweidu;
-
 	private String zuobiaodizhi;
-
 	private String dituzuobiao;
-
 	private String ditiexian;
-
 	private String zongjia;
-
 	private String zhandimianji;
-
 	private String contactname;
-
 	private String bianhao;
-
 	private String wuyetype;
-
 	private String tudishuxing;
-
 	private String hezuofangshi;
-
 	private String shiyongnianxian;
-
 	private String goudijine;
-
 	private String tel;
-
 	private String hasgd;
-
 	private String gdinfo;
-
 	private String content;
-
 	private String paginationtype;
-
 	private String maxcharperpage;
-
 	private String template;
-
 	private String paytype;
-
 	private String allow_comment;
-
 	private String relation;
-
 	private String xuzhi;
-
 	private String renzheng;
-
 	private String cityname;
-
 	private String areaname;
 	
 	
@@ -116,7 +62,7 @@ public class BlockTradeDetail {
 	public BlockTradeDetail() {
 		super();
 	}
-	public BlockTradeDetail(int id, String catid, String typeid, String title, String style, String thumb,
+	public BlockTradeDetail(String id, String catid, String typeid, String title, String style, String thumb,
 			String keywords, String tags, String description, String posid, String url, String listorder, String status,
 			String sysadd, String islink, String username, String inputtime, String updatetime, String views,
 			String yesterdayviews, String dayviews, String weekviews, String monthviews, String viewsupdatetime,
@@ -183,10 +129,10 @@ public class BlockTradeDetail {
 		this.cityname = cityname;
 		this.areaname = areaname;
 	}
-	public void setId(int id){
+	public void setId(String id){
 	this.id = id;
 	}
-	public int getId(){
+	public String getId(){
 	return this.id;
 	}
 	public void setCatid(String catid){

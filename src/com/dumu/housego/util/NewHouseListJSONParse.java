@@ -22,7 +22,6 @@ public class NewHouseListJSONParse {
 		for (int i = 0; i < array.length(); i++) {
 			JSONObject obj = array.getJSONObject(i);
 			NewHouseList n = new NewHouseList();
-//			JSONObject obj2=obj.getJSONObject("data");
 			
 			n.setId(obj.getString("id"));
 			n.setCatid(obj.getString("catid"));

@@ -178,7 +178,7 @@ public class GZNewFramgent extends Fragment implements IGuanZhuNewView{
 			holder.tvJunjia.setText(n.getJunjia());
 			holder.tvKaipanshijian.setText("开盘时间:"+n.getKaipandate()+" / 交房时间:"+n.getJiaofangdate());
 			holder.tvLoupandizhi.setText(n.getLoupandizhi());
-			holder.tvMianjiarea.setText(n.getMainjiarea()+"平米");
+			holder.tvMianjiarea.setText(n.getMianjiarea()+"平米");
 			holder.tvShiarea.setText("1-3 室");
 			
 			

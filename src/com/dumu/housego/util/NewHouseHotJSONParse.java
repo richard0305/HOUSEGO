@@ -21,6 +21,8 @@ public class NewHouseHotJSONParse {
 			JSONObject obj = array.getJSONObject(i);
 			NewHouseHotRecommend n = new NewHouseHotRecommend();
 			JSONObject obj2=obj.getJSONObject("data");
+			n.setId(obj.getString("id"));
+			n.setCatid(obj.getString("catid"));
 			n.setTitle(obj2.getString("title"));
 			n.setJunjia(obj2.getString("junjia"));
 			n.setThumb(obj2.getString("thumb"));

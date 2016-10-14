@@ -65,9 +65,11 @@
             <!-- 框內內容，scrollView -->
 
 			   <ImageView 
+			       android:id="@+id/iv_renting_pic"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                android:layout_gravity="center"
+               android:visibility="gone"
                android:src="@drawable/touxiang"
                 />
 			   
@@ -171,10 +173,14 @@
                
            </LinearLayout>
            
+			<Button 
+               android:layout_width="match_parent"
+               android:background="#c9c9cb"
+               android:layout_height="15dp"
+               />
 		
          <RelativeLayout
                android:layout_width="match_parent"
-               android:visibility="gone"
                android:layout_height="wrap_content" >
 
                <TextView
@@ -418,22 +424,25 @@
                    android:textSize="12sp" />
 
                <TextView
-                   android:id="@+id/renting_xiaoqu"
+                   android:id="@+id/renting_ditie"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
-                   android:layout_alignLeft="@+id/renting_fangshi"
-                   android:layout_alignParentBottom="true"
-                   android:text="25"
+                   android:layout_alignBaseline="@+id/TextView04"
+                   android:layout_alignBottom="@+id/TextView04"
+                   android:layout_toRightOf="@+id/TextView04"
+                   android:text="1号线 3号线"
                    android:textColor="#000000"
                    android:textSize="12sp" />
 
                <TextView
-                   android:id="@+id/renting_ditie"
+                   
+                   android:id="@+id/renting_xiaoqu"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
-                   android:layout_above="@+id/TextView05"
-                   android:layout_alignLeft="@+id/renting_xiaoqu"
-                   android:text="1号线 3号线"
+                   android:layout_alignBaseline="@+id/TextView05"
+                   android:layout_alignBottom="@+id/TextView05"
+                   android:layout_toRightOf="@+id/TextView05"
+                   android:text="25"
                    android:textColor="#000000"
                    android:textSize="12sp" />
 
@@ -443,14 +452,18 @@
                android:background="#c9c9cb"
                android:layout_height="15dp"
                />
-<RelativeLayout 
-                 android:layout_width="match_parent"
+		
+		
+				
+		<RelativeLayout 
+		    android:id="@+id/rl_renting_fangyuantese"
+               android:layout_width="match_parent"
                android:layout_height="wrap_content"
                 >
             <TextView 
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
-               android:text="看房记录"
+               android:text="房源特色"
                android:layout_margin="10dp"
                android:textSize="13sp"
                android:layout_alignParentLeft="true"
@@ -466,8 +479,104 @@
                 android:layout_margin="10dp"
                 android:src="@drawable/gray_right" />
 
-</RelativeLayout>
+		</RelativeLayout>
 		
+		<Button 
+               android:layout_width="match_parent"
+               android:background="#c9c9cb"
+               android:layout_height="1dp"
+               />
+
+		<RelativeLayout 
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    >
+		    <TextView 
+		        android:id="@+id/tv_sa"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="房源亮点"
+		        android:textSize="14sp"
+		        android:layout_margin="10dp"
+		        
+		        />
+		    
+		    <TextView 
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text=""
+		        android:layout_below="@+id/tv_sa"
+		        android:id="@+id/tv_fangyuanliangdian"
+		        android:textSize="12sp"
+		        android:layout_margin="10dp"
+		        />
+		    
+		</RelativeLayout>
+		
+		<Button 
+               android:layout_width="match_parent"
+               android:background="#c9c9cb"
+               android:layout_marginLeft="10dp"
+               android:layout_height="1dp"
+               />
+	<RelativeLayout 
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    >
+		    <TextView 
+		        android:id="@+id/tv_sas"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="交通出行"
+		        android:textSize="14sp"
+		        android:layout_margin="10dp"
+		        
+		        />
+		    
+		    <TextView 
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="asasassasas"
+		        android:layout_below="@+id/tv_sas"
+		        android:id="@+id/tv_jiaotongchuxing"
+		        android:textSize="12sp"
+		        android:layout_margin="10dp"
+		        />
+		    
+		</RelativeLayout>
+		
+		<Button 
+               android:layout_width="match_parent"
+               android:background="#c9c9cb"
+               android:layout_height="15dp"
+               />
+
+		
+		<RelativeLayout 
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+                >
+            <TextView 
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="看房记录"
+               android:layout_margin="10dp"
+               android:textSize="13sp"
+               android:layout_alignParentLeft="true"
+               android:gravity="center_vertical"
+               android:layout_centerHorizontal="true"
+               android:textColor="#000000"/>
+
+            <ImageView
+                android:id="@+id/imageView21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_margin="10dp"
+                android:src="@drawable/gray_right" />
+
+</RelativeLayout>
+
 <Button 
                android:layout_width="match_parent"
                android:background="#c9c9cb"
@@ -477,6 +586,7 @@
 		    android:layout_width="match_parent"
 		    android:layout_height="40dp"
 		    android:gravity="center"
+		    android:id="@+id/tv_renting_lishijilu"
 		    android:text="近一个月新增记录3位"
 		    android:textSize="14sp"
 		    />

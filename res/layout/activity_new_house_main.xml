@@ -266,7 +266,6 @@
                />
   <com.dumu.housego.util.ListViewForScrollView
         android:id="@+id/lv_rexiaofangyuan"
-        android:background="#ffffff"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
          >

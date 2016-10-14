@@ -134,7 +134,7 @@
                     android:layout_alignBottom="@+id/tv_block_trade_detail_date"
                     android:layout_alignRight="@+id/tv_block_trade_goudiimage"
                     android:textSize="12sp"
-                    android:text="400-8888-8888" />
+                    android:text="null" />
 
                 <TextView
                     android:id="@+id/tv_block_trade_goudiimage"
@@ -293,7 +293,7 @@
                     android:layout_alignBaseline="@+id/tv_block_trade_detail_area"
                     android:layout_alignBottom="@+id/tv_block_trade_detail_area"
                     android:layout_marginLeft="19dp"
-                    android:layout_toRightOf="@+id/tv_block_trade_detail_address"
+                    android:layout_toRightOf="@+id/tv_block_trade_detail_area"
                     android:text="预算金额:"
                     android:textSize="12sp" />
 

@@ -63,8 +63,14 @@ public class NewHouseListAdapter extends BaseAdapter {
 		}
 		
 		NewHouseList n=getItem(position);
-		String url="http://www.taoshenfang.com"+n.getThumb();
-		Glide.with(context).load(url).into(holder.newhouselist_iv);
+		if(n.getThumb().startsWith("http://www.tao")){
+			Glide.with(context).load(n.getThumb()).into(holder.newhouselist_iv);
+		}else{
+			String url="http://www.taoshenfang.com"+n.getThumb();
+			Glide.with(context).load(url).into(holder.newhouselist_iv);
+		}
+		
+	
 		holder.newhouselist_address.setText(n.getLoupandizhi());
 		holder.newhouselist_title.setText(n.getTitle());
 		holder.newhouselist_price.setText(n.getJunjia()+"ิช/ฉO");

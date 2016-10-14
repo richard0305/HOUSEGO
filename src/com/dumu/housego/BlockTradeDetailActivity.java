@@ -36,7 +36,7 @@ public class BlockTradeDetailActivity extends Activity implements IBlockTradeDet
 			case 1:
 				b=(BlockTradeDetail) msg.obj;
 				Log.e("==============", "`````+++++++++~~~~~~"+b);
-//				Show();
+				Show();
 				break;
 
 			default:
@@ -120,45 +120,36 @@ public class BlockTradeDetailActivity extends Activity implements IBlockTradeDet
 		msg.obj=blocktradedetail;
 		handler.sendMessage(msg);
 		
-//			private static void showView(){
-//				if(blocktradedetail.getThumb()!=null){
-//					String url="http://www.taoshenfang.com"+blocktradedetail.getThumb();
-//					Log.e("yanglijun", "------========---------+++++++++"+url);
-//					Glide.with(getApplicationContext()).load(url).into(iv_block_trade_detail);
-//				}else{
-//					iv_block_trade_detail.setImageResource(R.drawable.touxiang);
-//				}
-				
-		
-			
-//				tv_block_trade_detail_title.setText(blocktradedetail.getTitle());
-//				tv_block_trade_detail_content.setText(blocktradedetail.getTitle());
-		
-		
-		
-//				tv_block_trade_detail_goudi.setText(blocktradedetail.getGoudijine());
-//				
-//				String date=TimeTurnDate.getStandardTime(blocktradedetail.getUpdatetime());
-//				tv_block_trade_detail_date.setText(date);
-//				tv_block_trade_detail_phone.setText(blocktradedetail.getTel());
-//				
-//				tv_block_trade_detail_area.setText(blocktradedetail.getCityname()+" "+blocktradedetail.getAreaname());
-//				tv_block_trade_detail_yusuanjine.setText(blocktradedetail.getZongjia());
-//				tv_block_trade_detail_hezuofangshi.setText(blocktradedetail.getHezuofangshi());
-//				tv_block_trade_detail_shiyongnianxian.setText(blocktradedetail.getShiyongnianxian());
-//				tv_block_trade_detail_wuyeleixing.setText(blocktradedetail.getWuyetype());
-//				tv_block_trade_detail_jianzhumianji.setText(blocktradedetail.getZhandimianji());
-//				tv_block_trade_detail_lianxiren.setText(blocktradedetail.getUsername());
-//				tv_block_trade_detail_address.setText(blocktradedetail.getAddress());
-//				tv_block_trade_detail_xiangxijieshao.setText(blocktradedetail.getDescription());
-//			}
 				
 	}
 	
 	private void Show(){
 		
+		if(b.getThumb().startsWith("http://www.tao")){
+			
+			Glide.with(getApplicationContext()).load(b.getThumb()).into(iv_block_trade_detail);
+		}else{
+			String url="http://www.taoshenfang.com"+b.getThumb();
+			Log.e("yanglijun", "------========---------+++++++++"+url);
+			Glide.with(getApplicationContext()).load(url).into(iv_block_trade_detail);
+		}
 		tv_block_trade_detail_title.setText(b.getTitle());
 		tv_block_trade_detail_content.setText(b.getTitle());
+		tv_block_trade_detail_goudi.setText(b.getGoudijine()+"元");
+		
+		String date=TimeTurnDate.getStringDate(b.getUpdatetime());
+		tv_block_trade_detail_date.setText(date);
+		tv_block_trade_detail_phone.setText(b.getTel());
+		
+		tv_block_trade_detail_area.setText(b.getCityname()+" "+b.getAreaname());
+		tv_block_trade_detail_yusuanjine.setText(b.getZongjia()+"万元");
+		tv_block_trade_detail_hezuofangshi.setText(b.getHezuofangshi());
+		tv_block_trade_detail_shiyongnianxian.setText(b.getShiyongnianxian()+"年");
+		tv_block_trade_detail_wuyeleixing.setText(b.getWuyetype());
+		tv_block_trade_detail_jianzhumianji.setText(b.getZhandimianji()+"㎡");
+		tv_block_trade_detail_lianxiren.setText(b.getUsername());
+		tv_block_trade_detail_address.setText(b.getAddress());
+		tv_block_trade_detail_xiangxijieshao.setText(b.getDescription());
 		
 	}
 	
