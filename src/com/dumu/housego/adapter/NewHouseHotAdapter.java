@@ -66,7 +66,7 @@ public class NewHouseHotAdapter extends BaseAdapter {
 		Glide.with(context).load(url).into(holder.newhouse_rexiao_iv);
 		holder.newhouse_rexiao_address.setText(n.getLoupandizhi());
 		holder.newhouse_rexiao_title.setText(n.getTitle());
-		holder.newhouse_rexiao_price.setText(n.getJunjia()+"Ԫ/�O");
+		holder.newhouse_rexiao_price.setText(n.getJunjia()+"元/㎡");
 		
 		
 		

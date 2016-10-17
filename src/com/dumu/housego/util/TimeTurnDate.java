@@ -22,5 +22,12 @@ public class TimeTurnDate {
 	        String tim = sdf.format(date);
 			return tim;  
 		 }
+	 
+	 public static String getStringDate(long times) {
+		 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd ",Locale.getDefault());  
+	        Date date = new Date(times);  
+	        String tim = sdf.format(date);
+			return tim;  
+		 }
 	
 }

@@ -5,6 +5,12 @@
     tools:context="com.dumu.housego.ErShouFangDetailsActivity"
     tools:ignore="ObsoleteLayoutParam,UseCompoundDrawables,RtlSymmetry,HardcodedText,RtlHardcoded,ContentDescription,TooManyViews" >
 
+    <RelativeLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ershoufang_feiyuyue"
+        >
+    
     <RelativeLayout
         android:id="@+id/rl_title"
         android:layout_width="match_parent"
@@ -1089,6 +1095,7 @@
 
         <TextView
             android:layout_width="0dp"
+            android:id="@+id/tv_yuyuekanfang"
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
             android:layout_weight="0.30"
@@ -1108,5 +1115,121 @@
             android:background="#ff0000"
             android:text="咨询经纪人" />
     </LinearLayout>
+	</RelativeLayout>
+	
+    
+    
+    <!-- 预约窗口 -->
+    
+    <RelativeLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rl_ershoufang_yuyuewindows"
+        android:visibility="gone"
+        >
+         
+    <RelativeLayout
+        android:id="@+id/rl_title_yuyue"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:background="#ee3a43" >
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:paddingLeft="5dp"
+            android:text="预约看房"
+            android:textColor="#ffffff"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:id="@+id/ll_back_yuyuekanfnag"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignTop="@+id/textView1"
+                android:src="@drawable/white_left" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:paddingLeft="5dp"
+                android:text="Back"
+                android:textColor="#ffffff"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </RelativeLayout>
+    
+    
+        
+        
+        
+
+
+    <LinearLayout 
+        android:layout_marginTop="40dp"
+        android:id="@+id/ll_yuyuedate"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="horizontal"
+        android:layout_below="@+id/rl_title_yuyue"
+        >
+            <TextView
+        android:id="@+id/textView5"
+                android:layout_marginLeft="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_gravity="center"
+        android:layout_below="@+id/rl_ershoufang_yuyuewindows"
+        android:text="预约日期" />
+        
+            
+                <Spinner
+        android:id="@+id/spinner_yuyuedate"
+        android:layout_width="wrap_content"
+        android:gravity="center"
+        android:layout_height="wrap_content"/>
+        
+    </LinearLayout>
+
+ <LinearLayout 
+      android:layout_marginTop="80dp"
+     android:id="@+id/ll_yuyuetime"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="horizontal"
+        android:layout_below="@+id/ll_yuyuedate"
+        >
+                
+            <TextView
+                android:layout_marginLeft="15dp"
+        android:id="@+id/textView51"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_gravity="center"
+        android:layout_below="@+id/rl_ershoufang_yuyuewindows"
+        android:text="预约时间" />
+        
+            
+                <Spinner
+        android:id="@+id/spinner_yuyuetime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+        
+    </LinearLayout>
+
+    </RelativeLayout>
+    
 </RelativeLayout>

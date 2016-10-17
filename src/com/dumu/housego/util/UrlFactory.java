@@ -4,14 +4,14 @@ public class UrlFactory {
 	
 	 public static String TSFURL="http://www.taoshenfang.com/"; 
 
-	// ×¢²á--»ñÈ¡¶ÌĞÅÑéÖ¤Âë
+	// ×¢ï¿½ï¿½--ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½
 	public static String GetPhoneCodeUrl(String mob) {
 
 		String PhoneCode = "http://www.taoshenfang.com/index.php?g=api&m=sms&a=reg&mob=" + mob;
 		return PhoneCode;
 	}
 
-	// ×¢²á--½Ó¿Ú
+	// ×¢ï¿½ï¿½--ï¿½Ó¿ï¿½
 	public static String PostRegistUrl() {
 
 		String path = "http://www.taoshenfang.com/index.php?g=Member&m=Public&a=api_register";
@@ -19,7 +19,7 @@ public class UrlFactory {
 
 	}
 
-	// µÇÂ¼--½Ó¿Ú
+	// ï¿½ï¿½Â¼--ï¿½Ó¿ï¿½
 	public static String PostLoginUrl() {
 
 		String path = "http://www.taoshenfang.com/index.php?g=Member&m=Public&a=api_dologin";
@@ -27,7 +27,7 @@ public class UrlFactory {
 
 	}
 	
-	//ÑéÖ¤ÂëµÇÂ½
+	//ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½Â½
 	
 	public static String PostYZMLoginUrl() {
 
@@ -45,44 +45,44 @@ public class UrlFactory {
 	
 	
 
-	// »ñÈ¡µÇÂ¼ÓÃ»§µÄĞÅÏ¢
+	// ï¿½ï¿½È¡ï¿½ï¿½Â¼ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 	public static String PostLoginUserInfoUrl() {
 
 		String path = "http://www.taoshenfang.com/index.php?g=Member&m=Public&a=api_getuserinfo";
 		return path;
 	}
 
-	// ¸ü¸Ä¸öÈËĞÅÏ¢
+	// ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 	public static String PostChangeUserInfoUrl() {
 		String path = "http://www.taoshenfang.com/index.php?g=api&m=user&a=api_doprofile";
 		return path;
 	}
 
-	// ¸ü¸Ä¸öÈËÍ·Ïñ
+	// ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½Í·ï¿½ï¿½
 	public static String PostChangeHeadPhotoUrl() {
 		String path = "http://www.taoshenfang.com/index.php?g=api&m=user&a=api_uploadavatar";
 		return path;
 	}
 
-	// ÒÑ×¢²áÓÃ»§Íü¼ÇÃÜÂë-»ñÈ¡ÑéÖ¤Âë
+	// ï¿½ï¿½×¢ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-ï¿½ï¿½È¡ï¿½ï¿½Ö¤ï¿½ï¿½
 	public static String PostFindPasswordCodeUrl() {
 		String path = "http://www.taoshenfang.com/index.php?g=api&m=sms&a=lost_getyzm";
 		return path;
 	}
 
-	// ×¢²áÓÃ»§ ĞŞ¸ÄÃÜÂë
+	// ×¢ï¿½ï¿½ï¿½Ã»ï¿½ ï¿½Ş¸ï¿½ï¿½ï¿½ï¿½ï¿½
 	public static String PostFindPasswordUrl() {
 		String path = "http://www.taoshenfang.com/index.php?g=member&m=public&a=mod_pwd";
 		return path;
 	}
 
-	// ¼ì²âÊÖ»úºÅÂëÊÇ·ñ¿ÉÒÔ×¢²á»áÔ±
+	// ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Ô±
 	public static String PostCheckPhoneRegistUrl() {
 		String path = "http://www.taoshenfang.com/index.php?g=api&m=sms&a=check_mob";
 		return path;
 	}
 
-	// ¾­¼ÍÈËÄ£ĞÍÁĞ±íapi
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½ï¿½Ğ±ï¿½api
 	public static String PostAgentmodelUrl() {
 		String path = "http://www.taoshenfang.com/index.php?g=Api&m=user&a=jjrlist";
 		return path;
@@ -95,93 +95,99 @@ public class UrlFactory {
 	
 	
 	
-	//¸ù¾İÍÆ¼öÎ»ÁĞ±í»ñÈ¡¶ÔÓ¦ÄÚÈİ
+	//ï¿½ï¿½ï¿½ï¿½ï¿½Æ¼ï¿½Î»ï¿½Ğ±ï¿½ï¿½È¡ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½
 			public static String GetRecommendListToDetailUrlString(String catid,String id ) {
 				String path ="http://www.taoshenfang.com/index.php?g=api&m=house&a=api_shows&catid="+catid+"&id="+id;
 				return path;
 			}
 	
-	//¸ù¾İÍÆ¼öÎ»ÁĞ±í»ñÈ¡¶ÔÓ¦ÄÚÈİ
+	//ï¿½ï¿½ï¿½ï¿½ï¿½Æ¼ï¿½Î»ï¿½Ğ±ï¿½ï¿½È¡ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½
 		public static String GetRecommendListToDetailUrl(int catid,int id ) {
 			String path ="http://www.taoshenfang.com/index.php?g=api&m=house&a=api_shows&catid="+catid+"&id="+id;
 			return path;
 		}
 	
-	//¸ù¾İÍÆ¼öÎ»ÁĞ±í»ñÈ¡¶ÔÓ¦ÄÚÈİ
+	//ï¿½ï¿½ï¿½ï¿½ï¿½Æ¼ï¿½Î»ï¿½Ğ±ï¿½ï¿½È¡ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½
 	public static String PostRecommendListToDetailUrl() {
 		String path ="http://www.taoshenfang.com/index.php?g=api&m=house&a=api_shows";
 		return path;
 	}
 	
 	
-	// »ñÈ¡Ö¸¶¨À¸Ä¿ÄÚÈİÁĞ±í½Ó¿Ú
-	// ÊÊÓÃÓÚ ĞÂ·¿ ¶şÊÖ·¿ ×â·¿ ´ó×Ú½»Ò× ËÄ¸öÀ¸Ä¿
+	// ï¿½ï¿½È¡Ö¸ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Ğ±ï¿½Ó¿ï¿½
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Â·ï¿½ ï¿½ï¿½ï¿½Ö·ï¿½ ï¿½â·¿ ï¿½ï¿½ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½Ä¸ï¿½ï¿½ï¿½Ä¿
 	public static String PostFourDataProgramaUrl() {
 		String path = "http://www.taoshenfang.com/index.php?g=api&m=house&a=lists";
 		return path;
 	}
 
-	// wap°æÊ×Ò³ÍÆ¼ö
+	// wapï¿½ï¿½ï¿½ï¿½Ò³ï¿½Æ¼ï¿½
 	public static String GetRecommendHouseUrl() {
 
 		String path = "http://www.taoshenfang.com/index.php?g=api&m=house&a=position&posid=12";
 		return path;
 	}
 
-	// ¶şÊÖ·¿ÁĞ±íÒ³ÍÆ¼ö
+	// ï¿½ï¿½ï¿½Ö·ï¿½ï¿½Ğ±ï¿½Ò³ï¿½Æ¼ï¿½
 	public static String GetErShouFangRecommendUrl() {
 		String path = "http://www.taoshenfang.com/index.php?g=api&m=house&a=position&posid=8";
 		return path;
 	}
 
-	// wap°æĞÂ·¿ÍÆ¼ö·¿Ô´
+	// wapï¿½ï¿½ï¿½Â·ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½Ô´
 	public static String GetWapNewHouseHotUrl() {
 		String path = "http://www.taoshenfang.com/index.php?g=api&m=house&a=position&posid=13";
 		return path;
 	}
 
-	// wap°æĞÂ·¿×ÉÑ¯·¿Ô´
+	// wapï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½Ñ¯ï¿½ï¿½Ô´
 	public static String GetWapNewHouseRecommendUrl() {
 		String path = "http://www.taoshenfang.com/index.php?g=api&m=house&a=position&posid=14";
 		return path;
 	}
 
-	// ³ö×â·¿ÁĞ±íÒ³ÍÆ¼ö
+	// ï¿½ï¿½ï¿½â·¿ï¿½Ğ±ï¿½Ò³ï¿½Æ¼ï¿½
 	public static String GetRentingUrl() {
 		String path = "http://www.taoshenfang.com/index.php?g=api&m=house&a=position&posid=9";
 		return path;
 	}
 
-	// ³ö×â·¿ÁĞ±íÒ³ÍÆ¼ö
+	// ï¿½ï¿½ï¿½â·¿ï¿½Ğ±ï¿½Ò³ï¿½Æ¼ï¿½
 	public static String GetBlockTradeListUrl() {
 		String path = "http://www.taoshenfang.com/index.php?g=api&m=house&a=position&posid=10";
 		return path;
 	}
 
-	// »ñÈ¡Ö¸¶¨À¸Ä¿ÄÚÈİÁĞ±í½Ó¿Ú
+	// ï¿½ï¿½È¡Ö¸ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Ğ±ï¿½Ó¿ï¿½
 	public static String GetAssignContentListUrl() {
 		String path = "http://www.taoshenfang.com/index.php?g=api&m=house&a=lists";
 		return path;
 	}
 
 	
-	// ¹Ø×¢·¿Ô´½Ó¿Ú
+	// ï¿½ï¿½×¢ï¿½ï¿½Ô´ï¿½Ó¿ï¿½
 		public static String PostGuanZhuHouseUrl() {
 			String path = TSFURL+"index.php?g=api&m=house&a=guanzhu_add";
 			return path;
 		}
 		
-		// ÎÒµÄ¹Ø×¢
+		// ï¿½ÒµÄ¹ï¿½×¢
 				public static String PostGuanZhuErShouUrl() {
 					String path = TSFURL+"index.php?g=api&m=user&a=guanzhu";
 					return path;
 				}
 				
-		// È¡Ïû¹Ø×¢
+		// È¡ï¿½ï¿½ï¿½ï¿½×¢
 				public static String PostGuanZhuDeleteUrl() {
 					String path = TSFURL+"index.php?g=api&m=user&a=guanzhu_del";
 					return path;
 			}
+	
+		//é¢„çº¦çœ‹æˆ¿æ¥å£
+				public static String PostYuYueHouseUrl() {
+					String path = TSFURL+"index.php?g=api&m=user&a=yuyue_add";
+					return path;
+			}	
 	
 	
 	

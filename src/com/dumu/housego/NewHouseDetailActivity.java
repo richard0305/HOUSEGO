@@ -6,21 +6,25 @@ import org.xutils.view.annotation.ViewInject;
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.BitmapDescriptor;
 import com.baidu.mapapi.map.BitmapDescriptorFactory;
+import com.baidu.mapapi.map.MapPoi;
 import com.baidu.mapapi.map.MapStatusUpdate;
 import com.baidu.mapapi.map.MapStatusUpdateFactory;
 import com.baidu.mapapi.map.MapView;
 import com.baidu.mapapi.map.MarkerOptions;
 import com.baidu.mapapi.map.OverlayOptions;
 import com.baidu.mapapi.map.UiSettings;
+import com.baidu.mapapi.map.BaiduMap.OnMapClickListener;
 import com.baidu.mapapi.model.LatLng;
 import com.bumptech.glide.Glide;
 import com.dumu.housego.entity.NewHouseDetail;
 import com.dumu.housego.presenter.INewHouseDetailPresenter;
 import com.dumu.housego.presenter.NewHouseDetailPresenter;
+import com.dumu.housego.util.MyToastShowCenter;
 import com.dumu.housego.util.TimeTurnDate;
 import com.dumu.housego.view.INewHouseDetailView;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -105,7 +109,7 @@ public class NewHouseDetailActivity extends Activity implements INewHouseDetailV
 //		settings.setZoomGesturesEnabled(false);
 		
 		/**
-		 * ¸Ä±äµØÍ¼µÄ±ÈÀı³ß
+		 * ï¿½Ä±ï¿½ï¿½Í¼ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½
 		 */
 		MapStatusUpdate msu=MapStatusUpdateFactory.zoomTo(18.0f);
 		mBaiduMAP.setMapStatus(msu);
@@ -128,7 +132,7 @@ public class NewHouseDetailActivity extends Activity implements INewHouseDetailV
 			tvHousetype.setText(e.getFangwuyongtu()+"");
 			tvjiaofangshijian.setText(e.getJiaofangdate()+"");
 			tvkaipanshijian.setText(e.getKaipandate()+"");
-			tvNewhousedetailPrice.setText(e.getJunjia()+"Ôª/©O");
+			tvNewhousedetailPrice.setText(e.getJunjia()+"Ôª/ï¿½O");
 			tvTitle.setText(e.getTitle()+"");
 			tvTitle1.setText(e.getTitle()+"");
 			
@@ -140,8 +144,8 @@ public class NewHouseDetailActivity extends Activity implements INewHouseDetailV
 			
 			
 			/**
-			 *  ÉèÖÃ°Ù¶ÈµØÍ¼
-			 *  ¶¨Î»µ½·¿Ô´¾­Î³¶È 
+			 *  ï¿½ï¿½ï¿½Ã°Ù¶Èµï¿½Í¼
+			 *  ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½Î³ï¿½ï¿½ 
 			 */
 		
 				String jwd=e.getJingweidu();
@@ -165,14 +169,14 @@ public class NewHouseDetailActivity extends Activity implements INewHouseDetailV
 				 * 
 				 */
 				
-				// ÉèÖÃ¶¨Î»Í¼²ãµÄÅäÖÃ£¨¶¨Î»Ä£Ê½£¬ÊÇ·ñÔÊĞí·½ÏòĞÅÏ¢£¬ÓÃ»§×Ô¶¨Òå¶¨Î»Í¼±ê£©  
+				// ï¿½ï¿½ï¿½Ã¶ï¿½Î»Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã£ï¿½ï¿½ï¿½Î»Ä£Ê½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½Ã»ï¿½ï¿½Ô¶ï¿½ï¿½å¶¨Î»Í¼ï¿½ê£©  
 				mCurrentMarker = BitmapDescriptorFactory  
 				    .fromResource(R.drawable.icon_gcoding);  
-				//¹¹½¨MarkerOption£¬ÓÃÓÚÔÚµØÍ¼ÉÏÌí¼ÓMarker  
+				//ï¿½ï¿½ï¿½ï¿½MarkerOptionï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½Marker  
 				OverlayOptions option = new MarkerOptions()  
 				    .position(latLng)  
 				    .icon(mCurrentMarker);  
-				//ÔÚµØÍ¼ÉÏÌí¼ÓMarker£¬²¢ÏÔÊ¾  
+				//ï¿½Úµï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½Markerï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾  
 				mBaiduMAP.addOverlay(option);
 				mBaiduMAP.animateMapStatus(msu);
 				
@@ -197,6 +201,40 @@ public class NewHouseDetailActivity extends Activity implements INewHouseDetailV
 				finish();
 			}
 		});
+		
+
+		mBaiduMAP.setOnMapClickListener(new OnMapClickListener() {
+			
+			@Override
+			public boolean onMapPoiClick(MapPoi arg0) {
+				// TODO Auto-generated method stub
+				return false;
+			}
+			
+			@Override
+			public void onMapClick(LatLng arg0) {
+		MyToastShowCenter.CenterToast(getApplicationContext(), "ç‚¹å‡»äº†åœ°å›¾ï¼ï¼ï¼");
+				
+				if(e.getJingweidu()==null){
+					MyToastShowCenter.CenterToast(getApplicationContext(), "æˆ¿æºçš„ç»çº¬åº¦ä¸ºç©º");
+				}else{
+					String jwd=e.getJingweidu();
+					String[] arr=jwd.split(",");
+					String j=arr[0].toString();
+					String w=arr[1].toString();
+					
+					double latitude=Double.valueOf(j);
+					double longitude=Double.valueOf(w);
+					
+					Intent i=new Intent(getApplicationContext(), BaiduMapActivity.class);
+					i.putExtra("latitude", latitude);
+					i.putExtra("longitude", longitude);
+					startActivity(i);
+				}
+		
+			}
+		});
+		
 	}
 
 	@Override

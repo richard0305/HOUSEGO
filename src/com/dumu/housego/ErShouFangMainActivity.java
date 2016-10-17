@@ -79,17 +79,18 @@ public class ErShouFangMainActivity extends Activity implements IErShouFangRecom
 	}
 	
 	
-	@Override
-	public void onWindowFocusChanged(boolean hasFocus)
-	{
-		super.onWindowFocusChanged(hasFocus);
-		// ��һ�ν����Զ�ˢ��
-		if (isFirstIn)
-		{
-			ptrl.autoRefresh();
-			isFirstIn = false;
-		}
-	}
+//	首次进入，刷新
+//	@Override
+//	public void onWindowFocusChanged(boolean hasFocus)
+//	{
+//		super.onWindowFocusChanged(hasFocus);
+//		// ��һ�ν����Զ�ˢ��
+//		if (isFirstIn)
+//		{
+//			ptrl.autoRefresh();
+//			isFirstIn = false;
+//		}
+//	}
 	
 
 	private void setListener() {
@@ -120,7 +121,7 @@ public class ErShouFangMainActivity extends Activity implements IErShouFangRecom
 			
 			@Override
 			public void onRefresh(PullToRefreshLayout pullToRefreshLayout) {
-				page++;
+				page=page+1;
 				fourdata.setCatid("6");
 				fourdata.setPage(page+"");
 				presenter.LoadProgrameData(fourdata);

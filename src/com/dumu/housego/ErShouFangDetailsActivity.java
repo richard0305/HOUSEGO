@@ -1,12 +1,17 @@
 package com.dumu.housego;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.xutils.x;
 import org.xutils.view.annotation.ViewInject;
 
 import com.baidu.location.LocationClient;
 import com.baidu.mapapi.map.BaiduMap;
+import com.baidu.mapapi.map.BaiduMap.OnMapClickListener;
 import com.baidu.mapapi.map.BitmapDescriptor;
 import com.baidu.mapapi.map.BitmapDescriptorFactory;
+import com.baidu.mapapi.map.MapPoi;
 import com.baidu.mapapi.map.MapStatusUpdate;
 import com.baidu.mapapi.map.MapStatusUpdateFactory;
 import com.baidu.mapapi.map.MapView;
@@ -24,10 +29,13 @@ import com.dumu.housego.presenter.IErShouFangDetailPresenter;
 import com.dumu.housego.presenter.IGuanZhuHousePresenter;
 import com.dumu.housego.util.MyReboundScrollView;
 import com.dumu.housego.util.MyToastShowCenter;
+import com.dumu.housego.util.TimeTurnDate;
 import com.dumu.housego.view.IErShouFangDetailView;
 import com.dumu.housego.view.IGuanZhuHouseView;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -37,10 +45,12 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 public class ErShouFangDetailsActivity extends Activity implements IErShouFangDetailView,IGuanZhuHouseView{
@@ -54,7 +64,7 @@ public class ErShouFangDetailsActivity extends Activity implements IErShouFangDe
 	private UserInfo userinfo;
 	private MyReboundScrollView ErshoufangScrollview;
 	private boolean isFirstIn=true;
-	
+	private TextView tvYuyuekanfang;
 	private BaiduMap mBaiduMAP;
 	public static MapView mMapView;
 	//��λ���
@@ -99,6 +109,13 @@ public class ErShouFangDetailsActivity extends Activity implements IErShouFangDe
 	@ViewInject(R.id.tv_totalhistroy)TextView tvTotalhistroy;
 	
 	
+	private Spinner yuyuedateSpinner;
+	private Spinner yuyuetimeSpinner;
+	
+	private List<String> spinnerList1 = new ArrayList<String>();
+	private List<String> spinnerList2 = new ArrayList<String>();
+	private ArrayAdapter<String> Spinneradapter1;   
+	private ArrayAdapter<String> Spinneradapter2;   
 	
 	private Handler handler=new Handler(){
 		@Override
@@ -116,6 +133,9 @@ public class ErShouFangDetailsActivity extends Activity implements IErShouFangDe
 	};
 	private BitmapDescriptor mCurrentMarker;
 	
+	private RelativeLayout ershoufang_feiyuyue;
+	private RelativeLayout rlErshoufangYuyuewindows;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -128,6 +148,30 @@ public class ErShouFangDetailsActivity extends Activity implements IErShouFangDe
 		//��ʼ����λ
 //		initLocation();
 		initListener();
+		
+		
+		
+		long times=System.currentTimeMillis();
+		long oneday=24L * 60 * 60 * 1000;
+		String today=TimeTurnDate.getStringDate(times);
+		String tomorrow=TimeTurnDate.getStringDate(times+oneday);
+		String afterTomrrow=TimeTurnDate.getStringDate(times+2*oneday);
+		spinnerList1.add(today);
+		spinnerList1.add(tomorrow);
+		spinnerList1.add(afterTomrrow);
+		
+		spinnerList2.add("09:00-12:00");
+		spinnerList2.add("13:00-15:00");
+		
+		Spinneradapter1=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, spinnerList1); 
+		Spinneradapter2=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, spinnerList2); 
+		Spinneradapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);  
+		Spinneradapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);  
+		yuyuedateSpinner.setAdapter(Spinneradapter1); 
+		yuyuetimeSpinner.setAdapter(Spinneradapter2);
+		
+		
+		
 		esfPresenter=new ErShouFangDetailPresenter(this);
 		guanzhuPresenter=new GuanZhuHousePresenter(this);
 		String catid=getIntent().getStringExtra("catid");
@@ -305,14 +349,89 @@ public class ErShouFangDetailsActivity extends Activity implements IErShouFangDe
 			}
 		});
 		
+		tvYuyuekanfang.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				NewAlertDialog();
+				
+				
+			}
+		});
+		
+		mBaiduMAP.setOnMapClickListener(new OnMapClickListener() {
+			
+			@Override
+			public boolean onMapPoiClick(MapPoi arg0) {
+				// TODO Auto-generated method stub
+				return false;
+			}
+			
+			@Override
+			public void onMapClick(LatLng arg0) {
+		MyToastShowCenter.CenterToast(getApplicationContext(), "点击了地图！！！");
+				
+				if(e.getJingweidu()==null){
+					MyToastShowCenter.CenterToast(getApplicationContext(), "房源的经纬度为空");
+				}else{
+					String jwd=e.getJingweidu();
+					String[] arr=jwd.split(",");
+					String j=arr[0].toString();
+					String w=arr[1].toString();
+					
+					double latitude=Double.valueOf(j);
+					double longitude=Double.valueOf(w);
+					
+					Intent i=new Intent(getApplicationContext(), BaiduMapActivity.class);
+					i.putExtra("latitude", latitude);
+					i.putExtra("longitude", longitude);
+					startActivity(i);
+				}
+		
+			}
+		});
+		
 		
 		
 	}
+	protected void NewAlertDialog() {
+		
+		 new AlertDialog.Builder((getApplicationContext())).setTitle("预约")  
+        .setMessage("您确定要预约么")  
+        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				ershoufang_feiyuyue.setVisibility(View.GONE);
+				rlErshoufangYuyuewindows.setVisibility(View.VISIBLE);
+				
+			}
+		})  
+        .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				finish();
+				
+			}
+		}).create().show();
+		
+	}
+
+
 	private void initViews() {
 		rbErshoufangGuanzhu=(RadioButton) findViewById(R.id.rb_ershoufangguanzhu);
 		llBackErshoufangdetails=(LinearLayout) findViewById(R.id.ll_back_ershoufangdetails);
 		rlBaidumap=(RelativeLayout) findViewById(R.id.rl_baidumap);
 		ErshoufangScrollview=(MyReboundScrollView)findViewById(R.id.ershoufang_scrollview);
+		tvYuyuekanfang=(TextView) findViewById(R.id.tv_yuyuekanfang);
+		
+		yuyuedateSpinner=(Spinner) findViewById(R.id.spinner_yuyuedate);
+		yuyuetimeSpinner=(Spinner) findViewById(R.id.spinner_yuyuetime);
+		
+		ershoufang_feiyuyue=(RelativeLayout) findViewById(R.id.ershoufang_feiyuyue);
+		rlErshoufangYuyuewindows=(RelativeLayout) findViewById(R.id.rl_ershoufang_yuyuewindows);
 		
 		
 		mMapView=(MapView) findViewById(R.id.map_bmapView);
