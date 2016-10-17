@@ -3,8 +3,17 @@ package com.dumu.housego;
 import org.xutils.x;
 import org.xutils.view.annotation.ViewInject;
 
+import com.baidu.mapapi.map.BaiduMap;
+import com.baidu.mapapi.map.BitmapDescriptor;
+import com.baidu.mapapi.map.BitmapDescriptorFactory;
+import com.baidu.mapapi.map.MapStatusUpdate;
+import com.baidu.mapapi.map.MapStatusUpdateFactory;
+import com.baidu.mapapi.map.MapView;
+import com.baidu.mapapi.map.MarkerOptions;
+import com.baidu.mapapi.map.OverlayOptions;
+import com.baidu.mapapi.map.UiSettings;
+import com.baidu.mapapi.model.LatLng;
 import com.bumptech.glide.Glide;
-import com.dumu.housego.entity.BlockTradeDetail;
 import com.dumu.housego.entity.RentingDetail;
 import com.dumu.housego.presenter.IRentingDetailPresenter;
 import com.dumu.housego.presenter.RentingDetailPresenter;
@@ -26,6 +35,9 @@ public class RentingDetailActivity extends Activity implements IRentingDetailVie
 	private LinearLayout llBackRentingdetails;
 	private IRentingDetailPresenter presenter;
 	private RentingDetail b;
+	
+	private BaiduMap mBaiduMAP;
+	private MapView mMapView;
 	
 	@ViewInject(R.id.iv_renting_pic)ImageView ivRentingpic;
 	@ViewInject(R.id.ershoufang_shoujia)TextView tvRentingshoujia;
@@ -63,6 +75,7 @@ public class RentingDetailActivity extends Activity implements IRentingDetailVie
 			}
 		}
 	};
+	private BitmapDescriptor mCurrentMarker;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -110,7 +123,43 @@ public class RentingDetailActivity extends Activity implements IRentingDetailVie
 		 tvJiaotongchuxing.setText(" "+b.getJiaotong());
 		 tvRentingLishijilu.setText("近一个月新增记录"+b.getMonthviews()+"位");
 		
+			/**
+			 *  设置百度地图
+			 *  定位到房源经纬度 
+			 */
 		
+				String jwd=b.getJingweidu();
+				String[] arr=jwd.split(",");
+				String j=arr[0].toString();
+				String w=arr[1].toString();
+				
+				double latitude=Double.valueOf(j);
+				double longitude=Double.valueOf(w);
+				
+				LatLng latLng=new LatLng( longitude,latitude);
+				
+				MapStatusUpdate msu=MapStatusUpdateFactory.newLatLng(latLng);
+				
+				/**
+				 * 
+				 */
+//				MapStatus.Builder builder=new MapStatus.Builder();
+//				mBaiduMAP.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));
+				/**
+				 * 
+				 */
+				
+				// 设置定位图层的配置（定位模式，是否允许方向信息，用户自定义定位图标）  
+				mCurrentMarker = BitmapDescriptorFactory  
+				    .fromResource(R.drawable.icon_gcoding);  
+				//构建MarkerOption，用于在地图上添加Marker  
+				OverlayOptions option = new MarkerOptions()  
+				    .position(latLng)  
+				    .icon(mCurrentMarker);  
+				//在地图上添加Marker，并显示  
+				mBaiduMAP.addOverlay(option);
+				mBaiduMAP.animateMapStatus(msu);
+				
 		
 		
 		
@@ -119,7 +168,29 @@ public class RentingDetailActivity extends Activity implements IRentingDetailVie
 	private void setViews() {
 		llBackRentingdetails=(LinearLayout) findViewById(R.id.ll_back_rentingdetails);
 		
+		mMapView=(MapView)findViewById(R.id.renting_bmapView);
+		mBaiduMAP=mMapView.getMap();
+		
+		mMapView.showZoomControls(false);
+		mMapView.showScaleControl(false);
+		
+		
+		UiSettings settings=mBaiduMAP.getUiSettings();
+		settings.setAllGesturesEnabled(false);
+//		settings.setOverlookingGesturesEnabled(false);
+//		settings.setScrollGesturesEnabled(false);
+//		settings.setZoomGesturesEnabled(false);
+		
+		/**
+		 * 改变地图的比例尺
+		 */
+		MapStatusUpdate msu=MapStatusUpdateFactory.zoomTo(18.0f);
+		mBaiduMAP.setMapStatus(msu);
+		
+		
 	}
+	
+	
 	
 	private void setListener() {
 		llBackRentingdetails.setOnClickListener(new OnClickListener() {

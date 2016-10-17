@@ -8,7 +8,6 @@ import java.io.IOException;
 import com.bumptech.glide.Glide;
 import com.dumu.housego.app.HouseGoApp;
 import com.dumu.housego.entity.UserInfo;
-import com.dumu.housego.model.IChangeHeadPhotoModel;
 import com.dumu.housego.presenter.ChangeHeadPhotoPresenter;
 import com.dumu.housego.presenter.IChangeHeadPhotoPresenter;
 import com.dumu.housego.util.CircleImageView;

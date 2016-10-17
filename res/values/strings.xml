@@ -31,5 +31,6 @@
     <string name="title_activity_renting_detail">RentingDetailActivity</string>
     <string name="title_activity_agent_detail">AgentDetailActivity</string>
     <string name="title_activity_pu_tong_my_guan_zhu">PuTongMyGuanZhuActivity</string>
+    <string name="title_activity_baidu_map">BaiduMapActivity</string>
 
 </resources>

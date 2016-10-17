@@ -1,8 +1,11 @@
 package com.dumu.housego.util;
 
+import com.dumu.housego.ErShouFangDetailsActivity;
+
 import android.content.Context;  
 import android.graphics.Rect;  
-import android.util.AttributeSet;  
+import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;  
 import android.view.View;  
 import android.view.animation.TranslateAnimation;  
@@ -158,4 +161,12 @@ public class MyReboundScrollView extends ScrollView {
     private boolean isCanPullUp() {  
         return  contentView.getHeight() <= getHeight() + getScrollY();  
     }  
+    
+    
+    
+
+          
+
+    
+    
 }  

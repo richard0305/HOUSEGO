@@ -51,6 +51,7 @@
     </RelativeLayout>
 
     <com.dumu.housego.util.MyReboundScrollView
+        android:id="@+id/ershoufang_scrollview"
         android:layout_above="@+id/ll_ershoufangdetail_bottom"
         android:layout_below="@+id/rl_title"
         android:layout_width="match_parent"
@@ -991,8 +992,9 @@
                />
            
            <RelativeLayout 
+               android:id="@+id/rl_baidumap"
                android:layout_width="match_parent"
-               android:layout_height="160dp"
+               android:layout_height="180dp"
                >
 
             <com.baidu.mapapi.map.MapView  

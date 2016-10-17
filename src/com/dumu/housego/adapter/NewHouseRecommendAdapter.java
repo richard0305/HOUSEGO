@@ -5,7 +5,6 @@ import java.util.List;
 import com.bumptech.glide.Glide;
 import com.dumu.housego.R;
 import com.dumu.housego.entity.NewHouseRecommendData;
-import com.dumu.housego.entity.RecommendNews;
 
 import android.content.Context;
 import android.view.LayoutInflater;

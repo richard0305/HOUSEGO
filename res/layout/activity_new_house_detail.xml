@@ -785,12 +785,11 @@
                android:background="#c9c9cb"
                android:layout_height="1dp"
                /> 
-             <TextView 
-                 android:layout_width="match_parent"
-                 android:layout_height="100dp"
-                 android:text="我是百度地图"
-                 android:gravity="center"
-                 />
+                   <com.baidu.mapapi.map.MapView  
+    android:id="@+id/new_bmapView"  
+    android:layout_width="match_parent"  
+    android:layout_height="180dp"  
+    android:clickable="true" />
              <Button 
                android:layout_width="match_parent"
                android:background="#c9c9cb"

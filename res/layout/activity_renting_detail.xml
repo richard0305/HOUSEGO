@@ -722,15 +722,14 @@
 	     
            <RelativeLayout 
                android:layout_width="match_parent"
-               android:layout_height="80dp"
+               android:layout_height="180dp"
                >
 
-               <TextView
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:layout_centerHorizontal="true"
-                   android:layout_centerVertical="true"
-                   android:text="我是百度地图" />
+     <com.baidu.mapapi.map.MapView  
+    android:id="@+id/renting_bmapView"  
+    android:layout_width="match_parent"  
+    android:layout_height="180dp"  
+    android:clickable="true" />
                
            </RelativeLayout>
 <Button 

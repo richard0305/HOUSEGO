@@ -3,11 +3,16 @@ package com.dumu.housego;
 import org.xutils.x;
 import org.xutils.view.annotation.ViewInject;
 
-import com.baidu.mapapi.SDKInitializer;
+import com.baidu.location.LocationClient;
 import com.baidu.mapapi.map.BaiduMap;
+import com.baidu.mapapi.map.BitmapDescriptor;
+import com.baidu.mapapi.map.BitmapDescriptorFactory;
 import com.baidu.mapapi.map.MapStatusUpdate;
 import com.baidu.mapapi.map.MapStatusUpdateFactory;
 import com.baidu.mapapi.map.MapView;
+import com.baidu.mapapi.map.MarkerOptions;
+import com.baidu.mapapi.map.OverlayOptions;
+import com.baidu.mapapi.map.UiSettings;
 import com.baidu.mapapi.model.LatLng;
 import com.bumptech.glide.Glide;
 import com.dumu.housego.app.HouseGoApp;
@@ -17,21 +22,25 @@ import com.dumu.housego.presenter.ErShouFangDetailPresenter;
 import com.dumu.housego.presenter.GuanZhuHousePresenter;
 import com.dumu.housego.presenter.IErShouFangDetailPresenter;
 import com.dumu.housego.presenter.IGuanZhuHousePresenter;
+import com.dumu.housego.util.MyReboundScrollView;
 import com.dumu.housego.util.MyToastShowCenter;
-import com.dumu.housego.util.TimeTurnDate;
 import com.dumu.housego.view.IErShouFangDetailView;
 import com.dumu.housego.view.IGuanZhuHouseView;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnTouchListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class ErShouFangDetailsActivity extends Activity implements IErShouFangDetailView,IGuanZhuHouseView{
@@ -41,10 +50,16 @@ public class ErShouFangDetailsActivity extends Activity implements IErShouFangDe
 	private IErShouFangDetailPresenter esfPresenter;
 	private IGuanZhuHousePresenter guanzhuPresenter;
 	private LinearLayout llBackErshoufangdetails;
-	
+	private RelativeLayout rlBaidumap;
 	private UserInfo userinfo;
+	private MyReboundScrollView ErshoufangScrollview;
+	private boolean isFirstIn=true;
+	
 	private BaiduMap mBaiduMAP;
-	private MapView mMapView;
+	public static MapView mMapView;
+	//定位相关
+	private LocationClient mLocationClient;
+//	private MyLocationListener mLocationListener;
 	
 	@ViewInject(R.id.iv_housepic)ImageView ivIMG;
 	@ViewInject(R.id.tv_ershoufangdetails)TextView tvtitle;
@@ -85,11 +100,6 @@ public class ErShouFangDetailsActivity extends Activity implements IErShouFangDe
 	
 	
 	
-	
-	
-	
-	
-	
 	private Handler handler=new Handler(){
 		@Override
 		public void handleMessage(Message msg) {
@@ -104,6 +114,7 @@ public class ErShouFangDetailsActivity extends Activity implements IErShouFangDe
 			}
 		}
 	};
+	private BitmapDescriptor mCurrentMarker;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -114,6 +125,8 @@ public class ErShouFangDetailsActivity extends Activity implements IErShouFangDe
 		setContentView(R.layout.activity_er_shou_fang_details);
 		x.view().inject(this);
 		initViews();
+		//初始化定位
+//		initLocation();
 		initListener();
 		esfPresenter=new ErShouFangDetailPresenter(this);
 		guanzhuPresenter=new GuanZhuHousePresenter(this);
@@ -122,10 +135,30 @@ public class ErShouFangDetailsActivity extends Activity implements IErShouFangDe
 		esfPresenter.FindErShouFangdetail(catid, id);
 		
 		Log.e("2016-10-9 9:10", "yanglijun-------"+catid+"   "+id);
+		
+		
+		
+		
 	}
 	
 	
-	  @Override  
+//	  private void initLocation() {
+//		mLocationClient=new LocationClient(this);
+//		mLocationListener=new MyLocationListener();
+//		mLocationClient.registerLocationListener(mLocationListener);
+//		
+//		LocationClientOption option=new LocationClientOption();
+//		option.setCoorType("bd09ll");
+//		option.setIsNeedAddress(true);
+//		option.setOpenGps(true);
+//		option.setScanSpan(1000);
+//		
+//		mLocationClient.setLocOption(option);
+//		
+//	}
+
+
+	@Override  
 	    protected void onDestroy() {  
 	        super.onDestroy();  
 	        //在activity执行onDestroy时执行mMapView.onDestroy()，实现地图生命周期管理  
@@ -159,7 +192,6 @@ public class ErShouFangDetailsActivity extends Activity implements IErShouFangDe
 				}else{
 					//登录后，检测用户是否有Message，没有则显示消息为空按钮
 					String fromid=e.getId()+"";
-//					String fromid="185";
 					String fromtable="ershou";
 					String userid=userinfo.getUserid();
 					String username=userinfo.getUsername();
@@ -182,20 +214,124 @@ public class ErShouFangDetailsActivity extends Activity implements IErShouFangDe
 			}
 		});
 		
+//		mMapView.setOnClickListener(new OnClickListener() {
+//			
+//			@Override
+//			public void onClick(View v) {
+//				if(e.getJingweidu()==null){
+//					MyToastShowCenter.CenterToast(getApplicationContext(), "房源的经纬度为空");
+//				}else{
+//					String jwd=e.getJingweidu();
+//					String[] arr=jwd.split(",");
+//					String j=arr[0].toString();
+//					String w=arr[1].toString();
+//					
+//					double latitude=Double.valueOf(j);
+//					double longitude=Double.valueOf(w);
+//					
+//
+//					
+//					Intent i=new Intent(getApplicationContext(), BaiduMapActivity.class);
+//					i.putExtra("latitude", latitude);
+//					i.putExtra("longitude", longitude);
+//					startActivity(i);
+//				}
+//		
+//				
+//			}
+//		});
+		
+		mMapView.setOnTouchListener(new OnTouchListener() { 
+			@Override 
+			public boolean onTouch(View v, MotionEvent event) { 
+			  if (event.getAction() == MotionEvent.ACTION_UP) { 
+				  
+			 
+				  ErshoufangScrollview.requestDisallowInterceptTouchEvent(false);  
+				  if(e.getJingweidu()==null){
+						MyToastShowCenter.CenterToast(getApplicationContext(), "房源的经纬度为空");
+					}else{
+						String jwd=e.getJingweidu();
+						String[] arr=jwd.split(",");
+						String j=arr[0].toString();
+						String w=arr[1].toString();
+						
+						double latitude=Double.valueOf(j);
+						double longitude=Double.valueOf(w);
+						
+	
+						
+						Intent i=new Intent(getApplicationContext(), BaiduMapActivity.class);
+						i.putExtra("latitude", latitude);
+						i.putExtra("longitude", longitude);
+						startActivity(i);
+					 }  
+			  }else{   
+				  
+				  ErshoufangScrollview.requestDisallowInterceptTouchEvent(true);  
+			  } 
+			return false; 
+			}
+
+		
+			});
+		
+		
+		rlBaidumap.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				MyToastShowCenter.CenterToast(getApplicationContext(), "点击了地图！！！");
+				
+				if(e.getJingweidu()==null){
+					MyToastShowCenter.CenterToast(getApplicationContext(), "房源的经纬度为空");
+				}else{
+					String jwd=e.getJingweidu();
+					String[] arr=jwd.split(",");
+					String j=arr[0].toString();
+					String w=arr[1].toString();
+					
+					double latitude=Double.valueOf(j);
+					double longitude=Double.valueOf(w);
+					
+					Intent i=new Intent(getApplicationContext(), BaiduMapActivity.class);
+					i.putExtra("latitude", latitude);
+					i.putExtra("longitude", longitude);
+					startActivity(i);
+				}
+		
+				
+			}
+		});
+		
+		
+		
 	}
 	private void initViews() {
 		rbErshoufangGuanzhu=(RadioButton) findViewById(R.id.rb_ershoufangguanzhu);
 		llBackErshoufangdetails=(LinearLayout) findViewById(R.id.ll_back_ershoufangdetails);
+		rlBaidumap=(RelativeLayout) findViewById(R.id.rl_baidumap);
+		ErshoufangScrollview=(MyReboundScrollView)findViewById(R.id.ershoufang_scrollview);
+		
 		
 		mMapView=(MapView) findViewById(R.id.map_bmapView);
 		mBaiduMAP=mMapView.getMap();
+		mMapView.showZoomControls(false);
+		mMapView.showScaleControl(false);
 		
 		
+		UiSettings settings=mBaiduMAP.getUiSettings();
+		settings.setAllGesturesEnabled(false);
+//		settings.setOverlookingGesturesEnabled(false);
+//		settings.setScrollGesturesEnabled(false);
+//		settings.setZoomGesturesEnabled(false);
+//		
 		/**
 		 * 改变地图的比例尺
 		 */
-//		MapStatusUpdate msu=MapStatusUpdateFactory.zoomTo(15.0f);
-//		mBaiduMAP.setMapStatus(msu);
+		MapStatusUpdate msu=MapStatusUpdateFactory.zoomTo(18.0f);
+		mBaiduMAP.setMapStatus(msu);
 		
 		
 	}
@@ -272,10 +408,29 @@ public class ErShouFangDetailsActivity extends Activity implements IErShouFangDe
 			
 			double latitude=Double.valueOf(j);
 			double longitude=Double.valueOf(w);
-			MyToastShowCenter.CenterToast(getApplicationContext(),"经"+latitude+" 纬"+longitude);
 			
-			LatLng latLng=new LatLng(latitude, longitude);
+			LatLng latLng=new LatLng( longitude,latitude);
+			
 			MapStatusUpdate msu=MapStatusUpdateFactory.newLatLng(latLng);
+			
+			/**
+			 * 
+			 */
+//			MapStatus.Builder builder=new MapStatus.Builder();
+//			mBaiduMAP.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));
+			/**
+			 * 
+			 */
+			
+			// 设置定位图层的配置（定位模式，是否允许方向信息，用户自定义定位图标）  
+			mCurrentMarker = BitmapDescriptorFactory  
+			    .fromResource(R.drawable.icon_gcoding);  
+			//构建MarkerOption，用于在地图上添加Marker  
+			OverlayOptions option = new MarkerOptions()  
+			    .position(latLng)  
+			    .icon(mCurrentMarker);  
+			//在地图上添加Marker，并显示  
+			mBaiduMAP.addOverlay(option);
 			mBaiduMAP.animateMapStatus(msu);
 			
 		} catch (Exception e) {
@@ -284,8 +439,9 @@ public class ErShouFangDetailsActivity extends Activity implements IErShouFangDe
 
 		
 	}
-
-
+	
+	
+	
 
 	@Override
 	public void GuanZhuSuccess(String info) {
@@ -297,5 +453,35 @@ public class ErShouFangDetailsActivity extends Activity implements IErShouFangDe
 	public void GuanZhuFail(String errorinfo) {
 		MyToastShowCenter.CenterToast(getApplicationContext(), errorinfo);
 	}
+	
+//	private class MyLocationListener implements BDLocationListener{
+//
+//		@Override
+//		public void onReceiveLocation(BDLocation location) {
+//			MyLocationData data=new MyLocationData.Builder()//
+//					.accuracy(location.getRadius())//
+//					.latitude(location.getLatitude())//
+//					.longitude(location.getLongitude())//
+//					.build();
+//			
+////			MyLocationConfiguration config=new MyLocationConfiguration(LocationMode.NORMAL, arg1, arg2);
+//			
+//			if(isFirstIn){
+//				
+//				isFirstIn=false;
+//				LatLng ll=new LatLng(location.getLatitude(), location.getLongitude());
+//				MapStatus.Builder builder=new MapStatus.Builder();
+//				builder.target(ll).zoom(18.0f);
+//				
+//				
+//				
+//			}
+//			
+//			
+//		}
+//		
+//	}
+
+	
 
 }

@@ -1,11 +1,6 @@
 package com.dumu.housego;
 
-import javax.security.auth.Destroyable;
-
 import com.dumu.housego.activity.LoginActivity;
-import com.dumu.housego.activity.MainActivity;
-import com.dumu.housego.app.HouseGoApp;
-import com.dumu.housego.entity.User;
 import com.dumu.housego.util.FontHelper;
 
 import android.app.Activity;
