@@ -57,7 +57,7 @@ public class ErShouFangDetailsActivity extends Activity implements IErShouFangDe
 	
 	private BaiduMap mBaiduMAP;
 	public static MapView mMapView;
-	//¶¨Î»Ïà¹Ø
+	//ï¿½ï¿½Î»ï¿½ï¿½ï¿½
 	private LocationClient mLocationClient;
 //	private MyLocationListener mLocationListener;
 	
@@ -125,7 +125,7 @@ public class ErShouFangDetailsActivity extends Activity implements IErShouFangDe
 		setContentView(R.layout.activity_er_shou_fang_details);
 		x.view().inject(this);
 		initViews();
-		//³õÊ¼»¯¶¨Î»
+		//ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½Î»
 //		initLocation();
 		initListener();
 		esfPresenter=new ErShouFangDetailPresenter(this);
@@ -161,19 +161,19 @@ public class ErShouFangDetailsActivity extends Activity implements IErShouFangDe
 	@Override  
 	    protected void onDestroy() {  
 	        super.onDestroy();  
-	        //ÔÚactivityÖ´ĞĞonDestroyÊ±Ö´ĞĞmMapView.onDestroy()£¬ÊµÏÖµØÍ¼ÉúÃüÖÜÆÚ¹ÜÀí  
+	        //ï¿½ï¿½activityÖ´ï¿½ï¿½onDestroyÊ±Ö´ï¿½ï¿½mMapView.onDestroy()ï¿½ï¿½Êµï¿½Öµï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½ï¿½ï¿½  
 	        mMapView.onDestroy();  
 	    }  
 	    @Override  
 	    protected void onResume() {  
 	        super.onResume();  
-	        //ÔÚactivityÖ´ĞĞonResumeÊ±Ö´ĞĞmMapView. onResume ()£¬ÊµÏÖµØÍ¼ÉúÃüÖÜÆÚ¹ÜÀí  
+	        //ï¿½ï¿½activityÖ´ï¿½ï¿½onResumeÊ±Ö´ï¿½ï¿½mMapView. onResume ()ï¿½ï¿½Êµï¿½Öµï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½ï¿½ï¿½  
 	        mMapView.onResume();  
 	        }  
 	    @Override  
 	    protected void onPause() {  
 	        super.onPause();  
-	        //ÔÚactivityÖ´ĞĞonPauseÊ±Ö´ĞĞmMapView. onPause ()£¬ÊµÏÖµØÍ¼ÉúÃüÖÜÆÚ¹ÜÀí  
+	        //ï¿½ï¿½activityÖ´ï¿½ï¿½onPauseÊ±Ö´ï¿½ï¿½mMapView. onPause ()ï¿½ï¿½Êµï¿½Öµï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½ï¿½ï¿½  
 	        mMapView.onPause();  
 	        }  
 	
@@ -188,20 +188,20 @@ public class ErShouFangDetailsActivity extends Activity implements IErShouFangDe
 				userinfo=HouseGoApp.getContext().getCurrentUserInfo();
 
 				if(userinfo==null){
-					MyToastShowCenter.CenterToast(getApplicationContext(), "»¹Ã»ÓĞµÇÂ¼£¬ÇëÏÈµÇÂ¼£¡");
+					MyToastShowCenter.CenterToast(getApplicationContext(), "è¿˜æ²¡æœ‰ç™»å½•ï¼Œè¯·å…ˆç™»å½•ï¼");
 				}else{
-					//µÇÂ¼ºó£¬¼ì²âÓÃ»§ÊÇ·ñÓĞMessage£¬Ã»ÓĞÔòÏÔÊ¾ÏûÏ¢Îª¿Õ°´Å¥
+					//ï¿½ï¿½Â¼ï¿½ó£¬¼ï¿½ï¿½ï¿½Ã»ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Messageï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½Ï¢Îªï¿½Õ°ï¿½Å¥
 					String fromid=e.getId()+"";
 					String fromtable="ershou";
 					String userid=userinfo.getUserid();
 					String username=userinfo.getUsername();
-					String type="¶şÊÖ·¿";
+					String type="ï¿½ï¿½ï¿½Ö·ï¿½";
 					String t="1";
 					guanzhuPresenter.LoadGuanZhuHouse(fromid, fromtable, userid, username, type, t);
 				}
 
 				
-				MyToastShowCenter.CenterToast(getApplicationContext(), "µã»÷ÁË¹Ø×¢");
+				MyToastShowCenter.CenterToast(getApplicationContext(), "ç‚¹å‡»äº†å…³æ³¨");
 			}
 		});
 		
@@ -219,7 +219,7 @@ public class ErShouFangDetailsActivity extends Activity implements IErShouFangDe
 //			@Override
 //			public void onClick(View v) {
 //				if(e.getJingweidu()==null){
-//					MyToastShowCenter.CenterToast(getApplicationContext(), "·¿Ô´µÄ¾­Î³¶ÈÎª¿Õ");
+//					MyToastShowCenter.CenterToast(getApplicationContext(), "ï¿½ï¿½Ô´ï¿½Ä¾ï¿½Î³ï¿½ï¿½Îªï¿½ï¿½");
 //				}else{
 //					String jwd=e.getJingweidu();
 //					String[] arr=jwd.split(",");
@@ -249,7 +249,7 @@ public class ErShouFangDetailsActivity extends Activity implements IErShouFangDe
 			 
 				  ErshoufangScrollview.requestDisallowInterceptTouchEvent(false);  
 				  if(e.getJingweidu()==null){
-						MyToastShowCenter.CenterToast(getApplicationContext(), "·¿Ô´µÄ¾­Î³¶ÈÎª¿Õ");
+						MyToastShowCenter.CenterToast(getApplicationContext(), "æˆ¿å­çš„ç»çº¬åº¦ä¸ºç©º");
 					}else{
 						String jwd=e.getJingweidu();
 						String[] arr=jwd.split(",");
@@ -282,10 +282,10 @@ public class ErShouFangDetailsActivity extends Activity implements IErShouFangDe
 			@Override
 			public void onClick(View v) {
 				
-				MyToastShowCenter.CenterToast(getApplicationContext(), "µã»÷ÁËµØÍ¼£¡£¡£¡");
+				MyToastShowCenter.CenterToast(getApplicationContext(), "ç‚¹å‡»äº†åœ°å›¾ï¼ï¼ï¼");
 				
 				if(e.getJingweidu()==null){
-					MyToastShowCenter.CenterToast(getApplicationContext(), "·¿Ô´µÄ¾­Î³¶ÈÎª¿Õ");
+					MyToastShowCenter.CenterToast(getApplicationContext(), "æˆ¿æºçš„ç»çº¬åº¦ä¸ºç©º");
 				}else{
 					String jwd=e.getJingweidu();
 					String[] arr=jwd.split(",");
@@ -328,7 +328,7 @@ public class ErShouFangDetailsActivity extends Activity implements IErShouFangDe
 //		settings.setZoomGesturesEnabled(false);
 //		
 		/**
-		 * ¸Ä±äµØÍ¼µÄ±ÈÀı³ß
+		 * ï¿½Ä±ï¿½ï¿½Í¼ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½
 		 */
 		MapStatusUpdate msu=MapStatusUpdateFactory.zoomTo(18.0f);
 		mBaiduMAP.setMapStatus(msu);
@@ -350,9 +350,9 @@ public class ErShouFangDetailsActivity extends Activity implements IErShouFangDe
 		String url="http://www.taoshenfang.com"+e.getThumb();
 		Glide.with(this).load(url).into(ivIMG);
 		tvtitle.setText(e.getTitle());
-		tvShoujia.setText(e.getZongjia()+"Íò");
-		tvHuXing.setText(e.getShi()+"ÊÒ"+e.getTing()+"Ìü");
-		tvershoufang_mianji.setText(e.getJianzhumianji()+"Æ½Ã×");
+		tvShoujia.setText(e.getZongjia()+"ä¸‡");
+		tvHuXing.setText(e.getShi()+"å®¤"+e.getTing()+"å…");
+		tvershoufang_mianji.setText(e.getJianzhumianji()+"å¹³ç±³");
 		tvChaoxiang.setText(e.getChaoxiang()+"");
 		tvguapaishijian.setText(e.getGuapaidate()+"");
 		
@@ -360,14 +360,14 @@ public class ErShouFangDetailsActivity extends Activity implements IErShouFangDe
 		double mianji=Integer.valueOf(e.getJianzhumianji()).doubleValue();
 		double junjia=zongjia/mianji;
 		int x=(int) (junjia+0.5);
-		tvJunjia.setText(x+"ÍòÔª/Æ½");
+		tvJunjia.setText(x+"ä¸‡å…ƒ/å¹³");
 		
 		
 		tvLouceng.setText(e.getCeng()+"/"+e.getZongceng());
 		tvLouxing.setText(e.getJianzhutype()+"");
 		tvQuyu.setText(e.getCityname()+" "+e.getAreaname());
 		tvZhuangxiu.setText(e.getZhuangxiu()+"");
-		TvFangling.setText(e.getFangling()+"Äê");
+		TvFangling.setText(e.getFangling()+"å¹´");
 		TvFangyuanbianhao.setText(e.getBianhao()+"");
 		TvXiaoqu.setText(e.getXiaoqu()+"");
 //		
@@ -375,10 +375,10 @@ public class ErShouFangDetailsActivity extends Activity implements IErShouFangDe
 		tvJiaotongchuxing.setText(e.getJiaotong());
 //		
 		tvWuyeleixing.setText(e.getJiaoyiquanshu());
-		if(e.getIsweiyi().equals("ÊÇ")){
-			tvMaifangjiatingweiyi.setText("Î¨Ò»");
+		if(e.getIsweiyi().equals("æ˜¯")){
+			tvMaifangjiatingweiyi.setText("å”¯ä¸€");
 		}else{
-			tvMaifangjiatingweiyi.setText("·ÇÎ¨Ò»");
+			tvMaifangjiatingweiyi.setText("éå”¯ä¸€");
 		}
 	
 		tvJushangcijiaoyi.setText(e.getShangcijiaoyi());;
@@ -397,8 +397,8 @@ public class ErShouFangDetailsActivity extends Activity implements IErShouFangDe
 		tvTotalhistroy.setText(e.getViews());
 		
 		/**
-		 *  ÉèÖÃ°Ù¶ÈµØÍ¼
-		 *  ¶¨Î»µ½·¿Ô´¾­Î³¶È 
+		 *  ï¿½ï¿½ï¿½Ã°Ù¶Èµï¿½Í¼
+		 *  ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½Î³ï¿½ï¿½ 
 		 */
 		try {
 			String jwd=e.getJingweidu();
@@ -422,14 +422,14 @@ public class ErShouFangDetailsActivity extends Activity implements IErShouFangDe
 			 * 
 			 */
 			
-			// ÉèÖÃ¶¨Î»Í¼²ãµÄÅäÖÃ£¨¶¨Î»Ä£Ê½£¬ÊÇ·ñÔÊĞí·½ÏòĞÅÏ¢£¬ÓÃ»§×Ô¶¨Òå¶¨Î»Í¼±ê£©  
+			// ï¿½ï¿½ï¿½Ã¶ï¿½Î»Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã£ï¿½ï¿½ï¿½Î»Ä£Ê½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½Ã»ï¿½ï¿½Ô¶ï¿½ï¿½å¶¨Î»Í¼ï¿½ê£©  
 			mCurrentMarker = BitmapDescriptorFactory  
 			    .fromResource(R.drawable.icon_gcoding);  
-			//¹¹½¨MarkerOption£¬ÓÃÓÚÔÚµØÍ¼ÉÏÌí¼ÓMarker  
+			//ï¿½ï¿½ï¿½ï¿½MarkerOptionï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½Marker  
 			OverlayOptions option = new MarkerOptions()  
 			    .position(latLng)  
 			    .icon(mCurrentMarker);  
-			//ÔÚµØÍ¼ÉÏÌí¼ÓMarker£¬²¢ÏÔÊ¾  
+			//ï¿½Úµï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½Markerï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾  
 			mBaiduMAP.addOverlay(option);
 			mBaiduMAP.animateMapStatus(msu);
 			

@@ -58,7 +58,7 @@ public class GZNewFramgent extends Fragment implements IGuanZhuNewView{
 //		userinfo=HouseGoApp.getContext().getCurrentUserInfo();
 //		String username=userinfo.getUsername();
 //		presenter.LoadGuanZhuNew(username);;
-//		MyToastShowCenter.CenterToast(getActivity(), "·¢ËÍÁËÊı¾İ");
+//		MyToastShowCenter.CenterToast(getActivity(), "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 //		super.onResume();
 //	}
 //	
@@ -82,7 +82,7 @@ public class GZNewFramgent extends Fragment implements IGuanZhuNewView{
 		if(newhousedetails!=null){
 			adapter=new GuanZhuNewLsitAdapter(newhousedetails, getActivity(), listview.getRightViewWidth());
 		}else{
-			MyToastShowCenter.CenterToast(getContext(), "Äã»¹Ã»ÓĞ¹Ø×¢ĞÂ·¿£¡");
+			MyToastShowCenter.CenterToast(getContext(), "ä½ è¿˜æ²¡æœ‰å…³æ³¨æ–°æˆ¿ï¼");
 		}
 	
 	}
@@ -176,15 +176,15 @@ public class GZNewFramgent extends Fragment implements IGuanZhuNewView{
 			
 			holder.tvConntacttel.setText(n.getContacttel());
 			holder.tvJunjia.setText(n.getJunjia());
-			holder.tvKaipanshijian.setText("¿ªÅÌÊ±¼ä:"+n.getKaipandate()+" / ½»·¿Ê±¼ä:"+n.getJiaofangdate());
+			holder.tvKaipanshijian.setText("å¼€ç›˜æ—¶é—´:"+n.getKaipandate()+" / äº¤æˆ¿æ—¶é—´:"+n.getJiaofangdate());
 			holder.tvLoupandizhi.setText(n.getLoupandizhi());
-			holder.tvMianjiarea.setText(n.getMianjiarea()+"Æ½Ã×");
-			holder.tvShiarea.setText("1-3 ÊÒ");
+			holder.tvMianjiarea.setText(n.getMianjiarea()+"å¹³ç±³");
+			holder.tvShiarea.setText("1-3 å®¤");
 			
 			
 			
 			
-			//È¡Ïû¹Ø×¢µÄËùĞèµÄÖµ
+			//È¡ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
 	
 			
 			
@@ -193,7 +193,7 @@ public class GZNewFramgent extends Fragment implements IGuanZhuNewView{
 				@Override
 				public void onClick(View v) {
 					newhousedetails.remove(position);
-					MyToastShowCenter.CenterToast(context, "È¡Ïû¹Ø×¢");
+					MyToastShowCenter.CenterToast(context, "å–æ¶ˆå…³æ³¨");
 					
 					listview.hiddenRight(listview.mPreItemView);
 					if (myHandler != null) {

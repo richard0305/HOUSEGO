@@ -182,19 +182,19 @@ public class LoginActivity extends Activity implements ILoginView, ILoginUserInf
 	private void setAdapter() {
 		pager.setAdapter(new PagerAdapter() {
 
-			// viewpagerÖĞµÄ×é¼şÊıÁ¿
+			// viewpagerï¿½Ğµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			@Override
 			public int getCount() {
 				return viewContainter.size();
 			}
 
-			// »¬¶¯ÇĞ»»µÄÊ±ºòÏú»Ùµ±Ç°µÄ×é¼ş
+			// ï¿½ï¿½ï¿½ï¿½ï¿½Ğ»ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Ùµï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½
 			@Override
 			public void destroyItem(ViewGroup container, int position, Object object) {
 				((ViewPager) container).removeView(viewContainter.get(position));
 			}
 
-			// Ã¿´Î»¬¶¯µÄÊ±ºòÉú³ÉµÄ×é¼ş
+			// Ã¿ï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Éµï¿½ï¿½ï¿½ï¿½
 			@Override
 			public Object instantiateItem(ViewGroup container, int position) {
 				((ViewPager) container).addView(viewContainter.get(position));
@@ -220,11 +220,11 @@ public class LoginActivity extends Activity implements ILoginView, ILoginUserInf
 	}
 
 	private void setOptains() {
-		// È¡ÏûtabÏÂÃæµÄ³¤ºáÏß
+		// È¡ï¿½ï¿½tabï¿½ï¿½ï¿½ï¿½Ä³ï¿½ï¿½ï¿½ï¿½ï¿½
 		tabStrip.setDrawFullUnderline(false);
-		// ÉèÖÃtabµÄ±³¾°É«
+		// ï¿½ï¿½ï¿½ï¿½tabï¿½Ä±ï¿½ï¿½ï¿½É«
 		tabStrip.setBackgroundColor(getResources().getColor(R.color.tab_back));
-		// ÉèÖÃµ±Ç°tabÒ³Ç©µÄÏÂ»®ÏßÑÕÉ«
+		// ï¿½ï¿½ï¿½Ãµï¿½Ç°tabÒ³Ç©ï¿½ï¿½ï¿½Â»ï¿½ï¿½ï¿½ï¿½ï¿½É«
 		tabStrip.setTabIndicatorColor(getResources().getColor(R.color.tab_red));
 		tabStrip.setTextSpacing(100);
 
@@ -252,12 +252,9 @@ public class LoginActivity extends Activity implements ILoginView, ILoginUserInf
 		
 		viewContainter.add(general);
 		viewContainter.add(shortcut);
-		titleContainer.add("ÆÕÍ¨µÇÂ¼");
-		titleContainer.add("ÑéÖ¤Âë¿ì½İµÇÂ¼");
+		titleContainer.add("æ™®é€šç™»å½•");
+		titleContainer.add("éªŒè¯ç å¿«æ·ç™»å½•");
 	}
-	
-	
-	
 	
 	
 	
@@ -271,7 +268,7 @@ public class LoginActivity extends Activity implements ILoginView, ILoginUserInf
                         if (LoginActivity.this== null) {
                             break;
                         }
-//                      µ±ÎÄ±¾¿òÄÚÈİ¸Ä±äÊ±£¬½áÊøÑ­»·¡£
+//                      ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½İ¸Ä±ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ­ï¿½ï¿½ï¿½ï¿½
                       if (isChange && !btnShortLoginSendCode.isClickable()) {
                           isChange = false;
                           break;
@@ -280,7 +277,7 @@ public class LoginActivity extends Activity implements ILoginView, ILoginUserInf
                         LoginActivity.this.runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                            	btnShortLoginSendCode.setText("ÖØ·¢(" + i + "s)");
+                            	btnShortLoginSendCode.setText("é‡å‘(" + i + "s)");
                             	btnShortLoginSendCode.setClickable(false);
                             }
                         });
@@ -299,7 +296,7 @@ public class LoginActivity extends Activity implements ILoginView, ILoginUserInf
                 	LoginActivity.this.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                        	btnShortLoginSendCode.setText("·¢ËÍÑéÖ¤Âë");
+                        	btnShortLoginSendCode.setText("å‘é€éªŒè¯ç ");
                         	btnShortLoginSendCode.setClickable(true);
                         }
                     });
@@ -322,7 +319,7 @@ public class LoginActivity extends Activity implements ILoginView, ILoginUserInf
 
 	@Override
 	public void loginSuccess() {
-		Toast.makeText(getApplicationContext(), "µÇÂ½³É¹¦", Toast.LENGTH_SHORT).show();
+		Toast.makeText(getApplicationContext(), "ç™»å½•æˆåŠŸï¼", Toast.LENGTH_SHORT).show();
 
 		user = HouseGoApp.getContext().getCurrentUser();
 		String userid = user.getUserid();
@@ -334,7 +331,7 @@ public class LoginActivity extends Activity implements ILoginView, ILoginUserInf
 	
 	@Override
 	public void loginUserInfoFail(String errorMessage) {
-		Toast.makeText(getApplicationContext(), "»ñÈ¡ÓÃ»§ĞÅÏ¢Ê§°Ü", Toast.LENGTH_SHORT).show();
+		Toast.makeText(getApplicationContext(), "è·å–ç”¨æˆ·ä¿¡æ¯å¤±è´¥", Toast.LENGTH_SHORT).show();
 	}
 
 	@Override
@@ -356,7 +353,7 @@ public class LoginActivity extends Activity implements ILoginView, ILoginUserInf
 
 	@Override
 	public void YzmloginSuccess() {
-		Toast.makeText(getApplicationContext(), "µÇÂ½³É¹¦", Toast.LENGTH_SHORT).show();
+		Toast.makeText(getApplicationContext(), "ç™»é™†æˆåŠŸ", Toast.LENGTH_SHORT).show();
 
 		user = HouseGoApp.getContext().getCurrentUser();
 		String userid = user.getUserid();

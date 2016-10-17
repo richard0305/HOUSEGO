@@ -83,7 +83,7 @@ public class GZErShouFramgent extends Fragment implements IGuanZhuErShouView,IGu
 
 			@Override
 			public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long ID) {
-				MyToastShowCenter.CenterToast(getContext(), "³¤°´ÁË"+position);
+				MyToastShowCenter.CenterToast(getContext(), "é•¿æŒ‰äº†"+position);
 				 String id=ershoufangdetails.get(position).getId();
 				 UserInfo info=HouseGoApp.getContext().getCurrentUserInfo();
 				String userid=info.getUserid();
@@ -103,7 +103,7 @@ public class GZErShouFramgent extends Fragment implements IGuanZhuErShouView,IGu
 		userinfo=HouseGoApp.getContext().getCurrentUserInfo();
 		String username=userinfo.getUsername();
 		presenter.LoadGuanZhuErShou(username);
-		MyToastShowCenter.CenterToast(getContext(), "·¢ËÍÁËÊı¾İ");
+		MyToastShowCenter.CenterToast(getContext(), "å‘é€äº†æ•°æ®");
 		super.onResume();
 	}
 
@@ -137,7 +137,7 @@ public class GZErShouFramgent extends Fragment implements IGuanZhuErShouView,IGu
 
 	
 	/**
-	 * 				adapterÉÏ
+	 * 				adapterï¿½ï¿½
 	 * **/
 	
 	public class GuanZhuErShouLsitAdapter extends BaseAdapter
@@ -216,22 +216,22 @@ public class GZErShouFramgent extends Fragment implements IGuanZhuErShouView,IGu
 			
 			holder.tvTitle.setText(n.getTitle()+"");
 			
-			holder.tvArea.setText(n.getArea()+"Æ½Ã×");
+			holder.tvArea.setText(n.getArea()+"å¹³ç±³");
 			holder.tvChaoxiang.setText(n.getChaoxiang());
 			holder.tvDitiexian.setText(n.getDitiexian());
-			holder.tvFangxing.setText(n.getShi()+"ÊÒ"+n.getTing()+"Ìü");
-			holder.tvJianzhuType.setText(n.getFangling()+"·¿Áä"+n.getJianzhutype());
+			holder.tvFangxing.setText(n.getShi()+"å®¤"+n.getTing()+"å…");
+			holder.tvJianzhuType.setText(n.getFangling()+"æˆ¿é¾„"+n.getJianzhutype());
 			
 			int zongjia=Integer.parseInt(n.getZongjia())*10000;
 			int mianji=Integer.parseInt(n.getJianzhumianji());
 			
-			holder.tvJunjias.setText(zongjia/mianji+"Ôª/©O");
+			holder.tvJunjias.setText(zongjia/mianji+"å…ƒ/ã¡");
 			
-			holder.tvLouceng.setText(n.getCeng()+"(¹²"+n.getZongceng()+"²ã)");
+			holder.tvLouceng.setText(n.getCeng()+"(å…±"+n.getZongceng()+"å±‚)");
 			holder.tvPrice.setText(n.getZongjia());
 			holder.tvXiaoquName.setText(n.getXiaoquName());
 			
-			//È¡Ïû¹Ø×¢µÄËùĞèµÄÖµ
+			//È¡ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
 	
 			
 			
@@ -241,7 +241,7 @@ public class GZErShouFramgent extends Fragment implements IGuanZhuErShouView,IGu
 				public void onClick(View v) {
 //					ershoufangdetails.remove(position);
 //					Presenter.deleteGuanZhu(id, userid, username);
-//					MyToastShowCenter.CenterToast(context, "È¡Ïû¹Ø×¢");
+//					MyToastShowCenter.CenterToast(context, "È¡ï¿½ï¿½ï¿½ï¿½×¢");
 					lvGuanZhuErShou.hiddenRight(lvGuanZhuErShou.mPreItemView);
 					if (myHandler != null) {
 						Message msg = myHandler.obtainMessage();
@@ -293,7 +293,7 @@ public class GZErShouFramgent extends Fragment implements IGuanZhuErShouView,IGu
 	}
 	
 	/**
-	 * 				adapterÍê
+	 * 				adapterï¿½ï¿½
 	 * **/
 	
 }

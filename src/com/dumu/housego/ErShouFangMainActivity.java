@@ -9,6 +9,9 @@ import com.dumu.housego.entity.FourDataPrograma;
 import com.dumu.housego.presenter.ErShouFangProgramaPresenter;
 import com.dumu.housego.presenter.IFourDataProgramePresenter;
 import com.dumu.housego.util.FontHelper;
+import com.dumu.housego.utils.MyListener;
+import com.dumu.housego.utils.PullToRefreshLayout;
+import com.dumu.housego.utils.PullToRefreshLayout.OnRefreshListener;
 import com.dumu.housego.view.IErShouFangRecommendView;
 
 import android.app.Activity;
@@ -27,7 +30,6 @@ import android.widget.Spinner;
 public class ErShouFangMainActivity extends Activity implements IErShouFangRecommendView {
 	private LinearLayout llErshoufang;
 	private ErShouFangRecommendAdapter adapter;
-	private ListView lvErshoufangRecommend;
 	private IFourDataProgramePresenter presenter;
 	private List<ErShouFangRecommendData> ershoufangrecommends;
 	private FourDataPrograma fourdata;
@@ -42,7 +44,11 @@ public class ErShouFangMainActivity extends Activity implements IErShouFangRecom
 	private List<String> spinnerList4 = new ArrayList<String>();
 	private ArrayAdapter<String> Spinneradapter;    
 	
+	private ListView listView;
+	private PullToRefreshLayout ptrl;
+	private boolean isFirstIn = true;
 
+	private int page=1;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -51,11 +57,11 @@ public class ErShouFangMainActivity extends Activity implements IErShouFangRecom
 		setViews();
 		setListener();
 		
-		spinnerList1.add("«¯”Ú");    
-		spinnerList1.add("¬ﬁ∫˛");    
-		spinnerList1.add("∏£…Ω");    
-		spinnerList1.add("ƒœ…Ω");    
-		spinnerList1.add("¡˙∏⁄");  
+		spinnerList1.add("Âå∫Âüü");    
+		spinnerList1.add("ÁΩóÊπñ");    
+		spinnerList1.add("Á¶èÂ±±");    
+		spinnerList1.add("ÂçóÂ±±");    
+		spinnerList1.add("ÈæôÂ≤ó");  
 		
 		
 		
@@ -70,8 +76,21 @@ public class ErShouFangMainActivity extends Activity implements IErShouFangRecom
 		Spinneradapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);  
 		ershoufangQuyuSp1.setAdapter(Spinneradapter); 
 		String str=(String) ershoufangQuyuSp1.getSelectedItem();
-		Log.i("yanglijun","<<<<<<<<<<<<<<<------°∑°∑°∑°∑°∑°∑°∑°∑°∑°∑°∑Str"+str);
 	}
+	
+	
+	@Override
+	public void onWindowFocusChanged(boolean hasFocus)
+	{
+		super.onWindowFocusChanged(hasFocus);
+		// ÔøΩÔøΩ“ªÔøΩŒΩÔøΩÔøΩÔøΩÔøΩ‘∂ÔøΩÀ¢ÔøΩÔøΩ
+		if (isFirstIn)
+		{
+			ptrl.autoRefresh();
+			isFirstIn = false;
+		}
+	}
+	
 
 	private void setListener() {
 		llErshoufang.setOnClickListener(new OnClickListener() {
@@ -83,7 +102,7 @@ public class ErShouFangMainActivity extends Activity implements IErShouFangRecom
 			}
 		});
 
-		lvErshoufangRecommend.setOnItemClickListener(new OnItemClickListener() {
+		listView.setOnItemClickListener(new OnItemClickListener() {
 
 			 @Override
 			public void onItemClick(AdapterView<?> arg0, View view, int position, long id) {
@@ -96,12 +115,34 @@ public class ErShouFangMainActivity extends Activity implements IErShouFangRecom
 				 startActivity(i);
 			}
 		});
+		
+		ptrl.setOnRefreshListener(new OnRefreshListener() {
+			
+			@Override
+			public void onRefresh(PullToRefreshLayout pullToRefreshLayout) {
+				page++;
+				fourdata.setCatid("6");
+				fourdata.setPage(page+"");
+				presenter.LoadProgrameData(fourdata);
+				adapter.notifyDataSetChanged();
+				
+			}
+			
+			@Override
+			public void onLoadMore(PullToRefreshLayout pullToRefreshLayout) {
+				
+				
+			}
+		});
 
 	}
 
 	private void setViews() {
+		ptrl = ((PullToRefreshLayout) findViewById(R.id.refresh_view));
+		ptrl.setOnRefreshListener(new MyListener());
+		listView = (ListView) findViewById(R.id.content_view);
+		
 		llErshoufang = (LinearLayout) findViewById(R.id.ll_ershoufang_back);
-		lvErshoufangRecommend = (ListView) findViewById(R.id.lv_ershoufang_recommend);
 		ershoufangQuyuSp1=(Spinner) findViewById(R.id.ershoufang_quyu_sp1);
 		ershoufangQuyuSp2=(Spinner) findViewById(R.id.ershoufang_quyu_sp2);
 		ershoufangQuyuSp3=(Spinner) findViewById(R.id.ershoufang_quyu_sp3);
@@ -113,7 +154,7 @@ public class ErShouFangMainActivity extends Activity implements IErShouFangRecom
 		this.ershoufangrecommends = ershoufangrecommends;
 		Log.e("2016-10-10", "2016-10-10"+ershoufangrecommends);
 		adapter = new ErShouFangRecommendAdapter(ershoufangrecommends, getApplicationContext());
-		lvErshoufangRecommend.setAdapter(adapter);
+		listView.setAdapter(adapter);
 
 	}
 

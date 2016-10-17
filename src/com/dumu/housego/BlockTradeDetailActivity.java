@@ -100,7 +100,7 @@ public class BlockTradeDetailActivity extends Activity implements IBlockTradeDet
 			
 			@Override
 			public void onClick(View v) {
-				Toast.makeText(getApplicationContext(), "Çë×ªÖ§¸¶±¦15005148914", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "15005148914", Toast.LENGTH_SHORT).show();
 				
 			}
 		});
@@ -142,11 +142,11 @@ public class BlockTradeDetailActivity extends Activity implements IBlockTradeDet
 		tv_block_trade_detail_phone.setText(b.getTel());
 		
 		tv_block_trade_detail_area.setText(b.getCityname()+" "+b.getAreaname());
-		tv_block_trade_detail_yusuanjine.setText(b.getZongjia()+"ÍòÔª");
+		tv_block_trade_detail_yusuanjine.setText(b.getZongjia()+"ï¿½ï¿½Ôª");
 		tv_block_trade_detail_hezuofangshi.setText(b.getHezuofangshi());
-		tv_block_trade_detail_shiyongnianxian.setText(b.getShiyongnianxian()+"Äê");
+		tv_block_trade_detail_shiyongnianxian.setText(b.getShiyongnianxian()+"ï¿½ï¿½");
 		tv_block_trade_detail_wuyeleixing.setText(b.getWuyetype());
-		tv_block_trade_detail_jianzhumianji.setText(b.getZhandimianji()+"©O");
+		tv_block_trade_detail_jianzhumianji.setText(b.getZhandimianji()+"ï¿½O");
 		tv_block_trade_detail_lianxiren.setText(b.getUsername());
 		tv_block_trade_detail_address.setText(b.getAddress());
 		tv_block_trade_detail_xiangxijieshao.setText(b.getDescription());

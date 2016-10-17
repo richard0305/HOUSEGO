@@ -31,6 +31,7 @@ public class ChangeUserInfoActivity extends Activity implements IChangeUserInfoV
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_change_user_info);
 		FontHelper.injectFont(findViewById(android.R.id.content));
+		userinfo=HouseGoApp.getContext().getCurrentUserInfo();
 		setViews();
 		setListener();
 		changePresenter=new ChangeUserInfoPresenter(this);
@@ -48,7 +49,7 @@ public class ChangeUserInfoActivity extends Activity implements IChangeUserInfoV
 			@Override
 			public void onClick(View v) {
 				try {
-					userinfo=HouseGoApp.getContext().getCurrentUserInfo();
+					
 					String userid=userinfo.getUserid();
 					String nickname=etChangeNickname.getText().toString();
 					String about=etChangeAbout.getText().toString();
@@ -56,7 +57,7 @@ public class ChangeUserInfoActivity extends Activity implements IChangeUserInfoV
 					changePresenter.Change(userid, nickname, about, sex);
 				} catch (Exception e) {
 					e.printStackTrace();
-					Toast.makeText(getApplicationContext(), "«Îœ»µ«¬º£°", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(), "ËØ∑ÂÖàÁôªÂΩïÔºÅ", Toast.LENGTH_SHORT).show();
 				}
 				
 				
@@ -78,16 +79,36 @@ public class ChangeUserInfoActivity extends Activity implements IChangeUserInfoV
 		rbChangeSexSecret=(RadioButton) findViewById(R.id.rb_change_sex_secret);
 		rbChangeSexWoman=(RadioButton) findViewById(R.id.rb_change_sex_woman);
 		
+		try {
+			etChangeNickname.setText(userinfo.getNickname()+"");
+			etChangeAbout.setText(userinfo.getAbout()+"");
+			
+			String sex=userinfo.getSex()+"";
+			if(sex=="0"){
+				rbChangeSexSecret.setChecked(true);
+			}else{
+				if(sex=="1"){
+					rbChangeSexMan.setChecked(true);
+				}else{
+					rbChangeSexWoman.setChecked(true);
+				}
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
 	}
 	@Override
 	public void changeFail(String errorMessage) {
-		Toast.makeText(getApplicationContext(), "–ﬁ∏ƒ ß∞‹£° "+errorMessage, Toast.LENGTH_SHORT).show();
+		Toast.makeText(getApplicationContext(), "‰øÆÊîπÂ§±Ë¥•ÔºÅ"+errorMessage, Toast.LENGTH_SHORT).show();
 		
 	}
 	@Override
 	public void changeSuccess() {
 		
-		Toast.makeText(getApplicationContext(), "–ﬁ∏ƒ≥…π¶£° ", Toast.LENGTH_SHORT).show();
+		Toast.makeText(getApplicationContext(), "‰øÆÊîπÊàêÂäüÔºÅ ", Toast.LENGTH_SHORT).show();
 		finish();
 	}
 

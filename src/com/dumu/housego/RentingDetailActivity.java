@@ -104,16 +104,16 @@ public class RentingDetailActivity extends Activity implements IRentingDetailVie
 			Glide.with(getApplicationContext()).load(url).into(ivRentingpic);
 		}
 		
-		tvRentinghuxing.setText(" "+b.getShi()+"ÊÒ"+b.getTing()+"Ìü");
-		tvRentingmianji.setText(" "+b.getMianji()+"Æ½Ã×");
-		tvRentingshoujia.setText(" "+b.getZujin()+"Ôª/ÔÂ");
+		tvRentinghuxing.setText(" "+b.getShi()+"å®¤ "+b.getTing()+"å…");
+		tvRentingmianji.setText(" "+b.getMianji()+"å¹³ç±³");
+		tvRentingshoujia.setText(" "+b.getZujin()+"å…ƒ/æœˆ");
 		
 		 tvRentingTedian.setText(" "+b.getFangwupeitao());;
 		 tvRentingLouceng.setText(" "+b.getCeng()+"/"+b.getZongceng());
 		 tvRentingChaoxiang.setText(" "+b.getChaoxiang());
 		 tvRentingZhuangxiu.setText(" "+b.getZhuangxiu());
 		 tvRentingLocation.setText(" "+b.getCityname()+" "+b.getAreaname());;
-		tvRentingMianji.setText(" "+b.getMianji()+"©O");;
+		tvRentingMianji.setText(" "+b.getMianji()+"ã¡");;
 		tvRentingHuxing.setText(" "+b.getHuxingjieshao());;
 		tvRentingFangshi.setText(" "+b.getZulin());
 		tvRentingFabushijian.setText(" "+TimeTurnDate.getStringDate(b.getInputtime()));;
@@ -121,11 +121,11 @@ public class RentingDetailActivity extends Activity implements IRentingDetailVie
 		 tvRentingXiaoqu.setText(" "+b.getXiaoqu());
 		 tvFangyuanliangdian.setText(" "+b.getShenghuopeitao());
 		 tvJiaotongchuxing.setText(" "+b.getJiaotong());
-		 tvRentingLishijilu.setText("½üÒ»¸öÔÂĞÂÔö¼ÇÂ¼"+b.getMonthviews()+"Î»");
+		 tvRentingLishijilu.setText("è¿‘ä¸€ä¸ªæœˆæ–°å¢è®°å½•"+b.getMonthviews()+"ä½");
 		
 			/**
-			 *  ÉèÖÃ°Ù¶ÈµØÍ¼
-			 *  ¶¨Î»µ½·¿Ô´¾­Î³¶È 
+			 *  ï¿½ï¿½ï¿½Ã°Ù¶Èµï¿½Í¼
+			 *  ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½Î³ï¿½ï¿½ 
 			 */
 		
 				String jwd=b.getJingweidu();
@@ -149,14 +149,14 @@ public class RentingDetailActivity extends Activity implements IRentingDetailVie
 				 * 
 				 */
 				
-				// ÉèÖÃ¶¨Î»Í¼²ãµÄÅäÖÃ£¨¶¨Î»Ä£Ê½£¬ÊÇ·ñÔÊĞí·½ÏòĞÅÏ¢£¬ÓÃ»§×Ô¶¨Òå¶¨Î»Í¼±ê£©  
+				// ï¿½ï¿½ï¿½Ã¶ï¿½Î»Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã£ï¿½ï¿½ï¿½Î»Ä£Ê½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½Ã»ï¿½ï¿½Ô¶ï¿½ï¿½å¶¨Î»Í¼ï¿½ê£©  
 				mCurrentMarker = BitmapDescriptorFactory  
 				    .fromResource(R.drawable.icon_gcoding);  
-				//¹¹½¨MarkerOption£¬ÓÃÓÚÔÚµØÍ¼ÉÏÌí¼ÓMarker  
+				//ï¿½ï¿½ï¿½ï¿½MarkerOptionï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½Marker  
 				OverlayOptions option = new MarkerOptions()  
 				    .position(latLng)  
 				    .icon(mCurrentMarker);  
-				//ÔÚµØÍ¼ÉÏÌí¼ÓMarker£¬²¢ÏÔÊ¾  
+				//ï¿½Úµï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½Markerï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾  
 				mBaiduMAP.addOverlay(option);
 				mBaiduMAP.animateMapStatus(msu);
 				
@@ -182,7 +182,7 @@ public class RentingDetailActivity extends Activity implements IRentingDetailVie
 //		settings.setZoomGesturesEnabled(false);
 		
 		/**
-		 * ¸Ä±äµØÍ¼µÄ±ÈÀı³ß
+		 * ï¿½Ä±ï¿½ï¿½Í¼ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½
 		 */
 		MapStatusUpdate msu=MapStatusUpdateFactory.zoomTo(18.0f);
 		mBaiduMAP.setMapStatus(msu);

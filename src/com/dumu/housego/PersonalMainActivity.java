@@ -39,9 +39,9 @@ public class PersonalMainActivity extends Activity implements IChangeHeadPhotoVi
 	private TextView tvPersonalNickname,tvPersonalPhone;
 	private UserInfo userinfo;
 	private CircleImageView ivPersonalPhoto;
-	private Bitmap head;//Í·ÏñBitmap
-	private	 File file=new File("/sdcard/HouseGo/");
-    private static String path=File.pathSeparator;//sdÂ·¾¶
+	private Bitmap head;//Í·ï¿½ï¿½Bitmap
+	private	 File file=new File("\\sdcard\\HouseGo\\");
+    private static String path=File.pathSeparator;//sdÂ·ï¿½ï¿½
     private IChangeHeadPhotoPresenter headpresenter;
     
 	@Override
@@ -63,7 +63,7 @@ public class PersonalMainActivity extends Activity implements IChangeHeadPhotoVi
 		
 		userinfo=HouseGoApp.getContext().getCurrentUserInfo();
 		if(userinfo==null){
-			Toast.makeText(getApplicationContext(), "Äú»¹Ã»ÓĞµÇÂ¼£¬ÇëÏÈµÇÂ¼£¡", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), "æ‚¨è¿˜æ²¡æœ‰ç™»å½•,è¯·å…ˆç™»å½•ï¼", Toast.LENGTH_SHORT).show();
 		}else{
 			String url=userinfo.getUserpic();
 			Glide.with(getApplicationContext()).load(url).into(ivPersonalPhoto);
@@ -90,28 +90,28 @@ public class PersonalMainActivity extends Activity implements IChangeHeadPhotoVi
 
 			@Override
 			public void onClick(View v) {
-				new AlertDialog.Builder(PersonalMainActivity.this).setTitle("Í¼Æ¬À´Ô´")
-				.setItems(new String[]{"Ïà²á","Ïà»ú"}, new DialogInterface.OnClickListener() {
+				new AlertDialog.Builder(PersonalMainActivity.this).setTitle("å›¾ç‰‡æ¥æº")
+				.setItems(new String[]{"ç›¸å†Œ","ç›¸æœº"}, new DialogInterface.OnClickListener() {
 					
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
 						switch(which){
 						case 0:
-							//´ÓÏà²áÀïÃæÈ¡ÕÕÆ¬
+							//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½Æ¬
 				            Intent intent1 = new Intent(Intent.ACTION_PICK, null);
 				            intent1.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
 				            startActivityForResult(intent1, 1);
 						break;
-						case 1://µ÷ÓÃÏà»úÅÄÕÕ
+						case 1://ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				            Intent intent2 = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 				            intent2.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(new File(Environment.getExternalStorageDirectory(),
 				                            "head.jpg")));
-				            startActivityForResult(intent2, 2);//²ÉÓÃForResult´ò¿ª
+				            startActivityForResult(intent2, 2);//ï¿½ï¿½ï¿½ï¿½ForResultï¿½ï¿½
 						break;
 						}
 						
 					}
-				}).setNegativeButton("È¡Ïû", new DialogInterface.OnClickListener() {
+				}).setNegativeButton("å–æ¶ˆ", new DialogInterface.OnClickListener() {
 					
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
@@ -147,14 +147,14 @@ public class PersonalMainActivity extends Activity implements IChangeHeadPhotoVi
 		tvPersonalPhone=(TextView) findViewById(R.id.tv_personal_phone);
 		ivPersonalPhoto=(CircleImageView) findViewById(R.id.iv_personal_Photo);
 		
-		  Bitmap bt = BitmapFactory.decodeFile(path + "head.jpg");//´ÓSdÖĞÕÒÍ·Ïñ£¬×ª»»³ÉBitmap
+		  Bitmap bt = BitmapFactory.decodeFile(path + "head.jpg");//ï¿½ï¿½Sdï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½Bitmap
 	        if(bt!=null){
 	            @SuppressWarnings("deprecation")
-	            Drawable drawable = new BitmapDrawable(bt);//×ª»»³Édrawable
+	            Drawable drawable = new BitmapDrawable(bt);//×ªï¿½ï¿½ï¿½ï¿½drawable
 	            ivPersonalPhoto.setImageDrawable(drawable);
 	        }else{
 	            /**
-	             *  Èç¹ûSDÀïÃæÃ»ÓĞÔòĞèÒª´Ó·şÎñÆ÷È¡Í·Ïñ£¬È¡»ØÀ´µÄÍ·ÏñÔÙ±£´æÔÚSDÖĞ
+	             *  ï¿½ï¿½ï¿½SDï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½Ó·ï¿½ï¿½ï¿½ï¿½ï¿½È¡Í·ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½ï¿½Ù±ï¿½ï¿½ï¿½ï¿½ï¿½SDï¿½ï¿½
 	             * 
 	             */
 	        }
@@ -168,7 +168,7 @@ public class PersonalMainActivity extends Activity implements IChangeHeadPhotoVi
 	        
 	        case 1:
 	            if (resultCode == RESULT_OK) {
-	                cropPhoto(data.getData());//²Ã¼ôÍ¼Æ¬
+	                cropPhoto(data.getData());//ï¿½Ã¼ï¿½Í¼Æ¬
 	            }
 	 
 	            break;
@@ -177,7 +177,7 @@ public class PersonalMainActivity extends Activity implements IChangeHeadPhotoVi
 	            if (resultCode == RESULT_OK) {
 	                File temp = new File(Environment.getExternalStorageDirectory()
 	                        + "/head.jpg");
-	                cropPhoto(Uri.fromFile(temp));//²Ã¼ôÍ¼Æ¬
+	                cropPhoto(Uri.fromFile(temp));//ï¿½Ã¼ï¿½Í¼Æ¬
 	            }
 	 
 	            break;
@@ -189,17 +189,17 @@ public class PersonalMainActivity extends Activity implements IChangeHeadPhotoVi
 	                		extras.getParcelable("data");
 	                if(head!=null){
 	                    /**
-	                     * ÉÏ´«·şÎñÆ÷´úÂë
+	                     * ï¿½Ï´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	                     */
 	                	String userid=userinfo.getUserid();
 	                	headpresenter.ChangeHead(userid, head);
 	                	
 	                	
-	                    setPicToView(head);//±£´æÔÚSD¿¨ÖĞ
+	                    setPicToView(head);//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½SDï¿½ï¿½ï¿½ï¿½
 	                	UserInfo userinfo1 = HouseGoApp.getContext().getCurrentUserInfo();
 	                	String url1=userinfo.getUserpic();
 	        			Glide.with(getApplicationContext()).load(url1).into(ivPersonalPhoto);
-//	                    ivPersonalPhoto.setImageBitmap(head);//ÓÃImageViewÏÔÊ¾³öÀ´
+//	                    ivPersonalPhoto.setImageBitmap(head);//ï¿½ï¿½ImageViewï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½
 	                }
 	            }
 	            break;
@@ -212,7 +212,7 @@ public class PersonalMainActivity extends Activity implements IChangeHeadPhotoVi
 	
 	
     /**
-     * µ÷ÓÃÏµÍ³µÄ²Ã¼ô
+     * ï¿½ï¿½ï¿½ï¿½ÏµÍ³ï¿½Ä²Ã¼ï¿½
      * @param uri
      */
     public void cropPhoto(Uri uri) {
@@ -220,10 +220,10 @@ public class PersonalMainActivity extends Activity implements IChangeHeadPhotoVi
         Intent intent = new Intent("com.android.camera.action.CROP");
         intent.setDataAndType(uri, "image/*");
         intent.putExtra("crop", "true");
-         // aspectX aspectY ÊÇ¿í¸ßµÄ±ÈÀı
+         // aspectX aspectY ï¿½Ç¿ï¿½ßµÄ±ï¿½ï¿½ï¿½
         intent.putExtra("aspectX", 1);
         intent.putExtra("aspectY", 1);
-        // outputX outputY ÊÇ²Ã¼ôÍ¼Æ¬¿í¸ß
+        // outputX outputY ï¿½Ç²Ã¼ï¿½Í¼Æ¬ï¿½ï¿½ï¿½
         intent.putExtra("outputX", 150);
         intent.putExtra("outputY", 150);
         intent.putExtra("return-data", true);
@@ -232,22 +232,22 @@ public class PersonalMainActivity extends Activity implements IChangeHeadPhotoVi
     }
     private void setPicToView(Bitmap mBitmap) {
          String sdStatus = Environment.getExternalStorageState();  
-        if (!sdStatus.equals(Environment.MEDIA_MOUNTED)) { // ¼ì²âsdÊÇ·ñ¿ÉÓÃ  
+        if (!sdStatus.equals(Environment.MEDIA_MOUNTED)) { // ï¿½ï¿½ï¿½sdï¿½Ç·ï¿½ï¿½ï¿½ï¿½  
                return;  
            }  
         FileOutputStream b = null;
         File file = new File(path);
-        file.mkdirs();// ´´½¨ÎÄ¼ş¼Ğ
-        String fileName =path + "head.jpg";//Í¼Æ¬Ãû×Ö
+        file.mkdirs();// ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
+        String fileName =path + "head.jpg";//Í¼Æ¬ï¿½ï¿½ï¿½ï¿½
         try {
             b = new FileOutputStream(fileName);
-            mBitmap.compress(Bitmap.CompressFormat.JPEG, 100, b);// °ÑÊı¾İĞ´ÈëÎÄ¼ş
+            mBitmap.compress(Bitmap.CompressFormat.JPEG, 100, b);// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ´ï¿½ï¿½ï¿½Ä¼ï¿½
              
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } finally {
             try {
-                //¹Ø±ÕÁ÷
+                //ï¿½Ø±ï¿½ï¿½ï¿½
                 b.flush();
                 b.close();
             } catch (IOException e) {
@@ -261,7 +261,7 @@ public class PersonalMainActivity extends Activity implements IChangeHeadPhotoVi
 
 	@Override
 	public void changeHeadFail(String errorMessage) {
-		Toast.makeText(getApplicationContext(), "Í·Ïñ¸ü»»Ê§°Ü£¡", Toast.LENGTH_SHORT).show();
+		Toast.makeText(getApplicationContext(), "å¤´åƒæ›´æ¢å¤±è´¥ï¼", Toast.LENGTH_SHORT).show();
 		
 	}
 
@@ -269,6 +269,6 @@ public class PersonalMainActivity extends Activity implements IChangeHeadPhotoVi
 	public void changeHeadSuccess(String picUrl) {
 		
 		Glide.with(getApplicationContext()).load(picUrl).into(ivPersonalPhoto);
-	Toast.makeText(getApplicationContext(), "Í·Ïñ¸ü»»³É¹¦£¡", Toast.LENGTH_SHORT).show();
+	Toast.makeText(getApplicationContext(), "å¤´åƒæ›´æ¢æˆåŠŸï¼", Toast.LENGTH_SHORT).show();
 	}
 }

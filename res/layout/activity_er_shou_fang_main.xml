@@ -143,13 +143,26 @@
             />
     </LinearLayout>
     
-    <ListView 
-        android:id="@+id/lv_ershoufang_recommend"
+    
+        <com.dumu.housego.utils.PullToRefreshLayout
+        android:id="@+id/refresh_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#ffffff"
-        android:layout_below="@+id/ll_ershoufang_spinner"
-        ></ListView>
+        android:layout_below="@id/ll_ershoufang_spinner" >
+
+        <include layout="@layout/refresh_head" />
+        <!-- 支持所有实现Pullable接口的View -->
+
+        <com.dumu.housego.utils.PullableListView
+            android:id="@+id/content_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:divider="@color/gray"
+            android:dividerHeight="1dp" />
+
+        <include layout="@layout/load_more" />
+    </com.dumu.housego.utils.PullToRefreshLayout>
     
 
 </RelativeLayout>

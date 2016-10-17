@@ -8,14 +8,18 @@
 package com.dumu.housego;
 
 public final class R {
+    public static final class anim {
+        public static final int reverse_anim=0x7f040000;
+        public static final int rotating=0x7f040001;
+    }
     public static final class array {
-        public static final int ershoufangarea=0x7f040000;
-        public static final int ershoufanghousetype=0x7f040002;
-        public static final int ershoufangmore=0x7f040003;
-        public static final int ershoufangtotal=0x7f040006;
-        public static final int maphousearea=0x7f040001;
-        public static final int maphousepaixun=0x7f040004;
-        public static final int maphousesaixuan=0x7f040005;
+        public static final int ershoufangarea=0x7f050000;
+        public static final int ershoufanghousetype=0x7f050002;
+        public static final int ershoufangmore=0x7f050003;
+        public static final int ershoufangtotal=0x7f050006;
+        public static final int maphousearea=0x7f050001;
+        public static final int maphousepaixun=0x7f050004;
+        public static final int maphousesaixuan=0x7f050005;
     }
     public static final class attr {
         /**  未选中时颜色 
@@ -96,454 +100,455 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     public static final class color {
         /**  蜜色 
          */
-        public static final int aliceblue=0x7f05002c;
+        public static final int aliceblue=0x7f06002d;
         /**  亚麻色 
          */
-        public static final int antiquewhite=0x7f050022;
+        public static final int antiquewhite=0x7f060023;
         /**  中灰兰色 
          */
-        public static final int aqua=0x7f050082;
+        public static final int aqua=0x7f060083;
         /**  粟色 
          */
-        public static final int aquamarine=0x7f050063;
+        public static final int aquamarine=0x7f060064;
         /**  沙褐色 
          */
-        public static final int azure=0x7f05002a;
+        public static final int azure=0x7f06002b;
         /**  烟白色 
          */
-        public static final int beige=0x7f050027;
+        public static final int beige=0x7f060028;
         /**  浅玫瑰色 
          */
-        public static final int bisque=0x7f05000d;
+        public static final int bisque=0x7f06000e;
         /**  海军色 
          */
-        public static final int black=0x7f050091;
+        public static final int black=0x7f060092;
         /**  番木色 
          */
-        public static final int blanchedalmond=0x7f05000b;
+        public static final int blanchedalmond=0x7f06000c;
         /**  暗绿色 
          */
-        public static final int blue=0x7f05008d;
+        public static final int blue=0x7f06008e;
         /**  暗红色 
          */
-        public static final int blueviolet=0x7f05005b;
+        public static final int blueviolet=0x7f06005c;
         /**  暗灰色 
          */
-        public static final int brown=0x7f050050;
+        public static final int brown=0x7f060051;
         /**  亮青色 
          */
-        public static final int burlywood=0x7f050034;
-        public static final int button_ckeck=0x7f050095;
+        public static final int burlywood=0x7f060035;
+        public static final int button_ckeck=0x7f060096;
         /**  main下面的四个button选中颜色 
          */
-        public static final int button_unckeck=0x7f050094;
+        public static final int button_unckeck=0x7f060095;
         /**  菊兰色 
          */
-        public static final int cadetblue=0x7f050071;
+        public static final int cadetblue=0x7f060072;
         /**  碧绿色 
          */
-        public static final int chartreuse=0x7f050064;
+        public static final int chartreuse=0x7f060065;
         /**  茶色 
          */
-        public static final int chocolate=0x7f05003f;
+        public static final int chocolate=0x7f060040;
         /**  暗桔黄色 
          */
-        public static final int coral=0x7f050017;
+        public static final int coral=0x7f060018;
         /**  中绿色 
          */
-        public static final int cornflowerblue=0x7f050070;
+        public static final int cornflowerblue=0x7f060071;
         /**  柠檬绸色 
          */
-        public static final int cornsilk=0x7f050007;
+        public static final int cornsilk=0x7f060008;
         /**  淡灰色 
          */
-        public static final int crimson=0x7f050037;
+        public static final int crimson=0x7f060038;
         /**  浅绿色 
          */
-        public static final int cyan=0x7f050083;
+        public static final int cyan=0x7f060084;
         /**  中兰色 
          */
-        public static final int darkblue=0x7f05008f;
+        public static final int darkblue=0x7f060090;
         /**  深天蓝色 
          */
-        public static final int darkcyan=0x7f050089;
+        public static final int darkcyan=0x7f06008a;
         /**  中粉紫色 
          */
-        public static final int darkgoldenrod=0x7f050047;
+        public static final int darkgoldenrod=0x7f060048;
         /**  亮蓝色 
          */
-        public static final int darkgray=0x7f05004e;
+        public static final int darkgray=0x7f06004f;
         /**  绿色 
          */
-        public static final int darkgreen=0x7f05008c;
+        public static final int darkgreen=0x7f06008d;
         /**  暗灰色 
          */
-        public static final int darkgrey=0x7f05004f;
+        public static final int darkgrey=0x7f060050;
         /**  银色 
          */
-        public static final int darkkhaki=0x7f050044;
+        public static final int darkkhaki=0x7f060045;
         /**  重褐色 
          */
-        public static final int darkmagenta=0x7f050059;
+        public static final int darkmagenta=0x7f06005a;
         /**  军兰色 
          */
-        public static final int darkolivegreen=0x7f050072;
+        public static final int darkolivegreen=0x7f060073;
         /**  亮肉色 
          */
-        public static final int darkorange=0x7f050016;
+        public static final int darkorange=0x7f060017;
         /**  赭色 
          */
-        public static final int darkorchid=0x7f050052;
+        public static final int darkorchid=0x7f060053;
         /**  暗洋红 
          */
-        public static final int darkred=0x7f05005a;
+        public static final int darkred=0x7f06005b;
         /**  紫罗兰色 
          */
-        public static final int darksalmon=0x7f050031;
+        public static final int darksalmon=0x7f060032;
         /**  亮绿色 
          */
-        public static final int darkseagreen=0x7f050057;
+        public static final int darkseagreen=0x7f060058;
         /**  中绿宝石 
          */
-        public static final int darkslateblue=0x7f050075;
+        public static final int darkslateblue=0x7f060076;
         /**  橙绿色 
          */
-        public static final int darkslategray=0x7f05007b;
+        public static final int darkslategray=0x7f06007c;
         /**  暗瓦灰色 
          */
-        public static final int darkslategrey=0x7f05007c;
+        public static final int darkslategrey=0x7f06007d;
         /**  中春绿色 
          */
-        public static final int darkturquoise=0x7f050087;
+        public static final int darkturquoise=0x7f060088;
         /**  苍绿色 
          */
-        public static final int darkviolet=0x7f050054;
+        public static final int darkviolet=0x7f060055;
         /**  红橙色 
          */
-        public static final int deeppink=0x7f05001b;
+        public static final int deeppink=0x7f06001c;
         /**  暗宝石绿 
          */
-        public static final int deepskyblue=0x7f050088;
+        public static final int deepskyblue=0x7f060089;
         /**  石蓝色 
          */
-        public static final int dimgray=0x7f05006d;
+        public static final int dimgray=0x7f06006e;
         /**  暗灰色 
          */
-        public static final int dimgrey=0x7f05006e;
+        public static final int dimgrey=0x7f06006f;
         /**  亮海蓝色 
          */
-        public static final int dodgerblue=0x7f050080;
+        public static final int dodgerblue=0x7f060081;
         /**  暗金黄色 
          */
-        public static final int firebrick=0x7f050048;
+        public static final int firebrick=0x7f060049;
         /**  雪白色 
          */
-        public static final int floralwhite=0x7f050005;
+        public static final int floralwhite=0x7f060006;
         /**  海绿色 
          */
-        public static final int forestgreen=0x7f05007e;
+        public static final int forestgreen=0x7f06007f;
         /**  深粉红色 
          */
-        public static final int fuchsia=0x7f05001c;
+        public static final int fuchsia=0x7f06001d;
         /**  洋李色 
          */
-        public static final int gainsboro=0x7f050036;
+        public static final int gainsboro=0x7f060037;
         /**  鲜肉色 
          */
-        public static final int ghostwhite=0x7f050024;
+        public static final int ghostwhite=0x7f060025;
         /**  桃色 
          */
-        public static final int gold=0x7f050011;
+        public static final int gold=0x7f060012;
         /**  苍紫罗兰色 
          */
-        public static final int goldenrod=0x7f050039;
+        public static final int goldenrod=0x7f06003a;
         /**  天蓝色 
          */
-        public static final int gray=0x7f05005e;
+        public static final int gray=0x7f06005f;
         /**  水鸭色 
          */
-        public static final int green=0x7f05008b;
+        public static final int green=0x7f06008c;
         /**  苍宝石绿 
          */
-        public static final int greenyellow=0x7f05004c;
+        public static final int greenyellow=0x7f06004d;
         /**  灰色 
          */
-        public static final int grey=0x7f05005f;
+        public static final int grey=0x7f060060;
         /**  天蓝色 
          */
-        public static final int honeydew=0x7f05002b;
+        public static final int honeydew=0x7f06002c;
         /**  珊瑚色 
          */
-        public static final int hotpink=0x7f050018;
+        public static final int hotpink=0x7f060019;
         /**  秘鲁色 
          */
-        public static final int indianred=0x7f050041;
+        public static final int indianred=0x7f060042;
         /**  暗橄榄绿 
          */
-        public static final int indigo=0x7f050073;
+        public static final int indigo=0x7f060074;
         /**  白色 
          */
-        public static final int ivory=0x7f050001;
+        public static final int ivory=0x7f060002;
         /**  艾利斯兰 
          */
-        public static final int khaki=0x7f05002d;
+        public static final int khaki=0x7f06002e;
         /**  暗肉色 
          */
-        public static final int lavender=0x7f050032;
+        public static final int lavender=0x7f060033;
         /**  海贝色 
          */
-        public static final int lavenderblush=0x7f050009;
+        public static final int lavenderblush=0x7f06000a;
         /**  黄绿色 
          */
-        public static final int lawngreen=0x7f050065;
+        public static final int lawngreen=0x7f060066;
         /**  花白色 
          */
-        public static final int lemonchiffon=0x7f050006;
+        public static final int lemonchiffon=0x7f060007;
+        public static final int light_blue=0x7f060001;
         /**  黄绿色 
          */
-        public static final int lightblue=0x7f05004d;
+        public static final int lightblue=0x7f06004e;
         /**  黄褐色 
          */
-        public static final int lightcoral=0x7f05002e;
+        public static final int lightcoral=0x7f06002f;
         /**  淡紫色 
          */
-        public static final int lightcyan=0x7f050033;
+        public static final int lightcyan=0x7f060034;
         /**  老花色 
          */
-        public static final int lightgoldenrodyellow=0x7f050020;
+        public static final int lightgoldenrodyellow=0x7f060021;
         /**  蓟色 
          */
-        public static final int lightgray=0x7f05003c;
+        public static final int lightgray=0x7f06003d;
         /**  中紫色 
          */
-        public static final int lightgreen=0x7f050056;
+        public static final int lightgreen=0x7f060057;
         /**  亮灰色 
          */
-        public static final int lightgrey=0x7f05003d;
+        public static final int lightgrey=0x7f06003e;
         /**  粉红色 
          */
-        public static final int lightpink=0x7f050013;
+        public static final int lightpink=0x7f060014;
         /**  橙色 
          */
-        public static final int lightsalmon=0x7f050015;
+        public static final int lightsalmon=0x7f060016;
         /**  森林绿 
          */
-        public static final int lightseagreen=0x7f05007f;
+        public static final int lightseagreen=0x7f060080;
         /**  紫罗兰蓝色 
          */
-        public static final int lightskyblue=0x7f05005c;
+        public static final int lightskyblue=0x7f06005d;
         /**  中暗蓝色 
          */
-        public static final int lightslategray=0x7f050067;
+        public static final int lightslategray=0x7f060068;
         /**  亮蓝灰 
          */
-        public static final int lightslategrey=0x7f050068;
+        public static final int lightslategrey=0x7f060069;
         /**  粉蓝色 
          */
-        public static final int lightsteelblue=0x7f05004a;
+        public static final int lightsteelblue=0x7f06004b;
         /**  象牙色 
          */
-        public static final int lightyellow=0x7f050002;
+        public static final int lightyellow=0x7f060003;
         /**  春绿色 
          */
-        public static final int lime=0x7f050085;
+        public static final int lime=0x7f060086;
         /**  中海蓝 
          */
-        public static final int limegreen=0x7f05007a;
+        public static final int limegreen=0x7f06007b;
         /**  亮金黄色 
          */
-        public static final int linen=0x7f050021;
+        public static final int linen=0x7f060022;
         /**  紫红色 
          */
-        public static final int magenta=0x7f05001d;
+        public static final int magenta=0x7f06001e;
         /**  紫色 
          */
-        public static final int maroon=0x7f050062;
+        public static final int maroon=0x7f060063;
         /**  暗灰色 
          */
-        public static final int mediumaquamarine=0x7f05006f;
+        public static final int mediumaquamarine=0x7f060070;
         /**  蓝色 
          */
-        public static final int mediumblue=0x7f05008e;
+        public static final int mediumblue=0x7f06008f;
         /**  褐玫瑰红 
          */
-        public static final int mediumorchid=0x7f050046;
+        public static final int mediumorchid=0x7f060047;
         /**  暗紫罗兰色 
          */
-        public static final int mediumpurple=0x7f050055;
+        public static final int mediumpurple=0x7f060056;
         /**  青绿色 
          */
-        public static final int mediumseagreen=0x7f050079;
+        public static final int mediumseagreen=0x7f06007a;
         /**  草绿色 
          */
-        public static final int mediumslateblue=0x7f050066;
+        public static final int mediumslateblue=0x7f060067;
         /**  酸橙色 
          */
-        public static final int mediumspringgreen=0x7f050086;
+        public static final int mediumspringgreen=0x7f060087;
         /**  靛青色 
          */
-        public static final int mediumturquoise=0x7f050074;
+        public static final int mediumturquoise=0x7f060075;
         /**  印第安红 
          */
-        public static final int mediumvioletred=0x7f050042;
+        public static final int mediumvioletred=0x7f060043;
         /**  闪兰色 
          */
-        public static final int midnightblue=0x7f050081;
+        public static final int midnightblue=0x7f060082;
         /**  幽灵白 
          */
-        public static final int mintcream=0x7f050025;
+        public static final int mintcream=0x7f060026;
         /**  白杏色 
          */
-        public static final int mistyrose=0x7f05000c;
+        public static final int mistyrose=0x7f06000d;
         /**  桔黄色 
          */
-        public static final int moccasin=0x7f05000e;
+        public static final int moccasin=0x7f06000f;
         /**  鹿皮色 
          */
-        public static final int navajowhite=0x7f05000f;
+        public static final int navajowhite=0x7f060010;
         /**  暗蓝色 
          */
-        public static final int navy=0x7f050090;
+        public static final int navy=0x7f060091;
         /**  新房button文字字样 
          */
-        public static final int newhousebuttoncheck=0x7f050092;
-        public static final int newhousebuttonuncheck=0x7f050093;
+        public static final int newhousebuttoncheck=0x7f060093;
+        public static final int newhousebuttonuncheck=0x7f060094;
         /**  红色 
          */
-        public static final int oldlace=0x7f05001f;
+        public static final int oldlace=0x7f060020;
         /**  灰色 
          */
-        public static final int olive=0x7f050060;
+        public static final int olive=0x7f060061;
         /**  灰石色 
          */
-        public static final int olivedrab=0x7f05006b;
+        public static final int olivedrab=0x7f06006c;
         /**  亮粉红色 
          */
-        public static final int orange=0x7f050014;
+        public static final int orange=0x7f060015;
         /**  西红柿色 
          */
-        public static final int orangered=0x7f05001a;
+        public static final int orangered=0x7f06001b;
         /**  金麒麟色 
          */
-        public static final int orchid=0x7f05003a;
+        public static final int orchid=0x7f06003b;
         /**  亮珊瑚色 
          */
-        public static final int palegoldenrod=0x7f05002f;
+        public static final int palegoldenrod=0x7f060030;
         /**  暗紫色 
          */
-        public static final int palegreen=0x7f050053;
+        public static final int palegreen=0x7f060054;
         /**  亮钢兰色 
          */
-        public static final int paleturquoise=0x7f05004b;
+        public static final int paleturquoise=0x7f06004c;
         /**  暗深红色 
          */
-        public static final int palevioletred=0x7f050038;
+        public static final int palevioletred=0x7f060039;
         /**  淡紫红 
          */
-        public static final int papayawhip=0x7f05000a;
+        public static final int papayawhip=0x7f06000b;
         /**  纳瓦白 
          */
-        public static final int peachpuff=0x7f050010;
+        public static final int peachpuff=0x7f060011;
         /**  巧可力色 
          */
-        public static final int peru=0x7f050040;
+        public static final int peru=0x7f060041;
         /**  金色 
          */
-        public static final int pink=0x7f050012;
+        public static final int pink=0x7f060013;
         /**  实木色 
          */
-        public static final int plum=0x7f050035;
+        public static final int plum=0x7f060036;
         /**  火砖色 
          */
-        public static final int powderblue=0x7f050049;
+        public static final int powderblue=0x7f06004a;
         /**  橄榄色 
          */
-        public static final int purple=0x7f050061;
+        public static final int purple=0x7f060062;
         /**  红紫色 
          */
-        public static final int red=0x7f05001e;
+        public static final int red=0x7f06001f;
         /**  暗黄褐色 
          */
-        public static final int rosybrown=0x7f050045;
+        public static final int rosybrown=0x7f060046;
         /**  钢兰色 
          */
-        public static final int royalblue=0x7f050077;
+        public static final int royalblue=0x7f060078;
         /**  暗海兰色 
          */
-        public static final int saddlebrown=0x7f050058;
+        public static final int saddlebrown=0x7f060059;
         /**  古董白 
          */
-        public static final int salmon=0x7f050023;
+        public static final int salmon=0x7f060024;
         /**  浅黄色 
          */
-        public static final int sandybrown=0x7f050029;
+        public static final int sandybrown=0x7f06002a;
         /**  暗瓦灰色 
          */
-        public static final int seagreen=0x7f05007d;
+        public static final int seagreen=0x7f06007e;
         /**  米绸色 
          */
-        public static final int seashell=0x7f050008;
-        public static final int send_code_back=0x7f050099;
+        public static final int seashell=0x7f060009;
+        public static final int send_code_back=0x7f06009a;
         /**  发送验证码的框色 
          */
-        public static final int send_code_rectangle=0x7f050098;
+        public static final int send_code_rectangle=0x7f060099;
         /**  褐色 
          */
-        public static final int sienna=0x7f050051;
+        public static final int sienna=0x7f060052;
         /**  中紫罗兰色 
          */
-        public static final int silver=0x7f050043;
+        public static final int silver=0x7f060044;
         /**  亮天蓝色 
          */
-        public static final int skyblue=0x7f05005d;
+        public static final int skyblue=0x7f06005e;
         /**  深绿褐色 
          */
-        public static final int slateblue=0x7f05006c;
+        public static final int slateblue=0x7f06006d;
         /**  亮蓝灰 
          */
-        public static final int slategray=0x7f050069;
+        public static final int slategray=0x7f06006a;
         /**  灰石色 
          */
-        public static final int slategrey=0x7f05006a;
+        public static final int slategrey=0x7f06006b;
         /**  黄色 
          */
-        public static final int snow=0x7f050004;
+        public static final int snow=0x7f060005;
         /**  青色 
          */
-        public static final int springgreen=0x7f050084;
+        public static final int springgreen=0x7f060085;
         /**  暗灰蓝色 
          */
-        public static final int steelblue=0x7f050076;
-        public static final int tab_back=0x7f050097;
-        public static final int tab_red=0x7f050096;
+        public static final int steelblue=0x7f060077;
+        public static final int tab_back=0x7f060098;
+        public static final int tab_red=0x7f060097;
         /**  亮灰色 
          */
-        public static final int tan=0x7f05003e;
+        public static final int tan=0x7f06003f;
         /**  暗青色 
          */
-        public static final int teal=0x7f05008a;
+        public static final int teal=0x7f06008b;
         /**  淡紫色 
          */
-        public static final int thistle=0x7f05003b;
+        public static final int thistle=0x7f06003c;
         /**  热粉红色 
          */
-        public static final int tomato=0x7f050019;
+        public static final int tomato=0x7f06001a;
         /**  皇家蓝 
          */
-        public static final int turquoise=0x7f050078;
+        public static final int turquoise=0x7f060079;
         /**  苍麒麟色 
          */
-        public static final int violet=0x7f050030;
+        public static final int violet=0x7f060031;
         /**  米色 
          */
-        public static final int wheat=0x7f050028;
-        public static final int white=0x7f050000;
+        public static final int wheat=0x7f060029;
+        public static final int white=0x7f060000;
         /**  薄荷色 
          */
-        public static final int whitesmoke=0x7f050026;
+        public static final int whitesmoke=0x7f060027;
         /**  亮黄色 
          */
-        public static final int yellow=0x7f050003;
+        public static final int yellow=0x7f060004;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -553,9 +558,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
          would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively).
     
          */
-        public static final int activity_horizontal_margin=0x7f060000;
-        public static final int activity_vertical_margin=0x7f060001;
-        public static final int fengexian=0x7f060002;
+        public static final int activity_horizontal_margin=0x7f070000;
+        public static final int activity_vertical_margin=0x7f070001;
+        public static final int fengexian=0x7f070002;
     }
     public static final class drawable {
         public static final int addpic=0x7f020000;
@@ -576,725 +581,750 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int gray_location=0x7f02000f;
         public static final int gray_right=0x7f020010;
         public static final int grayheart=0x7f020011;
-        public static final int house_histroy=0x7f020012;
-        public static final int ic_launcher=0x7f020013;
-        public static final int icon1=0x7f020014;
-        public static final int icon_account_normal=0x7f020015;
-        public static final int icon_account_selected=0x7f020016;
-        public static final int icon_gcoding=0x7f020017;
-        public static final int icon_home_normal=0x7f020018;
-        public static final int icon_home_selected=0x7f020019;
-        public static final int icon_kanfang_normal=0x7f02001a;
-        public static final int icon_kanfang_selected=0x7f02001b;
-        public static final int icon_news_normal=0x7f02001c;
-        public static final int icon_news_selected=0x7f02001d;
-        public static final int iphone_16px=0x7f02001e;
-        public static final int iphone_24px=0x7f02001f;
-        public static final int linearlayout_selector=0x7f020020;
-        public static final int linearlayout_shap=0x7f020021;
-        public static final int lishijilu=0x7f020022;
-        public static final int location=0x7f020023;
-        public static final int location_gray_40x31=0x7f020024;
-        public static final int location_white_40x31=0x7f020025;
-        public static final int lock_16px=0x7f020026;
-        public static final int lock_24px=0x7f020027;
-        public static final int main2=0x7f020028;
-        public static final int main3=0x7f020029;
-        public static final int main4=0x7f02002a;
-        public static final int main5=0x7f02002b;
-        public static final int main6=0x7f02002c;
-        public static final int main7=0x7f02002d;
-        public static final int main8=0x7f02002e;
-        public static final int msg_gray_44x34=0x7f02002f;
-        public static final int msg_white_40x31=0x7f020030;
-        public static final int msm=0x7f020031;
-        public static final int my_renting_house_agent_edit=0x7f020032;
-        public static final int mybackground=0x7f020033;
-        public static final int newhouse_tuijianloupan1=0x7f020034;
-        public static final int newhouse_tuijianloupan2=0x7f020035;
-        public static final int newhousetuan=0x7f020036;
-        public static final int page_indicator_focused=0x7f020037;
-        public static final int page_indicator_unfocused=0x7f020038;
-        public static final int pic1=0x7f020039;
-        public static final int pic2=0x7f02003a;
-        public static final int pic3=0x7f02003b;
-        public static final int pic4=0x7f02003c;
-        public static final int propirtor2=0x7f02003d;
-        public static final int propirtor3=0x7f02003e;
-        public static final int propirtor6=0x7f02003f;
-        public static final int propirtor_2=0x7f020040;
-        public static final int proprietor1=0x7f020041;
-        public static final int propritor3=0x7f020042;
-        public static final int propritor_ershou=0x7f020043;
-        public static final int propritor_renting=0x7f020044;
-        public static final int propritorbanner=0x7f020045;
-        public static final int redheart=0x7f020046;
-        public static final int right1=0x7f020047;
-        public static final int right2=0x7f020048;
-        public static final int search1=0x7f020049;
-        public static final int search2=0x7f02004a;
-        public static final int search3=0x7f02004b;
-        public static final int search_gray_32x30=0x7f02004c;
-        public static final int search_gray_40x38=0x7f02004d;
-        public static final int search_red_30x30=0x7f02004e;
-        public static final int search_red_40x40=0x7f02004f;
-        public static final int search_white_30x30=0x7f020050;
-        public static final int selector_1=0x7f020051;
-        public static final int selector_2=0x7f020052;
-        public static final int selector_3=0x7f020053;
-        public static final int selector_4=0x7f020054;
-        public static final int selector_bt_item=0x7f020055;
-        public static final int selector_guanzhu_check=0x7f020056;
-        public static final int selector_house_date=0x7f020057;
-        public static final int selector_house_histroy=0x7f020058;
-        public static final int selector_newhouse_button=0x7f020059;
-        public static final int selector_newhousedetail_egg=0x7f02005a;
-        public static final int send_code_button=0x7f02005b;
-        public static final int shap_code_button=0x7f02005c;
-        public static final int shap_house_date=0x7f02005d;
-        public static final int shap_house_histroy=0x7f02005e;
-        public static final int shezhi=0x7f02005f;
-        public static final int startimage=0x7f020060;
-        public static final int touxiang=0x7f020061;
-        public static final int touxiang2=0x7f020062;
-        public static final int touxiang3=0x7f020063;
-        public static final int usernoinfo=0x7f020064;
-        public static final int white_left=0x7f020065;
-        public static final int white_right=0x7f020066;
-        public static final int wodeweituo=0x7f020067;
-        public static final int xinfang=0x7f020068;
-        public static final int yuyueguanli=0x7f020069;
+        public static final int h=0x7f020012;
+        public static final int house_histroy=0x7f020013;
+        public static final int i=0x7f020014;
+        public static final int ic_launcher=0x7f020015;
+        public static final int icon1=0x7f020016;
+        public static final int icon_account_normal=0x7f020017;
+        public static final int icon_account_selected=0x7f020018;
+        public static final int icon_gcoding=0x7f020019;
+        public static final int icon_home_normal=0x7f02001a;
+        public static final int icon_home_selected=0x7f02001b;
+        public static final int icon_kanfang_normal=0x7f02001c;
+        public static final int icon_kanfang_selected=0x7f02001d;
+        public static final int icon_news_normal=0x7f02001e;
+        public static final int icon_news_selected=0x7f02001f;
+        public static final int iphone_16px=0x7f020020;
+        public static final int iphone_24px=0x7f020021;
+        public static final int j=0x7f020022;
+        public static final int k=0x7f020023;
+        public static final int l=0x7f020024;
+        public static final int linearlayout_selector=0x7f020025;
+        public static final int linearlayout_shap=0x7f020026;
+        public static final int lishijilu=0x7f020027;
+        public static final int load_failed=0x7f020028;
+        public static final int load_succeed=0x7f020029;
+        public static final int loading=0x7f02002a;
+        public static final int location=0x7f02002b;
+        public static final int location_gray_40x31=0x7f02002c;
+        public static final int location_white_40x31=0x7f02002d;
+        public static final int lock_16px=0x7f02002e;
+        public static final int lock_24px=0x7f02002f;
+        public static final int m=0x7f020030;
+        public static final int main2=0x7f020031;
+        public static final int main3=0x7f020032;
+        public static final int main4=0x7f020033;
+        public static final int main5=0x7f020034;
+        public static final int main6=0x7f020035;
+        public static final int main7=0x7f020036;
+        public static final int main8=0x7f020037;
+        public static final int msg_gray_44x34=0x7f020038;
+        public static final int msg_white_40x31=0x7f020039;
+        public static final int msm=0x7f02003a;
+        public static final int my_renting_house_agent_edit=0x7f02003b;
+        public static final int mybackground=0x7f02003c;
+        public static final int newhouse_tuijianloupan1=0x7f02003d;
+        public static final int newhouse_tuijianloupan2=0x7f02003e;
+        public static final int newhousetuan=0x7f02003f;
+        public static final int page_indicator_focused=0x7f020040;
+        public static final int page_indicator_unfocused=0x7f020041;
+        public static final int pic1=0x7f020042;
+        public static final int pic2=0x7f020043;
+        public static final int pic3=0x7f020044;
+        public static final int pic4=0x7f020045;
+        public static final int propirtor2=0x7f020046;
+        public static final int propirtor3=0x7f020047;
+        public static final int propirtor6=0x7f020048;
+        public static final int propirtor_2=0x7f020049;
+        public static final int proprietor1=0x7f02004a;
+        public static final int propritor3=0x7f02004b;
+        public static final int propritor_ershou=0x7f02004c;
+        public static final int propritor_renting=0x7f02004d;
+        public static final int propritorbanner=0x7f02004e;
+        public static final int pull_icon_big=0x7f02004f;
+        public static final int pullup_icon_big=0x7f020050;
+        public static final int redheart=0x7f020051;
+        public static final int refresh_failed=0x7f020052;
+        public static final int refresh_succeed=0x7f020053;
+        public static final int refreshing=0x7f020054;
+        public static final int right1=0x7f020055;
+        public static final int right2=0x7f020056;
+        public static final int search1=0x7f020057;
+        public static final int search2=0x7f020058;
+        public static final int search3=0x7f020059;
+        public static final int search_gray_32x30=0x7f02005a;
+        public static final int search_gray_40x38=0x7f02005b;
+        public static final int search_red_30x30=0x7f02005c;
+        public static final int search_red_40x40=0x7f02005d;
+        public static final int search_white_30x30=0x7f02005e;
+        public static final int selector_1=0x7f02005f;
+        public static final int selector_2=0x7f020060;
+        public static final int selector_3=0x7f020061;
+        public static final int selector_4=0x7f020062;
+        public static final int selector_bt_item=0x7f020063;
+        public static final int selector_guanzhu_check=0x7f020064;
+        public static final int selector_house_date=0x7f020065;
+        public static final int selector_house_histroy=0x7f020066;
+        public static final int selector_newhouse_button=0x7f020067;
+        public static final int selector_newhousedetail_egg=0x7f020068;
+        public static final int send_code_button=0x7f020069;
+        public static final int shap_code_button=0x7f02006a;
+        public static final int shap_house_date=0x7f02006b;
+        public static final int shap_house_histroy=0x7f02006c;
+        public static final int shezhi=0x7f02006d;
+        public static final int startimage=0x7f02006e;
+        public static final int touxiang=0x7f02006f;
+        public static final int touxiang2=0x7f020070;
+        public static final int touxiang3=0x7f020071;
+        public static final int usernoinfo=0x7f020072;
+        public static final int white_left=0x7f020073;
+        public static final int white_right=0x7f020074;
+        public static final int wodeweituo=0x7f020075;
+        public static final int xinfang=0x7f020076;
+        public static final int yuyueguanli=0x7f020077;
     }
     public static final class id {
-        public static final int EditText01=0x7f0a00a5;
-        public static final int EditText02=0x7f0a00a8;
-        public static final int EditText03=0x7f0a00aa;
-        public static final int EditText05=0x7f0a01ac;
-        public static final int EditText06=0x7f0a01ae;
-        public static final int EditText11=0x7f0a00f9;
-        public static final int EditText12=0x7f0a00ab;
-        public static final int EditText13=0x7f0a00ff;
-        public static final int EditText14=0x7f0a0102;
-        public static final int EditText15=0x7f0a0105;
-        public static final int HouseDetails=0x7f0a01ca;
-        public static final int ImageView01=0x7f0a00a7;
-        public static final int ImageView02=0x7f0a013f;
-        public static final int ImageView04=0x7f0a00c6;
-        public static final int ImageView05=0x7f0a00c4;
-        public static final int RelativeLayout01=0x7f0a00a6;
-        public static final int RelativeLayout02=0x7f0a01aa;
-        public static final int RelativeLayout04=0x7f0a01ab;
-        public static final int RelativeLayout05=0x7f0a01ad;
-        public static final int ShopHouseGuide=0x7f0a01d1;
-        public static final int T15=0x7f0a00ac;
-        public static final int TextView01=0x7f0a000a;
-        public static final int TextView011=0x7f0a00ad;
-        public static final int TextView02=0x7f0a0015;
-        public static final int TextView03=0x7f0a0016;
-        public static final int TextView04=0x7f0a0017;
-        public static final int TextView05=0x7f0a003e;
-        public static final int TextView06=0x7f0a0069;
-        public static final int TextView07=0x7f0a0076;
-        public static final int TextView071=0x7f0a00f1;
-        public static final int TextView08=0x7f0a0077;
-        public static final int TextView09=0x7f0a0065;
-        public static final int TextView10=0x7f0a0066;
-        public static final int TextView11=0x7f0a0067;
-        public static final int TextView12=0x7f0a0078;
-        public static final int TextView13=0x7f0a00fd;
-        public static final int TextView14=0x7f0a0079;
-        public static final int TextView15=0x7f0a007a;
-        public static final int TextView16=0x7f0a0082;
-        public static final int TextView17=0x7f0a0083;
-        public static final int TextView18=0x7f0a0084;
-        public static final int TextView19=0x7f0a0085;
-        public static final int TextView20=0x7f0a0086;
-        public static final int TextView21=0x7f0a0087;
-        public static final int TextView4=0x7f0a00c0;
-        public static final int Tv3=0x7f0a00eb;
-        public static final int Tv31=0x7f0a00f4;
-        public static final int Tv32=0x7f0a0107;
-        public static final int Tv33=0x7f0a010b;
-        public static final int Tv_fangling=0x7f0a0063;
-        public static final int Tv_fangyuanbianhao=0x7f0a006f;
-        public static final int Tv_xiaoqu=0x7f0a006e;
-        public static final int action_settings=0x7f0a0274;
-        public static final int all=0x7f0a0154;
-        public static final int baidu_map=0x7f0a0028;
-        public static final int blocktrade_ll_spinner=0x7f0a0046;
-        public static final int btn1=0x7f0a00de;
-        public static final int btn2=0x7f0a00e0;
-        public static final int btn_1=0x7f0a0022;
-        public static final int btn_Login=0x7f0a00ce;
-        public static final int btn_Regist=0x7f0a017b;
-        public static final int btn_ershoufang=0x7f0a00da;
-        public static final int btn_find_sendcode=0x7f0a00b4;
-        public static final int btn_find_submit=0x7f0a00bc;
-        public static final int btn_general_Login=0x7f0a026c;
-        public static final int btn_house_Login=0x7f0a01ba;
-        public static final int btn_house_noLogin_Login=0x7f0a01dc;
-        public static final int btn_line=0x7f0a001e;
-        public static final int btn_line1=0x7f0a0239;
-        public static final int btn_line2=0x7f0a00b5;
-        public static final int btn_line3=0x7f0a00b7;
-        public static final int btn_line4=0x7f0a00b9;
-        public static final int btn_line5=0x7f0a00bb;
-        public static final int btn_line6=0x7f0a017a;
-        public static final int btn_map_location=0x7f0a00dd;
-        public static final int btn_map_trans=0x7f0a00df;
-        public static final int btn_map_zhoubian=0x7f0a00e1;
-        public static final int btn_newhouse=0x7f0a00db;
-        public static final int btn_quicklogin_sendcode=0x7f0a026f;
-        public static final int btn_renting=0x7f0a00dc;
-        public static final int btn_renting_submit=0x7f0a00b0;
-        public static final int btn_sendcode=0x7f0a0176;
-        public static final int btn_short_Login=0x7f0a0273;
-        public static final int building=0x7f0a0150;
-        public static final int button1=0x7f0a00c7;
-        public static final int circleImageView1=0x7f0a0004;
-        public static final int circleImageView2=0x7f0a0010;
-        public static final int ershoufang_huxing=0x7f0a005d;
-        public static final int ershoufang_mianji=0x7f0a005f;
-        public static final int ershoufang_quyu_sp1=0x7f0a009c;
-        public static final int ershoufang_quyu_sp2=0x7f0a009d;
-        public static final int ershoufang_quyu_sp3=0x7f0a009e;
-        public static final int ershoufang_quyu_sp4=0x7f0a009f;
-        public static final int ershoufang_scrollview=0x7f0a0057;
-        public static final int ershoufang_shoujia=0x7f0a005b;
-        public static final int et12=0x7f0a00ef;
-        public static final int et123=0x7f0a00e7;
-        public static final int et1gyhtg=0x7f0a00e8;
-        public static final int et2132=0x7f0a00e5;
-        public static final int et_21=0x7f0a010f;
-        public static final int et_22=0x7f0a0111;
-        public static final int et_23=0x7f0a0113;
-        public static final int et_24=0x7f0a0115;
-        public static final int et_25=0x7f0a0117;
-        public static final int et_26=0x7f0a0119;
-        public static final int et_27=0x7f0a011b;
-        public static final int et_28=0x7f0a011d;
-        public static final int et_block_trade_search=0x7f0a0045;
-        public static final int et_change_about=0x7f0a004d;
-        public static final int et_change_nickname=0x7f0a004c;
-        public static final int et_ershoufang_search=0x7f0a0020;
-        public static final int et_find_password=0x7f0a00b8;
-        public static final int et_find_phonenumb=0x7f0a00b3;
-        public static final int et_find_repassword=0x7f0a00ba;
-        public static final int et_find_smscode=0x7f0a00b6;
-        public static final int et_first_search=0x7f0a01bf;
-        public static final int et_genal_login_lock=0x7f0a026b;
-        public static final int et_genal_login_phonenumber=0x7f0a0268;
-        public static final int et_password=0x7f0a0173;
-        public static final int et_phonenumb=0x7f0a0177;
-        public static final int et_qi1=0x7f0a00f2;
-        public static final int et_qiwangzujin=0x7f0a00a9;
-        public static final int et_renting_proprietor_address=0x7f0a00a3;
-        public static final int et_renting_proprietor_title=0x7f0a00a2;
-        public static final int et_renting_search=0x7f0a01a5;
-        public static final int et_repassword=0x7f0a0174;
-        public static final int et_short_login_lock_quick=0x7f0a0272;
-        public static final int et_short_login_phonenumber=0x7f0a026e;
-        public static final int et_smscode=0x7f0a0172;
-        public static final int first=0x7f0a00d1;
-        public static final int first_scrollview=0x7f0a01bb;
-        public static final int four=0x7f0a0153;
-        public static final int futian=0x7f0a014a;
-        public static final int guanzhu_ershou=0x7f0a016a;
-        public static final int guanzhu_new=0x7f0a016b;
-        public static final int guanzhu_viewpage=0x7f0a016c;
-        public static final int house=0x7f0a00d3;
-        public static final int house_viewpage=0x7f0a01d7;
-        public static final int huxing=0x7f0a005c;
-        public static final int imageView1=0x7f0a0002;
-        public static final int imageView10=0x7f0a01ee;
-        public static final int imageView102=0x7f0a0204;
-        public static final int imageView1021=0x7f0a0208;
-        public static final int imageView10216=0x7f0a022d;
-        public static final int imageView1032=0x7f0a0210;
-        public static final int imageView10382=0x7f0a0235;
-        public static final int imageView1042=0x7f0a0229;
-        public static final int imageView1052=0x7f0a020c;
-        public static final int imageView10526=0x7f0a0231;
-        public static final int imageView11=0x7f0a00f8;
-        public static final int imageView111=0x7f0a0213;
-        public static final int imageView1111=0x7f0a0237;
-        public static final int imageView12=0x7f0a00fb;
-        public static final int imageView13=0x7f0a00fe;
-        public static final int imageView14=0x7f0a0101;
-        public static final int imageView15=0x7f0a0104;
-        public static final int imageView171=0x7f0a01fe;
-        public static final int imageView176=0x7f0a0223;
-        public static final int imageView181=0x7f0a0200;
-        public static final int imageView1861=0x7f0a0225;
-        public static final int imageView2=0x7f0a000f;
-        public static final int imageView21=0x7f0a018f;
-        public static final int imageView251=0x7f0a0215;
-        public static final int imageView3=0x7f0a0019;
-        public static final int imageView31=0x7f0a01f2;
-        public static final int imageView351=0x7f0a0217;
-        public static final int imageView4=0x7f0a00c1;
-        public static final int imageView41=0x7f0a01f4;
-        public static final int imageView415=0x7f0a0219;
-        public static final int imageView5=0x7f0a00af;
-        public static final int imageView51=0x7f0a01f6;
-        public static final int imageView541=0x7f0a021b;
-        public static final int imageView6=0x7f0a0123;
-        public static final int imageView61=0x7f0a01f8;
-        public static final int imageView641=0x7f0a021d;
-        public static final int imageView7=0x7f0a00ae;
-        public static final int imageView71=0x7f0a01ea;
-        public static final int imageView711=0x7f0a01fa;
-        public static final int imageView7151=0x7f0a021f;
-        public static final int imageView8=0x7f0a01e8;
-        public static final int imageView81=0x7f0a01ec;
-        public static final int imageView811=0x7f0a01fc;
-        public static final int imageView8141=0x7f0a0221;
-        public static final int imageView89=0x7f0a0196;
-        public static final int imageView9=0x7f0a0198;
-        public static final int imageView912=0x7f0a0206;
-        public static final int imageView9126=0x7f0a022b;
-        public static final int imageView92=0x7f0a0202;
-        public static final int imageView924=0x7f0a0227;
-        public static final int imageView932=0x7f0a020e;
-        public static final int imageView942=0x7f0a020a;
-        public static final int imageView9426=0x7f0a022f;
-        public static final int imageView9732=0x7f0a0233;
-        public static final int item_left=0x7f0a0249;
-        public static final int item_right=0x7f0a0255;
-        public static final int item_right_txt=0x7f0a0256;
-        public static final int iv3=0x7f0a00ec;
-        public static final int iv31=0x7f0a00f5;
-        public static final int iv32=0x7f0a0108;
-        public static final int iv33=0x7f0a010c;
-        public static final int iv_1=0x7f0a0165;
-        public static final int iv_MsM=0x7f0a0043;
-        public static final int iv_agent_back=0x7f0a001b;
-        public static final int iv_agent_search=0x7f0a0021;
-        public static final int iv_agentdata_pic=0x7f0a023a;
-        public static final int iv_block_trade_detail=0x7f0a002d;
-        public static final int iv_block_trade_detail_MsM=0x7f0a002a;
-        public static final int iv_ershoufang_img=0x7f0a0242;
-        public static final int iv_guanzhuershou=0x7f0a024a;
-        public static final int iv_housepic=0x7f0a0059;
-        public static final int iv_iphone=0x7f0a0267;
-        public static final int iv_location=0x7f0a001c;
-        public static final int iv_lock=0x7f0a026a;
-        public static final int iv_lock_quick=0x7f0a0271;
-        public static final int iv_map_house_MsM=0x7f0a00d7;
-        public static final int iv_map_house_search=0x7f0a00d9;
-        public static final int iv_my_Photo=0x7f0a01e2;
-        public static final int iv_my_back=0x7f0a01e0;
-        public static final int iv_new_house_detail=0x7f0a0128;
-        public static final int iv_new_house_detail_MsM=0x7f0a0126;
-        public static final int iv_newhouse_ad=0x7f0a0148;
-        public static final int iv_newhouse_back=0x7f0a0147;
-        public static final int iv_newhousedetail_tuan=0x7f0a0132;
-        public static final int iv_personal_Photo=0x7f0a015c;
-        public static final int iv_proprietor=0x7f0a0163;
-        public static final int iv_recommend_img=0x7f0a0264;
-        public static final int iv_recommend_pic_web=0x7f0a016f;
-        public static final int iv_renting_pic=0x7f0a017f;
-        public static final int iv_welcome=0x7f0a01b2;
-        public static final int ll_agent_house=0x7f0a01dd;
-        public static final int ll_agent_search=0x7f0a001f;
-        public static final int ll_agent_spinner=0x7f0a0023;
-        public static final int ll_agentdetail_back=0x7f0a0001;
-        public static final int ll_back_change=0x7f0a0049;
-        public static final int ll_back_ershoufangdetails=0x7f0a0055;
-        public static final int ll_back_login=0x7f0a0171;
-        public static final int ll_back_putongguanzhu=0x7f0a0167;
-        public static final int ll_back_renting_house_agent=0x7f0a00e2;
-        public static final int ll_back_rentingdetails=0x7f0a017d;
-        public static final int ll_block_trade_back=0x7f0a0044;
-        public static final int ll_block_trade_detail_back=0x7f0a002b;
-        public static final int ll_contorl=0x7f0a01d4;
-        public static final int ll_ershoufang_back=0x7f0a009a;
-        public static final int ll_ershoufang_proprietor_back=0x7f0a00a1;
-        public static final int ll_ershoufang_spinner=0x7f0a009b;
-        public static final int ll_ershoufangdetail_bottom=0x7f0a0058;
-        public static final int ll_find_pasword_back=0x7f0a00b1;
-        public static final int ll_house_price_detail_back=0x7f0a01b1;
-        public static final int ll_house_puchase_back=0x7f0a00bd;
-        public static final int ll_housetype1=0x7f0a0149;
-        public static final int ll_housetype2=0x7f0a014d;
-        public static final int ll_housetype3=0x7f0a0151;
-        public static final int ll_login=0x7f0a00cb;
-        public static final int ll_map_house_back=0x7f0a00d8;
-        public static final int ll_mysetting_agent_login=0x7f0a0211;
-        public static final int ll_mysetting_nologin=0x7f0a01e3;
-        public static final int ll_mysetting_putong_login=0x7f0a01ef;
-        public static final int ll_new_house_detail_back=0x7f0a0127;
-        public static final int ll_newhouselist_back=0x7f0a0142;
-        public static final int ll_newhouselist_spinner=0x7f0a0143;
-        public static final int ll_noLogin_house=0x7f0a01b9;
-        public static final int ll_one=0x7f0a01bc;
-        public static final int ll_personal_back=0x7f0a015a;
-        public static final int ll_proprietor_back=0x7f0a0162;
-        public static final int ll_putong_house=0x7f0a01d3;
-        public static final int ll_recommend_back_web=0x7f0a016d;
-        public static final int ll_regist_type=0x7f0a004e;
-        public static final int ll_renting_back=0x7f0a01a4;
-        public static final int ll_renting_proprietor_back=0x7f0a01a9;
-        public static final int ll_renting_spinner=0x7f0a01a6;
-        public static final int ll_search=0x7f0a01be;
-        public static final int ll_setting_back=0x7f0a011e;
-        public static final int ll_title=0x7f0a0168;
-        public static final int ll_tree=0x7f0a01c5;
-        public static final int ll_two=0x7f0a01c0;
-        public static final int login_tabstrip=0x7f0a00cd;
-        public static final int login_viewpager=0x7f0a00cc;
-        public static final int longgang=0x7f0a014e;
-        public static final int loushizixun=0x7f0a0155;
-        public static final int luohu=0x7f0a0152;
-        public static final int lv_ShopGuide=0x7f0a01d2;
-        public static final int lv_agent_list=0x7f0a0027;
-        public static final int lv_blocktrade=0x7f0a0047;
-        public static final int lv_ershoufang_recommend=0x7f0a00a0;
-        public static final int lv_guanzhu_ershou=0x7f0a01b4;
-        public static final int lv_guanzhu_new=0x7f0a01b5;
-        public static final int lv_haofangtuijian=0x7f0a0096;
-        public static final int lv_loushizixun=0x7f0a0156;
-        public static final int lv_newhouselist=0x7f0a0144;
-        public static final int lv_renting_list=0x7f0a01a8;
-        public static final int lv_rexiaofangyuan=0x7f0a0158;
-        public static final int lv_tongxiaoqujilu=0x7f0a0092;
-        public static final int mCarouselView=0x7f0a01b7;
-        public static final int map_bmapView=0x7f0a0095;
-        public static final int maphouse_sp1=0x7f0a0024;
-        public static final int maphouse_sp2=0x7f0a0025;
-        public static final int maphouse_sp3=0x7f0a0026;
-        public static final int maphouse_sp4=0x7f0a01a7;
-        public static final int message=0x7f0a00d2;
-        public static final int mianji=0x7f0a005e;
-        public static final int monthnumber=0x7f0a01cc;
-        public static final int my=0x7f0a00d4;
-        public static final int newHouse_scrollview=0x7f0a0145;
-        public static final int new_bmapView=0x7f0a013e;
-        public static final int newhouse_rexiao_address=0x7f0a0194;
-        public static final int newhouse_rexiao_address1=0x7f0a01a1;
-        public static final int newhouse_rexiao_address2=0x7f0a019c;
-        public static final int newhouse_rexiao_area=0x7f0a0193;
-        public static final int newhouse_rexiao_area1=0x7f0a01a0;
-        public static final int newhouse_rexiao_area2=0x7f0a019b;
-        public static final int newhouse_rexiao_iv=0x7f0a0191;
-        public static final int newhouse_rexiao_iv1=0x7f0a019e;
-        public static final int newhouse_rexiao_iv2=0x7f0a0199;
-        public static final int newhouse_rexiao_price=0x7f0a0195;
-        public static final int newhouse_rexiao_price1=0x7f0a01a2;
-        public static final int newhouse_rexiao_price2=0x7f0a019d;
-        public static final int newhouse_rexiao_title=0x7f0a0192;
-        public static final int newhouse_rexiao_title1=0x7f0a019f;
-        public static final int newhouse_rexiao_title2=0x7f0a019a;
-        public static final int newhouselist_address=0x7f0a0260;
-        public static final int newhouselist_area=0x7f0a0261;
-        public static final int newhouselist_iv=0x7f0a025e;
-        public static final int newhouselist_price=0x7f0a0262;
-        public static final int newhouselist_title=0x7f0a025f;
-        public static final int nologin_mCarouselView=0x7f0a01da;
-        public static final int nologin_pointLayout=0x7f0a01db;
-        public static final int nologin_relativeLayout1=0x7f0a01d9;
-        public static final int pointLayout=0x7f0a01b8;
-        public static final int quanshiprice=0x7f0a01cb;
-        public static final int rb_agent=0x7f0a0179;
-        public static final int rb_change_sex_man=0x7f0a0052;
-        public static final int rb_change_sex_secret=0x7f0a0051;
-        public static final int rb_change_sex_tab=0x7f0a004f;
-        public static final int rb_change_sex_woman=0x7f0a0053;
-        public static final int rb_dazongjiaoyi=0x7f0a01c7;
-        public static final int rb_dituzhaofang=0x7f0a01c8;
-        public static final int rb_domestic_consumer=0x7f0a0178;
-        public static final int rb_ershoufang=0x7f0a01c1;
-        public static final int rb_ershoufangguanzhu=0x7f0a0098;
-        public static final int rb_goufangxuzhi=0x7f0a01c9;
-        public static final int rb_jingjiren=0x7f0a01c4;
-        public static final int rb_xinfang=0x7f0a01c2;
-        public static final int rb_yezhuweituo=0x7f0a01c6;
-        public static final int rb_zufang=0x7f0a01c3;
-        public static final int refined_decoration=0x7f0a014c;
-        public static final int relativeLayout1=0x7f0a01b6;
-        public static final int renting_bmapView=0x7f0a0197;
-        public static final int renting_chaoxiang=0x7f0a0185;
-        public static final int renting_ditie=0x7f0a0189;
-        public static final int renting_fabushijian=0x7f0a0188;
-        public static final int renting_fangshi=0x7f0a0184;
-        public static final int renting_huxing=0x7f0a0187;
-        public static final int renting_location=0x7f0a0186;
-        public static final int renting_louceng=0x7f0a0181;
-        public static final int renting_mianji=0x7f0a0183;
-        public static final int renting_tedian=0x7f0a0180;
-        public static final int renting_xiaoqu=0x7f0a018a;
-        public static final int renting_zhuangxiu=0x7f0a0182;
-        public static final int rg_control=0x7f0a00d0;
-        public static final int rg_guanzhu_control=0x7f0a0169;
-        public static final int rg_regist_type=0x7f0a0050;
-        public static final int rl_121=0x7f0a00f3;
-        public static final int rl_1212=0x7f0a0106;
-        public static final int rl_123=0x7f0a010a;
-        public static final int rl_Histroy=0x7f0a01ed;
-        public static final int rl_MyTouxiang=0x7f0a015b;
-        public static final int rl_Myentrust=0x7f0a01e6;
-        public static final int rl_Myershoufang=0x7f0a01e4;
-        public static final int rl_Mynichen=0x7f0a015d;
-        public static final int rl_Myrenting=0x7f0a01e5;
-        public static final int rl_Yuyueguanli=0x7f0a01e7;
-        public static final int rl_agent_chengjiaofangyuan=0x7f0a021a;
-        public static final int rl_agent_chuzufangguanli=0x7f0a0216;
-        public static final int rl_agent_ershoufangguanli=0x7f0a0212;
-        public static final int rl_agent_goudidingdan=0x7f0a022e;
-        public static final int rl_agent_myhistroy=0x7f0a0232;
-        public static final int rl_agent_myyouhuiquan=0x7f0a022a;
-        public static final int rl_agent_qiugouguanli=0x7f0a0226;
-        public static final int rl_agent_qiuzuguanli=0x7f0a0222;
-        public static final int rl_agent_title=0x7f0a001a;
-        public static final int rl_agent_yuyueguanli=0x7f0a021e;
-        public static final int rl_baidumap=0x7f0a0094;
-        public static final int rl_block_trade_title=0x7f0a0029;
-        public static final int rl_ershoufang_proprietor=0x7f0a0164;
-        public static final int rl_ershoufang_title=0x7f0a0099;
-        public static final int rl_find_phonenumber=0x7f0a00b2;
-        public static final int rl_genal_login_lock=0x7f0a0269;
-        public static final int rl_goufangliucheng=0x7f0a00bf;
-        public static final int rl_jiaoyibaoxian=0x7f0a00be;
-        public static final int rl_login_lock=0x7f0a026d;
-        public static final int rl_map_house_title=0x7f0a00d6;
-        public static final int rl_message_no=0x7f0a01df;
-        public static final int rl_my_renting_house=0x7f0a00ea;
-        public static final int rl_myguanzhu=0x7f0a01e9;
-        public static final int rl_new_house_title=0x7f0a0000;
-        public static final int rl_newhouse_title=0x7f0a0146;
-        public static final int rl_newhouselist_title=0x7f0a0141;
-        public static final int rl_personal_info=0x7f0a0161;
-        public static final int rl_personal_phone=0x7f0a015f;
-        public static final int rl_phonenumber=0x7f0a0266;
-        public static final int rl_putong_mychuzu=0x7f0a01f5;
-        public static final int rl_putong_mygoudidingdan=0x7f0a0209;
-        public static final int rl_putong_myguanzhu=0x7f0a01f0;
-        public static final int rl_putong_myhistroy=0x7f0a020d;
-        public static final int rl_putong_mysalehouse=0x7f0a01f1;
-        public static final int rl_putong_myshophouse=0x7f0a01fd;
-        public static final int rl_putong_myyouhuiquan=0x7f0a0205;
-        public static final int rl_putong_myyuyue=0x7f0a0201;
-        public static final int rl_putong_myzhufang=0x7f0a01f9;
-        public static final int rl_regist_phonenumber=0x7f0a0175;
-        public static final int rl_renting_agent_1=0x7f0a00f7;
-        public static final int rl_renting_agent_2=0x7f0a00fa;
-        public static final int rl_renting_agent_3=0x7f0a00fc;
-        public static final int rl_renting_agent_4=0x7f0a0100;
-        public static final int rl_renting_agent_5=0x7f0a0103;
-        public static final int rl_renting_fangyuantese=0x7f0a018b;
-        public static final int rl_renting_proprietor=0x7f0a0166;
-        public static final int rl_renting_title=0x7f0a01a3;
-        public static final int rl_setting_aboutUs=0x7f0a0121;
-        public static final int rl_setting_clear=0x7f0a011f;
-        public static final int rl_setting_point=0x7f0a0124;
-        public static final int rl_setting_sendsetting=0x7f0a00a4;
-        public static final int rl_setting_tdc=0x7f0a0122;
-        public static final int rl_setting_update=0x7f0a0120;
-        public static final int rl_settings=0x7f0a0236;
-        public static final int rl_short_login_lock=0x7f0a0270;
-        public static final int rl_title=0x7f0a0048;
-        public static final int rl_title1=0x7f0a01d8;
-        public static final int rl_title2=0x7f0a01de;
-        public static final int rl_zhuyishixiang1=0x7f0a00c2;
-        public static final int rl_zhuyishixiang2=0x7f0a00c3;
-        public static final int rl_zhuyishixiang_3=0x7f0a00c5;
-        public static final int shoujia=0x7f0a005a;
-        public static final int textView1=0x7f0a001d;
-        public static final int textView11=0x7f0a0238;
-        public static final int textView12=0x7f0a013c;
-        public static final int textView16=0x7f0a0140;
-        public static final int textView171=0x7f0a01ff;
-        public static final int textView1716=0x7f0a0224;
-        public static final int textView2=0x7f0a002f;
-        public static final int textView21=0x7f0a00ee;
-        public static final int textView221=0x7f0a0214;
-        public static final int textView3=0x7f0a0035;
-        public static final int textView31=0x7f0a01f3;
-        public static final int textView351=0x7f0a0218;
-        public static final int textView4=0x7f0a0036;
-        public static final int textView41=0x7f0a00f0;
-        public static final int textView5=0x7f0a0133;
-        public static final int textView51=0x7f0a01f7;
-        public static final int textView541=0x7f0a021c;
-        public static final int textView6=0x7f0a0034;
-        public static final int textView7=0x7f0a0037;
-        public static final int textView71=0x7f0a01eb;
-        public static final int textView711=0x7f0a01fb;
-        public static final int textView7151=0x7f0a0220;
-        public static final int textView8=0x7f0a0038;
-        public static final int textView9=0x7f0a013a;
-        public static final int textView92=0x7f0a0203;
-        public static final int textView921=0x7f0a0207;
-        public static final int textView9216=0x7f0a022c;
-        public static final int textView932=0x7f0a020f;
-        public static final int textView9382=0x7f0a0234;
-        public static final int textView942=0x7f0a020b;
-        public static final int textView9426=0x7f0a0230;
-        public static final int textView9442=0x7f0a0228;
-        public static final int tree=0x7f0a014f;
-        public static final int tv1=0x7f0a00ed;
-        public static final int tv11=0x7f0a00f6;
-        public static final int tv12=0x7f0a00e4;
-        public static final int tv121=0x7f0a00e3;
-        public static final int tv13=0x7f0a010d;
-        public static final int tv21=0x7f0a010e;
-        public static final int tv22=0x7f0a0110;
-        public static final int tv23=0x7f0a0112;
-        public static final int tv24=0x7f0a0114;
-        public static final int tv25=0x7f0a0116;
-        public static final int tv26=0x7f0a0118;
-        public static final int tv27=0x7f0a011a;
-        public static final int tv28=0x7f0a011c;
-        public static final int tv32=0x7f0a0109;
-        public static final int tv34=0x7f0a00e9;
-        public static final int tv9898=0x7f0a00e6;
-        public static final int tv_agent_biaoqian=0x7f0a0008;
-        public static final int tv_agent_biaoqian2=0x7f0a0014;
-        public static final int tv_agent_fuwutaidu=0x7f0a0013;
-        public static final int tv_agent_haopinglv=0x7f0a0009;
-        public static final int tv_agent_hishistroy=0x7f0a0018;
-        public static final int tv_agent_history=0x7f0a000b;
-        public static final int tv_agent_mendian=0x7f0a0007;
-        public static final int tv_agent_name=0x7f0a0005;
-        public static final int tv_agent_pingjunzhouqi=0x7f0a000c;
-        public static final int tv_agent_ruzhitime=0x7f0a0012;
-        public static final int tv_agent_sanshiday=0x7f0a000d;
-        public static final int tv_agent_usename=0x7f0a0011;
-        public static final int tv_agent_year=0x7f0a0006;
-        public static final int tv_agent_yonghupingjia=0x7f0a000e;
-        public static final int tv_agentdata_biaoqian=0x7f0a0241;
-        public static final int tv_agentdata_level=0x7f0a023c;
-        public static final int tv_agentdata_mainarea=0x7f0a023d;
-        public static final int tv_agentdata_name=0x7f0a023b;
-        public static final int tv_agentdata_phone=0x7f0a023e;
-        public static final int tv_agentdata_phone1=0x7f0a023f;
-        public static final int tv_agentdata_point=0x7f0a0240;
-        public static final int tv_block_trade_detail_address=0x7f0a003d;
-        public static final int tv_block_trade_detail_area=0x7f0a0039;
-        public static final int tv_block_trade_detail_content=0x7f0a002e;
-        public static final int tv_block_trade_detail_date=0x7f0a0031;
-        public static final int tv_block_trade_detail_goudi=0x7f0a0030;
-        public static final int tv_block_trade_detail_hezuofangshi=0x7f0a003a;
-        public static final int tv_block_trade_detail_jianzhumianji=0x7f0a003f;
-        public static final int tv_block_trade_detail_lianxiren=0x7f0a003c;
-        public static final int tv_block_trade_detail_phone=0x7f0a0032;
-        public static final int tv_block_trade_detail_shiyongnianxian=0x7f0a0040;
-        public static final int tv_block_trade_detail_title=0x7f0a002c;
-        public static final int tv_block_trade_detail_wuyeleixing=0x7f0a003b;
-        public static final int tv_block_trade_detail_xiangxijieshao=0x7f0a0042;
-        public static final int tv_block_trade_detail_yusuanjine=0x7f0a0041;
-        public static final int tv_block_trade_goudiimage=0x7f0a0033;
-        public static final int tv_cancle=0x7f0a00c9;
-        public static final int tv_change_save=0x7f0a004b;
-        public static final int tv_changecancle=0x7f0a004a;
-        public static final int tv_chaoxiang=0x7f0a006b;
-        public static final int tv_daikuanjine=0x7f0a0089;
-        public static final int tv_daikuanleixing=0x7f0a0088;
-        public static final int tv_daikuanqixian=0x7f0a008a;
-        public static final int tv_ershoufang_address=0x7f0a0247;
-        public static final int tv_ershoufang_price_area=0x7f0a0244;
-        public static final int tv_ershoufang_price_meter=0x7f0a0248;
-        public static final int tv_ershoufang_title=0x7f0a0243;
-        public static final int tv_ershoufang_totalprice=0x7f0a0245;
-        public static final int tv_ershoufang_wan=0x7f0a0246;
-        public static final int tv_ershoufangdetails=0x7f0a0054;
-        public static final int tv_fangyuanbianhao=0x7f0a0068;
-        public static final int tv_fangyuanliangdian=0x7f0a018d;
-        public static final int tv_forgivepw=0x7f0a00cf;
-        public static final int tv_frist_title=0x7f0a01bd;
-        public static final int tv_guanzhu_area=0x7f0a024e;
-        public static final int tv_guanzhu_chaoxiang=0x7f0a024f;
-        public static final int tv_guanzhu_ditiexian=0x7f0a0254;
-        public static final int tv_guanzhu_fangxing=0x7f0a024d;
-        public static final int tv_guanzhu_jianzhutype=0x7f0a0252;
-        public static final int tv_guanzhu_junjia=0x7f0a0253;
-        public static final int tv_guanzhu_louceng=0x7f0a0251;
-        public static final int tv_guanzhu_loupandizhi=0x7f0a025a;
-        public static final int tv_guanzhu_new_area=0x7f0a0258;
-        public static final int tv_guanzhu_new_junjia=0x7f0a0259;
-        public static final int tv_guanzhu_new_loupandizhi=0x7f0a025b;
-        public static final int tv_guanzhu_new_phone=0x7f0a025c;
-        public static final int tv_guanzhu_new_shi=0x7f0a0257;
-        public static final int tv_guanzhu_new_time=0x7f0a025d;
-        public static final int tv_guanzhu_title=0x7f0a024c;
-        public static final int tv_guanzhu_xiaoquname=0x7f0a024b;
-        public static final int tv_guanzhu_zongjia=0x7f0a0250;
-        public static final int tv_guapaishijian=0x7f0a006a;
-        public static final int tv_hexinmaidian=0x7f0a0071;
-        public static final int tv_hexinmaidian1=0x7f0a0072;
-        public static final int tv_house_puchase=0x7f0a00c8;
-        public static final int tv_housearea=0x7f0a0080;
-        public static final int tv_housenumber=0x7f0a01cf;
-        public static final int tv_housetotilprice=0x7f0a008d;
-        public static final int tv_html_fukuanfangshi=0x7f0a013b;
-        public static final int tv_html_huxingjieshao=0x7f0a0138;
-        public static final int tv_jiaotongchuxing=0x7f0a0073;
-        public static final int tv_jiaotongchuxing1=0x7f0a0074;
-        public static final int tv_jizhengfangshi=0x7f0a007f;
-        public static final int tv_jizhunlilv=0x7f0a008b;
-        public static final int tv_junjia=0x7f0a0060;
-        public static final int tv_jushangcijiaoyi=0x7f0a007d;
-        public static final int tv_kanfangshijian=0x7f0a0064;
-        public static final int tv_lixi=0x7f0a008c;
-        public static final int tv_logincancle=0x7f0a0056;
-        public static final int tv_look_date=0x7f0a01d5;
-        public static final int tv_look_histroy=0x7f0a01d6;
-        public static final int tv_louceng=0x7f0a0061;
-        public static final int tv_louxing=0x7f0a006c;
-        public static final int tv_maifangjiatingshoutao=0x7f0a007e;
-        public static final int tv_maifangjiatingweiyi=0x7f0a007c;
-        public static final int tv_morechengjiaojilu=0x7f0a0093;
-        public static final int tv_morefangyuantuijian=0x7f0a0097;
-        public static final int tv_morehousetese=0x7f0a0075;
-        public static final int tv_morenews=0x7f0a0070;
-        public static final int tv_my_login_regist=0x7f0a01e1;
-        public static final int tv_new_house_detail_title=0x7f0a0003;
-        public static final int tv_newhouse_morenews=0x7f0a0157;
-        public static final int tv_newhouse_morenews_rexiao=0x7f0a0159;
-        public static final int tv_newhousedetail_chanquannianxian=0x7f0a0137;
-        public static final int tv_newhousedetail_dianping=0x7f0a013d;
-        public static final int tv_newhousedetail_housetype=0x7f0a012a;
-        public static final int tv_newhousedetail_jiaofangshijian=0x7f0a012c;
-        public static final int tv_newhousedetail_kaifashang=0x7f0a0134;
-        public static final int tv_newhousedetail_kaipanshijian=0x7f0a012b;
-        public static final int tv_newhousedetail_loupandizhi=0x7f0a012d;
-        public static final int tv_newhousedetail_maintype=0x7f0a012e;
-        public static final int tv_newhousedetail_price=0x7f0a0130;
-        public static final int tv_newhousedetail_title=0x7f0a0129;
-        public static final int tv_newhousedetail_updatetime=0x7f0a012f;
-        public static final int tv_newhousedetail_zaishou=0x7f0a0131;
-        public static final int tv_newhousedetail_zuixinjiaofang=0x7f0a0136;
-        public static final int tv_newhousedetail_zuixinkaipan=0x7f0a0135;
-        public static final int tv_number=0x7f0a01d0;
-        public static final int tv_personal_nickname=0x7f0a015e;
-        public static final int tv_personal_phone=0x7f0a0160;
-        public static final int tv_price=0x7f0a01ce;
-        public static final int tv_pricenumber=0x7f0a01cd;
-        public static final int tv_quyu=0x7f0a006d;
-        public static final int tv_recommend_content=0x7f0a0265;
-        public static final int tv_recommend_rcontent_web=0x7f0a0170;
-        public static final int tv_recommend_title=0x7f0a0263;
-        public static final int tv_recommend_title_web=0x7f0a016e;
-        public static final int tv_regist=0x7f0a00ca;
-        public static final int tv_renting_lishijilu=0x7f0a0190;
-        public static final int tv_rentingdetailcancle=0x7f0a017e;
-        public static final int tv_rentingdetails=0x7f0a017c;
-        public static final int tv_sa=0x7f0a018c;
-        public static final int tv_sas=0x7f0a018e;
-        public static final int tv_setting_LoginOut=0x7f0a0125;
-        public static final int tv_totalhistroy=0x7f0a0090;
-        public static final int tv_totalhistroy1=0x7f0a0091;
-        public static final int tv_version=0x7f0a01b3;
-        public static final int tv_weekhistroy=0x7f0a008e;
-        public static final int tv_weekhistroy1=0x7f0a008f;
-        public static final int tv_wuyeleixing=0x7f0a007b;
-        public static final int tv_zhuangxiu=0x7f0a0062;
-        public static final int tv_zhuanrangshuifei=0x7f0a0081;
-        public static final int two=0x7f0a014b;
-        public static final int viewpage=0x7f0a00d5;
-        public static final int web_ershoufang=0x7f0a01af;
-        public static final int web_house_price=0x7f0a01b0;
-        public static final int yangbantu=0x7f0a0139;
+        public static final int EditText01=0x7f0b00a6;
+        public static final int EditText02=0x7f0b00a9;
+        public static final int EditText03=0x7f0b00ab;
+        public static final int EditText05=0x7f0b01ad;
+        public static final int EditText06=0x7f0b01af;
+        public static final int EditText11=0x7f0b00fa;
+        public static final int EditText12=0x7f0b00ac;
+        public static final int EditText13=0x7f0b0100;
+        public static final int EditText14=0x7f0b0103;
+        public static final int EditText15=0x7f0b0106;
+        public static final int HouseDetails=0x7f0b01cb;
+        public static final int ImageView01=0x7f0b00a8;
+        public static final int ImageView02=0x7f0b0140;
+        public static final int ImageView04=0x7f0b00c7;
+        public static final int ImageView05=0x7f0b00c5;
+        public static final int RelativeLayout01=0x7f0b00a7;
+        public static final int RelativeLayout02=0x7f0b01ab;
+        public static final int RelativeLayout04=0x7f0b01ac;
+        public static final int RelativeLayout05=0x7f0b01ae;
+        public static final int ShopHouseGuide=0x7f0b01d2;
+        public static final int T15=0x7f0b00ad;
+        public static final int TextView01=0x7f0b000a;
+        public static final int TextView011=0x7f0b00ae;
+        public static final int TextView02=0x7f0b0015;
+        public static final int TextView03=0x7f0b0016;
+        public static final int TextView04=0x7f0b0017;
+        public static final int TextView05=0x7f0b003e;
+        public static final int TextView06=0x7f0b0069;
+        public static final int TextView07=0x7f0b0076;
+        public static final int TextView071=0x7f0b00f2;
+        public static final int TextView08=0x7f0b0077;
+        public static final int TextView09=0x7f0b0065;
+        public static final int TextView10=0x7f0b0066;
+        public static final int TextView11=0x7f0b0067;
+        public static final int TextView12=0x7f0b0078;
+        public static final int TextView13=0x7f0b00fe;
+        public static final int TextView14=0x7f0b0079;
+        public static final int TextView15=0x7f0b007a;
+        public static final int TextView16=0x7f0b0082;
+        public static final int TextView17=0x7f0b0083;
+        public static final int TextView18=0x7f0b0084;
+        public static final int TextView19=0x7f0b0085;
+        public static final int TextView20=0x7f0b0086;
+        public static final int TextView21=0x7f0b0087;
+        public static final int TextView4=0x7f0b00c1;
+        public static final int Tv3=0x7f0b00ec;
+        public static final int Tv31=0x7f0b00f5;
+        public static final int Tv32=0x7f0b0108;
+        public static final int Tv33=0x7f0b010c;
+        public static final int Tv_fangling=0x7f0b0063;
+        public static final int Tv_fangyuanbianhao=0x7f0b006f;
+        public static final int Tv_xiaoqu=0x7f0b006e;
+        public static final int action_settings=0x7f0b027f;
+        public static final int all=0x7f0b0155;
+        public static final int baidu_map=0x7f0b0028;
+        public static final int blocktrade_ll_spinner=0x7f0b0046;
+        public static final int btn1=0x7f0b00df;
+        public static final int btn2=0x7f0b00e1;
+        public static final int btn_1=0x7f0b0022;
+        public static final int btn_Login=0x7f0b00cf;
+        public static final int btn_Regist=0x7f0b017c;
+        public static final int btn_ershoufang=0x7f0b00db;
+        public static final int btn_find_sendcode=0x7f0b00b5;
+        public static final int btn_find_submit=0x7f0b00bd;
+        public static final int btn_general_Login=0x7f0b0272;
+        public static final int btn_house_Login=0x7f0b01bb;
+        public static final int btn_house_noLogin_Login=0x7f0b01dd;
+        public static final int btn_line=0x7f0b001e;
+        public static final int btn_line1=0x7f0b023a;
+        public static final int btn_line2=0x7f0b00b6;
+        public static final int btn_line3=0x7f0b00b8;
+        public static final int btn_line4=0x7f0b00ba;
+        public static final int btn_line5=0x7f0b00bc;
+        public static final int btn_line6=0x7f0b017b;
+        public static final int btn_map_location=0x7f0b00de;
+        public static final int btn_map_trans=0x7f0b00e0;
+        public static final int btn_map_zhoubian=0x7f0b00e2;
+        public static final int btn_newhouse=0x7f0b00dc;
+        public static final int btn_quicklogin_sendcode=0x7f0b0275;
+        public static final int btn_renting=0x7f0b00dd;
+        public static final int btn_renting_submit=0x7f0b00b1;
+        public static final int btn_sendcode=0x7f0b0177;
+        public static final int btn_short_Login=0x7f0b0279;
+        public static final int building=0x7f0b0151;
+        public static final int button1=0x7f0b00c8;
+        public static final int circleImageView1=0x7f0b0004;
+        public static final int circleImageView2=0x7f0b0010;
+        public static final int content_view=0x7f0b00a1;
+        public static final int ershoufang_huxing=0x7f0b005d;
+        public static final int ershoufang_mianji=0x7f0b005f;
+        public static final int ershoufang_quyu_sp1=0x7f0b009c;
+        public static final int ershoufang_quyu_sp2=0x7f0b009d;
+        public static final int ershoufang_quyu_sp3=0x7f0b009e;
+        public static final int ershoufang_quyu_sp4=0x7f0b009f;
+        public static final int ershoufang_scrollview=0x7f0b0057;
+        public static final int ershoufang_shoujia=0x7f0b005b;
+        public static final int et12=0x7f0b00f0;
+        public static final int et123=0x7f0b00e8;
+        public static final int et1gyhtg=0x7f0b00e9;
+        public static final int et2132=0x7f0b00e6;
+        public static final int et_21=0x7f0b0110;
+        public static final int et_22=0x7f0b0112;
+        public static final int et_23=0x7f0b0114;
+        public static final int et_24=0x7f0b0116;
+        public static final int et_25=0x7f0b0118;
+        public static final int et_26=0x7f0b011a;
+        public static final int et_27=0x7f0b011c;
+        public static final int et_28=0x7f0b011e;
+        public static final int et_block_trade_search=0x7f0b0045;
+        public static final int et_change_about=0x7f0b004d;
+        public static final int et_change_nickname=0x7f0b004c;
+        public static final int et_ershoufang_search=0x7f0b0020;
+        public static final int et_find_password=0x7f0b00b9;
+        public static final int et_find_phonenumb=0x7f0b00b4;
+        public static final int et_find_repassword=0x7f0b00bb;
+        public static final int et_find_smscode=0x7f0b00b7;
+        public static final int et_first_search=0x7f0b01c0;
+        public static final int et_genal_login_lock=0x7f0b0271;
+        public static final int et_genal_login_phonenumber=0x7f0b026e;
+        public static final int et_password=0x7f0b0174;
+        public static final int et_phonenumb=0x7f0b0178;
+        public static final int et_qi1=0x7f0b00f3;
+        public static final int et_qiwangzujin=0x7f0b00aa;
+        public static final int et_renting_proprietor_address=0x7f0b00a4;
+        public static final int et_renting_proprietor_title=0x7f0b00a3;
+        public static final int et_renting_search=0x7f0b01a6;
+        public static final int et_repassword=0x7f0b0175;
+        public static final int et_short_login_lock_quick=0x7f0b0278;
+        public static final int et_short_login_phonenumber=0x7f0b0274;
+        public static final int et_smscode=0x7f0b0173;
+        public static final int first=0x7f0b00d2;
+        public static final int first_scrollview=0x7f0b01bc;
+        public static final int four=0x7f0b0154;
+        public static final int futian=0x7f0b014b;
+        public static final int guanzhu_ershou=0x7f0b016b;
+        public static final int guanzhu_new=0x7f0b016c;
+        public static final int guanzhu_viewpage=0x7f0b016d;
+        public static final int head_view=0x7f0b027a;
+        public static final int house=0x7f0b00d4;
+        public static final int house_viewpage=0x7f0b01d8;
+        public static final int huxing=0x7f0b005c;
+        public static final int imageView1=0x7f0b0002;
+        public static final int imageView10=0x7f0b01ef;
+        public static final int imageView102=0x7f0b0205;
+        public static final int imageView1021=0x7f0b0209;
+        public static final int imageView10216=0x7f0b022e;
+        public static final int imageView1032=0x7f0b0211;
+        public static final int imageView10382=0x7f0b0236;
+        public static final int imageView1042=0x7f0b022a;
+        public static final int imageView1052=0x7f0b020d;
+        public static final int imageView10526=0x7f0b0232;
+        public static final int imageView11=0x7f0b00f9;
+        public static final int imageView111=0x7f0b0214;
+        public static final int imageView1111=0x7f0b0238;
+        public static final int imageView12=0x7f0b00fc;
+        public static final int imageView13=0x7f0b00ff;
+        public static final int imageView14=0x7f0b0102;
+        public static final int imageView15=0x7f0b0105;
+        public static final int imageView171=0x7f0b01ff;
+        public static final int imageView176=0x7f0b0224;
+        public static final int imageView181=0x7f0b0201;
+        public static final int imageView1861=0x7f0b0226;
+        public static final int imageView2=0x7f0b000f;
+        public static final int imageView21=0x7f0b0190;
+        public static final int imageView251=0x7f0b0216;
+        public static final int imageView3=0x7f0b0019;
+        public static final int imageView31=0x7f0b01f3;
+        public static final int imageView351=0x7f0b0218;
+        public static final int imageView4=0x7f0b00c2;
+        public static final int imageView41=0x7f0b01f5;
+        public static final int imageView415=0x7f0b021a;
+        public static final int imageView5=0x7f0b00b0;
+        public static final int imageView51=0x7f0b01f7;
+        public static final int imageView541=0x7f0b021c;
+        public static final int imageView6=0x7f0b0124;
+        public static final int imageView61=0x7f0b01f9;
+        public static final int imageView641=0x7f0b021e;
+        public static final int imageView7=0x7f0b00af;
+        public static final int imageView71=0x7f0b01eb;
+        public static final int imageView711=0x7f0b01fb;
+        public static final int imageView7151=0x7f0b0220;
+        public static final int imageView8=0x7f0b01e9;
+        public static final int imageView81=0x7f0b01ed;
+        public static final int imageView811=0x7f0b01fd;
+        public static final int imageView8141=0x7f0b0222;
+        public static final int imageView89=0x7f0b0197;
+        public static final int imageView9=0x7f0b0199;
+        public static final int imageView912=0x7f0b0207;
+        public static final int imageView9126=0x7f0b022c;
+        public static final int imageView92=0x7f0b0203;
+        public static final int imageView924=0x7f0b0228;
+        public static final int imageView932=0x7f0b020f;
+        public static final int imageView942=0x7f0b020b;
+        public static final int imageView9426=0x7f0b0230;
+        public static final int imageView9732=0x7f0b0234;
+        public static final int item_left=0x7f0b024a;
+        public static final int item_right=0x7f0b0256;
+        public static final int item_right_txt=0x7f0b0257;
+        public static final int iv3=0x7f0b00ed;
+        public static final int iv31=0x7f0b00f6;
+        public static final int iv32=0x7f0b0109;
+        public static final int iv33=0x7f0b010d;
+        public static final int iv_1=0x7f0b0166;
+        public static final int iv_MsM=0x7f0b0043;
+        public static final int iv_agent_back=0x7f0b001b;
+        public static final int iv_agent_search=0x7f0b0021;
+        public static final int iv_agentdata_pic=0x7f0b023b;
+        public static final int iv_block_trade_detail=0x7f0b002d;
+        public static final int iv_block_trade_detail_MsM=0x7f0b002a;
+        public static final int iv_ershoufang_img=0x7f0b0243;
+        public static final int iv_guanzhuershou=0x7f0b024b;
+        public static final int iv_housepic=0x7f0b0059;
+        public static final int iv_iphone=0x7f0b026d;
+        public static final int iv_location=0x7f0b001c;
+        public static final int iv_lock=0x7f0b0270;
+        public static final int iv_lock_quick=0x7f0b0277;
+        public static final int iv_map_house_MsM=0x7f0b00d8;
+        public static final int iv_map_house_search=0x7f0b00da;
+        public static final int iv_my_Photo=0x7f0b01e3;
+        public static final int iv_my_back=0x7f0b01e1;
+        public static final int iv_new_house_detail=0x7f0b0129;
+        public static final int iv_new_house_detail_MsM=0x7f0b0127;
+        public static final int iv_newhouse_ad=0x7f0b0149;
+        public static final int iv_newhouse_back=0x7f0b0148;
+        public static final int iv_newhousedetail_tuan=0x7f0b0133;
+        public static final int iv_personal_Photo=0x7f0b015d;
+        public static final int iv_proprietor=0x7f0b0164;
+        public static final int iv_recommend_img=0x7f0b0265;
+        public static final int iv_recommend_pic_web=0x7f0b0170;
+        public static final int iv_renting_pic=0x7f0b0180;
+        public static final int iv_welcome=0x7f0b01b3;
+        public static final int ll_agent_house=0x7f0b01de;
+        public static final int ll_agent_search=0x7f0b001f;
+        public static final int ll_agent_spinner=0x7f0b0023;
+        public static final int ll_agentdetail_back=0x7f0b0001;
+        public static final int ll_back_change=0x7f0b0049;
+        public static final int ll_back_ershoufangdetails=0x7f0b0055;
+        public static final int ll_back_login=0x7f0b0172;
+        public static final int ll_back_putongguanzhu=0x7f0b0168;
+        public static final int ll_back_renting_house_agent=0x7f0b00e3;
+        public static final int ll_back_rentingdetails=0x7f0b017e;
+        public static final int ll_block_trade_back=0x7f0b0044;
+        public static final int ll_block_trade_detail_back=0x7f0b002b;
+        public static final int ll_contorl=0x7f0b01d5;
+        public static final int ll_ershoufang_back=0x7f0b009a;
+        public static final int ll_ershoufang_proprietor_back=0x7f0b00a2;
+        public static final int ll_ershoufang_spinner=0x7f0b009b;
+        public static final int ll_ershoufangdetail_bottom=0x7f0b0058;
+        public static final int ll_find_pasword_back=0x7f0b00b2;
+        public static final int ll_house_price_detail_back=0x7f0b01b2;
+        public static final int ll_house_puchase_back=0x7f0b00be;
+        public static final int ll_housetype1=0x7f0b014a;
+        public static final int ll_housetype2=0x7f0b014e;
+        public static final int ll_housetype3=0x7f0b0152;
+        public static final int ll_login=0x7f0b00cc;
+        public static final int ll_map_house_back=0x7f0b00d9;
+        public static final int ll_mysetting_agent_login=0x7f0b0212;
+        public static final int ll_mysetting_nologin=0x7f0b01e4;
+        public static final int ll_mysetting_putong_login=0x7f0b01f0;
+        public static final int ll_new_house_detail_back=0x7f0b0128;
+        public static final int ll_newhouselist_back=0x7f0b0143;
+        public static final int ll_newhouselist_spinner=0x7f0b0144;
+        public static final int ll_noLogin_house=0x7f0b01ba;
+        public static final int ll_one=0x7f0b01bd;
+        public static final int ll_personal_back=0x7f0b015b;
+        public static final int ll_proprietor_back=0x7f0b0163;
+        public static final int ll_putong_house=0x7f0b01d4;
+        public static final int ll_recommend_back_web=0x7f0b016e;
+        public static final int ll_regist_type=0x7f0b004e;
+        public static final int ll_renting_back=0x7f0b01a5;
+        public static final int ll_renting_proprietor_back=0x7f0b01aa;
+        public static final int ll_renting_spinner=0x7f0b01a7;
+        public static final int ll_search=0x7f0b01bf;
+        public static final int ll_setting_back=0x7f0b011f;
+        public static final int ll_title=0x7f0b0169;
+        public static final int ll_tree=0x7f0b01c6;
+        public static final int ll_two=0x7f0b01c1;
+        public static final int loading_icon=0x7f0b0269;
+        public static final int loadmore_view=0x7f0b0267;
+        public static final int loadstate_iv=0x7f0b026b;
+        public static final int loadstate_tv=0x7f0b026a;
+        public static final int login_tabstrip=0x7f0b00ce;
+        public static final int login_viewpager=0x7f0b00cd;
+        public static final int longgang=0x7f0b014f;
+        public static final int loushizixun=0x7f0b0156;
+        public static final int luohu=0x7f0b0153;
+        public static final int lv_ShopGuide=0x7f0b01d3;
+        public static final int lv_agent_list=0x7f0b0027;
+        public static final int lv_blocktrade=0x7f0b0047;
+        public static final int lv_guanzhu_ershou=0x7f0b01b5;
+        public static final int lv_guanzhu_new=0x7f0b01b6;
+        public static final int lv_haofangtuijian=0x7f0b0096;
+        public static final int lv_loushizixun=0x7f0b0157;
+        public static final int lv_newhouselist=0x7f0b0145;
+        public static final int lv_renting_list=0x7f0b01a9;
+        public static final int lv_rexiaofangyuan=0x7f0b0159;
+        public static final int lv_tongxiaoqujilu=0x7f0b0092;
+        public static final int mCarouselView=0x7f0b01b8;
+        public static final int map_bmapView=0x7f0b0095;
+        public static final int maphouse_sp1=0x7f0b0024;
+        public static final int maphouse_sp2=0x7f0b0025;
+        public static final int maphouse_sp3=0x7f0b0026;
+        public static final int maphouse_sp4=0x7f0b01a8;
+        public static final int message=0x7f0b00d3;
+        public static final int mianji=0x7f0b005e;
+        public static final int monthnumber=0x7f0b01cd;
+        public static final int my=0x7f0b00d5;
+        public static final int newHouse_scrollview=0x7f0b0146;
+        public static final int new_bmapView=0x7f0b013f;
+        public static final int newhouse_rexiao_address=0x7f0b0195;
+        public static final int newhouse_rexiao_address1=0x7f0b01a2;
+        public static final int newhouse_rexiao_address2=0x7f0b019d;
+        public static final int newhouse_rexiao_area=0x7f0b0194;
+        public static final int newhouse_rexiao_area1=0x7f0b01a1;
+        public static final int newhouse_rexiao_area2=0x7f0b019c;
+        public static final int newhouse_rexiao_iv=0x7f0b0192;
+        public static final int newhouse_rexiao_iv1=0x7f0b019f;
+        public static final int newhouse_rexiao_iv2=0x7f0b019a;
+        public static final int newhouse_rexiao_price=0x7f0b0196;
+        public static final int newhouse_rexiao_price1=0x7f0b01a3;
+        public static final int newhouse_rexiao_price2=0x7f0b019e;
+        public static final int newhouse_rexiao_title=0x7f0b0193;
+        public static final int newhouse_rexiao_title1=0x7f0b01a0;
+        public static final int newhouse_rexiao_title2=0x7f0b019b;
+        public static final int newhouselist_address=0x7f0b0261;
+        public static final int newhouselist_area=0x7f0b0262;
+        public static final int newhouselist_iv=0x7f0b025f;
+        public static final int newhouselist_price=0x7f0b0263;
+        public static final int newhouselist_title=0x7f0b0260;
+        public static final int nologin_mCarouselView=0x7f0b01db;
+        public static final int nologin_pointLayout=0x7f0b01dc;
+        public static final int nologin_relativeLayout1=0x7f0b01da;
+        public static final int pointLayout=0x7f0b01b9;
+        public static final int pull_icon=0x7f0b027b;
+        public static final int pullup_icon=0x7f0b0268;
+        public static final int quanshiprice=0x7f0b01cc;
+        public static final int rb_agent=0x7f0b017a;
+        public static final int rb_change_sex_man=0x7f0b0052;
+        public static final int rb_change_sex_secret=0x7f0b0051;
+        public static final int rb_change_sex_tab=0x7f0b004f;
+        public static final int rb_change_sex_woman=0x7f0b0053;
+        public static final int rb_dazongjiaoyi=0x7f0b01c8;
+        public static final int rb_dituzhaofang=0x7f0b01c9;
+        public static final int rb_domestic_consumer=0x7f0b0179;
+        public static final int rb_ershoufang=0x7f0b01c2;
+        public static final int rb_ershoufangguanzhu=0x7f0b0098;
+        public static final int rb_goufangxuzhi=0x7f0b01ca;
+        public static final int rb_jingjiren=0x7f0b01c5;
+        public static final int rb_xinfang=0x7f0b01c3;
+        public static final int rb_yezhuweituo=0x7f0b01c7;
+        public static final int rb_zufang=0x7f0b01c4;
+        public static final int refined_decoration=0x7f0b014d;
+        public static final int refresh_view=0x7f0b00a0;
+        public static final int refreshing_icon=0x7f0b027c;
+        public static final int relativeLayout1=0x7f0b01b7;
+        public static final int renting_bmapView=0x7f0b0198;
+        public static final int renting_chaoxiang=0x7f0b0186;
+        public static final int renting_ditie=0x7f0b018a;
+        public static final int renting_fabushijian=0x7f0b0189;
+        public static final int renting_fangshi=0x7f0b0185;
+        public static final int renting_huxing=0x7f0b0188;
+        public static final int renting_location=0x7f0b0187;
+        public static final int renting_louceng=0x7f0b0182;
+        public static final int renting_mianji=0x7f0b0184;
+        public static final int renting_tedian=0x7f0b0181;
+        public static final int renting_xiaoqu=0x7f0b018b;
+        public static final int renting_zhuangxiu=0x7f0b0183;
+        public static final int rg_control=0x7f0b00d1;
+        public static final int rg_guanzhu_control=0x7f0b016a;
+        public static final int rg_regist_type=0x7f0b0050;
+        public static final int rl_121=0x7f0b00f4;
+        public static final int rl_1212=0x7f0b0107;
+        public static final int rl_123=0x7f0b010b;
+        public static final int rl_Histroy=0x7f0b01ee;
+        public static final int rl_MyTouxiang=0x7f0b015c;
+        public static final int rl_Myentrust=0x7f0b01e7;
+        public static final int rl_Myershoufang=0x7f0b01e5;
+        public static final int rl_Mynichen=0x7f0b015e;
+        public static final int rl_Myrenting=0x7f0b01e6;
+        public static final int rl_Yuyueguanli=0x7f0b01e8;
+        public static final int rl_agent_chengjiaofangyuan=0x7f0b021b;
+        public static final int rl_agent_chuzufangguanli=0x7f0b0217;
+        public static final int rl_agent_ershoufangguanli=0x7f0b0213;
+        public static final int rl_agent_goudidingdan=0x7f0b022f;
+        public static final int rl_agent_myhistroy=0x7f0b0233;
+        public static final int rl_agent_myyouhuiquan=0x7f0b022b;
+        public static final int rl_agent_qiugouguanli=0x7f0b0227;
+        public static final int rl_agent_qiuzuguanli=0x7f0b0223;
+        public static final int rl_agent_title=0x7f0b001a;
+        public static final int rl_agent_yuyueguanli=0x7f0b021f;
+        public static final int rl_baidumap=0x7f0b0094;
+        public static final int rl_block_trade_title=0x7f0b0029;
+        public static final int rl_ershoufang_proprietor=0x7f0b0165;
+        public static final int rl_ershoufang_title=0x7f0b0099;
+        public static final int rl_find_phonenumber=0x7f0b00b3;
+        public static final int rl_genal_login_lock=0x7f0b026f;
+        public static final int rl_goufangliucheng=0x7f0b00c0;
+        public static final int rl_jiaoyibaoxian=0x7f0b00bf;
+        public static final int rl_login_lock=0x7f0b0273;
+        public static final int rl_map_house_title=0x7f0b00d7;
+        public static final int rl_message_no=0x7f0b01e0;
+        public static final int rl_my_renting_house=0x7f0b00eb;
+        public static final int rl_myguanzhu=0x7f0b01ea;
+        public static final int rl_new_house_title=0x7f0b0000;
+        public static final int rl_newhouse_title=0x7f0b0147;
+        public static final int rl_newhouselist_title=0x7f0b0142;
+        public static final int rl_personal_info=0x7f0b0162;
+        public static final int rl_personal_phone=0x7f0b0160;
+        public static final int rl_phonenumber=0x7f0b026c;
+        public static final int rl_putong_mychuzu=0x7f0b01f6;
+        public static final int rl_putong_mygoudidingdan=0x7f0b020a;
+        public static final int rl_putong_myguanzhu=0x7f0b01f1;
+        public static final int rl_putong_myhistroy=0x7f0b020e;
+        public static final int rl_putong_mysalehouse=0x7f0b01f2;
+        public static final int rl_putong_myshophouse=0x7f0b01fe;
+        public static final int rl_putong_myyouhuiquan=0x7f0b0206;
+        public static final int rl_putong_myyuyue=0x7f0b0202;
+        public static final int rl_putong_myzhufang=0x7f0b01fa;
+        public static final int rl_regist_phonenumber=0x7f0b0176;
+        public static final int rl_renting_agent_1=0x7f0b00f8;
+        public static final int rl_renting_agent_2=0x7f0b00fb;
+        public static final int rl_renting_agent_3=0x7f0b00fd;
+        public static final int rl_renting_agent_4=0x7f0b0101;
+        public static final int rl_renting_agent_5=0x7f0b0104;
+        public static final int rl_renting_fangyuantese=0x7f0b018c;
+        public static final int rl_renting_proprietor=0x7f0b0167;
+        public static final int rl_renting_title=0x7f0b01a4;
+        public static final int rl_setting_aboutUs=0x7f0b0122;
+        public static final int rl_setting_clear=0x7f0b0120;
+        public static final int rl_setting_point=0x7f0b0125;
+        public static final int rl_setting_sendsetting=0x7f0b00a5;
+        public static final int rl_setting_tdc=0x7f0b0123;
+        public static final int rl_setting_update=0x7f0b0121;
+        public static final int rl_settings=0x7f0b0237;
+        public static final int rl_short_login_lock=0x7f0b0276;
+        public static final int rl_title=0x7f0b0048;
+        public static final int rl_title1=0x7f0b01d9;
+        public static final int rl_title2=0x7f0b01df;
+        public static final int rl_zhuyishixiang1=0x7f0b00c3;
+        public static final int rl_zhuyishixiang2=0x7f0b00c4;
+        public static final int rl_zhuyishixiang_3=0x7f0b00c6;
+        public static final int shoujia=0x7f0b005a;
+        public static final int state_iv=0x7f0b027e;
+        public static final int state_tv=0x7f0b027d;
+        public static final int textView1=0x7f0b001d;
+        public static final int textView11=0x7f0b0239;
+        public static final int textView12=0x7f0b013d;
+        public static final int textView16=0x7f0b0141;
+        public static final int textView171=0x7f0b0200;
+        public static final int textView1716=0x7f0b0225;
+        public static final int textView2=0x7f0b002f;
+        public static final int textView21=0x7f0b00ef;
+        public static final int textView221=0x7f0b0215;
+        public static final int textView3=0x7f0b0035;
+        public static final int textView31=0x7f0b01f4;
+        public static final int textView351=0x7f0b0219;
+        public static final int textView4=0x7f0b0036;
+        public static final int textView41=0x7f0b00f1;
+        public static final int textView5=0x7f0b0134;
+        public static final int textView51=0x7f0b01f8;
+        public static final int textView541=0x7f0b021d;
+        public static final int textView6=0x7f0b0034;
+        public static final int textView7=0x7f0b0037;
+        public static final int textView71=0x7f0b01ec;
+        public static final int textView711=0x7f0b01fc;
+        public static final int textView7151=0x7f0b0221;
+        public static final int textView8=0x7f0b0038;
+        public static final int textView9=0x7f0b013b;
+        public static final int textView92=0x7f0b0204;
+        public static final int textView921=0x7f0b0208;
+        public static final int textView9216=0x7f0b022d;
+        public static final int textView932=0x7f0b0210;
+        public static final int textView9382=0x7f0b0235;
+        public static final int textView942=0x7f0b020c;
+        public static final int textView9426=0x7f0b0231;
+        public static final int textView9442=0x7f0b0229;
+        public static final int tree=0x7f0b0150;
+        public static final int tv1=0x7f0b00ee;
+        public static final int tv11=0x7f0b00f7;
+        public static final int tv12=0x7f0b00e5;
+        public static final int tv121=0x7f0b00e4;
+        public static final int tv13=0x7f0b010e;
+        public static final int tv21=0x7f0b010f;
+        public static final int tv22=0x7f0b0111;
+        public static final int tv23=0x7f0b0113;
+        public static final int tv24=0x7f0b0115;
+        public static final int tv25=0x7f0b0117;
+        public static final int tv26=0x7f0b0119;
+        public static final int tv27=0x7f0b011b;
+        public static final int tv28=0x7f0b011d;
+        public static final int tv32=0x7f0b010a;
+        public static final int tv34=0x7f0b00ea;
+        public static final int tv9898=0x7f0b00e7;
+        public static final int tv_agent_biaoqian=0x7f0b0008;
+        public static final int tv_agent_biaoqian2=0x7f0b0014;
+        public static final int tv_agent_fuwutaidu=0x7f0b0013;
+        public static final int tv_agent_haopinglv=0x7f0b0009;
+        public static final int tv_agent_hishistroy=0x7f0b0018;
+        public static final int tv_agent_history=0x7f0b000b;
+        public static final int tv_agent_mendian=0x7f0b0007;
+        public static final int tv_agent_name=0x7f0b0005;
+        public static final int tv_agent_pingjunzhouqi=0x7f0b000c;
+        public static final int tv_agent_ruzhitime=0x7f0b0012;
+        public static final int tv_agent_sanshiday=0x7f0b000d;
+        public static final int tv_agent_usename=0x7f0b0011;
+        public static final int tv_agent_year=0x7f0b0006;
+        public static final int tv_agent_yonghupingjia=0x7f0b000e;
+        public static final int tv_agentdata_biaoqian=0x7f0b0242;
+        public static final int tv_agentdata_level=0x7f0b023d;
+        public static final int tv_agentdata_mainarea=0x7f0b023e;
+        public static final int tv_agentdata_name=0x7f0b023c;
+        public static final int tv_agentdata_phone=0x7f0b023f;
+        public static final int tv_agentdata_phone1=0x7f0b0240;
+        public static final int tv_agentdata_point=0x7f0b0241;
+        public static final int tv_block_trade_detail_address=0x7f0b003d;
+        public static final int tv_block_trade_detail_area=0x7f0b0039;
+        public static final int tv_block_trade_detail_content=0x7f0b002e;
+        public static final int tv_block_trade_detail_date=0x7f0b0031;
+        public static final int tv_block_trade_detail_goudi=0x7f0b0030;
+        public static final int tv_block_trade_detail_hezuofangshi=0x7f0b003a;
+        public static final int tv_block_trade_detail_jianzhumianji=0x7f0b003f;
+        public static final int tv_block_trade_detail_lianxiren=0x7f0b003c;
+        public static final int tv_block_trade_detail_phone=0x7f0b0032;
+        public static final int tv_block_trade_detail_shiyongnianxian=0x7f0b0040;
+        public static final int tv_block_trade_detail_title=0x7f0b002c;
+        public static final int tv_block_trade_detail_wuyeleixing=0x7f0b003b;
+        public static final int tv_block_trade_detail_xiangxijieshao=0x7f0b0042;
+        public static final int tv_block_trade_detail_yusuanjine=0x7f0b0041;
+        public static final int tv_block_trade_goudiimage=0x7f0b0033;
+        public static final int tv_cancle=0x7f0b00ca;
+        public static final int tv_change_save=0x7f0b004b;
+        public static final int tv_changecancle=0x7f0b004a;
+        public static final int tv_chaoxiang=0x7f0b006b;
+        public static final int tv_daikuanjine=0x7f0b0089;
+        public static final int tv_daikuanleixing=0x7f0b0088;
+        public static final int tv_daikuanqixian=0x7f0b008a;
+        public static final int tv_ershoufang_address=0x7f0b0248;
+        public static final int tv_ershoufang_price_area=0x7f0b0245;
+        public static final int tv_ershoufang_price_meter=0x7f0b0249;
+        public static final int tv_ershoufang_title=0x7f0b0244;
+        public static final int tv_ershoufang_totalprice=0x7f0b0246;
+        public static final int tv_ershoufang_wan=0x7f0b0247;
+        public static final int tv_ershoufangdetails=0x7f0b0054;
+        public static final int tv_fangyuanbianhao=0x7f0b0068;
+        public static final int tv_fangyuanliangdian=0x7f0b018e;
+        public static final int tv_forgivepw=0x7f0b00d0;
+        public static final int tv_frist_title=0x7f0b01be;
+        public static final int tv_guanzhu_area=0x7f0b024f;
+        public static final int tv_guanzhu_chaoxiang=0x7f0b0250;
+        public static final int tv_guanzhu_ditiexian=0x7f0b0255;
+        public static final int tv_guanzhu_fangxing=0x7f0b024e;
+        public static final int tv_guanzhu_jianzhutype=0x7f0b0253;
+        public static final int tv_guanzhu_junjia=0x7f0b0254;
+        public static final int tv_guanzhu_louceng=0x7f0b0252;
+        public static final int tv_guanzhu_loupandizhi=0x7f0b025b;
+        public static final int tv_guanzhu_new_area=0x7f0b0259;
+        public static final int tv_guanzhu_new_junjia=0x7f0b025a;
+        public static final int tv_guanzhu_new_loupandizhi=0x7f0b025c;
+        public static final int tv_guanzhu_new_phone=0x7f0b025d;
+        public static final int tv_guanzhu_new_shi=0x7f0b0258;
+        public static final int tv_guanzhu_new_time=0x7f0b025e;
+        public static final int tv_guanzhu_title=0x7f0b024d;
+        public static final int tv_guanzhu_xiaoquname=0x7f0b024c;
+        public static final int tv_guanzhu_zongjia=0x7f0b0251;
+        public static final int tv_guapaishijian=0x7f0b006a;
+        public static final int tv_hexinmaidian=0x7f0b0071;
+        public static final int tv_hexinmaidian1=0x7f0b0072;
+        public static final int tv_house_puchase=0x7f0b00c9;
+        public static final int tv_housearea=0x7f0b0080;
+        public static final int tv_housenumber=0x7f0b01d0;
+        public static final int tv_housetotilprice=0x7f0b008d;
+        public static final int tv_html_fukuanfangshi=0x7f0b013c;
+        public static final int tv_html_huxingjieshao=0x7f0b0139;
+        public static final int tv_jiaotongchuxing=0x7f0b0073;
+        public static final int tv_jiaotongchuxing1=0x7f0b0074;
+        public static final int tv_jizhengfangshi=0x7f0b007f;
+        public static final int tv_jizhunlilv=0x7f0b008b;
+        public static final int tv_junjia=0x7f0b0060;
+        public static final int tv_jushangcijiaoyi=0x7f0b007d;
+        public static final int tv_kanfangshijian=0x7f0b0064;
+        public static final int tv_lixi=0x7f0b008c;
+        public static final int tv_logincancle=0x7f0b0056;
+        public static final int tv_look_date=0x7f0b01d6;
+        public static final int tv_look_histroy=0x7f0b01d7;
+        public static final int tv_louceng=0x7f0b0061;
+        public static final int tv_louxing=0x7f0b006c;
+        public static final int tv_maifangjiatingshoutao=0x7f0b007e;
+        public static final int tv_maifangjiatingweiyi=0x7f0b007c;
+        public static final int tv_morechengjiaojilu=0x7f0b0093;
+        public static final int tv_morefangyuantuijian=0x7f0b0097;
+        public static final int tv_morehousetese=0x7f0b0075;
+        public static final int tv_morenews=0x7f0b0070;
+        public static final int tv_my_login_regist=0x7f0b01e2;
+        public static final int tv_new_house_detail_title=0x7f0b0003;
+        public static final int tv_newhouse_morenews=0x7f0b0158;
+        public static final int tv_newhouse_morenews_rexiao=0x7f0b015a;
+        public static final int tv_newhousedetail_chanquannianxian=0x7f0b0138;
+        public static final int tv_newhousedetail_dianping=0x7f0b013e;
+        public static final int tv_newhousedetail_housetype=0x7f0b012b;
+        public static final int tv_newhousedetail_jiaofangshijian=0x7f0b012d;
+        public static final int tv_newhousedetail_kaifashang=0x7f0b0135;
+        public static final int tv_newhousedetail_kaipanshijian=0x7f0b012c;
+        public static final int tv_newhousedetail_loupandizhi=0x7f0b012e;
+        public static final int tv_newhousedetail_maintype=0x7f0b012f;
+        public static final int tv_newhousedetail_price=0x7f0b0131;
+        public static final int tv_newhousedetail_title=0x7f0b012a;
+        public static final int tv_newhousedetail_updatetime=0x7f0b0130;
+        public static final int tv_newhousedetail_zaishou=0x7f0b0132;
+        public static final int tv_newhousedetail_zuixinjiaofang=0x7f0b0137;
+        public static final int tv_newhousedetail_zuixinkaipan=0x7f0b0136;
+        public static final int tv_number=0x7f0b01d1;
+        public static final int tv_personal_nickname=0x7f0b015f;
+        public static final int tv_personal_phone=0x7f0b0161;
+        public static final int tv_price=0x7f0b01cf;
+        public static final int tv_pricenumber=0x7f0b01ce;
+        public static final int tv_quyu=0x7f0b006d;
+        public static final int tv_recommend_content=0x7f0b0266;
+        public static final int tv_recommend_rcontent_web=0x7f0b0171;
+        public static final int tv_recommend_title=0x7f0b0264;
+        public static final int tv_recommend_title_web=0x7f0b016f;
+        public static final int tv_regist=0x7f0b00cb;
+        public static final int tv_renting_lishijilu=0x7f0b0191;
+        public static final int tv_rentingdetailcancle=0x7f0b017f;
+        public static final int tv_rentingdetails=0x7f0b017d;
+        public static final int tv_sa=0x7f0b018d;
+        public static final int tv_sas=0x7f0b018f;
+        public static final int tv_setting_LoginOut=0x7f0b0126;
+        public static final int tv_totalhistroy=0x7f0b0090;
+        public static final int tv_totalhistroy1=0x7f0b0091;
+        public static final int tv_version=0x7f0b01b4;
+        public static final int tv_weekhistroy=0x7f0b008e;
+        public static final int tv_weekhistroy1=0x7f0b008f;
+        public static final int tv_wuyeleixing=0x7f0b007b;
+        public static final int tv_zhuangxiu=0x7f0b0062;
+        public static final int tv_zhuanrangshuifei=0x7f0b0081;
+        public static final int two=0x7f0b014c;
+        public static final int viewpage=0x7f0b00d6;
+        public static final int web_ershoufang=0x7f0b01b0;
+        public static final int web_house_price=0x7f0b01b1;
+        public static final int yangbantu=0x7f0b013a;
     }
     public static final class layout {
         public static final int activity_agent_detail=0x7f030000;
@@ -1343,72 +1373,85 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int item_new_house_list=0x7f03002b;
         public static final int item_new_house_rexiao=0x7f03002c;
         public static final int item_recommend_house=0x7f03002d;
-        public static final int login_general=0x7f03002e;
-        public static final int login_shortcut=0x7f03002f;
+        public static final int load_more=0x7f03002e;
+        public static final int login_general=0x7f03002f;
+        public static final int login_shortcut=0x7f030030;
+        public static final int refresh_head=0x7f030031;
     }
     public static final class menu {
-        public static final int agent_detail=0x7f090000;
-        public static final int agent_main=0x7f090001;
-        public static final int baidu_map=0x7f090002;
-        public static final int block_trade_main=0x7f090003;
-        public static final int change_user_info=0x7f090004;
-        public static final int er_shou_fang_details=0x7f090005;
-        public static final int er_shou_fang_main=0x7f090006;
-        public static final int ershou_fang_proprietor=0x7f090007;
-        public static final int find_password_main=0x7f090008;
-        public static final int house_puchase_main=0x7f090009;
-        public static final int login=0x7f09000a;
-        public static final int main=0x7f09000b;
-        public static final int map_house_main=0x7f09000c;
-        public static final int my_renting_house=0x7f09000d;
-        public static final int my_setting_main=0x7f09000e;
-        public static final int new_house_detail=0x7f09000f;
-        public static final int new_house_list=0x7f090010;
-        public static final int new_house_main=0x7f090011;
-        public static final int personal_main=0x7f090012;
-        public static final int proprietor_main=0x7f090013;
-        public static final int pu_tong_my_guan_zhu=0x7f090014;
-        public static final int regist=0x7f090015;
-        public static final int renting_detail=0x7f090016;
-        public static final int renting_main=0x7f090017;
-        public static final int renting_proprietor=0x7f090018;
-        public static final int web_er_sshou_fang_main=0x7f090019;
-        public static final int web_house_price_detail=0x7f09001a;
-        public static final int web_recommed_news_main=0x7f09001b;
-        public static final int welcome_main=0x7f09001c;
+        public static final int agent_detail=0x7f0a0000;
+        public static final int agent_main=0x7f0a0001;
+        public static final int baidu_map=0x7f0a0002;
+        public static final int block_trade_main=0x7f0a0003;
+        public static final int change_user_info=0x7f0a0004;
+        public static final int er_shou_fang_details=0x7f0a0005;
+        public static final int er_shou_fang_main=0x7f0a0006;
+        public static final int ershou_fang_proprietor=0x7f0a0007;
+        public static final int find_password_main=0x7f0a0008;
+        public static final int house_puchase_main=0x7f0a0009;
+        public static final int login=0x7f0a000a;
+        public static final int main=0x7f0a000b;
+        public static final int map_house_main=0x7f0a000c;
+        public static final int my_renting_house=0x7f0a000d;
+        public static final int my_setting_main=0x7f0a000e;
+        public static final int new_house_detail=0x7f0a000f;
+        public static final int new_house_list=0x7f0a0010;
+        public static final int new_house_main=0x7f0a0011;
+        public static final int personal_main=0x7f0a0012;
+        public static final int proprietor_main=0x7f0a0013;
+        public static final int pu_tong_my_guan_zhu=0x7f0a0014;
+        public static final int regist=0x7f0a0015;
+        public static final int renting_detail=0x7f0a0016;
+        public static final int renting_main=0x7f0a0017;
+        public static final int renting_proprietor=0x7f0a0018;
+        public static final int web_er_sshou_fang_main=0x7f0a0019;
+        public static final int web_house_price_detail=0x7f0a001a;
+        public static final int web_recommed_news_main=0x7f0a001b;
+        public static final int welcome_main=0x7f0a001c;
     }
     public static final class string {
-        public static final int action_settings=0x7f070002;
-        public static final int app_name=0x7f070000;
-        public static final int hello_world=0x7f070001;
-        public static final int title_activity_agent_detail=0x7f07001c;
-        public static final int title_activity_agent_main=0x7f070008;
-        public static final int title_activity_baidu_map=0x7f07001e;
-        public static final int title_activity_block_trade_main=0x7f07000a;
-        public static final int title_activity_change_user_info=0x7f070015;
-        public static final int title_activity_er_shou_fang_details=0x7f070018;
-        public static final int title_activity_er_shou_fang_main=0x7f070005;
-        public static final int title_activity_ershou_fang_proprietor=0x7f070013;
-        public static final int title_activity_find_password_main=0x7f070011;
-        public static final int title_activity_house_puchase_main=0x7f07000c;
-        public static final int title_activity_login=0x7f070003;
-        public static final int title_activity_map_house_main=0x7f07000b;
-        public static final int title_activity_my_renting_house=0x7f070016;
-        public static final int title_activity_my_setting_main=0x7f07000f;
-        public static final int title_activity_new_house_detail=0x7f07001a;
-        public static final int title_activity_new_house_list=0x7f070019;
-        public static final int title_activity_new_house_main=0x7f070006;
-        public static final int title_activity_personal_main=0x7f070010;
-        public static final int title_activity_proprietor_main=0x7f070009;
-        public static final int title_activity_pu_tong_my_guan_zhu=0x7f07001d;
-        public static final int title_activity_regist=0x7f070004;
-        public static final int title_activity_renting_detail=0x7f07001b;
-        public static final int title_activity_renting_main=0x7f070007;
-        public static final int title_activity_renting_proprietor=0x7f070012;
-        public static final int title_activity_web_er_sshou_fang_main=0x7f070014;
-        public static final int title_activity_web_house_price_detail=0x7f070017;
-        public static final int title_activity_web_recommed_news_main=0x7f07000e;
-        public static final int title_activity_welcome_main=0x7f07000d;
+        public static final int action_settings=0x7f080002;
+        public static final int app_name=0x7f080000;
+        public static final int head=0x7f08001f;
+        public static final int hello_world=0x7f080001;
+        public static final int load_fail=0x7f080029;
+        public static final int load_succeed=0x7f080028;
+        public static final int loading=0x7f080027;
+        public static final int pull_to_refresh=0x7f080020;
+        public static final int pullup_to_load=0x7f080025;
+        public static final int refresh_fail=0x7f080024;
+        public static final int refresh_succeed=0x7f080023;
+        public static final int refreshing=0x7f080022;
+        public static final int release_to_load=0x7f080026;
+        public static final int release_to_refresh=0x7f080021;
+        public static final int title_activity_agent_detail=0x7f08001c;
+        public static final int title_activity_agent_main=0x7f080008;
+        public static final int title_activity_baidu_map=0x7f08001e;
+        public static final int title_activity_block_trade_main=0x7f08000a;
+        public static final int title_activity_change_user_info=0x7f080015;
+        public static final int title_activity_er_shou_fang_details=0x7f080018;
+        public static final int title_activity_er_shou_fang_main=0x7f080005;
+        public static final int title_activity_ershou_fang_proprietor=0x7f080013;
+        public static final int title_activity_find_password_main=0x7f080011;
+        public static final int title_activity_house_puchase_main=0x7f08000c;
+        public static final int title_activity_login=0x7f080003;
+        public static final int title_activity_map_house_main=0x7f08000b;
+        public static final int title_activity_my_renting_house=0x7f080016;
+        public static final int title_activity_my_setting_main=0x7f08000f;
+        public static final int title_activity_new_house_detail=0x7f08001a;
+        public static final int title_activity_new_house_list=0x7f080019;
+        public static final int title_activity_new_house_main=0x7f080006;
+        public static final int title_activity_personal_main=0x7f080010;
+        public static final int title_activity_proprietor_main=0x7f080009;
+        public static final int title_activity_pu_tong_my_guan_zhu=0x7f08001d;
+        public static final int title_activity_regist=0x7f080004;
+        public static final int title_activity_renting_detail=0x7f08001b;
+        public static final int title_activity_renting_main=0x7f080007;
+        public static final int title_activity_renting_proprietor=0x7f080012;
+        public static final int title_activity_web_er_sshou_fang_main=0x7f080014;
+        public static final int title_activity_web_house_price_detail=0x7f080017;
+        public static final int title_activity_web_recommed_news_main=0x7f08000e;
+        public static final int title_activity_welcome_main=0x7f08000d;
     }
     public static final class style {
         /** 
@@ -1432,11 +1475,11 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f080000;
+        public static final int AppBaseTheme=0x7f090000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f080001;
+        public static final int AppTheme=0x7f090001;
     }
     public static final class styleable {
         /** Attributes that can be used with a swipelistviewstyle.

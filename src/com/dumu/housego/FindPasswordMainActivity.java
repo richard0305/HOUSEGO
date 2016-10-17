@@ -66,7 +66,7 @@ public class FindPasswordMainActivity extends Activity implements IFindPasswordC
 						String smscode = etFindSmscode.getText().toString();
 						String password = etFindPassword.getText().toString();
 						String password2 = etFindRepassword.getText().toString();
-						Log.i("yanglijun", "----====+++++======£¬µã»÷ÁË°´Å¥" + phonenum + smscode + password + password2);
+						Log.i("yanglijun", "----====+++++======ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë°ï¿½Å¥" + phonenum + smscode + password + password2);
 						findpasswordpresenter.FindPassword(phonenum, smscode, password, password2);
 
 					};
@@ -100,7 +100,7 @@ public class FindPasswordMainActivity extends Activity implements IFindPasswordC
 						if (FindPasswordMainActivity.this == null) {
 							break;
 						}
-						// µ±ÎÄ±¾¿òÄÚÈİ¸Ä±äÊ±£¬½áÊøÑ­»·¡£
+						// ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½İ¸Ä±ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ­ï¿½ï¿½ï¿½ï¿½
 						// if (isChange && !btnCode.isClickable()) {
 						// isChange = false;
 						// break;
@@ -108,7 +108,7 @@ public class FindPasswordMainActivity extends Activity implements IFindPasswordC
 						FindPasswordMainActivity.this.runOnUiThread(new Runnable() {
 							@Override
 							public void run() {
-								btnFindSendcode.setText("ÖØ·¢(" + i + "s)");
+								btnFindSendcode.setText("é‡å‘(" + i + "s)");
 								btnFindSendcode.setClickable(false);
 							}
 						});
@@ -126,7 +126,7 @@ public class FindPasswordMainActivity extends Activity implements IFindPasswordC
 					FindPasswordMainActivity.this.runOnUiThread(new Runnable() {
 						@Override
 						public void run() {
-							btnFindSendcode.setText("·¢ËÍÑéÖ¤Âë");
+							btnFindSendcode.setText("å‘é€éªŒè¯ç ");
 							btnFindSendcode.setClickable(true);
 						}
 					});
@@ -154,7 +154,7 @@ public class FindPasswordMainActivity extends Activity implements IFindPasswordC
 
 	@Override
 	public void FindCodeSuccess() {
-		Toast.makeText(getApplicationContext(), "·¢ËÍ³É¹¦£¡", Toast.LENGTH_SHORT).show();
+		Toast.makeText(getApplicationContext(), "å‘é€æˆåŠŸï¼", Toast.LENGTH_SHORT).show();
 	}
 
 	@Override
@@ -164,8 +164,8 @@ public class FindPasswordMainActivity extends Activity implements IFindPasswordC
 
 	@Override
 	public void FindPasswordSuccess() {
-		Toast.makeText(getApplicationContext(), "ÃÜÂëĞŞ¸Ä³É¹¦£¡", Toast.LENGTH_SHORT).show();
-		startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+		Toast.makeText(getApplicationContext(), "å¯†ç ä¿®æ”¹æˆåŠŸï¼", Toast.LENGTH_SHORT).show();
+		finish();
 	}
 
 }
