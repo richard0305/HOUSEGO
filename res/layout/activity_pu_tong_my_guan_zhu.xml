@@ -2,8 +2,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.dumu.housego.PuTongMyGuanZhuActivity" >
-
+    tools:context="com.dumu.housego.PuTongMyGuanZhuActivity"
+    tools:ignore="ObsoleteLayoutParam,UseCompoundDrawables,RtlSymmetry,HardcodedText,RtlHardcoded,ContentDescription,UselessParent" >
+    
+    <!-- 普通-我的关注 -->
+    
+    
+    <RelativeLayout 
+        android:id="@+id/window_putong_guanzhu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        >
     <RelativeLayout
         android:id="@+id/rl_title"
         android:layout_width="match_parent"
@@ -104,9 +114,63 @@
         android:layout_below="@+id/btn_line" >
     </com.dumu.housego.util.NoScrollViewPager>
     
+    </RelativeLayout>
+    <!-- 普通-我的关注 -->
     
     
     
+    <!-- 普通-我的预约 -->
     
+    <RelativeLayout 
+        android:id="@+id/window_putong_yuyue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        >
+        
+    
+    
+     <RelativeLayout
+        android:id="@+id/rl_title_yuyue"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:background="#ee3a43" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:paddingLeft="5dp"
+            android:text="我的预约"
+            android:textColor="#ffffff"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:id="@+id/ll_back_putongyuyue"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignTop="@+id/textView1"
+                android:src="@drawable/white_left" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:paddingLeft="5dp"
+                android:text="Back"
+                android:textColor="#ffffff"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </RelativeLayout>
+    </RelativeLayout>
     
 </RelativeLayout>

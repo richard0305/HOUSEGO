@@ -188,6 +188,11 @@ public class UrlFactory {
 					String path = TSFURL+"index.php?g=api&m=house&a=yuyue_add";
 					return path;
 			}	
+	//我的预约看房
+				public static String PostMyYuYueHouseUrl() {
+					String path = TSFURL+"index.php?g=api&m=user&a=yuyue";
+					return path;
+			}	
 	
 	
 	

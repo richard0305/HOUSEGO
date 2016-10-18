@@ -33,6 +33,8 @@ public class MyFramgent extends Fragment {
 	private RelativeLayout rlMyentrust;
 	private RelativeLayout rlMyrenting;
 	private RelativeLayout rlMyershoufang;
+	
+	private RelativeLayout rlPutongMyyuyue;
 	private ImageView ivMyPic;
 	private UserInfo userinfo;
 	private RelativeLayout rlPTMyGuanZhu;
@@ -125,9 +127,20 @@ private LinearLayout llMysettingAgentLogin,llMysettingPuTongLogin,llMysettingNol
 			
 			@Override
 			public void onClick(View v) {
+				Intent i=new Intent(getActivity(), PuTongMyGuanZhuActivity.class);
+				i.putExtra("v", "guanzhu");
+				startActivity(i);
 				
-				startActivity(new Intent(getActivity(), PuTongMyGuanZhuActivity.class));
-				
+			}
+		});
+		
+		rlPutongMyyuyue.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent i=new Intent(getActivity(), PuTongMyGuanZhuActivity.class);
+				i.putExtra("v", "yuyue");
+				startActivity(i);
 			}
 		});
 		
@@ -151,5 +164,6 @@ private LinearLayout llMysettingAgentLogin,llMysettingPuTongLogin,llMysettingNol
 		llMysettingPuTongLogin=(LinearLayout) view.findViewById(R.id.ll_mysetting_putong_login);
 		rlPTMyGuanZhu=(RelativeLayout) view.findViewById(R.id.rl_putong_myguanzhu);
 		
+		rlPutongMyyuyue=(RelativeLayout) view.findViewById(R.id.rl_putong_myyuyue);
 	}
 }
