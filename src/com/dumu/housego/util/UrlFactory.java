@@ -185,7 +185,7 @@ public class UrlFactory {
 	
 		//预约看房接口
 				public static String PostYuYueHouseUrl() {
-					String path = TSFURL+"index.php?g=api&m=user&a=yuyue_add";
+					String path = TSFURL+"index.php?g=api&m=house&a=yuyue_add";
 					return path;
 			}	
 	

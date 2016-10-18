@@ -20,6 +20,7 @@ import com.baidu.mapapi.map.OverlayOptions;
 import com.baidu.mapapi.map.UiSettings;
 import com.baidu.mapapi.model.LatLng;
 import com.bumptech.glide.Glide;
+import com.dumu.housego.activity.LoginActivity;
 import com.dumu.housego.app.HouseGoApp;
 import com.dumu.housego.entity.ErShouFangDetails;
 import com.dumu.housego.entity.UserInfo;
@@ -27,11 +28,14 @@ import com.dumu.housego.presenter.ErShouFangDetailPresenter;
 import com.dumu.housego.presenter.GuanZhuHousePresenter;
 import com.dumu.housego.presenter.IErShouFangDetailPresenter;
 import com.dumu.housego.presenter.IGuanZhuHousePresenter;
+import com.dumu.housego.presenter.IYuYueHousePresenter;
+import com.dumu.housego.presenter.YuYueHousePresenter;
 import com.dumu.housego.util.MyReboundScrollView;
 import com.dumu.housego.util.MyToastShowCenter;
 import com.dumu.housego.util.TimeTurnDate;
 import com.dumu.housego.view.IErShouFangDetailView;
 import com.dumu.housego.view.IGuanZhuHouseView;
+import com.dumu.housego.view.IYuYueHouseView;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -45,7 +49,10 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -53,7 +60,11 @@ import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-public class ErShouFangDetailsActivity extends Activity implements IErShouFangDetailView,IGuanZhuHouseView{
+public class ErShouFangDetailsActivity extends Activity implements IYuYueHouseView, IErShouFangDetailView,IGuanZhuHouseView{
+	private String dateyuyue;
+	private String timeyuyue;
+	
+	
 	
 	private RadioButton rbErshoufangGuanzhu;
 	private ErShouFangDetails e;
@@ -61,12 +72,17 @@ public class ErShouFangDetailsActivity extends Activity implements IErShouFangDe
 	private IGuanZhuHousePresenter guanzhuPresenter;
 	private LinearLayout llBackErshoufangdetails;
 	private RelativeLayout rlBaidumap;
-	private UserInfo userinfo;
+	 UserInfo userinfo=HouseGoApp.getContext().getCurrentUserInfo();
 	private MyReboundScrollView ErshoufangScrollview;
 	private boolean isFirstIn=true;
 	private TextView tvYuyuekanfang;
 	private BaiduMap mBaiduMAP;
 	public static MapView mMapView;
+	public LinearLayout llBackYuyuekanfang;
+	private IYuYueHousePresenter yuyuepresenter;
+	
+	private Button btnYuyuekanfang;
+	
 	//��λ���
 	private LocationClient mLocationClient;
 //	private MyLocationListener mLocationListener;
@@ -174,6 +190,7 @@ public class ErShouFangDetailsActivity extends Activity implements IErShouFangDe
 		
 		esfPresenter=new ErShouFangDetailPresenter(this);
 		guanzhuPresenter=new GuanZhuHousePresenter(this);
+		yuyuepresenter=new YuYueHousePresenter(this);
 		String catid=getIntent().getStringExtra("catid");
 		String id=getIntent().getStringExtra("id");
 		esfPresenter.FindErShouFangdetail(catid, id);
@@ -229,7 +246,6 @@ public class ErShouFangDetailsActivity extends Activity implements IErShouFangDe
 			@Override
 			public void onClick(View v) {
 				
-				userinfo=HouseGoApp.getContext().getCurrentUserInfo();
 
 				if(userinfo==null){
 					MyToastShowCenter.CenterToast(getApplicationContext(), "还没有登录，请先登录！");
@@ -239,7 +255,7 @@ public class ErShouFangDetailsActivity extends Activity implements IErShouFangDe
 					String fromtable="ershou";
 					String userid=userinfo.getUserid();
 					String username=userinfo.getUsername();
-					String type="���ַ�";
+					String type="二手房";
 					String t="1";
 					guanzhuPresenter.LoadGuanZhuHouse(fromid, fromtable, userid, username, type, t);
 				}
@@ -353,8 +369,18 @@ public class ErShouFangDetailsActivity extends Activity implements IErShouFangDe
 			
 			@Override
 			public void onClick(View v) {
+				if(userinfo==null){
+					MyToastShowCenter.CenterToast(getApplicationContext(), "您还没有登录，请先登录");
+					handler.postDelayed(new Runnable() {
+						public void run() {
+							startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+						}
+					}, 1000);
+				}else{
+					
+					NewAlertDialog();
+				}
 				
-				NewAlertDialog();
 				
 				
 			}
@@ -397,7 +423,7 @@ public class ErShouFangDetailsActivity extends Activity implements IErShouFangDe
 	}
 	protected void NewAlertDialog() {
 		
-		 new AlertDialog.Builder((getApplicationContext())).setTitle("预约")  
+		 new AlertDialog.Builder(this).setTitle("预约")  
         .setMessage("您确定要预约么")  
         .setPositiveButton("确定", new DialogInterface.OnClickListener() {
 			
@@ -416,6 +442,81 @@ public class ErShouFangDetailsActivity extends Activity implements IErShouFangDe
 				
 			}
 		}).create().show();
+		 
+		 
+		 llBackYuyuekanfang.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				ershoufang_feiyuyue.setVisibility(View.VISIBLE);
+				rlErshoufangYuyuewindows.setVisibility(View.GONE);
+				
+			}
+		});
+		 
+		 yuyuedateSpinner.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+			@Override
+			public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+			 dateyuyue=spinnerList1.get(position);
+				
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> parent) {
+				
+				
+			}
+		});
+		 
+		 
+		 
+		 yuyuetimeSpinner.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+				@Override
+				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+			timeyuyue=spinnerList2.get(position);
+					
+				}
+
+				@Override
+				public void onNothingSelected(AdapterView<?> parent) {
+					
+					
+				}
+			});
+		 
+		 
+		 
+		 
+		 btnYuyuekanfang.setOnClickListener(new OnClickListener() {
+
+
+			@Override
+			public void onClick(View v) {
+				
+			String formid=e.getId();
+			 String fromtable="ershou";
+			 String username=userinfo.getUsername();
+			 String fromuser=e.getUsername();
+			 String type="二手房";
+				
+			String yuyuedate=dateyuyue;
+			 String yuyuetime=timeyuyue;
+			 String t="1";
+			 
+		
+			yuyuepresenter.loadyuyue(formid, fromtable, username, fromuser, type, yuyuedate, yuyuetime, t);
+				
+			handler.postDelayed(new Runnable() {
+				public void run() {
+					ershoufang_feiyuyue.setVisibility(View.VISIBLE);
+					rlErshoufangYuyuewindows.setVisibility(View.GONE);	
+				}
+			}, 1000);
+			
+			}
+		});
 		
 	}
 
@@ -432,6 +533,10 @@ public class ErShouFangDetailsActivity extends Activity implements IErShouFangDe
 		
 		ershoufang_feiyuyue=(RelativeLayout) findViewById(R.id.ershoufang_feiyuyue);
 		rlErshoufangYuyuewindows=(RelativeLayout) findViewById(R.id.rl_ershoufang_yuyuewindows);
+		
+		llBackYuyuekanfang=(LinearLayout) findViewById(R.id.ll_back_yuyuekanfnag);
+		btnYuyuekanfang=(Button) findViewById(R.id.btn_yuyuekanfang);
+		
 		
 		
 		mMapView=(MapView) findViewById(R.id.map_bmapView);
@@ -571,6 +676,21 @@ public class ErShouFangDetailsActivity extends Activity implements IErShouFangDe
 	@Override
 	public void GuanZhuFail(String errorinfo) {
 		MyToastShowCenter.CenterToast(getApplicationContext(), errorinfo);
+		
+	}
+
+
+	@Override
+	public void yuYueSuccess(String info) {
+		MyToastShowCenter.CenterToast(getApplicationContext(), info);
+		
+	}
+
+
+	@Override
+	public void yuYueFail(String error) {
+		MyToastShowCenter.CenterToast(getApplicationContext(), error);
+		
 	}
 	
 //	private class MyLocationListener implements BDLocationListener{

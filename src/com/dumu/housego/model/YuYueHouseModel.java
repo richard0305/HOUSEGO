@@ -12,8 +12,11 @@ import org.json.JSONObject;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.VolleyError;
+import com.dumu.housego.app.HouseGoApp;
 import com.dumu.housego.util.CommonRequest;
 import com.dumu.housego.util.UrlFactory;
+
+import android.util.Log;
 
 public class YuYueHouseModel implements IYuYueHouseModel{
 
@@ -26,9 +29,10 @@ public class YuYueHouseModel implements IYuYueHouseModel{
 
 			@Override
 			public void onResponse(String response) {
+				
 				try {
 					JSONObject obj = new JSONObject(response);
-					if (obj.getInt("success") == 96) {
+					if (obj.getInt("success") ==96) {
 						String infomation=obj.getString("info").toString();
 						back.onSuccess(infomation);
 					} else {
@@ -62,7 +66,7 @@ public class YuYueHouseModel implements IYuYueHouseModel{
 				return map;
 			}
 		};
-		
+		HouseGoApp.getQueue().add(request);
 	}
 
 }

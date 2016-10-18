@@ -132,7 +132,7 @@ public class NewHouseDetailActivity extends Activity implements INewHouseDetailV
 			tvHousetype.setText(e.getFangwuyongtu()+"");
 			tvjiaofangshijian.setText(e.getJiaofangdate()+"");
 			tvkaipanshijian.setText(e.getKaipandate()+"");
-			tvNewhousedetailPrice.setText(e.getJunjia()+"Ԫ/�O");
+			tvNewhousedetailPrice.setText(e.getJunjia()+"元/平米");
 			tvTitle.setText(e.getTitle()+"");
 			tvTitle1.setText(e.getTitle()+"");
 			

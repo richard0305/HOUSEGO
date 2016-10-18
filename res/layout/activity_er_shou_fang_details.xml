@@ -1123,8 +1123,9 @@
     
     <RelativeLayout 
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:id="@+id/rl_ershoufang_yuyuewindows"
+        
         android:visibility="gone"
         >
          
@@ -1197,14 +1198,17 @@
             
                 <Spinner
         android:id="@+id/spinner_yuyuedate"
-        android:layout_width="wrap_content"
         android:gravity="center"
+         android:layout_width="0dp"
+          android:layout_marginLeft="20dp"
+          android:layout_marginRight="15dp"
+        android:layout_weight="1"
         android:layout_height="wrap_content"/>
         
     </LinearLayout>
 
  <LinearLayout 
-      android:layout_marginTop="80dp"
+      android:layout_marginTop="40dp"
      android:id="@+id/ll_yuyuetime"
         android:layout_width="match_parent"
         android:layout_height="45dp"
@@ -1224,12 +1228,32 @@
         
             
                 <Spinner
+                    android:layout_marginLeft="20dp"
         android:id="@+id/spinner_yuyuetime"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
+            android:layout_marginRight="15dp"
+            android:gravity="center"
+        android:layout_weight="1"
         android:layout_height="wrap_content"/>
         
     </LinearLayout>
+    
+ 
+ 	
+    <Button
+        android:id="@+id/btn_yuyuekanfang"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_centerInParent="true"
+        android:background="#ee3a43"
+        android:layout_marginTop="60dp"
+        android:text="立即预约"
+        android:textSize="14sp" />
 
     </RelativeLayout>
+
     
 </RelativeLayout>
