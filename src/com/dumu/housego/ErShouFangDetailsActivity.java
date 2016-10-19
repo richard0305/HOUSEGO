@@ -648,7 +648,7 @@ public class ErShouFangDetailsActivity extends Activity implements IYuYueHouseVi
 			
 			// ���ö�λͼ������ã���λģʽ���Ƿ���������Ϣ���û��Զ��嶨λͼ�꣩  
 			mCurrentMarker = BitmapDescriptorFactory  
-			    .fromResource(R.drawable.icon_gcoding);  
+			    .fromResource(R.drawable.ic_location);  
 			//����MarkerOption�������ڵ�ͼ�����Marker  
 			OverlayOptions option = new MarkerOptions()  
 			    .position(latLng)  

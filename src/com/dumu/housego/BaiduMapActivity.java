@@ -34,14 +34,14 @@ public class BaiduMapActivity extends Activity {
 		MapStatusUpdate msu=MapStatusUpdateFactory.newLatLng(latLng);
 		
 		
-		// ÉèÖÃ¶¨Î»Í¼²ãµÄÅäÖÃ£¨¶¨Î»Ä£Ê½£¬ÊÇ·ñÔÊÐí·½ÏòÐÅÏ¢£¬ÓÃ»§×Ô¶¨Òå¶¨Î»Í¼±ê£©  
+		// ï¿½ï¿½ï¿½Ã¶ï¿½Î»Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã£ï¿½ï¿½ï¿½Î»Ä£Ê½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½Ã»ï¿½ï¿½Ô¶ï¿½ï¿½å¶¨Î»Í¼ï¿½ê£©  
 		mCurrentMarker = BitmapDescriptorFactory  
-		    .fromResource(R.drawable.icon_gcoding);  
-		//¹¹½¨MarkerOption£¬ÓÃÓÚÔÚµØÍ¼ÉÏÌí¼ÓMarker  
+		    .fromResource(R.drawable.icon_mylocation);  
+		//ï¿½ï¿½ï¿½ï¿½MarkerOptionï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½Marker  
 		OverlayOptions option = new MarkerOptions()  
 		    .position(latLng)  
 		    .icon(mCurrentMarker);  
-		//ÔÚµØÍ¼ÉÏÌí¼ÓMarker£¬²¢ÏÔÊ¾  
+		//ï¿½Úµï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½Markerï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾  
 		mBaiduMAP.addOverlay(option);
 		mBaiduMAP.animateMapStatus(msu);
 		
@@ -49,11 +49,12 @@ public class BaiduMapActivity extends Activity {
 	private void initView() {
 		mMapView=(MapView)findViewById(R.id.baidu_map);
 		mBaiduMAP=mMapView.getMap();
-		
+		mMapView.showZoomControls(false);
+		mMapView.showScaleControl(false);
 		/**
-		 * ¸Ä±äµØÍ¼µÄ±ÈÀý³ß
+		 * ï¿½Ä±ï¿½ï¿½Í¼ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½
 		 */
-		MapStatusUpdate msu=MapStatusUpdateFactory.zoomTo(15.0f);
+		MapStatusUpdate msu=MapStatusUpdateFactory.zoomTo(17.0f);
 		mBaiduMAP.setMapStatus(msu);
 	}
 	
