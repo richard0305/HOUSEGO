@@ -38,8 +38,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="25dp"
                 android:layout_centerInParent="true"
-                
-                android:text="看房日程"
+                android:text="看房行程"
                 android:background="@drawable/selector_house_date"
                 android:textColor="#EE3A43"
                 android:textSize="14sp" />
@@ -50,7 +49,7 @@
                 android:layout_height="25dp"
                 android:layout_centerInParent="true"
                  android:background="@drawable/selector_house_histroy"
-                android:text="看房日记"
+                android:text="带看行程"
                 android:textColor="#EE3A43"
                 android:textSize="14sp" />
         </LinearLayout>

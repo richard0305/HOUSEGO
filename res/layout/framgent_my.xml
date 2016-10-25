@@ -449,7 +449,7 @@
                     android:gravity="center_vertical"
                     android:layout_centerVertical="true"
                     android:paddingLeft="50dp"
-                    android:text="我的出租"
+                    android:text="我要出租"
                     android:textSize="14sp" />
 
                 <ImageView
@@ -492,7 +492,7 @@
                     android:layout_centerVertical="true"
                     android:gravity="center_vertical"
                     android:paddingLeft="50dp"
-                    android:text="我的租房"
+                    android:text="我要租房"
                     android:textSize="14sp" />
 
                 <ImageView
@@ -554,49 +554,8 @@
                 android:layout_marginLeft="50dp"
                 android:background="#c9c9cb" />
 
-            <RelativeLayout
-                android:id="@+id/rl_putong_myyuyue"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_below="@+id/rl_Yuyueguanli"
-                android:background="#ffffff" >
 
-                <ImageView
-                    android:id="@+id/imageView92"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_centerInParent="true"
-                    android:layout_marginLeft="20dp"
-                    android:src="@drawable/iphone_16px" />
-
-                <TextView
-                    android:id="@+id/textView92"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_centerVertical="true"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="50dp"
-                    android:text="我的预约"
-                    android:textSize="14sp" />
-
-                <ImageView
-                    android:id="@+id/imageView102"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerInParent="true"
-                    android:layout_marginRight="20dp"
-                    android:src="@drawable/gray_right" />
-            </RelativeLayout>
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="50dp"
-                android:background="#c9c9cb" />
-
+	
             <RelativeLayout
                 android:id="@+id/rl_putong_myyouhuiquan"
                 android:layout_width="match_parent"

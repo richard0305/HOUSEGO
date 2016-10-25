@@ -48,102 +48,147 @@
 
     <HorizontalScrollView
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="73dp"
         android:layout_alignParentBottom="true"
         android:background="#7fffffff"
         android:scrollbars="none" >
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:orientation="horizontal" >
 
             <RadioGroup
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:orientation="horizontal" >
 
                 <RadioButton
                     android:id="@+id/rb_baidumap_bank"
-                    android:layout_width="50dp"
-                    android:layout_height="match_parent"
+                   android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="3dp"
                     android:layout_marginLeft="15dp"
+                    android:layout_marginTop="5dp"
                     android:button="@null"
+                    android:drawablePadding="5dp"
+                    android:drawableTop="@drawable/selector_baidu_bank"
                     android:gravity="center"
                     android:text="银行" />
-                
-                   <RadioButton
+
+                <RadioButton
                     android:id="@+id/rb_baidumap_gongjiao"
-                    android:layout_width="50dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="5dp"
                     android:button="@null"
+                    android:drawablePadding="5dp"
+                    android:drawableTop="@drawable/selector_baidu_bus"
                     android:gravity="center"
                     android:text="公交" />
-                   
-                           <RadioButton
+
+                <RadioButton
                     android:id="@+id/rb_baidumap_ditie"
-                    android:layout_width="50dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="5dp"
                     android:button="@null"
+                    android:drawablePadding="5dp"
+                    android:drawableTop="@drawable/selector_baidu_subway"
                     android:gravity="center"
                     android:text="地铁" />
-                           
-                                         <RadioButton
+
+                <RadioButton
                     android:id="@+id/rb_baidumap_jiaoyu"
-                    android:layout_width="50dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="5dp"
                     android:button="@null"
+                    android:drawablePadding="5dp"
+                    android:drawableTop="@drawable/selector_baidu_education"
                     android:gravity="center"
                     android:text="教育" />
 
                 <RadioButton
                     android:id="@+id/rb_baidumap_yiyuan"
-                    android:layout_width="50dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="3dp"
                     android:layout_marginLeft="30dp"
+                    android:layout_marginTop="5dp"
                     android:button="@null"
+                    android:drawablePadding="5dp"
+                    android:drawableTop="@drawable/selector_baidu_hospital"
                     android:gravity="center"
                     android:text="医院" />
 
                 <RadioButton
                     android:id="@+id/rb_baidumap_xiuxian"
-                    android:layout_width="50dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="3dp"
                     android:layout_marginLeft="30dp"
+                    android:layout_marginTop="5dp"
                     android:button="@null"
+                    android:drawablePadding="5dp"
+                    android:drawableTop="@drawable/selector_baidu_game"
                     android:gravity="center"
                     android:text="休闲" />
 
                 <RadioButton
                     android:id="@+id/rb_baidumap_shop"
-                    android:layout_width="50dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="3dp"
                     android:layout_marginLeft="30dp"
+                    android:layout_marginTop="5dp"
                     android:button="@null"
+                    android:drawablePadding="5dp"
+                    android:drawableTop="@drawable/selector_baidu_shopping"
                     android:gravity="center"
                     android:text="购物" />
 
                 <RadioButton
                     android:id="@+id/rb_baidumap_jianshen"
-                    android:layout_width="50dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="3dp"
                     android:layout_marginLeft="30dp"
+                    android:layout_marginTop="5dp"
                     android:button="@null"
+                    android:drawablePadding="5dp"
+                    android:drawableTop="@drawable/selector_baidu_sport"
                     android:gravity="center"
                     android:text="健身" />
 
                 <RadioButton
                     android:id="@+id/rb_baidumap_meishi"
-                    android:layout_width="50dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="3dp"
                     android:layout_marginLeft="30dp"
                     android:layout_marginRight="15dp"
+                    android:layout_marginTop="5dp"
                     android:button="@null"
+                    android:drawablePadding="5dp"
+                    android:drawableTop="@drawable/selector_baidu_eating"
                     android:gravity="center"
                     android:text="美食" />
             </RadioGroup>

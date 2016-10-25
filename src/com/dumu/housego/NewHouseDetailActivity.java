@@ -4,6 +4,7 @@ import org.xutils.x;
 import org.xutils.view.annotation.ViewInject;
 
 import com.baidu.mapapi.map.BaiduMap;
+import com.baidu.mapapi.map.BaiduMap.OnMapClickListener;
 import com.baidu.mapapi.map.BitmapDescriptor;
 import com.baidu.mapapi.map.BitmapDescriptorFactory;
 import com.baidu.mapapi.map.MapPoi;
@@ -13,7 +14,6 @@ import com.baidu.mapapi.map.MapView;
 import com.baidu.mapapi.map.MarkerOptions;
 import com.baidu.mapapi.map.OverlayOptions;
 import com.baidu.mapapi.map.UiSettings;
-import com.baidu.mapapi.map.BaiduMap.OnMapClickListener;
 import com.baidu.mapapi.model.LatLng;
 import com.bumptech.glide.Glide;
 import com.dumu.housego.entity.NewHouseDetail;

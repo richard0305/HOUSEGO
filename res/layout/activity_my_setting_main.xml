@@ -239,7 +239,7 @@
                         android:textColor="#ffffff"
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="20dp"
-                        android:background="#ee3a43"
+                        android:background="@drawable/btn_submit_shap"
                         android:text="退出登录" />
 
                     <Button

@@ -1,5 +1,8 @@
 package com.dumu.housego.framgent;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.xutils.x;
 
 import com.bumptech.glide.Glide;
@@ -9,6 +12,7 @@ import com.dumu.housego.PersonalMainActivity;
 import com.dumu.housego.PuTongMyGuanZhuActivity;
 import com.dumu.housego.R;
 import com.dumu.housego.activity.LoginActivity;
+import com.dumu.housego.activity.MainActivity;
 import com.dumu.housego.app.HouseGoApp;
 import com.dumu.housego.entity.UserInfo;
 import com.dumu.housego.util.FontHelper;
@@ -16,6 +20,7 @@ import com.dumu.housego.util.FontHelper;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -26,6 +31,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class MyFramgent extends Fragment {
+	MainActivity activity=(MainActivity) getActivity();
+	private List<Fragment> fragmentss;
+	
 	private TextView tvLoginRegist;
 	private RelativeLayout rlSetting;
 	private RelativeLayout rlHistory;
@@ -33,15 +41,16 @@ public class MyFramgent extends Fragment {
 	private RelativeLayout rlMyentrust;
 	private RelativeLayout rlMyrenting;
 	private RelativeLayout rlMyershoufang;
-	
-	private RelativeLayout rlPutongMyyuyue;
+	private RelativeLayout rl_putong_mychuzu;
 	private ImageView ivMyPic;
 	private UserInfo userinfo;
-	private RelativeLayout rlPTMyGuanZhu;
+	private RelativeLayout rlPTMyGuanZhu,rl_putong_mysalehouse;
 private LinearLayout llMysettingAgentLogin,llMysettingPuTongLogin,llMysettingNologin;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View view=inflater.inflate(R.layout.framgent_my, null);
+		
+		
 		setViews(view);
 		x.view().inject(view);
 		setListener();
@@ -134,13 +143,27 @@ private LinearLayout llMysettingAgentLogin,llMysettingPuTongLogin,llMysettingNol
 			}
 		});
 		
-		rlPutongMyyuyue.setOnClickListener(new OnClickListener() {
+		rl_putong_mychuzu.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				Intent i=new Intent(getActivity(), PuTongMyGuanZhuActivity.class);
-				i.putExtra("v", "yuyue");
+				i.putExtra("v", "rentinghouse");
 				startActivity(i);
+			}
+		});
+		
+		rl_putong_mysalehouse.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+//				Intent i=new Intent(getActivity(), PuTongMyGuanZhuActivity.class);
+//				i.putExtra("v", "ershouhouse");
+//				startActivity(i);
+				FragmentManager fm = getFragmentManager();
+			
+		fm.beginTransaction().replace(R.layout.fragment_ptmyershou,new PTMyErShouFragment()).commit();
+				
 			}
 		});
 		
@@ -150,6 +173,10 @@ private LinearLayout llMysettingAgentLogin,llMysettingPuTongLogin,llMysettingNol
 	
 	
 	private void setViews(View view) {
+		
+		fragmentss = new ArrayList<Fragment>();
+		fragmentss.add(new PTMyErShouFragment());
+		
 		tvLoginRegist=(TextView) view.findViewById(R.id.tv_my_login_regist);
 		rlSetting=(RelativeLayout) view.findViewById(R.id.rl_settings);
 		rlHistory=(RelativeLayout) view.findViewById(R.id.rl_Histroy);
@@ -163,7 +190,9 @@ private LinearLayout llMysettingAgentLogin,llMysettingPuTongLogin,llMysettingNol
 		llMysettingAgentLogin=(LinearLayout) view.findViewById(R.id.ll_mysetting_agent_login);
 		llMysettingPuTongLogin=(LinearLayout) view.findViewById(R.id.ll_mysetting_putong_login);
 		rlPTMyGuanZhu=(RelativeLayout) view.findViewById(R.id.rl_putong_myguanzhu);
-		
-		rlPutongMyyuyue=(RelativeLayout) view.findViewById(R.id.rl_putong_myyuyue);
+		rl_putong_mychuzu=(RelativeLayout) view.findViewById(R.id.rl_putong_mychuzu);
+		rl_putong_mysalehouse=(RelativeLayout) view.findViewById(R.id.rl_putong_mysalehouse);
 	}
+	
+	
 }

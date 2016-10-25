@@ -1,6 +1,9 @@
 package com.dumu.housego.presenter;
 
+import java.util.List;
+
 import com.dumu.housego.model.IModel.AsycnCallBack;
+import com.dumu.housego.entity.YuYueData;
 import com.dumu.housego.model.IMyYuYueHouseModel;
 import com.dumu.housego.model.MyYuYueHouseModel;
 import com.dumu.housego.view.IMyYuYueHouseView;
@@ -17,24 +20,28 @@ public class MyYuYueHousePresenter implements IMyYuYueHousePresenter{
 	}
 
 	@Override
-	public void LoadMyYuYueHosue(String username, String t) {
-		model.LoadYuYueData(username, t,new AsycnCallBack() {
+	public void LoadMyYuYueHosue(String username) {
+		model.LoadYuYueData(username,new AsycnCallBack() {
 			
 			@Override
 			public void onSuccess(Object success) {
-				String info=(String) success;
-				view.LoadYuYueData(info);
+				List<YuYueData>yuyuedatas=(List<YuYueData>) success;
+				view.LoadYuYueDatasuccess(yuyuedatas);
 				
 			}
 			
 			@Override
 			public void onError(Object error) {
 				String errorinfo=(String) error;
-				view.LoadYuYueData(errorinfo);
+				view.LoadYuYueDataFaid(errorinfo);
 				
 			}
 		});
 		
+		
+	
+		
 	}
+
 
 }

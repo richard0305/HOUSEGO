@@ -227,7 +227,7 @@
         android:layout_below="@+id/et_repassword"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="63dp"
-        android:background="#ee3a43"
+         android:background="@drawable/btn_submit_shap"
         android:text="立即注册"
         android:textSize="14sp"
         android:textColor="#ffffff" />

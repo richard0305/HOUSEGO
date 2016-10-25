@@ -8,6 +8,7 @@ import org.xutils.view.annotation.ViewInject;
 
 import com.dumu.housego.app.HouseGoApp;
 import com.dumu.housego.entity.UserInfo;
+import com.dumu.housego.entity.YuYueData;
 import com.dumu.housego.framgent.GZErShouFramgent;
 import com.dumu.housego.framgent.GZNewFramgent;
 import com.dumu.housego.presenter.IMyYuYueHousePresenter;
@@ -30,7 +31,7 @@ import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.RelativeLayout;
 
-public class PuTongMyGuanZhuActivity extends FragmentActivity implements IMyYuYueHouseView{
+public class PuTongMyGuanZhuActivity extends FragmentActivity {
 	
 	private UserInfo userinfo=HouseGoApp.getContext().getCurrentUserInfo();
 	@ViewInject(R.id.guanzhu_ershou)RadioButton btnErShou;
@@ -42,19 +43,17 @@ public class PuTongMyGuanZhuActivity extends FragmentActivity implements IMyYuYu
 	private LinearLayout llBackPutongyuyue;
 	private LinearLayout llBackPutongguanzhu;	
 	
-	private RelativeLayout window_putong_yuyue;
-	private RelativeLayout window_putong_guanzhu;
-	
+	private RelativeLayout window_putong_guanzhu,window_putong_ershou,window_putong_rentinghouse;
 	private IMyYuYueHousePresenter MyYuYuePresenter;
 	private String username=userinfo.getUsername();
 	private String t="1";
-		
+	
+	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_pu_tong_my_guan_zhu);
-		MyYuYuePresenter=new MyYuYueHousePresenter(this);
 		x.view().inject(this);
 		initView();
 		setViewPagerAdapter();
@@ -66,18 +65,17 @@ public class PuTongMyGuanZhuActivity extends FragmentActivity implements IMyYuYu
 		String w=getIntent().getStringExtra("v");
 		
 		btnErShou.setTextColor(getResources().getColor(R.color.button_ckeck));
-		llBackPutongyuyue=(LinearLayout) findViewById(R.id.ll_back_putongyuyue);
 		llBackPutongguanzhu=(LinearLayout) findViewById(R.id.ll_back_putongguanzhu);
 		window_putong_guanzhu=(RelativeLayout) findViewById(R.id.window_putong_guanzhu);
-		window_putong_yuyue=(RelativeLayout) findViewById(R.id.window_putong_yuyue);
-		
+		window_putong_rentinghouse=(RelativeLayout) findViewById(R.id.window_putong_rentinghouse);
+		window_putong_ershou=(RelativeLayout)findViewById(R.id.window_putong_ershou);
 		
 		if(w.equals("guanzhu")){
 			window_putong_guanzhu.setVisibility(View.VISIBLE);
-		}else if(w.equals("yuyue")){
-			window_putong_yuyue.setVisibility(View.VISIBLE);
-			MyYuYuePresenter.LoadMyYuYueHosue(username, t);
-			
+		}else if(w.equals("rentinghouse")){
+			window_putong_rentinghouse.setVisibility(View.VISIBLE);
+		}else if(w.equals("ershouhouse")){
+			window_putong_ershou.setVisibility(View.VISIBLE);
 		}
 	
 		
@@ -113,13 +111,6 @@ public class PuTongMyGuanZhuActivity extends FragmentActivity implements IMyYuYu
 		});
 		
 		
-		llBackPutongyuyue.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				finish();
-			}
-		});
 		
 		llBackPutongguanzhu.setOnClickListener(new OnClickListener() {
 			
@@ -160,10 +151,7 @@ public class PuTongMyGuanZhuActivity extends FragmentActivity implements IMyYuYu
 
 	}
 
-	@Override
-	public void LoadYuYueData(String info) {
-		MyToastShowCenter.CenterToast(getApplicationContext(), info);
-	}
+
 
 
 }

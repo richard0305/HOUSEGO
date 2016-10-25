@@ -4,6 +4,7 @@ import org.xutils.x;
 import org.xutils.view.annotation.ViewInject;
 
 import com.baidu.mapapi.map.BaiduMap;
+import com.baidu.mapapi.map.BaiduMap.OnMapClickListener;
 import com.baidu.mapapi.map.BitmapDescriptor;
 import com.baidu.mapapi.map.BitmapDescriptorFactory;
 import com.baidu.mapapi.map.MapPoi;
@@ -13,7 +14,6 @@ import com.baidu.mapapi.map.MapView;
 import com.baidu.mapapi.map.MarkerOptions;
 import com.baidu.mapapi.map.OverlayOptions;
 import com.baidu.mapapi.map.UiSettings;
-import com.baidu.mapapi.map.BaiduMap.OnMapClickListener;
 import com.baidu.mapapi.model.LatLng;
 import com.bumptech.glide.Glide;
 import com.dumu.housego.entity.RentingDetail;
@@ -215,7 +215,6 @@ public class RentingDetailActivity extends Activity implements IRentingDetailVie
 			
 			@Override
 			public void onMapClick(LatLng arg0) {
-		MyToastShowCenter.CenterToast(getApplicationContext(), "点击了地图！！！");
 				
 				if(b.getJingweidu()==null){
 					MyToastShowCenter.CenterToast(getApplicationContext(), "房源的经纬度为空");

@@ -6,7 +6,6 @@ import java.util.List;
 import org.xutils.x;
 import org.xutils.view.annotation.ViewInject;
 
-import com.baidu.location.LocationClient;
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.BaiduMap.OnMapClickListener;
 import com.baidu.mapapi.map.BitmapDescriptor;
@@ -17,7 +16,6 @@ import com.baidu.mapapi.map.MapStatusUpdateFactory;
 import com.baidu.mapapi.map.MapView;
 import com.baidu.mapapi.map.MarkerOptions;
 import com.baidu.mapapi.map.OverlayOptions;
-import com.baidu.mapapi.map.UiSettings;
 import com.baidu.mapapi.model.LatLng;
 import com.bumptech.glide.Glide;
 import com.dumu.housego.activity.LoginActivity;
@@ -39,16 +37,14 @@ import com.dumu.housego.view.IYuYueHouseView;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.View.OnTouchListener;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
@@ -65,7 +61,8 @@ public class ErShouFangDetailsActivity extends Activity implements IYuYueHouseVi
 	private String timeyuyue;
 	
 	
-	
+	private BaiduMap mBaiduMAP;
+	private MapView mMapView;
 	private RadioButton rbErshoufangGuanzhu;
 	private ErShouFangDetails e;
 	private IErShouFangDetailPresenter esfPresenter;
@@ -76,16 +73,11 @@ public class ErShouFangDetailsActivity extends Activity implements IYuYueHouseVi
 	private MyReboundScrollView ErshoufangScrollview;
 	private boolean isFirstIn=true;
 	private TextView tvYuyuekanfang;
-	private BaiduMap mBaiduMAP;
-	public static MapView mMapView;
 	public LinearLayout llBackYuyuekanfang;
 	private IYuYueHousePresenter yuyuepresenter;
 	
 	private Button btnYuyuekanfang;
 	
-	//��λ���
-	private LocationClient mLocationClient;
-//	private MyLocationListener mLocationListener;
 	
 	@ViewInject(R.id.iv_housepic)ImageView ivIMG;
 	@ViewInject(R.id.tv_ershoufangdetails)TextView tvtitle;
@@ -147,10 +139,10 @@ public class ErShouFangDetailsActivity extends Activity implements IYuYueHouseVi
 			}
 		}
 	};
-	private BitmapDescriptor mCurrentMarker;
 	
 	private RelativeLayout ershoufang_feiyuyue;
 	private RelativeLayout rlErshoufangYuyuewindows;
+	private BitmapDescriptor mCurrentMarker;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -161,8 +153,6 @@ public class ErShouFangDetailsActivity extends Activity implements IYuYueHouseVi
 		setContentView(R.layout.activity_er_shou_fang_details);
 		x.view().inject(this);
 		initViews();
-		//��ʼ����λ
-//		initLocation();
 		initListener();
 		
 		
@@ -202,41 +192,7 @@ public class ErShouFangDetailsActivity extends Activity implements IYuYueHouseVi
 		
 	}
 	
-	
-//	  private void initLocation() {
-//		mLocationClient=new LocationClient(this);
-//		mLocationListener=new MyLocationListener();
-//		mLocationClient.registerLocationListener(mLocationListener);
-//		
-//		LocationClientOption option=new LocationClientOption();
-//		option.setCoorType("bd09ll");
-//		option.setIsNeedAddress(true);
-//		option.setOpenGps(true);
-//		option.setScanSpan(1000);
-//		
-//		mLocationClient.setLocOption(option);
-//		
-//	}
 
-
-	@Override  
-	    protected void onDestroy() {  
-	        super.onDestroy();  
-	        //��activityִ��onDestroyʱִ��mMapView.onDestroy()��ʵ�ֵ�ͼ�������ڹ���  
-	        mMapView.onDestroy();  
-	    }  
-	    @Override  
-	    protected void onResume() {  
-	        super.onResume();  
-	        //��activityִ��onResumeʱִ��mMapView. onResume ()��ʵ�ֵ�ͼ�������ڹ���  
-	        mMapView.onResume();  
-	        }  
-	    @Override  
-	    protected void onPause() {  
-	        super.onPause();  
-	        //��activityִ��onPauseʱִ��mMapView. onPause ()��ʵ�ֵ�ͼ�������ڹ���  
-	        mMapView.onPause();  
-	        }  
 	
 	
 	
@@ -273,68 +229,7 @@ public class ErShouFangDetailsActivity extends Activity implements IYuYueHouseVi
 				
 			}
 		});
-		
-//		mMapView.setOnClickListener(new OnClickListener() {
-//			
-//			@Override
-//			public void onClick(View v) {
-//				if(e.getJingweidu()==null){
-//					MyToastShowCenter.CenterToast(getApplicationContext(), "��Դ�ľ�γ��Ϊ��");
-//				}else{
-//					String jwd=e.getJingweidu();
-//					String[] arr=jwd.split(",");
-//					String j=arr[0].toString();
-//					String w=arr[1].toString();
-//					
-//					double latitude=Double.valueOf(j);
-//					double longitude=Double.valueOf(w);
-//					
-//
-//					
-//					Intent i=new Intent(getApplicationContext(), BaiduMapActivity.class);
-//					i.putExtra("latitude", latitude);
-//					i.putExtra("longitude", longitude);
-//					startActivity(i);
-//				}
-//		
-//				
-//			}
-//		});
-		
-		mMapView.setOnTouchListener(new OnTouchListener() { 
-			@Override 
-			public boolean onTouch(View v, MotionEvent event) { 
-			  if (event.getAction() == MotionEvent.ACTION_UP) { 
-				  
-			 
-				  ErshoufangScrollview.requestDisallowInterceptTouchEvent(false);  
-				  if(e.getJingweidu()==null){
-						MyToastShowCenter.CenterToast(getApplicationContext(), "房子的经纬度为空");
-					}else{
-						String jwd=e.getJingweidu();
-						String[] arr=jwd.split(",");
-						String j=arr[0].toString();
-						String w=arr[1].toString();
-						
-						double latitude=Double.valueOf(j);
-						double longitude=Double.valueOf(w);
-						
 	
-						
-						Intent i=new Intent(getApplicationContext(), BaiduMapActivity.class);
-						i.putExtra("latitude", latitude);
-						i.putExtra("longitude", longitude);
-						startActivity(i);
-					 }  
-			  }else{   
-				  
-				  ErshoufangScrollview.requestDisallowInterceptTouchEvent(true);  
-			  } 
-			return false; 
-			}
-
-		
-			});
 		
 		
 		rlBaidumap.setOnClickListener(new OnClickListener() {
@@ -396,7 +291,6 @@ public class ErShouFangDetailsActivity extends Activity implements IYuYueHouseVi
 			
 			@Override
 			public void onMapClick(LatLng arg0) {
-		MyToastShowCenter.CenterToast(getApplicationContext(), "点击了地图！！！");
 				
 				if(e.getJingweidu()==null){
 					MyToastShowCenter.CenterToast(getApplicationContext(), "房源的经纬度为空");
@@ -423,25 +317,34 @@ public class ErShouFangDetailsActivity extends Activity implements IYuYueHouseVi
 	}
 	protected void NewAlertDialog() {
 		
-		 new AlertDialog.Builder(this).setTitle("预约")  
-        .setMessage("您确定要预约么")  
-        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+		final AlertDialog alertDialog = new AlertDialog.Builder(this).create();  
+		alertDialog.show();  
+		Window window = alertDialog.getWindow();  
+		window.setContentView(R.layout.dialog_main_info);  
+		TextView tv_title = (TextView) window.findViewById(R.id.tv_dialog_title);  
+		tv_title.setText("是否去预约");  
+		TextView tv_message = (TextView) window.findViewById(R.id.tv_dialog_message);  
+		Button btnCancle=(Button) window.findViewById(R.id.btn_dialog_cancle);
+		Button btnSure=(Button) window.findViewById(R.id.btn_dialog_sure);
+		btnCancle.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				alertDialog.cancel();
+			}
+		});
+		btnSure.setOnClickListener(new OnClickListener() {
 			
 			@Override
-			public void onClick(DialogInterface dialog, int which) {
+			public void onClick(View v) {
 				ershoufang_feiyuyue.setVisibility(View.GONE);
 				rlErshoufangYuyuewindows.setVisibility(View.VISIBLE);
-				
+				alertDialog.cancel();
 			}
-		})  
-        .setNegativeButton("取消", new DialogInterface.OnClickListener() {
-			
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
-				finish();
-				
-			}
-		}).create().show();
+		});
+		
+		/**
+		 * 
+		 */
 		 
 		 
 		 llBackYuyuekanfang.setOnClickListener(new OnClickListener() {
@@ -537,25 +440,12 @@ public class ErShouFangDetailsActivity extends Activity implements IYuYueHouseVi
 		llBackYuyuekanfang=(LinearLayout) findViewById(R.id.ll_back_yuyuekanfnag);
 		btnYuyuekanfang=(Button) findViewById(R.id.btn_yuyuekanfang);
 		
-		
-		
-		mMapView=(MapView) findViewById(R.id.map_bmapView);
+		mMapView=(MapView) findViewById(R.id.ershou_bmapView);
 		mBaiduMAP=mMapView.getMap();
 		mMapView.showZoomControls(false);
 		mMapView.showScaleControl(false);
 		
-		
-		UiSettings settings=mBaiduMAP.getUiSettings();
-		settings.setAllGesturesEnabled(false);
-//		settings.setOverlookingGesturesEnabled(false);
-//		settings.setScrollGesturesEnabled(false);
-//		settings.setZoomGesturesEnabled(false);
-//		
-		/**
-		 * �ı��ͼ�ı�����
-		 */
-		MapStatusUpdate msu=MapStatusUpdateFactory.zoomTo(18.0f);
-		mBaiduMAP.setMapStatus(msu);
+
 		
 		
 	}
@@ -635,20 +525,10 @@ public class ErShouFangDetailsActivity extends Activity implements IYuYueHouseVi
 			
 			LatLng latLng=new LatLng( longitude,latitude);
 			
-			MapStatusUpdate msu=MapStatusUpdateFactory.newLatLng(latLng);
-			
-			/**
-			 * 
-			 */
-//			MapStatus.Builder builder=new MapStatus.Builder();
-//			mBaiduMAP.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));
-			/**
-			 * 
-			 */
-			
 			// ���ö�λͼ������ã���λģʽ���Ƿ���������Ϣ���û��Զ��嶨λͼ�꣩  
+			MapStatusUpdate msu=MapStatusUpdateFactory.newLatLng(latLng);
 			mCurrentMarker = BitmapDescriptorFactory  
-			    .fromResource(R.drawable.ic_location);  
+			    .fromResource(R.drawable.icon_gcoding);  
 			//����MarkerOption�������ڵ�ͼ�����Marker  
 			OverlayOptions option = new MarkerOptions()  
 			    .position(latLng)  
@@ -657,10 +537,11 @@ public class ErShouFangDetailsActivity extends Activity implements IYuYueHouseVi
 			mBaiduMAP.addOverlay(option);
 			mBaiduMAP.animateMapStatus(msu);
 			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
+		
 		
 	}
 	

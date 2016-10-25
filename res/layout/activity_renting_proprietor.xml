@@ -438,7 +438,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="20dp"
-        android:background="#ee3a43"
+       android:background="@drawable/btn_submit_shap"
         android:text="提交房源"
         android:textColor="#ffffff" />
 

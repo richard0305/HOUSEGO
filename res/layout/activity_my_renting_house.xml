@@ -329,11 +329,12 @@
             </RelativeLayout>
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
                 android:layout_marginTop="5dp"
+                android:padding="10dp"
                 android:text="上传图片"
+                android:background="#EDEEEE"
                 android:textSize="14sp" />
 
             <RelativeLayout
@@ -347,7 +348,7 @@
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/addpic" />
+                    android:src="@drawable/icon_pingjia_photo" />
             </RelativeLayout>
 
             <RelativeLayout

@@ -1,9 +1,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="#c9c9cb"
     android:layout_height="match_parent"
-    tools:context="com.dumu.housego.MapHouseMainActivity" >
+    android:background="#c9c9cb"
+    tools:context="com.dumu.housego.MapHouseMainActivity"
+    tools:ignore="RtlSymmetry,UnknownIdInLayout" >
 
     <RelativeLayout
         android:id="@+id/rl_map_house_title"
@@ -19,14 +20,7 @@
             android:layout_alignParentLeft="true"
             android:background="#c9c9cb" />
 
-        <ImageView
-            android:id="@+id/iv_map_house_MsM"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="16dp"
-            android:src="@drawable/msg_gray_44x34" />
+        
 
         <LinearLayout
             android:id="@+id/ll_map_house_back"
@@ -50,8 +44,8 @@
             android:layout_height="match_parent"
             android:layout_centerVertical="true"
             android:layout_marginLeft="20dp"
+            android:layout_alignParentRight="true"
             android:layout_marginRight="10dp"
-            android:layout_toLeftOf="@+id/iv_map_house_search"
             android:layout_toRightOf="@+id/ll_map_house_back"
             android:orientation="horizontal"
             android:paddingLeft="10dp"
@@ -65,20 +59,12 @@
                 android:button="@null"
                 android:checked="true"
                 android:gravity="center"
+                android:layout_marginLeft="20dp"
                 android:text="二手房"
                 android:textColor="#B5B5B5"
                 android:textSize="15sp" />
 
-            <RadioButton
-                android:id="@+id/btn_newhouse"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:button="@null"
-                android:gravity="center"
-                android:text="新房"
-                android:textColor="#B5B5B5"
-                android:textSize="15sp" />
+            
 
             <RadioButton
                 android:id="@+id/btn_renting"
@@ -89,22 +75,89 @@
                 android:gravity="center"
                 android:text="租房"
                 android:textColor="#B5B5B5"
+                android:layout_marginRight="30dp"
                 android:textSize="15sp" />
         </LinearLayout>
-
-        <ImageView
-            android:id="@+id/iv_map_house_search"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="10dp"
-            android:layout_toLeftOf="@+id/iv_map_house_MsM"
-            android:src="@drawable/search_gray_40x38" />
     </RelativeLayout>
 
     
 
+
+
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:id="@+id/ll_map_house_spinner"
+        android:layout_below="@+id/rl_map_house_title" >
+         
+        <Spinner 
+            android:paddingLeft="20dp"
+            android:id="@+id/maphouse_sp1"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:background="#F2F2F2"
+            android:layout_gravity="center_vertical"
+            android:spinnerMode="dropdown"
+            android:layout_height="match_parent"
+            android:entries="@array/maphousearea"
+            />
+        
+        <Button 
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#c9c9cb"
+            />
+        <Spinner 
+            android:id="@+id/maphouse_sp2"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:background="#F2F2F2"
+            android:paddingLeft="30dp"
+            
+            android:layout_gravity="center_vertical"
+            android:spinnerMode="dropdown"
+            android:layout_height="match_parent"
+            android:entries="@array/maphousesaixuan"
+            />
+         <Button 
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#c9c9cb"
+            />
+         <Spinner 
+            android:id="@+id/maphouse_sp3"
+            android:layout_width="0dp"
+            android:spinnerMode="dropdown"
+            android:layout_weight="1"
+            android:background="#F2F2F2"
+             android:paddingLeft="30dp"
+            android:layout_height="match_parent"
+            android:entries="@array/maphousepaixun"
+            />
+        
+    </LinearLayout>
+    
+        <Button 
+            android:id="@+id/lin1"
+           android:layout_below="@+id/ll_map_house_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#c9c9cb"
+            />
+    
+    <com.baidu.mapapi.map.MapView  
+    android:id="@+id/maphouse_bmapView"  
+    android:layout_width="match_parent"  
+    android:layout_height="match_parent"  
+    android:layout_below="@+id/lin1"
+    android:clickable="true" 
+    />
+    
+    
+        <LinearLayout
         android:layout_width="match_parent"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
@@ -115,6 +168,7 @@
         android:background="@drawable/linearlayout_shap"
         android:layout_marginBottom="30dp" >
         
+            
         <Button 
             android:id="@+id/btn_map_location"
             android:layout_width="0dp"
@@ -165,60 +219,6 @@
         
         
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_alignParentLeft="true"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_below="@+id/rl_map_house_title" >
-         
-        <Spinner 
-            android:paddingLeft="20dp"
-            android:id="@+id/maphouse_sp1"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:background="#F2F2F2"
-            android:layout_gravity="center_vertical"
-            android:spinnerMode="dropdown"
-            android:layout_height="match_parent"
-            android:entries="@array/maphousearea"
-            />
-        
-        <Button 
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="#c9c9cb"
-            />
-        <Spinner 
-            android:id="@+id/maphouse_sp2"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:background="#F2F2F2"
-            android:paddingLeft="30dp"
-            
-            android:layout_gravity="center_vertical"
-            android:spinnerMode="dropdown"
-            android:layout_height="match_parent"
-            android:entries="@array/maphousesaixuan"
-            />
-         <Button 
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="#c9c9cb"
-            />
-         <Spinner 
-            android:id="@+id/maphouse_sp3"
-            android:layout_width="0dp"
-            android:spinnerMode="dropdown"
-            android:layout_weight="1"
-            android:background="#F2F2F2"
-             android:paddingLeft="30dp"
-            android:layout_height="match_parent"
-            android:entries="@array/maphousepaixun"
-            />
-        
-    </LinearLayout>
+    
 
 </RelativeLayout>

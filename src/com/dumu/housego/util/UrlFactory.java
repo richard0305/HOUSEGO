@@ -194,6 +194,28 @@ public class UrlFactory {
 					return path;
 			}	
 	
+				//删除预约
+				public static String PostDeleteMyYuYueHouseUrl() {
+					String path = TSFURL+"index.php?g=api&m=user&a=yuyue_del";
+					return path;
+			}	
 	
+				//获取行政区房源套数
+				public static String PostXingzhengHouseUrl() {
+					String path = TSFURL+"index.php?g=api&m=map&a=city_house";
+					return path;
+			}	
+				//指定行政区下所以区域的房源套数
+				public static String PostzhidingXingzhengHouseUrl() {
+					String path = TSFURL+"index.php?g=api&m=map&a=area_house";
+					return path;
+			}	
+				//指定小区下所有的房源套数
+				public static String PostzhidingxiaoquHouseUrl() {
+					String path = TSFURL+"index.php?g=api&m=map&a=house";
+					return path;
+			}		
+				
+				
 	
 }
