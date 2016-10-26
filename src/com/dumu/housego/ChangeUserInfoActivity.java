@@ -18,13 +18,12 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class ChangeUserInfoActivity extends Activity implements IChangeUserInfoView{
+public class ChangeUserInfoActivity extends Activity {
 	private LinearLayout llBackChange;
 	private TextView tvSave;
 	private EditText etChangeNickname,etChangeAbout;
 	private RadioButton rbChangeSexSecret,rbChangeSexMan,rbChangeSexWoman;
 	private RadioGroup rgChangeSex;
-	private IChangeUserInfoPresenter changePresenter;
 	private UserInfo userinfo;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +33,6 @@ public class ChangeUserInfoActivity extends Activity implements IChangeUserInfoV
 		userinfo=HouseGoApp.getContext().getCurrentUserInfo();
 		setViews();
 		setListener();
-		changePresenter=new ChangeUserInfoPresenter(this);
 		
 	}
 	private void setListener() {
@@ -54,7 +52,6 @@ public class ChangeUserInfoActivity extends Activity implements IChangeUserInfoV
 					String nickname=etChangeNickname.getText().toString();
 					String about=etChangeAbout.getText().toString();
 					String sex=rbChangeSexMan.isChecked()?"1":(rbChangeSexWoman.isChecked()?"2":"0");
-					changePresenter.Change(userid, nickname, about, sex);
 				} catch (Exception e) {
 					e.printStackTrace();
 					Toast.makeText(getApplicationContext(), "请先登录！", Toast.LENGTH_SHORT).show();
@@ -99,17 +96,6 @@ public class ChangeUserInfoActivity extends Activity implements IChangeUserInfoV
 		}
 		
 		
-	}
-	@Override
-	public void changeFail(String errorMessage) {
-		Toast.makeText(getApplicationContext(), "修改失败！"+errorMessage, Toast.LENGTH_SHORT).show();
-		
-	}
-	@Override
-	public void changeSuccess() {
-		
-		Toast.makeText(getApplicationContext(), "修改成功！ ", Toast.LENGTH_SHORT).show();
-		finish();
 	}
 
 	

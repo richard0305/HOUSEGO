@@ -146,14 +146,13 @@
         
     </LinearLayout>
     
-       <com.dumu.housego.util.ListViewForScrollView
-           android:id="@+id/lv_renting_list"
-           android:layout_width="match_parent"
-           android:layout_height="match_parent"
-           android:layout_alignParentBottom="true"
-           android:layout_below="@+id/ll_renting_spinner" >
-
-            </com.dumu.housego.util.ListViewForScrollView>
+  
+     <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/lv_rentinglist"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/ll_renting_spinner" 
+        />
     
 
 </RelativeLayout>

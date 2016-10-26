@@ -34,11 +34,29 @@ public class UserInfo implements Serializable {
  private String islock;
  private String vip;
  private String overduedate;
+ 
+ private String vtel;
+ private String zhuanjie;
+ private String deptid;
+ private String agentid;
+ 
+ private String realname;
+ private String dengji;
+ private String worktime;
+ private String jiav;
+ private String cardnumber;
+ private String mainarea;
+ private String leixing;
+ private String biaoqian;
+ private String sfzpic;
+ private String coname;
 public UserInfo(String userid, String username, String password, String encrypt, String checked, String sex,
 		String about, String heat, String theme, String praise, String attention, String fans, String share,
 		String nickname, String userpic, String regdate, String lastdate, String regip, String lastip, String loginnum,
 		String email, String groupid, String areaid, String amount, String point, String modelid, String message,
-		String islock, String vip, String overduedate) {
+		String islock, String vip, String overduedate, String vtel, String zhuanjie, String deptid, String agentid,
+		String realname, String dengji, String worktime, String jiav, String cardnumber, String mainarea,
+		String leixing, String biaoqian, String sfzpic, String coname) {
 	super();
 	this.userid = userid;
 	this.username = username;
@@ -70,6 +88,20 @@ public UserInfo(String userid, String username, String password, String encrypt,
 	this.islock = islock;
 	this.vip = vip;
 	this.overduedate = overduedate;
+	this.vtel = vtel;
+	this.zhuanjie = zhuanjie;
+	this.deptid = deptid;
+	this.agentid = agentid;
+	this.realname = realname;
+	this.dengji = dengji;
+	this.worktime = worktime;
+	this.jiav = jiav;
+	this.cardnumber = cardnumber;
+	this.mainarea = mainarea;
+	this.leixing = leixing;
+	this.biaoqian = biaoqian;
+	this.sfzpic = sfzpic;
+	this.coname = coname;
 }
 public UserInfo() {
 	super();
@@ -254,6 +286,90 @@ public String getOverduedate() {
 public void setOverduedate(String overduedate) {
 	this.overduedate = overduedate;
 }
+public String getVtel() {
+	return vtel;
+}
+public void setVtel(String vtel) {
+	this.vtel = vtel;
+}
+public String getZhuanjie() {
+	return zhuanjie;
+}
+public void setZhuanjie(String zhuanjie) {
+	this.zhuanjie = zhuanjie;
+}
+public String getDeptid() {
+	return deptid;
+}
+public void setDeptid(String deptid) {
+	this.deptid = deptid;
+}
+public String getAgentid() {
+	return agentid;
+}
+public void setAgentid(String agentid) {
+	this.agentid = agentid;
+}
+public String getRealname() {
+	return realname;
+}
+public void setRealname(String realname) {
+	this.realname = realname;
+}
+public String getDengji() {
+	return dengji;
+}
+public void setDengji(String dengji) {
+	this.dengji = dengji;
+}
+public String getWorktime() {
+	return worktime;
+}
+public void setWorktime(String worktime) {
+	this.worktime = worktime;
+}
+public String getJiav() {
+	return jiav;
+}
+public void setJiav(String jiav) {
+	this.jiav = jiav;
+}
+public String getCardnumber() {
+	return cardnumber;
+}
+public void setCardnumber(String cardnumber) {
+	this.cardnumber = cardnumber;
+}
+public String getMainarea() {
+	return mainarea;
+}
+public void setMainarea(String mainarea) {
+	this.mainarea = mainarea;
+}
+public String getLeixing() {
+	return leixing;
+}
+public void setLeixing(String leixing) {
+	this.leixing = leixing;
+}
+public String getBiaoqian() {
+	return biaoqian;
+}
+public void setBiaoqian(String biaoqian) {
+	this.biaoqian = biaoqian;
+}
+public String getSfzpic() {
+	return sfzpic;
+}
+public void setSfzpic(String sfzpic) {
+	this.sfzpic = sfzpic;
+}
+public String getConame() {
+	return coname;
+}
+public void setConame(String coname) {
+	this.coname = coname;
+}
 @Override
 public String toString() {
 	return "UserInfo [userid=" + userid + ", username=" + username + ", password=" + password + ", encrypt=" + encrypt
@@ -262,11 +378,17 @@ public String toString() {
 			+ nickname + ", userpic=" + userpic + ", regdate=" + regdate + ", lastdate=" + lastdate + ", regip=" + regip
 			+ ", lastip=" + lastip + ", loginnum=" + loginnum + ", email=" + email + ", groupid=" + groupid
 			+ ", areaid=" + areaid + ", amount=" + amount + ", point=" + point + ", modelid=" + modelid + ", message="
-			+ message + ", islock=" + islock + ", vip=" + vip + ", overduedate=" + overduedate + "]";
+			+ message + ", islock=" + islock + ", vip=" + vip + ", overduedate=" + overduedate + ", vtel=" + vtel
+			+ ", zhuanjie=" + zhuanjie + ", deptid=" + deptid + ", agentid=" + agentid + ", realname=" + realname
+			+ ", dengji=" + dengji + ", worktime=" + worktime + ", jiav=" + jiav + ", cardnumber=" + cardnumber
+			+ ", mainarea=" + mainarea + ", leixing=" + leixing + ", biaoqian=" + biaoqian + ", sfzpic=" + sfzpic
+			+ ", coname=" + coname + "]";
 }
  
  
  
  
+ 
+
 
 }

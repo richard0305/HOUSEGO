@@ -50,7 +50,7 @@ public class MainActivity extends FragmentActivity{
 		FontHelper.injectFont(findViewById(android.R.id.content));
 		
 	}
-	
+//	
 	@Override
 	protected void onResume() {
 		HouseGoApp app=HouseGoApp.getContext();
@@ -60,7 +60,12 @@ public class MainActivity extends FragmentActivity{
 		super.onResume();
 	}
 
-
+	@Override
+	protected void onDestroy() {
+		userinfo=HouseGoApp.getContext().getCurrentUserInfo();
+		HouseGoApp.saveLoginInfo(getApplicationContext(), userinfo);
+		super.onDestroy();
+	}
 		
 	
 
@@ -106,7 +111,7 @@ public class MainActivity extends FragmentActivity{
 					rbHouse.setTextColor(getResources().getColor(R.color.button_unckeck));
 					rbMy.setTextColor(getResources().getColor(R.color.button_unckeck));
 					
-					//ÅÐ¶ÏÊÇ·ñµÇÂ¼£¬Ã»ÓÐµÇÂ¼£¬Ìø×ªµ½µÇÂ¼½çÃæ
+					//ï¿½Ð¶ï¿½ï¿½Ç·ï¿½ï¿½Â¼ï¿½ï¿½Ã»ï¿½Ðµï¿½Â¼ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½
 					userinfo=HouseGoApp.getContext().getCurrentUserInfo();
 					if(userinfo==null){
 						startActivity(new Intent(getApplicationContext(), LoginActivity.class));

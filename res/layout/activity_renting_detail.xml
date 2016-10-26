@@ -346,8 +346,8 @@
                    android:id="@+id/TextView06"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
-                   android:layout_above="@+id/TextView03"
-                   android:layout_alignLeft="@+id/TextView11"
+                   android:layout_alignBaseline="@+id/TextView03"
+                   android:layout_alignLeft="@+id/TextView07"
                    android:text="户型:"
                    android:textSize="12sp" />
 
@@ -399,8 +399,8 @@
                    android:id="@+id/TextView07"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
-                   android:layout_above="@+id/TextView04"
-                   android:layout_alignLeft="@+id/TextView06"
+                   android:layout_alignBaseline="@+id/TextView02"
+                   android:layout_alignLeft="@+id/TextView11"
                    android:text="发布:"
                    android:textSize="12sp" />
 
@@ -408,8 +408,8 @@
                    android:id="@+id/renting_fabushijian"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
-                   android:layout_above="@+id/TextView04"
-                   android:layout_alignLeft="@+id/renting_huxing"
+                   android:layout_alignBaseline="@+id/TextView07"
+                   android:layout_alignLeft="@+id/renting_location"
                    android:text="2016-09-07 16:01:32"
                    android:textColor="#000000"
                    android:textSize="12sp" />
@@ -536,7 +536,7 @@
 		    <TextView 
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
-		        android:text="asasassasas"
+		        android:text=""
 		        android:layout_below="@+id/tv_sas"
 		        android:id="@+id/tv_jiaotongchuxing"
 		        android:textSize="12sp"

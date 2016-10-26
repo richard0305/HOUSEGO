@@ -1,6 +1,7 @@
 package com.dumu.housego;
 
 import com.dumu.housego.activity.LoginActivity;
+import com.dumu.housego.app.HouseGoApp;
 import com.dumu.housego.util.FontHelper;
 
 import android.app.Activity;
@@ -36,9 +37,9 @@ public class MySettingMainActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				
+				HouseGoApp.clearData(null);
 				Intent logoutIntent = new Intent(getApplicationContext(), LoginActivity.class);
-                logoutIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+//                logoutIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(logoutIntent);	
 		
 			}

@@ -35,8 +35,6 @@ public class AgentMainActivity extends Activity implements IAgentModelDataView{
 		presenter.FindAgentModelData(catid);
 		setViews();
 		setListener();
-		
-		
 	}
 
 	private void setListener() {

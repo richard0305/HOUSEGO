@@ -1,10 +1,25 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
+    android:background="#fffff6"
     tools:context="com.dumu.housego.PersonalMainActivity"
     tools:ignore="ObsoleteLayoutParam,UseCompoundDrawables,RtlSymmetry,HardcodedText,RtlHardcoded,ContentDescription,UselessParent" >
-    
+   
+    <com.dumu.housego.util.MyReboundScrollView 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollview_changeshow"
+        android:scrollbars="none"
+        >
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        
+        
     <RelativeLayout
         android:id="@+id/rl_title"
         android:layout_width="match_parent"
@@ -50,13 +65,20 @@
         </LinearLayout>
     </RelativeLayout>
     
+    <Button
+        android:layout_marginTop="18dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#c9c9cb" />
+    
     <RelativeLayout
        android:id="@+id/rl_MyTouxiang"
        android:layout_width="match_parent"
-       android:layout_height="40dp"
+       android:layout_height="45dp"
        android:layout_alignParentLeft="true"
+       android:background="#fff"
        android:layout_below="@+id/rl_title"
-       android:layout_marginTop="18dp" >
+        >
 
        <TextView
            android:id="@+id/textView2"
@@ -87,39 +109,11 @@
            android:src="@drawable/touxiang2" />
 
    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/rl_Mynichen"
+   
+    <Button
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_below="@+id/rl_MyTouxiang"
-        android:layout_alignParentLeft="true"
-	>
-        <TextView
-            android:id="@+id/TextView01"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:gravity="center_vertical"
-            android:paddingLeft="10dp"
-            android:text="昵称"
-            android:textSize="16sp" />
-
-        <TextView 
-            android:id="@+id/tv_personal_nickname"
-                 android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:gravity="center_vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="游客"
-            android:textSize="14sp" 
-            android:paddingRight="30dp"
-            />
-
-    </RelativeLayout>
-    
+        android:layout_height="1dp"
+        android:background="#c9c9cb" />
     
      <Button
         android:id="@+id/btn_line"
@@ -132,9 +126,10 @@
       <RelativeLayout
        android:id="@+id/rl_personal_phone"
        android:layout_width="match_parent"
-       android:layout_height="35dp"
+       android:layout_height="45dp"
+       android:background="#fff"
        android:layout_below="@+id/btn_line"
-       android:layout_marginTop="5dp" >
+       >
 
       <TextView
             android:id="@+id/TextView02"
@@ -154,26 +149,23 @@
             android:gravity="center_vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="null"
+            android:text="15005148914"
             android:textSize="14sp" 
             android:paddingRight="30dp"
             />
    </RelativeLayout>
-   
-          <Button
-        android:id="@+id/btn_line2"
-        android:layout_marginTop="30dp"
+   <Button
         android:layout_width="match_parent"
-        android:layout_below="@+id/rl_personal_phone"
+        android:layout_below="@+id/rl_Mynichen"
         android:layout_height="1dp"
         android:background="#c9c9cb" />
-     
-      <RelativeLayout
-       android:id="@+id/rl_personal_info"
+    <RelativeLayout
+       android:id="@+id/rl_personal_viptype"
        android:layout_width="match_parent"
-       android:layout_height="35dp"
-       android:layout_below="@+id/btn_line2"
-       android:layout_marginTop="5dp" >
+       android:layout_height="45dp"
+       android:background="#fff"
+       android:layout_below="@+id/btn_line"
+        >
 
       <TextView
             android:id="@+id/TextView03"
@@ -183,7 +175,221 @@
             android:layout_centerVertical="true"
             android:gravity="center_vertical"
             android:paddingLeft="10dp"
-            android:text="修改个人资料"
+            android:text="会员类型"
+            android:textSize="16sp" />
+
+     <TextView 
+         	android:id="@+id/tv_personal_viptype"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="普通用户"
+            android:textSize="14sp" 
+            android:paddingRight="30dp"
+            />
+   </RelativeLayout>
+   
+  <Button
+        android:layout_width="match_parent"
+        android:layout_below="@+id/rl_Mynichen"
+        android:layout_height="1dp"
+        android:background="#c9c9cb" />
+    
+    <RelativeLayout
+       android:id="@+id/rl_person_realname"
+       android:layout_width="match_parent"
+       android:layout_height="45dp"
+       android:background="#fff"
+       android:layout_alignParentLeft="true"
+       android:layout_below="@+id/rl_title"
+       >
+
+       <TextView
+           android:id="@+id/textView21"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentLeft="true"
+           android:layout_centerVertical="true"
+           android:gravity="center_vertical"
+           android:paddingLeft="10dp"
+           android:text="真实姓名"
+           android:textSize="16sp" />
+
+       <ImageView
+           android:id="@+id/imageView21"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_centerVertical="true"
+           android:layout_marginRight="15dp"
+           android:layout_alignParentRight="true"
+           android:src="@drawable/gray_right" />
+     
+   </RelativeLayout>
+   
+    <Button
+        android:layout_width="match_parent"
+        android:layout_below="@+id/rl_Mynichen"
+        android:layout_height="1dp"
+        android:background="#c9c9cb" />
+    
+    
+    
+   
+    <RelativeLayout
+       android:id="@+id/rl_person_sex"
+       android:layout_width="match_parent"
+       android:layout_height="45dp"
+       android:layout_alignParentLeft="true"
+       android:background="#fff"
+       android:layout_below="@+id/rl_title"
+       >
+
+       <TextView
+           android:id="@+id/textView211"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentLeft="true"
+           android:layout_centerVertical="true"
+           android:gravity="center_vertical"
+           android:paddingLeft="10dp"
+           android:text="性别"
+           android:textSize="16sp" />
+       <TextView
+           android:id="@+id/tv_person_sex"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+          android:layout_toLeftOf="@+id/imageView211"
+           android:layout_centerVertical="true"
+           android:gravity="center_vertical"
+           android:paddingLeft="10dp"
+           android:text="男"
+           android:textSize="16sp" />
+
+       <ImageView
+           android:id="@+id/imageView211"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_centerVertical="true"
+           android:layout_marginRight="15dp"
+           android:layout_alignParentRight="true"
+           android:src="@drawable/gray_right" />
+     
+   </RelativeLayout>
+    
+    
+   
+    <Button
+        android:layout_width="match_parent"
+        android:layout_below="@+id/rl_Mynichen"
+        android:layout_height="1dp"
+        android:background="#c9c9cb" />
+    
+    <RelativeLayout
+       android:id="@+id/rl_person_fenjihao"
+       android:layout_width="match_parent"
+       android:layout_height="45dp"
+       android:layout_alignParentLeft="true"
+       android:background="#fff"
+       android:layout_below="@+id/rl_title"
+       >
+
+       <TextView
+           android:id="@+id/textView2111"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentLeft="true"
+           android:layout_centerVertical="true"
+           android:gravity="center_vertical"
+           android:paddingLeft="10dp"
+           android:text="分机号"
+           android:textSize="16sp" />
+       <TextView
+           android:id="@+id/tv_person_fenjihao"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+          android:layout_toLeftOf="@+id/imageView2111"
+           android:layout_centerVertical="true"
+           android:gravity="center_vertical"
+           android:paddingLeft="10dp"
+           android:text="申请分机号"
+           android:textSize="16sp" />
+
+       <ImageView
+           android:id="@+id/imageView2111"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_centerVertical="true"
+           android:layout_marginRight="15dp"
+           android:layout_alignParentRight="true"
+           android:src="@drawable/gray_right" />
+     
+   </RelativeLayout>
+  
+          <Button
+        android:layout_width="match_parent"
+        android:layout_below="@+id/rl_personal_phone"
+        android:layout_height="1dp"
+        android:background="#c9c9cb" />
+     
+          <RelativeLayout
+       android:id="@+id/rl_person_gerenjieshao"
+       android:layout_width="match_parent"
+       android:layout_height="45dp"
+       android:layout_alignParentLeft="true"
+       android:background="#fff"
+       android:layout_below="@+id/rl_title"
+       >
+
+       <TextView
+           android:id="@+id/textView213"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentLeft="true"
+           android:layout_centerVertical="true"
+           android:gravity="center_vertical"
+           android:paddingLeft="10dp"
+           android:text="个人介绍"
+           android:textSize="16sp" />
+
+       <ImageView
+           android:id="@+id/imageView213"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_centerVertical="true"
+           android:layout_marginRight="15dp"
+           android:layout_alignParentRight="true"
+           android:src="@drawable/gray_right" />
+     
+   </RelativeLayout>
+   
+              <Button
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#c9c9cb" />
+          
+                        <Button
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+         android:layout_marginTop="30dp"
+        android:background="#c9c9cb" />
+      <RelativeLayout
+       android:id="@+id/rl_personal_changepassword"
+       android:layout_width="match_parent"
+       android:layout_height="45dp"
+       android:layout_below="@+id/btn_line2"
+       android:background="#fff"
+       >
+
+      <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:text="修改密码"
             android:textSize="16sp" />
    <ImageView
            android:id="@+id/imageView3"
@@ -195,5 +401,490 @@
            android:src="@drawable/gray_right" />
     
    </RelativeLayout>
+         <Button
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:paddingBottom="30dp"
+        android:background="#c9c9cb" />
+      
+   </LinearLayout>
+      </com.dumu.housego.util.MyReboundScrollView>
+      
+    <!-- 修改真实姓名 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:id="@+id/rl_person_changerealname"
+        >
+    
+        <RelativeLayout
+            android:id="@+id/rl_changrealname"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:background="#ee3a43" >
 
-</RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:paddingLeft="5dp"
+            android:text="真实姓名"
+            android:textColor="#ffffff"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:id="@+id/ll_changerealname_back"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:paddingLeft="15dp"
+                android:text="取消"
+                android:gravity="center"
+                android:textColor="#ffffff"
+                android:textSize="16sp" />
+        </LinearLayout>
+        
+        <TextView
+          android:id="@+id/tv_changerealname_save"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+               android:layout_marginRight="15dp"
+                android:layout_alignParentRight="true"
+                android:text="保存"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:textColor="#ffffff"
+                android:textSize="16sp" />
+        
+    </RelativeLayout>
+     
+      <Button
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="30dp"
+        android:background="#c9c9cb" />
+        <EditText 
+            android:layout_width="match_parent"
+            android:background="#fff"
+            android:layout_height="45dp"
+            android:paddingLeft="15dp"
+            android:id="@+id/et_changrealname"
+            android:layout_below="@+id/rl_changrealname"
+            android:text="杨丽军"
+            android:hint="请输入真实姓名"
+            android:textSize="13sp"
+            android:textColor="#b1b4b5"
+            />
+        <Button
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#c9c9cb" />
+        
+        <TextView 
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+             android:textColor="#b1b4b5"
+             android:textSize="13sp"
+            android:text="!上传真实姓名，淘深房为您提供更多房源"
+            />
+        
+    </LinearLayout>
+    
+    <!-- 分机号申请与解绑 -->
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/ll__person_changfenjiahao"
+        android:visibility="gone"
+        android:orientation="vertical"
+        >
+         <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:background="#ee3a43" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:paddingLeft="5dp"
+            android:text="分机号管理"
+            android:textColor="#ffffff"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:id="@+id/ll_changefenjihao_back"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:paddingLeft="15dp"
+                android:text="取消"
+                android:gravity="center"
+                android:textColor="#ffffff"
+                android:textSize="16sp" />
+        </LinearLayout>
+        
+    </RelativeLayout>
+    
+        <LinearLayout 
+            android:layout_marginTop="60dp"
+            android:id="@+id/fenjihao_shenqing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            >
+            <Button
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#c9c9cb" />
+       <TextView 
+           android:id="@+id/tv_fenjihao_show"
+           android:layout_width="match_parent"
+           android:layout_height="45dp"
+           android:text="15005148914"
+           android:gravity="center_vertical"
+           android:paddingLeft="15dp"
+           />
+               <Button
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#c9c9cb" /> 
+            
+            <Button
+        android:id="@+id/btn_changefenjihao_shenqing"
+        android:layout_width="match_parent"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+         android:background="@drawable/btn_submit_shap"
+        android:text="申请分机号"
+        android:textSize="14sp"
+        android:textColor="#ffffff" />
+               
+        </LinearLayout>
+         
+      
+        <LinearLayout 
+            android:layout_marginTop="60dp"
+            android:id="@+id/fenjihao_jiebang"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:orientation="vertical"
+            >
+            <Button
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#c9c9cb" />
+       <TextView 
+           android:id="@+id/tv_fenjihao_show_1"
+           android:layout_width="match_parent"
+           android:layout_height="45dp"
+           android:text="15005148914"
+           android:gravity="center_vertical"
+           android:paddingLeft="15dp"
+           />
+               <Button
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#c9c9cb" /> 
+            
+            <Button
+        android:id="@+id/btn_changefenjihao_jiebang"
+        android:layout_width="match_parent"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+         android:background="@drawable/btn_submit_shap"
+        android:text="解绑分机号"
+        android:textSize="14sp"
+        android:textColor="#ffffff" />
+               
+        </LinearLayout>
+        
+    </LinearLayout>
+    
+    <!-- 个人介绍 -->
+    
+    <LinearLayout 
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/ll_person_gerenjieshao"
+        >
+        
+        <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:background="#ee3a43" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:paddingLeft="5dp"
+            android:text="个人介绍"
+            android:textColor="#ffffff"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:id="@+id/ll_changegerenjieshao_back"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:paddingLeft="15dp"
+                android:text="取消"
+                android:gravity="center"
+                android:textColor="#ffffff"
+                android:textSize="16sp" />
+        </LinearLayout>
+        
+        <TextView
+          android:id="@+id/tv_changegerenjieshao_save"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+               android:layout_marginRight="15dp"
+                android:layout_alignParentRight="true"
+                android:text="保存"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:textColor="#ffffff"
+                android:textSize="16sp" />
+    </RelativeLayout>
+     
+        <EditText 
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="@null"
+            android:id="@+id/et_changegerenjieshao"
+            android:hint="请输入个人说明，140个字以内"
+            android:gravity="top"
+            android:textColor="#b1b4b5"
+            android:padding="5dp"
+            android:textSize="13sp"
+            />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#c9c9cb" /> 
+        
+    <TextView
+        android:padding="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#b1b4b5"
+        android:text="添加说明，让别人更加了解你"
+        />
+    </LinearLayout>
+    
+    
+    <!-- 修改密码 -->
+    
+     <LinearLayout 
+         android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/ll_person_changepassword"
+        >
+        
+        <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:background="#ee3a43" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:paddingLeft="5dp"
+            android:text="修改密码"
+            android:textColor="#ffffff"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:id="@+id/ll_changepassword_back"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:paddingLeft="15dp"
+                android:text="取消"
+                android:gravity="center"
+                android:textColor="#ffffff"
+                android:textSize="16sp" />
+        </LinearLayout>
+        
+      
+    </RelativeLayout>
+    
+       
+        
+         <Button
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+                android:layout_marginTop="45dp"
+        android:background="#c9c9cb" /> 
+      <LinearLayout 
+  			 android:background="#fff"
+          android:layout_width="match_parent"
+          android:layout_height="45dp"
+          android:orientation="horizontal"
+          >
+         <TextView 
+             android:id="@+id/tv_current_password"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="当前密码:"
+             android:textSize="14sp"
+             android:padding="5dp"
+             android:layout_gravity="center_vertical"
+             /> 
+         <EditText 
+             android:password="true"
+             android:id="@+id/et_change_currentpassword"
+             android:layout_width="0dp"
+             android:layout_height="match_parent"
+             android:layout_weight="1"
+             android:hint="请输入当前密码"
+             android:layout_gravity="center_vertical"
+             android:textSize="14sp"
+             android:background="#fff"
+             />    
+      </LinearLayout>
+       <Button
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#c9c9cb" /> 
+      <LinearLayout 
+  android:background="#fff"
+          android:layout_width="match_parent"
+          android:layout_height="45dp"
+          android:orientation="horizontal"
+          >
+         <TextView 
+             android:id="@+id/tv_new_password"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="新  密  码:"
+             android:textSize="14sp"
+             android:padding="5dp"
+             android:layout_gravity="center_vertical"
+             /> 
+         <EditText 
+              android:id="@+id/et_change_Newpassword"
+             android:layout_width="0dp"
+             android:layout_height="match_parent"
+             android:layout_weight="1"
+             android:hint="至少6个以上字符"
+             android:password="true"
+             android:layout_gravity="center_vertical"
+             android:textSize="14sp"
+              android:background="#fff"
+             />    
+      </LinearLayout>
+      
+        <Button
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#c9c9cb" /> 
+     <LinearLayout 
+  android:background="#fff"
+          android:layout_width="match_parent"
+          android:layout_height="45dp"
+          android:orientation="horizontal"
+          >
+         <TextView 
+             android:id="@+id/tv_re_password"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="确认密码:"
+             android:textSize="14sp"
+             android:padding="5dp"
+             android:layout_gravity="center_vertical"
+             /> 
+         <EditText 
+              android:id="@+id/et_change_repassword"
+             android:layout_width="0dp"
+             android:layout_height="match_parent"
+             android:layout_weight="1"
+             
+             android:password="true"
+             android:hint="请再次输入新密码"
+             android:layout_gravity="center_vertical"
+             android:textSize="14sp"
+              android:background="#fff"
+             />    
+      </LinearLayout>
+          <Button
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#c9c9cb" /> 
+        
+       <Button
+        android:id="@+id/btn_changepassword_submit"
+        android:layout_width="match_parent"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/et_repassword"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+         android:background="@drawable/btn_submit_shap"
+        android:text="确定提交"
+        android:textSize="14sp"
+        android:textColor="#ffffff" />
+        
+       <TextView 
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="若忘记当前密码，可以尝试手机验证找回"
+           android:textSize="13sp"
+           android:layout_marginTop="15dp"
+           android:layout_gravity="center_horizontal"
+           android:textColor="#b1b4b5"
+           />
+          
+    </LinearLayout>
+    
+    
+    
+
+</LinearLayout>

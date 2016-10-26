@@ -108,9 +108,9 @@ public class LoginActivity extends Activity implements ILoginView, ILoginUserInf
 
 			@Override
 			public void onClick(View v) {
-//				 startActivity(new Intent(LoginActivity.this,
-//				 MainActivity.class));
-				finish();
+				 startActivity(new Intent(LoginActivity.this,
+				 MainActivity.class));
+//				finish();
 
 			}
 		});
@@ -339,7 +339,7 @@ public class LoginActivity extends Activity implements ILoginView, ILoginUserInf
 		userinfo=HouseGoApp.getContext().getCurrentUserInfo();
 	
 		HouseGoApp.saveLoginInfo(getApplicationContext(), userinfo);
-		
+		HouseGoApp.getContext().SaveCurrentUserInfo(userinfo);
 		
 		startActivity(new Intent(getApplicationContext(), MainActivity.class));
 	}

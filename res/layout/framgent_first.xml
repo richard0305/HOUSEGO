@@ -372,13 +372,7 @@
                     android:text="购房指南"
                     android:textSize="18sp" />
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:paddingRight="20dp"
-                    android:src="@drawable/right1" />
+         
             </RelativeLayout>
 
             <com.dumu.housego.util.ListViewForScrollView

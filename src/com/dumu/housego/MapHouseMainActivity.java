@@ -1,5 +1,6 @@
 package com.dumu.housego;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.baidu.mapapi.map.BaiduMap;
@@ -47,7 +48,7 @@ public class MapHouseMainActivity extends Activity implements IMapHouseDataView{
 	
 	private BaiduMap mBaiduMAP;
 	private MapView mMapView;
-	private List<AreaHouse>Areahouses;
+	private List<AreaHouse>Areahouses=new ArrayList<AreaHouse>();
 	private Handler handler;
 	
 	@Override
@@ -85,6 +86,7 @@ public class MapHouseMainActivity extends Activity implements IMapHouseDataView{
 		OverlayOptions options;
 		InfoWindow infoWindow;
 		TextView tv=new TextView(this);
+//		TextView tv=(TextView) findViewById(R.layout.mark_baidu_map);
 		
 		
 		try {
@@ -92,12 +94,14 @@ public class MapHouseMainActivity extends Activity implements IMapHouseDataView{
 				
 				for (AreaHouse a : Areahouses) {
 					if(a.getName().equals(l.getName())){
-						tv.setText(a.getName()+" "+a.getHouse_count());
+						tv.setText
+						(a.getName()+" "+
+						a.getHouse_count());
 					}
 				}
 				lat=new LatLng(l.getLatitude(),l.getLongitude());
 				tv.setTextColor(android.graphics.Color.BLACK);
-				tv.setPadding(30, 20, 30, 50);
+				tv.setPadding(30, 40, 30, 50);
 			
 				BitmapDescriptor bit=new BitmapDescriptorFactory().fromView(tv);
 				

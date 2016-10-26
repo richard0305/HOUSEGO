@@ -6,13 +6,17 @@ import java.util.List;
 import com.dumu.housego.adapter.ErShouFangRecommendAdapter;
 import com.dumu.housego.entity.ErShouFangRecommendData;
 import com.dumu.housego.entity.FourDataPrograma;
+import com.dumu.housego.model.ErShouFangProgramaModel;
+import com.dumu.housego.model.IModel.AsycnCallBack;
 import com.dumu.housego.presenter.ErShouFangProgramaPresenter;
 import com.dumu.housego.presenter.IFourDataProgramePresenter;
 import com.dumu.housego.util.FontHelper;
-import com.dumu.housego.utils.MyListener;
-import com.dumu.housego.utils.PullToRefreshLayout;
-import com.dumu.housego.utils.PullToRefreshLayout.OnRefreshListener;
+import com.dumu.housego.util.MyToastShowCenter;
 import com.dumu.housego.view.IErShouFangRecommendView;
+import com.handmark.pulltorefresh.library.PullToRefreshBase;
+import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener2;
+import com.handmark.pulltorefresh.library.PullToRefreshListView;
+
 
 import android.app.Activity;
 import android.content.Intent;
@@ -27,27 +31,29 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Spinner;
 
-public class ErShouFangMainActivity extends Activity implements IErShouFangRecommendView {
+public class ErShouFangMainActivity extends Activity implements IErShouFangRecommendView,OnRefreshListener2<ListView>{
 	private LinearLayout llErshoufang;
 	private ErShouFangRecommendAdapter adapter;
 	private IFourDataProgramePresenter presenter;
 	private List<ErShouFangRecommendData> ershoufangrecommends;
+	private List<ErShouFangRecommendData> lastershous=new ArrayList<ErShouFangRecommendData>();
 	private FourDataPrograma fourdata;
 	private Spinner ershoufangQuyuSp1;
 	private Spinner ershoufangQuyuSp2;
 	private Spinner ershoufangQuyuSp3;
 	private Spinner ershoufangQuyuSp4;
 
+	private ErShouFangProgramaModel model=new ErShouFangProgramaModel();
+	
+	
 	private List<String> spinnerList1 = new ArrayList<String>();
 	private List<String> spinnerList2 = new ArrayList<String>();
 	private List<String> spinnerList3 = new ArrayList<String>();
 	private List<String> spinnerList4 = new ArrayList<String>();
 	private ArrayAdapter<String> Spinneradapter;    
 	
-	private ListView listView;
-	private PullToRefreshLayout ptrl;
+	private PullToRefreshListView refreshListview;
 	private boolean isFirstIn = true;
-
 	private int page=1;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -78,21 +84,6 @@ public class ErShouFangMainActivity extends Activity implements IErShouFangRecom
 		String str=(String) ershoufangQuyuSp1.getSelectedItem();
 	}
 	
-	
-//	首次进入，刷新
-//	@Override
-//	public void onWindowFocusChanged(boolean hasFocus)
-//	{
-//		super.onWindowFocusChanged(hasFocus);
-//		// ��һ�ν����Զ�ˢ��
-//		if (isFirstIn)
-//		{
-//			ptrl.autoRefresh();
-//			isFirstIn = false;
-//		}
-//	}
-	
-
 	private void setListener() {
 		llErshoufang.setOnClickListener(new OnClickListener() {
 
@@ -103,7 +94,7 @@ public class ErShouFangMainActivity extends Activity implements IErShouFangRecom
 			}
 		});
 
-		listView.setOnItemClickListener(new OnItemClickListener() {
+		refreshListview.setOnItemClickListener(new OnItemClickListener() {
 
 			 @Override
 			public void onItemClick(AdapterView<?> arg0, View view, int position, long id) {
@@ -117,46 +108,111 @@ public class ErShouFangMainActivity extends Activity implements IErShouFangRecom
 			}
 		});
 		
-		ptrl.setOnRefreshListener(new OnRefreshListener() {
-			
-			@Override
-			public void onRefresh(PullToRefreshLayout pullToRefreshLayout) {
-				page=page+1;
-				fourdata.setCatid("6");
-				fourdata.setPage(page+"");
-				presenter.LoadProgrameData(fourdata);
-				adapter.notifyDataSetChanged();
-				
-			}
-			
-			@Override
-			public void onLoadMore(PullToRefreshLayout pullToRefreshLayout) {
-				
-				
-			}
-		});
+		
+		
+		
 
 	}
 
 	private void setViews() {
-		ptrl = ((PullToRefreshLayout) findViewById(R.id.refresh_view));
-		ptrl.setOnRefreshListener(new MyListener());
-		listView = (ListView) findViewById(R.id.content_view);
-		
+		//刷新
+		refreshListview=(PullToRefreshListView) findViewById(R.id.refresh_listview);
+		refreshListview.setMode(PullToRefreshBase.Mode.BOTH);
+		refreshListview.setOnRefreshListener(this);
+		//设置刷新声音
+//		SoundPullEventListener<ListView> soundListener=new SoundPullEventListener<ListView>(this);
+//		soundListener.addSoundEvent(State.PULL_TO_REFRESH, R.raw.);
+//		
+//		
 		llErshoufang = (LinearLayout) findViewById(R.id.ll_ershoufang_back);
 		ershoufangQuyuSp1=(Spinner) findViewById(R.id.ershoufang_quyu_sp1);
 		ershoufangQuyuSp2=(Spinner) findViewById(R.id.ershoufang_quyu_sp2);
 		ershoufangQuyuSp3=(Spinner) findViewById(R.id.ershoufang_quyu_sp3);
 		ershoufangQuyuSp4=(Spinner) findViewById(R.id.ershoufang_quyu_sp4);
+		
+		
 	}
 
 	@Override
 	public void showData(List<ErShouFangRecommendData> ershoufangrecommends) {
-		this.ershoufangrecommends = ershoufangrecommends;
-		Log.e("2016-10-10", "2016-10-10"+ershoufangrecommends);
-		adapter = new ErShouFangRecommendAdapter(ershoufangrecommends, getApplicationContext());
-		listView.setAdapter(adapter);
+		this.ershoufangrecommends=ershoufangrecommends;
+		
+		this.lastershous.addAll(ershoufangrecommends);
+		Log.e("2016-10-10", "2016-10-10"+lastershous);
+//		if(page==1){
+			adapter = new ErShouFangRecommendAdapter(lastershous, getApplicationContext());
+			refreshListview.setAdapter(adapter);
+//		}else{
+//			adapter.notifyDataSetChanged();
+//		}
+		
 
+	}
+	
+	
+
+	@Override
+	public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {
+		this.lastershous.clear();
+		page=1;
+		fourdata.setCatid("6");
+		fourdata.setPage(page+"");
+		presenter.LoadProgrameData(fourdata);
+		
+		
+		model.GetRecommedHouse(fourdata, new AsycnCallBack() {
+			
+			@Override
+			public void onSuccess(Object success) {
+				List<ErShouFangRecommendData> ershous=(List<ErShouFangRecommendData>) success;
+					
+					//将数据追加到集合中
+					lastershous.clear();
+					lastershous.addAll(ershous);
+					//刷新界面
+					adapter.notifyDataSetChanged();
+					//关闭上拉加载刷新布局
+					refreshListview.onRefreshComplete();
+					MyToastShowCenter.CenterToast(getApplicationContext(), "找到了"+lastershous.size()+"个房源！");
+			}
+			@Override
+			public void onError(Object error) {
+				MyToastShowCenter.CenterToast(getApplicationContext(), error.toString());
+				refreshListview.onRefreshComplete();
+				
+			}
+		});
+		
+	}
+
+	@Override
+	public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
+		page=page+1;
+		fourdata.setPage(page+"");
+		model.GetRecommedHouse(fourdata, new AsycnCallBack() {
+			
+			@Override
+			public void onSuccess(Object success) {
+				List<ErShouFangRecommendData> ershous=(List<ErShouFangRecommendData>) success;
+				
+				
+				lastershous.addAll(ershous);
+				//刷新界面
+				adapter.notifyDataSetChanged();
+				//关闭上拉加载刷新布局
+				refreshListview.onRefreshComplete();
+				MyToastShowCenter.CenterToast(getApplicationContext(), "找到了"+lastershous.size()+"个房源！");
+			}
+			
+			@Override
+			public void onError(Object error) {
+				MyToastShowCenter.CenterToast(getApplicationContext(), error.toString());
+				refreshListview.onRefreshComplete();
+				
+			}
+		});
+		
+		
 	}
 
 }

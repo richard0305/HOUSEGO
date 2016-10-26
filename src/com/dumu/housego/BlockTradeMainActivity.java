@@ -1,14 +1,21 @@
 package com.dumu.housego;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.dumu.housego.adapter.BlockTradeLsitAdapter;
 import com.dumu.housego.entity.BlockTradeList;
 import com.dumu.housego.entity.FourDataPrograma;
+import com.dumu.housego.model.BlockTradeProgramaModel;
+import com.dumu.housego.model.IModel.AsycnCallBack;
 import com.dumu.housego.presenter.BlockTradeProgramaPresenter;
 import com.dumu.housego.presenter.IFourDataProgramePresenter;
 import com.dumu.housego.util.FontHelper;
+import com.dumu.housego.util.MyToastShowCenter;
 import com.dumu.housego.view.IBlockTradeProgramaView;
+import com.handmark.pulltorefresh.library.PullToRefreshBase;
+import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener2;
+import com.handmark.pulltorefresh.library.PullToRefreshListView;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -21,13 +28,16 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
-public class BlockTradeMainActivity extends Activity implements IBlockTradeProgramaView{
+public class BlockTradeMainActivity extends Activity implements IBlockTradeProgramaView,OnRefreshListener2<ListView>{
 	private LinearLayout llBlockTradeBack;
-	private ListView lvBlockTrade;
+	private PullToRefreshListView lvBlockTrade;
 	private IFourDataProgramePresenter presenter;
 	private BlockTradeLsitAdapter adapter;
 	private List<BlockTradeList> blocktrades; 
+	private List<BlockTradeList>lastblocks=new ArrayList<BlockTradeList>();
 	private FourDataPrograma fourdata;
+	private BlockTradeProgramaModel model=new BlockTradeProgramaModel();
+	int page=1;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -44,7 +54,9 @@ public class BlockTradeMainActivity extends Activity implements IBlockTradeProgr
 	}
 	private void setViews() {
 		llBlockTradeBack=(LinearLayout) findViewById(R.id.ll_block_trade_back);
-		lvBlockTrade=(ListView) findViewById(R.id.lv_blocktrade);
+		lvBlockTrade=(PullToRefreshListView) findViewById(R.id.lv_blocktrade);
+		lvBlockTrade.setMode(PullToRefreshBase.Mode.BOTH);
+		lvBlockTrade.setOnRefreshListener(this);
 	}
 	private void setListener() {
 		llBlockTradeBack.setOnClickListener(new OnClickListener() {
@@ -65,8 +77,6 @@ public class BlockTradeMainActivity extends Activity implements IBlockTradeProgr
 				String catid=blocktrades.get(position).getCatid();
 				String posid=blocktrades.get(position).getPosid();
 				
-				Log.i("yanglijun", ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"+Id+catid+posid);
-//				String url = blocktrades.get(position).getUrl();
 				i.putExtra("id", Id);
 				i.putExtra("catid", catid);
 				i.putExtra("posid", posid);
@@ -79,8 +89,73 @@ public class BlockTradeMainActivity extends Activity implements IBlockTradeProgr
 	@Override
 	public void showData(List<BlockTradeList> blocktrades) {
 		this.blocktrades=blocktrades;
-		adapter=new BlockTradeLsitAdapter(blocktrades, getApplicationContext());
-		lvBlockTrade.setAdapter(adapter);
+		this.lastblocks.addAll(blocktrades);
+			adapter=new BlockTradeLsitAdapter(lastblocks, getApplicationContext());
+			lvBlockTrade.setAdapter(adapter);
+	}
+	
+	
+	@Override
+	public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {
+		page=1;
+		fourdata.setCatid("7");
+		fourdata.setPage(page+"");
+		model.GetRecommedHouse(fourdata, new AsycnCallBack() {
+			
+			@Override
+			public void onSuccess(Object success) {
+				List<BlockTradeList>blocks=(List<BlockTradeList>) success;
+				
+				//将数据追加到集合中
+				lastblocks.clear();
+				lastblocks.addAll(blocks);
+				//刷新界面
+				adapter.notifyDataSetChanged();
+				//关闭上拉加载刷新布局
+				lvBlockTrade.onRefreshComplete();
+				MyToastShowCenter.CenterToast(getApplicationContext(), "找到了"+lastblocks.size()+"个房源！");
+				
+			}
+			
+			@Override
+			public void onError(Object error) {
+				MyToastShowCenter.CenterToast(getApplicationContext(), error.toString());
+				lvBlockTrade.onRefreshComplete();
+				
+			}
+		});
+		
+	}
+	@Override
+	public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
+		page=page+1;
+		fourdata.setCatid("7");
+		fourdata.setPage(page+"");
+		model.GetRecommedHouse(fourdata, new AsycnCallBack() {
+			
+			@Override
+			public void onSuccess(Object success) {
+		List<BlockTradeList>blocks=(List<BlockTradeList>) success;
+				
+				//将数据追加到集合中
+				lastblocks.addAll(blocks);
+				//刷新界面
+				adapter.notifyDataSetChanged();
+				//关闭上拉加载刷新布局
+				lvBlockTrade.onRefreshComplete();
+				MyToastShowCenter.CenterToast(getApplicationContext(), "找到了"+lastblocks.size()+"个房源！");
+				
+			}
+			
+			@Override
+			public void onError(Object error) {
+				MyToastShowCenter.CenterToast(getApplicationContext(), error.toString());
+				lvBlockTrade.onRefreshComplete();
+				
+			}
+		});
+		
+		
 	}
 
 

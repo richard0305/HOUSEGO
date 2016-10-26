@@ -135,18 +135,18 @@ public class BlockTradeDetailActivity extends Activity implements IBlockTradeDet
 		}
 		tv_block_trade_detail_title.setText(b.getTitle());
 		tv_block_trade_detail_content.setText(b.getTitle());
-		tv_block_trade_detail_goudi.setText(b.getGoudijine()+"Ԫ");
+		tv_block_trade_detail_goudi.setText(b.getGoudijine()+"元");
 		
 		String date=TimeTurnDate.getStringDate(b.getUpdatetime());
 		tv_block_trade_detail_date.setText(date);
 		tv_block_trade_detail_phone.setText(b.getTel());
 		
 		tv_block_trade_detail_area.setText(b.getCityname()+" "+b.getAreaname());
-		tv_block_trade_detail_yusuanjine.setText(b.getZongjia()+"��Ԫ");
+		tv_block_trade_detail_yusuanjine.setText(b.getZongjia()+"万元");
 		tv_block_trade_detail_hezuofangshi.setText(b.getHezuofangshi());
-		tv_block_trade_detail_shiyongnianxian.setText(b.getShiyongnianxian()+"��");
+		tv_block_trade_detail_shiyongnianxian.setText(b.getShiyongnianxian()+"年");
 		tv_block_trade_detail_wuyeleixing.setText(b.getWuyetype());
-		tv_block_trade_detail_jianzhumianji.setText(b.getZhandimianji()+"�O");
+		tv_block_trade_detail_jianzhumianji.setText(b.getZhandimianji()+"㎡");
 		tv_block_trade_detail_lianxiren.setText(b.getUsername());
 		tv_block_trade_detail_address.setText(b.getAddress());
 		tv_block_trade_detail_xiangxijieshao.setText(b.getDescription());

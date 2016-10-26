@@ -42,34 +42,34 @@ public class WebHousePriceDetailActivity extends Activity {
 
 
 	private void setwebView() {
-		// ²»ÓÃ»º´æ£¬´Ó·þÎñÆ÷¼ÓÔØ×îÐÂµÄ
+		// ï¿½ï¿½ï¿½Ã»ï¿½ï¿½æ£¬ï¿½Ó·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Âµï¿½
 		webView.clearCache(true);
 		
 		
 		webView.getSettings().setJavaScriptEnabled(true);  
-		String	url = "http://www.wsting.site/demo/tracy.html";
+		String	url = "http://www.taoshenfang.com/index.php?a=lists&catid=57";
 			
 			
 			Log.i("yanglijun","---------------------------------------"+ url);
 			webView.loadUrl(url);
-			// µ¥»÷³¬Á´½Ó£¬Æô¶¯ÏµÍ³µÄä¯ÀÀÆ÷
-			// ½â¾ö·½·¨ new webViewClient
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó£ï¿½ï¿½ï¿½ï¿½ï¿½ÏµÍ³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ new webViewClient
 			webView.setWebViewClient(new WebViewClient() {
-				// Ã¿´Îµ¥»÷³¬Á´½Ó»áÖ´ÐÐ
+				// Ã¿ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó»ï¿½Ö´ï¿½ï¿½
 				@Override
 				public boolean shouldOverrideUrlLoading(WebView view, String url) {
-					// ÆÕÍ¨³¬Á´½Ó£¬Á´µ½£¬²»Òª´¦Àí webview»á¼ÓÔØhtml
-					// Ö´ÐÐÌØÊâ¹¦ÄÜ
+					// ï¿½ï¿½Í¨ï¿½ï¿½ï¿½ï¿½ï¿½Ó£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ webviewï¿½ï¿½ï¿½ï¿½ï¿½html
+					// Ö´ï¿½ï¿½ï¿½ï¿½ï¿½â¹¦ï¿½ï¿½
 					String tag = "tarena:tel/";
 					if (url.contains(tag)) {
-						// ´òµç»°
+						// ï¿½ï¿½ç»°
 						int taglength = tag.length();
 						String mobile = url.substring(taglength);
 						Uri uri = Uri.parse("tel:" + mobile);
 						Intent intent = new Intent(Intent.ACTION_CALL, uri);
 						startActivity(intent);
-						// Õâ¸ö³¬Á´½ÓandroidÒÑ¾­´¦ÀíÁË£¬webView²»ÔÙ¼ÓÔØ
-						// return false,androidÃ»ÓÐ´¦Àí£¬webview¼ÓÔØ¼ÌÐø¼ÓÔØ°É
+						// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½androidï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë£ï¿½webViewï¿½ï¿½ï¿½Ù¼ï¿½ï¿½ï¿½
+						// return false,androidÃ»ï¿½Ð´ï¿½ï¿½ï¿½webviewï¿½ï¿½ï¿½Ø¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø°ï¿½
 						return true;
 					}
 					return super.shouldOverrideUrlLoading(view, url);

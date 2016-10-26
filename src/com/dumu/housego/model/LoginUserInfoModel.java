@@ -15,6 +15,9 @@ import com.dumu.housego.app.HouseGoApp;
 import com.dumu.housego.entity.UserInfo;
 import com.dumu.housego.util.CommonRequest;
 import com.dumu.housego.util.UrlFactory;
+import com.google.gson.JsonObject;
+
+import android.util.Log;
 
 public class LoginUserInfoModel implements ILoginUserInfoModel{
 	private UserInfo userinfo;
@@ -28,6 +31,8 @@ public class LoginUserInfoModel implements ILoginUserInfoModel{
 
 			@Override
 			public void onResponse(String response) {
+				
+				Log.e("yangl;ijun", "1111111111111````````````11111111111"+response);
 				try {
 					JSONObject obj = new JSONObject(response);
 					userinfo=new UserInfo();
@@ -61,9 +66,31 @@ public class LoginUserInfoModel implements ILoginUserInfoModel{
 					userinfo.setIslock(obj.getString("islock"));
 					userinfo.setVip(obj.getString("vip"));
 					userinfo.setOverduedate(obj.getString("overduedate"));
+					userinfo.setVtel(obj.getString("vtel"));
+					userinfo.setZhuanjie(obj.getString("zhuanjie"));
+					userinfo.setDeptid(obj.getString("deptid"));
+					userinfo.setAgentid(obj.getString("agentid"));
+					
+					JSONObject j=obj.getJSONObject("info");
+					
+					userinfo.setRealname(j.getString("realname"));
+					
+					userinfo.setJiav(j.getString("jiav"));
+					if(obj.getString("modelid").equals("36")){
+						userinfo.setWorktime(j.getString("worktime"));
+						userinfo.setDengji(j.getString("dengji"));
+						userinfo.setCardnumber(j.getString("cardnumber"));
+						userinfo.setMainarea(j.getString("mainarea"));
+						userinfo.setLeixing(j.getString("leixing"));
+						userinfo.setBiaoqian(j.getString("biaoqian"));
+						userinfo.setSfzpic(j.getString("sfzpic"));
+						userinfo.setConame(j.getString("coname"));
+					}
+					
 					
 					HouseGoApp app=HouseGoApp.getContext();
-					app.SaveCurrentUserInfo(userinfo);;
+					app.SaveCurrentUserInfo(userinfo);
+			
 					
 					
 					back.onSuccess(userinfo);

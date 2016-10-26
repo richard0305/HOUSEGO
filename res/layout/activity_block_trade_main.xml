@@ -40,14 +40,16 @@
             <ImageView
                 android:id="@+id/imageView1"
                 android:layout_width="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="center_vertical"
                 android:layout_height="wrap_content"
+                
                 android:src="@drawable/white_left" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="返回"
+                android:layout_gravity="center_vertical"
                 android:textColor="#ffffff"
                 android:textSize="16sp" />
             
@@ -142,13 +144,12 @@
     </LinearLayout>
     
  
-      <ListView
-                android:id="@+id/lv_blocktrade"
-                android:layout_below="@+id/blocktrade_ll_spinner"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" >
-            </ListView>
-    
+     <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/lv_blocktrade"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/blocktrade_ll_spinner" 
+        />
 
 
 </RelativeLayout>

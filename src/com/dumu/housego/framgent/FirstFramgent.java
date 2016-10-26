@@ -8,6 +8,7 @@ import com.dumu.housego.ErShouFangMainActivity;
 import com.dumu.housego.HousePuchaseMainActivity;
 import com.dumu.housego.MapHouseMainActivity;
 import com.dumu.housego.NewHouseMainActivity;
+import com.dumu.housego.PersonalMainActivity;
 import com.dumu.housego.ProprietorMainActivity;
 import com.dumu.housego.R;
 import com.dumu.housego.RentingMainActivity;
@@ -93,7 +94,6 @@ public class FirstFramgent extends Fragment implements IShopGuideView {
 			@Override
 			public void onClick(View v) {
 				startActivity(new Intent(getActivity(), AgentMainActivity.class));
-
 			}
 		});
 

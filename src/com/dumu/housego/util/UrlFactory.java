@@ -3,6 +3,30 @@ package com.dumu.housego.util;
 public class UrlFactory {
 	
 	 public static String TSFURL="http://www.taoshenfang.com/"; 
+	 
+	 
+	 
+	 //直接修改密码
+		public static String PostChangePassword() {
+			String path = TSFURL+"index.php?g=member&m=public&a=mod_pwd2";
+			return path;
+		}
+	 
+	 
+	 
+	 
+		// 申请400电话
+		public static String GetShenQing400Url(String tel,String userid) {
+
+			String path = TSFURL+"index.php?g=api&m=api&a=add_vtel&tel="+tel+"&userid="+userid;
+			return path;
+		}
+		
+		// 申请400电话
+		public static String GetJieBang400Url(String tel,String userid) {
+			String path = TSFURL+"index.php?g=api&m=api&a=remove_vtel&tel="+tel+"&userid="+userid;
+			return path;
+		}
 
 	// ע��--��ȡ������֤��
 	public static String GetPhoneCodeUrl(String mob) {

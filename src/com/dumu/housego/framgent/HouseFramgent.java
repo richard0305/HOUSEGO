@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.dumu.housego.ErShouFangMainActivity;
 import com.dumu.housego.R;
+import com.dumu.housego.activity.LoginActivity;
 import com.dumu.housego.app.HouseGoApp;
 import com.dumu.housego.entity.UserInfo;
 import com.dumu.housego.util.CarouselPagerAdapter;
@@ -40,7 +41,7 @@ public class HouseFramgent extends Fragment implements CarouselViewPager.OnPageC
 	private List<ImageView> ivList = new ArrayList<ImageView>();
     private int[] ivIds = {R.drawable.pic1, R.drawable.pic2, R.drawable.pic3, R.drawable.pic4};
 
-    private ImageView[] indicationPoint;//Ö¸Ê¾µã¿Ø¼þ
+    private ImageView[] indicationPoint;//Ö¸Ê¾ï¿½ï¿½Ø¼ï¿½
     private LinearLayout pointLayout;
 	
 	@Override
@@ -66,7 +67,7 @@ public class HouseFramgent extends Fragment implements CarouselViewPager.OnPageC
 	            ivList.add(iv);
 	        }
 
-	        //¶¯Ì¬Éú³ÉÖ¸Ê¾µã
+	        //ï¿½ï¿½Ì¬ï¿½ï¿½ï¿½ï¿½Ö¸Ê¾ï¿½ï¿½
 	        indicationPoint = new ImageView[ivList.size()];
 	        for (int i = 0; i < indicationPoint.length; i++) {
 	            ImageView point = new ImageView(getActivity());
@@ -85,9 +86,9 @@ public class HouseFramgent extends Fragment implements CarouselViewPager.OnPageC
 
 	        mCarouselView.setAdapter(new CarouselPagerAdapter(ivList));
 	        mCarouselView.addOnPageChangeListener(this);
-	        //ÉèÖÃÍ¼Æ¬Õ¹Ê¾µÄÊ±¼ä
+	        //ï¿½ï¿½ï¿½ï¿½Í¼Æ¬Õ¹Ê¾ï¿½ï¿½Ê±ï¿½ï¿½
 	        mCarouselView.setDisplayTime(2000);
-	        //Í¼Æ¬¿ªÊ¼ÂÖ²¥
+	        //Í¼Æ¬ï¿½ï¿½Ê¼ï¿½Ö²ï¿½
 	        mCarouselView.start();
 
 	    }
@@ -102,12 +103,18 @@ public class HouseFramgent extends Fragment implements CarouselViewPager.OnPageC
 		if(userinfo!=null){
 		
 				if(userinfo.getModelid().equals("35")){
+					ll_noLogin_house.setVisibility(View.GONE);
+					ll_agent_house.setVisibility(View.GONE);
 					ll_putong_house.setVisibility(View.VISIBLE);
 					}else{
+						ll_putong_house.setVisibility(View.GONE);
+						ll_noLogin_house.setVisibility(View.GONE);
 					ll_agent_house.setVisibility(View.VISIBLE);
 					}
 		
 		}else{
+			ll_agent_house.setVisibility(View.GONE);
+			ll_putong_house.setVisibility(View.GONE);
 			ll_noLogin_house.setVisibility(View.VISIBLE);
 		}
 		super.onResume();
@@ -151,7 +158,7 @@ public class HouseFramgent extends Fragment implements CarouselViewPager.OnPageC
 		btnHouseNoLoginLogin.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				startActivity(new Intent(getActivity(), ErShouFangMainActivity.class));
+				startActivity(new Intent(getActivity(), LoginActivity.class));
 			}
 		});
 

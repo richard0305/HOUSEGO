@@ -16,11 +16,13 @@ import com.dumu.housego.activity.MainActivity;
 import com.dumu.housego.app.HouseGoApp;
 import com.dumu.housego.entity.UserInfo;
 import com.dumu.housego.util.FontHelper;
+import com.dumu.housego.util.MyToastShowCenter;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -31,8 +33,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class MyFramgent extends Fragment {
-	MainActivity activity=(MainActivity) getActivity();
-	private List<Fragment> fragmentss;
 	
 	private TextView tvLoginRegist;
 	private RelativeLayout rlSetting;
@@ -61,25 +61,40 @@ private LinearLayout llMysettingAgentLogin,llMysettingPuTongLogin,llMysettingNol
 		return view;
 	}
 	
+	
+	
 	@Override
 	public void onResume() {
 		
 		userinfo=HouseGoApp.getContext().getCurrentUserInfo();
 		if(userinfo!=null){
-		tvLoginRegist.setText(userinfo.getNickname()+"");
+		tvLoginRegist.setText(userinfo.getRealname()+"");
 		String imgurl=userinfo.getUserpic();
 		Glide.with(getActivity()).load(imgurl).into(ivMyPic);
 		tvLoginRegist.setClickable(false);
 		ivMyPic.setClickable(true);
 		
 		if(userinfo.getModelid().equals("35")){
+			llMysettingNologin.setVisibility(View.GONE);
+			llMysettingAgentLogin.setVisibility(View.GONE);
 			llMysettingPuTongLogin.setVisibility(View.VISIBLE);
+			
 		}else{
+			llMysettingPuTongLogin.setVisibility(View.GONE);
+			llMysettingNologin.setVisibility(View.GONE);
 			llMysettingAgentLogin.setVisibility(View.VISIBLE);
+			
 		}
 		
 		
 		}else{
+			tvLoginRegist.setText("登录/注册");
+			
+			ivMyPic.setImageResource(R.drawable.touxiang2);
+//			Glide.with(getActivity()).load(imgurl).into(ivMyPic);
+			
+			llMysettingAgentLogin.setVisibility(View.GONE);
+			llMysettingPuTongLogin.setVisibility(View.GONE);
 			llMysettingNologin.setVisibility(View.VISIBLE);
 			ivMyPic.setClickable(false);
 			tvLoginRegist.setClickable(true);
@@ -92,24 +107,40 @@ private LinearLayout llMysettingAgentLogin,llMysettingPuTongLogin,llMysettingNol
 	
 
 	private void setListener() {
-	
 		
-		ivMyPic.setOnClickListener(new OnClickListener() {
+		llMysettingNologin.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				Intent i2=new Intent(getActivity(), PersonalMainActivity.class);
-				startActivity(i2);
+				startActivity(new Intent(getActivity(), LoginActivity.class));
 				
 			}
 		});
+		
+	
+			ivMyPic.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					
+					startActivity(new Intent(getActivity(), PersonalMainActivity.class));
+				}
+			});
+		
+	
+		
 		
 		rlSetting.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				Intent i3=new Intent(getActivity(), MySettingMainActivity.class);
-				startActivity(i3);
+				if(userinfo!=null){
+					Intent i3=new Intent(getActivity(), MySettingMainActivity.class);
+					startActivity(i3);
+				}else{
+					startActivity(new Intent(getActivity(), LoginActivity.class));
+				}
+				
 				
 			}
 		});
@@ -153,19 +184,19 @@ private LinearLayout llMysettingAgentLogin,llMysettingPuTongLogin,llMysettingNol
 			}
 		});
 		
-		rl_putong_mysalehouse.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-//				Intent i=new Intent(getActivity(), PuTongMyGuanZhuActivity.class);
-//				i.putExtra("v", "ershouhouse");
-//				startActivity(i);
-				FragmentManager fm = getFragmentManager();
-			
-		fm.beginTransaction().replace(R.layout.fragment_ptmyershou,new PTMyErShouFragment()).commit();
-				
-			}
-		});
+//		rl_putong_mysalehouse.setOnClickListener(new OnClickListener() {
+//			
+//			@Override
+//			public void onClick(View v) {
+////				Intent i=new Intent(getActivity(), PuTongMyGuanZhuActivity.class);
+////				i.putExtra("v", "ershouhouse");
+////				startActivity(i);
+//				FragmentManager fm = getFragmentManager();
+//			
+//		fm.beginTransaction().replace(R.layout.fragment_ptmyershou,new PTMyErShouFragment()).commit();
+//				
+//			}
+//		});
 		
 		
 	}
@@ -174,8 +205,6 @@ private LinearLayout llMysettingAgentLogin,llMysettingPuTongLogin,llMysettingNol
 	
 	private void setViews(View view) {
 		
-		fragmentss = new ArrayList<Fragment>();
-		fragmentss.add(new PTMyErShouFragment());
 		
 		tvLoginRegist=(TextView) view.findViewById(R.id.tv_my_login_regist);
 		rlSetting=(RelativeLayout) view.findViewById(R.id.rl_settings);

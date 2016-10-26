@@ -53,8 +53,8 @@ public class HouseGoApp extends Application {
 		Queue = Volley.newRequestQueue(context);
 		x.Ext.init(getHousegoapp());
 		x.Ext.setDebug(true);
-		  //在使用SDK各组件之前初始化context信息，传入ApplicationContext  
-        //注意该方法要再setContentView方法之前实现  
+		  //锟斤拷使锟斤拷SDK锟斤拷锟斤拷锟街帮拷锟绞硷拷锟絚ontext锟斤拷息锟斤拷锟斤拷锟斤拷ApplicationContext  
+        //注锟斤拷梅锟斤拷锟揭拷锟絪etContentView锟斤拷锟斤拷之前实锟斤拷  
         SDKInitializer.initialize(getApplicationContext());  
 		
 		
@@ -62,7 +62,7 @@ public class HouseGoApp extends Application {
 	}
 
 	/**
-	 * 保存当前用户
+	 * 锟斤拷锟芥当前锟矫伙拷
 	 */
 	public void SaveCurrentUser(User user) {
 		this.user = user;
@@ -74,7 +74,7 @@ public class HouseGoApp extends Application {
 	}
 
 	/**
-	 * 保存当前用户信息
+	 * 锟斤拷锟芥当前锟矫伙拷锟斤拷息
 	 */
 	public void SaveCurrentUserInfo(UserInfo userinfo) {
 		this.userinfo = userinfo;
@@ -86,17 +86,17 @@ public class HouseGoApp extends Application {
 	}
 	
 	/**
-     * 使用SharedPreferences保存用户登录信息
+     * 使锟斤拷SharedPreferences锟斤拷锟斤拷锟矫伙拷锟斤拷录锟斤拷息
      * @param context
      * @param username
      * @param password
      */
     public static void saveLoginInfo(Context context,UserInfo userinfo){
-        //获取SharedPreferences对象
+        //锟斤拷取SharedPreferences锟斤拷锟斤拷
         SharedPreferences sharedPre=context.getSharedPreferences("config", context.MODE_PRIVATE);
-        //获取Editor对象
+        //锟斤拷取Editor锟斤拷锟斤拷
         Editor editor=sharedPre.edit();
-        //设置参数
+        //锟斤拷锟矫诧拷锟斤拷
         
         try {
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -104,7 +104,7 @@ public class HouseGoApp extends Application {
             oos.writeObject(userinfo);
             String string64 = new String(Base64.encode(baos.toByteArray(),
                     0));
-          //提交
+          //锟结交
             editor.putString("token", string64).commit();
         }catch (IOException e) {
             e.printStackTrace();
@@ -127,7 +127,14 @@ public class HouseGoApp extends Application {
             e.printStackTrace();
         }
         return userinfo;
-    
     }
+    
+    public static UserInfo clearData(UserInfo userinfo){
+    	userinfo=HouseGoApp.getLoginInfo(getContext());
+    	SharedPreferences sharedPre=context.getSharedPreferences("config", context.MODE_PRIVATE);
+    	sharedPre.edit().clear().commit();
+    	return userinfo;
+    }
+    
 
 }

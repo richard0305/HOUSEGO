@@ -138,26 +138,16 @@
             />
     </LinearLayout>
     
-     <com.dumu.housego.util.MyReboundScrollView
-        android:layout_below="@+id/ll_newhouselist_spinner"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" >
-          <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical" >
-            
-        <com.dumu.housego.util.ListViewForScrollView
+   
+
+     <com.handmark.pulltorefresh.library.PullToRefreshListView
         android:id="@+id/lv_newhouselist"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        ></com.dumu.housego.util.ListViewForScrollView>  
+        android:layout_below="@id/ll_newhouselist_spinner" 
+        />      
               
               
-              
-              
-           </LinearLayout>
-  </com.dumu.housego.util.MyReboundScrollView>
     
     
 </RelativeLayout>

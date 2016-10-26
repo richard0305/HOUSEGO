@@ -50,7 +50,7 @@ public class LookDateFragment extends Fragment implements IMyYuYueDeleteView,IMy
 	private CarouselViewPager mCarouselView;
 	private List<ImageView> ivList = new ArrayList<ImageView>();
     private int[] ivIds = {R.drawable.pic1, R.drawable.pic2, R.drawable.pic3, R.drawable.pic4};
-    private UserInfo userinfo=HouseGoApp.getContext().getCurrentUserInfo();
+    private UserInfo userinfo;
     private ImageView[] indicationPoint;//ָʾ��ؼ�
     private LinearLayout pointLayout;
     private LinearLayout ll_kanfangdate;
@@ -60,8 +60,8 @@ public class LookDateFragment extends Fragment implements IMyYuYueDeleteView,IMy
   private MyYuYueDateLsitAdapter yuyueadapter;
   private IMyYuYueHousePresenter yuyuepresenter;
   private IMyYuYueDeletePresenter deleteyuyuepresenter;
-  private String username=userinfo.getUsername();
-  private String userid=userinfo.getUserid();
+  private String username; 
+  private String userid;
   
 	private Handler handler=new Handler(){
 		@Override
@@ -83,6 +83,8 @@ public class LookDateFragment extends Fragment implements IMyYuYueDeleteView,IMy
 			}
 		}
 	};
+	
+	
   
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -92,9 +94,23 @@ public class LookDateFragment extends Fragment implements IMyYuYueDeleteView,IMy
 	        initListener();
 	        yuyuepresenter=new MyYuYueHousePresenter(this);
 	        deleteyuyuepresenter=new MyYuYueDeletePresenter(this);
-	        yuyuepresenter.LoadMyYuYueHosue(username);
+	        
 	        return rootView;
 	    }
+	
+	@Override
+	public void onResume() {
+		userinfo=HouseGoApp.getContext().getCurrentUserInfo();
+		if(userinfo!=null){
+			
+			username= userinfo.getUsername();
+			userid=userinfo.getUserid();
+			yuyuepresenter.LoadMyYuYueHosue(username);
+		}else{
+			
+		}
+		super.onResume();
+	}
 
 	    private void initListener() {
 	    	btnHouseDateLogin.setOnClickListener(new OnClickListener() {
