@@ -8,8 +8,11 @@ import com.dumu.housego.entity.NewHouseHotRecommend;
 import com.dumu.housego.entity.NewHouseList;
 import com.dumu.housego.entity.NewHouseRecommendData;
 import com.dumu.housego.entity.RecommendNews;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,11 +66,19 @@ public class NewHouseListAdapter extends BaseAdapter {
 		}
 		
 		NewHouseList n=getItem(position);
+		
+		DisplayImageOptions options=new DisplayImageOptions.Builder()
+				.cacheInMemory(true).cacheOnDisc(true).bitmapConfig(Bitmap.Config.RGB_565).build();
 		if(n.getThumb().startsWith("http://www.tao")){
-			Glide.with(context).load(n.getThumb()).into(holder.newhouselist_iv);
+//			Glide.with(context).load(n.getThumb()).into(holder.newhouselist_iv);
+			
+			
+			ImageLoader.getInstance().displayImage(n.getThumb(), holder.newhouselist_iv, options);
+			
 		}else{
 			String url="http://www.taoshenfang.com"+n.getThumb();
-			Glide.with(context).load(url).into(holder.newhouselist_iv);
+//			Glide.with(context).load(url).into(holder.newhouselist_iv);
+			ImageLoader.getInstance().displayImage(url, holder.newhouselist_iv, options);
 		}
 		
 	

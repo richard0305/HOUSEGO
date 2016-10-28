@@ -56,7 +56,7 @@ public class HouseFramgent extends Fragment implements CarouselViewPager.OnPageC
 		FontHelper.injectFont(view);
 		return view;
 	}
-	
+
 	
 	
 	

@@ -694,7 +694,8 @@
             android:layout_below="@+id/iv_my_back"
             android:orientation="vertical"
             android:background="#ffffff"
-            android:visibility="gone" >
+            
+            >
 
              
                <Button
@@ -832,48 +833,8 @@
                 android:layout_marginLeft="50dp"
                 android:background="#c9c9cb" />
 
-            <RelativeLayout
-                android:id="@+id/rl_agent_yuyueguanli"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_below="@+id/rl_Myentrust"
-                android:background="#ffffff" >
+            
 
-                <ImageView
-                    android:id="@+id/imageView7151"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="20dp"
-                    android:src="@drawable/iphone_16px" />
-
-                <TextView
-                    android:id="@+id/textView7151"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_centerVertical="true"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="50dp"
-                    android:text="预约管理"
-                    android:textSize="14sp" />
-
-                <ImageView
-                    android:id="@+id/imageView8141"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="20dp"
-                    android:src="@drawable/gray_right" />
-            </RelativeLayout>
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="50dp"
-                android:background="#c9c9cb" />
 
             <RelativeLayout
                 android:id="@+id/rl_agent_qiuzuguanli"
@@ -1122,7 +1083,7 @@
                 android:gravity="center_vertical"
                 android:paddingLeft="50dp"
                 android:text="设置"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
 
             <ImageView
                 android:id="@+id/imageView12"

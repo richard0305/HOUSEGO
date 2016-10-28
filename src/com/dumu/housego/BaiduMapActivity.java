@@ -254,7 +254,7 @@ public class BaiduMapActivity extends Activity  {
 			tv.setBackgroundResource(R.drawable.bg_overitem_1);
 			tv.setBackgroundColor(android.graphics.Color.WHITE);
 			tv.setTextColor(android.graphics.Color.BLACK);
-			tv.setPadding(30, 40, 30, 50);
+			tv.setPadding(30, 20, 30, 20);
 			tv.setText(info.getName()+"");
 			
 		

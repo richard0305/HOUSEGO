@@ -21,7 +21,7 @@
           >
                     <ImageView
             android:id="@+id/iv_guanzhuershou"
-            android:layout_width="80dp"
+            android:layout_width="120dp"
             android:layout_height="80dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/tv_guanzhu_title"
                 android:layout_below="@+id/tv_guanzhu_title"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="3dp"
                 android:text="金葵花园"
                 android:textSize="12sp" />
 
@@ -43,19 +43,19 @@
                 android:id="@+id/tv_guanzhu_fangxing"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/tv_guanzhu_xiaoquname"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="6dp"
                 android:layout_toRightOf="@+id/tv_guanzhu_xiaoquname"
                 android:text="2室2厅"
+                android:layout_alignBaseline="@+id/tv_guanzhu_xiaoquname"
                 android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/tv_guanzhu_area"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/tv_guanzhu_fangxing"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="6dp"
                 android:layout_toRightOf="@+id/tv_guanzhu_fangxing"
+                android:layout_alignBaseline="@+id/tv_guanzhu_xiaoquname"
                 android:text="76平米"
                 android:textSize="12sp" />
 
@@ -63,9 +63,8 @@
                 android:id="@+id/tv_guanzhu_chaoxiang"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/tv_guanzhu_area"
-                android:layout_alignBottom="@+id/tv_guanzhu_area"
-                android:layout_marginLeft="10dp"
+                android:layout_alignBaseline="@+id/tv_guanzhu_xiaoquname"
+                android:layout_marginLeft="6dp"
                 android:layout_toRightOf="@+id/tv_guanzhu_area"
                 android:text="南"
                 android:textSize="12sp" />
@@ -74,9 +73,8 @@
                 android:id="@+id/textView1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/tv_guanzhu_chaoxiang"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="15dp"
+                android:layout_alignBaseline="@+id/tv_guanzhu_xiaoquname"
+                 android:layout_toRightOf="@+id/tv_guanzhu_zongjia"
                 android:text="万"
                 android:textColor="#ff0000"
                 android:textSize="14sp" />
@@ -85,9 +83,10 @@
                 android:id="@+id/tv_guanzhu_zongjia"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/tv_guanzhu_area"
-                android:layout_toLeftOf="@+id/textView1"
+               android:layout_alignBaseline="@+id/tv_guanzhu_xiaoquname"
+                 android:layout_toRightOf="@+id/tv_guanzhu_chaoxiang"
                 android:text="45"
+                android:layout_marginLeft="6dp"
                 android:textColor="#ff0000"
                 android:textSize="16sp" />
 
@@ -97,7 +96,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/tv_guanzhu_xiaoquname"
                 android:layout_below="@+id/tv_guanzhu_xiaoquname"
-                android:layout_marginTop="6dp"
+                android:layout_marginTop="3dp"
                 android:text="中层(共18层)"
                 android:textSize="12sp" />
 
@@ -105,8 +104,8 @@
                 android:id="@+id/tv_guanzhu_jianzhutype"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/tv_guanzhu_louceng"
-                android:layout_marginLeft="10dp"
+               android:layout_alignBaseline="@+id/tv_guanzhu_louceng"
+                android:layout_marginLeft="6dp"
                 android:layout_toRightOf="@+id/tv_guanzhu_louceng"
                 android:text="5年房龄板塔结合"
                 android:textSize="12sp" />
@@ -115,9 +114,9 @@
                 android:id="@+id/tv_guanzhu_junjia"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/tv_guanzhu_jianzhutype"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="15dp"
+                android:layout_alignBaseline="@+id/tv_guanzhu_louceng"
+                android:layout_toRightOf="@+id/tv_guanzhu_jianzhutype"
+                android:layout_marginLeft="6dp"
                 android:text="5922元/㎡"
                 android:textSize="12sp" />
 
@@ -127,7 +126,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/tv_guanzhu_louceng"
                 android:layout_below="@+id/tv_guanzhu_louceng"
-                android:layout_marginTop="6dp"
+                android:layout_marginTop="3dp"
                 android:text="4号线"
                 android:textSize="12sp" />
 
@@ -135,7 +134,7 @@
                 android:id="@+id/tv_guanzhu_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="8dp"
                 android:layout_alignTop="@+id/iv_guanzhuershou"
                 android:layout_toRightOf="@+id/iv_guanzhuershou"
                 android:text="深圳大鹏新区葵涌"

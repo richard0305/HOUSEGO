@@ -67,6 +67,11 @@ public class MainActivity extends FragmentActivity{
 		super.onDestroy();
 	}
 		
+	@Override
+	public void onBackPressed() {
+		// TODO Auto-generated method stub
+		super.onBackPressed();
+	}
 	
 
 	private void setViews() {

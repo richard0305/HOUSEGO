@@ -10,11 +10,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#ee3a43"
-        android:padding="8dp"
+        android:padding="4dp"
         android:textColor="#eee"
         android:gravity="center"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textSize="16sp"
+        />
 
     <TextView
         android:id="@+id/tv_dialog_message"
@@ -35,10 +35,11 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_weight="1"
-            android:background="#ee3a43"
+            android:background="@drawable/btn_submit_shap"
             android:text="取消"
+            android:textSize="14sp"
             android:textColor="#ffffff"
-            android:textStyle="bold" />
+             />
 
         <Button
             android:id="@+id/btn_dialog_sure"
@@ -47,10 +48,11 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="15dp"
             android:layout_weight="1"
-            android:background="#ee3a43"
+            android:textSize="14sp"
+         android:background="@drawable/btn_submit_shap"
             android:text="确定"
             android:textColor="#ffffff"
-            android:textStyle="bold" />
+             />
     </LinearLayout>
 
 </LinearLayout>

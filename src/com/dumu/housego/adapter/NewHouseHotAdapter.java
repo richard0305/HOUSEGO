@@ -7,8 +7,11 @@ import com.dumu.housego.R;
 import com.dumu.housego.entity.NewHouseHotRecommend;
 import com.dumu.housego.entity.NewHouseRecommendData;
 import com.dumu.housego.entity.RecommendNews;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,7 +66,12 @@ public class NewHouseHotAdapter extends BaseAdapter {
 		
 		NewHouseHotRecommend n=getItem(position);
 		String url="http://www.taoshenfang.com"+n.getThumb();
-		Glide.with(context).load(url).into(holder.newhouse_rexiao_iv);
+//		Glide.with(context).load(url).into(holder.newhouse_rexiao_iv);
+		DisplayImageOptions options=new DisplayImageOptions.Builder()
+				.cacheInMemory(true).cacheOnDisc(true).bitmapConfig(Bitmap.Config.RGB_565).build();
+		
+		ImageLoader.getInstance().displayImage(url, holder.newhouse_rexiao_iv, options);
+		
 		holder.newhouse_rexiao_address.setText(n.getLoupandizhi());
 		holder.newhouse_rexiao_title.setText(n.getTitle());
 		holder.newhouse_rexiao_price.setText(n.getJunjia()+"元/㎡");

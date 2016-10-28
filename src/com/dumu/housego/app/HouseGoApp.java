@@ -2,6 +2,7 @@ package com.dumu.housego.app;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -14,6 +15,15 @@ import com.baidu.mapapi.SDKInitializer;
 import com.dumu.housego.R;
 import com.dumu.housego.entity.User;
 import com.dumu.housego.entity.UserInfo;
+import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiscCache;
+import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
+import com.nostra13.universalimageloader.cache.memory.impl.UsingFreqLimitedMemoryCache;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
+import com.nostra13.universalimageloader.core.download.BaseImageDownloader;
+import com.nostra13.universalimageloader.utils.StorageUtils;
 
 import android.app.Application;
 import android.content.Context;
@@ -57,7 +67,20 @@ public class HouseGoApp extends Application {
         //ע��÷���Ҫ��setContentView����֮ǰʵ��  
         SDKInitializer.initialize(getApplicationContext());  
 		
-		
+        //创建默认的ImagerLoader配置参数
+        File cacheDir=StorageUtils.getCacheDirectory(context);
+        ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(this)
+				// .memoryCacheExtraOptions(480, 800)
+				.threadPoolSize(3).threadPriority(Thread.NORM_PRIORITY - 2).denyCacheImageMultipleSizesInMemory()
+				.memoryCache(new UsingFreqLimitedMemoryCache(2 * 1024 * 1024)).memoryCacheSize(2 * 1024 * 1024)
+				.discCache(new UnlimitedDiscCache(cacheDir))
+				.discCacheSize(50 * 1024 * 1024).discCacheFileNameGenerator(new Md5FileNameGenerator())
+				.tasksProcessingOrder(QueueProcessingType.LIFO).discCacheFileCount(100)
+				// 缓存的文件数量
+				// 自定义缓存路径
+				.defaultDisplayImageOptions(DisplayImageOptions.createSimple())
+				.imageDownloader(new BaseImageDownloader(this, 5 * 1000, 30 * 1000)).build();
+		ImageLoader.getInstance().init(config);
 		   
 	}
 

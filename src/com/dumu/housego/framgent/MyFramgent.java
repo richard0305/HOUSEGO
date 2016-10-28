@@ -6,6 +6,7 @@ import java.util.List;
 import org.xutils.x;
 
 import com.bumptech.glide.Glide;
+import com.dumu.housego.AgentChangeUserInfoActivity;
 import com.dumu.housego.MyRentingHouseAgentActivity;
 import com.dumu.housego.MySettingMainActivity;
 import com.dumu.housego.PersonalMainActivity;
@@ -15,6 +16,7 @@ import com.dumu.housego.activity.LoginActivity;
 import com.dumu.housego.activity.MainActivity;
 import com.dumu.housego.app.HouseGoApp;
 import com.dumu.housego.entity.UserInfo;
+import com.dumu.housego.util.CircleImageView;
 import com.dumu.housego.util.FontHelper;
 import com.dumu.housego.util.MyToastShowCenter;
 
@@ -42,7 +44,7 @@ public class MyFramgent extends Fragment {
 	private RelativeLayout rlMyrenting;
 	private RelativeLayout rlMyershoufang;
 	private RelativeLayout rl_putong_mychuzu;
-	private ImageView ivMyPic;
+	private CircleImageView ivMyPic;
 	private UserInfo userinfo;
 	private RelativeLayout rlPTMyGuanZhu,rl_putong_mysalehouse;
 private LinearLayout llMysettingAgentLogin,llMysettingPuTongLogin,llMysettingNologin;
@@ -122,8 +124,11 @@ private LinearLayout llMysettingAgentLogin,llMysettingPuTongLogin,llMysettingNol
 				
 				@Override
 				public void onClick(View v) {
-					
+					if(userinfo.getModelid().equals("35")){
 					startActivity(new Intent(getActivity(), PersonalMainActivity.class));
+					}else{
+						startActivity(new Intent(getActivity(),AgentChangeUserInfoActivity.class));
+					}
 				}
 			});
 		
@@ -213,7 +218,7 @@ private LinearLayout llMysettingAgentLogin,llMysettingPuTongLogin,llMysettingNol
 		rlMyrenting=(RelativeLayout) view.findViewById(R.id.rl_Myrenting);
 		rlMyentrust=(RelativeLayout) view.findViewById(R.id.rl_Myentrust);
 		rlYuyueguanli=(RelativeLayout) view.findViewById(R.id.rl_Yuyueguanli);
-		ivMyPic=(ImageView) view.findViewById(R.id.iv_my_Photo);
+		ivMyPic=(CircleImageView) view.findViewById(R.id.iv_my_Photo);
 		
 		llMysettingNologin=(LinearLayout) view.findViewById(R.id.ll_mysetting_nologin);
 		llMysettingAgentLogin=(LinearLayout) view.findViewById(R.id.ll_mysetting_agent_login);

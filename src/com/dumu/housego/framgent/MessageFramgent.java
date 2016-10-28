@@ -33,11 +33,12 @@ public class MessageFramgent extends Fragment {
 	
 	@Override
 	public void onResume() {
-		//ÅÐ¶ÏÊÇ·ñµÇÂ¼£¬Ã»ÓÐµÇÂ¼£¬Ìø×ªµ½µÇÂ¼½çÃæ
+		//ï¿½Ð¶ï¿½ï¿½Ç·ï¿½ï¿½Â¼ï¿½ï¿½Ã»ï¿½Ðµï¿½Â¼ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½
 		userinfo=HouseGoApp.getContext().getCurrentUserInfo();
 		if(userinfo==null){
+//			startActivity(new Intent(getActivity(), LoginActivity.class));
 		}else{
-			//µÇÂ¼ºó£¬¼ì²âÓÃ»§ÊÇ·ñÓÐMessage£¬Ã»ÓÐÔòÏÔÊ¾ÏûÏ¢Îª¿Õ°´Å¥
+			//ï¿½ï¿½Â¼ï¿½ó£¬¼ï¿½ï¿½ï¿½Ã»ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Messageï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½Ï¢Îªï¿½Õ°ï¿½Å¥
 			if(userinfo.getMessage()!="0"){
 				rlMessageNo.setVisibility(View.VISIBLE);
 			}

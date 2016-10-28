@@ -7,8 +7,11 @@ import com.dumu.housego.R;
 import com.dumu.housego.adapter.BlockTradeLsitAdapter.ViewHolder;
 import com.dumu.housego.entity.AgentData;
 import com.dumu.housego.entity.BlockTradeList;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -67,7 +70,11 @@ public class AgentDataAdapter extends BaseAdapter {
 		AgentData n=getItem(position);
 			String url=n.getUserpic();
 			
-		Glide.with(context).load(url).into(holder.ivAgentdataPic);
+//		Glide.with(context).load(url).into(holder.ivAgentdataPic);
+		DisplayImageOptions options=new DisplayImageOptions.Builder()
+				.cacheInMemory(true).cacheOnDisc(true).bitmapConfig(Bitmap.Config.RGB_565).build();
+		
+		ImageLoader.getInstance().displayImage(url, holder.ivAgentdataPic, options);
 		holder.tvAgentdataBiaoqian.setText(n.getBiaoqian());
 		holder.tvAgentdataLevel.setText(n.getDengji());
 		holder.tvAgentdataMainarea.setText(n.getMainarea());

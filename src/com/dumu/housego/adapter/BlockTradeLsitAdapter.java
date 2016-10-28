@@ -6,8 +6,11 @@ import com.bumptech.glide.Glide;
 import com.dumu.housego.R;
 import com.dumu.housego.entity.BlockTradeList;
 import com.dumu.housego.entity.ErShouFangRecommendData;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,7 +66,13 @@ public class BlockTradeLsitAdapter extends BaseAdapter {
 		BlockTradeList n=getItem(position);
 		
 		String url="http://www.taoshenfang.com"+n.getThumb();
-		Glide.with(context).load(url).into(holder.ivImg);
+//		Glide.with(context).load(url).into(holder.ivImg);
+		
+		DisplayImageOptions options=new DisplayImageOptions.Builder()
+				.cacheInMemory(true).cacheOnDisc(true).bitmapConfig(Bitmap.Config.RGB_565).build();
+		
+		ImageLoader.getInstance().displayImage(url, holder.ivImg, options);
+		
 		
 		holder.tvTitle.setText(n.getTitle()+"");
 //		holder.tvPrice.setText(n.getZongjia()+"");

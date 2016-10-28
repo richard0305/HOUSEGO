@@ -189,12 +189,14 @@ public class GZErShouFramgent extends Fragment implements IGuanZhuErShouView,IGu
 			holder.tvJianzhuType=(TextView) convertView.findViewById(R.id.tv_guanzhu_jianzhutype);
 			holder.tvJunjias=(TextView) convertView.findViewById(R.id.tv_guanzhu_junjia);
 			holder.tvLouceng=(TextView) convertView.findViewById(R.id.tv_guanzhu_louceng);
-			holder.tvPrice=(TextView) convertView.findViewById(R.id.tv_guanzhu_title);
-			holder.tvTitle=(TextView) convertView.findViewById(R.id.tv_guanzhu_xiaoquname);
-			holder.tvXiaoquName=(TextView) convertView.findViewById(R.id.tv_guanzhu_zongjia);
+			holder.tvPrice=(TextView) convertView.findViewById(R.id.tv_guanzhu_zongjia);
+			holder.tvTitle=(TextView) convertView.findViewById(R.id.tv_guanzhu_title);
+			holder.tvXiaoquName=(TextView) convertView.findViewById(R.id.tv_guanzhu_xiaoquname);
 			holder.item_left = (LinearLayout) convertView.findViewById(R.id.item_left);
 			holder.item_right = (RelativeLayout) convertView.findViewById(R.id.item_right);
 			holder.item_right_txt = (TextView) convertView.findViewById(R.id.item_right_txt);
+			holder.textView1=(TextView) convertView.findViewById(R.id.textView1);
+			
 				convertView.setTag(holder);
 			}else{
 				holder = (ViewHolder) convertView.getTag();
@@ -218,9 +220,9 @@ public class GZErShouFramgent extends Fragment implements IGuanZhuErShouView,IGu
 			
 			holder.tvArea.setText(n.getArea()+"平米");
 			holder.tvChaoxiang.setText(n.getChaoxiang());
-			holder.tvDitiexian.setText(n.getDitiexian());
+			holder.tvDitiexian.setText(n.getDitiexian()+"号线");
 			holder.tvFangxing.setText(n.getShi()+"室"+n.getTing()+"厅");
-			holder.tvJianzhuType.setText(n.getFangling()+"房龄"+n.getJianzhutype());
+			holder.tvJianzhuType.setText(n.getFangling()+"年房龄"+n.getJianzhutype());
 			
 			int zongjia=Integer.parseInt(n.getZongjia())*10000;
 			int mianji=Integer.parseInt(n.getJianzhumianji());
@@ -230,7 +232,7 @@ public class GZErShouFramgent extends Fragment implements IGuanZhuErShouView,IGu
 			holder.tvLouceng.setText(n.getCeng()+"(共"+n.getZongceng()+"层)");
 			holder.tvPrice.setText(n.getZongjia());
 			holder.tvXiaoquName.setText(n.getXiaoquName());
-			
+			holder.textView1.setText("万");
 			//ȡ����ע�������ֵ
 	
 			
@@ -283,9 +285,11 @@ public class GZErShouFramgent extends Fragment implements IGuanZhuErShouView,IGu
 			TextView tvDitiexian;
 			TextView tvLouceng;
 			TextView tvJianzhuType;
+			TextView textView1;
 			TextView tvXiaoquName;
 			TextView tvJunjias;
 			ImageView ivImg;
+			
 			TextView item_right_txt;
 			LinearLayout item_left;
 			RelativeLayout item_right;

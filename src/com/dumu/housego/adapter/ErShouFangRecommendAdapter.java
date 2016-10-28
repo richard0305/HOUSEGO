@@ -5,8 +5,11 @@ import java.util.List;
 import com.bumptech.glide.Glide;
 import com.dumu.housego.R;
 import com.dumu.housego.entity.ErShouFangRecommendData;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,19 +64,36 @@ public class ErShouFangRecommendAdapter extends BaseAdapter {
 		}
 		ErShouFangRecommendData n=getItem(position);
 		
+		//æ˜¾ç¤ºå›¾ç‰‡çš„é…ç½®
+		
 		String url="http://www.taoshenfang.com"+n.getThumb();
-		Glide.with(context).load(url).into(holder.ivImg);
+		
+		DisplayImageOptions options=new DisplayImageOptions.Builder()
+				.cacheInMemory(true).cacheOnDisc(true).bitmapConfig(Bitmap.Config.RGB_565).build();
+		
+		ImageLoader.getInstance().displayImage(url, holder.ivImg, options);
+		
+		
+		
+		
+		
+//		Glide.with(context).load(url).into(holder.ivImg);
 		
 		holder.tvTitle.setText(n.getTitle()+"");
-//		holder.tvArea.setText(n.getShi()+"ÊÒ"+n.getTing()+"Ìü "+n.getJianzhumianji()+"©O ÄÏ");
+		
+		
+		
+		
+		
+//		holder.tvArea.setText(n.getShi()+"ï¿½ï¿½"+n.getTing()+"ï¿½ï¿½ "+n.getJianzhumianji()+"ï¿½O ï¿½ï¿½");
 //		holder.tvPrice.setText(n.getZongjia()+"");
-//		holder.tvAddress.setText("ÉîÛÚ "+n.getCity_name()+" "+n.getXiaoquname());
+//		holder.tvAddress.setText("ï¿½ï¿½ï¿½ï¿½ "+n.getCity_name()+" "+n.getXiaoquname());
 		
 //		int zongjia=Integer.parseInt(n.getZongjia().trim());
 //		int mianji=Integer.parseInt(n.getJianzhumianji().trim());
 //	 int price=(zongjia)*(10000)/mianji;
 	 
-//		holder.tvMeterPrice.setText(price+"Ôª/©O");
+//		holder.tvMeterPrice.setText(price+"Ôª/ï¿½O");
 		
 		
 		return convertView;

@@ -5,8 +5,11 @@ import java.util.List;
 import com.bumptech.glide.Glide;
 import com.dumu.housego.R;
 import com.dumu.housego.entity.RecommendNews;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,7 +61,12 @@ public class RecommendHouseAdapter extends BaseAdapter {
 		}
 		RecommendNews recommend=getItem(position);
 		String url="http://www.taoshenfang.com"+recommend.getThumb();
-		Glide.with(context).load(url).into(holder.ivRecommendImg);
+//		Glide.with(context).load(url).into(holder.ivRecommendImg);
+		DisplayImageOptions options=new DisplayImageOptions.Builder()
+				.cacheInMemory(true).cacheOnDisc(true).bitmapConfig(Bitmap.Config.RGB_565).build();
+		
+		ImageLoader.getInstance().displayImage(url, holder.ivRecommendImg, options);
+		
 		holder.tvRecommendContent.setText(recommend.getDescription());
 		holder.tvRecommendTitle.setText(recommend.getTitle());
 		

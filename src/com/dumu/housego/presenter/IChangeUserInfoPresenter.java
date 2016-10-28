@@ -9,4 +9,11 @@ public interface IChangeUserInfoPresenter {
 	void ChangeSQfenjihao(String tel,String userid);
 	void ChangeJBfenjihao(String tel,String userid);
 	void ChangePassword(String username,String userid,String oldpwd,String pwd1,String pwd2);
+	
+	void ChangeShenFenZheng(String userid,String cardnumber);
+	void ChangeShenFenZhengPic(String userid,String sfzpic);
+	void ChangeWorkTime(String userid,String worktime);
+	void ChangeMainArea(String userid,String mainarea);
+	void ChangeLeixing(String userid,String leixing);
+	void ChangeConame(String userid,String coname);
 }

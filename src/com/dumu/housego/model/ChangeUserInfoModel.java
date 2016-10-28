@@ -41,7 +41,6 @@ public class ChangeUserInfoModel implements IChangeUserInfoModel {
 						
 						
 						userinfo=HouseGoApp.getContext().getCurrentUserInfo();
-				Log.e("sssssssssssssssssssss", "--------"+userinfo.getRealname())	;	
 						userinfo.setRealname(realname);
 						
 						
@@ -49,7 +48,6 @@ public class ChangeUserInfoModel implements IChangeUserInfoModel {
 						app.SaveCurrentUserInfo(userinfo);
 						
 						userinfo=HouseGoApp.getContext().getCurrentUserInfo();
-						Log.e("sssssssssssssssssssss", "==============="+userinfo.getRealname())	;		
 						
 						back.onSuccess(info);
 						
@@ -297,6 +295,306 @@ public class ChangeUserInfoModel implements IChangeUserInfoModel {
 				map.put("oldpwd", oldpwd);
 				map.put("pwd1", pwd1);
 				map.put("pwd2", pwd2);
+				return map;
+			}
+		};
+		HouseGoApp.getQueue().add(request);
+		
+	}
+
+
+	@Override
+	public void ChangeShenFenZheng(final String userid, final String cardnumber, final AsycnCallBack back) {
+		String url=UrlFactory.PostChangeUserInfoUrl();
+		CommonRequest request=new CommonRequest(Method.POST,url, new Listener<String>() {
+
+			@Override
+			public void onResponse(String response) {
+				try {
+					JSONObject obj = new JSONObject(response);
+					if (obj.getString("success")=="54") {
+						String info=obj.getString("info");
+						
+						
+						userinfo=HouseGoApp.getContext().getCurrentUserInfo();
+						userinfo.setCardnumber(cardnumber);;
+						
+						HouseGoApp app=HouseGoApp.getContext();
+						app.SaveCurrentUserInfo(userinfo);
+						
+						back.onSuccess(info);
+						
+					}else{
+						String error=obj.getString("info");
+					back.onSuccess(error);
+					}
+				} catch (JSONException e) {
+					e.printStackTrace();
+				}
+				
+			}
+		},new ErrorListener() {
+
+			@Override
+			public void onErrorResponse(VolleyError error) {
+				back.onError(error.getMessage());
+			}
+		}){
+			@Override
+			protected Map<String, String> getParams() throws AuthFailureError {
+				Map<String, String>map=new HashMap<String, String>();
+				map.put("userid", userid);
+				map.put("cardnumber", cardnumber);
+				return map;
+			}
+		};
+		HouseGoApp.getQueue().add(request);
+		
+	}
+
+
+	@Override
+	public void ChangeShenFenZhengPic(final String userid, final String sfzpic, final AsycnCallBack back) {
+		String url=UrlFactory.PostChangeUserInfoUrl();
+		CommonRequest request=new CommonRequest(Method.POST,url, new Listener<String>() {
+
+			@Override
+			public void onResponse(String response) {
+				try {
+					JSONObject obj = new JSONObject(response);
+					if (obj.getString("success")=="54") {
+						String info=obj.getString("info");
+						
+						
+						userinfo=HouseGoApp.getContext().getCurrentUserInfo();
+						userinfo.setSfzpic(sfzpic);;
+						
+						HouseGoApp app=HouseGoApp.getContext();
+						app.SaveCurrentUserInfo(userinfo);
+						
+						back.onSuccess(info);
+						
+					}else{
+						String error=obj.getString("info");
+					back.onSuccess(error);
+					}
+				} catch (JSONException e) {
+					e.printStackTrace();
+				}
+				
+			}
+		},new ErrorListener() {
+
+			@Override
+			public void onErrorResponse(VolleyError error) {
+				back.onError(error.getMessage());
+			}
+		}){
+			@Override
+			protected Map<String, String> getParams() throws AuthFailureError {
+				Map<String, String>map=new HashMap<String, String>();
+				map.put("userid", userid);
+				map.put("sfzpic", sfzpic);
+				return map;
+			}
+		};
+		HouseGoApp.getQueue().add(request);
+		
+	}
+
+
+	@Override
+	public void ChangeWorkTime(final String userid, final String worktime, final AsycnCallBack back) {
+		String url=UrlFactory.PostChangeUserInfoUrl();
+		CommonRequest request=new CommonRequest(Method.POST,url, new Listener<String>() {
+
+			@Override
+			public void onResponse(String response) {
+				try {
+					JSONObject obj = new JSONObject(response);
+					if (obj.getString("success")=="54") {
+						String info=obj.getString("info");
+						
+						
+						userinfo=HouseGoApp.getContext().getCurrentUserInfo();
+						userinfo.setWorktime(worktime);;
+						
+						HouseGoApp app=HouseGoApp.getContext();
+						app.SaveCurrentUserInfo(userinfo);
+						
+						back.onSuccess(info);
+						
+					}else{
+						String error=obj.getString("info");
+					back.onSuccess(error);
+					}
+				} catch (JSONException e) {
+					e.printStackTrace();
+				}
+				
+			}
+		},new ErrorListener() {
+
+			@Override
+			public void onErrorResponse(VolleyError error) {
+				back.onError(error.getMessage());
+			}
+		}){
+			@Override
+			protected Map<String, String> getParams() throws AuthFailureError {
+				Map<String, String>map=new HashMap<String, String>();
+				map.put("userid", userid);
+				map.put("worktime", worktime);
+				return map;
+			}
+		};
+		HouseGoApp.getQueue().add(request);
+		
+	}
+
+
+	@Override
+	public void ChangeMainArea(final String userid, final String mainarea, final AsycnCallBack back) {
+		String url=UrlFactory.PostChangeUserInfoUrl();
+		CommonRequest request=new CommonRequest(Method.POST,url, new Listener<String>() {
+
+			@Override
+			public void onResponse(String response) {
+				try {
+					JSONObject obj = new JSONObject(response);
+					if (obj.getString("success")=="54") {
+						String info=obj.getString("info");
+						
+						
+						userinfo=HouseGoApp.getContext().getCurrentUserInfo();
+						userinfo.setMainarea(mainarea);;
+						
+						HouseGoApp app=HouseGoApp.getContext();
+						app.SaveCurrentUserInfo(userinfo);
+						
+						back.onSuccess(info);
+						
+					}else{
+						String error=obj.getString("info");
+					back.onSuccess(error);
+					}
+				} catch (JSONException e) {
+					e.printStackTrace();
+				}
+				
+			}
+		},new ErrorListener() {
+
+			@Override
+			public void onErrorResponse(VolleyError error) {
+				back.onError(error.getMessage());
+			}
+		}){
+			@Override
+			protected Map<String, String> getParams() throws AuthFailureError {
+				Map<String, String>map=new HashMap<String, String>();
+				map.put("userid", userid);
+				map.put("mainarea", mainarea);
+				return map;
+			}
+		};
+		HouseGoApp.getQueue().add(request);
+		
+	}
+
+
+	@Override
+	public void ChangeLeixing(final String userid, final String leixing, final AsycnCallBack back) {
+		String url=UrlFactory.PostChangeUserInfoUrl();
+		CommonRequest request=new CommonRequest(Method.POST,url, new Listener<String>() {
+
+			@Override
+			public void onResponse(String response) {
+				try {
+					JSONObject obj = new JSONObject(response);
+					if (obj.getString("success")=="54") {
+						String info=obj.getString("info");
+						
+						
+						userinfo=HouseGoApp.getContext().getCurrentUserInfo();
+						userinfo.setLeixing(leixing);;
+						
+						HouseGoApp app=HouseGoApp.getContext();
+						app.SaveCurrentUserInfo(userinfo);
+						
+						back.onSuccess(info);
+						
+					}else{
+						String error=obj.getString("info");
+					back.onSuccess(error);
+					}
+				} catch (JSONException e) {
+					e.printStackTrace();
+				}
+				
+			}
+		},new ErrorListener() {
+
+			@Override
+			public void onErrorResponse(VolleyError error) {
+				back.onError(error.getMessage());
+			}
+		}){
+			@Override
+			protected Map<String, String> getParams() throws AuthFailureError {
+				Map<String, String>map=new HashMap<String, String>();
+				map.put("userid", userid);
+				map.put("leixing", leixing);
+				return map;
+			}
+		};
+		HouseGoApp.getQueue().add(request);
+		
+	}
+
+
+	@Override
+	public void ChangeConame(final String userid, final String coname, final AsycnCallBack back) {
+		String url=UrlFactory.PostChangeUserInfoUrl();
+		CommonRequest request=new CommonRequest(Method.POST,url, new Listener<String>() {
+
+			@Override
+			public void onResponse(String response) {
+				try {
+					JSONObject obj = new JSONObject(response);
+					if (obj.getString("success")=="54") {
+						String info=obj.getString("info");
+						
+						
+						userinfo=HouseGoApp.getContext().getCurrentUserInfo();
+						userinfo.setConame(coname);;
+						
+						HouseGoApp app=HouseGoApp.getContext();
+						app.SaveCurrentUserInfo(userinfo);
+						
+						back.onSuccess(info);
+						
+					}else{
+						String error=obj.getString("info");
+					back.onSuccess(error);
+					}
+				} catch (JSONException e) {
+					e.printStackTrace();
+				}
+				
+			}
+		},new ErrorListener() {
+
+			@Override
+			public void onErrorResponse(VolleyError error) {
+				back.onError(error.getMessage());
+			}
+		}){
+			@Override
+			protected Map<String, String> getParams() throws AuthFailureError {
+				Map<String, String>map=new HashMap<String, String>();
+				map.put("userid", userid);
+				map.put("coname", coname);
 				return map;
 			}
 		};

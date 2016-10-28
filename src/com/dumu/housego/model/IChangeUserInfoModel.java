@@ -11,4 +11,12 @@ public interface IChangeUserInfoModel extends IModel{
 	void ChangeJBfenjihao(String tel,String userid,AsycnCallBack back);
 	void ChangePassword(String username,String userid,String oldpwd,String pwd1,
 			String pwd2,AsycnCallBack back);
+	
+	
+	void ChangeShenFenZheng(String userid,String cardnumber,AsycnCallBack back);
+	void ChangeShenFenZhengPic(String userid,String sfzpic,AsycnCallBack back);
+	void ChangeWorkTime(String userid,String worktime,AsycnCallBack back);
+	void ChangeMainArea(String userid,String mainarea,AsycnCallBack back);
+	void ChangeLeixing(String userid,String leixing,AsycnCallBack back);
+	void ChangeConame(String userid,String coname,AsycnCallBack back);
 }

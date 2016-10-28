@@ -149,7 +149,7 @@
             android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
-            android:name=".ChangeUserInfoActivity"
+            android:name=".AgentChangeUserInfoActivity"
             android:label="@string/title_activity_change_user_info"
             android:theme="@android:style/Theme.Holo.Light.NoActionBar"
             android:windowSoftInputMode="stateHidden" >

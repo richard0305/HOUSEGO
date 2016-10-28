@@ -19,11 +19,13 @@ import com.dumu.housego.util.MyToastShowCenter;
 import com.dumu.housego.view.IChangeUserInfoView;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.view.Window;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
@@ -34,7 +36,7 @@ import android.widget.Toast;
 
 public class PersonalMainActivity extends Activity implements IChangeUserInfoView{
 	private LoginUserInfoModel infomodel=new LoginUserInfoModel();
-	
+	private TextView tv_person_fenjihao;
 	private IChangeUserInfoPresenter userinfopresenter;
 	private Button btn_changefenjihao_shenqing,btn_changefenjihao_jiebang,btn_changepassword_submit;
 	private  EditText et_changrealname,et_changegerenjieshao,et_change_currentpassword,et_change_Newpassword,et_change_repassword;
@@ -85,14 +87,11 @@ public class PersonalMainActivity extends Activity implements IChangeUserInfoVie
 		userinfo=HouseGoApp.getContext().getCurrentUserInfo();
 		
 		if(userinfo==null){
-//			MyToastShowCenter.CenterToast(getApplicationContext(), "您还没有登录，请先登录！");
-			startActivity(new Intent(getBaseContext(), MainActivity.class));
+			startActivity(new Intent(this, MainActivity.class));
 			
 		}else{
 			String url=userinfo.getUserpic();
 			Glide.with(getApplicationContext()).load(url).into(ivPersonalPhoto);
-//			userinfo=HouseGoApp.getContext().getCurrentUserInfo();
-//			tvPersonalNickname.setText(userinfo.getNickname()+"");
 			tvPersonalPhone.setText(userinfo.getUsername()+"");
 				tv_fenjihao_show.setText(userinfo.getUsername());
 				tvfenjihao_show_1.setText(userinfo.getVtel());
@@ -112,7 +111,7 @@ public class PersonalMainActivity extends Activity implements IChangeUserInfoVie
 			}else{
 				tv_person_sex.setText("女");
 			}
-			
+			tv_person_fenjihao.setText(userinfo.getVtel());
 			
 		}
 		super.onResume();
@@ -175,7 +174,6 @@ public class PersonalMainActivity extends Activity implements IChangeUserInfoVie
 		rl_person_realname.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				MyToastShowCenter.CenterToast(getApplicationContext(), userinfo.getRealname());
 				scrollview.setVisibility(View.GONE);
 				llchangerealname.setVisibility(View.VISIBLE);
 			}
@@ -218,7 +216,9 @@ public class PersonalMainActivity extends Activity implements IChangeUserInfoVie
 		rl_person_sex.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-			
+				
+				NewAlertDialog();
+				
 			}
 		});
 		
@@ -314,9 +314,7 @@ public class PersonalMainActivity extends Activity implements IChangeUserInfoVie
 				
 				handler.postDelayed(new Runnable() {
 					public void run() {
-						et_change_currentpassword.setText("");
-						et_change_Newpassword.setText("");
-						et_change_repassword.setText("");
+						
 						llfenjihaojiebang.setVisibility(View.GONE);
 						llchangfenjiahao.setVisibility(View.GONE);
 						scrollview.setVisibility(View.VISIBLE);	
@@ -353,6 +351,9 @@ public class PersonalMainActivity extends Activity implements IChangeUserInfoVie
 				String pwd2=et_change_repassword.getText().toString();
 				
 				userinfopresenter.ChangePassword(username, userid, oldpwd, pwd1, pwd2);
+				et_change_currentpassword.setText("");
+				et_change_Newpassword.setText("");
+				et_change_repassword.setText("");
 				handler.postDelayed(new Runnable() {
 					public void run() {
 						llchangepassword.setVisibility(View.GONE);
@@ -366,6 +367,60 @@ public class PersonalMainActivity extends Activity implements IChangeUserInfoVie
 		
 
 	}
+
+	protected void NewAlertDialog() {
+		final AlertDialog alertDialog = new AlertDialog.Builder(this).create();  
+		alertDialog.show();  
+		Window window = alertDialog.getWindow();  
+		window.setContentView(R.layout.dialog_sex_info);  
+		TextView tv_title = (TextView) window.findViewById(R.id.tv_dialog_title);  
+		tv_title.setText("选择性别");  
+		TextView tv_message1 = (TextView) window.findViewById(R.id.tv_dialog_message1);  
+		TextView tv_message2 = (TextView) window.findViewById(R.id.tv_dialog_message2);  
+		Button btnCancle=(Button) window.findViewById(R.id.btn_dialog_cancle);
+		btnCancle.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				alertDialog.cancel();
+			}
+		});
+		
+		tv_message1.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				String userid=userinfo.getUserid();
+				String sex="1";
+				userinfopresenter.ChangeSex(userid, sex);
+				
+				if(userinfo.getSex().equals("1")){
+					tv_person_sex.setText("男");
+				}else{
+					tv_person_sex.setText("女");
+				}
+				alertDialog.cancel();
+				
+				
+			}
+		});
+		tv_message2.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				String userid=userinfo.getUserid();
+				String sex="2";
+				userinfopresenter.ChangeSex(userid, sex);
+				if(userinfo.getSex().equals("1")){
+					tv_person_sex.setText("男");
+				}else{
+					tv_person_sex.setText("女");
+				}
+				alertDialog.cancel();
+			}
+		});
+	}
+
 
 	private void setViews() {
 		btn_changepassword_submit=(Button) findViewById(R.id.btn_changepassword_submit);
