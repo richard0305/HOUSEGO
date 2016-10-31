@@ -1,6 +1,5 @@
 package com.dumu.housego.model;
 
-import java.io.ByteArrayOutputStream;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,9 +16,7 @@ import com.dumu.housego.entity.UserInfo;
 import com.dumu.housego.util.CommonRequest;
 import com.dumu.housego.util.UrlFactory;
 
-import android.graphics.Bitmap;
-import android.graphics.Bitmap.CompressFormat;
-import android.util.Base64;
+import android.util.Log;
 
 public class ChangeHeadPhotoModel implements IChangeHeadPhotoModel {
 	private UserInfo userinfo;
@@ -31,12 +28,13 @@ public class ChangeHeadPhotoModel implements IChangeHeadPhotoModel {
 
 
 	@Override
-	public void changeHead(final String userid, final Bitmap bitmap, final AsycnCallBack back) {
+	public void changeHead(final String userid, final String imagePath, final AsycnCallBack back) {
 		String url=UrlFactory.PostChangeHeadPhotoUrl();
 		CommonRequest request=new CommonRequest(Request.Method.POST, url, new Listener<String>() {
 
 			@Override
 			public void onResponse(String response) {
+				Log.e("====================","response"+ response);
 				try {
 					JSONObject obj = new JSONObject(response);
 					if (obj.getBoolean("success")==true) {
@@ -66,16 +64,8 @@ public class ChangeHeadPhotoModel implements IChangeHeadPhotoModel {
 			@Override
 			protected Map<String, String> getParams() throws AuthFailureError {
 				Map<String, String> params = new HashMap<String, String>();
-				
-			   	ByteArrayOutputStream baos = new ByteArrayOutputStream();//outputstream  
-			 
-                bitmap.compress(CompressFormat.PNG, 100, baos);  
-                byte[] appicon = baos.toByteArray();// 转为byte数组  
-                String avatar=Base64.encodeToString(appicon, Base64.DEFAULT);
-                
-                
 				params.put("userid", userid);
-				params.put("__avatar1", avatar);
+				params.put("__avatar1", imagePath);
 				return params;
 			}
 		};

@@ -38,12 +38,17 @@ import com.dumu.housego.view.IYuYueHouseView;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup.LayoutParams;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
@@ -51,6 +56,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.RadioButton;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
@@ -143,16 +149,20 @@ public class ErShouFangDetailsActivity extends Activity implements IYuYueHouseVi
 	private RelativeLayout ershoufang_feiyuyue;
 	private RelativeLayout rlErshoufangYuyuewindows;
 	private BitmapDescriptor mCurrentMarker;
-	
+	private PopupWindow pop;
+	private LinearLayout ll_popup;
+	private LinearLayout ll_cancle;
+	private View parentView;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		
+		parentView=getLayoutInflater().inflate(R.layout.activity_er_shou_fang_details, null);
         
-		setContentView(R.layout.activity_er_shou_fang_details);
+		setContentView(parentView);
 		x.view().inject(this);
 		initViews();
+		showPopWindow();
 		initListener();
 		
 		
@@ -196,6 +206,70 @@ public class ErShouFangDetailsActivity extends Activity implements IYuYueHouseVi
 	
 	
 	
+	private void showPopWindow() {
+pop = new PopupWindow(ErShouFangDetailsActivity.this);
+		
+		View view = getLayoutInflater().inflate(R.layout.item_popupwindows, null);
+
+		ll_popup = (LinearLayout) view.findViewById(R.id.ll_popup);
+		ll_cancle=(LinearLayout) view.findViewById(R.id.ll_cancle);
+		pop.setWidth(LayoutParams.MATCH_PARENT);
+		pop.setHeight(LayoutParams.WRAP_CONTENT);
+		pop.setBackgroundDrawable(new BitmapDrawable());
+		pop.setFocusable(true);
+		pop.setOutsideTouchable(true);
+		pop.setContentView(view);
+		
+		RelativeLayout parent = (RelativeLayout) view.findViewById(R.id.parent);
+		Button bt1 = (Button) view
+				.findViewById(R.id.item_popupwindows_btn1);
+		Button bt2 = (Button) view
+				.findViewById(R.id.item_popupwindows_btn2);
+		Button bt3 = (Button) view
+				.findViewById(R.id.item_popupwindows_cancel);
+		bt1.setClickable(false);
+		bt1.setText("预约看房管理");
+		bt2.setText("立即预约");
+		parent.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				pop.dismiss();
+				ll_popup.clearAnimation();
+				ll_cancle.clearAnimation();
+			}
+		});
+		bt1.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+			
+				
+			}
+		});
+		bt2.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				ershoufang_feiyuyue.setVisibility(View.GONE);
+				rlErshoufangYuyuewindows.setVisibility(View.VISIBLE);
+				pop.dismiss();
+				ll_popup.clearAnimation();
+				ll_cancle.clearAnimation();
+			}
+		});
+		bt3.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				pop.dismiss();
+				ll_popup.clearAnimation();
+				ll_cancle.clearAnimation();
+			}
+		});
+		
+		
+	}
+
+
+
+
+
 	private void initListener() {
 		rbErshoufangGuanzhu.setOnClickListener(new OnClickListener() {
 			
@@ -272,8 +346,11 @@ public class ErShouFangDetailsActivity extends Activity implements IYuYueHouseVi
 						}
 					}, 1000);
 				}else{
+					Animation anim=AnimationUtils.loadAnimation(ErShouFangDetailsActivity.this, R.anim.activity_translate_in);
 					
-					NewAlertDialog();
+					ll_popup.setAnimation(anim);
+					ll_cancle.setAnimation(anim);
+					pop.showAtLocation(parentView, Gravity.BOTTOM, 0, 0);
 				}
 				
 				
@@ -314,6 +391,83 @@ public class ErShouFangDetailsActivity extends Activity implements IYuYueHouseVi
 		
 		
 		
+		 llBackYuyuekanfang.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					ershoufang_feiyuyue.setVisibility(View.VISIBLE);
+					rlErshoufangYuyuewindows.setVisibility(View.GONE);
+					
+				}
+			});
+			 
+			 yuyuedateSpinner.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+				@Override
+				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+				 dateyuyue=spinnerList1.get(position);
+					
+				}
+
+				@Override
+				public void onNothingSelected(AdapterView<?> parent) {
+					
+					
+				}
+			});
+			 
+			 
+			 
+			 yuyuetimeSpinner.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+					@Override
+					public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+				timeyuyue=spinnerList2.get(position);
+						
+					}
+
+					@Override
+					public void onNothingSelected(AdapterView<?> parent) {
+						
+						
+					}
+				});
+			 
+			 
+			 
+			 
+			 btnYuyuekanfang.setOnClickListener(new OnClickListener() {
+
+
+				@Override
+				public void onClick(View v) {
+					
+				String formid=e.getId();
+				 String fromtable="ershou";
+				 String username=userinfo.getUsername();
+				 String fromuser=e.getUsername();
+				 String type="二手房";
+					
+				String yuyuedate=dateyuyue;
+				 String yuyuetime=timeyuyue;
+				 String t="1";
+				 
+			
+				yuyuepresenter.loadyuyue(formid, fromtable, username, fromuser, type, yuyuedate, yuyuetime, t);
+					
+				handler.postDelayed(new Runnable() {
+					public void run() {
+						ershoufang_feiyuyue.setVisibility(View.VISIBLE);
+						rlErshoufangYuyuewindows.setVisibility(View.GONE);	
+					}
+				}, 1000);
+				
+				}
+			});
+			
+		
+		
+		
 	}
 	protected void NewAlertDialog() {
 		
@@ -347,79 +501,6 @@ public class ErShouFangDetailsActivity extends Activity implements IYuYueHouseVi
 		 */
 		 
 		 
-		 llBackYuyuekanfang.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				ershoufang_feiyuyue.setVisibility(View.VISIBLE);
-				rlErshoufangYuyuewindows.setVisibility(View.GONE);
-				
-			}
-		});
-		 
-		 yuyuedateSpinner.setOnItemSelectedListener(new OnItemSelectedListener() {
-
-			@Override
-			public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-			 dateyuyue=spinnerList1.get(position);
-				
-			}
-
-			@Override
-			public void onNothingSelected(AdapterView<?> parent) {
-				
-				
-			}
-		});
-		 
-		 
-		 
-		 yuyuetimeSpinner.setOnItemSelectedListener(new OnItemSelectedListener() {
-
-				@Override
-				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-			timeyuyue=spinnerList2.get(position);
-					
-				}
-
-				@Override
-				public void onNothingSelected(AdapterView<?> parent) {
-					
-					
-				}
-			});
-		 
-		 
-		 
-		 
-		 btnYuyuekanfang.setOnClickListener(new OnClickListener() {
-
-
-			@Override
-			public void onClick(View v) {
-				
-			String formid=e.getId();
-			 String fromtable="ershou";
-			 String username=userinfo.getUsername();
-			 String fromuser=e.getUsername();
-			 String type="二手房";
-				
-			String yuyuedate=dateyuyue;
-			 String yuyuetime=timeyuyue;
-			 String t="1";
-			 
-		
-			yuyuepresenter.loadyuyue(formid, fromtable, username, fromuser, type, yuyuedate, yuyuetime, t);
-				
-			handler.postDelayed(new Runnable() {
-				public void run() {
-					ershoufang_feiyuyue.setVisibility(View.VISIBLE);
-					rlErshoufangYuyuewindows.setVisibility(View.GONE);	
-				}
-			}, 1000);
-			
-			}
-		});
 		
 	}
 

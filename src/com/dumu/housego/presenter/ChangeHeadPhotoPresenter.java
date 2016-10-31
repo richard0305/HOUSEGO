@@ -5,8 +5,6 @@ import com.dumu.housego.model.IChangeHeadPhotoModel;
 import com.dumu.housego.model.IModel.AsycnCallBack;
 import com.dumu.housego.view.IChangeHeadPhotoView;
 
-import android.graphics.Bitmap;
-
 public class ChangeHeadPhotoPresenter implements IChangeHeadPhotoPresenter{
 	private IChangeHeadPhotoModel model;
 	private IChangeHeadPhotoView view;
@@ -18,8 +16,8 @@ public class ChangeHeadPhotoPresenter implements IChangeHeadPhotoPresenter{
 	}
 
 	@Override
-	public void ChangeHead(String userid, Bitmap bitmap) {
-		model.changeHead(userid, bitmap, new AsycnCallBack() {
+	public void ChangeHead(String userid, String  imagePath) {
+		model.changeHead(userid, imagePath, new AsycnCallBack() {
 			
 			@Override
 			public void onSuccess(Object success) {

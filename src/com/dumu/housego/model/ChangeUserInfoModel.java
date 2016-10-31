@@ -97,6 +97,8 @@ public class ChangeUserInfoModel implements IChangeUserInfoModel {
 					
 					HouseGoApp app=HouseGoApp.getContext();
 					app.SaveCurrentUserInfo(userinfo);
+					HouseGoApp.saveLoginInfo(app.getContext(), userinfo);
+					
 					
 					back.onSuccess(info);
 					}else{

@@ -24,6 +24,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,7 +36,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class MyFramgent extends Fragment {
-	
+	private List<Fragment> fragmentss;
 	private TextView tvLoginRegist;
 	private RelativeLayout rlSetting;
 	private RelativeLayout rlHistory;
@@ -186,22 +187,21 @@ private LinearLayout llMysettingAgentLogin,llMysettingPuTongLogin,llMysettingNol
 				Intent i=new Intent(getActivity(), PuTongMyGuanZhuActivity.class);
 				i.putExtra("v", "rentinghouse");
 				startActivity(i);
+				
 			}
 		});
 		
-//		rl_putong_mysalehouse.setOnClickListener(new OnClickListener() {
-//			
-//			@Override
-//			public void onClick(View v) {
-////				Intent i=new Intent(getActivity(), PuTongMyGuanZhuActivity.class);
-////				i.putExtra("v", "ershouhouse");
-////				startActivity(i);
-//				FragmentManager fm = getFragmentManager();
-//			
-//		fm.beginTransaction().replace(R.layout.fragment_ptmyershou,new PTMyErShouFragment()).commit();
-//				
-//			}
-//		});
+		rl_putong_mysalehouse.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent i=new Intent(getActivity(), PuTongMyGuanZhuActivity.class);
+				i.putExtra("v", "ershouhouse");
+				startActivity(i);
+				
+				
+			}
+		});
 		
 		
 	}
@@ -209,7 +209,7 @@ private LinearLayout llMysettingAgentLogin,llMysettingPuTongLogin,llMysettingNol
 	
 	
 	private void setViews(View view) {
-		
+	
 		
 		tvLoginRegist=(TextView) view.findViewById(R.id.tv_my_login_regist);
 		rlSetting=(RelativeLayout) view.findViewById(R.id.rl_settings);

@@ -17,19 +17,27 @@ import com.dumu.housego.view.IChangeUserInfoView;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
+import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup.LayoutParams;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class AgentChangeUserInfoActivity extends Activity implements IChangeUserInfoView{
 	private IChangeUserInfoPresenter userinfopresenter;
 	private LoginUserInfoModel infomodel=new LoginUserInfoModel();
+	
 	private LinearLayout ll_agent_back;
 	
 	private EditText et_agent_changrealname,et_agent_changegerenjieshao,et_agent_changeshenfenzheng,et_agent_changecompanyname
@@ -54,25 +62,287 @@ public class AgentChangeUserInfoActivity extends Activity implements IChangeUser
 	private TextView tv_agent_changerealname_save;
 	
 	private CircleImageView iv_agent_Photo;
-	private UserInfo userinfo;
+	private UserInfo userinfo	=HouseGoApp.getContext().getCurrentUserInfo();;
 	
 	private  MyReboundScrollView   agent_changeshow;
 
-	protected Handler handler=new Handler();
+	
+	protected Handler handler=new Handler(){
+		public void handleMessage(Message msg) {
+			
+			
+			String userid=userinfo.getUserid();
+			
+			infomodel.login(userid,new  AsycnCallBack() {
+				@Override
+				public void onSuccess(Object success) {
+					UserInfo Nuserinfo=(UserInfo) success;
+					HouseGoApp.getContext().SaveCurrentUserInfo(Nuserinfo);
+					HouseGoApp.saveLoginInfo(getApplicationContext(), Nuserinfo);
+				}
+				@Override
+				public void onError(Object error) {
+				}
+			});
+			userinfo=HouseGoApp.getContext().getCurrentUserInfo();
+			
+			
+			onResume();
+			
+			MyToastShowCenter.CenterToast(getApplicationContext(), "我已经刷新了数据");
+			
+		}
+	};
+	private PopupWindow pop;
+	private LinearLayout ll_popup;
+	
+	private View parentView;
+	private LinearLayout ll_cancle;
+	private PopupWindow popType;
+	private LinearLayout ll_popup_zhiyeType;
+	private LinearLayout ll_cancle_zhiyeType;
+	private PopupWindow popWorkTime;
+	private LinearLayout ll_popup_worktime;
+	private LinearLayout ll_cancle_worktime;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_agent_change_user_info);
+		
+		parentView=getLayoutInflater().inflate(R.layout.activity_agent_change_user_info, null);
+		setContentView(parentView);
 		FontHelper.injectFont(findViewById(android.R.id.content));
 		setViews();
 		userinfopresenter=new ChangeUserInfoPresenter(this);
-		
+		showPopWindowSex();
+		showPopWindowType();
+		showPopWindowWorkTime();
 		setListener();
 	}
 	
+	private void showPopWindowWorkTime() {
+popWorkTime = new PopupWindow(AgentChangeUserInfoActivity.this);
+		
+		View view = getLayoutInflater().inflate(R.layout.item_popupwindows_worktime, null);
+
+		ll_popup_worktime = (LinearLayout) view.findViewById(R.id.ll_popup_worktime);
+		ll_cancle_worktime=(LinearLayout) view.findViewById(R.id.ll_cancle_worktime);
+		popWorkTime.setWidth(LayoutParams.MATCH_PARENT);
+		popWorkTime.setHeight(LayoutParams.WRAP_CONTENT);
+		popWorkTime.setBackgroundDrawable(new BitmapDrawable());
+		popWorkTime.setFocusable(true);
+		popWorkTime.setOutsideTouchable(true);
+		popWorkTime.setContentView(view);
+		
+		RelativeLayout parent = (RelativeLayout) view.findViewById(R.id.parent_worktime);
+		Button bt4 = (Button) view
+				.findViewById(R.id.item_popupwindows_worktime_btn4);
+		Button bt2 = (Button) view
+				.findViewById(R.id.item_popupwindows_worktime_btn2);
+		Button bt3 = (Button) view
+				.findViewById(R.id.item_popupwindows_worktime_btn3);
+		Button cancle = (Button) view
+				.findViewById(R.id.item_popupwindows_worktime_cancel);
+		parent.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				popWorkTime.dismiss();
+				ll_popup_worktime.clearAnimation();
+				ll_cancle_worktime.clearAnimation();
+			}
+		});
+
+		bt2.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+			
+				String userid=userinfo.getUserid();
+				String worktime="1-2";
+				userinfopresenter.ChangeWorkTime(userid, worktime);
+				onResume();
+				popWorkTime.dismiss();
+				ll_popup_worktime.clearAnimation();
+				ll_cancle_worktime.clearAnimation();
+			}
+		});
+		bt3.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				String userid=userinfo.getUserid();
+				String worktime="2-5";
+				userinfopresenter.ChangeWorkTime(userid, worktime);
+				onResume();
+				popWorkTime.dismiss();
+				ll_popup_worktime.clearAnimation();
+				ll_cancle_worktime.clearAnimation();
+			}
+		});
+		
+		bt4.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				String userid=userinfo.getUserid();
+				String worktime="5";
+				userinfopresenter.ChangeWorkTime(userid, worktime);
+				onResume();
+				popWorkTime.dismiss();
+				ll_popup_worktime.clearAnimation();
+				ll_cancle_worktime.clearAnimation();
+			}
+		});
+		cancle.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				
+				popWorkTime.dismiss();
+				ll_popup_worktime.clearAnimation();
+				ll_cancle_worktime.clearAnimation();
+			}
+		});
+		
+	}
+
+	private void showPopWindowType() {
+popType = new PopupWindow(AgentChangeUserInfoActivity.this);
+		
+		View view = getLayoutInflater().inflate(R.layout.item_popupwindows_zhiyetype, null);
+
+		ll_popup_zhiyeType = (LinearLayout) view.findViewById(R.id.ll_popup_yizhitype);
+		ll_cancle_zhiyeType=(LinearLayout) view.findViewById(R.id.ll_cancle_yizhitype);
+		popType.setWidth(LayoutParams.MATCH_PARENT);
+		popType.setHeight(LayoutParams.WRAP_CONTENT);
+		popType.setBackgroundDrawable(new BitmapDrawable());
+		popType.setFocusable(true);
+		popType.setOutsideTouchable(true);
+		popType.setContentView(view);
+		
+		RelativeLayout parent = (RelativeLayout) view.findViewById(R.id.parent_yizhitype);
+		Button bt1 = (Button) view
+				.findViewById(R.id.item_popupwindows_yizhitype_btn1);
+		Button bt2 = (Button) view
+				.findViewById(R.id.item_popupwindows_yizhitype_btn2);
+		Button bt3 = (Button) view
+				.findViewById(R.id.item_popupwindows_yizhitype_cancel);
+		Button bt4 = (Button) view
+				.findViewById(R.id.item_popupwindows_yizhitype_btn3);
+		parent.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				popType.dismiss();
+				ll_popup_zhiyeType.clearAnimation();
+				ll_cancle_zhiyeType.clearAnimation();
+			}
+		});
+
+		bt2.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+			
+				String userid=userinfo.getUserid();
+				String leixing="个人";
+				userinfopresenter.ChangeLeixing(userid, leixing);
+				onResume();
+				popType.dismiss();
+				ll_popup_zhiyeType.clearAnimation();
+				ll_cancle_zhiyeType.clearAnimation();
+			}
+		});
+		bt3.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				popType.dismiss();
+				ll_popup_zhiyeType.clearAnimation();
+				ll_cancle_zhiyeType.clearAnimation();
+			}
+		});
+		bt4.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				String userid=userinfo.getUserid();
+				String leixing="公司";
+				userinfopresenter.ChangeLeixing(userid, leixing);
+				onResume();
+				popType.dismiss();
+				ll_popup_zhiyeType.clearAnimation();
+				ll_cancle_zhiyeType.clearAnimation();
+			}
+		});
+		
+		
+	}
+
+	private void showPopWindowSex() {
+pop = new PopupWindow(AgentChangeUserInfoActivity.this);
+		
+		View view = getLayoutInflater().inflate(R.layout.item_popupwindows, null);
+
+		ll_popup = (LinearLayout) view.findViewById(R.id.ll_popup);
+		ll_cancle=(LinearLayout) view.findViewById(R.id.ll_cancle);
+		pop.setWidth(LayoutParams.MATCH_PARENT);
+		pop.setHeight(LayoutParams.WRAP_CONTENT);
+		pop.setBackgroundDrawable(new BitmapDrawable());
+		pop.setFocusable(true);
+		pop.setOutsideTouchable(true);
+		pop.setContentView(view);
+		
+		RelativeLayout parent = (RelativeLayout) view.findViewById(R.id.parent);
+		Button bt1 = (Button) view
+				.findViewById(R.id.item_popupwindows_btn1);
+		Button bt2 = (Button) view
+				.findViewById(R.id.item_popupwindows_btn2);
+		Button bt3 = (Button) view
+				.findViewById(R.id.item_popupwindows_cancel);
+		
+		bt1.setText("男");
+		bt2.setText("女");
+		parent.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				pop.dismiss();
+				ll_popup.clearAnimation();
+				ll_cancle.clearAnimation();
+			}
+		});
+		bt1.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				
+//				tv_agent_sex.setText("男");
+				
+				String userid=userinfo.getUserid();
+				String sex="1";
+				userinfopresenter.ChangeSex(userid, sex);
+				
+				onResume();
+				pop.dismiss();
+				ll_popup.clearAnimation();
+				ll_cancle.clearAnimation();
+			}
+		});
+		bt2.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+//				tv_agent_sex.setText("女");
+				String userid=userinfo.getUserid();
+				String sex="2";
+				userinfopresenter.ChangeSex(userid, sex);
+				onResume();
+				pop.dismiss();
+				ll_popup.clearAnimation();
+				ll_cancle.clearAnimation();
+			}
+		});
+		bt3.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				pop.dismiss();
+				ll_popup.clearAnimation();
+				ll_cancle.clearAnimation();
+			}
+		});
+		
+	}
+
 	@Override
 	protected void onResume() {
-		userinfo=HouseGoApp.getContext().getCurrentUserInfo();
+	
+//		userinfo=HouseGoApp.getLoginInfo(getApplicationContext());
 		if(userinfo==null){
 			startActivity(new Intent(this, MainActivity.class));
 			
@@ -143,8 +413,14 @@ public class AgentChangeUserInfoActivity extends Activity implements IChangeUser
 		rl_agent_sex.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
+				Animation anim=AnimationUtils.loadAnimation(AgentChangeUserInfoActivity.this, R.anim.activity_translate_in);
+				
+				ll_popup.setAnimation(anim);
+				ll_cancle.setAnimation(anim);
+				pop.showAtLocation(parentView, Gravity.BOTTOM, 0, 0);
+				
 			}
+			
 		});
 		
 		rl_agent_fenjihao.setOnClickListener(new OnClickListener() {
@@ -189,7 +465,11 @@ public class AgentChangeUserInfoActivity extends Activity implements IChangeUser
 		rl_agent_zhiyeType.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
+				Animation anim=AnimationUtils.loadAnimation(AgentChangeUserInfoActivity.this, R.anim.activity_translate_in);
+				
+				ll_popup_zhiyeType.setAnimation(anim);
+				ll_cancle_zhiyeType.setAnimation(anim);
+				popType.showAtLocation(parentView, Gravity.BOTTOM, 0, 0);
 			}
 		});
 		
@@ -204,7 +484,11 @@ public class AgentChangeUserInfoActivity extends Activity implements IChangeUser
 		rl_agent_chongyeshijian.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
+		Animation anim=AnimationUtils.loadAnimation(AgentChangeUserInfoActivity.this, R.anim.activity_translate_in);
+				
+				ll_popup_worktime.setAnimation(anim);
+				ll_cancle_worktime.setAnimation(anim);
+				popWorkTime.showAtLocation(parentView, Gravity.BOTTOM, 0, 0);
 			}
 		});
 		
@@ -519,6 +803,12 @@ public class AgentChangeUserInfoActivity extends Activity implements IChangeUser
 
 	@Override
 	public void changeInfo(final String info) {
+		
+		Message msg=new Message();
+		handler.sendMessage(msg);
+		
+	
+		
 		MyToastShowCenter.CenterToast(getApplicationContext(), info);
 		
 		handler.postDelayed(new Runnable() {
@@ -531,20 +821,10 @@ public class AgentChangeUserInfoActivity extends Activity implements IChangeUser
 			}
 		}, 1000);
 		
-		String userid=userinfo.getUserid();
-		infomodel.login(userid,new  AsycnCallBack() {
-			@Override
-			public void onSuccess(Object success) {
-				UserInfo Nuserinfo=(UserInfo) success;
-				HouseGoApp.saveLoginInfo(getApplicationContext(), Nuserinfo);
-			}
-			@Override
-			public void onError(Object error) {
-			}
-		});
-		
 		
 	}
+	
+
 
 	
 }

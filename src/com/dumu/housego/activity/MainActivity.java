@@ -10,6 +10,8 @@ import com.dumu.housego.framgent.FirstFramgent;
 import com.dumu.housego.framgent.HouseFramgent;
 import com.dumu.housego.framgent.MessageFramgent;
 import com.dumu.housego.framgent.MyFramgent;
+import com.dumu.housego.model.IModel.AsycnCallBack;
+import com.dumu.housego.model.LoginUserInfoModel;
 import com.dumu.housego.util.FontHelper;
 
 import android.content.Intent;
@@ -36,6 +38,7 @@ public class MainActivity extends FragmentActivity{
 	private PagerAdapter pagerAdapter;
 	private List<Fragment> fragments;
 	private UserInfo userinfo;
+	private LoginUserInfoModel infomodel=new LoginUserInfoModel();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -53,9 +56,30 @@ public class MainActivity extends FragmentActivity{
 //	
 	@Override
 	protected void onResume() {
-		HouseGoApp app=HouseGoApp.getContext();
-		userinfo=app.getLoginInfo(getApplicationContext());
-		app.SaveCurrentUserInfo(userinfo);
+//		HouseGoApp app=HouseGoApp.getContext();
+//		userinfo=app.getLoginInfo(getApplicationContext());
+//		app.SaveCurrentUserInfo(userinfo);
+		userinfo=HouseGoApp.getLoginInfo(this);
+		if(userinfo!=null){
+			String userid
+			=
+			userinfo.getUserid();
+			
+			infomodel.login(userid,new  AsycnCallBack() {
+				@Override
+				public void onSuccess(Object success) {
+					UserInfo Nuserinfo=(UserInfo) success;
+					HouseGoApp.getContext().SaveCurrentUserInfo(Nuserinfo);
+					HouseGoApp.saveLoginInfo(getApplicationContext(), Nuserinfo);
+				}
+				@Override
+				public void onError(Object error) {
+				}
+			});
+		}
+		
+		
+	
 		
 		super.onResume();
 	}
@@ -90,6 +114,7 @@ public class MainActivity extends FragmentActivity{
 		fragments.add(new MessageFramgent());
 		fragments.add(new HouseFramgent());
 		fragments.add(new MyFramgent());
+		
 		pagerAdapter = new MyPagerAdapter(getSupportFragmentManager());
 		viewPager.setAdapter(pagerAdapter);
 

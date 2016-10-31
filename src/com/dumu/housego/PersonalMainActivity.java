@@ -1,5 +1,7 @@
 package com.dumu.housego;
 
+import java.io.File;
+
 import org.xutils.x;
 
 import com.bumptech.glide.Glide;
@@ -9,6 +11,7 @@ import com.dumu.housego.app.HouseGoApp;
 import com.dumu.housego.entity.UserInfo;
 import com.dumu.housego.model.IModel.AsycnCallBack;
 import com.dumu.housego.model.LoginUserInfoModel;
+import com.dumu.housego.presenter.ChangeHeadPhotoPresenter;
 import com.dumu.housego.presenter.ChangeUserInfoPresenter;
 import com.dumu.housego.presenter.IChangeHeadPhotoPresenter;
 import com.dumu.housego.presenter.IChangeUserInfoPresenter;
@@ -16,25 +19,47 @@ import com.dumu.housego.util.CircleImageView;
 import com.dumu.housego.util.FontHelper;
 import com.dumu.housego.util.MyReboundScrollView;
 import com.dumu.housego.util.MyToastShowCenter;
+import com.dumu.housego.utils.Utils;
+import com.dumu.housego.view.IChangeHeadPhotoView;
 import com.dumu.housego.view.IChangeUserInfoView;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
+import android.provider.MediaStore;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup.LayoutParams;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class PersonalMainActivity extends Activity implements IChangeUserInfoView{
+public class PersonalMainActivity extends Activity implements IChangeUserInfoView,IChangeHeadPhotoView{
+	
+	protected static final int CHOOSE_PICTURE=0;
+	protected static final int TAKE_PICTURE=1;
+	protected static final int CROP_SMALL_PICTURE=2;
+	protected static Uri tempUri;
+	protected ImageView iv_person_icon;
+	
+	
 	private LoginUserInfoModel infomodel=new LoginUserInfoModel();
 	private TextView tv_person_fenjihao;
 	private IChangeUserInfoPresenter userinfopresenter;
@@ -63,20 +88,179 @@ public class PersonalMainActivity extends Activity implements IChangeUserInfoVie
   private LinearLayout llfenjihaoshenqing;
    
   Handler handler=new Handler();
-    
+private PopupWindow pop;
+private LinearLayout ll_popup;
+private LinearLayout ll_cancle;
+private View parentView;
+private PopupWindow popTouXiang;
+private LinearLayout ll_cancle_touxiang;
+private LinearLayout ll_popup_touxiang;  
     
     
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_personal_main);
+		parentView=getLayoutInflater().inflate(R.layout.activity_personal_main, null);
+		setContentView(parentView);
 		FontHelper.injectFont(findViewById(android.R.id.content));
 		x.view().inject(this);
 		setViews();
+		showPopWindow();
+		showTouxaingWindow();
 		userinfopresenter=new ChangeUserInfoPresenter(this);
+		
 		setListeners();
 		
-//		headpresenter=new ChangeHeadPhotoPresenter(this);
+		headpresenter=new ChangeHeadPhotoPresenter(this);
+		
+	}
+	
+	private void showTouxaingWindow() {
+popTouXiang = new PopupWindow(PersonalMainActivity.this);
+		
+		View view = getLayoutInflater().inflate(R.layout.item_popupwindows_touxiang, null);
+
+		ll_popup_touxiang = (LinearLayout) view.findViewById(R.id.ll_popup_touxaing);
+		ll_cancle_touxiang=(LinearLayout) view.findViewById(R.id.ll_cancle_touxaing);
+		popTouXiang.setWidth(LayoutParams.MATCH_PARENT);
+		popTouXiang.setHeight(LayoutParams.WRAP_CONTENT);
+		popTouXiang.setBackgroundDrawable(new BitmapDrawable());
+		popTouXiang.setFocusable(true);
+		popTouXiang.setOutsideTouchable(true);
+		popTouXiang.setContentView(view);
+		
+		RelativeLayout parent = (RelativeLayout) view.findViewById(R.id.parent_touxaing);
+		Button bt1 = (Button) view
+				.findViewById(R.id.item_popupwindows_touxaing1);
+		Button bt2 = (Button) view
+				.findViewById(R.id.item_popupwindows_touxaing2);
+		Button bt3 = (Button) view
+				.findViewById(R.id.item_popupwindows_touxaing_cancel);
+		
+		parent.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				popTouXiang.dismiss();
+				ll_popup_touxiang.clearAnimation();
+				ll_cancle_touxiang.clearAnimation();
+			}
+		});
+		bt1.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				//拍照,先判断SD卡是否存在
+				String SDState=Environment.getExternalStorageState();
+				if(SDState.equals(Environment.MEDIA_MOUNTED)){
+					
+					Intent openCameraIntent=new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+					tempUri=Uri.fromFile(new File(Environment.getExternalStorageDirectory(),"image.jpg"));
+//					ContentValues values=new ContentValues();
+					
+					//指定照片保存路径（SD卡），image.jpg为一个临时文本，每次拍照后这个图片都会被替换
+					openCameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, tempUri);
+					startActivityForResult(openCameraIntent, TAKE_PICTURE);
+				}else{
+					MyToastShowCenter.CenterToast(getApplicationContext(), "内存卡不存在");
+				}
+				
+				popTouXiang.dismiss();
+				ll_popup_touxiang.clearAnimation();
+				ll_cancle_touxiang.clearAnimation();
+			}
+		});
+		bt2.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				//选择本地照片
+				
+				Intent openAlbumIntent=new Intent(Intent.ACTION_GET_CONTENT);
+				openAlbumIntent.setType("image/*");
+				startActivityForResult(openAlbumIntent, CHOOSE_PICTURE);
+				
+				onResume();
+				popTouXiang.dismiss();
+				ll_popup_touxiang.clearAnimation();
+				ll_cancle_touxiang.clearAnimation();
+			}
+		});
+		bt3.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				
+				popTouXiang.dismiss();
+				ll_popup_touxiang.clearAnimation();
+				ll_cancle_touxiang.clearAnimation();
+			}
+		});
+		
+	}
+
+	private void showPopWindow() {
+pop = new PopupWindow(PersonalMainActivity.this);
+		
+		View view = getLayoutInflater().inflate(R.layout.item_popupwindows, null);
+
+		ll_popup = (LinearLayout) view.findViewById(R.id.ll_popup);
+		ll_cancle=(LinearLayout) view.findViewById(R.id.ll_cancle);
+		pop.setWidth(LayoutParams.MATCH_PARENT);
+		pop.setHeight(LayoutParams.WRAP_CONTENT);
+		pop.setBackgroundDrawable(new BitmapDrawable());
+		pop.setFocusable(true);
+		pop.setOutsideTouchable(true);
+		pop.setContentView(view);
+		
+		RelativeLayout parent = (RelativeLayout) view.findViewById(R.id.parent);
+		Button bt1 = (Button) view
+				.findViewById(R.id.item_popupwindows_btn1);
+		Button bt2 = (Button) view
+				.findViewById(R.id.item_popupwindows_btn2);
+		Button bt3 = (Button) view
+				.findViewById(R.id.item_popupwindows_cancel);
+		
+		bt1.setText("男");
+		bt2.setText("女");
+		parent.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				pop.dismiss();
+				ll_popup.clearAnimation();
+				ll_cancle.clearAnimation();
+			}
+		});
+		bt1.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				
+//				tv_agent_sex.setText("男");
+				
+				String userid=userinfo.getUserid();
+				String sex="1";
+				userinfopresenter.ChangeSex(userid, sex);
+				
+				onResume();
+				pop.dismiss();
+				ll_popup.clearAnimation();
+				ll_cancle.clearAnimation();
+			}
+		});
+		bt2.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+//				tv_agent_sex.setText("女");
+				String userid=userinfo.getUserid();
+				String sex="2";
+				userinfopresenter.ChangeSex(userid, sex);
+				onResume();
+				pop.dismiss();
+				ll_popup.clearAnimation();
+				ll_cancle.clearAnimation();
+			}
+		});
+		bt3.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				pop.dismiss();
+				ll_popup.clearAnimation();
+				ll_cancle.clearAnimation();
+			}
+		});
 		
 	}
 	
@@ -96,7 +280,7 @@ public class PersonalMainActivity extends Activity implements IChangeUserInfoVie
 				tv_fenjihao_show.setText(userinfo.getUsername());
 				tvfenjihao_show_1.setText(userinfo.getVtel());
 			
-				et_changegerenjieshao.setText(userinfo.getAbout());
+				et_changegerenjieshao.setText(userinfo.getAbout()); 
 			
 			if(userinfo.getModelid().equals("35")){
 				tv_personal_viptype.setText("普通会员");
@@ -214,10 +398,16 @@ public class PersonalMainActivity extends Activity implements IChangeUserInfoVie
 		
 		
 		rl_person_sex.setOnClickListener(new OnClickListener() {
+			
+
 			@Override
 			public void onClick(View v) {
 				
-				NewAlertDialog();
+	Animation anim=AnimationUtils.loadAnimation(PersonalMainActivity.this, R.anim.activity_translate_in);
+				
+				ll_popup.setAnimation(anim);
+				ll_cancle.setAnimation(anim);
+				pop.showAtLocation(parentView, Gravity.BOTTOM, 0, 0);
 				
 			}
 		});
@@ -327,6 +517,7 @@ public class PersonalMainActivity extends Activity implements IChangeUserInfoVie
 		tv_changegerenjieshao_save.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
+			
 				String about=et_changegerenjieshao.getText().toString();
 				String userid=userinfo.getUserid();
 				userinfopresenter.ChangeGeRenJieshao(userid, about);
@@ -365,62 +556,25 @@ public class PersonalMainActivity extends Activity implements IChangeUserInfoVie
 			}
 		});
 		
-
-	}
-
-	protected void NewAlertDialog() {
-		final AlertDialog alertDialog = new AlertDialog.Builder(this).create();  
-		alertDialog.show();  
-		Window window = alertDialog.getWindow();  
-		window.setContentView(R.layout.dialog_sex_info);  
-		TextView tv_title = (TextView) window.findViewById(R.id.tv_dialog_title);  
-		tv_title.setText("选择性别");  
-		TextView tv_message1 = (TextView) window.findViewById(R.id.tv_dialog_message1);  
-		TextView tv_message2 = (TextView) window.findViewById(R.id.tv_dialog_message2);  
-		Button btnCancle=(Button) window.findViewById(R.id.btn_dialog_cancle);
-		btnCancle.setOnClickListener(new OnClickListener() {
+		
+		ivPersonalPhoto.setOnClickListener(new OnClickListener() {
+			
 			@Override
 			public void onClick(View v) {
-				alertDialog.cancel();
+				
+	Animation anim=AnimationUtils.loadAnimation(PersonalMainActivity.this, R.anim.activity_translate_in);
+				
+				ll_popup_touxiang.setAnimation(anim);
+				ll_cancle_touxiang.setAnimation(anim);
+				popTouXiang.showAtLocation(parentView, Gravity.BOTTOM, 0, 0);
+				
 			}
 		});
 		
-		tv_message1.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				
-				String userid=userinfo.getUserid();
-				String sex="1";
-				userinfopresenter.ChangeSex(userid, sex);
-				
-				if(userinfo.getSex().equals("1")){
-					tv_person_sex.setText("男");
-				}else{
-					tv_person_sex.setText("女");
-				}
-				alertDialog.cancel();
-				
-				
-			}
-		});
-		tv_message2.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				String userid=userinfo.getUserid();
-				String sex="2";
-				userinfopresenter.ChangeSex(userid, sex);
-				if(userinfo.getSex().equals("1")){
-					tv_person_sex.setText("男");
-				}else{
-					tv_person_sex.setText("女");
-				}
-				alertDialog.cancel();
-			}
-		});
+
 	}
 
+	
 
 	private void setViews() {
 		btn_changepassword_submit=(Button) findViewById(R.id.btn_changepassword_submit);
@@ -441,6 +595,7 @@ public class PersonalMainActivity extends Activity implements IChangeUserInfoVie
 		et_changrealname=(EditText) findViewById(R.id.et_changrealname);
 		
 		scrollview=(MyReboundScrollView) findViewById(R.id.scrollview_changeshow);
+		
 		ll_changerealname_back=(LinearLayout) findViewById(R.id.ll_changerealname_back);
 		ll_changegerenjieshao_back=(LinearLayout) findViewById(R.id.ll_changegerenjieshao_back);
 		ll_changepassword_back=(LinearLayout) findViewById(R.id.ll_changepassword_back);
@@ -464,7 +619,7 @@ public class PersonalMainActivity extends Activity implements IChangeUserInfoVie
 		rlMyTouxiang = (RelativeLayout) findViewById(R.id.rl_MyTouxiang);
 		rl_person_realname=(RelativeLayout) findViewById(R.id.rl_person_realname);
 		tvPersonalPhone=(TextView) findViewById(R.id.tv_personal_phone);
-		
+		tv_person_fenjihao=(TextView) findViewById(R.id.tv_person_fenjihao);
 		ivPersonalPhoto=(CircleImageView) findViewById(R.id.iv_personal_Photo);
 		
 		//各个分栏
@@ -632,11 +787,90 @@ public class PersonalMainActivity extends Activity implements IChangeUserInfoVie
 			public void onError(Object error) {
 			}
 		});
-		
-		
-
-		
-		
+	}
+	
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		if(resultCode==RESULT_OK){
+			switch(requestCode){
+			case TAKE_PICTURE:
+				startPhotoZoom(tempUri);
+				break;
+			case CHOOSE_PICTURE:
+				startPhotoZoom(data.getData());
+				break;
+			case CROP_SMALL_PICTURE:
+				if(data!=null){
+				setImageToView(data);
+				}
+				break;
+			}
+		}
 		
 	}
+	
+	/**
+	 * 剪裁图片方法的实现
+	 */
+	protected void startPhotoZoom(Uri uri){
+		if(uri==null){
+			Log.i("tag", "the uri is not exist");
+		}
+		tempUri=uri;
+		Intent intent=new Intent("com.android.camera.action.CROP");
+		intent.setDataAndType(uri, "image/*");
+		//设置剪裁
+		intent.putExtra("crop", "true");
+		intent.putExtra("aspectX", "1");
+		intent.putExtra("aspectY", "1");
+		intent.putExtra("outputX", "150");
+		intent.putExtra("outputY", "150");
+		intent.putExtra("return-data", true);
+		startActivityForResult(intent, CROP_SMALL_PICTURE);
+		
+	}
+	
+	/**
+	 * 保存剪彩后的图片
+	 */
+	
+	protected void setImageToView(Intent data){
+		Bundle extras=data.getExtras();
+		if(extras!=null){
+			Bitmap photo=extras.getParcelable("data");
+//			photo=Utils      //圆形处理图片
+			ivPersonalPhoto.setImageBitmap(photo);
+			uploadPic(photo);
+		}
+	}
+
+	//上传服务器代码
+	private void uploadPic(Bitmap bitmap) {
+		
+		String imagePath=Utils.savePhoto(bitmap, Environment.getExternalStorageDirectory().getAbsolutePath(), String.valueOf(System.currentTimeMillis()));
+		Log.e("imagepath", imagePath);
+		
+		if(imagePath!=null){
+			//上传代码
+			String userid=userinfo.getUserid();
+			headpresenter.ChangeHead(userid, imagePath);
+		}
+		
+	}
+
+	@Override
+	public void changeHeadFail(String errorMessage) {
+		MyToastShowCenter.CenterToast(getApplicationContext(), "头像更换失败！"); 
+		
+	}
+
+	@Override
+	public void changeHeadSuccess(String picUrl) {
+		MyToastShowCenter.CenterToast(getApplicationContext(), "头像更换成功！"+picUrl); 
+		
+	}
+	
+	
 }

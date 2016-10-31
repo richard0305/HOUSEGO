@@ -395,6 +395,7 @@
                         android:gravity="center_vertical"
                         android:paddingLeft="10dp"
                         android:text="地图坐标"
+                        android:lines="1"
                         android:textSize="14sp" />
 
                     <ImageView

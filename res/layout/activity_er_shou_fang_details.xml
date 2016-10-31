@@ -1258,7 +1258,8 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_centerInParent="true"
-        android:background="#ee3a43"
+        android:textColor="#fff"
+        android:background="@drawable/btn_submit_shap"
         android:layout_marginTop="60dp"
         android:text="立即预约"
         android:textSize="14sp" />

@@ -8,14 +8,11 @@ import org.xutils.view.annotation.ViewInject;
 
 import com.dumu.housego.app.HouseGoApp;
 import com.dumu.housego.entity.UserInfo;
-import com.dumu.housego.entity.YuYueData;
 import com.dumu.housego.framgent.GZErShouFramgent;
 import com.dumu.housego.framgent.GZNewFramgent;
 import com.dumu.housego.presenter.IMyYuYueHousePresenter;
-import com.dumu.housego.presenter.MyYuYueHousePresenter;
-import com.dumu.housego.util.MyToastShowCenter;
-import com.dumu.housego.view.IMyYuYueHouseView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -23,6 +20,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
@@ -30,9 +28,14 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 public class PuTongMyGuanZhuActivity extends FragmentActivity {
 	
+	private static final int LOCATION=0;
+	
+	private TextView tv_chuzhu_dituzuobiao;
+	private RelativeLayout rl_my_dituzuobiao;
 	private UserInfo userinfo=HouseGoApp.getContext().getCurrentUserInfo();
 	@ViewInject(R.id.guanzhu_ershou)RadioButton btnErShou;
 	@ViewInject(R.id.guanzhu_new)RadioButton btnNew;
@@ -62,6 +65,13 @@ public class PuTongMyGuanZhuActivity extends FragmentActivity {
 	}
 
 	private void initView() {
+//		PTMyErShouFragment ptershouFragment=new PTMyErShouFragment();
+//		getFragmentManager().beginTransaction().add(R.layout.fragment_ershou_pt, ptershouFragment).;
+
+		
+		tv_chuzhu_dituzuobiao=(TextView) findViewById(R.id.tv_chuzhu_dituzuobiao);
+		rl_my_dituzuobiao=(RelativeLayout) findViewById(R.id.rl_my_dituzuobiao);
+		
 		String w=getIntent().getStringExtra("v");
 		
 		btnErShou.setTextColor(getResources().getColor(R.color.button_ckeck));
@@ -77,7 +87,8 @@ public class PuTongMyGuanZhuActivity extends FragmentActivity {
 		}else if(w.equals("ershouhouse")){
 			window_putong_ershou.setVisibility(View.VISIBLE);
 		}
-	
+		
+		
 		
 		
 		
@@ -120,13 +131,41 @@ public class PuTongMyGuanZhuActivity extends FragmentActivity {
 			}
 		});
 		
+		
+		rl_my_dituzuobiao.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent i=new Intent(PuTongMyGuanZhuActivity.this, GetLocationActivity.class);
+				startActivityForResult(i, LOCATION);
+			}
+		});
+		
+	}
+	
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		switch (requestCode) {
+		case LOCATION:
+//			Intent i=getIntent();
+//			double latitude=i.getDoubleExtra("latitude", 0);
+//			double longitude=i.getDoubleExtra("longitude", 0);
+			double latitude=data.getDoubleExtra("latitude", 0);
+			double longitude=data.getDoubleExtra("longitude", 0);
+			Log.e("LatLng2", "LatLng2=="+latitude+" " +longitude);
+			tv_chuzhu_dituzuobiao.setText(latitude+","+longitude);
+			break;
+
+		default:
+			break;
+	}
 	}
 	
 	private void setViewPagerAdapter() {
 		fragments = new ArrayList<Fragment>();
 		fragments.add(new GZErShouFramgent());
 		fragments.add(new GZNewFramgent());
-		
+		fragments.add(new PTMyErShouFragment());
 		pagerAdapter = new MyPagerAdapter(getSupportFragmentManager());
 		viewPager.setAdapter(pagerAdapter);
 
