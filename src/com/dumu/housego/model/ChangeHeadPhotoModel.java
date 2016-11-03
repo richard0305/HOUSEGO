@@ -1,5 +1,8 @@
 package com.dumu.housego.model;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,6 +19,7 @@ import com.dumu.housego.entity.UserInfo;
 import com.dumu.housego.util.CommonRequest;
 import com.dumu.housego.util.UrlFactory;
 
+import android.util.Base64;
 import android.util.Log;
 
 public class ChangeHeadPhotoModel implements IChangeHeadPhotoModel {
@@ -39,6 +43,7 @@ public class ChangeHeadPhotoModel implements IChangeHeadPhotoModel {
 					JSONObject obj = new JSONObject(response);
 					if (obj.getBoolean("success")==true) {
 						String picurl=obj.getString("avatarUrls").toString();
+						Log.e("====================","picurl"+ picurl);
 						back.onSuccess(picurl);
 						userinfo=HouseGoApp.getContext().getCurrentUserInfo();
 						userinfo.setUserpic(picurl);
@@ -64,12 +69,50 @@ public class ChangeHeadPhotoModel implements IChangeHeadPhotoModel {
 			@Override
 			protected Map<String, String> getParams() throws AuthFailureError {
 				Map<String, String> params = new HashMap<String, String>();
+				String image =getImageStr(imagePath);
 				params.put("userid", userid);
-				params.put("__avatar1", imagePath);
+				params.put("__avatar1", image);
 				return params;
 			}
 		};
+		
 		HouseGoApp.getQueue().add(request);
 	}
+	
+	public static String getImageStr(String filePath) {
+
+		//将图片文件转化为字节数组字符串，并对其进行Base64编码处理
+
+		InputStream in =null;
+
+		byte[] data =null;
+
+		//读取图片字节数组
+
+		try{
+
+		in =new FileInputStream(filePath);
+
+		data =new byte[in.available()];
+
+		in.read(data);
+
+		in.close();
+
+		}catch(IOException e) {
+
+		e.printStackTrace();
+
+		}
+
+		//对字节数组Base64编码
+
+		//返回Base64编码过的字节数组字符串
+
+		return Base64.encodeToString(data,Base64.DEFAULT);
+
+		}
+
+	
 
 }

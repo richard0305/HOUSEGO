@@ -57,7 +57,6 @@ public class PersonalMainActivity extends Activity implements IChangeUserInfoVie
 	protected static final int TAKE_PICTURE=1;
 	protected static final int CROP_SMALL_PICTURE=2;
 	protected static Uri tempUri;
-	protected ImageView iv_person_icon;
 	
 	
 	private LoginUserInfoModel infomodel=new LoginUserInfoModel();
@@ -160,7 +159,7 @@ popTouXiang = new PopupWindow(PersonalMainActivity.this);
 					openCameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, tempUri);
 					startActivityForResult(openCameraIntent, TAKE_PICTURE);
 				}else{
-					MyToastShowCenter.CenterToast(getApplicationContext(), "内存卡不存在");
+					MyToastShowCenter.CenterToast(getApplicationContext(), "内存卡不存在!");
 				}
 				
 				popTouXiang.dismiss();
@@ -172,11 +171,10 @@ popTouXiang = new PopupWindow(PersonalMainActivity.this);
 			public void onClick(View v) {
 				//选择本地照片
 				
-				Intent openAlbumIntent=new Intent(Intent.ACTION_GET_CONTENT);
+				Intent openAlbumIntent=new Intent(Intent.ACTION_PICK);
 				openAlbumIntent.setType("image/*");
 				startActivityForResult(openAlbumIntent, CHOOSE_PICTURE);
 				
-				onResume();
 				popTouXiang.dismiss();
 				ll_popup_touxiang.clearAnimation();
 				ll_cancle_touxiang.clearAnimation();
@@ -792,8 +790,8 @@ pop = new PopupWindow(PersonalMainActivity.this);
 	
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		super.onActivityResult(requestCode, resultCode, data);
-		if(resultCode==RESULT_OK){
+		
+		if(resultCode==RESULT_OK){super.onActivityResult(requestCode, resultCode, data);
 			switch(requestCode){
 			case TAKE_PICTURE:
 				startPhotoZoom(tempUri);
@@ -808,7 +806,7 @@ pop = new PopupWindow(PersonalMainActivity.this);
 				break;
 			}
 		}
-		
+		super.onActivityResult(requestCode, resultCode, data);
 	}
 	
 	/**
@@ -869,6 +867,7 @@ pop = new PopupWindow(PersonalMainActivity.this);
 	@Override
 	public void changeHeadSuccess(String picUrl) {
 		MyToastShowCenter.CenterToast(getApplicationContext(), "头像更换成功！"+picUrl); 
+		Glide.with(getApplicationContext()).load(picUrl).into(ivPersonalPhoto);
 		
 	}
 	

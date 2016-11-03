@@ -6,6 +6,13 @@ public class UrlFactory {
 	 
 	 
 	 
+	 //二手房/出租房列表
+	 public static String PostSubmitESorCZList() {
+			String path = TSFURL+"index.php?g=api&m=user&a=house_list";
+			return path;
+		}
+	 
+	 
 	 //直接修改密码
 		public static String PostChangePassword() {
 			String path = TSFURL+"index.php?g=member&m=public&a=mod_pwd2";

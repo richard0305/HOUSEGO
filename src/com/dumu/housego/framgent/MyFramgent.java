@@ -7,6 +7,7 @@ import org.xutils.x;
 
 import com.bumptech.glide.Glide;
 import com.dumu.housego.AgentChangeUserInfoActivity;
+import com.dumu.housego.AgentPersonalActivity;
 import com.dumu.housego.MyRentingHouseAgentActivity;
 import com.dumu.housego.MySettingMainActivity;
 import com.dumu.housego.PersonalMainActivity;
@@ -49,6 +50,7 @@ public class MyFramgent extends Fragment {
 	private UserInfo userinfo;
 	private RelativeLayout rlPTMyGuanZhu,rl_putong_mysalehouse;
 private LinearLayout llMysettingAgentLogin,llMysettingPuTongLogin,llMysettingNologin;
+private RelativeLayout rlAgentErshou,rlAgentRenting;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View view=inflater.inflate(R.layout.framgent_my, null);
@@ -203,6 +205,23 @@ private LinearLayout llMysettingAgentLogin,llMysettingPuTongLogin,llMysettingNol
 			}
 		});
 		
+		rlAgentErshou.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent i=new Intent(getActivity(), AgentPersonalActivity.class);
+				i.putExtra("FRAGMENT_KEY", AgentPersonalActivity.AGENT_ERSHOU_LIST);
+				startActivity(i);
+			}
+		});
+		rlAgentRenting.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent i=new Intent(getActivity(), AgentPersonalActivity.class);
+				i.putExtra("FRAGMENT_KEY", AgentPersonalActivity.AGENT_RENTING_LIST);
+				startActivity(i);
+			}
+		});
+		
 		
 	}
 
@@ -224,8 +243,12 @@ private LinearLayout llMysettingAgentLogin,llMysettingPuTongLogin,llMysettingNol
 		llMysettingAgentLogin=(LinearLayout) view.findViewById(R.id.ll_mysetting_agent_login);
 		llMysettingPuTongLogin=(LinearLayout) view.findViewById(R.id.ll_mysetting_putong_login);
 		rlPTMyGuanZhu=(RelativeLayout) view.findViewById(R.id.rl_putong_myguanzhu);
+		
 		rl_putong_mychuzu=(RelativeLayout) view.findViewById(R.id.rl_putong_mychuzu);
 		rl_putong_mysalehouse=(RelativeLayout) view.findViewById(R.id.rl_putong_mysalehouse);
+		rlAgentErshou=(RelativeLayout) view.findViewById(R.id.rl_agent_ershoufangguanli);
+		rlAgentRenting=(RelativeLayout) view.findViewById(R.id.rl_agent_chuzufangguanli);
+		
 	}
 	
 	

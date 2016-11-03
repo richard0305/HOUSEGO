@@ -10,7 +10,12 @@ import com.dumu.housego.app.HouseGoApp;
 import com.dumu.housego.entity.UserInfo;
 import com.dumu.housego.framgent.GZErShouFramgent;
 import com.dumu.housego.framgent.GZNewFramgent;
+import com.dumu.housego.framgent.PTershouListFragment;
+import com.dumu.housego.framgent.PTershouSumbitFragment;
+import com.dumu.housego.framgent.PTrentingListFragment;
+import com.dumu.housego.framgent.PTrentingSumbitFragment;
 import com.dumu.housego.presenter.IMyYuYueHousePresenter;
+import com.dumu.housego.util.MyToastShowCenter;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,11 +23,13 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -32,10 +39,9 @@ import android.widget.TextView;
 
 public class PuTongMyGuanZhuActivity extends FragmentActivity {
 	
+	
 	private static final int LOCATION=0;
 	
-	private TextView tv_chuzhu_dituzuobiao;
-	private RelativeLayout rl_my_dituzuobiao;
 	private UserInfo userinfo=HouseGoApp.getContext().getCurrentUserInfo();
 	@ViewInject(R.id.guanzhu_ershou)RadioButton btnErShou;
 	@ViewInject(R.id.guanzhu_new)RadioButton btnNew;
@@ -43,13 +49,14 @@ public class PuTongMyGuanZhuActivity extends FragmentActivity {
 	@ViewInject(R.id.guanzhu_viewpage)ViewPager viewPager;
 	private PagerAdapter pagerAdapter;
 	private List<Fragment> fragments;
-	private LinearLayout llBackPutongyuyue;
 	private LinearLayout llBackPutongguanzhu;	
 	
-	private RelativeLayout window_putong_guanzhu,window_putong_ershou,window_putong_rentinghouse;
-	private IMyYuYueHousePresenter MyYuYuePresenter;
+	private RelativeLayout window_putong_guanzhu;
 	private String username=userinfo.getUsername();
 	private String t="1";
+	private FrameLayout rl_container;
+	private Fragment fragment;
+	private String tag;
 	
 	
 	
@@ -61,31 +68,31 @@ public class PuTongMyGuanZhuActivity extends FragmentActivity {
 		initView();
 		setViewPagerAdapter();
 		setListener();
+		initData();
 		
 	}
 
-	private void initView() {
-//		PTMyErShouFragment ptershouFragment=new PTMyErShouFragment();
-//		getFragmentManager().beginTransaction().add(R.layout.fragment_ershou_pt, ptershouFragment).;
-
+	private void initData() {
+		tag=getIntent().getStringExtra("v");
 		
-		tv_chuzhu_dituzuobiao=(TextView) findViewById(R.id.tv_chuzhu_dituzuobiao);
-		rl_my_dituzuobiao=(RelativeLayout) findViewById(R.id.rl_my_dituzuobiao);
-		
-		String w=getIntent().getStringExtra("v");
-		
-		btnErShou.setTextColor(getResources().getColor(R.color.button_ckeck));
-		llBackPutongguanzhu=(LinearLayout) findViewById(R.id.ll_back_putongguanzhu);
-		window_putong_guanzhu=(RelativeLayout) findViewById(R.id.window_putong_guanzhu);
-		window_putong_rentinghouse=(RelativeLayout) findViewById(R.id.window_putong_rentinghouse);
-		window_putong_ershou=(RelativeLayout)findViewById(R.id.window_putong_ershou);
-		
-		if(w.equals("guanzhu")){
+		if(tag.equals("guanzhu")){
 			window_putong_guanzhu.setVisibility(View.VISIBLE);
-		}else if(w.equals("rentinghouse")){
-			window_putong_rentinghouse.setVisibility(View.VISIBLE);
-		}else if(w.equals("ershouhouse")){
-			window_putong_ershou.setVisibility(View.VISIBLE);
+			
+		}else if(tag.equals("ershouhouse")){
+			
+			rl_container.setVisibility(View.VISIBLE);
+			fragment=new PTershouListFragment();
+			FragmentTransaction trans=getSupportFragmentManager().beginTransaction();
+			trans.replace(R.id.rl_container, fragment);
+			trans.commitAllowingStateLoss();
+			
+		}else if(tag.equals("rentinghouse")){
+			
+			rl_container.setVisibility(View.VISIBLE);
+			fragment=new PTrentingListFragment();
+			FragmentTransaction trans=getSupportFragmentManager().beginTransaction();
+			trans.replace(R.id.rl_container, fragment);
+			trans.commitAllowingStateLoss();
 		}
 		
 		
@@ -93,9 +100,15 @@ public class PuTongMyGuanZhuActivity extends FragmentActivity {
 		
 		
 		
+	}
+
+	private void initView() {
+
+		rl_container=(FrameLayout) findViewById(R.id.rl_container);
 		
-		
-		
+		btnErShou.setTextColor(getResources().getColor(R.color.button_ckeck));
+		llBackPutongguanzhu=(LinearLayout) findViewById(R.id.ll_back_putongguanzhu);
+		window_putong_guanzhu=(RelativeLayout) findViewById(R.id.window_putong_guanzhu);
 	}
 
 	private void setListener() {
@@ -132,40 +145,17 @@ public class PuTongMyGuanZhuActivity extends FragmentActivity {
 		});
 		
 		
-		rl_my_dituzuobiao.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Intent i=new Intent(PuTongMyGuanZhuActivity.this, GetLocationActivity.class);
-				startActivityForResult(i, LOCATION);
-			}
-		});
+		
 		
 	}
 	
 	
-	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		switch (requestCode) {
-		case LOCATION:
-//			Intent i=getIntent();
-//			double latitude=i.getDoubleExtra("latitude", 0);
-//			double longitude=i.getDoubleExtra("longitude", 0);
-			double latitude=data.getDoubleExtra("latitude", 0);
-			double longitude=data.getDoubleExtra("longitude", 0);
-			Log.e("LatLng2", "LatLng2=="+latitude+" " +longitude);
-			tv_chuzhu_dituzuobiao.setText(latitude+","+longitude);
-			break;
-
-		default:
-			break;
-	}
-	}
 	
 	private void setViewPagerAdapter() {
 		fragments = new ArrayList<Fragment>();
 		fragments.add(new GZErShouFramgent());
 		fragments.add(new GZNewFramgent());
-		fragments.add(new PTMyErShouFragment());
+		
 		pagerAdapter = new MyPagerAdapter(getSupportFragmentManager());
 		viewPager.setAdapter(pagerAdapter);
 
