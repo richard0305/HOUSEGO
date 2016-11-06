@@ -102,7 +102,7 @@ public class GZErShouFramgent extends Fragment implements IGuanZhuErShouView,IGu
 	public void onResume() {
 		userinfo=HouseGoApp.getContext().getCurrentUserInfo();
 		String username=userinfo.getUsername();
-		presenter.LoadGuanZhuErShou(username);
+		presenter.LoadGuanZhuErShou(username,"ershou");
 //		MyToastShowCenter.CenterToast(getContext(), "发送了数据");
 		super.onResume();
 	}

@@ -328,7 +328,6 @@
             android:layout_below="@+id/iv_my_back"
             android:background="#ffffff"
             android:orientation="vertical"
-            android:visibility="gone"
         >
             
              
@@ -694,7 +693,7 @@
             android:layout_below="@+id/iv_my_back"
             android:orientation="vertical"
             android:background="#ffffff"
-            
+            android:visibility="gone"
             >
 
              
@@ -817,12 +816,12 @@
                     android:text="成交房源"
                     android:textSize="14sp" />
 
-                <ImageView
+               <ImageView
                     android:id="@+id/imageView641"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
                     android:layout_marginRight="20dp"
                     android:src="@drawable/gray_right" />
             </RelativeLayout>

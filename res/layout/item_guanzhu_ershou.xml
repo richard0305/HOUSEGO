@@ -21,8 +21,9 @@
           >
                     <ImageView
             android:id="@+id/iv_guanzhuershou"
-            android:layout_width="120dp"
-            android:layout_height="80dp"
+            android:layout_width="100dp"
+            android:layout_height="67dp"
+            android:scaleType="fitXY"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginLeft="10dp"
@@ -118,6 +119,7 @@
                 android:layout_toRightOf="@+id/tv_guanzhu_jianzhutype"
                 android:layout_marginLeft="6dp"
                 android:text="5922元/㎡"
+                android:singleLine="true"
                 android:textSize="12sp" />
 
             <TextView

@@ -27,7 +27,8 @@ public class GuanZhuErShouJSONParse {
 					n.setId(obj2.getString("id"));
 					n.setCatid(obj2.getString("catid"));
 					n.setTitle(obj2.getString("title"));
-					n.setXiaoquName(obj2.getString("xiaoquName"));
+//					n.setXiaoquName(obj2.getString("xiaoquName"));
+					n.setXiaoquname(obj2.getString("xiaoquname"));
 					n.setShi(obj2.getString("shi"));
 					n.setTing(obj2.getString("ting"));
 					n.setJianzhumianji(obj2.getString("jianzhumianji"));

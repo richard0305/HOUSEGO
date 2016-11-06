@@ -10,7 +10,8 @@
     <ImageView
         android:id="@+id/newhouse_rexiao_iv"
         android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_height="67dp"
+          android:scaleType="fitXY"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:src="@drawable/touxiang" />

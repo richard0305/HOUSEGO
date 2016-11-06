@@ -3,6 +3,7 @@ package com.dumu.housego;
 import java.io.File;
 
 import org.xutils.x;
+import org.xutils.common.util.MD5;
 
 import com.bumptech.glide.Glide;
 import com.dumu.housego.activity.LoginActivity;
@@ -23,10 +24,13 @@ import com.dumu.housego.utils.Utils;
 import com.dumu.housego.view.IChangeHeadPhotoView;
 import com.dumu.housego.view.IChangeUserInfoView;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
@@ -34,6 +38,8 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.provider.MediaStore;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -57,7 +63,7 @@ public class PersonalMainActivity extends Activity implements IChangeUserInfoVie
 	protected static final int TAKE_PICTURE=1;
 	protected static final int CROP_SMALL_PICTURE=2;
 	protected static Uri tempUri;
-	
+//	private static final int TAKE_PHOTO_REQUEST_CODE = 1;
 	
 	private LoginUserInfoModel infomodel=new LoginUserInfoModel();
 	private TextView tv_person_fenjihao;
@@ -158,6 +164,7 @@ popTouXiang = new PopupWindow(PersonalMainActivity.this);
 					//指定照片保存路径（SD卡），image.jpg为一个临时文本，每次拍照后这个图片都会被替换
 					openCameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, tempUri);
 					startActivityForResult(openCameraIntent, TAKE_PICTURE);
+					
 				}else{
 					MyToastShowCenter.CenterToast(getApplicationContext(), "内存卡不存在!");
 				}
@@ -451,6 +458,7 @@ pop = new PopupWindow(PersonalMainActivity.this);
 				onResume();
 			}
 		});
+		
 		ll_changefenjihao_back.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -512,6 +520,7 @@ pop = new PopupWindow(PersonalMainActivity.this);
 				
 			}
 		});
+		
 		tv_changegerenjieshao_save.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -813,6 +822,16 @@ pop = new PopupWindow(PersonalMainActivity.this);
 	 * 剪裁图片方法的实现
 	 */
 	protected void startPhotoZoom(Uri uri){
+		
+	     if (ContextCompat.checkSelfPermission(this,
+	                Manifest.permission.CAMERA)
+	                != PackageManager.PERMISSION_GRANTED) {
+	           ActivityCompat.requestPermissions((Activity) this,
+	                    new String[]{Manifest.permission.CAMERA},
+	                    TAKE_PICTURE);
+	        }
+		
+		
 		if(uri==null){
 			Log.i("tag", "the uri is not exist");
 		}
@@ -857,6 +876,16 @@ pop = new PopupWindow(PersonalMainActivity.this);
 		}
 		
 	}
+	
+	
+
+	        
+	   
+	           
+	
+	
+	
+	
 
 	@Override
 	public void changeHeadFail(String errorMessage) {

@@ -4,6 +4,19 @@ public class UrlFactory {
 	
 	 public static String TSFURL="http://www.taoshenfang.com/"; 
 	 
+	 //获取地区列表接口
+	 public static String PostAddressList() {
+			String path = TSFURL+"index.php?g=api&m=house&a=diqu";
+			return path;
+		}
+	 
+	 
+	 
+	 //成交房源
+	 public static String PostChengJiaoHouseList() {
+			String path = TSFURL+"index.php?g=api&m=user&a=chengjiao";
+			return path;
+		}
 	 
 	 
 	 //二手房/出租房列表

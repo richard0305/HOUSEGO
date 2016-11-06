@@ -10,6 +10,7 @@ import com.dumu.housego.app.HouseGoApp;
 import com.dumu.housego.entity.UserInfo;
 import com.dumu.housego.framgent.GZErShouFramgent;
 import com.dumu.housego.framgent.GZNewFramgent;
+import com.dumu.housego.framgent.PTQiuZuListFragment;
 import com.dumu.housego.framgent.PTershouListFragment;
 import com.dumu.housego.framgent.PTershouSumbitFragment;
 import com.dumu.housego.framgent.PTrentingListFragment;
@@ -67,13 +68,15 @@ public class PuTongMyGuanZhuActivity extends FragmentActivity {
 		x.view().inject(this);
 		initView();
 		setViewPagerAdapter();
-		setListener();
 		initData();
+		setListener();
+		
 		
 	}
 
 	private void initData() {
 		tag=getIntent().getStringExtra("v");
+		
 		
 		if(tag.equals("guanzhu")){
 			window_putong_guanzhu.setVisibility(View.VISIBLE);
@@ -87,9 +90,16 @@ public class PuTongMyGuanZhuActivity extends FragmentActivity {
 			trans.commitAllowingStateLoss();
 			
 		}else if(tag.equals("rentinghouse")){
-			
 			rl_container.setVisibility(View.VISIBLE);
+			
 			fragment=new PTrentingListFragment();
+			FragmentTransaction trans=getSupportFragmentManager().beginTransaction();
+			trans.replace(R.id.rl_container, fragment);
+			trans.commitAllowingStateLoss();
+		}else if(tag.equals("qiuzu")){
+			rl_container.setVisibility(View.VISIBLE);
+			
+			fragment=new PTQiuZuListFragment();
 			FragmentTransaction trans=getSupportFragmentManager().beginTransaction();
 			trans.replace(R.id.rl_container, fragment);
 			trans.commitAllowingStateLoss();

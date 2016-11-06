@@ -3,6 +3,7 @@ package com.dumu.housego.adapter;
 import java.util.List;
 
 import com.dumu.housego.R;
+import com.dumu.housego.entity.ErShouFangDetails;
 import com.dumu.housego.entity.SubmitErshouList;
 import com.dumu.housego.util.MyToastShowCenter;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -19,12 +20,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class SubmitErshouListAdapter extends BaseAdapter {
-	private List<SubmitErshouList> submitershous;
+	private List<ErShouFangDetails> submitershous;
 	private Context context;
 	private LayoutInflater Inflater;
 	
 
-	public SubmitErshouListAdapter(List<SubmitErshouList> submitershous, Context context) {
+	public SubmitErshouListAdapter(List<ErShouFangDetails> submitershous, Context context) {
 		super();
 		this.submitershous = submitershous;
 		this.context = context;
@@ -37,7 +38,7 @@ public class SubmitErshouListAdapter extends BaseAdapter {
 	}
 
 	@Override
-	public SubmitErshouList getItem(int position) {
+	public ErShouFangDetails getItem(int position) {
 		
 		return submitershous.get(position);
 	}
@@ -74,7 +75,7 @@ public class SubmitErshouListAdapter extends BaseAdapter {
 		try {
 			
 		
-			SubmitErshouList n=getItem(position);
+			ErShouFangDetails n=getItem(position);
 			String url="http://www.taoshenfang.com"+n.getThumb();
 			
 		DisplayImageOptions options=new DisplayImageOptions.Builder()

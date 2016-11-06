@@ -158,6 +158,8 @@ public class HouseGoApp extends Application {
     	sharedPre.edit().clear().commit();
     	return userinfo;
     }
+
+    
     
 
 }

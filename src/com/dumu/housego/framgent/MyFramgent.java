@@ -45,12 +45,12 @@ public class MyFramgent extends Fragment {
 	private RelativeLayout rlMyentrust;
 	private RelativeLayout rlMyrenting;
 	private RelativeLayout rlMyershoufang;
-	private RelativeLayout rl_putong_mychuzu;
+	private RelativeLayout rl_putong_mychuzu,rl_putong_myzhufang;
 	private CircleImageView ivMyPic;
 	private UserInfo userinfo;
 	private RelativeLayout rlPTMyGuanZhu,rl_putong_mysalehouse;
 private LinearLayout llMysettingAgentLogin,llMysettingPuTongLogin,llMysettingNologin;
-private RelativeLayout rlAgentErshou,rlAgentRenting;
+private RelativeLayout rlAgentErshou,rlAgentRenting,rlAgentChengjiaoHouse;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View view=inflater.inflate(R.layout.framgent_my, null);
@@ -205,6 +205,19 @@ private RelativeLayout rlAgentErshou,rlAgentRenting;
 			}
 		});
 		
+		rl_putong_myzhufang.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent i=new Intent(getActivity(), PuTongMyGuanZhuActivity.class);
+				i.putExtra("v", "qiuzu");
+				startActivity(i);
+				
+			}
+		});
+		
+		
+		
 		rlAgentErshou.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -221,6 +234,17 @@ private RelativeLayout rlAgentErshou,rlAgentRenting;
 				startActivity(i);
 			}
 		});
+		
+		rlAgentChengjiaoHouse.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent i=new Intent(getActivity(), AgentPersonalActivity.class);
+				i.putExtra("FRAGMENT_KEY", AgentPersonalActivity.AGENT_CHENGJIAO);
+				startActivity(i);
+			}
+		});
+		
+		
 		
 		
 	}
@@ -243,12 +267,14 @@ private RelativeLayout rlAgentErshou,rlAgentRenting;
 		llMysettingAgentLogin=(LinearLayout) view.findViewById(R.id.ll_mysetting_agent_login);
 		llMysettingPuTongLogin=(LinearLayout) view.findViewById(R.id.ll_mysetting_putong_login);
 		rlPTMyGuanZhu=(RelativeLayout) view.findViewById(R.id.rl_putong_myguanzhu);
-		
+		rl_putong_myzhufang=(RelativeLayout) view.findViewById(R.id.rl_putong_myzhufang);
 		rl_putong_mychuzu=(RelativeLayout) view.findViewById(R.id.rl_putong_mychuzu);
 		rl_putong_mysalehouse=(RelativeLayout) view.findViewById(R.id.rl_putong_mysalehouse);
 		rlAgentErshou=(RelativeLayout) view.findViewById(R.id.rl_agent_ershoufangguanli);
 		rlAgentRenting=(RelativeLayout) view.findViewById(R.id.rl_agent_chuzufangguanli);
 		
+		
+		rlAgentChengjiaoHouse=(RelativeLayout) view.findViewById(R.id.rl_agent_chengjiaofangyuan);
 	}
 	
 	

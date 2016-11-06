@@ -11,8 +11,9 @@
           >
                     <ImageView
             android:id="@+id/iv_guanzhuershou"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="100dp"
+            android:layout_height="67dp"
+              android:scaleType="fitXY"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginLeft="10dp"

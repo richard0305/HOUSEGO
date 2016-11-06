@@ -2,6 +2,7 @@ package com.dumu.housego.presenter;
 
 import java.util.List;
 
+import com.dumu.housego.entity.ErShouFangDetails;
 import com.dumu.housego.entity.SubmitErshouList;
 import com.dumu.housego.model.IModel.AsycnCallBack;
 import com.dumu.housego.model.ISubmitErShouListModel;
@@ -25,7 +26,7 @@ public class SubmitErShoulistpresenter implements ISubmitErShouListpresenter {
 			
 			@Override
 			public void onSuccess(Object success) {
-				List<SubmitErshouList>submitershous=(List<SubmitErshouList>) success;
+				List<ErShouFangDetails>submitershous=(List<ErShouFangDetails>) success;
 				view.SubmitListSuccess(submitershous);
 				
 			}

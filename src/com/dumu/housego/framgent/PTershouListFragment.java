@@ -5,6 +5,7 @@ import java.util.List;
 import com.dumu.housego.R;
 import com.dumu.housego.adapter.SubmitErshouListAdapter;
 import com.dumu.housego.app.HouseGoApp;
+import com.dumu.housego.entity.ErShouFangDetails;
 import com.dumu.housego.entity.SubmitErshouList;
 import com.dumu.housego.entity.UserInfo;
 import com.dumu.housego.presenter.ISubmitErShouListpresenter;
@@ -26,7 +27,7 @@ import android.widget.TextView;
 public class PTershouListFragment extends Fragment implements ISubmitErShouListView{
 	private ListView lvSubmitErshouList;
 	private SubmitErshouListAdapter adapter;
-	private List<SubmitErshouList>submitershous;
+	private List<ErShouFangDetails>submitershous;
 	private ISubmitErShouListpresenter presenter;
 	private UserInfo userinfo;
 	
@@ -85,7 +86,7 @@ public class PTershouListFragment extends Fragment implements ISubmitErShouListV
 
 
 	@Override
-	public void SubmitListSuccess(List<SubmitErshouList> submitershous) {
+	public void SubmitListSuccess(List<ErShouFangDetails> submitershous) {
 		this.submitershous=submitershous;
 			
 			adapter=new SubmitErshouListAdapter(submitershous, getActivity());

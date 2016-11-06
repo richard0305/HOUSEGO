@@ -18,7 +18,6 @@ public class ErShouFangDetialJSONParse {
 			n.setTing(j.getString("ting"));
 			n.setShi(j.getString("shi"));
 			n.setThumb(j.getString("thumb"));
-//			n.setAllow_comment(j.getString("allow_comment"));
 			n.setArea(j.getString("area"));
 			n.setAreaname(j.getString("areaname"));
 			n.setBianhao(j.getString("bianhao"));
@@ -30,7 +29,6 @@ public class ErShouFangDetialJSONParse {
 			n.setChu(j.getString("chu"));
 			n.setCity(j.getString("city"));
 			n.setCityname(j.getString("cityname"));
-//			n.setContent(j.getString("content"));
 			n.setContract(j.getString("contract"));
 			n.setCurceng(j.getString("curceng"));
 			n.setDayviews(j.getString("dayviews"));
@@ -65,17 +63,13 @@ public class ErShouFangDetialJSONParse {
 			n.setLock(j.getString("lock"));
 			n.setLouceng(j.getString("louceng"));
 			n.setLoudong(j.getString("loudong"));
-//			n.setMaxcharperpage(j.getString("maxcharperpage"));
 			n.setMenpai(j.getString("menpai"));
 			n.setMonthviews(j.getString("monthviews"));
-//			n.setPaginationtype(j.getString("paginationtype"));
-//			n.setPaytype(j.getString("paytype"));
 			n.setPics(j.getString("pics"));
 			n.setPosid(j.getString("posid"));
 			n.setProvince(j.getString("province"));
 			n.setPub_type(j.getString("pub_type"));
 			n.setQuanshudiya(j.getString("quanshudiya"));
-//			n.setRelation(j.getString("relation"));
 			n.setShangcijiaoyi(j.getString("shangcijiaoyi"));
 			n.setShenghuopeitao(j.getString("shenghuopeitao"));
 			n.setShuifeijiexi(j.getString("shuifeijiexi"));
@@ -85,7 +79,6 @@ public class ErShouFangDetialJSONParse {
 			n.setSysadd(j.getString("sysadd"));
 			n.setTags(j.getString("tags"));
 			n.setTaoneimianji(j.getString("taoneimianji"));
-//			n.setTemplate(j.getString("template"));
 			n.setTihubili(j.getString("tihubili"));
 			n.setTouzifenxi(j.getString("touzifenxi"));
 			n.setTypeid(j.getString("typeid"));
@@ -98,7 +91,6 @@ public class ErShouFangDetialJSONParse {
 			n.setWei(j.getString("wei"));
 			n.setXiaoqu(j.getString("xiaoqu"));
 			n.setXiaoquintro(j.getString("xiaoquintro"));
-//			n.setXiaoquName(j.getString("xiaoquName"));
 			n.setXiaoquyoushi(j.getString("xiaoquyoushi"));
 			n.setXuexiaomingcheng(j.getString("xuexiaomingcheng"));
 			n.setYangtai(j.getString("yangtai"));

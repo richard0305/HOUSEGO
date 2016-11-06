@@ -20,8 +20,8 @@ public class GuanZhuErShouPresenter implements IGuanZhuErShouPresenter {
 	}
 
 	@Override
-	public void LoadGuanZhuErShou(String username) {
-		model.loadGuanZhuErShou(username, new AsycnCallBack() {
+	public void LoadGuanZhuErShou(String username,String table) {
+		model.loadGuanZhuErShou(username, table,new AsycnCallBack() {
 			
 			@Override
 			public void onSuccess(Object success) {

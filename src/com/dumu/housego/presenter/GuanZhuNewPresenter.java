@@ -24,8 +24,8 @@ public class GuanZhuNewPresenter implements IGuanZhuNewPresenter {
 	}
 
 	@Override
-	public void LoadGuanZhuNew(String username) {
-		model.loadGuanZhuNew(username, new AsycnCallBack() {
+	public void LoadGuanZhuNew(String username,String table) {
+		model.loadGuanZhuNew(username,table, new AsycnCallBack() {
 			
 			@Override
 			public void onSuccess(Object success) {

@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.VolleyError;
@@ -24,7 +25,7 @@ import android.util.Log;
 public class GuanZhuErShouModel implements IGuanZhuErShouModel {
 
 	@Override
-	public void loadGuanZhuErShou(final String username,final AsycnCallBack back) {
+	public void loadGuanZhuErShou(final String username,final String table,final AsycnCallBack back) {
 		String url=UrlFactory.PostGuanZhuErShouUrl();
 		CommonRequest request=new CommonRequest(Method.POST, url, new Listener<String>() {
 
@@ -34,6 +35,18 @@ public class GuanZhuErShouModel implements IGuanZhuErShouModel {
 					List<ErShouFangDetails> ershoufangdetails=GuanZhuErShouJSONParse.parseSearch(response);
 					back.onSuccess(ershoufangdetails);
 				} catch (JSONException e) {
+					
+//					try {
+//						JSONObject 	JS = new JSONObject(response);
+//						
+//						String info=JS.getString("info");
+//						back.onError(info);
+//					} catch (JSONException e1) {
+//						e1.printStackTrace();
+//					}
+					
+					
+					
 					e.printStackTrace();
 				}
 				
@@ -50,6 +63,7 @@ public class GuanZhuErShouModel implements IGuanZhuErShouModel {
 			protected Map<String, String> getParams() throws AuthFailureError {
 				Map<String, String>map=new HashMap<String, String>();
 				map.put("username", username);
+				map.put("table", table);
 				return map;
 			}
 		};

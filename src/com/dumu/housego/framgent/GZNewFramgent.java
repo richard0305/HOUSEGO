@@ -47,7 +47,7 @@ public class GZNewFramgent extends Fragment implements IGuanZhuNewView{
 	presenter=new GuanZhuNewPresenter(this);
 	userinfo=HouseGoApp.getContext().getCurrentUserInfo();
 	String username=userinfo.getUsername();
-	presenter.LoadGuanZhuNew(username);
+	presenter.LoadGuanZhuNew(username,"new");
 	
 	
 	return view;

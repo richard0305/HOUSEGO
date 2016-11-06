@@ -473,7 +473,8 @@ pop = new PopupWindow(ErShouFangDetailsActivity.this);
 		
 		final AlertDialog alertDialog = new AlertDialog.Builder(this).create();  
 		alertDialog.show();  
-		Window window = alertDialog.getWindow();  
+		Window window = alertDialog.getWindow();
+		window.setGravity(Gravity.BOTTOM);
 		window.setContentView(R.layout.dialog_main_info);  
 		TextView tv_title = (TextView) window.findViewById(R.id.tv_dialog_title);  
 		tv_title.setText("是否去预约");  
@@ -495,6 +496,7 @@ pop = new PopupWindow(ErShouFangDetailsActivity.this);
 				alertDialog.cancel();
 			}
 		});
+		
 		
 		/**
 		 * 

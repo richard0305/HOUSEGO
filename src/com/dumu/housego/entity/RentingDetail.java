@@ -76,6 +76,8 @@ public class RentingDetail {
 	private String bianhao;
 	private String cityname;
 	private String areaname;
+	private String xiaoquname;
+	
 	public RentingDetail(String id, String catid, String typeid, String title, String style, String thumb,
 			String keywords, String tags, String description, String posid, String url, String listorder, String status,
 			String sysadd, String islink, String username, String inputtime, String updatetime, String views,
@@ -88,7 +90,7 @@ public class RentingDetail {
 			String fukuan, String biaoqian, String xiaoqu, String liangdian, String huxingjieshao, String zxdesc,
 			String czreason, String xiaoquintro, String fangling, String jianzhutype, String wuyetype,
 			String xiaoqutype, String pub_type, String jjr_id, String fenpei_time, String lock, String zaizu,
-			String bianhao, String cityname, String areaname) {
+			String bianhao, String cityname, String areaname,String xiaoquname) {
 		super();
 		this.id = id;
 		this.catid = catid;
@@ -165,6 +167,7 @@ public class RentingDetail {
 		this.bianhao = bianhao;
 		this.cityname = cityname;
 		this.areaname = areaname;
+		this.xiaoquname=xiaoquname;
 	}
 	public RentingDetail() {
 		super();
@@ -619,6 +622,16 @@ public class RentingDetail {
 	public void setAreaname(String areaname) {
 		this.areaname = areaname;
 	}
+	
+	
+	public String getXiaoquname() {
+		return xiaoquname;
+	}
+	public void setXiaoquname(String xiaoquname) {
+		this.xiaoquname = xiaoquname;
+	}
+	
+	
 	@Override
 	public String toString() {
 		return "RentingDetail [id=" + id + ", catid=" + catid + ", typeid=" + typeid + ", title=" + title + ", style="
@@ -641,7 +654,7 @@ public class RentingDetail {
 				+ ", jianzhutype=" + jianzhutype + ", wuyetype=" + wuyetype + ", xiaoqutype=" + xiaoqutype
 				+ ", pub_type=" + pub_type + ", jjr_id=" + jjr_id + ", fenpei_time=" + fenpei_time + ", lock=" + lock
 				+ ", zaizu=" + zaizu + ", bianhao=" + bianhao + ", cityname=" + cityname + ", areaname=" + areaname
-				+ "]";
+				+",xiaoquname="+xiaoquname +"]";
 	}
 	
 	

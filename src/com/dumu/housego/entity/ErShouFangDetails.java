@@ -99,6 +99,7 @@ public class ErShouFangDetails {
 	   private String cityname;
 	   private String areaname;
 	   private String xiaoquName;
+	   private String xiaoquname;
 	public ErShouFangDetails(String id, String catid, String typeid, String title, String style, String thumb,
 			String keywords, String tags, String description, String posid, String url, String listorder, String status,
 			String sysadd, String islink, String username, String inputtime, String updatetime, String views,
@@ -116,7 +117,7 @@ public class ErShouFangDetails {
 			String jjr_id, String fenpei_time, String lock, String chenghu, String contract, String idcard,
 			String zaishou, String content, String paginationtype, String maxcharperpage, String template,
 			String paytype, String allow_comment, String relation, String cityname, String areaname,
-			String xiaoquName) {
+			String xiaoquName,String xiaoquname) {
 		super();
 		this.id = id;
 		this.catid = catid;
@@ -216,6 +217,7 @@ public class ErShouFangDetails {
 		this.cityname = cityname;
 		this.areaname = areaname;
 		this.xiaoquName = xiaoquName;
+		this.xiaoquname=xiaoquname;
 	}
 	public ErShouFangDetails() {
 		super();
@@ -808,6 +810,16 @@ public class ErShouFangDetails {
 	public void setXiaoquName(String xiaoquName) {
 		this.xiaoquName = xiaoquName;
 	}
+	
+	public String getXiaoquname() {
+		return xiaoquname;
+	}
+	public void setXiaoquname(String xiaoquname) {
+		this.xiaoquname = xiaoquname;
+	}
+	
+	
+	
 	@Override
 	public String toString() {
 		return "ErShouFangDetails [id=" + id + ", catid=" + catid + ", typeid=" + typeid + ", title=" + title
@@ -837,7 +849,7 @@ public class ErShouFangDetails {
 				+ idcard + ", zaishou=" + zaishou + ", content=" + content + ", paginationtype=" + paginationtype
 				+ ", maxcharperpage=" + maxcharperpage + ", template=" + template + ", paytype=" + paytype
 				+ ", allow_comment=" + allow_comment + ", relation=" + relation + ", cityname=" + cityname
-				+ ", areaname=" + areaname + ", xiaoquName=" + xiaoquName + "]";
+				+ ", areaname=" + areaname + ", xiaoquName=" + xiaoquName + ",xiaoquname="+xiaoquname+"]";
 	}
 	   
 	   

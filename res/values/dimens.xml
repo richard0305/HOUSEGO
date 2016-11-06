@@ -5,4 +5,17 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fengexian">0.5dp</dimen>
 
+    
+        <!--通用尺寸-->
+    <!--General sizes-->
+    <dimen name="WheelItemSpace">8dp</dimen>
+    <dimen name="WheelPadding1x">8dp</dimen>
+    <dimen name="WheelPadding2x">16dp</dimen>
+    <dimen name="WheelTextSize">24sp</dimen>
+
+    <dimen name="WheelLabelTextSize">12sp</dimen>
+    
+    <dimen name="TextSizeLarge">36sp</dimen>
+    <dimen name="ItemSpaceLarge">12dp</dimen>
+
 </resources>
