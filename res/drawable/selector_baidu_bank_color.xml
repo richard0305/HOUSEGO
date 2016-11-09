@@ -3,4 +3,9 @@
 
     <item android:drawable="@color/radio_baidumapcheck" android:state_checked="true"></item>
     <item android:drawable="@color/radio_baidumapuncheck" android:state_checked="false"></item>
+    
+    
 </selector>
+
+
+

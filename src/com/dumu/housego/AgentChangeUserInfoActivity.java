@@ -269,7 +269,7 @@ popType = new PopupWindow(AgentChangeUserInfoActivity.this);
 	}
 
 	private void showPopWindowSex() {
-pop = new PopupWindow(AgentChangeUserInfoActivity.this);
+		pop = new PopupWindow(AgentChangeUserInfoActivity.this);
 		
 		View view = getLayoutInflater().inflate(R.layout.item_popupwindows, null);
 

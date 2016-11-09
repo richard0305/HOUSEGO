@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="top"
     tools:ignore="ObsoleteLayoutParam,RtlSymmetry,UnknownIdInLayout,TextFields,HardcodedText,RtlHardcoded,InefficientWeight,ContentDescription,UselessLeaf,LabelFor,UselessParent" >
 
     <RelativeLayout
@@ -123,7 +124,7 @@
                         android:textSize="14sp" />
 
                     <TextView
-                        android:id="@+id/et_ershou_xiaoquname"
+                        android:id="@+id/tv_ershou_xiaoquname"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_alignParentRight="true"
@@ -459,6 +460,7 @@
                         android:background="#ffffff"
                         android:gravity="right|center_vertical"
                         android:text="ewewewewewe"
+                        android:singleLine="true"
                         android:textSize="14sp" />
                 </RelativeLayout>
 
@@ -679,6 +681,9 @@
                         android:textSize="14sp" />
                 </RelativeLayout>
 
+                
+                
+                
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="45dp"

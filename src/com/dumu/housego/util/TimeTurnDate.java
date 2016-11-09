@@ -38,6 +38,14 @@ public class TimeTurnDate {
 			return tim;  
 		 }
 	 
+	 public static String getStringDateMoreMORE(long times) {
+		 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss",Locale.CHINA);  
+	        Date date = new Date(times);  
+	        String tim = sdf.format(date);
+			return tim;  
+		 }
+	 
+	 
 	 public static long getLongByGMT(String gmtTime) throws ParseException  
 	 {  
 	     SimpleDateFormat Gmt = new SimpleDateFormat("yyyy-MM-dd HH:mm",Locale.CHINA);     

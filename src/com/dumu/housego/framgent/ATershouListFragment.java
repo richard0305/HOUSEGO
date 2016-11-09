@@ -2,6 +2,9 @@ package com.dumu.housego.framgent;
 
 import java.util.List;
 
+import com.dumu.housego.BlockTradeDetailActivity;
+import com.dumu.housego.BlockTradeMainActivity;
+import com.dumu.housego.ErShouFangDetailsActivity;
 import com.dumu.housego.R;
 import com.dumu.housego.adapter.SubmitErshouListAdapter;
 import com.dumu.housego.app.HouseGoApp;
@@ -13,6 +16,7 @@ import com.dumu.housego.presenter.SubmitErShoulistpresenter;
 import com.dumu.housego.util.MyToastShowCenter;
 import com.dumu.housego.view.ISubmitErShouListView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -20,6 +24,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -62,6 +68,25 @@ public class ATershouListFragment extends Fragment implements ISubmitErShouListV
 				FragmentTransaction trans=getActivity().getSupportFragmentManager().beginTransaction();
 				trans.replace(R.id.fl_agent_fragment, fragment);
 				trans.commitAllowingStateLoss();	
+			}
+		});
+		
+		fragmentershoulist.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+			
+				Intent i = new Intent(getActivity(),ErShouFangDetailsActivity.class);
+				String Id=ershoudetails.get(position).getId();
+				String catid=ershoudetails.get(position).getCatid();
+				String posid=ershoudetails.get(position).getPosid();
+				
+				i.putExtra("id", Id);
+				i.putExtra("catid", catid);
+				i.putExtra("posid", posid);
+				startActivity(i);
+				
+				
 			}
 		});
 		

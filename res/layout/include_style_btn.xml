@@ -9,6 +9,7 @@
         android:id="@+id/btn_straight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+         android:textSize="14sp"
         android:layout_alignParentLeft="true"
         android:background="#fff"
         android:text="取消" />
@@ -17,7 +18,7 @@
         android:id="@+id/btn_obtain"
         android:layout_width="wrap_content"
         android:background="#fff"
-        
+         android:textSize="14sp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:text="title" />
@@ -26,6 +27,7 @@
         android:id="@+id/btn_curved"
         android:layout_alignParentRight="true"
         android:layout_width="wrap_content"
+         android:textSize="14sp"
         android:background="#fff"
         android:layout_height="wrap_content"
         android:text="确定" />

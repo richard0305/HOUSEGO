@@ -9,7 +9,6 @@ import com.dumu.housego.ErShouFangMainActivity;
 import com.dumu.housego.R;
 import com.dumu.housego.adapter.MyYuYueDateLsitAdapter;
 import com.dumu.housego.app.HouseGoApp;
-import com.dumu.housego.entity.ErShouFangDetails;
 import com.dumu.housego.entity.UserInfo;
 import com.dumu.housego.entity.YuYueData;
 import com.dumu.housego.presenter.IMyYuYueDeletePresenter;
@@ -25,15 +24,20 @@ import com.dumu.housego.view.IMyYuYueHouseView;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -42,6 +46,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -62,7 +67,7 @@ public class LookDateFragment extends Fragment implements IMyYuYueDeleteView,IMy
   private IMyYuYueDeletePresenter deleteyuyuepresenter;
   private String username; 
   private String userid;
-  
+	private int position;
 	private Handler handler=new Handler(){
 		@Override
 		public void handleMessage(Message msg) {
@@ -83,6 +88,8 @@ public class LookDateFragment extends Fragment implements IMyYuYueDeleteView,IMy
 			}
 		}
 	};
+	private PopupWindow pop;
+	private LinearLayout ll_popup_delete;
 	
 	
   
@@ -91,10 +98,11 @@ public class LookDateFragment extends Fragment implements IMyYuYueDeleteView,IMy
 		View rootView=inflater.inflate(R.layout.fragment_look_date, null);
 		 initViews(rootView);
 	        initData();
-	        initListener();
 	        yuyuepresenter=new MyYuYueHousePresenter(this);
 	        deleteyuyuepresenter=new MyYuYueDeletePresenter(this);
-	        
+	        initListener(rootView);
+	    
+	        PopDelete() ;
 	        return rootView;
 	    }
 	
@@ -112,7 +120,7 @@ public class LookDateFragment extends Fragment implements IMyYuYueDeleteView,IMy
 		super.onResume();
 	}
 
-	    private void initListener() {
+	    private void initListener(final View popView ) {
 	    	btnHouseDateLogin.setOnClickListener(new OnClickListener() {
 				
 				@Override
@@ -127,8 +135,13 @@ public class LookDateFragment extends Fragment implements IMyYuYueDeleteView,IMy
 
 				@Override
 				public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-					String yuyueid=yuyuedatas.get(position).getId();
-					NewAlertDialog(yuyueid,position);
+					LookDateFragment.this.position=position;
+					
+					
+					Animation anim=AnimationUtils.loadAnimation(getActivity(), R.anim.activity_translate_in);
+							
+							ll_popup_delete.setAnimation(anim);
+							pop.showAtLocation(popView, Gravity.BOTTOM, 0, 0);
 					
 					return true;
 				}
@@ -148,43 +161,74 @@ public class LookDateFragment extends Fragment implements IMyYuYueDeleteView,IMy
 			});
 		
 	}
+	    
+	    private void PopDelete() {
+			
+			pop = new PopupWindow(getActivity());
+			
+			View view = getActivity().getLayoutInflater().inflate(R.layout.item_popupwindows_delete, null);
 
-		protected void NewAlertDialog(final String id ,final int position) {
-			final AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();  
-			alertDialog.show();  
-			Window window = alertDialog.getWindow();  
-			window.setContentView(R.layout.dialog_main_info);  
-			TextView tv_title = (TextView) window.findViewById(R.id.tv_dialog_title);  
-			tv_title.setText("是否取消预约");  
-			TextView tv_message = (TextView) window.findViewById(R.id.tv_dialog_message);  
-			Button btnCancle=(Button) window.findViewById(R.id.btn_dialog_cancle);
-			Button btnSure=(Button) window.findViewById(R.id.btn_dialog_sure);
-			btnCancle.setOnClickListener(new OnClickListener() {
+			ll_popup_delete = (LinearLayout) view.findViewById(R.id.ll_popup_delete);
+			pop.setWidth(LayoutParams.MATCH_PARENT);
+			pop.setHeight(LayoutParams.WRAP_CONTENT);
+			pop.setBackgroundDrawable(new BitmapDrawable());
+			pop.setFocusable(true);
+			pop.setOutsideTouchable(true);
+			pop.setContentView(view);
+			
+			RelativeLayout parent = (RelativeLayout) view.findViewById(R.id.parent_delete);
+			
+			TextView tvTitle=(TextView) view.findViewById(R.id.item_popupwindows_title);
+			Button bt1 = (Button) view
+					.findViewById(R.id.item_popupwindows_sure);
+			Button bt2 = (Button) view
+					.findViewById(R.id.item_popupwindows_cancel);
+			
+			tvTitle.setText("是否取消预约");
+			
+			parent.setOnClickListener(new OnClickListener() {
+				
 				@Override
 				public void onClick(View v) {
-					alertDialog.cancel();
+					pop.dismiss();
+					ll_popup_delete.clearAnimation();
 				}
 			});
 			
 			
-			btnSure.setOnClickListener(new OnClickListener() {
+			bt1.setOnClickListener(new OnClickListener() {
 				
-				@Override
+
+			
+
 				public void onClick(View v) {
+					String ID=yuyuedatas.get(position).getId();
+					deleteyuyuepresenter.DeleteMyYuYueHosue(ID, userid, username);
 					
-					deleteyuyuepresenter.DeleteMyYuYueHosue(id, userid, username);
 					Message msg=new Message();
 					msg.what=1;
 					msg.arg1=position;
 					handler.sendMessage(msg);
+				
 					
+				
 					
-					alertDialog.cancel();
+					pop.dismiss();
+					ll_popup_delete.clearAnimation();
 				}
 			});
 			
+			bt2.setOnClickListener(new OnClickListener() {
+				public void onClick(View v) {
+					pop.dismiss();
+					ll_popup_delete.clearAnimation();
+				}
+			});
 			
 		}
+		
+	    
+
 
 		private void initViews(View rootView) {
 	        mCarouselView = (CarouselViewPager) rootView.findViewById(R.id.mCarouselView);

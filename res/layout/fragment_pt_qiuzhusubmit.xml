@@ -322,15 +322,7 @@
                 android:background="@drawable/btn_submit_shap"
                 android:text="发布"
                 android:textColor="#ffffff"
-                android:textSize="14sp" />
-            
-           <com.aigestudio.wheelpicker.widget.WheelZodiacPicker
-               android:layout_marginTop="10dp"
-               
-               android:layout_width="match_parent" 
-               android:layout_height="wrap_content"
-               android:id="@+id/wheelpicker"
-               /> 
+                android:textSize="14sp" /> 
             
         </LinearLayout>
     </RelativeLayout>

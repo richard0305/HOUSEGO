@@ -2,21 +2,20 @@ package com.dumu.housego.framgent;
 
 import java.util.List;
 
+import com.dumu.housego.ErShouFangDetailsActivity;
 import com.dumu.housego.R;
-import com.dumu.housego.adapter.SubmitErshouListAdapter;
+import com.dumu.housego.RentingDetailActivity;
 import com.dumu.housego.adapter.SubmitRentingListAdapter;
 import com.dumu.housego.app.HouseGoApp;
 import com.dumu.housego.entity.RentingDetail;
 import com.dumu.housego.entity.SubmitErshouList;
 import com.dumu.housego.entity.UserInfo;
-import com.dumu.housego.presenter.ISubmitErShouListpresenter;
 import com.dumu.housego.presenter.ISubmitRentingListpresenter;
-import com.dumu.housego.presenter.SubmitErShoulistpresenter;
 import com.dumu.housego.presenter.SubmitRentinglistpresenter;
 import com.dumu.housego.util.MyToastShowCenter;
-import com.dumu.housego.view.ISubmitErShouListView;
 import com.dumu.housego.view.ISubmitRentingListView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -24,7 +23,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.Adapter;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -80,6 +80,22 @@ public class ATrentingListFragment extends Fragment implements ISubmitRentingLis
 			}
 		});
 		
+		fragmentrentinglist.setOnItemClickListener(new OnItemClickListener() {
+					@Override
+					public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+						
+						Intent i = new Intent(getActivity(),RentingDetailActivity.class);
+						String Id=rentingdetails.get(position).getId();
+						String catid=rentingdetails.get(position).getCatid();
+						String posid=rentingdetails.get(position).getPosid();
+						
+						i.putExtra("id", Id);
+						i.putExtra("catid", catid);
+						i.putExtra("posid", posid);
+						startActivity(i);
+						
+					}
+		});
 	}
 
 

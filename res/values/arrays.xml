@@ -1,31 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="WheelArrayDefault">
-        <item>AigeStudio</item>
-        <item>Aige</item>
-        <item>爱哥</item>
-        <item>الحب  اخي</item>
-        <item>jeg elsker</item>
-        <item>사랑해요 형</item>
-        <item>Amor de irmão</item>
-        <item>armastan</item>
-        <item>愛の兄</item>
-        <item>обичам те</item>
-        <item>любовь - братa</item>
-        <item>miłość bracie</item>
-        <item>Liebe</item>
-        <item>Lamour</item>
-        <item>rakastan sinua</item>
-        <item>láska..</item>
-        <item>dragostea.</item>
-        <item>jag älskar</item>
-        <item>ljubezen, brat.</item>
-        <item>愛哥</item>
-        <item>ชอบพี่</item>
-        <item>αγάπη μου</item>
-        <item>a szerelem.</item>
-        <item>Amore, fratello.</item>
+        <item>水库</item>
+        <item>莲塘</item>
+        <item>翠竹</item>
+        <item>东门</item>
+        <item>黄贝岭</item>
+        <item>蔡屋围</item>
+        <item>洪湖</item>
+        <item>笋岗</item>
+        <item>布心</item>
+        <item>人民南</item>
+        <item>泥岗</item>
+        <item>宝安南</item>
+        <item>银湖</item>
+  
     </string-array>
+    
+        <string-array name="QIUZU_tingshi_wheel">
+        <item>1室</item>
+        <item>2室</item>
+        <item>3室</item>
+        <item>4室</item>
+        <item>5室</item>
+        <item>5室以上</item>
+    </string-array>
+    
+    
+    
+    
+    
+    
+    
     <string-array name="WheelArrayConstellation">
         <item>Aquarius</item>
         <item>Pisces</item>

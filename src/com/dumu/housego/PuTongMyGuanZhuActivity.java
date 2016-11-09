@@ -10,6 +10,7 @@ import com.dumu.housego.app.HouseGoApp;
 import com.dumu.housego.entity.UserInfo;
 import com.dumu.housego.framgent.GZErShouFramgent;
 import com.dumu.housego.framgent.GZNewFramgent;
+import com.dumu.housego.framgent.PTBuyHouseListFragment;
 import com.dumu.housego.framgent.PTQiuZuListFragment;
 import com.dumu.housego.framgent.PTershouListFragment;
 import com.dumu.housego.framgent.PTershouSumbitFragment;
@@ -100,6 +101,12 @@ public class PuTongMyGuanZhuActivity extends FragmentActivity {
 			rl_container.setVisibility(View.VISIBLE);
 			
 			fragment=new PTQiuZuListFragment();
+			FragmentTransaction trans=getSupportFragmentManager().beginTransaction();
+			trans.replace(R.id.rl_container, fragment);
+			trans.commitAllowingStateLoss();
+		}else if(tag.equals("maifang")){
+			rl_container.setVisibility(View.VISIBLE);
+			fragment=new PTBuyHouseListFragment();
 			FragmentTransaction trans=getSupportFragmentManager().beginTransaction();
 			trans.replace(R.id.rl_container, fragment);
 			trans.commitAllowingStateLoss();

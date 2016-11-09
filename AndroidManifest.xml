@@ -37,6 +37,7 @@
             android:enabled="true"
             android:process=":remote" >
         </service>
+        
 
         <activity
             android:name=".activity.MainActivity"

@@ -4,6 +4,42 @@ public class UrlFactory {
 	
 	 public static String TSFURL="http://www.taoshenfang.com/"; 
 	 
+	 //删除求购
+	 public static String PostBuyHousedelete() {
+			String path = TSFURL+"index.php?g=api&m=user&a=qiugou_del";
+			return path;
+		}
+	 
+	 //求购列表/求租列表/求购管理/求租管理
+	 public static String PostQiuBuylist() {
+			String path = TSFURL+"index.php?g=api&m=user&a=qiu_list";
+			return path;
+		}
+	 
+	 //发布求购
+	 public static String PostBuyHouseSubmit() {
+			String path = TSFURL+"index.php?g=api&m=user&a=qiugou_add";
+			return path;
+		}
+	 
+	 
+	 //删除求租
+	 public static String PostQiuZuHouseListDelete() {
+			String path = TSFURL+"index.php?g=api&m=user&a=qiuzu_del";
+			return path;
+		}
+	 
+	 
+	 
+	 
+	 //发布求租
+	 
+	 public static String PostQiuZuHouseSubmit() {
+			String path = TSFURL+"index.php?g=api&m=user&a=qiuzu_add";
+			return path;
+		}
+	 
+	 
 	 //获取地区列表接口
 	 public static String PostAddressList() {
 			String path = TSFURL+"index.php?g=api&m=house&a=diqu";
