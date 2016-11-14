@@ -19,14 +19,12 @@ import com.dumu.housego.util.UrlFactory;
 import android.os.AsyncTask;
 import android.util.Log;
 
-public class ErShouFangRecommendModel implements IRecommendHouseModel{
+public class ErShouFangRecommendModel implements IRecommendHouseModel {
 
-	
 	public ErShouFangRecommendModel() {
 		super();
 	}
-	
-	
+
 	@Override
 	public void GetRecommedHouse(final AsycnCallBack back) {
 		new AsyncTask<String, String, List<ErShouFangRecommendData>>() {
@@ -41,7 +39,7 @@ public class ErShouFangRecommendModel implements IRecommendHouseModel{
 					String json = HttpUtils.isToString(is);
 					List<ErShouFangRecommendData> ershoufangrecommends;
 					ershoufangrecommends = ErShouFangReconmendJSONParse.parseSearch(json);
-					Log.i("YANGLIJUN", "---->>>>>>>>>>"+ershoufangrecommends);
+					Log.i("YANGLIJUN", "---->>>>>>>>>>" + ershoufangrecommends);
 					return ershoufangrecommends;
 				} catch (JSONException e) {
 					e.printStackTrace();
@@ -55,7 +53,7 @@ public class ErShouFangRecommendModel implements IRecommendHouseModel{
 				back.onSuccess(ershoufangrecommends);
 			}
 		}.execute();
-		
+
 	}
 
 }

@@ -8,6 +8,7 @@ import android.widget.LinearLayout;
 
 public class AgentDetailActivity extends Activity {
 	private LinearLayout llAgentdetailBack;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -15,10 +16,12 @@ public class AgentDetailActivity extends Activity {
 		initViews();
 		initListener();
 	}
+
 	private void initViews() {
-		llAgentdetailBack=(LinearLayout) findViewById(R.id.ll_agentdetail_back);
-		
+		llAgentdetailBack = (LinearLayout) findViewById(R.id.ll_agentdetail_back);
+
 	}
+
 	private void initListener() {
 		llAgentdetailBack.setOnClickListener(new OnClickListener() {
 			@Override

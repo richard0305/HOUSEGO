@@ -1,29 +1,30 @@
 package com.dumu.housego.entity;
 
 public class FourDataPrograma {
-	private String catid; //Ñ¡ÔñÊý¾ÝÀàÐÍ£¬±ØÌî
-	private String page;//Ò³Êý£¬µÚÒ»Ò³20ÌõÊý¾Ý
-	private String ct;//Ö÷ÇøÓò 7=±¦°²Çø
-	private String ar;//×ÓÇøÓò15=Ë®¿â
-	private String zj;//×Ü¼Û50-100W
-	private String shi;// ÊÒ
-	private String zx; //×°ÐÞÀàÐÍ
-	private String yt;  //ÀàÐÍ
-	private String wy;  //ÊôÐÔ
-	private String xq;  //ÊÇ·ñÐ¡Çø
-	private String order; //ÅÅÐò
-	private String kwds;  //¹Ø¼ü´Ê
-	private String mj;   //Ãæ»ý
-	private String qs;    //ÎïÒµ
-	private String ly;   //À´Ô´
-	private String dt;   //µØÌúÒ»ºÅÏß
-	private String cx;   //³¯Ïò
-	private String lc;   //Â¥²ã
-	private String zl;   //³ö×âÀàÐÍ
-	private String kf;  //ÊÇ·ñËæÊ±¿´·¿
-	private String fs;  //×ªÈÃ·½Ê½
-	private String lx; //ÀàÐÍ
-	private String sx;  //ÊôÐÔ
+	private String catid; // Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í£ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String page;// Ò³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»Ò³20ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String ct;// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 7=ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String ar;// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½15=Ë®ï¿½ï¿½
+	private String zj;// ï¿½Ü¼ï¿½50-100W
+	private String shi;// ï¿½ï¿½
+	private String zx; // ×°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String yt; // ï¿½ï¿½ï¿½ï¿½
+	private String wy; // ï¿½ï¿½ï¿½ï¿½
+	private String xq; // ï¿½Ç·ï¿½Ð¡ï¿½ï¿½
+	private String order; // ï¿½ï¿½ï¿½ï¿½
+	private String kwds; // ï¿½Ø¼ï¿½ï¿½ï¿½
+	private String mj; // ï¿½ï¿½ï¿½
+	private String qs; // ï¿½ï¿½Òµ
+	private String ly; // ï¿½ï¿½Ô´
+	private String dt; // ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½
+	private String cx; // ï¿½ï¿½ï¿½ï¿½
+	private String lc; // Â¥ï¿½ï¿½
+	private String zl; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String kf; // ï¿½Ç·ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½
+	private String fs; // ×ªï¿½Ã·ï¿½Ê½
+	private String lx; // ï¿½ï¿½ï¿½ï¿½
+	private String sx; // ï¿½ï¿½ï¿½ï¿½
+
 	public FourDataPrograma(String catid, String page, String ct, String ar, String zj, String shi, String zx,
 			String yt, String wy, String xq, String order, String kwds, String mj, String qs, String ly, String dt,
 			String cx, String lc, String zl, String kf, String fs, String lx, String sx) {
@@ -52,147 +53,195 @@ public class FourDataPrograma {
 		this.lx = lx;
 		this.sx = sx;
 	}
+
 	public FourDataPrograma() {
 		super();
 	}
+
 	public String getCatid() {
 		return catid;
 	}
+
 	public void setCatid(String catid) {
 		this.catid = catid;
 	}
+
 	public String getPage() {
 		return page;
 	}
+
 	public void setPage(String page) {
 		this.page = page;
 	}
+
 	public String getCt() {
 		return ct;
 	}
+
 	public void setCt(String ct) {
 		this.ct = ct;
 	}
+
 	public String getAr() {
 		return ar;
 	}
+
 	public void setAr(String ar) {
 		this.ar = ar;
 	}
+
 	public String getZj() {
 		return zj;
 	}
+
 	public void setZj(String zj) {
 		this.zj = zj;
 	}
+
 	public String getShi() {
 		return shi;
 	}
+
 	public void setShi(String shi) {
 		this.shi = shi;
 	}
+
 	public String getZx() {
 		return zx;
 	}
+
 	public void setZx(String zx) {
 		this.zx = zx;
 	}
+
 	public String getYt() {
 		return yt;
 	}
+
 	public void setYt(String yt) {
 		this.yt = yt;
 	}
+
 	public String getWy() {
 		return wy;
 	}
+
 	public void setWy(String wy) {
 		this.wy = wy;
 	}
+
 	public String getXq() {
 		return xq;
 	}
+
 	public void setXq(String xq) {
 		this.xq = xq;
 	}
+
 	public String getOrder() {
 		return order;
 	}
+
 	public void setOrder(String order) {
 		this.order = order;
 	}
+
 	public String getKwds() {
 		return kwds;
 	}
+
 	public void setKwds(String kwds) {
 		this.kwds = kwds;
 	}
+
 	public String getMj() {
 		return mj;
 	}
+
 	public void setMj(String mj) {
 		this.mj = mj;
 	}
+
 	public String getQs() {
 		return qs;
 	}
+
 	public void setQs(String qs) {
 		this.qs = qs;
 	}
+
 	public String getLy() {
 		return ly;
 	}
+
 	public void setLy(String ly) {
 		this.ly = ly;
 	}
+
 	public String getDt() {
 		return dt;
 	}
+
 	public void setDt(String dt) {
 		this.dt = dt;
 	}
+
 	public String getCx() {
 		return cx;
 	}
+
 	public void setCx(String cx) {
 		this.cx = cx;
 	}
+
 	public String getLc() {
 		return lc;
 	}
+
 	public void setLc(String lc) {
 		this.lc = lc;
 	}
+
 	public String getZl() {
 		return zl;
 	}
+
 	public void setZl(String zl) {
 		this.zl = zl;
 	}
+
 	public String getKf() {
 		return kf;
 	}
+
 	public void setKf(String kf) {
 		this.kf = kf;
 	}
+
 	public String getFs() {
 		return fs;
 	}
+
 	public void setFs(String fs) {
 		this.fs = fs;
 	}
+
 	public String getLx() {
 		return lx;
 	}
+
 	public void setLx(String lx) {
 		this.lx = lx;
 	}
+
 	public String getSx() {
 		return sx;
 	}
+
 	public void setSx(String sx) {
 		this.sx = sx;
 	}
+
 	@Override
 	public String toString() {
 		return "FourDataPrograma [catid=" + catid + ", page=" + page + ", ct=" + ct + ", ar=" + ar + ", zj=" + zj
@@ -200,8 +249,5 @@ public class FourDataPrograma {
 				+ ", kwds=" + kwds + ", mj=" + mj + ", qs=" + qs + ", ly=" + ly + ", dt=" + dt + ", cx=" + cx + ", lc="
 				+ lc + ", zl=" + zl + ", kf=" + kf + ", fs=" + fs + ", lx=" + lx + ", sx=" + sx + "]";
 	}
-	
-	
-	
 
 }

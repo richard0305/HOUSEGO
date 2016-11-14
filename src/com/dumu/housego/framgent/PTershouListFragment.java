@@ -24,36 +24,34 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class PTershouListFragment extends Fragment implements ISubmitErShouListView{
+public class PTershouListFragment extends Fragment implements ISubmitErShouListView {
 	private ListView lvSubmitErshouList;
 	private SubmitErshouListAdapter adapter;
-	private List<ErShouFangDetails>submitershous;
+	private List<ErShouFangDetails> submitershous;
 	private ISubmitErShouListpresenter presenter;
 	private UserInfo userinfo;
-	
+
 	private TextView tv_putongershoulist_submit;
 	private LinearLayout ll_back_putongershoulist;
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View view=inflater.inflate(R.layout.fragment_pt_ershou_list, null);
-		
-		userinfo=HouseGoApp.getContext().getCurrentUserInfo();
-		String username=userinfo.getUsername();
-		String userid=userinfo.getUserid();
-		String table="ershou";
-		
-		presenter=new SubmitErShoulistpresenter(this);
-		
+		View view = inflater.inflate(R.layout.fragment_pt_ershou_list, null);
+
+		userinfo = HouseGoApp.getContext().getCurrentUserInfo();
+		String username = userinfo.getUsername();
+		String userid = userinfo.getUserid();
+		String table = "ershou";
+
+		presenter = new SubmitErShoulistpresenter(this);
+
 		initView(view);
-	
+
 		setListener();
 		presenter.SubmitErShouList(username, userid, table);
-	
+
 		return view;
 	}
-	
-	
-
 
 	private void setListener() {
 		ll_back_putongershoulist.setOnClickListener(new OnClickListener() {
@@ -62,42 +60,39 @@ public class PTershouListFragment extends Fragment implements ISubmitErShouListV
 				getActivity().finish();
 			}
 		});
-		
+
 		tv_putongershoulist_submit.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
-				Fragment fragment=new PTershouSumbitFragment();
-				FragmentTransaction trans=getActivity().getSupportFragmentManager().beginTransaction();
+				Fragment fragment = new PTershouSumbitFragment();
+				FragmentTransaction trans = getActivity().getSupportFragmentManager().beginTransaction();
 				trans.replace(R.id.rl_container, fragment);
 				trans.commitAllowingStateLoss();
-				
+
 			}
 		});
-		
-		
+
 	}
 
 	private void initView(View view) {
-		lvSubmitErshouList=(ListView) view.findViewById(R.id.lv_submit_ershou_list1);
-		ll_back_putongershoulist=(LinearLayout) view.findViewById(R.id.ll_back_putongershoulist);
-		tv_putongershoulist_submit=(TextView) view.findViewById(R.id.tv_putongershoulist_submit);
+		lvSubmitErshouList = (ListView) view.findViewById(R.id.lv_submit_ershou_list1);
+		ll_back_putongershoulist = (LinearLayout) view.findViewById(R.id.ll_back_putongershoulist);
+		tv_putongershoulist_submit = (TextView) view.findViewById(R.id.tv_putongershoulist_submit);
 	}
-
 
 	@Override
 	public void SubmitListSuccess(List<ErShouFangDetails> submitershous) {
-		this.submitershous=submitershous;
-			
-			adapter=new SubmitErshouListAdapter(submitershous, getActivity());
-			lvSubmitErshouList.setAdapter(adapter);
-		
-	}
+		this.submitershous = submitershous;
 
+		adapter = new SubmitErshouListAdapter(submitershous, getActivity());
+		lvSubmitErshouList.setAdapter(adapter);
+
+	}
 
 	@Override
 	public void SubmitListError(String info) {
-		MyToastShowCenter.CenterToast(getActivity(),info);
-		
+		MyToastShowCenter.CenterToast(getActivity(), info);
+
 	}
 }

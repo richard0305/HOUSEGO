@@ -1,88 +1,81 @@
 package com.dumu.housego.util;
 
 public class UrlFactory {
-	
-	 public static String TSFURL="http://www.taoshenfang.com/"; 
-	 
-	 //删除求购
-	 public static String PostBuyHousedelete() {
-			String path = TSFURL+"index.php?g=api&m=user&a=qiugou_del";
-			return path;
-		}
-	 
-	 //求购列表/求租列表/求购管理/求租管理
-	 public static String PostQiuBuylist() {
-			String path = TSFURL+"index.php?g=api&m=user&a=qiu_list";
-			return path;
-		}
-	 
-	 //发布求购
-	 public static String PostBuyHouseSubmit() {
-			String path = TSFURL+"index.php?g=api&m=user&a=qiugou_add";
-			return path;
-		}
-	 
-	 
-	 //删除求租
-	 public static String PostQiuZuHouseListDelete() {
-			String path = TSFURL+"index.php?g=api&m=user&a=qiuzu_del";
-			return path;
-		}
-	 
-	 
-	 
-	 
-	 //发布求租
-	 
-	 public static String PostQiuZuHouseSubmit() {
-			String path = TSFURL+"index.php?g=api&m=user&a=qiuzu_add";
-			return path;
-		}
-	 
-	 
-	 //获取地区列表接口
-	 public static String PostAddressList() {
-			String path = TSFURL+"index.php?g=api&m=house&a=diqu";
-			return path;
-		}
-	 
-	 
-	 
-	 //成交房源
-	 public static String PostChengJiaoHouseList() {
-			String path = TSFURL+"index.php?g=api&m=user&a=chengjiao";
-			return path;
-		}
-	 
-	 
-	 //二手房/出租房列表
-	 public static String PostSubmitESorCZList() {
-			String path = TSFURL+"index.php?g=api&m=user&a=house_list";
-			return path;
-		}
-	 
-	 
-	 //直接修改密码
-		public static String PostChangePassword() {
-			String path = TSFURL+"index.php?g=member&m=public&a=mod_pwd2";
-			return path;
-		}
-	 
-	 
-	 
-	 
-		// 申请400电话
-		public static String GetShenQing400Url(String tel,String userid) {
 
-			String path = TSFURL+"index.php?g=api&m=api&a=add_vtel&tel="+tel+"&userid="+userid;
-			return path;
-		}
-		
-		// 申请400电话
-		public static String GetJieBang400Url(String tel,String userid) {
-			String path = TSFURL+"index.php?g=api&m=api&a=remove_vtel&tel="+tel+"&userid="+userid;
-			return path;
-		}
+	public static String TSFURL = "http://www.taoshenfang.com/";
+	//小区搜索
+	public static String PostSearchXiaoQu() {
+		String path = TSFURL + "index.php?g=api&m=user&a=xiaoqu_search";
+		return path;
+	}
+
+	// 删除求购
+	public static String PostBuyHousedelete() {
+		String path = TSFURL + "index.php?g=api&m=user&a=qiugou_del";
+		return path;
+	}
+
+	// 求购列表/求租列表/求购管理/求租管理
+	public static String PostQiuBuylist() {
+		String path = TSFURL + "index.php?g=api&m=user&a=qiu_list";
+		return path;
+	}
+
+	// 发布求购
+	public static String PostBuyHouseSubmit() {
+		String path = TSFURL + "index.php?g=api&m=user&a=qiugou_add";
+		return path;
+	}
+
+	// 删除求租
+	public static String PostQiuZuHouseListDelete() {
+		String path = TSFURL + "index.php?g=api&m=user&a=qiuzu_del";
+		return path;
+	}
+
+	// 发布求租
+
+	public static String PostQiuZuHouseSubmit() {
+		String path = TSFURL + "index.php?g=api&m=user&a=qiuzu_add";
+		return path;
+	}
+
+	// 获取地区列表接口
+	public static String PostAddressList() {
+		String path = TSFURL + "index.php?g=api&m=house&a=diqu";
+		return path;
+	}
+
+	// 成交房源
+	public static String PostChengJiaoHouseList() {
+		String path = TSFURL + "index.php?g=api&m=user&a=chengjiao";
+		return path;
+	}
+
+	// 二手房/出租房列表
+	public static String PostSubmitESorCZList() {
+		String path = TSFURL + "index.php?g=api&m=user&a=house_list";
+		return path;
+	}
+
+	// 直接修改密码
+	public static String PostChangePassword() {
+		String path = TSFURL + "index.php?g=member&m=public&a=mod_pwd2";
+		return path;
+	}
+
+	// 申请400电话
+	public static String GetShenQing400Url(String tel, String userid) {
+
+		String path = TSFURL + "index.php?g=api&m=api&a=add_vtel&tel=" + tel + "&userid=" + userid;
+		return path;
+	}
+
+	// 申请400电话
+	public static String GetJieBang400Url(String tel, String userid) {
+		String path = TSFURL + "index.php?g=api&m=api&a=remove_vtel&tel=" + tel + "&userid=" + userid;
+		return path;
+	}
 
 	// ע��--��ȡ������֤��
 	public static String GetPhoneCodeUrl(String mob) {
@@ -106,24 +99,20 @@ public class UrlFactory {
 		return path;
 
 	}
-	
-	//��֤���½
-	
+
+	// ��֤���½
+
 	public static String PostYZMLoginUrl() {
 
 		String path = "http://www.taoshenfang.com/index.php?g=api&m=sms&a=mob_login_yzm";
 		return path;
 	}
-	
+
 	public static String PostYZMLogincodeUrl() {
 
 		String path = "http://www.taoshenfang.com/index.php?g=api&m=sms&a=getyzm";
 		return path;
 	}
-	
-
-	
-	
 
 	// ��ȡ��¼�û�����Ϣ
 	public static String PostLoginUserInfoUrl() {
@@ -167,33 +156,25 @@ public class UrlFactory {
 		String path = "http://www.taoshenfang.com/index.php?g=Api&m=user&a=jjrlist";
 		return path;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	//�����Ƽ�λ�б��ȡ��Ӧ����
-			public static String GetRecommendListToDetailUrlString(String catid,String id ) {
-				String path ="http://www.taoshenfang.com/index.php?g=api&m=house&a=api_shows&catid="+catid+"&id="+id;
-				return path;
-			}
-	
-	//�����Ƽ�λ�б��ȡ��Ӧ����
-		public static String GetRecommendListToDetailUrl(int catid,int id ) {
-			String path ="http://www.taoshenfang.com/index.php?g=api&m=house&a=api_shows&catid="+catid+"&id="+id;
-			return path;
-		}
-	
-	//�����Ƽ�λ�б��ȡ��Ӧ����
-	public static String PostRecommendListToDetailUrl() {
-		String path ="http://www.taoshenfang.com/index.php?g=api&m=house&a=api_shows";
+
+	// �����Ƽ�λ�б��ȡ��Ӧ����
+	public static String GetRecommendListToDetailUrlString(String catid, String id) {
+		String path = "http://www.taoshenfang.com/index.php?g=api&m=house&a=api_shows&catid=" + catid + "&id=" + id;
 		return path;
 	}
-	
-	
+
+	// �����Ƽ�λ�б��ȡ��Ӧ����
+	public static String GetRecommendListToDetailUrl(int catid, int id) {
+		String path = "http://www.taoshenfang.com/index.php?g=api&m=house&a=api_shows&catid=" + catid + "&id=" + id;
+		return path;
+	}
+
+	// �����Ƽ�λ�б��ȡ��Ӧ����
+	public static String PostRecommendListToDetailUrl() {
+		String path = "http://www.taoshenfang.com/index.php?g=api&m=house&a=api_shows";
+		return path;
+	}
+
 	// ��ȡָ����Ŀ�����б�ӿ�
 	// ������ �·� ���ַ� �ⷿ ���ڽ��� �ĸ���Ŀ
 	public static String PostFourDataProgramaUrl() {
@@ -244,58 +225,58 @@ public class UrlFactory {
 		return path;
 	}
 
-	
 	// ��ע��Դ�ӿ�
-		public static String PostGuanZhuHouseUrl() {
-			String path = TSFURL+"index.php?g=api&m=house&a=guanzhu_add";
-			return path;
-		}
-		
-		// �ҵĹ�ע
-				public static String PostGuanZhuErShouUrl() {
-					String path = TSFURL+"index.php?g=api&m=user&a=guanzhu";
-					return path;
-				}
-				
-		// ȡ����ע
-				public static String PostGuanZhuDeleteUrl() {
-					String path = TSFURL+"index.php?g=api&m=user&a=guanzhu_del";
-					return path;
-			}
-	
-		//预约看房接口
-				public static String PostYuYueHouseUrl() {
-					String path = TSFURL+"index.php?g=api&m=house&a=yuyue_add";
-					return path;
-			}	
-	//我的预约看房
-				public static String PostMyYuYueHouseUrl() {
-					String path = TSFURL+"index.php?g=api&m=user&a=yuyue";
-					return path;
-			}	
-	
-				//删除预约
-				public static String PostDeleteMyYuYueHouseUrl() {
-					String path = TSFURL+"index.php?g=api&m=user&a=yuyue_del";
-					return path;
-			}	
-	
-				//获取行政区房源套数
-				public static String PostXingzhengHouseUrl() {
-					String path = TSFURL+"index.php?g=api&m=map&a=city_house";
-					return path;
-			}	
-				//指定行政区下所以区域的房源套数
-				public static String PostzhidingXingzhengHouseUrl() {
-					String path = TSFURL+"index.php?g=api&m=map&a=area_house";
-					return path;
-			}	
-				//指定小区下所有的房源套数
-				public static String PostzhidingxiaoquHouseUrl() {
-					String path = TSFURL+"index.php?g=api&m=map&a=house";
-					return path;
-			}		
-				
-				
-	
+	public static String PostGuanZhuHouseUrl() {
+		String path = TSFURL + "index.php?g=api&m=house&a=guanzhu_add";
+		return path;
+	}
+
+	// �ҵĹ�ע
+	public static String PostGuanZhuErShouUrl() {
+		String path = TSFURL + "index.php?g=api&m=user&a=guanzhu";
+		return path;
+	}
+
+	// ȡ����ע
+	public static String PostGuanZhuDeleteUrl() {
+		String path = TSFURL + "index.php?g=api&m=user&a=guanzhu_del";
+		return path;
+	}
+
+	// 预约看房接口
+	public static String PostYuYueHouseUrl() {
+		String path = TSFURL + "index.php?g=api&m=house&a=yuyue_add";
+		return path;
+	}
+
+	// 我的预约看房
+	public static String PostMyYuYueHouseUrl() {
+		String path = TSFURL + "index.php?g=api&m=user&a=yuyue";
+		return path;
+	}
+
+	// 删除预约
+	public static String PostDeleteMyYuYueHouseUrl() {
+		String path = TSFURL + "index.php?g=api&m=user&a=yuyue_del";
+		return path;
+	}
+
+	// 获取行政区房源套数
+	public static String PostXingzhengHouseUrl() {
+		String path = TSFURL + "index.php?g=api&m=map&a=city_house";
+		return path;
+	}
+
+	// 指定行政区下所以区域的房源套数
+	public static String PostzhidingXingzhengHouseUrl() {
+		String path = TSFURL + "index.php?g=api&m=map&a=area_house";
+		return path;
+	}
+
+	// 指定小区下所有的房源套数
+	public static String PostzhidingxiaoquHouseUrl() {
+		String path = TSFURL + "index.php?g=api&m=map&a=house";
+		return path;
+	}
+
 }

@@ -40,7 +40,7 @@ public class GetLocationActivity extends Activity {
 		setContentView(R.layout.activity_get_location);
 		mLocationClient = new LocationClient(getApplicationContext()); // 声明LocationClient类
 		mLocationClient.registerLocationListener(myListener); // 注册监听函数
-		
+
 		initView();
 		setListener();
 		initLocation();
@@ -52,8 +52,8 @@ public class GetLocationActivity extends Activity {
 		mBaiduMAP = mMapView.getMap();
 		mMapView.showZoomControls(false);
 		mMapView.showScaleControl(false);
-		 MapStatusUpdate msu = MapStatusUpdateFactory.zoomTo(15.0f);
-		 mBaiduMAP.setMapStatus(msu);
+		MapStatusUpdate msu = MapStatusUpdateFactory.zoomTo(15.0f);
+		mBaiduMAP.setMapStatus(msu);
 
 	}
 
@@ -70,7 +70,7 @@ public class GetLocationActivity extends Activity {
 			public void onMapClick(LatLng arg0) {
 				GetLocationActivity.this.position = arg0;
 
-				Intent i = new Intent(GetLocationActivity.this, PuTongMyGuanZhuActivity.class);
+				Intent i = new Intent(GetLocationActivity.this, AgentPersonalActivity.class);
 				double latitude = arg0.latitude;
 				double longitude = arg0.longitude;
 				Log.e("LatLng", "LatLng" + latitude + " " + longitude);
@@ -167,29 +167,31 @@ public class GetLocationActivity extends Activity {
 		}
 
 	}
-	
-	 @Override  
-	    protected void onDestroy() {  
-	        super.onDestroy();  
-	        //在activity执行onDestroy时执行mMapView.onDestroy()，实现地图生命周期管理  
-	        mMapView.onDestroy();  
-	    }  
-	    @Override  
-	    protected void onResume() {  
-	        super.onResume();  
-	        //在activity执行onResume时执行mMapView. onResume ()，实现地图生命周期管理  
-	        mMapView.onResume();  
-	        }  
-	    @Override  
-	    protected void onPause() {  
-	        super.onPause();  
-	        //在activity执行onPause时执行mMapView. onPause ()，实现地图生命周期管理  
-	        mMapView.onPause();  
-	        }  
-	    
-	    @Override
-	    public void onBackPressed() {
-	    	super.onBackPressed();
-	    }
-	    
+
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		// 在activity执行onDestroy时执行mMapView.onDestroy()，实现地图生命周期管理
+		mMapView.onDestroy();
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		// 在activity执行onResume时执行mMapView. onResume ()，实现地图生命周期管理
+		mMapView.onResume();
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+		// 在activity执行onPause时执行mMapView. onPause ()，实现地图生命周期管理
+		mMapView.onPause();
+	}
+
+	@Override
+	public void onBackPressed() {
+		super.onBackPressed();
+	}
+
 }

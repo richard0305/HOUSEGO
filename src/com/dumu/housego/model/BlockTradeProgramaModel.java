@@ -31,7 +31,7 @@ import com.dumu.housego.util.UrlFactory;
 import android.os.AsyncTask;
 import android.util.Log;
 
-public class BlockTradeProgramaModel implements IFourDataProgramaModel{
+public class BlockTradeProgramaModel implements IFourDataProgramaModel {
 
 	public BlockTradeProgramaModel() {
 		super();
@@ -47,12 +47,11 @@ public class BlockTradeProgramaModel implements IFourDataProgramaModel{
 				try {
 					List<BlockTradeList> blocktrades;
 					blocktrades = BlockTradeListJSONParse.parseSearch(response);
-					
+
 					back.onSuccess(blocktrades);
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
-				
 
 			}
 		}, new ErrorListener() {
@@ -68,14 +67,12 @@ public class BlockTradeProgramaModel implements IFourDataProgramaModel{
 				Map<String, String> params = new HashMap<String, String>();
 				params.put("catid", fourdata.getCatid());
 				params.put("page", fourdata.getPage());
-				
+
 				return params;
 			}
 		};
 		HouseGoApp.getQueue().add(request);
 
 	}
-
-
 
 }

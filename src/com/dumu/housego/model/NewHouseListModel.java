@@ -21,13 +21,13 @@ import com.dumu.housego.util.UrlFactory;
 
 import android.util.Log;
 
-public class NewHouseListModel implements IFourDataProgramaModel{
-	private List<NewHouseList>newhouselists;
-	
-	
+public class NewHouseListModel implements IFourDataProgramaModel {
+	private List<NewHouseList> newhouselists;
+
 	public NewHouseListModel() {
 		super();
 	}
+
 	@Override
 	public void GetRecommedHouse(final FourDataPrograma fourdata, final AsycnCallBack back) {
 		String url = UrlFactory.PostFourDataProgramaUrl();
@@ -38,12 +38,11 @@ public class NewHouseListModel implements IFourDataProgramaModel{
 				try {
 					List<NewHouseList> newhouselists;
 					newhouselists = NewHouseListJSONParse.parseSearch(response);
-					Log.e("0000000000000000000000000000000", "yanglijun"+response);
+					Log.e("0000000000000000000000000000000", "yanglijun" + response);
 					back.onSuccess(newhouselists);
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
-				
 
 			}
 		}, new ErrorListener() {
@@ -59,17 +58,13 @@ public class NewHouseListModel implements IFourDataProgramaModel{
 				Map<String, String> params = new HashMap<String, String>();
 				params.put("catid", fourdata.getCatid());
 				params.put("page", fourdata.getPage());
-				
+
 				return params;
 			}
-			
-		
+
 		};
 		HouseGoApp.getQueue().add(request);
 
 	}
-
-		
-	
 
 }

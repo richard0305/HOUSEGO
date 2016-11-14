@@ -41,20 +41,19 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class LoginActivity extends Activity implements ILoginView, ILoginUserInfoView,IYZMLoginView,IYzmSendCodeView {
+public class LoginActivity extends Activity implements ILoginView, ILoginUserInfoView, IYZMLoginView, IYzmSendCodeView {
 	private TextView tvCancle;
 	private TextView tvRegist, tvForgivepw;
-	private Button btnLogin, btnShortLoginSendCode,btnshortLogin;
+	private Button btnLogin, btnShortLoginSendCode, btnshortLogin;
 	private ILoginPresenter generalpresenter;
 	private IYzmLoginPresenter shortPresenter;
 	private IYzmSendCodePresenter codePresenter;
-	
+
 	private EditText etGeneralUsername;
 	private EditText etGeneralPassword;
 
 	private EditText etShortUsername;
 	private EditText etShortLoginSendCode;
-	
 
 	private User user;
 	private UserInfo userinfo;
@@ -79,13 +78,12 @@ public class LoginActivity extends Activity implements ILoginView, ILoginUserInf
 		setOptains();
 		setAdapter();
 		setListener();
-		
-		
-//		btnShortLoginSendCode.setEnabled(false);
+
+		// btnShortLoginSendCode.setEnabled(false);
 		generalpresenter = new LoginPresenter(this);
 		userinfoPresenter = new LoginUserInfoPresenter(this);
-		shortPresenter=new YzmLoginPresenter(this);
-		codePresenter=new YzmSendCodePresenter(this);
+		shortPresenter = new YzmLoginPresenter(this);
+		codePresenter = new YzmSendCodePresenter(this);
 		FontHelper.injectFont(findViewById(android.R.id.content));
 	}
 
@@ -108,9 +106,8 @@ public class LoginActivity extends Activity implements ILoginView, ILoginUserInf
 
 			@Override
 			public void onClick(View v) {
-				 startActivity(new Intent(LoginActivity.this,
-				 MainActivity.class));
-//				finish();
+				startActivity(new Intent(LoginActivity.this, MainActivity.class));
+				// finish();
 
 			}
 		});
@@ -133,51 +130,43 @@ public class LoginActivity extends Activity implements ILoginView, ILoginUserInf
 			}
 		});
 
-		
 		btnLogin.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				
+
 				String Gphonenum = etGeneralUsername.getText().toString();
 				String password = etGeneralPassword.getText().toString();
 				generalpresenter.login(Gphonenum, password);
 
 			}
 		});
-		
-		
-		
+
 		btnShortLoginSendCode.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				String phonenum=etShortUsername.getText().toString();
+				String phonenum = etShortUsername.getText().toString();
 				codePresenter.YzmSendCode(phonenum);
 				btnShortLoginSendCode.setClickable(true);
 				isChange = true;
-	            
-	            changeBtnGetCode();
-				
+
+				changeBtnGetCode();
+
 			}
 		});
-		
-		
+
 		btnshortLogin.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
-				
-				String shortnumber=etShortUsername.getText().toString();
-				String shortYZM=etShortLoginSendCode.getText().toString();
+
+				String shortnumber = etShortUsername.getText().toString();
+				String shortYZM = etShortLoginSendCode.getText().toString();
 				shortPresenter.login(shortnumber, shortYZM);
-				
-				
-				
+
 			}
 		});
 
 	}
-	
-	
 
 	private void setAdapter() {
 		pager.setAdapter(new PagerAdapter() {
@@ -228,7 +217,6 @@ public class LoginActivity extends Activity implements ILoginView, ILoginUserInf
 		tabStrip.setTabIndicatorColor(getResources().getColor(R.color.tab_red));
 		tabStrip.setTextSpacing(100);
 
-
 	}
 
 	private void setViews() {
@@ -236,9 +224,9 @@ public class LoginActivity extends Activity implements ILoginView, ILoginUserInf
 		View shortcut = LayoutInflater.from(this).inflate(R.layout.login_shortcut, null);
 		pager = (ViewPager) this.findViewById(R.id.login_viewpager);
 		tabStrip = (PagerTabStrip) this.findViewById(R.id.login_tabstrip);
-		btnLogin = (Button)general.findViewById(R.id.btn_general_Login);
-		
-		btnshortLogin= (Button) shortcut.findViewById(R.id.btn_short_Login);
+		btnLogin = (Button) general.findViewById(R.id.btn_general_Login);
+
+		btnshortLogin = (Button) shortcut.findViewById(R.id.btn_short_Login);
 		tvCancle = (TextView) findViewById(R.id.tv_cancle);
 		tvRegist = (TextView) findViewById(R.id.tv_regist);
 		btnShortLoginSendCode = (Button) shortcut.findViewById(R.id.btn_quicklogin_sendcode);
@@ -249,67 +237,61 @@ public class LoginActivity extends Activity implements ILoginView, ILoginUserInf
 
 		etShortUsername = (EditText) shortcut.findViewById(R.id.et_short_login_phonenumber);
 		etShortLoginSendCode = (EditText) shortcut.findViewById(R.id.et_short_login_lock_quick);
-		
+
 		viewContainter.add(general);
 		viewContainter.add(shortcut);
 		titleContainer.add("普通登录");
 		titleContainer.add("验证码快捷登录");
 	}
-	
-	
-	
+
 	protected void changeBtnGetCode() {
 		thread = new Thread() {
-            @Override
-            public void run() {
-                if (tag12) {
-                    while (i > 0) {
-                        i--;
-                        if (LoginActivity.this== null) {
-                            break;
-                        }
-//                      ���ı������ݸı�ʱ������ѭ����
-                      if (isChange && !btnShortLoginSendCode.isClickable()) {
-                          isChange = false;
-                          break;
-                      }
-                        
-                        LoginActivity.this.runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                            	btnShortLoginSendCode.setText("重发(" + i + "s)");
-                            	btnShortLoginSendCode.setClickable(false);
-                            }
-                        });
-                        try {
-                            Thread.sleep(1000);
-                        } catch (InterruptedException e) {
-                            throw new RuntimeException(e);
-                        }
-                    }
-                    tag12 = false;
-                }
-                
-                i = 60;
-                tag12 = true;
-                if (LoginActivity.this != null) {
-                	LoginActivity.this.runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                        	btnShortLoginSendCode.setText("发送验证码");
-                        	btnShortLoginSendCode.setClickable(true);
-                        }
-                    });
-                }
-            };
-        };
-        thread.start();
-	
-		
+			@Override
+			public void run() {
+				if (tag12) {
+					while (i > 0) {
+						i--;
+						if (LoginActivity.this == null) {
+							break;
+						}
+						// ���ı������ݸı�ʱ������ѭ����
+						if (isChange && !btnShortLoginSendCode.isClickable()) {
+							isChange = false;
+							break;
+						}
+
+						LoginActivity.this.runOnUiThread(new Runnable() {
+							@Override
+							public void run() {
+								btnShortLoginSendCode.setText("重发(" + i + "s)");
+								btnShortLoginSendCode.setClickable(false);
+							}
+						});
+						try {
+							Thread.sleep(1000);
+						} catch (InterruptedException e) {
+							throw new RuntimeException(e);
+						}
+					}
+					tag12 = false;
+				}
+
+				i = 60;
+				tag12 = true;
+				if (LoginActivity.this != null) {
+					LoginActivity.this.runOnUiThread(new Runnable() {
+						@Override
+						public void run() {
+							btnShortLoginSendCode.setText("发送验证码");
+							btnShortLoginSendCode.setClickable(true);
+						}
+					});
+				}
+			};
+		};
+		thread.start();
+
 	}
-	
-	
-	
 
 	@Override
 	public void loginFail(String errorMessage) {
@@ -327,8 +309,6 @@ public class LoginActivity extends Activity implements ILoginView, ILoginUserInf
 
 	}
 
-	
-	
 	@Override
 	public void loginUserInfoFail(String errorMessage) {
 		Toast.makeText(getApplicationContext(), "获取用户信息失败", Toast.LENGTH_SHORT).show();
@@ -336,16 +316,14 @@ public class LoginActivity extends Activity implements ILoginView, ILoginUserInf
 
 	@Override
 	public void loginUserInfoSuccess() {
-		userinfo=HouseGoApp.getContext().getCurrentUserInfo();
-	
+		userinfo = HouseGoApp.getContext().getCurrentUserInfo();
+
 		HouseGoApp.saveLoginInfo(getApplicationContext(), userinfo);
 		HouseGoApp.getContext().SaveCurrentUserInfo(userinfo);
-		
+
 		startActivity(new Intent(getApplicationContext(), MainActivity.class));
 	}
 
-	
-	
 	@Override
 	public void YzmloginFail(String errorMessage) {
 		Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_SHORT).show();
@@ -362,8 +340,8 @@ public class LoginActivity extends Activity implements ILoginView, ILoginUserInf
 
 	@Override
 	public void YzmSendCode(String infomation) {
-		
-		Toast toast=Toast.makeText(getApplicationContext(), infomation, Toast.LENGTH_SHORT);
+
+		Toast toast = Toast.makeText(getApplicationContext(), infomation, Toast.LENGTH_SHORT);
 		toast.setGravity(Gravity.CENTER, 0, 0);
 		toast.show();
 	}

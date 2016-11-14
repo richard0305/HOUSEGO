@@ -19,41 +19,41 @@ import com.dumu.housego.util.GuanZhuErShouJSONParse;
 import com.dumu.housego.util.GuanZhuNewJSONParse;
 import com.dumu.housego.util.UrlFactory;
 
-public class GuanZhuNewModel implements IGuanZhuNewModel{
+public class GuanZhuNewModel implements IGuanZhuNewModel {
 
 	@Override
-	public void loadGuanZhuNew(final String username, final String table,final AsycnCallBack back) {
-		String url=UrlFactory.PostGuanZhuErShouUrl();
-		CommonRequest request=new CommonRequest(Method.POST, url, new Listener<String>() {
+	public void loadGuanZhuNew(final String username, final String table, final AsycnCallBack back) {
+		String url = UrlFactory.PostGuanZhuErShouUrl();
+		CommonRequest request = new CommonRequest(Method.POST, url, new Listener<String>() {
 
 			@Override
 			public void onResponse(String response) {
 				try {
-					List<NewHouseDetail> newhousedetails=GuanZhuNewJSONParse.parseSearch(response);
+					List<NewHouseDetail> newhousedetails = GuanZhuNewJSONParse.parseSearch(response);
 					back.onSuccess(newhousedetails);
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
-				
+
 			}
-		},new ErrorListener() {
+		}, new ErrorListener() {
 
 			@Override
 			public void onErrorResponse(VolleyError error) {
 				back.onError(error.getMessage());
-				
+
 			}
-		}){
+		}) {
 			@Override
 			protected Map<String, String> getParams() throws AuthFailureError {
-				Map<String, String>map=new HashMap<String, String>();
+				Map<String, String> map = new HashMap<String, String>();
 				map.put("username", username);
 				map.put("table", table);
 				return map;
 			}
 		};
 		HouseGoApp.getQueue().add(request);
-		
+
 	}
 
 }

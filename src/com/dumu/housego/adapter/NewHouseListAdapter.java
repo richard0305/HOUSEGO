@@ -24,13 +24,12 @@ public class NewHouseListAdapter extends BaseAdapter {
 	private List<NewHouseList> newhouselists;
 	private Context context;
 	private LayoutInflater Inflater;
-	
 
 	public NewHouseListAdapter(List<NewHouseList> newhouselists, Context context) {
 		super();
 		this.newhouselists = newhouselists;
 		this.context = context;
-		this.Inflater=LayoutInflater.from(context);
+		this.Inflater = LayoutInflater.from(context);
 	}
 
 	@Override
@@ -40,7 +39,7 @@ public class NewHouseListAdapter extends BaseAdapter {
 
 	@Override
 	public NewHouseList getItem(int position) {
-		
+
 		return newhouselists.get(position);
 	}
 
@@ -52,53 +51,49 @@ public class NewHouseListAdapter extends BaseAdapter {
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		ViewHolder holder;
-		if(convertView==null){
-			convertView=Inflater.inflate(R.layout.item_new_house_list, null);
+		if (convertView == null) {
+			convertView = Inflater.inflate(R.layout.item_new_house_list, null);
 			holder = new ViewHolder();
-			holder.newhouselist_address=(TextView) convertView.findViewById(R.id.newhouselist_address);
-			holder.newhouselist_price=(TextView) convertView.findViewById(R.id.newhouselist_price);
-			holder.newhouselist_area=(TextView) convertView.findViewById(R.id.newhouselist_area);
-			holder.newhouselist_title=(TextView) convertView.findViewById(R.id.newhouselist_title);
-			holder.newhouselist_iv=(ImageView) convertView.findViewById(R.id.newhouselist_iv);
+			holder.newhouselist_address = (TextView) convertView.findViewById(R.id.newhouselist_address);
+			holder.newhouselist_price = (TextView) convertView.findViewById(R.id.newhouselist_price);
+			holder.newhouselist_area = (TextView) convertView.findViewById(R.id.newhouselist_area);
+			holder.newhouselist_title = (TextView) convertView.findViewById(R.id.newhouselist_title);
+			holder.newhouselist_iv = (ImageView) convertView.findViewById(R.id.newhouselist_iv);
 			convertView.setTag(holder);
-		}else{
+		} else {
 			holder = (ViewHolder) convertView.getTag();
 		}
-		
-		NewHouseList n=getItem(position);
-		
-		DisplayImageOptions options=new DisplayImageOptions.Builder()
-				.cacheInMemory(true).cacheOnDisc(true).bitmapConfig(Bitmap.Config.RGB_565).build();
-		if(n.getThumb().startsWith("http://www.tao")){
-//			Glide.with(context).load(n.getThumb()).into(holder.newhouselist_iv);
-			
-			
+
+		NewHouseList n = getItem(position);
+
+		DisplayImageOptions options = new DisplayImageOptions.Builder().cacheInMemory(true).cacheOnDisc(true)
+				.bitmapConfig(Bitmap.Config.RGB_565).build();
+		if (n.getThumb().startsWith("http://www.tao")) {
+			// Glide.with(context).load(n.getThumb()).into(holder.newhouselist_iv);
+
 			ImageLoader.getInstance().displayImage(n.getThumb(), holder.newhouselist_iv, options);
-			
-		}else{
-			String url="http://www.taoshenfang.com"+n.getThumb();
-//			Glide.with(context).load(url).into(holder.newhouselist_iv);
+
+		} else {
+			String url = "http://www.taoshenfang.com" + n.getThumb();
+			// Glide.with(context).load(url).into(holder.newhouselist_iv);
 			ImageLoader.getInstance().displayImage(url, holder.newhouselist_iv, options);
 		}
-		
-	
+
 		holder.newhouselist_address.setText(n.getLoupandizhi());
 		holder.newhouselist_title.setText(n.getTitle());
-		holder.newhouselist_price.setText(n.getJunjia()+"元/㎡");
-		holder.newhouselist_area.setText(n.getCityname()+" "+n.getAreaname());
-		
-		
-		
+		holder.newhouselist_price.setText(n.getJunjia() + "元/㎡");
+		holder.newhouselist_area.setText(n.getCityname() + " " + n.getAreaname());
+
 		return convertView;
 	}
-	
+
 	class ViewHolder {
 		TextView newhouselist_address;
 		TextView newhouselist_price;
 		TextView newhouselist_area;
 		TextView newhouselist_title;
 		ImageView newhouselist_iv;
-		
+
 	}
 
 }

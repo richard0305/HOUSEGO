@@ -14,42 +14,40 @@ import com.google.gson.Gson;
 
 import android.util.Log;
 
-public class PhoneCodeModel implements IPhoneCodeModel{
+public class PhoneCodeModel implements IPhoneCodeModel {
 	private RequestQueue queue;
-	
+
 	public PhoneCodeModel() {
 		super();
 		this.queue = Volley.newRequestQueue(HouseGoApp.getContext());
-		
+
 	}
 
 	@Override
 	public void GetPhoneCode(String mob, final AsycnCallBack back) {
-		
-		String url=UrlFactory.GetPhoneCodeUrl(mob);
-		StringRequest request=new StringRequest(url, new Listener<String>() {
+
+		String url = UrlFactory.GetPhoneCodeUrl(mob);
+		StringRequest request = new StringRequest(url, new Listener<String>() {
 
 			@Override
 			public void onResponse(String response) {
-				Gson gson=new Gson();
-				RegistPhoneCode phone=gson.fromJson(response, RegistPhoneCode.class);
-				String info=phone.getInfo();
-				
+				Gson gson = new Gson();
+				RegistPhoneCode phone = gson.fromJson(response, RegistPhoneCode.class);
+				String info = phone.getInfo();
+
 				back.onSuccess(info);
-				
+
 			}
 		}, new ErrorListener() {
 
 			@Override
 			public void onErrorResponse(VolleyError error) {
 				back.onError(error.getMessage());
-				
+
 			}
 		});
 		queue.add(request);
-		
+
 	}
-
-
 
 }

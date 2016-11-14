@@ -17,38 +17,38 @@ import com.dumu.housego.model.IModel.AsycnCallBack;
 import com.dumu.housego.util.CommonRequest;
 import com.dumu.housego.util.UrlFactory;
 
-public class BuyHouseSubmitModel implements IBuyHouseSubmitModel{
+public class BuyHouseSubmitModel implements IBuyHouseSubmitModel {
 
 	@Override
-	public void buyhousesubmit(final String username, final String province, final String city, final String area, final String shi,
-			final String zongjiarange, final String chenghu, final String title, final AsycnCallBack back) {
-		String url=UrlFactory.PostBuyHouseSubmit();
-		CommonRequest request=new CommonRequest(Method.POST, url, new Listener<String>() {
+	public void buyhousesubmit(final String username, final String province, final String city, final String area,
+			final String shi, final String zongjiarange, final String chenghu, final String title,
+			final AsycnCallBack back) {
+		String url = UrlFactory.PostBuyHouseSubmit();
+		CommonRequest request = new CommonRequest(Method.POST, url, new Listener<String>() {
 
 			@Override
 			public void onResponse(String response) {
-				
+
 				try {
 					JSONObject j = new JSONObject(response);
-					String info=j.getString("info");
+					String info = j.getString("info");
 					back.onSuccess(info);
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
-				
-				
+
 			}
 		}, new ErrorListener() {
 
 			@Override
 			public void onErrorResponse(VolleyError error) {
 				back.onError(error.getMessage());
-				
+
 			}
-		}){
+		}) {
 			@Override
 			protected Map<String, String> getParams() throws AuthFailureError {
-				Map<String, String >map=new HashMap<String, String>();
+				Map<String, String> map = new HashMap<String, String>();
 				map.put("username", username);
 				map.put("province", province);
 				map.put("city", city);
@@ -61,7 +61,7 @@ public class BuyHouseSubmitModel implements IBuyHouseSubmitModel{
 			}
 		};
 		HouseGoApp.getQueue().add(request);
-		
+
 	}
 
 }

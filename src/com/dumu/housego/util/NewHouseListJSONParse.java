@@ -17,12 +17,12 @@ import com.google.gson.JsonObject;
 
 public class NewHouseListJSONParse {
 	public static List<NewHouseList> parseSearch(String json) throws JSONException {
-		JSONArray array = new JSONArray(json); 
+		JSONArray array = new JSONArray(json);
 		List<NewHouseList> newhouselists = new ArrayList<NewHouseList>();
 		for (int i = 0; i < array.length(); i++) {
 			JSONObject obj = array.getJSONObject(i);
 			NewHouseList n = new NewHouseList();
-			
+
 			n.setId(obj.getString("id"));
 			n.setCatid(obj.getString("catid"));
 			n.setTitle(obj.getString("title"));
@@ -33,7 +33,6 @@ public class NewHouseListJSONParse {
 			n.setLoupandizhi(obj.getString("loupandizhi"));
 			n.setTypeid(obj.getString("typeid"));
 
-			
 			newhouselists.add(n);
 		}
 		return newhouselists;

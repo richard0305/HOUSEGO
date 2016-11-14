@@ -25,67 +25,67 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
-public class ATChengJiaoESFragment extends Fragment implements IChengJiaoErShouView{
+public class ATChengJiaoESFragment extends Fragment implements IChengJiaoErShouView {
 	private ListView lvChengjiaoErshou;
 	private ChengJiaoErShouAdapter adapter;
-	private List<ErShouFangDetails>ershoudetails;
+	private List<ErShouFangDetails> ershoudetails;
 	private IChengjiaoESPresenter cjespresenter;
 	private UserInfo userinfo;
-	
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View view=inflater.inflate(R.layout.fragment_chengjiao_ershou, null);
-		cjespresenter=new ChengJiaoESPresenter(this);
+		View view = inflater.inflate(R.layout.fragment_chengjiao_ershou, null);
+		cjespresenter = new ChengJiaoESPresenter(this);
 		initView(view);
-		
-		
+
 		setListener();
 		return view;
 	}
-	
+
 	@Override
 	public void onResume() {
-		userinfo=HouseGoApp.getContext().getCurrentUserInfo();
-		String username=userinfo.getUsername();
-		String table="ershou";
-		
+		userinfo = HouseGoApp.getContext().getCurrentUserInfo();
+		String username = userinfo.getUsername();
+		String table = "ershou";
+
 		cjespresenter.ChengJiaoES(username, table);
 		super.onResume();
 	}
-	
+
 	private void initView(View view) {
-		lvChengjiaoErshou=(ListView) view.findViewById(R.id.lv_chengjiao_ershou);
-		
+		lvChengjiaoErshou = (ListView) view.findViewById(R.id.lv_chengjiao_ershou);
+
 	}
+
 	private void setListener() {
 		lvChengjiaoErshou.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				 Intent i = new Intent(getActivity(),ErShouFangDetailsActivity.class);
-				 String catid=ershoudetails.get(position).getCatid();
-				 String ID=ershoudetails.get(position).getId();
-				 i.putExtra("catid", catid);
-				 i.putExtra("id", ID);
-				 startActivity(i);
-				
+				Intent i = new Intent(getActivity(), ErShouFangDetailsActivity.class);
+				String catid = ershoudetails.get(position).getCatid();
+				String ID = ershoudetails.get(position).getId();
+				i.putExtra("catid", catid);
+				i.putExtra("id", ID);
+				startActivity(i);
+
 			}
 		});
-		
+
 	}
 
 	@Override
 	public void ChengjiaoErShouSuccess(List<ErShouFangDetails> ershoudetails) {
-		this.ershoudetails=ershoudetails;
-		adapter=new ChengJiaoErShouAdapter(ershoudetails, getActivity());
-		
+		this.ershoudetails = ershoudetails;
+		adapter = new ChengJiaoErShouAdapter(ershoudetails, getActivity());
+
 		lvChengjiaoErshou.setAdapter(adapter);
-		
+
 	}
 
 	@Override
 	public void chengjiaoErShouFail(String info) {
 		MyToastShowCenter.CenterToast(getActivity(), info);
-		
+
 	}
 }

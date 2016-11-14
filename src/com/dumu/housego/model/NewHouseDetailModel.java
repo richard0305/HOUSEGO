@@ -22,7 +22,7 @@ import com.dumu.housego.util.UrlFactory;
 import android.os.AsyncTask;
 import android.util.Log;
 
-public class NewHouseDetailModel implements INewHouseDetailaModel{
+public class NewHouseDetailModel implements INewHouseDetailaModel {
 	private NewHouseDetail nhb;
 
 	public NewHouseDetailModel() {
@@ -31,21 +31,21 @@ public class NewHouseDetailModel implements INewHouseDetailaModel{
 
 	@Override
 	public void FindNewHouseDetail(final String catid, final String id, final AsycnCallBack back) {
-		
+
 		new AsyncTask<String, String, NewHouseDetail>() {
 
 			@Override
 			protected NewHouseDetail doInBackground(String... params) {
 
 				try {
-					String url=UrlFactory.PostRecommendListToDetailUrl();
-					Map<String, String> map=new HashMap<String, String>();
-					
-					map.put("catid",catid);
+					String url = UrlFactory.PostRecommendListToDetailUrl();
+					Map<String, String> map = new HashMap<String, String>();
+
+					map.put("catid", catid);
 					map.put("id", id);
-					String json=HttpUtils.isToString(HttpUtils.post(url, map));
-					NewHouseDetail newhousedetail=NewHouseDetialJSONParse.parseSearch(json);
-					
+					String json = HttpUtils.isToString(HttpUtils.post(url, map));
+					NewHouseDetail newhousedetail = NewHouseDetialJSONParse.parseSearch(json);
+
 					return newhousedetail;
 				} catch (IOException e) {
 					e.printStackTrace();
@@ -62,4 +62,3 @@ public class NewHouseDetailModel implements INewHouseDetailaModel{
 
 	}
 }
-

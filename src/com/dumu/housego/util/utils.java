@@ -5,14 +5,15 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
 public class utils {
-	/** 
-     * ÅÐ¶ÏÍøÂçÊÇ·ñÁ¬Í¨ 
-     * @param context 
-     * @return 
-     */ 
-    public static boolean isNetworkConnected(Context context){  
-        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(context.CONNECTIVITY_SERVICE);  
-        NetworkInfo info = cm.getActiveNetworkInfo();  
-        return info != null && info.isConnected();    
-    }
+	/**
+	 * ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Í¨
+	 * 
+	 * @param context
+	 * @return
+	 */
+	public static boolean isNetworkConnected(Context context) {
+		ConnectivityManager cm = (ConnectivityManager) context.getSystemService(context.CONNECTIVITY_SERVICE);
+		NetworkInfo info = cm.getActiveNetworkInfo();
+		return info != null && info.isConnected();
+	}
 }

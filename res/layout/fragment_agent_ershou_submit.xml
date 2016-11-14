@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="top"
     tools:ignore="ObsoleteLayoutParam,RtlSymmetry,UnknownIdInLayout,TextFields,HardcodedText,RtlHardcoded,InefficientWeight,ContentDescription,UselessLeaf,LabelFor,UselessParent" >
 
     <RelativeLayout
@@ -98,7 +97,7 @@
                         android:layout_toRightOf="@+id/TextView03111"
                         android:background="#ffffff"
                         android:gravity="right|center_vertical"
-                        android:text="龙岗新区 布吉"
+                        android:text=""
                         android:textSize="14sp" />
                 </RelativeLayout>
 
@@ -130,6 +129,7 @@
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="30dp"
+                        android:layout_marginRight="10dp"
                         android:layout_toRightOf="@+id/textView2121"
                         android:background="@null"
                         android:gravity="right|center_vertical"
@@ -180,7 +180,8 @@
                         android:background="@null"
                         android:ems="10"
                         android:gravity="right|center_vertical"
-                        android:hint="sds"
+                        android:hint=""
+                        android:inputType="number"
                         android:textSize="14sp" >
                     </EditText>
                 </RelativeLayout>
@@ -228,7 +229,8 @@
                         android:background="@null"
                         android:ems="10"
                         android:gravity="right|center_vertical"
-                        android:hint="sds"
+                        android:hint=""
+                          android:inputType="number"
                         android:textSize="14sp" >
                     </EditText>
                 </RelativeLayout>
@@ -276,7 +278,8 @@
                         android:background="@null"
                         android:ems="10"
                         android:gravity="right|center_vertical"
-                        android:hint="sds"
+                        android:hint=""
+                          android:inputType="number"
                         android:textSize="14sp" >
                     </EditText>
                 </RelativeLayout>
@@ -324,7 +327,8 @@
                         android:background="@null"
                         android:ems="10"
                         android:gravity="right|center_vertical"
-                        android:hint="sds"
+                        android:hint=""
+                          android:inputType="number"
                         android:textSize="14sp" >
                     </EditText>
                 </RelativeLayout>
@@ -372,7 +376,8 @@
                         android:background="@null"
                         android:ems="10"
                         android:gravity="right|center_vertical"
-                        android:hint="sds"
+                        android:hint=""
+                          android:inputType="number"
                         android:textSize="14sp" >
                     </EditText>
                 </RelativeLayout>
@@ -420,7 +425,8 @@
                         android:background="@null"
                         android:ems="10"
                         android:gravity="right|center_vertical"
-                        android:hint="sds"
+                        android:hint=""
+                          android:inputType="number"
                         android:textSize="14sp" >
                     </EditText>
                 </RelativeLayout>
@@ -459,7 +465,7 @@
                         android:layout_toRightOf="@+id/Tv13"
                         android:background="#ffffff"
                         android:gravity="right|center_vertical"
-                        android:text="ewewewewewe"
+                        android:text=""
                         android:singleLine="true"
                         android:textSize="14sp" />
                 </RelativeLayout>
@@ -497,7 +503,7 @@
                         android:layout_toRightOf="@+id/louceng1"
                         android:background="#ffffff"
                         android:gravity="right|center_vertical"
-                        android:text="ewewewewewe"
+                        android:text=""
                         android:textSize="14sp" />
                 </RelativeLayout>
 
@@ -533,7 +539,7 @@
                         android:layout_toRightOf="@+id/loucengMeau1"
                         android:background="#ffffff"
                         android:gravity="right|center_vertical"
-                        android:text="ewewewewewe"
+                        android:text=""
                         android:textSize="14sp" />
                 </RelativeLayout>
 
@@ -569,7 +575,7 @@
                         android:layout_toRightOf="@+id/wuyeType"
                         android:background="#ffffff"
                         android:gravity="right|center_vertical"
-                        android:text="ewewewewewe"
+                        android:text=""
                         android:textSize="14sp" />
                 </RelativeLayout>
 
@@ -605,7 +611,7 @@
                         android:layout_toRightOf="@+id/diyaxinxi"
                         android:background="#ffffff"
                         android:gravity="right|center_vertical"
-                        android:text="无抵押"
+                        android:text=""
                         android:textSize="14sp" />
                 </RelativeLayout>
 
@@ -641,7 +647,7 @@
                         android:layout_toRightOf="@+id/huType"
                         android:background="#ffffff"
                         android:gravity="right|center_vertical"
-                        android:text="1室1厅1卫"
+                        android:text=""
                         android:textSize="14sp" />
                 </RelativeLayout>
 
@@ -677,7 +683,7 @@
                         android:layout_toRightOf="@+id/houseSX"
                         android:background="#ffffff"
                         android:gravity="right|center_vertical"
-                        android:text="平层 精装 南"
+                        android:text=""
                         android:textSize="14sp" />
                 </RelativeLayout>
 
@@ -712,7 +718,7 @@
                         android:layout_toRightOf="@+id/uploadPic"
                         android:background="#ffffff"
                         android:gravity="right|center_vertical"
-                        android:text="已上传1张图片"
+                        android:text=""
                         android:textSize="14sp" />
                 </RelativeLayout>
 
@@ -748,7 +754,7 @@
                         android:layout_toRightOf="@+id/jianzhuType"
                         android:background="#ffffff"
                         android:gravity="right|center_vertical"
-                        android:text="塔板结合"
+                        android:text=""
                         android:textSize="14sp" />
                 </RelativeLayout>
 
@@ -784,7 +790,7 @@
                         android:layout_toRightOf="@+id/jianzhuJieGou"
                         android:background="#ffffff"
                         android:gravity="right|center_vertical"
-                        android:text="钢混结构"
+                        android:text=""
                         android:textSize="14sp" />
                 </RelativeLayout>
 
@@ -820,7 +826,7 @@
                         android:layout_toRightOf="@+id/tihubili"
                         android:background="#ffffff"
                         android:gravity="right|center_vertical"
-                        android:text="三梯六户"
+                        android:text=""
                         android:textSize="14sp" />
                 </RelativeLayout>
 
@@ -856,7 +862,7 @@
                         android:layout_toRightOf="@+id/houseUse"
                         android:background="#ffffff"
                         android:gravity="right|center_vertical"
-                        android:text="住宅"
+                        android:text=""
                         android:textSize="14sp" />
                 </RelativeLayout>
 
@@ -892,7 +898,7 @@
                         android:layout_toRightOf="@+id/chanquansuoshu"
                         android:background="#ffffff"
                         android:gravity="right|center_vertical"
-                        android:text="非共有"
+                        android:text=""
                         android:textSize="14sp" />
                 </RelativeLayout>
 
@@ -928,7 +934,7 @@
                         android:layout_toRightOf="@+id/SfDianti"
                         android:background="#ffffff"
                         android:gravity="right|center_vertical"
-                        android:text="有"
+                        android:text=""
                         android:textSize="14sp" />
                 </RelativeLayout>
 
@@ -964,7 +970,7 @@
                         android:layout_toRightOf="@+id/weiyizhuzhai"
                         android:background="#ffffff"
                         android:gravity="right|center_vertical"
-                        android:text="是"
+                        android:text=""
                         android:textSize="14sp" />
                 </RelativeLayout>
 
@@ -1000,7 +1006,7 @@
                         android:layout_toRightOf="@+id/guapaitime"
                         android:background="#ffffff"
                         android:gravity="right|center_vertical"
-                        android:text="0000-00-00"
+                        android:text=""
                         android:textSize="14sp" />
                 </RelativeLayout>
 
@@ -1033,10 +1039,11 @@
                         android:layout_alignParentRight="true"
                         android:layout_marginLeft="30dp"
                         android:layout_marginRight="10dp"
+                        android:singleLine="true"
                         android:layout_toRightOf="@+id/biaoqian"
                         android:background="#ffffff"
                         android:gravity="right|center_vertical"
-                        android:text="户型方正"
+                        android:text=""
                         android:textSize="14sp" />
                 </RelativeLayout>
 
@@ -1069,10 +1076,11 @@
                         android:layout_alignParentRight="true"
                         android:layout_marginLeft="30dp"
                         android:layout_marginRight="10dp"
+                        android:singleLine="true"
                         android:layout_toRightOf="@+id/ditieline"
                         android:background="#ffffff"
                         android:gravity="right|center_vertical"
-                        android:text="[5]"
+                        android:text=""
                         android:textSize="14sp" />
                 </RelativeLayout>
 
@@ -1103,8 +1111,9 @@
                         android:layout_marginRight="10dp"
                         android:layout_toRightOf="@+id/biaoti"
                         android:background="#ffffff"
+                        android:text=""
+                        android:singleLine="true"
                         android:gravity="right|center_vertical"
-                        android:text="深圳龙岗布吉-国展苑"
                         android:textSize="14sp" />
                 </RelativeLayout>
 
@@ -1141,7 +1150,8 @@
                         android:background="#ffffff"
                         android:gravity="right|center_vertical"
                         android:lines="1"
-                        android:text="地铁房 独家"
+                        android:text=""
+                         android:singleLine="true"
                         android:textSize="14sp" />
                 </RelativeLayout>
 
@@ -1177,7 +1187,8 @@
                         android:layout_toRightOf="@+id/touzifenxi"
                         android:background="#ffffff"
                         android:gravity="right|center_vertical"
-                        android:text="地铁房,独家"
+                        android:text=""
+                         android:singleLine="true"
                         android:textSize="14sp" />
                 </RelativeLayout>
 
@@ -1214,7 +1225,7 @@
                         android:background="#ffffff"
                         android:gravity="right|center_vertical"
                         android:singleLine="true"
-                        android:text="此房是萨芬是对方的身份第三方是否刷刷sfdf"
+                        android:text=""
                         android:textSize="14sp" />
                 </RelativeLayout>
 
@@ -1251,7 +1262,7 @@
                         android:background="#ffffff"
                         android:gravity="right|center_vertical"
                         android:singleLine="true"
-                        android:text="此房是萨芬是对方的身份第三方是否刷刷sfdf"
+                        android:text=""
                         android:textSize="14sp" />
                 </RelativeLayout>
 
@@ -1288,7 +1299,7 @@
                         android:background="#ffffff"
                         android:gravity="right|center_vertical"
                         android:singleLine="true"
-                        android:text="此房是萨芬是对方的身份第三方是否刷刷sfdf"
+                        android:text=""
                         android:textSize="14sp" />
                 </RelativeLayout>
 
@@ -1325,7 +1336,7 @@
                         android:background="#ffffff"
                         android:gravity="right|center_vertical"
                         android:singleLine="true"
-                        android:text="此房是萨芬是对方的身份第三方是否刷刷sfdf"
+                        android:text=""
                         android:textSize="14sp" />
                 </RelativeLayout>
 
@@ -1362,7 +1373,7 @@
                         android:background="#ffffff"
                         android:gravity="right|center_vertical"
                         android:singleLine="true"
-                        android:text="此房是萨芬是对方的身份第三方是否刷刷sfdf"
+                        android:text=""
                         android:textSize="14sp" />
                 </RelativeLayout>
 
@@ -1399,7 +1410,7 @@
                         android:background="#ffffff"
                         android:gravity="right|center_vertical"
                         android:singleLine="true"
-                        android:text="此房是萨芬是对方的身份第三方是否刷刷sfdf"
+                        android:text=""
                         android:textSize="14sp" />
                 </RelativeLayout>
 
@@ -1436,7 +1447,7 @@
                         android:background="#ffffff"
                         android:gravity="right|center_vertical"
                         android:singleLine="true"
-                        android:text="此房是萨芬是对方的身份第三方是否刷刷sfdf"
+                        android:text=""
                         android:textSize="14sp" />
                 </RelativeLayout>
 
@@ -1473,7 +1484,7 @@
                         android:background="#ffffff"
                         android:gravity="right|center_vertical"
                         android:singleLine="true"
-                        android:text="此房是萨芬是对方的身份第三方是否刷刷sfdf"
+                        android:text=""
                         android:textSize="14sp" />
                 </RelativeLayout>
 
@@ -1510,7 +1521,7 @@
                         android:background="#ffffff"
                         android:gravity="right|center_vertical"
                         android:singleLine="true"
-                        android:text="此房是萨芬是对方的身份第三方是否刷刷sfdf"
+                        android:text=""
                         android:textSize="14sp" />
                 </RelativeLayout>
 
@@ -1584,7 +1595,7 @@
                         android:background="#ffffff"
                         android:gravity="right|center_vertical"
                         android:singleLine="true"
-                        android:text="满五年唯一"
+                        android:text=""
                         android:textSize="14sp" />
                 </RelativeLayout>
 

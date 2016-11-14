@@ -10,31 +10,30 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 
 public class FontHelper {
-	public static final String FONTS_DIR="fonts/";
-	public static final String DEF_FONT=FONTS_DIR+"scyahei.ttf";
-	
-	public static final void injectFont(View rootView){
-		injectFont(rootView,Typeface.createFromAsset(rootView.getContext().getAssets(),
-				DEF_FONT));
-		
+	public static final String FONTS_DIR = "fonts/";
+	public static final String DEF_FONT = FONTS_DIR + "scyahei.ttf";
+
+	public static final void injectFont(View rootView) {
+		injectFont(rootView, Typeface.createFromAsset(rootView.getContext().getAssets(), DEF_FONT));
+
 	}
 
 	private static void injectFont(View rootView, Typeface tf) {
-		if(rootView instanceof ViewGroup){
-			ViewGroup group=(ViewGroup) rootView;
-			int count=group.getChildCount();
-			for(int i=0;i<count;i++){
+		if (rootView instanceof ViewGroup) {
+			ViewGroup group = (ViewGroup) rootView;
+			int count = group.getChildCount();
+			for (int i = 0; i < count; i++) {
 				injectFont(group.getChildAt(i), tf);
 			}
-		}else if(rootView instanceof TextView) {
-			((TextView)rootView).setTypeface(tf);
-		}else if(rootView instanceof Button) {
-			((Button)rootView).setTypeface(tf);
-	}else if(rootView instanceof RadioButton) {
-		((RadioButton)rootView).setTypeface(tf);
-}else if(rootView instanceof EditText) {
-	((EditText)rootView).setTypeface(tf);
-}
-		
-}
+		} else if (rootView instanceof TextView) {
+			((TextView) rootView).setTypeface(tf);
+		} else if (rootView instanceof Button) {
+			((Button) rootView).setTypeface(tf);
+		} else if (rootView instanceof RadioButton) {
+			((RadioButton) rootView).setTypeface(tf);
+		} else if (rootView instanceof EditText) {
+			((EditText) rootView).setTypeface(tf);
+		}
+
+	}
 }

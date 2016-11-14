@@ -4,6 +4,6 @@ import java.util.List;
 
 import com.dumu.housego.entity.RecommendNews;
 
-public interface  IShopGuideView {
+public interface IShopGuideView {
 	void showData(List<RecommendNews> recommends);
 }

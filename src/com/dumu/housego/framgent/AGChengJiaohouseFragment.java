@@ -20,7 +20,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 
-public class AGChengJiaohouseFragment extends Fragment{
+public class AGChengJiaohouseFragment extends Fragment {
 	private LinearLayout llBackAgentchengjiao;
 	private NoScrollViewPager chengjiaoViewpage;
 	private List<Fragment> fragments;
@@ -28,9 +28,10 @@ public class AGChengJiaohouseFragment extends Fragment{
 	private RadioButton rbChengJiaoErShou;
 	private RadioButton rbChengJiaoZuFang;
 	private PagerAdapter pagerAdapter;
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View view =inflater.inflate(R.layout.fragment_chengjiaohouse, null);
+		View view = inflater.inflate(R.layout.fragment_chengjiaohouse, null);
 		initView(view);
 		setViewPagerAdapter();
 		setListener();
@@ -41,21 +42,18 @@ public class AGChengJiaohouseFragment extends Fragment{
 		fragments = new ArrayList<Fragment>();
 		fragments.add(new ATChengJiaoESFragment());
 		fragments.add(new ATChengJiaoRTFragment());
-		
+
 		pagerAdapter = new MyPagerAdapter(getChildFragmentManager());
 		chengjiaoViewpage.setAdapter(pagerAdapter);
 
 	}
-	
-
-
 
 	private void initView(View view) {
-		llBackAgentchengjiao=(LinearLayout) view.findViewById(R.id.ll_back_agentchengjiao);
-		chengjiaoViewpage=(NoScrollViewPager) view.findViewById(R.id.chengjiao_viewpage);
-		rg_chengjiao_control=(RadioGroup) view.findViewById(R.id.rg_chengjiao_control);
-		rbChengJiaoErShou=(RadioButton) view.findViewById(R.id.chengjiao_ershou);
-		rbChengJiaoZuFang=(RadioButton) view.findViewById(R.id.chengjiao_zufang);
+		llBackAgentchengjiao = (LinearLayout) view.findViewById(R.id.ll_back_agentchengjiao);
+		chengjiaoViewpage = (NoScrollViewPager) view.findViewById(R.id.chengjiao_viewpage);
+		rg_chengjiao_control = (RadioGroup) view.findViewById(R.id.rg_chengjiao_control);
+		rbChengJiaoErShou = (RadioButton) view.findViewById(R.id.chengjiao_ershou);
+		rbChengJiaoZuFang = (RadioButton) view.findViewById(R.id.chengjiao_zufang);
 	}
 
 	private void setListener() {
@@ -65,10 +63,9 @@ public class AGChengJiaohouseFragment extends Fragment{
 				getActivity().finish();
 			}
 		});
-		
 
 		rg_chengjiao_control.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-			
+
 			@Override
 			public void onCheckedChanged(RadioGroup group, int checkedId) {
 				switch (checkedId) {
@@ -82,15 +79,14 @@ public class AGChengJiaohouseFragment extends Fragment{
 					rbChengJiaoZuFang.setTextColor(getResources().getColor(R.color.button_ckeck));
 					rbChengJiaoErShou.setTextColor(getResources().getColor(R.color.button_unckeck));
 					break;
-			
+
 				}
-				
+
 			}
 		});
-		
-		
+
 	}
-	
+
 	class MyPagerAdapter extends FragmentPagerAdapter {
 
 		public MyPagerAdapter(FragmentManager fm) {
@@ -109,5 +105,5 @@ public class AGChengJiaohouseFragment extends Fragment{
 		}
 
 	}
-	
+
 }

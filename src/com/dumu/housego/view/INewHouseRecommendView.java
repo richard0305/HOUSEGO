@@ -4,6 +4,6 @@ import java.util.List;
 
 import com.dumu.housego.entity.NewHouseRecommendData;
 
-public interface  INewHouseRecommendView {
+public interface INewHouseRecommendView {
 	void showData(List<NewHouseRecommendData> newrecommends);
 }

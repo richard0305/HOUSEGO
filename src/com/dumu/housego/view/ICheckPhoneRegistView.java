@@ -1,6 +1,7 @@
 package com.dumu.housego.view;
 
-public interface  ICheckPhoneRegistView {
+public interface ICheckPhoneRegistView {
 	void CheckSuccess(String info);
-	 void CheckFail(String errorMessage);
+
+	void CheckFail(String errorMessage);
 }

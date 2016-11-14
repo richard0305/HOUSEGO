@@ -1,5 +1,5 @@
 package com.dumu.housego.view;
 
 public interface IBuyHouseDeleteView {
- void deleteBuyHouse(String info);
+	void deleteBuyHouse(String info);
 }

@@ -36,7 +36,7 @@ public class RecommendHouseModel implements IRecommendHouseModel {
 					String json = HttpUtils.isToString(is);
 					List<RecommendNews> recommends;
 					recommends = JSONParse.parseSearch(json);
-					Log.i("YANGLIJUN", "---->>>>>>>>>>"+recommends);
+					Log.i("YANGLIJUN", "---->>>>>>>>>>" + recommends);
 					return recommends;
 				} catch (JSONException e) {
 					e.printStackTrace();

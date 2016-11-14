@@ -14,116 +14,117 @@ import android.util.AttributeSet;
  */
 public class CarouselViewPager extends ViewPager {
 
-    private int displayTime = 3000;//Í¼Æ¬Õ¹Ê¾µÄÊ±¼ä£¬Ä¬ÈÏÎª3Ãë
-    private CarouselDirection direction = CarouselDirection.LEFT;//Í¼Æ¬×Ô¶¯»¬¶¯µÄ·½ÏòÏò×ó
+	private int displayTime = 3000;// Í¼Æ¬Õ¹Ê¾ï¿½ï¿½Ê±ï¿½ä£¬Ä¬ï¿½ï¿½Îª3ï¿½ï¿½
+	private CarouselDirection direction = CarouselDirection.LEFT;// Í¼Æ¬ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-    public CarouselViewPager(Context context) {
-        super(context);
-    }
+	public CarouselViewPager(Context context) {
+		super(context);
+	}
 
-    public CarouselViewPager(Context context, AttributeSet attrs) {
-        super(context, attrs);
-    }
+	public CarouselViewPager(Context context, AttributeSet attrs) {
+		super(context, attrs);
+	}
 
-    /**
-     * ÉèÖÃÍ¼Æ¬Õ¹Ê¾Ê±¼ä
-     * @param time
-     */
-    public void setDisplayTime(int time){
-        displayTime = time;
-    }
+	/**
+	 * ï¿½ï¿½ï¿½ï¿½Í¼Æ¬Õ¹Ê¾Ê±ï¿½ï¿½
+	 * 
+	 * @param time
+	 */
+	public void setDisplayTime(int time) {
+		displayTime = time;
+	}
 
-    /**
-     * ÉèÖÃÍ¼Æ¬×Ô¶¯»¬¶¯µÄ·½Ïò
-     * @param direction
-     */
-    public void setDirection(CarouselDirection direction) {
-        this.direction = direction;
-    }
+	/**
+	 * ï¿½ï¿½ï¿½ï¿½Í¼Æ¬ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½
+	 * 
+	 * @param direction
+	 */
+	public void setDirection(CarouselDirection direction) {
+		this.direction = direction;
+	}
 
-    /**
-     * ¿ªÊ¼×Ô¶¯ÂÖ²¥
-     */
-    public void start(){
-        stop();
-        postDelayed(automaticDisplay,displayTime);
-    }
+	/**
+	 * ï¿½ï¿½Ê¼ï¿½Ô¶ï¿½ï¿½Ö²ï¿½
+	 */
+	public void start() {
+		stop();
+		postDelayed(automaticDisplay, displayTime);
+	}
 
-    /**
-     * Í£Ö¹×Ô¶¯ÂÖ²¥
-     */
-    public void stop(){
-        removeCallbacks(automaticDisplay);
-    }
+	/**
+	 * Í£Ö¹ï¿½Ô¶ï¿½ï¿½Ö²ï¿½
+	 */
+	public void stop() {
+		removeCallbacks(automaticDisplay);
+	}
 
-    /**
-     * Í¼Æ¬ÂÖ²¥·½ÏòÃ¶¾ÙÀà
-     */
-    public enum CarouselDirection {
-        LEFT,RIGHT
-    }
+	/**
+	 * Í¼Æ¬ï¿½Ö²ï¿½ï¿½ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½
+	 */
+	public enum CarouselDirection {
+		LEFT, RIGHT
+	}
 
-    private Runnable automaticDisplay = new Runnable() {
-        @Override
-        public void run() {
-            display(direction);
-        }
-    };
+	private Runnable automaticDisplay = new Runnable() {
+		@Override
+		public void run() {
+			display(direction);
+		}
+	};
 
-    /**
-     * Í¼Æ¬ÂÖ²¥
-     * @param direction
-     */
-    private synchronized void display(CarouselDirection direction) {
-        PagerAdapter pagerAdapter = getAdapter();
-        if (pagerAdapter != null ) {
-            int count = pagerAdapter.getCount();//Í¼Æ¬µÄÕÅÊý
-            int currentItem = getCurrentItem();//µ±Ç°Õ¹Ê¾µ½µÚ¼¸ÕÅ
+	/**
+	 * Í¼Æ¬ï¿½Ö²ï¿½
+	 * 
+	 * @param direction
+	 */
+	private synchronized void display(CarouselDirection direction) {
+		PagerAdapter pagerAdapter = getAdapter();
+		if (pagerAdapter != null) {
+			int count = pagerAdapter.getCount();// Í¼Æ¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			int currentItem = getCurrentItem();// ï¿½ï¿½Ç°Õ¹Ê¾ï¿½ï¿½ï¿½Ú¼ï¿½ï¿½ï¿½
 
-            switch (direction) {
-                case LEFT:
-                    currentItem++;
-                    //µ±Ç°Õ¹Ê¾µÄÍ¼Æ¬Îª×îºóÒ»ÕÅÊ±£¬Ôò·µ»ØµÚÒ»ÕÅ
-                    if (currentItem >= count ){
-                        currentItem = 0;
-                    }
-                    break;
-                case RIGHT:
-                    currentItem--;
-                    //µ±Ç°Õ¹Ê¾µÄÍ¼Æ¬Îª×îºóÒ»ÕÅÊ±£¬Ôò·µ»ØµÚÒ»ÕÅ
-                    if (currentItem < 0){
-                        currentItem = count-1;
-                    }
-                    break;
-            }
-            setCurrentItem(currentItem);
-        }
-        start();
-    }
+			switch (direction) {
+			case LEFT:
+				currentItem++;
+				// ï¿½ï¿½Ç°Õ¹Ê¾ï¿½ï¿½Í¼Æ¬Îªï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ò·µ»Øµï¿½Ò»ï¿½ï¿½
+				if (currentItem >= count) {
+					currentItem = 0;
+				}
+				break;
+			case RIGHT:
+				currentItem--;
+				// ï¿½ï¿½Ç°Õ¹Ê¾ï¿½ï¿½Í¼Æ¬Îªï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ò·µ»Øµï¿½Ò»ï¿½ï¿½
+				if (currentItem < 0) {
+					currentItem = count - 1;
+				}
+				break;
+			}
+			setCurrentItem(currentItem);
+		}
+		start();
+	}
 
+	@Override
+	protected void onFinishInflate() {
+		addOnPageChangeListener(new OnPageChangeListener() {
+			@Override
+			public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
-    
-    @Override
-    protected void onFinishInflate() {
-        addOnPageChangeListener(new OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+			}
 
-            }
+			@Override
+			public void onPageSelected(int position) {
 
-            @Override
-            public void onPageSelected(int position) {
+			}
 
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-                if (state == SCROLL_STATE_IDLE){
-                    start();
-                } else if (state == SCROLL_STATE_DRAGGING) {
-                    stop();
-                }
-            }
-        });
-    }
+			@Override
+			public void onPageScrollStateChanged(int state) {
+				if (state == SCROLL_STATE_IDLE) {
+					start();
+				} else if (state == SCROLL_STATE_DRAGGING) {
+					stop();
+				}
+			}
+		});
+	}
 }

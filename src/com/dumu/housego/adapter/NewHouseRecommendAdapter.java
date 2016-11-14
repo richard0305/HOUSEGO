@@ -21,13 +21,12 @@ public class NewHouseRecommendAdapter extends BaseAdapter {
 	private List<NewHouseRecommendData> newrecommends;
 	private Context context;
 	private LayoutInflater Inflater;
-	
 
 	public NewHouseRecommendAdapter(List<NewHouseRecommendData> newrecommends, Context context) {
 		super();
 		this.newrecommends = newrecommends;
 		this.context = context;
-		this.Inflater=LayoutInflater.from(context);
+		this.Inflater = LayoutInflater.from(context);
 	}
 
 	@Override
@@ -37,7 +36,7 @@ public class NewHouseRecommendAdapter extends BaseAdapter {
 
 	@Override
 	public NewHouseRecommendData getItem(int position) {
-		
+
 		return newrecommends.get(position);
 	}
 
@@ -49,33 +48,30 @@ public class NewHouseRecommendAdapter extends BaseAdapter {
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		ViewHolder holder;
-		if(convertView==null){
-			convertView=Inflater.inflate(R.layout.item_recommend_house, null);
+		if (convertView == null) {
+			convertView = Inflater.inflate(R.layout.item_recommend_house, null);
 			holder = new ViewHolder();
-			holder.ivRecommendImg=(ImageView) convertView.findViewById(R.id.iv_recommend_img);
-			holder.tvRecommendContent=(TextView) convertView.findViewById(R.id.tv_recommend_content);
-			holder.tvRecommendTitle=(TextView) convertView.findViewById(R.id.tv_recommend_title);
+			holder.ivRecommendImg = (ImageView) convertView.findViewById(R.id.iv_recommend_img);
+			holder.tvRecommendContent = (TextView) convertView.findViewById(R.id.tv_recommend_content);
+			holder.tvRecommendTitle = (TextView) convertView.findViewById(R.id.tv_recommend_title);
 			convertView.setTag(holder);
-		}else{
+		} else {
 			holder = (ViewHolder) convertView.getTag();
 		}
-		NewHouseRecommendData newrecommend=getItem(position);
-		String url="http://www.taoshenfang.com"+newrecommend.getThumb();
-//		Glide.with(context).load(url).into(holder.ivRecommendImg);
-		DisplayImageOptions options=new DisplayImageOptions.Builder()
-				.cacheInMemory(true).cacheOnDisc(true).bitmapConfig(Bitmap.Config.RGB_565).build();
-		
+		NewHouseRecommendData newrecommend = getItem(position);
+		String url = "http://www.taoshenfang.com" + newrecommend.getThumb();
+		// Glide.with(context).load(url).into(holder.ivRecommendImg);
+		DisplayImageOptions options = new DisplayImageOptions.Builder().cacheInMemory(true).cacheOnDisc(true)
+				.bitmapConfig(Bitmap.Config.RGB_565).build();
+
 		ImageLoader.getInstance().displayImage(url, holder.ivRecommendImg, options);
-		
-		
+
 		holder.tvRecommendContent.setText(newrecommend.getDescription());
 		holder.tvRecommendTitle.setText(newrecommend.getTitle());
-		
-		
-		
+
 		return convertView;
 	}
-	
+
 	class ViewHolder {
 		TextView tvRecommendTitle;
 		TextView tvRecommendContent;

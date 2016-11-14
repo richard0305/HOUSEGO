@@ -27,8 +27,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 
-public class MainActivity extends FragmentActivity{
-	
+public class MainActivity extends FragmentActivity {
+
 	private RadioGroup rgControl;
 	private RadioButton rbFrist;
 	private RadioButton rbMessage;
@@ -38,75 +38,70 @@ public class MainActivity extends FragmentActivity{
 	private PagerAdapter pagerAdapter;
 	private List<Fragment> fragments;
 	private UserInfo userinfo;
-	private LoginUserInfoModel infomodel=new LoginUserInfoModel();
+	private LoginUserInfoModel infomodel = new LoginUserInfoModel();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
+
 		setViews();
 		rbFrist.setTextColor(getResources().getColor(R.color.button_ckeck));
 		setViewPagerAdapter();
 		setListeners();
-		
+
 		FontHelper.injectFont(findViewById(android.R.id.content));
-		
+
 	}
-//	
+
+	//
 	@Override
 	protected void onResume() {
-//		HouseGoApp app=HouseGoApp.getContext();
-//		userinfo=app.getLoginInfo(getApplicationContext());
-//		app.SaveCurrentUserInfo(userinfo);
-		userinfo=HouseGoApp.getLoginInfo(this);
-		if(userinfo!=null){
-			String userid
-			=
-			userinfo.getUserid();
-			
-			infomodel.login(userid,new  AsycnCallBack() {
+		// HouseGoApp app=HouseGoApp.getContext();
+		// userinfo=app.getLoginInfo(getApplicationContext());
+		// app.SaveCurrentUserInfo(userinfo);
+		userinfo = HouseGoApp.getLoginInfo(this);
+		if (userinfo != null) {
+			String userid = userinfo.getUserid();
+
+			infomodel.login(userid, new AsycnCallBack() {
 				@Override
 				public void onSuccess(Object success) {
-					UserInfo Nuserinfo=(UserInfo) success;
+					UserInfo Nuserinfo = (UserInfo) success;
 					HouseGoApp.getContext().SaveCurrentUserInfo(Nuserinfo);
 					HouseGoApp.saveLoginInfo(getApplicationContext(), Nuserinfo);
 				}
+
 				@Override
 				public void onError(Object error) {
 				}
 			});
 		}
-		
-		
-	
-		
+
 		super.onResume();
 	}
 
 	@Override
 	protected void onDestroy() {
-		userinfo=HouseGoApp.getContext().getCurrentUserInfo();
+		userinfo = HouseGoApp.getContext().getCurrentUserInfo();
 		HouseGoApp.saveLoginInfo(getApplicationContext(), userinfo);
 		super.onDestroy();
 	}
-		
+
 	@Override
 	public void onBackPressed() {
 		// TODO Auto-generated method stub
 		super.onBackPressed();
 	}
-	
 
 	private void setViews() {
 		rgControl = (RadioGroup) findViewById(R.id.rg_control);
 		rbFrist = (RadioButton) findViewById(R.id.first);
 		rbMessage = (RadioButton) findViewById(R.id.message);
-		rbHouse= (RadioButton) findViewById(R.id.house);
+		rbHouse = (RadioButton) findViewById(R.id.house);
 		rbMy = (RadioButton) findViewById(R.id.my);
 		viewPager = (ViewPager) findViewById(R.id.viewpage);
 	}
-
 
 	private void setViewPagerAdapter() {
 		fragments = new ArrayList<Fragment>();
@@ -114,7 +109,7 @@ public class MainActivity extends FragmentActivity{
 		fragments.add(new MessageFramgent());
 		fragments.add(new HouseFramgent());
 		fragments.add(new MyFramgent());
-		
+
 		pagerAdapter = new MyPagerAdapter(getSupportFragmentManager());
 		viewPager.setAdapter(pagerAdapter);
 
@@ -126,7 +121,7 @@ public class MainActivity extends FragmentActivity{
 			@Override
 			public void onPageSelected(int position) {
 				switch (position) {
-				
+
 				case 0:
 					rbFrist.setChecked(true);
 					rbFrist.setTextColor(getResources().getColor(R.color.button_ckeck));
@@ -140,15 +135,13 @@ public class MainActivity extends FragmentActivity{
 					rbMessage.setTextColor(getResources().getColor(R.color.button_ckeck));
 					rbHouse.setTextColor(getResources().getColor(R.color.button_unckeck));
 					rbMy.setTextColor(getResources().getColor(R.color.button_unckeck));
-					
-					//�ж��Ƿ��¼��û�е�¼����ת����¼����
-					userinfo=HouseGoApp.getContext().getCurrentUserInfo();
-					if(userinfo==null){
+
+					// �ж��Ƿ��¼��û�е�¼����ת����¼����
+					userinfo = HouseGoApp.getContext().getCurrentUserInfo();
+					if (userinfo == null) {
 						startActivity(new Intent(getApplicationContext(), LoginActivity.class));
 					}
-					
-					
-					
+
 					break;
 				case 2:
 					rbHouse.setChecked(true);
@@ -186,8 +179,7 @@ public class MainActivity extends FragmentActivity{
 					break;
 				case R.id.message:
 					viewPager.setCurrentItem(1);
-					
-				
+
 					break;
 				case R.id.house:
 					viewPager.setCurrentItem(2);
@@ -219,10 +211,5 @@ public class MainActivity extends FragmentActivity{
 		}
 
 	}
-
-
-
-
-
 
 }

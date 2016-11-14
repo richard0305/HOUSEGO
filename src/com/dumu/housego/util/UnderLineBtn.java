@@ -1,6 +1,5 @@
 package com.dumu.housego.util;
 
-
 import com.dumu.housego.R;
 
 import android.content.Context;
@@ -10,95 +9,96 @@ import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.RelativeLayout;
-import android.widget.TextView;  
-  
-/** 
- * Created by Kevin on 2016/5/13. 
- */  
-public class UnderLineBtn extends RelativeLayout {  
-    /** 
-     * ¶ÔÓ¦ÊôÐÔ 
-     */  
-    private float lineHeight, lineWeight, textSize;  
-    private int unCheckedColor, checkedColor;  
-    private boolean isChecked;  
-    private String text;  
-  
-    /** 
-     * ¿Ø¼þ 
-     */  
-    private TextView textView;//ÎÄ×Ö  
-    private View view;//ÏÂ»®Ïß  
-    private LayoutParams textViewParams, viewParams;  
-  
-    public UnderLineBtn(Context context) {  
-        super(context);  
-    }  
-  
-    public UnderLineBtn(Context context, AttributeSet attrs, int defStyleAttr) {  
-        super(context, attrs, defStyleAttr);  
-    }  
-    public UnderLineBtn(Context context, AttributeSet attrs) {  
-        super(context, attrs);  
-        /** 
-         * »ñÈ¡×Ô¶¨ÒåÊôÐÔ 
-         */  
-        TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.underLineBtn);  
-        lineHeight = array.getDimension(R.styleable.underLineBtn_lineHeight, 1);  
-        lineWeight = array.getDimension(R.styleable.underLineBtn_lineWight, LayoutParams.MATCH_PARENT);  
-        textSize = array.getDimensionPixelSize(R.styleable.underLineBtn_textSize, 14);  
-        unCheckedColor = array.getColor(R.styleable.underLineBtn_unCheckedColor, Color.WHITE);  
-        checkedColor = array.getColor(R.styleable.underLineBtn_checkedColor, Color.BLUE);  
-        isChecked = array.getBoolean(R.styleable.underLineBtn_isChecked, false);  
-        text = array.getString(R.styleable.underLineBtn_text);  
-        array.recycle();//ÊôÐÔ»ñÈ¡ÍêÖ®ºó¼°Ê±»ØÊÕ  
-  
-        //¸ø¿Ø¼þ¸³Öµ  
-        textView = new TextView(context);  
-//        textView.setId(StringUtil.generateViewId());  
-        view = new View(context);  
-        if (isChecked) {  
-            textView.setTextColor(checkedColor);  
-            view.setBackgroundColor(checkedColor);  
-        } else {  
-            textView.setTextColor(unCheckedColor);  
-            view.setBackgroundColor(unCheckedColor);  
-        }  
-        textView.setText(text);  
-//        textView.setTextSize(textSize);  
-        textView.getPaint().setTextSize(textSize);  
-        //¿Ø¼þÎ»ÖÃ  
-        textViewParams = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);  
-        textViewParams.addRule(RelativeLayout.CENTER_IN_PARENT);  
-        textView.setGravity(Gravity.CENTER_HORIZONTAL);  
-        addView(textView, textViewParams);  
-  
-        viewParams = new LayoutParams((int) lineWeight, (int) lineHeight);  
-        viewParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);  
-        addView(view, viewParams);  
-    }  
-  
-    public void setChecked(boolean checked) {  
-        if (isChecked != checked) {  
-            isChecked = checked;  
-            /** 
-             * ±£Áô¸Ä±äºóµÄÏÔÊ¾£¬Ö´ÐÐdrawableStateChanged()ÖÐµÄ±ä»¯ 
-             * ²»Ö´ÐÐ±¾·½·¨£ºdrawableStateChanged()ÖÐÉèÖÃµÄ¸Ä±ä½«±»¸´Ô­ 
-             */  
-            refreshDrawableState();  
-        }  
-    }  
-  
-    @Override  
-    protected void drawableStateChanged() {  
-        super.drawableStateChanged();  
-        //¸Ä±äÊ±µÄÇÐ»»Âß¼­  
-            if(isChecked){  
-                textView.setTextColor(checkedColor);  
-                view.setBackgroundColor(checkedColor);  
-            }else{  
-                textView.setTextColor(unCheckedColor);  
-                view.setBackgroundColor(unCheckedColor);  
-            }  
-        }  
-}  
+import android.widget.TextView;
+
+/**
+ * Created by Kevin on 2016/5/13.
+ */
+public class UnderLineBtn extends RelativeLayout {
+	/**
+	 * ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½
+	 */
+	private float lineHeight, lineWeight, textSize;
+	private int unCheckedColor, checkedColor;
+	private boolean isChecked;
+	private String text;
+
+	/**
+	 * ï¿½Ø¼ï¿½
+	 */
+	private TextView textView;// ï¿½ï¿½ï¿½ï¿½
+	private View view;// ï¿½Â»ï¿½ï¿½ï¿½
+	private LayoutParams textViewParams, viewParams;
+
+	public UnderLineBtn(Context context) {
+		super(context);
+	}
+
+	public UnderLineBtn(Context context, AttributeSet attrs, int defStyleAttr) {
+		super(context, attrs, defStyleAttr);
+	}
+
+	public UnderLineBtn(Context context, AttributeSet attrs) {
+		super(context, attrs);
+		/**
+		 * ï¿½ï¿½È¡ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		 */
+		TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.underLineBtn);
+		lineHeight = array.getDimension(R.styleable.underLineBtn_lineHeight, 1);
+		lineWeight = array.getDimension(R.styleable.underLineBtn_lineWight, LayoutParams.MATCH_PARENT);
+		textSize = array.getDimensionPixelSize(R.styleable.underLineBtn_textSize, 14);
+		unCheckedColor = array.getColor(R.styleable.underLineBtn_unCheckedColor, Color.WHITE);
+		checkedColor = array.getColor(R.styleable.underLineBtn_checkedColor, Color.BLUE);
+		isChecked = array.getBoolean(R.styleable.underLineBtn_isChecked, false);
+		text = array.getString(R.styleable.underLineBtn_text);
+		array.recycle();// ï¿½ï¿½ï¿½Ô»ï¿½È¡ï¿½ï¿½Ö®ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½
+
+		// ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½ï¿½Öµ
+		textView = new TextView(context);
+		// textView.setId(StringUtil.generateViewId());
+		view = new View(context);
+		if (isChecked) {
+			textView.setTextColor(checkedColor);
+			view.setBackgroundColor(checkedColor);
+		} else {
+			textView.setTextColor(unCheckedColor);
+			view.setBackgroundColor(unCheckedColor);
+		}
+		textView.setText(text);
+		// textView.setTextSize(textSize);
+		textView.getPaint().setTextSize(textSize);
+		// ï¿½Ø¼ï¿½Î»ï¿½ï¿½
+		textViewParams = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+		textViewParams.addRule(RelativeLayout.CENTER_IN_PARENT);
+		textView.setGravity(Gravity.CENTER_HORIZONTAL);
+		addView(textView, textViewParams);
+
+		viewParams = new LayoutParams((int) lineWeight, (int) lineHeight);
+		viewParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+		addView(view, viewParams);
+	}
+
+	public void setChecked(boolean checked) {
+		if (isChecked != checked) {
+			isChecked = checked;
+			/**
+			 * ï¿½ï¿½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½Ö´ï¿½ï¿½drawableStateChanged()ï¿½ÐµÄ±ä»¯
+			 * ï¿½ï¿½Ö´ï¿½Ð±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½drawableStateChanged()ï¿½ï¿½ï¿½ï¿½ï¿½ÃµÄ¸Ä±ä½«ï¿½ï¿½ï¿½ï¿½Ô­
+			 */
+			refreshDrawableState();
+		}
+	}
+
+	@Override
+	protected void drawableStateChanged() {
+		super.drawableStateChanged();
+		// ï¿½Ä±ï¿½Ê±ï¿½ï¿½ï¿½Ð»ï¿½ï¿½ß¼ï¿½
+		if (isChecked) {
+			textView.setTextColor(checkedColor);
+			view.setBackgroundColor(checkedColor);
+		} else {
+			textView.setTextColor(unCheckedColor);
+			view.setBackgroundColor(unCheckedColor);
+		}
+	}
+}

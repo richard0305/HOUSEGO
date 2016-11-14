@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 
 public class ErshouFangProprietorActivity extends Activity {
 	private LinearLayout llErshoufangProprietorBack;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -18,19 +19,21 @@ public class ErshouFangProprietorActivity extends Activity {
 		setViews();
 		setListeners();
 	}
+
 	private void setListeners() {
 		llErshoufangProprietorBack.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				finish();
-				
+
 			}
 		});
-		
+
 	}
+
 	private void setViews() {
-		llErshoufangProprietorBack=(LinearLayout) findViewById(R.id.ll_ershoufang_proprietor_back);
-		
+		llErshoufangProprietorBack = (LinearLayout) findViewById(R.id.ll_ershoufang_proprietor_back);
+
 	}
 }

@@ -25,50 +25,48 @@ import android.util.Log;
 public class GuanZhuErShouModel implements IGuanZhuErShouModel {
 
 	@Override
-	public void loadGuanZhuErShou(final String username,final String table,final AsycnCallBack back) {
-		String url=UrlFactory.PostGuanZhuErShouUrl();
-		CommonRequest request=new CommonRequest(Method.POST, url, new Listener<String>() {
+	public void loadGuanZhuErShou(final String username, final String table, final AsycnCallBack back) {
+		String url = UrlFactory.PostGuanZhuErShouUrl();
+		CommonRequest request = new CommonRequest(Method.POST, url, new Listener<String>() {
 
 			@Override
 			public void onResponse(String response) {
 				try {
-					List<ErShouFangDetails> ershoufangdetails=GuanZhuErShouJSONParse.parseSearch(response);
+					List<ErShouFangDetails> ershoufangdetails = GuanZhuErShouJSONParse.parseSearch(response);
 					back.onSuccess(ershoufangdetails);
 				} catch (JSONException e) {
-					
-//					try {
-//						JSONObject 	JS = new JSONObject(response);
-//						
-//						String info=JS.getString("info");
-//						back.onError(info);
-//					} catch (JSONException e1) {
-//						e1.printStackTrace();
-//					}
-					
-					
-					
+
+					// try {
+					// JSONObject JS = new JSONObject(response);
+					//
+					// String info=JS.getString("info");
+					// back.onError(info);
+					// } catch (JSONException e1) {
+					// e1.printStackTrace();
+					// }
+
 					e.printStackTrace();
 				}
-				
+
 			}
-		},new ErrorListener() {
+		}, new ErrorListener() {
 
 			@Override
 			public void onErrorResponse(VolleyError error) {
 				back.onError(error.getMessage());
-				
+
 			}
-		}){
+		}) {
 			@Override
 			protected Map<String, String> getParams() throws AuthFailureError {
-				Map<String, String>map=new HashMap<String, String>();
+				Map<String, String> map = new HashMap<String, String>();
 				map.put("username", username);
 				map.put("table", table);
 				return map;
 			}
 		};
 		HouseGoApp.getQueue().add(request);
-		
+
 	}
 
 }

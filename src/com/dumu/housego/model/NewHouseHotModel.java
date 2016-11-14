@@ -23,8 +23,6 @@ public class NewHouseHotModel implements INewHouseHotModel {
 		super();
 	}
 
-
-
 	@Override
 	public void GetNewHouseHot(final AsycnCallBack back) {
 		new AsyncTask<String, String, List<NewHouseHotRecommend>>() {
@@ -39,14 +37,14 @@ public class NewHouseHotModel implements INewHouseHotModel {
 					String json = HttpUtils.isToString(is);
 					List<NewHouseHotRecommend> newhousehots;
 					newhousehots = NewHouseHotJSONParse.parseSearch(json);
-					Log.i("YANGLIJUN", "---->>>>>>>>>><<<<<<<<<<<<<<<<<<<========================="+newhousehots);
+					Log.i("YANGLIJUN", "---->>>>>>>>>><<<<<<<<<<<<<<<<<<<=========================" + newhousehots);
 					return newhousehots;
 				} catch (JSONException e) {
 					e.printStackTrace();
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
-				
+
 				return null;
 			}
 
@@ -54,6 +52,6 @@ public class NewHouseHotModel implements INewHouseHotModel {
 				back.onSuccess(newhousehots);
 			}
 		}.execute();
-		
+
 	}
 }

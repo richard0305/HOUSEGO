@@ -29,7 +29,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class PTrentingListFragment extends Fragment implements ISubmitRentingListView{
+public class PTrentingListFragment extends Fragment implements ISubmitRentingListView {
 	private LinearLayout ll_back_putongrentinglist;
 	private TextView tv_putongrentinglist_submit;
 	private ListView lv_submit_renting_list;
@@ -38,69 +38,62 @@ public class PTrentingListFragment extends Fragment implements ISubmitRentingLis
 	private SubmitRentingListAdapter adapter;
 	private UserInfo userinfo;
 	List<RentingDetail> rentingdetails;
-	
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View view=inflater.inflate(R.layout.fragment_pt_renting_list, null);
-		userinfo=HouseGoApp.getContext().getCurrentUserInfo();
-		String username=userinfo.getUsername();
-		String userid=userinfo.getUserid();
-		String table="chuzu";
-		presenter=new SubmitRentinglistpresenter(this);
-		
+		View view = inflater.inflate(R.layout.fragment_pt_renting_list, null);
+		userinfo = HouseGoApp.getContext().getCurrentUserInfo();
+		String username = userinfo.getUsername();
+		String userid = userinfo.getUserid();
+		String table = "chuzu";
+		presenter = new SubmitRentinglistpresenter(this);
+
 		initView(view);
-		
+
 		setListener();
 		presenter.SubmitRentingList(username, userid, table);
 		return view;
 	}
-	
-	
+
 	private void initView(View view) {
-		ll_back_putongrentinglist=(LinearLayout) view.findViewById(R.id.ll_back_putongrentinglist);
-		tv_putongrentinglist_submit=(TextView) view.findViewById(R.id.tv_putongrentinglist_submit);
-		lv_submit_renting_list=(ListView) view.findViewById(R.id.lv_submit_renting_list);
+		ll_back_putongrentinglist = (LinearLayout) view.findViewById(R.id.ll_back_putongrentinglist);
+		tv_putongrentinglist_submit = (TextView) view.findViewById(R.id.tv_putongrentinglist_submit);
+		lv_submit_renting_list = (ListView) view.findViewById(R.id.lv_submit_renting_list);
 	}
-	
+
 	private void setListener() {
 		ll_back_putongrentinglist.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				getActivity().finish();
-				
+
 			}
 		});
-		
+
 		tv_putongrentinglist_submit.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Fragment fragment=new PTrentingSumbitFragment();
-				FragmentTransaction trans=getActivity().getSupportFragmentManager().beginTransaction();
+				Fragment fragment = new PTrentingSumbitFragment();
+				FragmentTransaction trans = getActivity().getSupportFragmentManager().beginTransaction();
 				trans.replace(R.id.rl_container, fragment);
 				trans.commitAllowingStateLoss();
 			}
 		});
-		
+
 	}
-
-
 
 	@Override
 	public void SubmitListError(String info) {
-		MyToastShowCenter.CenterToast(getActivity(),info);
-		
+		MyToastShowCenter.CenterToast(getActivity(), info);
+
 	}
-
-
-
 
 	@Override
 	public void SubmitListSuccess(List<RentingDetail> rentingdetails) {
-		this.rentingdetails=rentingdetails;
-		adapter=new SubmitRentingListAdapter(rentingdetails, getActivity());
+		this.rentingdetails = rentingdetails;
+		adapter = new SubmitRentingListAdapter(rentingdetails, getActivity());
 		lv_submit_renting_list.setAdapter(adapter);
-		
-		
+
 	}
 
 }

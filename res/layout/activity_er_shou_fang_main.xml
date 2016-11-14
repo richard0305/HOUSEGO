@@ -147,6 +147,7 @@
         android:id="@+id/refresh_listview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#fff"
         android:layout_below="@id/ll_ershoufang_spinner" 
         />
          

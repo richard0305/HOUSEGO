@@ -1,5 +1,5 @@
 package com.dumu.housego.presenter;
 
 public interface IAddressPresenter {
- void address(String pid);
+	void address(String pid);
 }

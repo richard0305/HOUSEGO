@@ -18,22 +18,22 @@ import com.dumu.housego.util.UrlFactory;
 
 import android.util.Log;
 
-public class YuYueHouseModel implements IYuYueHouseModel{
+public class YuYueHouseModel implements IYuYueHouseModel {
 
 	@Override
-	public void Loadyuyue(final String formid,final String fromtable,final String username,
-			final String fromuser,final String type,
-			final	String yuyuedate,final String yuyuetime,final String t,final AsycnCallBack back) {
-		String url=UrlFactory.PostYuYueHouseUrl();
-		CommonRequest request=new CommonRequest(Method.POST, url, new Listener<String>() {
+	public void Loadyuyue(final String formid, final String fromtable, final String username, final String fromuser,
+			final String type, final String yuyuedate, final String yuyuetime, final String t,
+			final AsycnCallBack back) {
+		String url = UrlFactory.PostYuYueHouseUrl();
+		CommonRequest request = new CommonRequest(Method.POST, url, new Listener<String>() {
 
 			@Override
 			public void onResponse(String response) {
-				
+
 				try {
 					JSONObject obj = new JSONObject(response);
-					if (obj.getInt("success") ==96) {
-						String infomation=obj.getString("info").toString();
+					if (obj.getInt("success") == 96) {
+						String infomation = obj.getString("info").toString();
 						back.onSuccess(infomation);
 					} else {
 						back.onError(obj.getString("info"));
@@ -41,19 +41,19 @@ public class YuYueHouseModel implements IYuYueHouseModel{
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
-				
+
 			}
 		}, new ErrorListener() {
 
 			@Override
 			public void onErrorResponse(VolleyError error) {
 				// TODO Auto-generated method stub
-				
+
 			}
-		}){
+		}) {
 			@Override
 			protected Map<String, String> getParams() throws AuthFailureError {
-				Map<String , String >map=new HashMap<String, String>();
+				Map<String, String> map = new HashMap<String, String>();
 				map.put("fromid", formid);
 				map.put("fromtable", fromtable);
 				map.put("username", username);
@@ -62,7 +62,7 @@ public class YuYueHouseModel implements IYuYueHouseModel{
 				map.put("yuyuedate", yuyuedate);
 				map.put("yuyuetime", yuyuetime);
 				map.put("t", t);
-				
+
 				return map;
 			}
 		};

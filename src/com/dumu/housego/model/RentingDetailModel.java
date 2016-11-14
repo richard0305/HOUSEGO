@@ -14,7 +14,7 @@ import com.dumu.housego.util.UrlFactory;
 import android.os.AsyncTask;
 import android.util.Log;
 
-public class RentingDetailModel implements IRentingDetailModel{
+public class RentingDetailModel implements IRentingDetailModel {
 
 	@Override
 	public void LoadRentingData(final String catid, final String id, final AsycnCallBack back) {
@@ -24,16 +24,16 @@ public class RentingDetailModel implements IRentingDetailModel{
 			protected RentingDetail doInBackground(String... params) {
 
 				try {
-					String url=UrlFactory.PostRecommendListToDetailUrl();
-					Map<String, String> map=new HashMap<String, String>();
-					
-					map.put("catid",catid);
+					String url = UrlFactory.PostRecommendListToDetailUrl();
+					Map<String, String> map = new HashMap<String, String>();
+
+					map.put("catid", catid);
 					map.put("id", id);
-					String json=HttpUtils.isToString(HttpUtils.post(url, map));
-					
-					Log.e("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "AAAAAAAAAAAA"+json);
-					RentingDetail rentingdetail=RentingDetialJSONParse.parseSearch(json);
-					
+					String json = HttpUtils.isToString(HttpUtils.post(url, map));
+
+					Log.e("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "AAAAAAAAAAAA" + json);
+					RentingDetail rentingdetail = RentingDetialJSONParse.parseSearch(json);
+
 					return rentingdetail;
 				} catch (IOException e) {
 					e.printStackTrace();
@@ -48,7 +48,6 @@ public class RentingDetailModel implements IRentingDetailModel{
 			}
 		}.execute();
 
-		
 	}
 
 }

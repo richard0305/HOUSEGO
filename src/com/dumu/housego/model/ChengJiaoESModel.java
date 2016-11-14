@@ -20,53 +20,53 @@ import com.dumu.housego.util.CommonRequest;
 import com.dumu.housego.util.SubMitErShouListJSONParse;
 import com.dumu.housego.util.UrlFactory;
 
-public class ChengJiaoESModel implements IChengJiaoESModel{
+public class ChengJiaoESModel implements IChengJiaoESModel {
 
 	@Override
 	public void ChengJiaoES(final String username, final String table, final AsycnCallBack back) {
-		String url=UrlFactory.PostChengJiaoHouseList();
-		CommonRequest request=new CommonRequest(Method.POST, url, new Listener<String>() {
+		String url = UrlFactory.PostChengJiaoHouseList();
+		CommonRequest request = new CommonRequest(Method.POST, url, new Listener<String>() {
 
 			@Override
 			public void onResponse(String response) {
 				try {
-					List<ErShouFangDetails>ershoudetails=SubMitErShouListJSONParse.parseSearch(response);
-				back.onSuccess(ershoudetails);
+					List<ErShouFangDetails> ershoudetails = SubMitErShouListJSONParse.parseSearch(response);
+					back.onSuccess(ershoudetails);
 				} catch (JSONException e) {
-					
-//					
-//					try {
-//						JSONObject JS = new JSONObject(response);
-//						
-//						String info=JS.getString("info");
-//						back.onError(info);
-//					} catch (JSONException e1) {
-//						e1.printStackTrace();
-//					}
-					
+
+					//
+					// try {
+					// JSONObject JS = new JSONObject(response);
+					//
+					// String info=JS.getString("info");
+					// back.onError(info);
+					// } catch (JSONException e1) {
+					// e1.printStackTrace();
+					// }
+
 					e.printStackTrace();
 				}
-				
+
 			}
 		}, new ErrorListener() {
 
 			@Override
 			public void onErrorResponse(VolleyError error) {
 				back.onError(error.getMessage());
-				
+
 			}
-		}){
+		}) {
 			@Override
 			protected Map<String, String> getParams() throws AuthFailureError {
-				Map<String , String >map=new HashMap<String, String>();
+				Map<String, String> map = new HashMap<String, String>();
 				map.put("username", username);
 				map.put("table", table);
-				
+
 				return map;
 			}
 		};
 		HouseGoApp.getQueue().add(request);
-		
+
 	}
-	
+
 }

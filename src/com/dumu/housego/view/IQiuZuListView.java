@@ -5,6 +5,7 @@ import java.util.List;
 import com.dumu.housego.entity.QiuZuBuyHouseList;
 
 public interface IQiuZuListView {
-	void QiuZuListSuccess(List<QiuZuBuyHouseList>qiuzulists);
+	void QiuZuListSuccess(List<QiuZuBuyHouseList> qiuzulists);
+
 	void QiuZuListFail(String info);
 }

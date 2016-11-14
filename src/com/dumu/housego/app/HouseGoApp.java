@@ -58,30 +58,30 @@ public class HouseGoApp extends Application {
 	@Override
 	public void onCreate() {
 		super.onCreate();
-		housegoapp=this;
+		housegoapp = this;
 		context = this;
 		Queue = Volley.newRequestQueue(context);
 		x.Ext.init(getHousegoapp());
 		x.Ext.setDebug(true);
-		  //��ʹ��SDK�����֮ǰ��ʼ��context��Ϣ������ApplicationContext  
-        //ע��÷���Ҫ��setContentView����֮ǰʵ��  
-        SDKInitializer.initialize(getApplicationContext());  
-		
-        //创建默认的ImagerLoader配置参数
-        File cacheDir=StorageUtils.getCacheDirectory(context);
-        ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(this)
+		// ��ʹ��SDK�����֮ǰ��ʼ��context��Ϣ������ApplicationContext
+		// ע��÷���Ҫ��setContentView����֮ǰʵ��
+		SDKInitializer.initialize(getApplicationContext());
+
+		// 创建默认的ImagerLoader配置参数
+		File cacheDir = StorageUtils.getCacheDirectory(context);
+		ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(this)
 				// .memoryCacheExtraOptions(480, 800)
 				.threadPoolSize(3).threadPriority(Thread.NORM_PRIORITY - 2).denyCacheImageMultipleSizesInMemory()
 				.memoryCache(new UsingFreqLimitedMemoryCache(2 * 1024 * 1024)).memoryCacheSize(2 * 1024 * 1024)
-				.discCache(new UnlimitedDiscCache(cacheDir))
-				.discCacheSize(50 * 1024 * 1024).discCacheFileNameGenerator(new Md5FileNameGenerator())
-				.tasksProcessingOrder(QueueProcessingType.LIFO).discCacheFileCount(100)
+				.discCache(new UnlimitedDiscCache(cacheDir)).discCacheSize(50 * 1024 * 1024)
+				.discCacheFileNameGenerator(new Md5FileNameGenerator()).tasksProcessingOrder(QueueProcessingType.LIFO)
+				.discCacheFileCount(100)
 				// 缓存的文件数量
 				// 自定义缓存路径
 				.defaultDisplayImageOptions(DisplayImageOptions.createSimple())
 				.imageDownloader(new BaseImageDownloader(this, 5 * 1000, 30 * 1000)).build();
 		ImageLoader.getInstance().init(config);
-		   
+
 	}
 
 	/**
@@ -107,59 +107,56 @@ public class HouseGoApp extends Application {
 		return this.userinfo;
 
 	}
-	
-	/**
-     * ʹ��SharedPreferences�����û���¼��Ϣ
-     * @param context
-     * @param username
-     * @param password
-     */
-    public static void saveLoginInfo(Context context,UserInfo userinfo){
-        //��ȡSharedPreferences����
-        SharedPreferences sharedPre=context.getSharedPreferences("config", context.MODE_PRIVATE);
-        //��ȡEditor����
-        Editor editor=sharedPre.edit();
-        //���ò���
-        
-        try {
-            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            ObjectOutputStream oos = new ObjectOutputStream(baos);
-            oos.writeObject(userinfo);
-            String string64 = new String(Base64.encode(baos.toByteArray(),
-                    0));
-          //�ύ
-            editor.putString("token", string64).commit();
-        }catch (IOException e) {
-            e.printStackTrace();
-        }
-        
-    }
-    
-    public static UserInfo getLoginInfo(Context context) {
-    	UserInfo userinfo = null;
-        try {
-            String base64 = context.getSharedPreferences("config", context.MODE_PRIVATE).getString("token", "");
-            if (base64.equals("")) {
-                return null;
-            }
-            byte[] base64Bytes = Base64.decode(base64.getBytes(), 1);
-            ByteArrayInputStream bais = new ByteArrayInputStream(base64Bytes);
-            ObjectInputStream ois = new ObjectInputStream(bais);
-            userinfo = (UserInfo) ois.readObject();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return userinfo;
-    }
-    
-    public static UserInfo clearData(UserInfo userinfo){
-    	userinfo=HouseGoApp.getLoginInfo(getContext());
-    	SharedPreferences sharedPre=context.getSharedPreferences("config", context.MODE_PRIVATE);
-    	sharedPre.edit().clear().commit();
-    	return userinfo;
-    }
 
-    
-    
+	/**
+	 * ʹ��SharedPreferences�����û���¼��Ϣ
+	 * 
+	 * @param context
+	 * @param username
+	 * @param password
+	 */
+	public static void saveLoginInfo(Context context, UserInfo userinfo) {
+		// ��ȡSharedPreferences����
+		SharedPreferences sharedPre = context.getSharedPreferences("config", context.MODE_PRIVATE);
+		// ��ȡEditor����
+		Editor editor = sharedPre.edit();
+		// ���ò���
+
+		try {
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			ObjectOutputStream oos = new ObjectOutputStream(baos);
+			oos.writeObject(userinfo);
+			String string64 = new String(Base64.encode(baos.toByteArray(), 0));
+			// �ύ
+			editor.putString("token", string64).commit();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	public static UserInfo getLoginInfo(Context context) {
+		UserInfo userinfo = null;
+		try {
+			String base64 = context.getSharedPreferences("config", context.MODE_PRIVATE).getString("token", "");
+			if (base64.equals("")) {
+				return null;
+			}
+			byte[] base64Bytes = Base64.decode(base64.getBytes(), 1);
+			ByteArrayInputStream bais = new ByteArrayInputStream(base64Bytes);
+			ObjectInputStream ois = new ObjectInputStream(bais);
+			userinfo = (UserInfo) ois.readObject();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return userinfo;
+	}
+
+	public static UserInfo clearData(UserInfo userinfo) {
+		userinfo = HouseGoApp.getLoginInfo(getContext());
+		SharedPreferences sharedPre = context.getSharedPreferences("config", context.MODE_PRIVATE);
+		sharedPre.edit().clear().commit();
+		return userinfo;
+	}
 
 }

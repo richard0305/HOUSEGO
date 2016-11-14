@@ -11,34 +11,33 @@ import com.dumu.housego.view.IGuanZhuErShouView;
 
 public class GuanZhuErShouPresenter implements IGuanZhuErShouPresenter {
 	private IGuanZhuErShouView view;
-	private  IGuanZhuErShouModel model;
-	
+	private IGuanZhuErShouModel model;
+
 	public GuanZhuErShouPresenter(IGuanZhuErShouView view) {
 		super();
 		this.view = view;
-		model=new GuanZhuErShouModel();
+		model = new GuanZhuErShouModel();
 	}
 
 	@Override
-	public void LoadGuanZhuErShou(String username,String table) {
-		model.loadGuanZhuErShou(username, table,new AsycnCallBack() {
-			
+	public void LoadGuanZhuErShou(String username, String table) {
+		model.loadGuanZhuErShou(username, table, new AsycnCallBack() {
+
 			@Override
 			public void onSuccess(Object success) {
-				List<ErShouFangDetails>ershoufangdetails=(List<ErShouFangDetails>) success;
+				List<ErShouFangDetails> ershoufangdetails = (List<ErShouFangDetails>) success;
 				view.showGuanZhuSuccess(ershoufangdetails);
-				
+
 			}
-			
-			
+
 			@Override
 			public void onError(Object error) {
-				String errorinfo=(String) error;
+				String errorinfo = (String) error;
 				view.showGuanZhuFail(errorinfo);
-				
+
 			}
 		});
-		
+
 	}
 
 }

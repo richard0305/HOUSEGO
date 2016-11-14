@@ -13,13 +13,13 @@ import com.google.gson.JsonObject;
 
 public class JSONParse {
 	public static List<RecommendNews> parseSearch(String json) throws JSONException {
-		JSONArray array = new JSONArray(json); 
-//		JSONArray ary = array.get;
+		JSONArray array = new JSONArray(json);
+		// JSONArray ary = array.get;
 		List<RecommendNews> recommends = new ArrayList<RecommendNews>();
 		for (int i = 0; i < array.length(); i++) {
 			JSONObject obj = array.getJSONObject(i);
 			RecommendNews n = new RecommendNews();
-			JSONObject obj2=obj.getJSONObject("data");
+			JSONObject obj2 = obj.getJSONObject("data");
 			n.setTitle(obj2.getString("title"));
 			n.setDescription(obj2.getString("description"));
 			n.setThumb(obj2.getString("thumb"));

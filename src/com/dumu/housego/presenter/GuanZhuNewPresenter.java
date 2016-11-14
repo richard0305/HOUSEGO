@@ -15,34 +15,33 @@ import com.dumu.housego.view.IGuanZhuNewView;
 
 public class GuanZhuNewPresenter implements IGuanZhuNewPresenter {
 	private IGuanZhuNewView view;
-	private  IGuanZhuNewModel model;
-	
+	private IGuanZhuNewModel model;
+
 	public GuanZhuNewPresenter(IGuanZhuNewView view) {
 		super();
 		this.view = view;
-		model=new GuanZhuNewModel();
+		model = new GuanZhuNewModel();
 	}
 
 	@Override
-	public void LoadGuanZhuNew(String username,String table) {
-		model.loadGuanZhuNew(username,table, new AsycnCallBack() {
-			
+	public void LoadGuanZhuNew(String username, String table) {
+		model.loadGuanZhuNew(username, table, new AsycnCallBack() {
+
 			@Override
 			public void onSuccess(Object success) {
-				List<NewHouseDetail>newhousedetails=(List<NewHouseDetail>) success;
+				List<NewHouseDetail> newhousedetails = (List<NewHouseDetail>) success;
 				view.showGuanZhuSuccess(newhousedetails);
-				
+
 			}
-			
-			
+
 			@Override
 			public void onError(Object error) {
-				String errorinfo=(String) error;
+				String errorinfo = (String) error;
 				view.showGuanZhuFail(errorinfo);
-				
+
 			}
 		});
-		
+
 	}
 
 }

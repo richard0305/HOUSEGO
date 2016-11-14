@@ -13,76 +13,78 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * ·â×°ÁªÍø²Ù×÷
+ * ï¿½ï¿½×°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  */
 public class HttpUtils {
-	
+
 	/**
-	 * ·¢ËÍgetÇëÇó »ñÈ¡·şÎñ¶Ë·µ»ØµÄÊäÈëÁ÷
+	 * å‘é€getè¯·æ±‚ è·å–æœåŠ¡ç«¯è¿”å›çš„è¾“å…¥æµ
+	 * 
 	 * @param url
 	 * @return
-	 * @throws IOExceptionException 
+	 * @throws IOExceptionException
 	 */
-	public static InputStream get(String path) throws IOException{
+	public static InputStream get(String path) throws IOException {
 		URL url = new URL(path);
-		HttpURLConnection conn=(HttpURLConnection) url.openConnection();
+		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 		conn.setRequestMethod("GET");
 		InputStream is = conn.getInputStream();
 		return is;
 	}
-	
+
 	/**
-	 * ·¢ËÍpostÇëÇó  
-	 * @param path  ÇëÇó×ÊÔ´Â·¾¶
-	 * @param paramMap ²ÎÊı¼¯ºÏ  Èç¹ûÃ»ÓĞ²ÎÊı ÔòÎªnull
-	 * @return  ·şÎñ¶Ë·µ»ØµÄÊäÈëÁ÷
+	 * å‘é€postè¯·æ±‚
+	 * 
+	 * @param path
+	 *            è¯·æ±‚èµ„æºè·¯å¾„
+	 * @param paramMap
+	 *            å‚æ•°é›†åˆ å¦‚æœæ²¡æœ‰å‚æ•° åˆ™ä¸ºnull
+	 * @return æœåŠ¡ç«¯è¿”å›çš„è¾“å…¥æµ
 	 */
 	public static InputStream post(String path, Map<String, String> paramMap) throws IOException {
 		URL url = new URL(path);
-		HttpURLConnection conn=(HttpURLConnection) url.openConnection();
+		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 		conn.setRequestMethod("POST");
 		conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-		//ÉèÖÃ²ÎÊı
+		// ï¿½ï¿½ï¿½Ã²ï¿½ï¿½ï¿½
 		conn.setDoOutput(true);
 		StringBuilder params = new StringBuilder();
-		if(paramMap != null){
-			//°ÑparamMap¼¯ºÏÖĞµÄ²ÎÊı¶¼Æ´½Óµ½paramsÖĞ
-			Set<String> keys=paramMap.keySet();
+		if (paramMap != null) {
+			// ï¿½ï¿½paramMapï¿½ï¿½ï¿½ï¿½ï¿½ĞµÄ²ï¿½ï¿½ï¿½ï¿½ï¿½Æ´ï¿½Óµï¿½paramsï¿½ï¿½
+			Set<String> keys = paramMap.keySet();
 			Iterator<String> ite = keys.iterator();
-			while(ite.hasNext()){
+			while (ite.hasNext()) {
 				String key = ite.next();
 				String value = paramMap.get(key);
-				//°Ñkey=valueÆ´½Óµ½params×Ö·û´®ÖĞ
-				params.append(key+"="+value+"&");
+				// ï¿½ï¿½key=valueÆ´ï¿½Óµï¿½paramsï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½
+				params.append(key + "=" + value + "&");
 			}
-			//key=value&key=value&key=value&
-			params.deleteCharAt(params.length()-1);
-			//°Ñparams×÷Îª²ÎÊıÊä³ö¸ø·şÎñ¶Ë
+			// key=value&key=value&key=value&
+			params.deleteCharAt(params.length() - 1);
+			// ï¿½ï¿½paramsï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			OutputStream os = conn.getOutputStream();
 			os.write(params.toString().getBytes("utf-8"));
 			os.flush();
 		}
-		//»ñÈ¡ÊäÈëÁ÷
+		// ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		InputStream is = conn.getInputStream();
 		return is;
 	}
-	
+
 	/**
-	 * °ÑÊäÈëÁ÷ °´ÕÕutf-8±àÂë½âÎöÎª×Ö·û´®
+	 * æŠŠè¾“å…¥æµ æŒ‰ç…§utf-8ç¼–ç è§£æä¸ºå­—ç¬¦ä¸²
+	 * 
 	 * @param is
-	 * @return ½âÎö³É¹¦µÄ×Ö·û´®
+	 * @return è§£ææˆåŠŸçš„å­—ç¬¦ä¸²
 	 */
-	public static String isToString(InputStream is)throws IOException{
+	public static String isToString(InputStream is) throws IOException {
 		StringBuilder sb = new StringBuilder();
 		String line = "";
 		BufferedReader reader = new BufferedReader(new InputStreamReader(is));
-		while((line = reader.readLine()) != null){
+		while ((line = reader.readLine()) != null) {
 			sb.append(line);
 		}
 		return sb.toString();
 	}
-	
+
 }
-
-
-

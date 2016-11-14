@@ -14,13 +14,12 @@ import android.widget.Button;
 
 public class LookHistroyFragment extends Fragment {
 	private Button btnLogin;
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View view=inflater.inflate(R.layout.fragment_look_histroy, null);
-		
-		
+		View view = inflater.inflate(R.layout.fragment_look_histroy, null);
+
 		return view;
 	}
-	
 
 }

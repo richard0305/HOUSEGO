@@ -4,27 +4,27 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ListView;
 
-public class ListViewForScrollView extends ListView{
+public class ListViewForScrollView extends ListView {
 
 	public ListViewForScrollView(Context context) {
-        super(context);
-    }
-    public ListViewForScrollView(Context context, AttributeSet attrs) {
-        super(context, attrs);
-    }
-    public ListViewForScrollView(Context context, AttributeSet attrs,
-        int defStyle) {
-        super(context, attrs, defStyle);
-    }
-    
-    @Override
-    /**
-     * ÖØÐ´¸Ã·½·¨£¬´ïµ½Ê¹ListViewÊÊÓ¦ScrollViewµÄÐ§¹û
-     */
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        int expandSpec = MeasureSpec.makeMeasureSpec(Integer.MAX_VALUE >> 2,
-        MeasureSpec.AT_MOST);
-        super.onMeasure(widthMeasureSpec, expandSpec);
-    }
+		super(context);
+	}
+
+	public ListViewForScrollView(Context context, AttributeSet attrs) {
+		super(context, attrs);
+	}
+
+	public ListViewForScrollView(Context context, AttributeSet attrs, int defStyle) {
+		super(context, attrs, defStyle);
+	}
+
+	@Override
+	/**
+	 * ï¿½ï¿½Ð´ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ïµ½Ê¹ListViewï¿½ï¿½Ó¦ScrollViewï¿½ï¿½Ð§ï¿½ï¿½
+	 */
+	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+		int expandSpec = MeasureSpec.makeMeasureSpec(Integer.MAX_VALUE >> 2, MeasureSpec.AT_MOST);
+		super.onMeasure(widthMeasureSpec, expandSpec);
+	}
 
 }

@@ -27,102 +27,102 @@ import android.util.Log;
 
 public class SubmitErShouListModel implements ISubmitErShouListModel {
 
-	
-	//二手房列表
+	// 二手房列表
 	@Override
-	public void submitershoulist(final String username, final String userid, final String table, final AsycnCallBack back) {
-		String url=UrlFactory.PostSubmitESorCZList();
-		CommonRequest request=new CommonRequest(Method.POST, url, new Listener<String>() {
+	public void submitershoulist(final String username, final String userid, final String table,
+			final AsycnCallBack back) {
+		String url = UrlFactory.PostSubmitESorCZList();
+		CommonRequest request = new CommonRequest(Method.POST, url, new Listener<String>() {
 
 			@Override
 			public void onResponse(String response) {
-				Log.e("2016-11-1", "201601101-response"+response);
+				Log.e("2016-11-1", "201601101-response" + response);
 				try {
-					List<ErShouFangDetails>submitershous=SubMitErShouListJSONParse.parseSearch(response);
-				back.onSuccess(submitershous);
-				
+					List<ErShouFangDetails> submitershous = SubMitErShouListJSONParse.parseSearch(response);
+					back.onSuccess(submitershous);
+
 				} catch (JSONException e) {
-					
+
 					try {
-						JSONObject 	j = new JSONObject(response);
-						String info=j.getString("info");
+						JSONObject j = new JSONObject(response);
+						String info = j.getString("info");
 						back.onError(info);
 					} catch (JSONException e1) {
 						e1.printStackTrace();
 					}
-					
+
 					e.printStackTrace();
 				}
-				
+
 			}
 		}, new ErrorListener() {
 
 			@Override
 			public void onErrorResponse(VolleyError error) {
 				back.onError(error.getMessage());
-				
+
 			}
-		}){
+		}) {
 			@Override
 			protected Map<String, String> getParams() throws AuthFailureError {
-				Map<String,String>map=new HashMap<String, String>();
+				Map<String, String> map = new HashMap<String, String>();
 				map.put("username", username);
 				map.put("userid", userid);
 				map.put("table", table);
-				
+
 				return map;
 			}
 		};
 		HouseGoApp.getQueue().add(request);
-		
+
 	}
 
 	@Override
-	public void submitrentinglist(final String username, final String userid, final String table, final AsycnCallBack back) {
-		String url=UrlFactory.PostSubmitESorCZList();
-		CommonRequest request=new CommonRequest(Method.POST, url, new Listener<String>() {
+	public void submitrentinglist(final String username, final String userid, final String table,
+			final AsycnCallBack back) {
+		String url = UrlFactory.PostSubmitESorCZList();
+		CommonRequest request = new CommonRequest(Method.POST, url, new Listener<String>() {
 
 			@Override
 			public void onResponse(String response) {
 				try {
-					List<RentingDetail>rentingdetails=SubMitRentingListJSONParse.parseSearch(response);
-				back.onSuccess(rentingdetails);
-				
+					List<RentingDetail> rentingdetails = SubMitRentingListJSONParse.parseSearch(response);
+					back.onSuccess(rentingdetails);
+
 				} catch (JSONException e) {
-					
+
 					try {
-						JSONObject 	j = new JSONObject(response);
-						String info=j.getString("info");
+						JSONObject j = new JSONObject(response);
+						String info = j.getString("info");
 						back.onError(info);
 					} catch (JSONException e1) {
 						e1.printStackTrace();
 					}
-					
+
 					e.printStackTrace();
 				}
-				
+
 			}
 		}, new ErrorListener() {
 
 			@Override
 			public void onErrorResponse(VolleyError error) {
 				back.onError(error.getMessage());
-				
+
 			}
-		}){
+		}) {
 			@Override
 			protected Map<String, String> getParams() throws AuthFailureError {
-				Map<String,String>map=new HashMap<String, String>();
+				Map<String, String> map = new HashMap<String, String>();
 				map.put("username", username);
 				map.put("userid", userid);
 				map.put("table", table);
-				
+
 				return map;
 			}
 		};
 		HouseGoApp.getQueue().add(request);
-		
-		
+
 	}
 
 }

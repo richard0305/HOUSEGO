@@ -8,36 +8,34 @@ import com.dumu.housego.model.IAgentModelDataModel;
 import com.dumu.housego.model.IModel.AsycnCallBack;
 import com.dumu.housego.view.IAgentModelDataView;
 
-public class AgentModelDataPresenter implements IAgentModelDataPresenter{
+public class AgentModelDataPresenter implements IAgentModelDataPresenter {
 
 	private IAgentModelDataModel model;
 	private IAgentModelDataView view;
-	
-	
-	
+
 	public AgentModelDataPresenter(IAgentModelDataView view) {
 		super();
 		this.view = view;
-		model=new AgentModelDataModel();
+		model = new AgentModelDataModel();
 	}
 
 	@Override
 	public void FindAgentModelData(String catid) {
 		model.FindAgentModelData(catid, new AsycnCallBack() {
-			
+
 			@Override
 			public void onSuccess(Object success) {
-				List<AgentData>agentdatas=(List<AgentData>) success;
+				List<AgentData> agentdatas = (List<AgentData>) success;
 				view.showAgentModelData(agentdatas);
-				
+
 			}
-			
+
 			@Override
 			public void onError(Object error) {
-				
+
 			}
 		});
-		
+
 	}
-	
+
 }

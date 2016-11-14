@@ -1,172 +1,183 @@
 package com.dumu.housego.util;
 
 import com.dumu.housego.ErShouFangDetailsActivity;
+import com.dumu.housego.utils.ScrollViewListener;
 
-import android.content.Context;  
-import android.graphics.Rect;  
+import android.content.Context;
+import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.view.MotionEvent;  
-import android.view.View;  
-import android.view.animation.TranslateAnimation;  
-import android.widget.ScrollView;  
-  
-//╥бios©ииолАобю╜╣дScrollView  
-public class MyReboundScrollView extends ScrollView {  
-      
-    private static final String TAG = "ElasticScrollView";  
-      
-    //рф╤╞рРвс, йгр╩╦Ж╟ы╥ж╠х, ╠ххГйжж╦рф╤╞ак100px, дгц╢View╬мж╩рф╤╞50px  
-    //д©╣дйг╢О╣╫р╩╦ЖясЁы╣дп╖╧Ш  
-    private static final float MOVE_FACTOR = 0.5f;  
-       
-    //ки©╙йжж╦╨С, ╫ГцФ╩ь╣╫уЩЁён╩жцпХр╙╣д╤╞╩╜й╠╪Д  
-    private static final int ANIM_TIME = 100;  
-       
-    //ScrollView╣двсViewё╛ р╡йгScrollView╣дн╗р╩р╩╦ЖвсView  
-    private View contentView;   
-       
-    //йжж╦╟╢обй╠╣дYж╣, сцсзтзрф╤╞й╠╪фкЦрф╤╞╬ЮюК  
-    //хГ╧Ш╟╢обй╠╡╩дэиою╜╨мобю╜ё╛ ╩Атзйжж╦рф╤╞й╠╦Эпбн╙╣╠г╟йжж╦╣дYж╣  
-    private float startY;  
-       
-    //сцсз╪гб╪уЩЁё╣д╡╪╬жн╩жц  
-    private Rect originalRect = new Rect();  
-       
-    //йжж╦╟╢обй╠╪гб╪йг╥Я©ирт╪лпЬобю╜  
-    private boolean canPullDown = false;  
-       
-    //йжж╦╟╢обй╠╪гб╪йг╥Я©ирт╪лпЬиою╜  
-    private boolean canPullUp = false;  
-       
-    //тзйжж╦╩╛╤╞╣д╧ЩЁлжп╪гб╪йг╥Ярф╤╞ак╡╪╬ж  
-    private boolean isMoved = false;  
-   
-    public MyReboundScrollView(Context context) {  
-        super(context);  
-    }  
-       
-    public MyReboundScrollView(Context context, AttributeSet attrs) {  
-        super(context, attrs);  
-    }  
-   
-    @Override  
-    protected void onFinishInflate() {  
-        if (getChildCount() > 0) {  
-            contentView = getChildAt(0);  
-        }  
-    }  
-       
-    @Override  
-    protected void onLayout(boolean changed, int l, int t, int r, int b) {  
-        super.onLayout(changed, l, t, r, b);  
-           
-        if(contentView == null) return;  
-   
-        //ScrollViewжп╣дн╗р╩вс©ь╪Ч╣дн╩жцпео╒, уБ╦Жн╩жцпео╒тзуШ╦Ж©ь╪Ч╣диЗцЭжэфзжп╠ёЁж╡╩╠Д  
-        originalRect.set(contentView.getLeft(), contentView.getTop(), contentView  
-                .getRight(), contentView.getBottom());  
-    }  
-   
-    //тз╢╔цЧйб╪Чжп, ╢╕юМиою╜╨мобю╜╣дбъ╪╜  
-    @Override  
-    public boolean dispatchTouchEvent(MotionEvent ev) {  
-           
-        if (contentView == null) {  
-            return super.dispatchTouchEvent(ev);  
-        }  
-   
-        int action = ev.getAction();  
-           
-        switch (action) {  
-        case MotionEvent.ACTION_DOWN:  
-               
-            //еп╤ойг╥Я©иртиою╜╨мобю╜  
-            canPullDown = isCanPullDown();  
-            canPullUp = isCanPullUp();  
-               
-            //╪гб╪╟╢обй╠╣дYж╣  
-            startY = ev.getY();  
-            break;  
-               
-        case MotionEvent.ACTION_UP:  
-               
-            if(!isMoved) break;  //хГ╧Шц╩спрф╤╞╡╪╬жё╛ тРлЬ╧Щж╢пп  
-               
-            // ©╙фТ╤╞╩╜  
-            TranslateAnimation anim = new TranslateAnimation(0, 0, contentView.getTop(),  
-                    originalRect.top);  
-            anim.setDuration(ANIM_TIME);  
-               
-            contentView.startAnimation(anim);  
-               
-            // иХжц╩ь╣╫уЩЁё╣д╡╪╬жн╩жц  
-            contentView.layout(originalRect.left, originalRect.top,   
-                    originalRect.right, originalRect.bottom);  
-               
-            //╫╚╠Йж╬н╩иХ╩ьfalse  
-            canPullDown = false;  
-            canPullUp = false;  
-            isMoved = false;  
-               
-            break;  
-        case MotionEvent.ACTION_MOVE:  
-               
-            //тзрф╤╞╣д╧ЩЁлжпё╛ ╪хц╩сп╧Ж╤╞╣╫©иртиою╜╣дЁл╤хё╛ р╡ц╩сп╧Ж╤╞╣╫©иртобю╜╣дЁл╤х  
-            if(!canPullDown && !canPullUp) {  
-                startY = ev.getY();  
-                canPullDown = isCanPullDown();  
-                canPullUp = isCanPullUp();  
-                   
-                break;  
-            }  
-               
-            //╪фкЦйжж╦рф╤╞╣д╬ЮюК  
-            float nowY = ev.getY();  
-            int deltaY = (int) (nowY - startY);  
-               
-            //йг╥Яс╕╦црф╤╞╡╪╬ж  
-            boolean shouldMove =   
-                    (canPullDown && deltaY > 0)    //©иртобю╜ё╛ ╡╒грйжж╦оРобрф╤╞  
-                    || (canPullUp && deltaY< 0)    //©иртиою╜ё╛ ╡╒грйжж╦оРиорф╤╞  
-                    || (canPullUp && canPullDown); //╪х©иртиою╜р╡©иртобю╜ё╗уБжжгИ©ЖЁЖожтзScrollView╟Э╧Э╣д©ь╪Ч╠хScrollView╩╧п║ё╘  
-               
-            if(shouldMove){  
-                //╪фкЦф╚рфа©  
-                int offset = (int)(deltaY * MOVE_FACTOR);  
-                   
-                //кФвейжж╦╣дрф╤╞╤Ьрф╤╞╡╪╬ж  
-                contentView.layout(originalRect.left, originalRect.top + offset,  
-                        originalRect.right, originalRect.bottom + offset);  
-                   
-                isMoved = true;  //╪гб╪рф╤╞ак╡╪╬ж  
-            }  
-               
-            break;  
-        default:  
-            break;  
-        }  
-   
-        return super.dispatchTouchEvent(ev);  
-    }  
-       
-   
-    //еп╤ойг╥Я╧Ж╤╞╣╫╤╔╡©  
-    private boolean isCanPullDown() {  
-        return getScrollY() == 0 ||   
-                contentView.getHeight() < getHeight() + getScrollY();  
-    }  
-       
-    //еп╤ойг╥Я╧Ж╤╞╣╫╣в╡©  
-    private boolean isCanPullUp() {  
-        return  contentView.getHeight() <= getHeight() + getScrollY();  
-    }  
-    
-    
-    
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.animation.TranslateAnimation;
+import android.widget.ScrollView;
 
-          
+//О©╫О©╫iosО©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫ScrollView  
+public class MyReboundScrollView extends ScrollView {
 
-    
-    
-}  
+	private static final String TAG = "ElasticScrollView";
+
+	// О©╫ф╤О©╫О©╫О©╫О©╫О©╫, О©╫О©╫р╩О©╫О©╫О©╫ы╥ж╠О©╫, О©╫О©╫О©╫О©╫О©╫О©╫ж╦О©╫ф╤О©╫О©╫О©╫100px, О©╫О©╫ц╢ViewО©╫О©╫ж╩О©╫ф╤О©╫50px
+	// д©О©╫О©╫О©╫г╢О╣╫р╩О©╫О©╫О©╫сЁы╣О©╫п╖О©╫О©╫
+	private static final float MOVE_FACTOR = 0.5f;
+
+	// О©╫и©О©╫О©╫О©╫ж╦О©╫О©╫, О©╫О©╫О©╫О©╫ь╣О©╫О©╫О©╫О©╫О©╫н╩О©╫О©╫О©╫О©╫р╙О©╫д╤О©╫О©╫О©╫й╠О©╫О©╫
+	private static final int ANIM_TIME = 100;
+
+	// ScrollViewО©╫О©╫О©╫О©╫ViewО©╫О©╫ р╡О©╫О©╫ScrollViewО©╫О©╫н╗р╩р╩О©╫О©╫О©╫О©╫View
+	private View contentView;
+
+	// О©╫О©╫ж╦О©╫О©╫О©╫О©╫й╠О©╫О©╫Yж╣, О©╫О©╫О©╫О©╫О©╫О©╫О©╫ф╤О©╫й╠О©╫О©╫О©╫О©╫О©╫ф╤О©╫О©╫О©╫О©╫О©╫
+	// О©╫О©╫О©╫О©╫О©╫О©╫О©╫й╠О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫О©╫О©╫ж╦О©╫ф╤О©╫й╠О©╫О©╫О©╫О©╫н╙О©╫О©╫г╟О©╫О©╫ж╦О©╫О©╫Yж╣
+	private float startY;
+
+	// О©╫О©╫О©╫з╪О©╫б╪О©╫О©╫О©╫О©╫О©╫д╡О©╫О©╫О©╫н╩О©╫О©╫
+	private Rect originalRect = new Rect();
+
+	// О©╫О©╫ж╦О©╫О©╫О©╫О©╫й╠О©╫О©╫б╪О©╫г╥О©╫О©╫О©╫т╪О©╫О©╫О©╫О©╫О©╫О©╫О©╫
+	private boolean canPullDown = false;
+
+	// О©╫О©╫ж╦О©╫О©╫О©╫О©╫й╠О©╫О©╫б╪О©╫г╥О©╫О©╫О©╫т╪О©╫О©╫О©╫О©╫О©╫О©╫О©╫
+	private boolean canPullUp = false;
+
+	// О©╫О©╫О©╫О©╫ж╦О©╫О©╫О©╫О©╫О©╫д╧О©╫О©╫О©╫О©╫п╪О©╫б╪О©╫г╥О©╫О©╫ф╤О©╫О©╫к╡О©╫О©╫О©╫
+	private boolean isMoved = false;
+
+	
+	private ScrollViewListener scrollViewListener = null;  
+	
+	public MyReboundScrollView(Context context) {
+		super(context);
+	}
+
+	public MyReboundScrollView(Context context, AttributeSet attrs) {
+		super(context, attrs);
+	}
+
+	public void setScrollViewListener(ScrollViewListener scrollViewListener) {  
+	        this.scrollViewListener = scrollViewListener;  
+	    }  
+	
+
+	    @Override  
+	    protected void onScrollChanged(int x, int y, int oldx, int oldy) {  
+	        super.onScrollChanged(x, y, oldx, oldy);  
+	        if (scrollViewListener != null) {  
+	            scrollViewListener.onScrollChanged(this, x, y, oldx, oldy);  
+	        }  
+	    }    
+	  
+	  
+	  
+	  
+	  
+	@Override
+	protected void onFinishInflate() {
+		if (getChildCount() > 0) {
+			contentView = getChildAt(0);
+		}
+	}
+
+	@Override
+	protected void onLayout(boolean changed, int l, int t, int r, int b) {
+		super.onLayout(changed, l, t, r, b);
+
+		if (contentView == null)
+			return;
+
+		// ScrollViewО©╫п╣О©╫н╗р╩О©╫с©ь╪О©╫О©╫О©╫н╩О©╫О©╫О©╫О©╫о╒, О©╫О©╫О©╫н╩О©╫О©╫О©╫О©╫о╒О©╫О©╫О©╫О©╫О©╫О©╫О©╫ь╪О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫п╠О©╫О©╫ж╡О©╫О©╫О©╫
+		originalRect.set(contentView.getLeft(), contentView.getTop(), contentView.getRight(), contentView.getBottom());
+	}
+
+	// О©╫з╢О©╫О©╫О©╫О©╫б╪О©╫О©╫О©╫, О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫ъ╪О©╫
+	@Override
+	public boolean dispatchTouchEvent(MotionEvent ev) {
+
+		if (contentView == null) {
+			return super.dispatchTouchEvent(ev);
+		}
+
+		int action = ev.getAction();
+
+		switch (action) {
+		case MotionEvent.ACTION_DOWN:
+
+			// О©╫п╤О©╫О©╫г╥О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫
+			canPullDown = isCanPullDown();
+			canPullUp = isCanPullUp();
+
+			// О©╫О©╫б╪О©╫О©╫О©╫О©╫й╠О©╫О©╫Yж╣
+			startY = ev.getY();
+			break;
+
+		case MotionEvent.ACTION_UP:
+
+			if (!isMoved)
+				break; // О©╫О©╫О©╫ц╩О©╫О©╫О©╫ф╤О©╫О©╫О©╫О©╫жёО©╫ О©╫О©╫О©╫О©╫О©╫О©╫ж╢О©╫О©╫
+
+			// О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫
+			TranslateAnimation anim = new TranslateAnimation(0, 0, contentView.getTop(), originalRect.top);
+			anim.setDuration(ANIM_TIME);
+
+			contentView.startAnimation(anim);
+
+			// О©╫О©╫О©╫ц╩ь╣О©╫О©╫О©╫О©╫О©╫О©╫д╡О©╫О©╫О©╫н╩О©╫О©╫
+			contentView.layout(originalRect.left, originalRect.top, originalRect.right, originalRect.bottom);
+
+			// О©╫О©╫О©╫О©╫ж╬н╩О©╫О©╫О©╫false
+			canPullDown = false;
+			canPullUp = false;
+			isMoved = false;
+
+			break;
+		case MotionEvent.ACTION_MOVE:
+
+			// О©╫О©╫О©╫ф╤О©╫О©╫д╧О©╫О©╫О©╫О©╫пёО©╫ О©╫О©╫ц╩О©╫п╧О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫дЁл╤хёО©╫ р╡ц╩О©╫п╧О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫дЁл╤О©╫
+			if (!canPullDown && !canPullUp) {
+				startY = ev.getY();
+				canPullDown = isCanPullDown();
+				canPullUp = isCanPullUp();
+
+				break;
+			}
+
+			// О©╫О©╫О©╫О©╫О©╫О©╫ж╦О©╫ф╤О©╫О©╫д╬О©╫О©╫О©╫
+			float nowY = ev.getY();
+			int deltaY = (int) (nowY - startY);
+
+			// О©╫г╥О©╫с╕О©╫О©╫О©╫ф╤О©╫О©╫О©╫О©╫О©╫
+			boolean shouldMove = (canPullDown && deltaY > 0) // О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫
+																// О©╫О©╫О©╫О©╫О©╫О©╫ж╦О©╫О©╫О©╫О©╫О©╫ф╤О©╫
+					|| (canPullUp && deltaY < 0) // О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫О©╫О©╫ж╦О©╫О©╫О©╫О©╫О©╫ф╤О©╫
+					|| (canPullUp && canPullDown); // О©╫х©О©╫О©╫О©╫О©╫О©╫О©╫О©╫р╡О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫ScrollViewО©╫О©╫О©╫О©╫О©╫д©ь╪О©╫О©╫О©╫ScrollViewО©╫О©╫п║О©╫О©╫
+
+			if (shouldMove) {
+				// О©╫О©╫О©╫О©╫ф╚О©╫О©╫О©╫О©╫
+				int offset = (int) (deltaY * MOVE_FACTOR);
+
+				// О©╫О©╫О©╫О©╫О©╫О©╫ж╦О©╫О©╫О©╫ф╤О©╫О©╫О©╫О©╫ф╤О©╫О©╫О©╫О©╫О©╫
+				contentView.layout(originalRect.left, originalRect.top + offset, originalRect.right,
+						originalRect.bottom + offset);
+
+				isMoved = true; // О©╫О©╫б╪О©╫ф╤О©╫О©╫к╡О©╫О©╫О©╫
+			}
+
+			break;
+		default:
+			break;
+		}
+
+		return super.dispatchTouchEvent(ev);
+	}
+
+	// О©╫п╤О©╫О©╫г╥О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫
+	private boolean isCanPullDown() {
+		return getScrollY() == 0 || contentView.getHeight() < getHeight() + getScrollY();
+	}
+
+	// О©╫п╤О©╫О©╫г╥О©╫О©╫О©╫О©╫О©╫О©╫О©╫в╡О©╫
+	private boolean isCanPullUp() {
+		return contentView.getHeight() <= getHeight() + getScrollY();
+	}
+
+}

@@ -20,7 +20,7 @@ import com.dumu.housego.util.CommonRequest;
 import com.dumu.housego.util.HttpUtils;
 import com.dumu.housego.util.UrlFactory;
 
-public class UserModel implements IUserModel, ILoginModel,IYzmLoginModel {
+public class UserModel implements IUserModel, ILoginModel, IYzmLoginModel {
 
 	private User user;
 
@@ -39,7 +39,7 @@ public class UserModel implements IUserModel, ILoginModel,IYzmLoginModel {
 				try {
 					JSONObject obj = new JSONObject(response);
 					if (obj.getInt("success") == 20) {
-						String infomation=obj.getString("info").toString();
+						String infomation = obj.getString("info").toString();
 						back.onSuccess(infomation);
 					} else {
 						back.onError(obj.getString("info"));
@@ -85,19 +85,19 @@ public class UserModel implements IUserModel, ILoginModel,IYzmLoginModel {
 			public void onResponse(String response) {
 				try {
 					JSONObject obj = new JSONObject(response);
-					if(obj.getInt("success") == 37){
+					if (obj.getInt("success") == 37) {
 						String userid = obj.getString("userid");
-						user=new User();
+						user = new User();
 						user.setUserid(userid);
-					HouseGoApp app=HouseGoApp.getContext();
-					app.SaveCurrentUser(user);
-					
-					String infomation=obj.getString("info").toString();
-					back.onSuccess(infomation);
-					}else {
+						HouseGoApp app = HouseGoApp.getContext();
+						app.SaveCurrentUser(user);
+
+						String infomation = obj.getString("info").toString();
+						back.onSuccess(infomation);
+					} else {
 						back.onError(obj.getString("info"));
 					}
-					
+
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
@@ -107,7 +107,6 @@ public class UserModel implements IUserModel, ILoginModel,IYzmLoginModel {
 
 			@Override
 			public void onErrorResponse(VolleyError error) {
-				
 
 			}
 		}) {
@@ -122,36 +121,33 @@ public class UserModel implements IUserModel, ILoginModel,IYzmLoginModel {
 		HouseGoApp.getQueue().add(request);
 	}
 
-	
-	
-	
-	//ÑéÖ¤ÂëµÇÂ½
+	// ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½Â½
 	@Override
-	public void Yzmlogin(final String shortnumber, final String shortYZM,final AsycnCallBack back) {
-		String url=UrlFactory.PostYZMLoginUrl();
-		CommonRequest request=new CommonRequest(Request.Method.POST, url, new Listener<String>() {
+	public void Yzmlogin(final String shortnumber, final String shortYZM, final AsycnCallBack back) {
+		String url = UrlFactory.PostYZMLoginUrl();
+		CommonRequest request = new CommonRequest(Request.Method.POST, url, new Listener<String>() {
 
 			@Override
 			public void onResponse(String response) {
 				try {
 					JSONObject obj = new JSONObject(response);
-					if(obj.getInt("success") == 45){
+					if (obj.getInt("success") == 45) {
 						String userid = obj.getString("userid");
-						user=new User();
+						user = new User();
 						user.setUserid(userid);
-					HouseGoApp app=HouseGoApp.getContext();
-					app.SaveCurrentUser(user);
-					
-					String infomation=obj.getString("info").toString();
-					back.onSuccess(infomation);
-					}else {
+						HouseGoApp app = HouseGoApp.getContext();
+						app.SaveCurrentUser(user);
+
+						String infomation = obj.getString("info").toString();
+						back.onSuccess(infomation);
+					} else {
 						back.onError(obj.getString("info"));
 					}
-					
+
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
-				
+
 			}
 		}, new ErrorListener() {
 
@@ -159,8 +155,8 @@ public class UserModel implements IUserModel, ILoginModel,IYzmLoginModel {
 			public void onErrorResponse(VolleyError error) {
 				// TODO Auto-generated method stub
 			}
-		}){
-			
+		}) {
+
 			@Override
 			protected Map<String, String> getParams() throws AuthFailureError {
 				Map<String, String> params = new HashMap<String, String>();
@@ -170,7 +166,7 @@ public class UserModel implements IUserModel, ILoginModel,IYzmLoginModel {
 			}
 		};
 		HouseGoApp.getQueue().add(request);
-		
+
 	}
 
 }

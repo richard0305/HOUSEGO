@@ -23,13 +23,12 @@ public class AgentDataAdapter extends BaseAdapter {
 	private List<AgentData> agentdatas;
 	private Context context;
 	private LayoutInflater Inflater;
-	
 
 	public AgentDataAdapter(List<AgentData> agentdatas, Context context) {
 		super();
 		this.agentdatas = agentdatas;
 		this.context = context;
-		this.Inflater=LayoutInflater.from(context);
+		this.Inflater = LayoutInflater.from(context);
 	}
 
 	@Override
@@ -39,7 +38,7 @@ public class AgentDataAdapter extends BaseAdapter {
 
 	@Override
 	public AgentData getItem(int position) {
-		
+
 		return agentdatas.get(position);
 	}
 
@@ -51,29 +50,28 @@ public class AgentDataAdapter extends BaseAdapter {
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		ViewHolder holder;
-		if(convertView==null){
-			convertView=Inflater.inflate(R.layout.item_agent_data_list, null);
+		if (convertView == null) {
+			convertView = Inflater.inflate(R.layout.item_agent_data_list, null);
 			holder = new ViewHolder();
-			holder.ivAgentdataPic=(ImageView) convertView.findViewById(R.id.iv_agentdata_pic);
-			holder.tvAgentdataBiaoqian=(TextView) convertView.findViewById(R.id.tv_agentdata_biaoqian);
-			holder.tvAgentdataLevel=(TextView) convertView.findViewById(R.id.tv_agentdata_level);
-			holder.tvAgentdataMainarea=(TextView) convertView.findViewById(R.id.tv_agentdata_mainarea);
-			holder.tvAgentdataName=(TextView) convertView.findViewById(R.id.tv_agentdata_name);
-			holder.tvAgentdataPhone1=(TextView) convertView.findViewById(R.id.tv_agentdata_phone1);
-			holder.tvAgentdataPoint=(TextView) convertView.findViewById(R.id.tv_agentdata_point);
-			
-		
+			holder.ivAgentdataPic = (ImageView) convertView.findViewById(R.id.iv_agentdata_pic);
+			holder.tvAgentdataBiaoqian = (TextView) convertView.findViewById(R.id.tv_agentdata_biaoqian);
+			holder.tvAgentdataLevel = (TextView) convertView.findViewById(R.id.tv_agentdata_level);
+			holder.tvAgentdataMainarea = (TextView) convertView.findViewById(R.id.tv_agentdata_mainarea);
+			holder.tvAgentdataName = (TextView) convertView.findViewById(R.id.tv_agentdata_name);
+			holder.tvAgentdataPhone1 = (TextView) convertView.findViewById(R.id.tv_agentdata_phone1);
+			holder.tvAgentdataPoint = (TextView) convertView.findViewById(R.id.tv_agentdata_point);
+
 			convertView.setTag(holder);
-		}else{
+		} else {
 			holder = (ViewHolder) convertView.getTag();
 		}
-		AgentData n=getItem(position);
-			String url=n.getUserpic();
-			
-//		Glide.with(context).load(url).into(holder.ivAgentdataPic);
-		DisplayImageOptions options=new DisplayImageOptions.Builder()
-				.cacheInMemory(true).cacheOnDisc(true).bitmapConfig(Bitmap.Config.RGB_565).build();
-		
+		AgentData n = getItem(position);
+		String url = n.getUserpic();
+
+		// Glide.with(context).load(url).into(holder.ivAgentdataPic);
+		DisplayImageOptions options = new DisplayImageOptions.Builder().cacheInMemory(true).cacheOnDisc(true)
+				.bitmapConfig(Bitmap.Config.RGB_565).build();
+
 		ImageLoader.getInstance().displayImage(url, holder.ivAgentdataPic, options);
 		holder.tvAgentdataBiaoqian.setText(n.getBiaoqian());
 		holder.tvAgentdataLevel.setText(n.getDengji());
@@ -81,12 +79,11 @@ public class AgentDataAdapter extends BaseAdapter {
 		holder.tvAgentdataName.setText(n.getRealname());
 		holder.tvAgentdataPhone1.setText(n.getCtel());
 		holder.tvAgentdataPoint.setText("98%");
-		
-		
+
 		return convertView;
-		
+
 	}
-	
+
 	class ViewHolder {
 		TextView tvAgentdataPoint;
 		TextView tvAgentdataBiaoqian;

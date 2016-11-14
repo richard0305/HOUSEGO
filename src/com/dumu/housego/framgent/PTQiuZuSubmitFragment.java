@@ -40,7 +40,7 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-public class PTQiuZuSubmitFragment extends Fragment implements IQiuZuHouseSubmitView{
+public class PTQiuZuSubmitFragment extends Fragment implements IQiuZuHouseSubmitView {
 	private LinearLayout ll_back_ptqiuzusubmit;
 	private RelativeLayout rl_qiuzu_fangyuanquyu, rl_qiuzu_rentingType, rl_qiuzu_qiwangtingshi, rl_qiuzu_qiwangjine;
 	private TextView tv_qiuzu_phone, tv_qiuzu_housearea, tv_qiuzu_zulinType, tv_qiuzu_tingshi, tv_qiuzu_jine;
@@ -55,8 +55,8 @@ public class PTQiuZuSubmitFragment extends Fragment implements IQiuZuHouseSubmit
 	private String pid;
 	String area1 = null;
 	private IQiuZuHouseSubmitPresenter presenter;
-	
-	private Handler handler=new Handler();
+
+	private Handler handler = new Handler();
 	String str;
 
 	String AREA;
@@ -135,7 +135,7 @@ public class PTQiuZuSubmitFragment extends Fragment implements IQiuZuHouseSubmit
 		JinE.add(J4);
 		JinE.add(J5);
 		JinE.add(J6);
-		presenter=new QiuZuHouseSubmitPresenter(this);
+		presenter = new QiuZuHouseSubmitPresenter(this);
 		initView(Pview);
 		setListener(Pview);
 
@@ -197,7 +197,7 @@ public class PTQiuZuSubmitFragment extends Fragment implements IQiuZuHouseSubmit
 				AlerDialogWheelPicker(zuLinType, tv_qiuzu_zulinType, "请选择租赁类型");
 			}
 		});
-		
+
 		rl_qiuzu_qiwangtingshi.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -212,41 +212,43 @@ public class PTQiuZuSubmitFragment extends Fragment implements IQiuZuHouseSubmit
 				AlerDialogWheelPicker(JinE, tv_qiuzu_jine, "请选择期望租金");
 			}
 		});
-		
-		//房源发布
+
+		// 房源发布
 		btn_qiuzu_submit.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				//获取地区area的id;
-				
-				for(int i=0;i<minarea.size();i++){
-					String area=minarea.get(i).getName();
-					Log.e("area", "area="+area+"   "+MINAREA);
-					
-					if(area.equals(MINAREA.trim())){
-						PTQiuZuSubmitFragment.this.area1=minarea.get(i).getId()+"";
-						Log.e("area1", "area1="+area1+"   "+MINAREA);
+				// 获取地区area的id;
+
+				for (int i = 0; i < minarea.size(); i++) {
+					String area = minarea.get(i).getName();
+					Log.e("area", "area=" + area + "   " + MINAREA);
+
+					if (area.equals(MINAREA.trim())) {
+						PTQiuZuSubmitFragment.this.area1 = minarea.get(i).getId() + "";
+						Log.e("area1", "area1=" + area1 + "   " + MINAREA);
 						break;
-					}else{
-						Log.e("xxxx--area1", "xxx---area1="+area1+"   "+MINAREA);
+					} else {
+						Log.e("xxxx--area1", "xxx---area1=" + area1 + "   " + MINAREA);
 					}
-					
+
 				}
-				
-				String[] s=tv_qiuzu_tingshi.getText().toString().split("室");
-				String[] j=tv_qiuzu_jine.getText().toString().split("元");
-				
-				String username=userinfo.getUsername();
-				String province="1";
-				String city=pid+"";
-			
-				String zulin=tv_qiuzu_zulinType.getText().toString();
-				String shi=s[0];
-				String zujinrange=j[0];
-				String chenghu=etChenhu.getText().toString();
-				String title=tv_qiuzu_housearea.getText().toString()+tv_qiuzu_zulinType.getText().toString()+tv_qiuzu_tingshi.getText().toString()+tv_qiuzu_jine.getText().toString();
-				Log.e("xxxxx", "x="+minarea.toString());
-				Log.e("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", "QiuZuSubmit=" +" "+username+" "+ province+" "+city+" "+ area1+" "+ zulin+" "+ shi+" "+ zujinrange+" "+chenghu+" "+ title );
+
+				String[] s = tv_qiuzu_tingshi.getText().toString().split("室");
+				String[] j = tv_qiuzu_jine.getText().toString().split("元");
+
+				String username = userinfo.getUsername();
+				String province = "1";
+				String city = pid + "";
+
+				String zulin = tv_qiuzu_zulinType.getText().toString();
+				String shi = s[0];
+				String zujinrange = j[0];
+				String chenghu = etChenhu.getText().toString();
+				String title = tv_qiuzu_housearea.getText().toString() + tv_qiuzu_zulinType.getText().toString()
+						+ tv_qiuzu_tingshi.getText().toString() + tv_qiuzu_jine.getText().toString();
+				Log.e("xxxxx", "x=" + minarea.toString());
+				Log.e("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", "QiuZuSubmit=" + " " + username + " " + province + " " + city
+						+ " " + area1 + " " + zulin + " " + shi + " " + zujinrange + " " + chenghu + " " + title);
 				presenter.QiuZuSubmit(username, province, city, area1, zulin, shi, zujinrange, chenghu, title);
 			}
 		});
@@ -256,7 +258,7 @@ public class PTQiuZuSubmitFragment extends Fragment implements IQiuZuHouseSubmit
 	protected void HouseAreaAlertDialog() {
 
 		final AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
-		
+
 		alertDialog.show();
 		Window window = alertDialog.getWindow();
 		window.setGravity(Gravity.BOTTOM);
@@ -382,7 +384,7 @@ public class PTQiuZuSubmitFragment extends Fragment implements IQiuZuHouseSubmit
 		btnSure.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				tv_qiuzu_housearea.setText(q+" "+AREA + MINAREA);
+				tv_qiuzu_housearea.setText(q + " " + AREA + MINAREA);
 				alertDialog.cancel();
 			}
 		});
@@ -431,7 +433,7 @@ public class PTQiuZuSubmitFragment extends Fragment implements IQiuZuHouseSubmit
 				alertDialog.cancel();
 			}
 		});
-		
+
 		tvCancle.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -444,25 +446,22 @@ public class PTQiuZuSubmitFragment extends Fragment implements IQiuZuHouseSubmit
 
 	@Override
 	public void QiuZuSubmit(String info) {
-		if(info.equals("发布求租成功")){
+		if (info.equals("发布求租成功")) {
 			MyToastShowCenter.CenterToast(getActivity(), info);
-			
-			
+
 			handler.postDelayed(new Runnable() {
 				public void run() {
 					Fragment fragment = new PTQiuZuListFragment();
 					FragmentTransaction trans = getActivity().getSupportFragmentManager().beginTransaction();
 					trans.replace(R.id.rl_container, fragment);
-					trans.commitAllowingStateLoss();	
+					trans.commitAllowingStateLoss();
 				}
 			}, 1000);
-		
-			
-		}else{
+
+		} else {
 			MyToastShowCenter.CenterToast(getActivity(), info);
 		}
-		
-		
+
 	}
 
 }

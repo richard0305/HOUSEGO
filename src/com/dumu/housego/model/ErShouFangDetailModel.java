@@ -15,26 +15,28 @@ import com.dumu.housego.util.UrlFactory;
 import android.os.AsyncTask;
 import android.util.Log;
 
-public class ErShouFangDetailModel implements IErShouFangDetailaModel{
+public class ErShouFangDetailModel implements IErShouFangDetailaModel {
 
 	@Override
-	public void FindErShouFangDetail(final String catid, final String id,final AsycnCallBack back) {
+	public void FindErShouFangDetail(final String catid, final String id, final AsycnCallBack back) {
 		new AsyncTask<String, String, ErShouFangDetails>() {
 
 			@Override
 			protected ErShouFangDetails doInBackground(String... params) {
 
 				try {
-//					String url=UrlFactory.PostRecommendListToDetailUrl().replace("g=Wap&a=shows", "a=api_shows");
-					String url=UrlFactory.PostRecommendListToDetailUrl();
-					Map<String, String> map=new HashMap<String, String>();
-					
-					map.put("catid",catid);
+					// String
+					// url=UrlFactory.PostRecommendListToDetailUrl().replace("g=Wap&a=shows",
+					// "a=api_shows");
+					String url = UrlFactory.PostRecommendListToDetailUrl();
+					Map<String, String> map = new HashMap<String, String>();
+
+					map.put("catid", catid);
 					map.put("id", id);
-					Log.e("---2016-10-9 17:13++++", "----------"+url);
-					String json=HttpUtils.isToString(HttpUtils.post(url, map));
-					ErShouFangDetails ershoufangdetails=ErShouFangDetialJSONParse.parseSearch(json);
-					
+					Log.e("---2016-10-9 17:13++++", "----------" + url);
+					String json = HttpUtils.isToString(HttpUtils.post(url, map));
+					ErShouFangDetails ershoufangdetails = ErShouFangDetialJSONParse.parseSearch(json);
+
 					return ershoufangdetails;
 				} catch (IOException e) {
 					e.printStackTrace();
@@ -48,9 +50,7 @@ public class ErShouFangDetailModel implements IErShouFangDetailaModel{
 				back.onSuccess(ershoufangdetail);
 			}
 		}.execute();
-	  
 
-	
 	}
 
 }

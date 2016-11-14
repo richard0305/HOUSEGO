@@ -34,21 +34,21 @@ public class HouseFramgent extends Fragment implements CarouselViewPager.OnPageC
 	private List<Fragment> fragmentss;
 	private LinearLayout llContorl;
 	private UserInfo userinfo;
-	private Button btnLookDate,btnLookHistroy ,btnHouseNoLoginLogin;
-	private LinearLayout ll_agent_house,ll_noLogin_house,ll_putong_house;
+	private Button btnLookDate, btnLookHistroy, btnHouseNoLoginLogin;
+	private LinearLayout ll_agent_house, ll_noLogin_house, ll_putong_house;
 
 	private CarouselViewPager mCarouselView;
 	private List<ImageView> ivList = new ArrayList<ImageView>();
-    private int[] ivIds = {R.drawable.pic1, R.drawable.pic2, R.drawable.pic3, R.drawable.pic4};
+	private int[] ivIds = { R.drawable.pic1, R.drawable.pic2, R.drawable.pic3, R.drawable.pic4 };
 
-    private ImageView[] indicationPoint;//ָʾ��ؼ�
-    private LinearLayout pointLayout;
-	
+	private ImageView[] indicationPoint;// ָʾ��ؼ�
+	private LinearLayout pointLayout;
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.framgent_house, null);
 		setViews(view);
-		   initData();
+		initData();
 		setListener();
 		setViewPagerAdapter();
 		btnLookDate.setTextColor(getResources().getColor(android.R.color.white));
@@ -57,69 +57,61 @@ public class HouseFramgent extends Fragment implements CarouselViewPager.OnPageC
 		return view;
 	}
 
-	
-	
-	
-	   private void initData() {
-	        for (int i = 0; i < ivIds.length; i++) {
-	            ImageView iv = new ImageView(getActivity());
-	            iv.setImageResource(ivIds[i]);
-	            ivList.add(iv);
-	        }
+	private void initData() {
+		for (int i = 0; i < ivIds.length; i++) {
+			ImageView iv = new ImageView(getActivity());
+			iv.setImageResource(ivIds[i]);
+			ivList.add(iv);
+		}
 
-	        //��̬����ָʾ��
-	        indicationPoint = new ImageView[ivList.size()];
-	        for (int i = 0; i < indicationPoint.length; i++) {
-	            ImageView point = new ImageView(getActivity());
-	            LinearLayout.LayoutParams layout = new LinearLayout.LayoutParams(10, 10);
-	            layout.setMargins(10, 0, 10, 0);
-	            point.setLayoutParams(layout);
+		// ��̬����ָʾ��
+		indicationPoint = new ImageView[ivList.size()];
+		for (int i = 0; i < indicationPoint.length; i++) {
+			ImageView point = new ImageView(getActivity());
+			LinearLayout.LayoutParams layout = new LinearLayout.LayoutParams(10, 10);
+			layout.setMargins(10, 0, 10, 0);
+			point.setLayoutParams(layout);
 
-	            indicationPoint[i] = point;
-	            if (i == 0) {
-	                indicationPoint[i].setBackgroundResource(R.drawable.page_indicator_focused);
-	            } else {
-	                indicationPoint[i].setBackgroundResource(R.drawable.page_indicator_unfocused);
-	            }
-	            pointLayout.addView(point);
-	        }
+			indicationPoint[i] = point;
+			if (i == 0) {
+				indicationPoint[i].setBackgroundResource(R.drawable.page_indicator_focused);
+			} else {
+				indicationPoint[i].setBackgroundResource(R.drawable.page_indicator_unfocused);
+			}
+			pointLayout.addView(point);
+		}
 
-	        mCarouselView.setAdapter(new CarouselPagerAdapter(ivList));
-	        mCarouselView.addOnPageChangeListener(this);
-	        //����ͼƬչʾ��ʱ��
-	        mCarouselView.setDisplayTime(2000);
-	        //ͼƬ��ʼ�ֲ�
-	        mCarouselView.start();
+		mCarouselView.setAdapter(new CarouselPagerAdapter(ivList));
+		mCarouselView.addOnPageChangeListener(this);
+		// ����ͼƬչʾ��ʱ��
+		mCarouselView.setDisplayTime(2000);
+		// ͼƬ��ʼ�ֲ�
+		mCarouselView.start();
 
-	    }
-	
-	
-	
-	
+	}
 
 	@Override
 	public void onResume() {
-		userinfo=HouseGoApp.getContext().getCurrentUserInfo();
-		if(userinfo!=null){
-		
-				if(userinfo.getModelid().equals("35")){
-					ll_noLogin_house.setVisibility(View.GONE);
-					ll_agent_house.setVisibility(View.GONE);
-					ll_putong_house.setVisibility(View.VISIBLE);
-					}else{
-						ll_putong_house.setVisibility(View.GONE);
-						ll_noLogin_house.setVisibility(View.GONE);
-					ll_agent_house.setVisibility(View.VISIBLE);
-					}
-		
-		}else{
+		userinfo = HouseGoApp.getContext().getCurrentUserInfo();
+		if (userinfo != null) {
+
+			if (userinfo.getModelid().equals("35")) {
+				ll_noLogin_house.setVisibility(View.GONE);
+				ll_agent_house.setVisibility(View.GONE);
+				ll_putong_house.setVisibility(View.VISIBLE);
+			} else {
+				ll_putong_house.setVisibility(View.GONE);
+				ll_noLogin_house.setVisibility(View.GONE);
+				ll_agent_house.setVisibility(View.VISIBLE);
+			}
+
+		} else {
 			ll_agent_house.setVisibility(View.GONE);
 			ll_putong_house.setVisibility(View.GONE);
 			ll_noLogin_house.setVisibility(View.VISIBLE);
 		}
 		super.onResume();
 	}
-	
 
 	private void setViewPagerAdapter() {
 		fragmentss = new ArrayList<Fragment>();
@@ -153,8 +145,7 @@ public class HouseFramgent extends Fragment implements CarouselViewPager.OnPageC
 				btnLookDate.setBackgroundColor(getResources().getColor(android.R.color.white));
 			}
 		});
-		
-		
+
 		btnHouseNoLoginLogin.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -169,16 +160,15 @@ public class HouseFramgent extends Fragment implements CarouselViewPager.OnPageC
 		llContorl = (LinearLayout) view.findViewById(R.id.ll_contorl);
 		btnLookDate = (Button) view.findViewById(R.id.tv_look_date);
 		btnLookHistroy = (Button) view.findViewById(R.id.tv_look_histroy);
-	
-		ll_agent_house=(LinearLayout) view.findViewById(R.id.ll_agent_house);
-		ll_noLogin_house=(LinearLayout) view.findViewById(R.id.ll_noLogin_house);
-		ll_putong_house=(LinearLayout) view.findViewById(R.id.ll_putong_house);
-	
-	
-	     mCarouselView = (CarouselViewPager) view.findViewById(R.id.nologin_mCarouselView);
-	        pointLayout = (LinearLayout) view.findViewById(R.id.nologin_pointLayout);
-	
-	        btnHouseNoLoginLogin=(Button) view.findViewById(R.id.btn_house_noLogin_Login);
+
+		ll_agent_house = (LinearLayout) view.findViewById(R.id.ll_agent_house);
+		ll_noLogin_house = (LinearLayout) view.findViewById(R.id.ll_noLogin_house);
+		ll_putong_house = (LinearLayout) view.findViewById(R.id.ll_putong_house);
+
+		mCarouselView = (CarouselViewPager) view.findViewById(R.id.nologin_mCarouselView);
+		pointLayout = (LinearLayout) view.findViewById(R.id.nologin_pointLayout);
+
+		btnHouseNoLoginLogin = (Button) view.findViewById(R.id.btn_house_noLogin_Login);
 	}
 
 	class MyPagerAdapter extends FragmentPagerAdapter {
@@ -198,34 +188,31 @@ public class HouseFramgent extends Fragment implements CarouselViewPager.OnPageC
 		}
 
 	}
-	
-	
-	
 
-    @Override
-    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+	@Override
+	public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
-    }
+	}
 
-    @Override
-    public void onPageSelected(int position) {
-        setPointColor(position % ivList.size());
+	@Override
+	public void onPageSelected(int position) {
+		setPointColor(position % ivList.size());
 
-    }
+	}
 
-    @Override
-    public void onPageScrollStateChanged(int state) {
+	@Override
+	public void onPageScrollStateChanged(int state) {
 
-    }
+	}
 
-    private void setPointColor(int selectItem) {
-        for (int i = 0; i < indicationPoint.length; i++) {
-            if (i == selectItem) {
-                indicationPoint[i].setBackgroundResource(R.drawable.page_indicator_focused);
-            } else {
-                indicationPoint[i].setBackgroundResource(R.drawable.page_indicator_unfocused);
-            }
+	private void setPointColor(int selectItem) {
+		for (int i = 0; i < indicationPoint.length; i++) {
+			if (i == selectItem) {
+				indicationPoint[i].setBackgroundResource(R.drawable.page_indicator_focused);
+			} else {
+				indicationPoint[i].setBackgroundResource(R.drawable.page_indicator_unfocused);
+			}
 
-        }
-    }
+		}
+	}
 }

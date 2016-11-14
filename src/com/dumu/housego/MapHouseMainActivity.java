@@ -36,21 +36,19 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
-public class MapHouseMainActivity extends Activity implements IMapHouseDataView{
-	private RadioButton rbErShouFang,rbRenting;
+public class MapHouseMainActivity extends Activity implements IMapHouseDataView {
+	private RadioButton rbErShouFang, rbRenting;
 	private LinearLayout llMapHouseBack;
 	private IMapHouseDataPresenter areapresenter;
-	
-	
-	//覆盖物相关
+
+	// 覆盖物相关
 	private BitmapDescriptor mMarker;
-	
-	
+
 	private BaiduMap mBaiduMAP;
 	private MapView mMapView;
-	private List<AreaHouse>Areahouses=new ArrayList<AreaHouse>();
+	private List<AreaHouse> Areahouses = new ArrayList<AreaHouse>();
 	private Handler handler;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -60,15 +58,15 @@ public class MapHouseMainActivity extends Activity implements IMapHouseDataView{
 		setListeners();
 		initMarker();
 		rbErShouFang.setTextColor(getResources().getColor(R.color.button_ckeck));
-		areapresenter=new MapHouseDataPresenter(this);
+		areapresenter = new MapHouseDataPresenter(this);
 		areapresenter.LoadMapHouse("ershou");
-		
-		handler=new  Handler(){
+
+		handler = new Handler() {
 			@Override
 			public void handleMessage(Message msg) {
 				switch (msg.what) {
 				case 1:
-					Areahouses=(List<AreaHouse>) msg.obj;
+					Areahouses = (List<AreaHouse>) msg.obj;
 					showAreaHouse(shenZhenLocation.locations);
 					break;
 
@@ -77,80 +75,72 @@ public class MapHouseMainActivity extends Activity implements IMapHouseDataView{
 				}
 			}
 		};
-	
+
 	}
-	
+
 	private void showAreaHouse(List<shenZhenLocation> locations) {
-	LatLng lat=null;
-	Marker marker=null;
+		LatLng lat = null;
+		Marker marker = null;
 		OverlayOptions options;
 		InfoWindow infoWindow;
-		TextView tv=new TextView(this);
-//		TextView tv=(TextView) findViewById(R.layout.mark_baidu_map);
-		
-		
+		TextView tv = new TextView(this);
+		// TextView tv=(TextView) findViewById(R.layout.mark_baidu_map);
+
 		try {
 			for (shenZhenLocation l : locations) {
-				
+
 				for (AreaHouse a : Areahouses) {
-					if(a.getName().equals(l.getName())){
-						tv.setText
-						(a.getName()+" "+
-						a.getHouse_count());
+					if (a.getName().equals(l.getName())) {
+						tv.setText(a.getName() + " " + a.getHouse_count());
 					}
 				}
-				lat=new LatLng(l.getLatitude(),l.getLongitude());
+				lat = new LatLng(l.getLatitude(), l.getLongitude());
 				tv.setTextColor(android.graphics.Color.BLACK);
 				tv.setPadding(30, 40, 30, 50);
-			
-				BitmapDescriptor bit=new BitmapDescriptorFactory().fromView(tv);
-				
-			OnInfoWindowClickListener infowindowListener=new OnInfoWindowClickListener() {
-				
+
+				BitmapDescriptor bit = new BitmapDescriptorFactory().fromView(tv);
+
+				OnInfoWindowClickListener infowindowListener = new OnInfoWindowClickListener() {
+
 					@Override
 					public void onInfoWindowClick() {
 					}
 				};
-				
-				infoWindow=new InfoWindow(bit,lat,0, infowindowListener);		
+
+				infoWindow = new InfoWindow(bit, lat, 0, infowindowListener);
 				mBaiduMAP.showInfoWindow(infoWindow);
 			}
-			
-			} catch (Exception e) {
+
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-			
-	
-}
+
+	}
 
 	private void initMarker() {
-	mMarker=BitmapDescriptorFactory.fromResource(R.drawable.bg_good_rating_ratio);
-	
+		mMarker = BitmapDescriptorFactory.fromResource(R.drawable.bg_good_rating_ratio);
+
 	}
-	
+
 	private void setViews() {
-		mMapView=(MapView) findViewById(R.id.maphouse_bmapView);
-		mBaiduMAP=mMapView.getMap();
+		mMapView = (MapView) findViewById(R.id.maphouse_bmapView);
+		mBaiduMAP = mMapView.getMap();
 		mMapView.showZoomControls(false);
 		mMapView.showScaleControl(false);
-	
-		
-		LatLng latlng=new LatLng(22.546054,114.025974);
-		MapStatus status=new MapStatus.Builder().target(latlng).zoom(11.0f).build();
-		MapStatusUpdate msu=MapStatusUpdateFactory.newMapStatus(status);
+
+		LatLng latlng = new LatLng(22.546054, 114.025974);
+		MapStatus status = new MapStatus.Builder().target(latlng).zoom(11.0f).build();
+		MapStatusUpdate msu = MapStatusUpdateFactory.newMapStatus(status);
 		mBaiduMAP.animateMapStatus(msu);
-		
-		
-		
-		rbErShouFang=(RadioButton) findViewById(R.id.btn_ershoufang);
-		rbRenting=(RadioButton) findViewById(R.id.btn_renting);
-		llMapHouseBack=(LinearLayout) findViewById(R.id.ll_map_house_back);
-		
+
+		rbErShouFang = (RadioButton) findViewById(R.id.btn_ershoufang);
+		rbRenting = (RadioButton) findViewById(R.id.btn_renting);
+		llMapHouseBack = (LinearLayout) findViewById(R.id.ll_map_house_back);
+
 	}
 
 	private void setListeners() {
-		
+
 		rbErShouFang.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -158,8 +148,7 @@ public class MapHouseMainActivity extends Activity implements IMapHouseDataView{
 				rbRenting.setTextColor(getResources().getColor(R.color.button_unckeck));
 			}
 		});
-		
-		
+
 		rbRenting.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -167,27 +156,24 @@ public class MapHouseMainActivity extends Activity implements IMapHouseDataView{
 				rbRenting.setTextColor(getResources().getColor(R.color.button_ckeck));
 			}
 		});
-		
-		
+
 		llMapHouseBack.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				finish();
 			}
 		});
-		
-	}
-	
-	@Override
-	public void ShowMapHouse(List<AreaHouse> areahouses) {
-		Message msg=new Message();
-		msg.what=1;
-		msg.obj=areahouses;
-		handler.sendMessage(msg);
-		
-		
+
 	}
 
-	
+	@Override
+	public void ShowMapHouse(List<AreaHouse> areahouses) {
+		Message msg = new Message();
+		msg.what = 1;
+		msg.obj = areahouses;
+		handler.sendMessage(msg);
+
+	}
+
 }

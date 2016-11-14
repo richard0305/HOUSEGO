@@ -14,13 +14,13 @@ import com.google.gson.JsonObject;
 
 public class NewHouseHotJSONParse {
 	public static List<NewHouseHotRecommend> parseSearch(String json) throws JSONException {
-		JSONArray array = new JSONArray(json); 
-//		JSONArray ary = array.get;
+		JSONArray array = new JSONArray(json);
+		// JSONArray ary = array.get;
 		List<NewHouseHotRecommend> newhousehots = new ArrayList<NewHouseHotRecommend>();
 		for (int i = 0; i < array.length(); i++) {
 			JSONObject obj = array.getJSONObject(i);
 			NewHouseHotRecommend n = new NewHouseHotRecommend();
-			JSONObject obj2=obj.getJSONObject("data");
+			JSONObject obj2 = obj.getJSONObject("data");
 			n.setId(obj.getString("id"));
 			n.setCatid(obj.getString("catid"));
 			n.setTitle(obj2.getString("title"));

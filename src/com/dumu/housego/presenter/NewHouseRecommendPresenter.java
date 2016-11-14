@@ -11,34 +11,33 @@ import com.dumu.housego.model.RecommendHouseModel;
 import com.dumu.housego.view.INewHouseRecommendView;
 import com.dumu.housego.view.IShopGuideView;
 
-public class NewHouseRecommendPresenter implements IRecommendHousePresenter{
+public class NewHouseRecommendPresenter implements IRecommendHousePresenter {
 	private IRecommendHouseModel model;
 	private INewHouseRecommendView view;
-	
+
 	public NewHouseRecommendPresenter(INewHouseRecommendView view) {
 		super();
 		this.view = view;
-		model=new NewhouseRecommendModel();
+		model = new NewhouseRecommendModel();
 	}
-
 
 	@Override
 	public void LoadRecommend() {
-	model.GetRecommedHouse(new AsycnCallBack() {
-		
-		@Override
-		public void onSuccess(Object success) {
-			List<NewHouseRecommendData>newrecommends=(List<NewHouseRecommendData>) success;
-			view.showData(newrecommends);
-		}
-		
-		@Override
-		public void onError(Object error) {
-			// TODO Auto-generated method stub
-			
-		}
-	});
-		
+		model.GetRecommedHouse(new AsycnCallBack() {
+
+			@Override
+			public void onSuccess(Object success) {
+				List<NewHouseRecommendData> newrecommends = (List<NewHouseRecommendData>) success;
+				view.showData(newrecommends);
+			}
+
+			@Override
+			public void onError(Object error) {
+				// TODO Auto-generated method stub
+
+			}
+		});
+
 	}
 
 }

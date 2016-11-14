@@ -18,48 +18,50 @@ import com.dumu.housego.util.UrlFactory;
 
 import android.util.Log;
 
-public class FindPasswordModel implements IFindPasswordModel{
+public class FindPasswordModel implements IFindPasswordModel {
 
 	public FindPasswordModel() {
 		super();
 	}
+
 	@Override
-	public void FindPassword(final String phonenum, final String smscode, final String password, final String password2, final AsycnCallBack back) {
-		String url=UrlFactory.PostFindPasswordUrl();
-		CommonRequest request=new CommonRequest(Request.Method.POST, url,new Listener<String>() {
+	public void FindPassword(final String phonenum, final String smscode, final String password, final String password2,
+			final AsycnCallBack back) {
+		String url = UrlFactory.PostFindPasswordUrl();
+		CommonRequest request = new CommonRequest(Request.Method.POST, url, new Listener<String>() {
 
 			@Override
 			public void onResponse(String response) {
 				try {
 					JSONObject obj = new JSONObject(response);
-					if (obj.getString("success")=="51") {
-						String info=obj.getString("info");
-						
-						UserInfo userinfo=HouseGoApp.getContext().getCurrentUserInfo();
+					if (obj.getString("success") == "51") {
+						String info = obj.getString("info");
+
+						UserInfo userinfo = HouseGoApp.getContext().getCurrentUserInfo();
 						userinfo.setPassword(password);
-						
-						HouseGoApp app=HouseGoApp.getContext();
+
+						HouseGoApp app = HouseGoApp.getContext();
 						app.SaveCurrentUserInfo(userinfo);
-						
-						Log.e("yanglijun", "<<<____+++++____>>>>>>"+info);
+
+						Log.e("yanglijun", "<<<____+++++____>>>>>>" + info);
 						back.onSuccess(info);
-					}else{
-						String error=obj.getString("info");
+					} else {
+						String error = obj.getString("info");
 						back.onError(error);
 					}
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
-				
+
 			}
 		}, new ErrorListener() {
 
 			@Override
 			public void onErrorResponse(VolleyError error) {
 				back.onError(error.getMessage());
-				
+
 			}
-		}){
+		}) {
 			@Override
 			protected Map<String, String> getParams() throws AuthFailureError {
 				Map<String, String> params = new HashMap<String, String>();
@@ -71,7 +73,7 @@ public class FindPasswordModel implements IFindPasswordModel{
 			}
 		};
 		HouseGoApp.getQueue().add(request);
-		
+
 	}
 
 }

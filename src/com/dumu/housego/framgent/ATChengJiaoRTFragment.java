@@ -8,10 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class ATChengJiaoRTFragment extends Fragment{
+public class ATChengJiaoRTFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View view=inflater.inflate(R.layout.fragment_chengjiao_zufang, null);
+		View view = inflater.inflate(R.layout.fragment_chengjiao_zufang, null);
 		return view;
 	}
 }

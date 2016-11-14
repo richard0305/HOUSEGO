@@ -14,34 +14,33 @@ import com.dumu.housego.view.IErShouFangRecommendView;
 import com.dumu.housego.view.INewHouseRecommendView;
 import com.dumu.housego.view.IShopGuideView;
 
-public class ErShouFangRecommendPresenter implements IRecommendHousePresenter{
+public class ErShouFangRecommendPresenter implements IRecommendHousePresenter {
 	private IRecommendHouseModel model;
 	private IErShouFangRecommendView view;
-	
+
 	public ErShouFangRecommendPresenter(IErShouFangRecommendView view) {
 		super();
 		this.view = view;
-		model=new ErShouFangRecommendModel();
+		model = new ErShouFangRecommendModel();
 	}
-
 
 	@Override
 	public void LoadRecommend() {
-	model.GetRecommedHouse(new AsycnCallBack() {
-		
-		@Override
-		public void onSuccess(Object success) {
-			List<ErShouFangRecommendData>ershoufangrecommends=(List<ErShouFangRecommendData>) success;
-			view.showData(ershoufangrecommends);
-		}
-		
-		@Override
-		public void onError(Object error) {
-			// TODO Auto-generated method stub
-			
-		}
-	});
-		
+		model.GetRecommedHouse(new AsycnCallBack() {
+
+			@Override
+			public void onSuccess(Object success) {
+				List<ErShouFangRecommendData> ershoufangrecommends = (List<ErShouFangRecommendData>) success;
+				view.showData(ershoufangrecommends);
+			}
+
+			@Override
+			public void onError(Object error) {
+				// TODO Auto-generated method stub
+
+			}
+		});
+
 	}
 
 }

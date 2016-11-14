@@ -30,22 +30,20 @@ public class WelcomeMainActivity extends Activity {
 	}
 
 	private void initData() {
-		tvVersion=(TextView) findViewById(R.id.tv_version);
-		
+		tvVersion = (TextView) findViewById(R.id.tv_version);
+
 		PackageManager pm = getPackageManager();
 		try {
-		    PackageInfo pi = pm.getPackageInfo("com.dumu.housego", 0);
-		    tvVersion.setText("Version " + pi.versionName);
+			PackageInfo pi = pm.getPackageInfo("com.dumu.housego", 0);
+			tvVersion.setText("Version " + pi.versionName);
 		} catch (NameNotFoundException e) {
-		    e.printStackTrace();
+			e.printStackTrace();
 		}
-		
+
 		startAnima = new AlphaAnimation(0.3f, 1.0f);
 		startAnima.setDuration(3000);
 		view.startAnimation(startAnima);
-		
-		
-		
+
 		startAnima.setAnimationListener(new AnimationListener() {
 
 			@Override

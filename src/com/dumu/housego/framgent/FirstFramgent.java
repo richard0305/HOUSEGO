@@ -19,15 +19,20 @@ import com.dumu.housego.entity.RecommendNews;
 import com.dumu.housego.presenter.IRecommendHousePresenter;
 import com.dumu.housego.presenter.RecommendHousePresenter;
 import com.dumu.housego.util.FontHelper;
+import com.dumu.housego.util.MyReboundScrollView;
+import com.dumu.housego.utils.ScrollViewListener;
 import com.dumu.housego.view.IShopGuideView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup.LayoutParams;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.EditText;
@@ -38,7 +43,7 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-public class FirstFramgent extends Fragment implements IShopGuideView {
+public class FirstFramgent extends Fragment implements IShopGuideView{
 	private RecommendHouseAdapter recommendAdapter;
 	private List<RecommendNews> recommends;
 	private IRecommendHousePresenter presenter;
@@ -56,9 +61,8 @@ public class FirstFramgent extends Fragment implements IShopGuideView {
 	private RelativeLayout rlShopHouseGuide;
 	private TextView tvMonthNumber, tvPriceNumber, tvHouseNumber;
 	private LinearLayout llSearch;
-	private ScrollView scrollview;
-	
-	
+	private MyReboundScrollView scrollview;
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.framgent_first, null);
@@ -148,30 +152,52 @@ public class FirstFramgent extends Fragment implements IShopGuideView {
 			public void onItemClick(AdapterView<?> arg0, View view, int position, long id) {
 				Intent i = new Intent(getActivity(), WapRecommedMainActivity.class);
 				String url = "http://www.taoshenfang.com" + recommends.get(position).getThumb();
-				String title=recommends.get(position).getTitle();
-				String content=recommends.get(position).getDescription();
+				String title = recommends.get(position).getTitle();
+				String content = recommends.get(position).getDescription();
 				i.putExtra("content", content);
 				i.putExtra("url", url);
 				i.putExtra("title", title);
 				startActivity(i);
 			}
 		});
-		
-		
+
 		rlHouseDetails.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				startActivity(new Intent(getActivity(), WebHousePriceDetailActivity.class));
+
+			}
+		});
+		
+		etFirstSearch.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				etFirstSearch.setCursorVisible(true);
 				
 			}
 		});
+		scrollview.setScrollViewListener(new ScrollViewListener() {
+			
+			@Override
+			public void onScrollChanged(MyReboundScrollView scrollView, int x, int y, int oldx, int oldy) {
+				if(x-oldx>=20){
+					etFirstSearch.setCursorVisible(false);
+					llSearch.setGravity(Gravity.TOP);
+				}
+				
+				
+			}
+		});
+		
 
 	}
 
 	private void setViews(View view) {
 
 		etFirstSearch = (EditText) view.findViewById(R.id.et_first_search);
+		etFirstSearch.setCursorVisible(false);
+		
 		lvShopHouseGudie = (ListView) view.findViewById(R.id.lv_ShopGuide);
 		rlHouseDetails = (RelativeLayout) view.findViewById(R.id.HouseDetails);
 		rlShopHouseGuide = (RelativeLayout) view.findViewById(R.id.ShopHouseGuide);
@@ -187,11 +213,10 @@ public class FirstFramgent extends Fragment implements IShopGuideView {
 		rbYeZhuWeiTuo = (RadioButton) view.findViewById(R.id.rb_yezhuweituo);
 		rbZuFang = (RadioButton) view.findViewById(R.id.rb_zufang);
 		llSearch = (LinearLayout) view.findViewById(R.id.ll_search);
-		
-		
-		scrollview=(ScrollView) view.findViewById(R.id.first_scrollview);
+
+		scrollview = (MyReboundScrollView) view.findViewById(R.id.first_scrollview);
 		scrollview.smoothScrollTo(0, 0);
-		
+
 	}
 
 	@Override
@@ -202,5 +227,6 @@ public class FirstFramgent extends Fragment implements IShopGuideView {
 		lvShopHouseGudie.setAdapter(recommendAdapter);
 
 	}
+
 
 }

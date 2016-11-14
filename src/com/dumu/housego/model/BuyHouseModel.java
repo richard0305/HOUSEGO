@@ -19,34 +19,34 @@ import com.dumu.housego.util.BuyHouseListJSONParse;
 import com.dumu.housego.util.CommonRequest;
 import com.dumu.housego.util.UrlFactory;
 
-public class BuyHouseModel implements IBuyHouseModel{
+public class BuyHouseModel implements IBuyHouseModel {
 
 	@Override
-	public void buyhouselist(final String username,final String table, final AsycnCallBack back) {
-		String url=UrlFactory.PostQiuBuylist();
-		CommonRequest request=new CommonRequest(Method.POST, url, new Listener<String>() {
+	public void buyhouselist(final String username, final String table, final AsycnCallBack back) {
+		String url = UrlFactory.PostQiuBuylist();
+		CommonRequest request = new CommonRequest(Method.POST, url, new Listener<String>() {
 
 			@Override
 			public void onResponse(String response) {
 				try {
-					List<QiuZuBuyHouseList>lists=BuyHouseListJSONParse.parseSearch(response);
+					List<QiuZuBuyHouseList> lists = BuyHouseListJSONParse.parseSearch(response);
 					back.onSuccess(lists);
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
-				
+
 			}
 		}, new ErrorListener() {
 
 			@Override
 			public void onErrorResponse(VolleyError error) {
 				back.onError(error.getMessage());
-				
+
 			}
-		}){
+		}) {
 			@Override
 			protected Map<String, String> getParams() throws AuthFailureError {
-				Map<String, String >map=new HashMap<String, String>();
+				Map<String, String> map = new HashMap<String, String>();
 				map.put("username", username);
 				map.put("table", table);
 				return map;
@@ -57,33 +57,32 @@ public class BuyHouseModel implements IBuyHouseModel{
 
 	@Override
 	public void buyhousedelete(final String id, final String userid, final String username, final AsycnCallBack back) {
-		String url=UrlFactory.PostBuyHousedelete();
-		CommonRequest request=new CommonRequest(Method.POST, url, new Listener<String>() {
+		String url = UrlFactory.PostBuyHousedelete();
+		CommonRequest request = new CommonRequest(Method.POST, url, new Listener<String>() {
 
 			@Override
 			public void onResponse(String response) {
-				
+
 				try {
-					JSONObject 	J = new JSONObject(response);
-					String info=J.getString("info");
+					JSONObject J = new JSONObject(response);
+					String info = J.getString("info");
 					back.onSuccess(info);
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
-				
-				
+
 			}
 		}, new ErrorListener() {
 
 			@Override
 			public void onErrorResponse(VolleyError error) {
 				back.onError(error.getMessage());
-				
+
 			}
-		}){
+		}) {
 			@Override
 			protected Map<String, String> getParams() throws AuthFailureError {
-				Map<String, String >map=new HashMap<String, String>();
+				Map<String, String> map = new HashMap<String, String>();
 				map.put("id", id);
 				map.put("userid", userid);
 				map.put("username", username);
@@ -92,5 +91,5 @@ public class BuyHouseModel implements IBuyHouseModel{
 		};
 		HouseGoApp.getQueue().add(request);
 	}
- 
+
 }

@@ -12,7 +12,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ListView;
 
-
 public class SwipeListView extends ListView {
 	private Boolean mIsHorizontal;
 
@@ -46,12 +45,10 @@ public class SwipeListView extends ListView {
 	public SwipeListView(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
 
-		TypedArray mTypedArray = context.obtainStyledAttributes(attrs,
-				R.styleable.swipelistviewstyle);
+		TypedArray mTypedArray = context.obtainStyledAttributes(attrs, R.styleable.swipelistviewstyle);
 
 		// 鑾峰彇鑷畾涔夊睘鎬у拰榛樿鍊�
-		mRightViewWidth = (int) mTypedArray.getDimension(
-				R.styleable.swipelistviewstyle_right_width, 200);
+		mRightViewWidth = (int) mTypedArray.getDimension(R.styleable.swipelistviewstyle_right_width, 200);
 		mTypedArray.recycle();
 	}
 
@@ -71,8 +68,7 @@ public class SwipeListView extends ListView {
 			mFirstY = lastY;
 			itemPosition = pointToPosition((int) mFirstX, (int) mFirstY);
 			if (itemPosition >= 0) {
-				View currentItemView = getChildAt(itemPosition
-						- getFirstVisiblePosition());
+				View currentItemView = getChildAt(itemPosition - getFirstVisiblePosition());
 				mPreItemView = mCurrentItemView;
 				System.out.println("mPreItemView==" + mPreItemView);
 				mCurrentItemView = currentItemView;
@@ -93,8 +89,7 @@ public class SwipeListView extends ListView {
 			System.out.println("onInterceptTouchEvent----->ACTION_UP");
 		case MotionEvent.ACTION_CANCEL:
 			System.out.println("onInterceptTouchEvent----->ACTION_CANCEL");
-			if (mIsShown
-					&& (mPreItemView != mCurrentItemView || isHitCurItemLeft(lastX))) {
+			if (mIsShown && (mPreItemView != mCurrentItemView || isHitCurItemLeft(lastX))) {
 				System.out.println("1---> hiddenRight");
 				/**
 				 * 鎯呭喌涓�锛�
@@ -186,8 +181,7 @@ public class SwipeListView extends ListView {
 				}
 
 				// can't move beyond boundary
-				if (dx < 0 && dx > -mRightViewWidth && mCurrentItemView != null
-						&& itemPosition >= 0) {
+				if (dx < 0 && dx > -mRightViewWidth && mCurrentItemView != null && itemPosition >= 0) {
 					mCurrentItemView.scrollTo((int) (-dx), 0);
 					clearPressedState();
 				}
@@ -272,9 +266,8 @@ public class SwipeListView extends ListView {
 	}
 
 	private void showRight(View view) {
-		System.out.println("=========showRight  view==" + view
-				+ "--mPreItemView==" + mPreItemView + "--mCurrentItemView=="
-				+ mCurrentItemView);
+		System.out.println("=========showRight  view==" + view + "--mPreItemView==" + mPreItemView
+				+ "--mCurrentItemView==" + mCurrentItemView);
 		if (view != null && itemPosition >= 0) {
 			Message msg = new MoveHandler().obtainMessage();
 			msg.obj = view;
@@ -286,9 +279,8 @@ public class SwipeListView extends ListView {
 	}
 
 	public void hiddenRight(View view) {
-		System.out.println("=========hiddenRight  view==" + view
-				+ "--mPreItemView==" + mPreItemView + "--mCurrentItemView=="
-				+ mCurrentItemView);
+		System.out.println("=========hiddenRight  view==" + view + "--mPreItemView==" + mPreItemView
+				+ "--mCurrentItemView==" + mCurrentItemView);
 		if (view != null && mCurrentItemView != null) {
 			Message msg = new MoveHandler().obtainMessage();//
 			msg.obj = view;
@@ -348,8 +340,7 @@ public class SwipeListView extends ListView {
 			}
 
 			fromX += stepX;
-			boolean isLastStep = (stepX > 0 && fromX > toX)
-					|| (stepX < 0 && fromX < toX);
+			boolean isLastStep = (stepX > 0 && fromX > toX) || (stepX < 0 && fromX < toX);
 			if (isLastStep) {
 				fromX = toX;
 			}

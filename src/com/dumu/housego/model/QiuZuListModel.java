@@ -20,22 +20,22 @@ import com.dumu.housego.util.CommonRequest;
 import com.dumu.housego.util.QiuZuListJSONParse;
 import com.dumu.housego.util.UrlFactory;
 
-public class QiuZuListModel implements IQiuZuListModel{
+public class QiuZuListModel implements IQiuZuListModel {
 
 	@Override
-	public void QiuZuList(final String username,final String table,final AsycnCallBack back) {
-		String url=UrlFactory.PostQiuBuylist();
-		CommonRequest request=new CommonRequest(Method.POST, url, new Listener<String>() {
+	public void QiuZuList(final String username, final String table, final AsycnCallBack back) {
+		String url = UrlFactory.PostQiuBuylist();
+		CommonRequest request = new CommonRequest(Method.POST, url, new Listener<String>() {
 
 			@Override
 			public void onResponse(String response) {
 				try {
-					List<QiuZuBuyHouseList>qiuzulists=QiuZuListJSONParse.parseSearch(response);
+					List<QiuZuBuyHouseList> qiuzulists = QiuZuListJSONParse.parseSearch(response);
 					back.onSuccess(qiuzulists);
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
-				
+
 			}
 		}, new ErrorListener() {
 
@@ -43,35 +43,35 @@ public class QiuZuListModel implements IQiuZuListModel{
 			public void onErrorResponse(VolleyError error) {
 				back.onError(error.getMessage());
 			}
-		}){
+		}) {
 			@Override
 			protected Map<String, String> getParams() throws AuthFailureError {
-				Map<String, String>map=new HashMap<String, String>();
+				Map<String, String> map = new HashMap<String, String>();
 				map.put("username", username);
 				map.put("table", table);
 				return map;
 			}
 		};
 		HouseGoApp.getQueue().add(request);
-		
+
 	}
 
 	@Override
 	public void DeleteQiuZu(final String id, final String userid, final String username, final AsycnCallBack back) {
-		String url=UrlFactory.PostQiuZuHouseListDelete();
-		CommonRequest request=new CommonRequest(Method.POST, url, new Listener<String>() {
+		String url = UrlFactory.PostQiuZuHouseListDelete();
+		CommonRequest request = new CommonRequest(Method.POST, url, new Listener<String>() {
 
 			@Override
 			public void onResponse(String response) {
 				try {
-					JSONObject j=new JSONObject(response);
-					String info=j.getString("info");
+					JSONObject j = new JSONObject(response);
+					String info = j.getString("info");
 					back.onSuccess(info);
-					
+
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
-				
+
 			}
 		}, new ErrorListener() {
 
@@ -79,10 +79,10 @@ public class QiuZuListModel implements IQiuZuListModel{
 			public void onErrorResponse(VolleyError error) {
 				back.onError(error.getMessage());
 			}
-		}){
+		}) {
 			@Override
 			protected Map<String, String> getParams() throws AuthFailureError {
-				Map<String, String>map=new HashMap<String, String>();
+				Map<String, String> map = new HashMap<String, String>();
 				map.put("username", username);
 				map.put("id", id);
 				map.put("userid", userid);
@@ -90,7 +90,7 @@ public class QiuZuListModel implements IQiuZuListModel{
 			}
 		};
 		HouseGoApp.getQueue().add(request);
-		
+
 	}
-	
+
 }

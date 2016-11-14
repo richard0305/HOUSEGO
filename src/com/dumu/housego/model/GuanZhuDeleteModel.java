@@ -19,16 +19,16 @@ import com.dumu.housego.util.UrlFactory;
 public class GuanZhuDeleteModel implements IGuanZhuDeleteModel {
 
 	@Override
-	public void deleteGuanZhu(final String id, final String userid,final String username,final AsycnCallBack back) {
-		String url=UrlFactory.PostGuanZhuDeleteUrl();
-		CommonRequest request=new CommonRequest(Method.POST, url, new Listener<String>() {
+	public void deleteGuanZhu(final String id, final String userid, final String username, final AsycnCallBack back) {
+		String url = UrlFactory.PostGuanZhuDeleteUrl();
+		CommonRequest request = new CommonRequest(Method.POST, url, new Listener<String>() {
 
 			@Override
 			public void onResponse(String response) {
 				try {
 					JSONObject obj = new JSONObject(response);
 					if (obj.getInt("success") == 108) {
-						String infomation=obj.getString("info").toString();
+						String infomation = obj.getString("info").toString();
 						back.onSuccess(infomation);
 					} else {
 						back.onError(obj.getString("info"));
@@ -36,19 +36,19 @@ public class GuanZhuDeleteModel implements IGuanZhuDeleteModel {
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
-				
+
 			}
 		}, new ErrorListener() {
 
 			@Override
 			public void onErrorResponse(VolleyError error) {
 				// TODO Auto-generated method stub
-				
+
 			}
-		}){
+		}) {
 			@Override
 			protected Map<String, String> getParams() throws AuthFailureError {
-				Map<String, String>map=new HashMap<String, String>();
+				Map<String, String> map = new HashMap<String, String>();
 				map.put("id", id);
 				map.put("userid", userid);
 				map.put("username", username);
@@ -56,7 +56,7 @@ public class GuanZhuDeleteModel implements IGuanZhuDeleteModel {
 			}
 		};
 		HouseGoApp.getQueue().add(request);
-		
+
 	}
 
 }

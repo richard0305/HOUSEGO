@@ -6,5 +6,6 @@ import com.dumu.housego.entity.ErShouFangDetails;
 
 public interface IGuanZhuErShouView {
 	void showGuanZhuSuccess(List<ErShouFangDetails> ershoufangdetails);
+
 	void showGuanZhuFail(String errorinfo);
 }

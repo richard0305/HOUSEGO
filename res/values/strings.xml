@@ -45,5 +45,7 @@
     <string name="load_fail">加载失败</string>
     <string name="title_activity_get_location">GetLocationActivity</string>
     <string name="title_activity_agent_personal">AgentPersonalActivity</string>
+    <string name="title_activity_submit_edittext">SubmitEdittextActivity</string>
+    <string name="title_activity_search">SearchActivity</string>
 
 </resources>

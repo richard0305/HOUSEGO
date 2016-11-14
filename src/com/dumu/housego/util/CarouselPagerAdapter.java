@@ -16,30 +16,30 @@ import android.widget.ImageView;
  */
 public class CarouselPagerAdapter extends PagerAdapter {
 
-    private List<ImageView> ivList;
+	private List<ImageView> ivList;
 
-    public CarouselPagerAdapter(List<ImageView> ivList) {
-        this.ivList = ivList;
-    }
+	public CarouselPagerAdapter(List<ImageView> ivList) {
+		this.ivList = ivList;
+	}
 
-    @Override
-    public Object instantiateItem(ViewGroup container, int position) {
-        container.addView(ivList.get(position % ivList.size()));
-        return ivList.get(position % ivList.size());
-    }
+	@Override
+	public Object instantiateItem(ViewGroup container, int position) {
+		container.addView(ivList.get(position % ivList.size()));
+		return ivList.get(position % ivList.size());
+	}
 
-    @Override
-    public void destroyItem(ViewGroup container, int position, Object object) {
-        container.removeView(ivList.get(position % ivList.size()));
-    }
+	@Override
+	public void destroyItem(ViewGroup container, int position, Object object) {
+		container.removeView(ivList.get(position % ivList.size()));
+	}
 
-    @Override
-    public int getCount() {
-        return ivList == null ? 0 : Integer.MAX_VALUE;
-    }
+	@Override
+	public int getCount() {
+		return ivList == null ? 0 : Integer.MAX_VALUE;
+	}
 
-    @Override
-    public boolean isViewFromObject(View view, Object object) {
-        return view == object;
-    }
+	@Override
+	public boolean isViewFromObject(View view, Object object) {
+		return view == object;
+	}
 }

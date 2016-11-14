@@ -23,43 +23,38 @@ import android.util.Log;
 
 public class AgentModelDataModel implements IAgentModelDataModel {
 	private List<AgentData> agentdatas;
-	
+
 	public AgentModelDataModel() {
 		super();
 	}
 
 	@Override
 	public void FindAgentModelData(final String catid, final AsycnCallBack back) {
-		String url=UrlFactory.PostAgentmodelUrl();
-		CommonRequest request=new CommonRequest(Request.Method.POST, url,new Listener<String>() {
+		String url = UrlFactory.PostAgentmodelUrl();
+		CommonRequest request = new CommonRequest(Request.Method.POST, url, new Listener<String>() {
 
 			@Override
 			public void onResponse(String response) {
-				
-				
+
 				try {
-					agentdatas=AgentDataListJSONParse.parseSearch(response);
-					
-					Log.i("yanglijun", "<<<<>>>>___<<<<>>>>-----array"+agentdatas);
-					
-					
-					
-					
+					agentdatas = AgentDataListJSONParse.parseSearch(response);
+
+					Log.i("yanglijun", "<<<<>>>>___<<<<>>>>-----array" + agentdatas);
+
 					back.onSuccess(agentdatas);
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
-				
-				
+
 			}
 		}, new ErrorListener() {
 
 			@Override
 			public void onErrorResponse(VolleyError error) {
 				back.onError(error.getMessage());
-				
+
 			}
-		}){
+		}) {
 			@Override
 			protected Map<String, String> getParams() throws AuthFailureError {
 				Map<String, String> params = new HashMap<String, String>();
@@ -68,7 +63,7 @@ public class AgentModelDataModel implements IAgentModelDataModel {
 			}
 		};
 		HouseGoApp.getQueue().add(request);
-		
+
 	}
 
 }

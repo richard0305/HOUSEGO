@@ -11,34 +11,34 @@ import com.dumu.housego.model.RentingProgramaModel;
 import com.dumu.housego.view.IErShouFangRecommendView;
 import com.dumu.housego.view.IRentingProgramaView;
 
-public class RentingProgramaPresenter implements IFourDataProgramePresenter{
+public class RentingProgramaPresenter implements IFourDataProgramePresenter {
 	private IFourDataProgramaModel model;
 	private IRentingProgramaView view;
-	
+
 	public RentingProgramaPresenter(IRentingProgramaView view) {
 		super();
 		this.view = view;
-		model=new RentingProgramaModel();
+		model = new RentingProgramaModel();
 	}
 
 	@Override
 	public void LoadProgrameData(FourDataPrograma fourdata) {
 		model.GetRecommedHouse(fourdata, new AsycnCallBack() {
-			
+
 			@Override
 			public void onSuccess(Object success) {
-				List<ErShouFangRecommendData> ershoufangrecommends=(List<ErShouFangRecommendData>) success;
-				
+				List<ErShouFangRecommendData> ershoufangrecommends = (List<ErShouFangRecommendData>) success;
+
 				view.showData(ershoufangrecommends);
-				
+
 			}
-			
+
 			@Override
 			public void onError(Object error) {
-				
+
 			}
 		});
-		
+
 	}
 
 }

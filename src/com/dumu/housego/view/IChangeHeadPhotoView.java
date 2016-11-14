@@ -1,8 +1,10 @@
 package com.dumu.housego.view;
+
 /**
- *Created by yanglijun 2016-6-28ионГ9:22:47
+ * Created by yanglijun 2016-6-28О©╫О©╫О©╫О©╫9:22:47
  */
 public interface IChangeHeadPhotoView {
 	void changeHeadFail(String errorMessage);
+
 	void changeHeadSuccess(String picUrl);
 }

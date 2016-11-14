@@ -15,6 +15,7 @@ public class ProprietorMainActivity extends Activity {
 	private LinearLayout llProprietorBack;
 	private RelativeLayout rlRentingProprietor;
 	private RelativeLayout rlErshoufangProprietor;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -22,42 +23,43 @@ public class ProprietorMainActivity extends Activity {
 		FontHelper.injectFont(findViewById(android.R.id.content));
 		setViews();
 		setListener();
-		
+
 	}
+
 	private void setListener() {
 		llProprietorBack.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				finish();
-				
+
 			}
 		});
-		
+
 		rlErshoufangProprietor.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
-				startActivity(new Intent(getApplicationContext(),ErshouFangProprietorActivity.class ));
-				
+				startActivity(new Intent(getApplicationContext(), ErshouFangProprietorActivity.class));
+
 			}
 		});
-		
+
 		rlRentingProprietor.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
-				startActivity(new Intent(getApplicationContext(),RentingProprietorActivity.class ));
-				
+				startActivity(new Intent(getApplicationContext(), RentingProprietorActivity.class));
+
 			}
 		});
-		
-		
+
 	}
+
 	private void setViews() {
-		llProprietorBack=(LinearLayout) findViewById(R.id.ll_proprietor_back);
-		rlRentingProprietor=(RelativeLayout) findViewById(R.id.rl_renting_proprietor);
-		rlErshoufangProprietor=(RelativeLayout) findViewById(R.id.rl_ershoufang_proprietor);
+		llProprietorBack = (LinearLayout) findViewById(R.id.ll_proprietor_back);
+		rlRentingProprietor = (RelativeLayout) findViewById(R.id.rl_renting_proprietor);
+		rlErshoufangProprietor = (RelativeLayout) findViewById(R.id.rl_ershoufang_proprietor);
 	}
 
 }

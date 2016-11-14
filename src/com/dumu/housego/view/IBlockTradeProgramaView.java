@@ -4,6 +4,6 @@ import java.util.List;
 
 import com.dumu.housego.entity.BlockTradeList;
 
-public interface  IBlockTradeProgramaView {
+public interface IBlockTradeProgramaView {
 	void showData(List<BlockTradeList> blocktrades);
 }

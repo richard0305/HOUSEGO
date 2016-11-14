@@ -37,31 +37,29 @@ import android.widget.LinearLayout.LayoutParams;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-public class GZErShouFramgent extends Fragment implements IGuanZhuErShouView,IGuanZhuDeleteView{
+public class GZErShouFramgent extends Fragment implements IGuanZhuErShouView, IGuanZhuDeleteView {
 	private IGuanZhuErShouPresenter presenter;
 	private UserInfo userinfo;
-	private List<ErShouFangDetails>ershoufangdetails;
+	private List<ErShouFangDetails> ershoufangdetails;
 	private SwipeListView lvGuanZhuErShou;
 	private GuanZhuErShouLsitAdapter adapter;
 	private IGuanZhuDeletePresenter deletePresenter;
-	
-	
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-	View view=inflater.inflate(R.layout.fragment_guanzhu_ershou, null);
-	
-	
-	presenter=new GuanZhuErShouPresenter(this);
-	deletePresenter=new GuanZhuDeletePresenter(this);
-	initViews(view);
-	setListener();
-	
-	return view;
+		View view = inflater.inflate(R.layout.fragment_guanzhu_ershou, null);
+
+		presenter = new GuanZhuErShouPresenter(this);
+		deletePresenter = new GuanZhuDeletePresenter(this);
+		initViews(view);
+		setListener();
+
+		return view;
 	}
-	
+
 	private void initViews(View view) {
-		lvGuanZhuErShou=(SwipeListView) view.findViewById(R.id.lv_guanzhu_ershou);
-		
+		lvGuanZhuErShou = (SwipeListView) view.findViewById(R.id.lv_guanzhu_ershou);
+
 	}
 
 	private void setListener() {
@@ -69,94 +67,86 @@ public class GZErShouFramgent extends Fragment implements IGuanZhuErShouView,IGu
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				 Intent i = new Intent(getContext(),ErShouFangDetailsActivity.class);
-				 String catid=ershoufangdetails.get(position).getCatid();
-				 String ID=ershoufangdetails.get(position).getId();
-				 i.putExtra("catid", catid);
-				 i.putExtra("id", ID);
-				 startActivity(i);
-				
+				Intent i = new Intent(getContext(), ErShouFangDetailsActivity.class);
+				String catid = ershoufangdetails.get(position).getCatid();
+				String ID = ershoufangdetails.get(position).getId();
+				i.putExtra("catid", catid);
+				i.putExtra("id", ID);
+				startActivity(i);
+
 			}
 		});
-		
+
 		lvGuanZhuErShou.setOnItemLongClickListener(new OnItemLongClickListener() {
 
 			@Override
 			public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long ID) {
-				MyToastShowCenter.CenterToast(getContext(), "长按了"+position);
-				 String id=ershoufangdetails.get(position).getId();
-				 UserInfo info=HouseGoApp.getContext().getCurrentUserInfo();
-				String userid=info.getUserid();
-				 String username=info.getUsername();
+				MyToastShowCenter.CenterToast(getContext(), "长按了" + position);
+				String id = ershoufangdetails.get(position).getId();
+				UserInfo info = HouseGoApp.getContext().getCurrentUserInfo();
+				String userid = info.getUserid();
+				String username = info.getUsername();
 				deletePresenter.deleteGuanZhu(id, userid, username);
-				
+
 				return true;
 			}
 		});
-		
-	}
 
-	
+	}
 
 	@Override
 	public void onResume() {
-		userinfo=HouseGoApp.getContext().getCurrentUserInfo();
-		String username=userinfo.getUsername();
-		presenter.LoadGuanZhuErShou(username,"ershou");
-//		MyToastShowCenter.CenterToast(getContext(), "发送了数据");
+		userinfo = HouseGoApp.getContext().getCurrentUserInfo();
+		String username = userinfo.getUsername();
+		presenter.LoadGuanZhuErShou(username, "ershou");
+		// MyToastShowCenter.CenterToast(getContext(), "发送了数据");
 		super.onResume();
 	}
-
-
 
 	@Override
 	public void showGuanZhuFail(String errorinfo) {
 		MyToastShowCenter.CenterToast(getContext(), errorinfo);
-		
+
 	}
 
 	@Override
 	public void showGuanZhuSuccess(List<ErShouFangDetails> ershoufangdetails) {
-		this.ershoufangdetails=ershoufangdetails;
-		adapter=new GuanZhuErShouLsitAdapter(ershoufangdetails, getContext(), lvGuanZhuErShou.getRightViewWidth());
+		this.ershoufangdetails = ershoufangdetails;
+		adapter = new GuanZhuErShouLsitAdapter(ershoufangdetails, getContext(), lvGuanZhuErShou.getRightViewWidth());
 		lvGuanZhuErShou.setAdapter(adapter);
-		
+
 	}
 
 	@Override
 	public void deleteGuanZhuSuccess(String info) {
-		MyToastShowCenter.CenterToast(getContext(), info+"zhutou");
-		
+		MyToastShowCenter.CenterToast(getContext(), info + "zhutou");
+
 	}
 
 	@Override
 	public void deleteGuanZhuFail(String errorinfo) {
-		MyToastShowCenter.CenterToast(getContext(), errorinfo+"zhutou");
-		
+		MyToastShowCenter.CenterToast(getContext(), errorinfo + "zhutou");
+
 	}
 
-	
 	/**
-	 * 				adapter��
-	 * **/
-	
+	 * adapter��
+	 **/
+
 	public class GuanZhuErShouLsitAdapter extends BaseAdapter
-	//implements IGuanZhuDeleteView
+	// implements IGuanZhuDeleteView
 	{
 		private List<ErShouFangDetails> ershoufangdetails;
 		private Context context;
 		private LayoutInflater Inflater;
 		private int mRightWidth = 0;
-		
-		
-		
-		public GuanZhuErShouLsitAdapter(List<ErShouFangDetails> ershoufangdetails, Context context,int rightWidth
-			) {
+
+		public GuanZhuErShouLsitAdapter(List<ErShouFangDetails> ershoufangdetails, Context context, int rightWidth) {
 			super();
 			this.ershoufangdetails = ershoufangdetails;
 			this.context = context;
 			mRightWidth = rightWidth;
-			this.Inflater=LayoutInflater.from(context);
+			this.Inflater = LayoutInflater.from(context);
 		}
 
 		@Override
@@ -166,7 +156,7 @@ public class GZErShouFramgent extends Fragment implements IGuanZhuErShouView,IGu
 
 		@Override
 		public ErShouFangDetails getItem(int position) {
-			
+
 			return ershoufangdetails.get(position);
 		}
 
@@ -178,72 +168,65 @@ public class GZErShouFramgent extends Fragment implements IGuanZhuErShouView,IGu
 		@Override
 		public View getView(final int position, View convertView, ViewGroup parent) {
 			ViewHolder holder;
-			if(convertView==null){
-				convertView=Inflater.inflate(R.layout.item_guanzhu_ershou, null);
+			if (convertView == null) {
+				convertView = Inflater.inflate(R.layout.item_guanzhu_ershou, null);
 				holder = new ViewHolder();
-			holder.ivImg=(ImageView) convertView.findViewById(R.id.iv_guanzhuershou);
-			holder.tvArea=(TextView) convertView.findViewById(R.id.tv_guanzhu_area);
-			holder.tvChaoxiang=(TextView) convertView.findViewById(R.id.tv_guanzhu_chaoxiang);
-			holder.tvDitiexian=(TextView) convertView.findViewById(R.id.tv_guanzhu_ditiexian);
-			holder.tvFangxing=(TextView) convertView.findViewById(R.id.tv_guanzhu_fangxing);
-			holder.tvJianzhuType=(TextView) convertView.findViewById(R.id.tv_guanzhu_jianzhutype);
-			holder.tvJunjias=(TextView) convertView.findViewById(R.id.tv_guanzhu_junjia);
-			holder.tvLouceng=(TextView) convertView.findViewById(R.id.tv_guanzhu_louceng);
-			holder.tvPrice=(TextView) convertView.findViewById(R.id.tv_guanzhu_zongjia);
-			holder.tvTitle=(TextView) convertView.findViewById(R.id.tv_guanzhu_title);
-			holder.tvXiaoquName=(TextView) convertView.findViewById(R.id.tv_guanzhu_xiaoquname);
-			holder.item_left = (LinearLayout) convertView.findViewById(R.id.item_left);
-			holder.item_right = (RelativeLayout) convertView.findViewById(R.id.item_right);
-			holder.item_right_txt = (TextView) convertView.findViewById(R.id.item_right_txt);
-			holder.textView1=(TextView) convertView.findViewById(R.id.textView1);
-			
+				holder.ivImg = (ImageView) convertView.findViewById(R.id.iv_guanzhuershou);
+				holder.tvArea = (TextView) convertView.findViewById(R.id.tv_guanzhu_area);
+				holder.tvChaoxiang = (TextView) convertView.findViewById(R.id.tv_guanzhu_chaoxiang);
+				holder.tvDitiexian = (TextView) convertView.findViewById(R.id.tv_guanzhu_ditiexian);
+				holder.tvFangxing = (TextView) convertView.findViewById(R.id.tv_guanzhu_fangxing);
+				holder.tvJianzhuType = (TextView) convertView.findViewById(R.id.tv_guanzhu_jianzhutype);
+				holder.tvJunjias = (TextView) convertView.findViewById(R.id.tv_guanzhu_junjia);
+				holder.tvLouceng = (TextView) convertView.findViewById(R.id.tv_guanzhu_louceng);
+				holder.tvPrice = (TextView) convertView.findViewById(R.id.tv_guanzhu_zongjia);
+				holder.tvTitle = (TextView) convertView.findViewById(R.id.tv_guanzhu_title);
+				holder.tvXiaoquName = (TextView) convertView.findViewById(R.id.tv_guanzhu_xiaoquname);
+				holder.item_left = (LinearLayout) convertView.findViewById(R.id.item_left);
+				holder.item_right = (RelativeLayout) convertView.findViewById(R.id.item_right);
+				holder.item_right_txt = (TextView) convertView.findViewById(R.id.item_right_txt);
+				holder.textView1 = (TextView) convertView.findViewById(R.id.textView1);
+
 				convertView.setTag(holder);
-			}else{
+			} else {
 				holder = (ViewHolder) convertView.getTag();
 			}
-			
-			
-			LinearLayout.LayoutParams lp1 = new LayoutParams(
-					LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+
+			LinearLayout.LayoutParams lp1 = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
 			holder.item_left.setLayoutParams(lp1);
-			LinearLayout.LayoutParams lp2 = new LayoutParams(mRightWidth,
-					LayoutParams.MATCH_PARENT);
+			LinearLayout.LayoutParams lp2 = new LayoutParams(mRightWidth, LayoutParams.MATCH_PARENT);
 			holder.item_right.setLayoutParams(lp2);
-			
-			
-			ErShouFangDetails n=getItem(position);
-			
-			String url="http://www.taoshenfang.com"+n.getThumb();
+
+			ErShouFangDetails n = getItem(position);
+
+			String url = "http://www.taoshenfang.com" + n.getThumb();
 			Glide.with(context).load(url).into(holder.ivImg);
-			
-			holder.tvTitle.setText(n.getTitle()+"");
-			
-			holder.tvArea.setText(n.getArea()+"平米");
+
+			holder.tvTitle.setText(n.getTitle() + "");
+
+			holder.tvArea.setText(n.getArea() + "平米");
 			holder.tvChaoxiang.setText(n.getChaoxiang());
-			holder.tvDitiexian.setText(n.getDitiexian()+"号线");
-			holder.tvFangxing.setText(n.getShi()+"室"+n.getTing()+"厅");
-			holder.tvJianzhuType.setText(n.getFangling()+"年房龄"+n.getJianzhutype());
-			
-			int zongjia=Integer.parseInt(n.getZongjia())*10000;
-			int mianji=Integer.parseInt(n.getJianzhumianji());
-			
-			holder.tvJunjias.setText(zongjia/mianji+"元/㎡");
-			
-			holder.tvLouceng.setText(n.getCeng()+"(共"+n.getZongceng()+"层)");
+			holder.tvDitiexian.setText(n.getDitiexian() + "号线");
+			holder.tvFangxing.setText(n.getShi() + "室" + n.getTing() + "厅");
+			holder.tvJianzhuType.setText(n.getFangling() + "年房龄" + n.getJianzhutype());
+
+			int zongjia = Integer.parseInt(n.getZongjia()) * 10000;
+			int mianji = Integer.parseInt(n.getJianzhumianji());
+
+			holder.tvJunjias.setText(zongjia / mianji + "元/㎡");
+
+			holder.tvLouceng.setText(n.getCeng() + "(共" + n.getZongceng() + "层)");
 			holder.tvPrice.setText(n.getZongjia());
 			holder.tvXiaoquName.setText(n.getXiaoquName());
 			holder.textView1.setText("万");
-			//ȡ����ע�������ֵ
-	
-			
-			
-			
+			// ȡ����ע�������ֵ
+
 			holder.item_right_txt.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View v) {
-//					ershoufangdetails.remove(position);
-//					Presenter.deleteGuanZhu(id, userid, username);
-//					MyToastShowCenter.CenterToast(context, "ȡ����ע");
+					// ershoufangdetails.remove(position);
+					// Presenter.deleteGuanZhu(id, userid, username);
+					// MyToastShowCenter.CenterToast(context, "ȡ����ע");
 					lvGuanZhuErShou.hiddenRight(lvGuanZhuErShou.mPreItemView);
 					if (myHandler != null) {
 						Message msg = myHandler.obtainMessage();
@@ -251,31 +234,27 @@ public class GZErShouFramgent extends Fragment implements IGuanZhuErShouView,IGu
 						msg.arg2 = position;
 						myHandler.sendMessage(msg);
 					}
-					
+
 				}
 			});
-		 
-			
-			
-			
+
 			return convertView;
 		}
-		
-		
+
 		Handler myHandler = new Handler() {
 			public void handleMessage(Message msg) {
-				final String id=ershoufangdetails.get(msg.arg2).getId();
-				
-				UserInfo info=HouseGoApp.getContext().getCurrentUserInfo();
-				final String userid=info.getUserid();
-				final String username=info.getUsername();
-				
+				final String id = ershoufangdetails.get(msg.arg2).getId();
+
+				UserInfo info = HouseGoApp.getContext().getCurrentUserInfo();
+				final String userid = info.getUserid();
+				final String username = info.getUsername();
+
 				deletePresenter.deleteGuanZhu(id, userid, username);
 				ershoufangdetails.remove(msg.arg2);
 				adapter.notifyDataSetChanged();
 			}
 		};
-		
+
 		class ViewHolder {
 			TextView tvTitle;
 			TextView tvArea;
@@ -289,15 +268,15 @@ public class GZErShouFramgent extends Fragment implements IGuanZhuErShouView,IGu
 			TextView tvXiaoquName;
 			TextView tvJunjias;
 			ImageView ivImg;
-			
+
 			TextView item_right_txt;
 			LinearLayout item_left;
 			RelativeLayout item_right;
 		}
 	}
-	
+
 	/**
-	 * 				adapter��
-	 * **/
-	
+	 * adapter��
+	 **/
+
 }

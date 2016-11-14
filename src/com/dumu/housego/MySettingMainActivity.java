@@ -15,6 +15,7 @@ import android.widget.TextView;
 public class MySettingMainActivity extends Activity {
 	private LinearLayout llSettingBack;
 	private TextView tvLoginOut;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -23,49 +24,49 @@ public class MySettingMainActivity extends Activity {
 		setViews();
 		setListener();
 	}
+
 	private void setListener() {
 		llSettingBack.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				finish();
-				
+
 			}
 		});
-		
+
 		tvLoginOut.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				HouseGoApp.clearData(null);
 				Intent logoutIntent = new Intent(getApplicationContext(), LoginActivity.class);
-//                logoutIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(logoutIntent);	
-		
+				// logoutIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK |
+				// Intent.FLAG_ACTIVITY_NEW_TASK);
+				startActivity(logoutIntent);
+
 			}
 		});
-		
+
 	}
-	
-	
+
 	private void setViews() {
-		llSettingBack=(LinearLayout) findViewById(R.id.ll_setting_back);
-	tvLoginOut=(TextView) findViewById(R.id.tv_setting_LoginOut);
+		llSettingBack = (LinearLayout) findViewById(R.id.ll_setting_back);
+		tvLoginOut = (TextView) findViewById(R.id.tv_setting_LoginOut);
 	}
 
 	@Override
 	protected void onStop() {
-		
+
 		super.onStop();
 	}
-	
+
 	@Override
 	protected void onDestroy() {
-		
+
 		finish();
-		
+
 		super.onDestroy();
 	}
-	
-	
+
 }

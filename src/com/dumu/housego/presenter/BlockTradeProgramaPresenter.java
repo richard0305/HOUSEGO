@@ -12,37 +12,34 @@ import com.dumu.housego.model.IRecommendHouseModel;
 import com.dumu.housego.view.IBlockTradeProgramaView;
 import com.dumu.housego.view.IErShouFangRecommendView;
 
-public class BlockTradeProgramaPresenter implements IFourDataProgramePresenter{
+public class BlockTradeProgramaPresenter implements IFourDataProgramePresenter {
 	private IFourDataProgramaModel model;
 	private IBlockTradeProgramaView view;
-	
+
 	public BlockTradeProgramaPresenter(IBlockTradeProgramaView view) {
 		super();
 		this.view = view;
-		model=new BlockTradeProgramaModel();
+		model = new BlockTradeProgramaModel();
 	}
 
 	@Override
 	public void LoadProgrameData(FourDataPrograma fourdata) {
 		model.GetRecommedHouse(fourdata, new AsycnCallBack() {
-			
+
 			@Override
 			public void onSuccess(Object success) {
-				List<BlockTradeList>blocktrades=(List<BlockTradeList>) success;
+				List<BlockTradeList> blocktrades = (List<BlockTradeList>) success;
 				view.showData(blocktrades);
-				
+
 			}
-			
+
 			@Override
 			public void onError(Object error) {
 				// TODO Auto-generated method stub
-				
+
 			}
 		});
-		
+
 	}
-
-
-	
 
 }

@@ -31,7 +31,7 @@ import com.dumu.housego.util.UrlFactory;
 import android.os.AsyncTask;
 import android.util.Log;
 
-public class BlockTradeDetailModel implements IBlockTradeDetailaModel{
+public class BlockTradeDetailModel implements IBlockTradeDetailaModel {
 	private BlockTradeDetail b;
 
 	public BlockTradeDetailModel() {
@@ -40,35 +40,33 @@ public class BlockTradeDetailModel implements IBlockTradeDetailaModel{
 
 	@Override
 	public void FindBlockTradeDetail(final String catid, final String id, final AsycnCallBack back) {
-		
-		
-		
-	new AsyncTask<String, String, BlockTradeDetail>() {
 
-		@Override
-		protected BlockTradeDetail doInBackground(String... params) {
+		new AsyncTask<String, String, BlockTradeDetail>() {
 
-			try {
-				String url=UrlFactory.GetRecommendListToDetailUrlString(catid, id);
-				Map<String, String> map=new HashMap<String, String>();
-				map.put("catid",catid);
-				map.put("id", id);
-				String json=HttpUtils.isToString(HttpUtils.post(url, map));
-				BlockTradeDetail e=BlockTradeDetialJSONParse.parseSearch(json);
-				
-				return e;
-			} catch (IOException e) {
-				e.printStackTrace();
-			} catch (JSONException e) {
-				e.printStackTrace();
+			@Override
+			protected BlockTradeDetail doInBackground(String... params) {
+
+				try {
+					String url = UrlFactory.GetRecommendListToDetailUrlString(catid, id);
+					Map<String, String> map = new HashMap<String, String>();
+					map.put("catid", catid);
+					map.put("id", id);
+					String json = HttpUtils.isToString(HttpUtils.post(url, map));
+					BlockTradeDetail e = BlockTradeDetialJSONParse.parseSearch(json);
+
+					return e;
+				} catch (IOException e) {
+					e.printStackTrace();
+				} catch (JSONException e) {
+					e.printStackTrace();
+				}
+				return null;
 			}
-			return null;
-		}
 
-		protected void onPostExecute(BlockTradeDetail blocktradedetail) {
-			back.onSuccess(blocktradedetail);
-		}
-	}.execute();
+			protected void onPostExecute(BlockTradeDetail blocktradedetail) {
+				back.onSuccess(blocktradedetail);
+			}
+		}.execute();
 
-}
+	}
 }

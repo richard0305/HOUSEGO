@@ -34,17 +34,16 @@ public class ErShouFangProgramaModel implements IFourDataProgramaModel {
 
 			@Override
 			public void onResponse(String response) {
-				Log.i("YANGLIJUN", "<<<<<<<<<<<<<<<<<<---->>>>>>>>>>----data"+response);
+				Log.i("YANGLIJUN", "<<<<<<<<<<<<<<<<<<---->>>>>>>>>>----data" + response);
 				try {
 					List<ErShouFangRecommendData> ershoufangrecommends;
 					ershoufangrecommends = ErShouFangReconmendJSONParse.parseSearch(response);
-					Log.i("YANGLIJUN", "<<<<<<<<<<<<<<<<<<---->>>>>>>>>>----data"+ershoufangrecommends);
-					
+					Log.i("YANGLIJUN", "<<<<<<<<<<<<<<<<<<---->>>>>>>>>>----data" + ershoufangrecommends);
+
 					back.onSuccess(ershoufangrecommends);
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
-				
 
 			}
 		}, new ErrorListener() {
@@ -60,9 +59,9 @@ public class ErShouFangProgramaModel implements IFourDataProgramaModel {
 				Map<String, String> params = new HashMap<String, String>();
 				params.put("catid", fourdata.getCatid());
 				params.put("page", fourdata.getPage());
-//				params.put("catid", fourdata.getCatid());
-//				params.put("catid", fourdata.getCatid());
-				
+				// params.put("catid", fourdata.getCatid());
+				// params.put("catid", fourdata.getCatid());
+
 				return params;
 			}
 		};

@@ -9,34 +9,34 @@ import com.dumu.housego.model.IFourDataProgramaModel;
 import com.dumu.housego.model.IModel.AsycnCallBack;
 import com.dumu.housego.view.IErShouFangRecommendView;
 
-public class ErShouFangProgramaPresenter implements IFourDataProgramePresenter{
+public class ErShouFangProgramaPresenter implements IFourDataProgramePresenter {
 	private IFourDataProgramaModel model;
 	private IErShouFangRecommendView view;
-	
+
 	public ErShouFangProgramaPresenter(IErShouFangRecommendView view) {
 		super();
 		this.view = view;
-		model=new ErShouFangProgramaModel();
+		model = new ErShouFangProgramaModel();
 	}
 
 	@Override
 	public void LoadProgrameData(FourDataPrograma fourdata) {
 		model.GetRecommedHouse(fourdata, new AsycnCallBack() {
-			
+
 			@Override
 			public void onSuccess(Object success) {
-				List<ErShouFangRecommendData> ershoufangrecommends=(List<ErShouFangRecommendData>) success;
-				
+				List<ErShouFangRecommendData> ershoufangrecommends = (List<ErShouFangRecommendData>) success;
+
 				view.showData(ershoufangrecommends);
-				
+
 			}
-			
+
 			@Override
 			public void onError(Object error) {
-				
+
 			}
 		});
-		
+
 	}
 
 }

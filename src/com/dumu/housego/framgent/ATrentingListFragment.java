@@ -29,7 +29,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class ATrentingListFragment extends Fragment implements ISubmitRentingListView{
+public class ATrentingListFragment extends Fragment implements ISubmitRentingListView {
 	private TextView tv_agentrentinglist_submit;
 	private LinearLayout ll_back_agentrentinglist;
 	private ListView fragmentrentinglist;
@@ -38,16 +38,17 @@ public class ATrentingListFragment extends Fragment implements ISubmitRentingLis
 	private List<SubmitErshouList> submitershous;
 	private SubmitRentingListAdapter adapter;
 	List<RentingDetail> rentingdetails;
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View view=inflater.inflate(R.layout.fragment_agent_renting_list, null);
-		presenter=new SubmitRentinglistpresenter(this);
-		
-		userinfo=HouseGoApp.getContext().getCurrentUserInfo();
-		String username=userinfo.getUsername();
-		String userid=userinfo.getUserid();
-		String table="chuzu";
-		
+		View view = inflater.inflate(R.layout.fragment_agent_renting_list, null);
+		presenter = new SubmitRentinglistpresenter(this);
+
+		userinfo = HouseGoApp.getContext().getCurrentUserInfo();
+		String username = userinfo.getUsername();
+		String userid = userinfo.getUserid();
+		String table = "chuzu";
+
 		initView(view);
 		setListener();
 		presenter.SubmitRentingList(username, userid, table);
@@ -55,63 +56,61 @@ public class ATrentingListFragment extends Fragment implements ISubmitRentingLis
 	}
 
 	private void initView(View view) {
-		tv_agentrentinglist_submit=(TextView) view.findViewById(R.id.tv_agentrentinglist_submit);
-		ll_back_agentrentinglist=(LinearLayout) view.findViewById(R.id.ll_back_agentrentinglist);
-		fragmentrentinglist=(ListView) view.findViewById(R.id.fragmentrentinglist);
+		tv_agentrentinglist_submit = (TextView) view.findViewById(R.id.tv_agentrentinglist_submit);
+		ll_back_agentrentinglist = (LinearLayout) view.findViewById(R.id.ll_back_agentrentinglist);
+		fragmentrentinglist = (ListView) view.findViewById(R.id.fragmentrentinglist);
 	}
 
 	private void setListener() {
 		tv_agentrentinglist_submit.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Fragment fragment=new ATrentingSubmitFragment();
-				FragmentTransaction trans=getActivity().getSupportFragmentManager().beginTransaction();
+				Fragment fragment = new ATrentingSubmitFragment();
+				FragmentTransaction trans = getActivity().getSupportFragmentManager().beginTransaction();
 				trans.replace(R.id.fl_agent_fragment, fragment);
-				trans.commitAllowingStateLoss();	
+				trans.commitAllowingStateLoss();
 			}
 		});
-		
+
 		ll_back_agentrentinglist.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				getActivity().finish();
-				
+
 			}
 		});
-		
+
 		fragmentrentinglist.setOnItemClickListener(new OnItemClickListener() {
-					@Override
-					public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-						
-						Intent i = new Intent(getActivity(),RentingDetailActivity.class);
-						String Id=rentingdetails.get(position).getId();
-						String catid=rentingdetails.get(position).getCatid();
-						String posid=rentingdetails.get(position).getPosid();
-						
-						i.putExtra("id", Id);
-						i.putExtra("catid", catid);
-						i.putExtra("posid", posid);
-						startActivity(i);
-						
-					}
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+				Intent i = new Intent(getActivity(), RentingDetailActivity.class);
+				String Id = rentingdetails.get(position).getId();
+				String catid = rentingdetails.get(position).getCatid();
+				String posid = rentingdetails.get(position).getPosid();
+
+				i.putExtra("id", Id);
+				i.putExtra("catid", catid);
+				i.putExtra("posid", posid);
+				startActivity(i);
+
+			}
 		});
 	}
 
-
-
 	@Override
 	public void SubmitListError(String info) {
-		MyToastShowCenter.CenterToast(getActivity(),info);
-		
+		MyToastShowCenter.CenterToast(getActivity(), info);
+
 	}
 
 	@Override
 	public void SubmitListSuccess(List<RentingDetail> rentingdetails) {
-		this.rentingdetails=rentingdetails;
-		adapter=new SubmitRentingListAdapter(rentingdetails, getActivity());
+		this.rentingdetails = rentingdetails;
+		adapter = new SubmitRentingListAdapter(rentingdetails, getActivity());
 		fragmentrentinglist.setAdapter(adapter);
-		
+
 	}
 
 }

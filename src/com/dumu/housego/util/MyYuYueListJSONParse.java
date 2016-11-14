@@ -17,13 +17,13 @@ import com.google.gson.JsonObject;
 
 public class MyYuYueListJSONParse {
 	public static List<YuYueData> parseSearch(String json) throws JSONException {
-		JSONArray array = new JSONArray(json); 
+		JSONArray array = new JSONArray(json);
 		List<YuYueData> yuyuedatas = new ArrayList<YuYueData>();
 		for (int i = 0; i < array.length(); i++) {
 			JSONObject obj = array.getJSONObject(i);
 			YuYueData n = new YuYueData();
-			JSONObject obj2=obj.getJSONObject("house");
-			
+			JSONObject obj2 = obj.getJSONObject("house");
+
 			n.setCatid(obj.getString("catid"));
 			n.setFromid(obj.getString("fromid"));
 			n.setFromtable(obj.getString("fromtable"));
@@ -39,7 +39,6 @@ public class MyYuYueListJSONParse {
 			n.setYuyuetime(obj.getString("yuyuetime"));
 			n.setZhuangtai(obj.getString("zhuangtai"));
 
-			
 			yuyuedatas.add(n);
 		}
 		return yuyuedatas;

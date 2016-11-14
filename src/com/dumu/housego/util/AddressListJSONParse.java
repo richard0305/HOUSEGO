@@ -17,22 +17,20 @@ import com.google.gson.JsonObject;
 
 public class AddressListJSONParse {
 	public static List<Address> parseSearch(String json) throws JSONException {
-			JSONArray array = new JSONArray(json); 
-			List<Address> addresses = new ArrayList<Address>();
-			for (int i = 0; i < array.length(); i++) {
-				JSONObject obj = array.getJSONObject(i);
-				Address n = new Address();
-				n.setCid(obj.getString("cid"));
-				n.setId(obj.getString("id"));
-				n.setName(obj.getString("name"));
-				n.setPid(obj.getString("pid"));
-					
+		JSONArray array = new JSONArray(json);
+		List<Address> addresses = new ArrayList<Address>();
+		for (int i = 0; i < array.length(); i++) {
+			JSONObject obj = array.getJSONObject(i);
+			Address n = new Address();
+			n.setCid(obj.getString("cid"));
+			n.setId(obj.getString("id"));
+			n.setName(obj.getString("name"));
+			n.setPid(obj.getString("pid"));
 
-					addresses.add(n);	
-				
-			}
-			return addresses;
-		
+			addresses.add(n);
+
+		}
+		return addresses;
 
 	}
 

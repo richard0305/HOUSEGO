@@ -30,13 +30,13 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-public class RegistActivity extends Activity implements IPhoneCodeView,IRegistView,ICheckPhoneRegistView {
+public class RegistActivity extends Activity implements IPhoneCodeView, IRegistView, ICheckPhoneRegistView {
 	private Button btnSendCode, btnRegist;
 	private LinearLayout llBackLogin;
 	private IPhoneCodePresenter presenter;
 	private IRegistPresenter registpresenter;
 	private ICheckPhoneRegistPresenter checkPresenter;
-	
+
 	private EditText etPhoneNum;
 	private EditText etSmscode;
 	private EditText etPassword;
@@ -44,23 +44,22 @@ public class RegistActivity extends Activity implements IPhoneCodeView,IRegistVi
 	private RadioGroup rgRegistType;
 	private RadioButton rbAgent;
 
-	 Thread thread=null;
-	 private boolean tag12=true;
-	 private int i=60;
-	 public boolean  isChange=false;
-	 
-	 
+	Thread thread = null;
+	private boolean tag12 = true;
+	private int i = 60;
+	public boolean isChange = false;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_regist);
 		presenter = new PhoneCodePresenter(this);
-		registpresenter=new RegistPresenter(this);
-		checkPresenter=new CheckPhoneRegistPresenter(this);
+		registpresenter = new RegistPresenter(this);
+		checkPresenter = new CheckPhoneRegistPresenter(this);
 		setViews();
 		btnRegist.setEnabled(false);
 		btnSendCode.setEnabled(false);
-		
+
 		setListener();
 		FontHelper.injectFont(findViewById(android.R.id.content));
 	}
@@ -81,11 +80,10 @@ public class RegistActivity extends Activity implements IPhoneCodeView,IRegistVi
 				String number = etPhoneNum.getText().toString();
 				presenter.LoadMob(number + "");
 				btnSendCode.setClickable(true);
-	            isChange = true;
-	            
-	            changeBtnGetCode();
-	            
-				
+				isChange = true;
+
+				changeBtnGetCode();
+
 			}
 		});
 
@@ -93,8 +91,8 @@ public class RegistActivity extends Activity implements IPhoneCodeView,IRegistVi
 
 			@Override
 			public void onClick(View v) {
-				User user=new User();
-				String modelid=rbAgent.isChecked()?"36":"35";
+				User user = new User();
+				String modelid = rbAgent.isChecked() ? "36" : "35";
 				user.setUsername(etPhoneNum.getText().toString());
 				user.setModelid(modelid);
 				user.setPassword(etPassword.getText().toString());
@@ -102,31 +100,32 @@ public class RegistActivity extends Activity implements IPhoneCodeView,IRegistVi
 				user.setUsername(etPhoneNum.getText().toString());
 				user.setYzm(etSmscode.getText().toString());
 				registpresenter.Regist(user);
-				Toast.makeText(RegistActivity.this, "×¢²á³É¹¦£¡", Toast.LENGTH_SHORT).show();
+				Toast.makeText(RegistActivity.this, "×¢ï¿½ï¿½É¹ï¿½ï¿½ï¿½", Toast.LENGTH_SHORT).show();
 
 			}
 		});
-		
-		
+
 		etPhoneNum.addTextChangedListener(new TextWatcher() {
-			
+
 			@Override
 			public void onTextChanged(CharSequence s, int start, int before, int count) {
-				if(s.length()==11){
+				if (s.length() == 11) {
 					btnRegist.setEnabled(true);
-//					btnSendCode.setEnabled(true);
-					String mob=etPhoneNum.getText().toString();
+					// btnSendCode.setEnabled(true);
+					String mob = etPhoneNum.getText().toString();
 					checkPresenter.checkPhone(mob);
-					
-				}else{
+
+				} else {
 					btnRegist.setEnabled(false);
 					btnSendCode.setEnabled(false);
 				}
 			}
+
 			@Override
 			public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 				// TODO Auto-generated method stub
 			}
+
 			@Override
 			public void afterTextChanged(Editable s) {
 				// TODO Auto-generated method stub
@@ -135,122 +134,104 @@ public class RegistActivity extends Activity implements IPhoneCodeView,IRegistVi
 
 	}
 
-	
 	protected void changeBtnGetCode() {
 		thread = new Thread() {
-            @Override
-            public void run() {
-                if (tag12) {
-                    while (i > 0) {
-                        i--;
-                        if (RegistActivity.this== null) {
-                            break;
-                        }
-//                        µ±ÎÄ±¾¿òÄÚÈÝ¸Ä±äÊ±£¬½áÊøÑ­»·¡£
-                        if (isChange && !btnSendCode.isClickable()) {
-                            isChange = false;
-                            break;
-                        }
-                        RegistActivity.this.runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                            	btnSendCode.setText("ÖØ·¢(" + i + "s)");
-                            	btnSendCode.setClickable(false);
-                            }
-                        });
-                        try {
-                            Thread.sleep(1000);
-                        } catch (InterruptedException e) {
-                            throw new RuntimeException(e);
-                        }
-                    }
-                    tag12 = false;
-                }
-                i = 60;
-                tag12 = true;
-                if (RegistActivity.this != null) {
-                	RegistActivity.this.runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                        	btnSendCode.setText("·¢ËÍÑéÖ¤Âë");
-                        	btnSendCode.setClickable(true);
-                        }
-                    });
-                }
-            };
-        };
-        thread.start();
-	
-		
+			@Override
+			public void run() {
+				if (tag12) {
+					while (i > 0) {
+						i--;
+						if (RegistActivity.this == null) {
+							break;
+						}
+						// ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¸Ä±ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ­ï¿½ï¿½ï¿½ï¿½
+						if (isChange && !btnSendCode.isClickable()) {
+							isChange = false;
+							break;
+						}
+						RegistActivity.this.runOnUiThread(new Runnable() {
+							@Override
+							public void run() {
+								btnSendCode.setText("ï¿½Ø·ï¿½(" + i + "s)");
+								btnSendCode.setClickable(false);
+							}
+						});
+						try {
+							Thread.sleep(1000);
+						} catch (InterruptedException e) {
+							throw new RuntimeException(e);
+						}
+					}
+					tag12 = false;
+				}
+				i = 60;
+				tag12 = true;
+				if (RegistActivity.this != null) {
+					RegistActivity.this.runOnUiThread(new Runnable() {
+						@Override
+						public void run() {
+							btnSendCode.setText("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½");
+							btnSendCode.setClickable(true);
+						}
+					});
+				}
+			};
+		};
+		thread.start();
+
 	}
-
-	
-
-
 
 	private void setViews() {
 		btnSendCode = (Button) findViewById(R.id.btn_sendcode);
 		llBackLogin = (LinearLayout) findViewById(R.id.ll_back_login);
 		btnRegist = (Button) findViewById(R.id.btn_Regist);
-		etPhoneNum= (EditText) findViewById(R.id.et_phonenumb);
-		etPassword= (EditText) findViewById(R.id.et_password);
-		etRepassword= (EditText) findViewById(R.id.et_repassword);
-		etSmscode=(EditText) findViewById(R.id.et_smscode);
-		rbAgent=(RadioButton) findViewById(R.id.rb_agent);
-		
-		
+		etPhoneNum = (EditText) findViewById(R.id.et_phonenumb);
+		etPassword = (EditText) findViewById(R.id.et_password);
+		etRepassword = (EditText) findViewById(R.id.et_repassword);
+		etSmscode = (EditText) findViewById(R.id.et_smscode);
+		rbAgent = (RadioButton) findViewById(R.id.rb_agent);
 
 	}
 
 	@Override
 	public void setData(String infomation) {
-		Toast.makeText(RegistActivity.this, "·¢ËÍ³É¹¦£¡", Toast.LENGTH_SHORT).show();
+		Toast.makeText(RegistActivity.this, "ï¿½ï¿½ï¿½Í³É¹ï¿½ï¿½ï¿½", Toast.LENGTH_SHORT).show();
 	}
-
-
 
 	@Override
 	public void registSuccess() {
 		startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-		
+
 	}
 
 	@Override
 	public void registFail(String errorMessage) {
 		Toast.makeText(RegistActivity.this, errorMessage.toString(), Toast.LENGTH_SHORT).show();
-		
+
 	}
 
 	@Override
 	public void CheckSuccess(String info) {
-		
-		
-			
-		
-			btnSendCode.setEnabled(true);
-		
-		Log.i("yanglijun","info=------------------>>>>>>>>>>>>>>>>>>>>>" +info+"");
-		
+
+		btnSendCode.setEnabled(true);
+
+		Log.i("yanglijun", "info=------------------>>>>>>>>>>>>>>>>>>>>>" + info + "");
+
 		MyToastShowCenter.CenterToast(getApplicationContext(), info);
 	}
-	
-	
 
 	@Override
 	public void CheckFail(String errorMessage) {
-		if(!errorMessage.equals("¿ÉÒÔ×¢²á")){
+		if (!errorMessage.equals("ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½")) {
 			btnSendCode.setText(errorMessage);
 			btnSendCode.setEnabled(false);
-		}else{
+		} else {
 			btnSendCode.setEnabled(true);
-			btnSendCode.setText("·¢ËÍÑéÖ¤Âë");
+			btnSendCode.setText("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½");
 		}
-		
-		MyToastShowCenter.CenterToast(getApplicationContext(), errorMessage);
-		
-		
-		
-	}
 
+		MyToastShowCenter.CenterToast(getApplicationContext(), errorMessage);
+
+	}
 
 }

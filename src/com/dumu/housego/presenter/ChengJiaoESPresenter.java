@@ -8,37 +8,35 @@ import com.dumu.housego.model.IChengJiaoESModel;
 import com.dumu.housego.model.IModel.AsycnCallBack;
 import com.dumu.housego.view.IChengJiaoErShouView;
 
-public class ChengJiaoESPresenter implements IChengjiaoESPresenter{
+public class ChengJiaoESPresenter implements IChengjiaoESPresenter {
 
 	private IChengJiaoESModel model;
 	private IChengJiaoErShouView view;
-	
-	
-	
+
 	public ChengJiaoESPresenter(IChengJiaoErShouView view) {
 		super();
 		this.view = view;
-		model=new ChengJiaoESModel();
+		model = new ChengJiaoESModel();
 	}
 
 	@Override
 	public void ChengJiaoES(String username, String table) {
 		model.ChengJiaoES(username, table, new AsycnCallBack() {
-			
+
 			@Override
 			public void onSuccess(Object success) {
-				List<ErShouFangDetails>ershoudetails=(List<ErShouFangDetails>) success;
+				List<ErShouFangDetails> ershoudetails = (List<ErShouFangDetails>) success;
 				view.ChengjiaoErShouSuccess(ershoudetails);
-				
+
 			}
-			
+
 			@Override
 			public void onError(Object error) {
 				view.chengjiaoErShouFail(error.toString());
-				
+
 			}
 		});
-		
+
 	}
 
 }

@@ -16,37 +16,38 @@ import com.dumu.housego.util.CommonRequest;
 import com.dumu.housego.util.UrlFactory;
 import com.google.gson.JsonObject;
 
-public class FindPasswordCodeModel implements IFindPasswordCodeModel{
+public class FindPasswordCodeModel implements IFindPasswordCodeModel {
 
 	public FindPasswordCodeModel() {
 		super();
 	}
+
 	@Override
 	public void Findcode(final String phonenum, final AsycnCallBack back) {
-		String url=UrlFactory.PostFindPasswordCodeUrl();
-		CommonRequest request=new CommonRequest(Request.Method.POST, url, new Listener<String>() {
+		String url = UrlFactory.PostFindPasswordCodeUrl();
+		CommonRequest request = new CommonRequest(Request.Method.POST, url, new Listener<String>() {
 
 			@Override
 			public void onResponse(String response) {
 				try {
 					JSONObject obj = new JSONObject(response);
-					if (obj.getString("success")=="11") {
-						String info=obj.getString("info");
+					if (obj.getString("success") == "11") {
+						String info = obj.getString("info");
 						back.onSuccess(info);
 					}
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
-				
+
 			}
 		}, new ErrorListener() {
 
 			@Override
 			public void onErrorResponse(VolleyError error) {
 				back.onError(error.getMessage());
-				
+
 			}
-		}){
+		}) {
 			@Override
 			protected Map<String, String> getParams() throws AuthFailureError {
 				Map<String, String> params = new HashMap<String, String>();
@@ -55,7 +56,7 @@ public class FindPasswordCodeModel implements IFindPasswordCodeModel{
 			}
 		};
 		HouseGoApp.getQueue().add(request);
-		
+
 	}
 
 }

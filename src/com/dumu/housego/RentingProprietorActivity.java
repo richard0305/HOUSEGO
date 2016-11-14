@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 
 public class RentingProprietorActivity extends Activity {
 	private LinearLayout llRentingProprietorBack;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -18,20 +19,22 @@ public class RentingProprietorActivity extends Activity {
 		setViews();
 		setListeners();
 	}
+
 	private void setListeners() {
 		llRentingProprietorBack.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				finish();
-				
+
 			}
 		});
-		
+
 	}
+
 	private void setViews() {
-		llRentingProprietorBack=(LinearLayout) findViewById(R.id.ll_renting_proprietor_back);
-		
+		llRentingProprietorBack = (LinearLayout) findViewById(R.id.ll_renting_proprietor_back);
+
 	}
 
 }

@@ -24,11 +24,9 @@ public class Utils {
 	 * @param photoName
 	 * @param path
 	 */
-	public static String savePhoto(Bitmap photoBitmap, String path,
-			String photoName) {
+	public static String savePhoto(Bitmap photoBitmap, String path, String photoName) {
 		String localPath = null;
-		if (android.os.Environment.getExternalStorageState().equals(
-				android.os.Environment.MEDIA_MOUNTED)) {
+		if (android.os.Environment.getExternalStorageState().equals(android.os.Environment.MEDIA_MOUNTED)) {
 			File dir = new File(path);
 			if (!dir.exists()) {
 				dir.mkdirs();
@@ -39,8 +37,7 @@ public class Utils {
 			try {
 				fileOutputStream = new FileOutputStream(photoFile);
 				if (photoBitmap != null) {
-					if (photoBitmap.compress(Bitmap.CompressFormat.PNG, 100,
-							fileOutputStream)) { // ת�����
+					if (photoBitmap.compress(Bitmap.CompressFormat.PNG, 100, fileOutputStream)) { // ת�����
 						localPath = photoFile.getPath();
 						fileOutputStream.flush();
 					}
@@ -110,10 +107,8 @@ public class Utils {
 
 		final int color = 0xff424242;
 		final Paint paint = new Paint();
-		final Rect src = new Rect((int) left, (int) top, (int) right,
-				(int) bottom);
-		final Rect dst = new Rect((int) dst_left, (int) dst_top,
-				(int) dst_right, (int) dst_bottom);
+		final Rect src = new Rect((int) left, (int) top, (int) right, (int) bottom);
+		final Rect dst = new Rect((int) dst_left, (int) dst_top, (int) dst_right, (int) dst_bottom);
 		final RectF rectF = new RectF(dst);
 
 		paint.setAntiAlias(true);// ���û����޾��

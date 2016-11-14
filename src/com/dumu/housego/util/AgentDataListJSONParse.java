@@ -17,22 +17,20 @@ import com.google.gson.JsonObject;
 
 public class AgentDataListJSONParse {
 	public static List<AgentData> parseSearch(String json) throws JSONException {
-		JSONArray array = new JSONArray(json); 
+		JSONArray array = new JSONArray(json);
 		List<AgentData> agentdatas = new ArrayList<AgentData>();
 		for (int i = 0; i < array.length(); i++) {
 			JSONObject obj = array.getJSONObject(i);
 			AgentData n = new AgentData();
-			JSONObject obj2=obj.getJSONObject("info");
-			
+			JSONObject obj2 = obj.getJSONObject("info");
+
 			n.setRealname(obj.getString("realname"));
 			n.setMainarea(obj.getString("mainarea"));
 			n.setDengji(obj.getString("dengji"));
 			n.setBiaoqian(obj.getString("biaoqian"));
 			n.setCtel(obj2.getString("vtel"));
 			n.setUserpic(obj2.getString("userpic"));
-			
 
-			
 			agentdatas.add(n);
 		}
 		return agentdatas;

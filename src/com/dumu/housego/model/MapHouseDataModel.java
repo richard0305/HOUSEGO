@@ -21,41 +21,41 @@ import com.dumu.housego.util.UrlFactory;
 
 import android.util.Log;
 
-public class MapHouseDataModel  implements IMapHouseDataModel{
+public class MapHouseDataModel implements IMapHouseDataModel {
 
 	@Override
 	public void LoadMapHouseData(final String fromtable, final AsycnCallBack back) {
-		String url=UrlFactory.PostXingzhengHouseUrl();
-		CommonRequest request=new CommonRequest(Method.POST, url, new Listener<String>() {
+		String url = UrlFactory.PostXingzhengHouseUrl();
+		CommonRequest request = new CommonRequest(Method.POST, url, new Listener<String>() {
 
 			@Override
 			public void onResponse(String response) {
 				try {
-					List<AreaHouse>areahouses=MapHouseDataParse.parseSearch(response);
+					List<AreaHouse> areahouses = MapHouseDataParse.parseSearch(response);
 					Log.e("xxxxxxxxxxxxxxxxxxxxxx00000000000", areahouses.toString());
 					back.onSuccess(areahouses);
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
-				
+
 			}
 		}, new ErrorListener() {
 
 			@Override
 			public void onErrorResponse(VolleyError error) {
 				back.onError(error.getMessage());
-				
+
 			}
-		}){
+		}) {
 			@Override
 			protected Map<String, String> getParams() throws AuthFailureError {
-			Map<String, String>map=new HashMap<String, String>();
-			map.put("fromtable", fromtable);
-			return map;
+				Map<String, String> map = new HashMap<String, String>();
+				map.put("fromtable", fromtable);
+				return map;
 			}
 		};
 		HouseGoApp.getQueue().add(request);
-		
+
 	}
 
 }

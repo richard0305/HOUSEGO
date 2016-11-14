@@ -30,7 +30,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class ATershouListFragment extends Fragment implements ISubmitErShouListView{
+public class ATershouListFragment extends Fragment implements ISubmitErShouListView {
 	private LinearLayout ll_back_agentershoulist;
 	private TextView tv_agentershoulist_submit;
 	private ListView fragmentershoulist;
@@ -38,21 +38,23 @@ public class ATershouListFragment extends Fragment implements ISubmitErShouListV
 	private ISubmitErShouListpresenter presenter;
 	private UserInfo userinfo;
 	List<ErShouFangDetails> ershoudetails;
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View view=inflater.inflate(R.layout.fragment_agent_ershou_list, null);
-		presenter=new SubmitErShoulistpresenter(this);
-		
-		userinfo=HouseGoApp.getContext().getCurrentUserInfo();
-		String username=userinfo.getUsername();
-		String userid=userinfo.getUserid();
-		String table="ershou";
-		
+		View view = inflater.inflate(R.layout.fragment_agent_ershou_list, null);
+		presenter = new SubmitErShoulistpresenter(this);
+
+		userinfo = HouseGoApp.getContext().getCurrentUserInfo();
+		String username = userinfo.getUsername();
+		String userid = userinfo.getUserid();
+		String table = "ershou";
+
 		initview(view);
 		setListener();
 		presenter.SubmitErShouList(username, userid, table);
 		return view;
 	}
+
 	private void setListener() {
 		ll_back_agentershoulist.setOnClickListener(new OnClickListener() {
 			@Override
@@ -60,54 +62,54 @@ public class ATershouListFragment extends Fragment implements ISubmitErShouListV
 				getActivity().finish();
 			}
 		});
-		
+
 		tv_agentershoulist_submit.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Fragment fragment=new ATershouSubmitFragment();
-				FragmentTransaction trans=getActivity().getSupportFragmentManager().beginTransaction();
+				Fragment fragment = new ATershouSubmitFragment();
+				FragmentTransaction trans = getActivity().getSupportFragmentManager().beginTransaction();
 				trans.replace(R.id.fl_agent_fragment, fragment);
-				trans.commitAllowingStateLoss();	
+				trans.commitAllowingStateLoss();
 			}
 		});
-		
+
 		fragmentershoulist.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-			
-				Intent i = new Intent(getActivity(),ErShouFangDetailsActivity.class);
-				String Id=ershoudetails.get(position).getId();
-				String catid=ershoudetails.get(position).getCatid();
-				String posid=ershoudetails.get(position).getPosid();
-				
+
+				Intent i = new Intent(getActivity(), ErShouFangDetailsActivity.class);
+				String Id = ershoudetails.get(position).getId();
+				String catid = ershoudetails.get(position).getCatid();
+				String posid = ershoudetails.get(position).getPosid();
+
 				i.putExtra("id", Id);
 				i.putExtra("catid", catid);
 				i.putExtra("posid", posid);
 				startActivity(i);
-				
-				
+
 			}
 		});
-		
+
 	}
+
 	private void initview(View view) {
-		ll_back_agentershoulist=(LinearLayout) view.findViewById(R.id.ll_back_agentershoulist);
-		tv_agentershoulist_submit=(TextView) view.findViewById(R.id.tv_agentershoulist_submit);
-		fragmentershoulist=(ListView) view.findViewById(R.id.fragmentershoulist);
+		ll_back_agentershoulist = (LinearLayout) view.findViewById(R.id.ll_back_agentershoulist);
+		tv_agentershoulist_submit = (TextView) view.findViewById(R.id.tv_agentershoulist_submit);
+		fragmentershoulist = (ListView) view.findViewById(R.id.fragmentershoulist);
 	}
-	
-	
+
 	@Override
 	public void SubmitListError(String info) {
-		MyToastShowCenter.CenterToast(getActivity(),info);
-		
+		MyToastShowCenter.CenterToast(getActivity(), info);
+
 	}
+
 	@Override
 	public void SubmitListSuccess(List<ErShouFangDetails> ershoudetails) {
-		this.ershoudetails=ershoudetails;
-		adapter=new SubmitErshouListAdapter(ershoudetails, getActivity());
+		this.ershoudetails = ershoudetails;
+		adapter = new SubmitErshouListAdapter(ershoudetails, getActivity());
 		fragmentershoulist.setAdapter(adapter);
-		
+
 	}
 }

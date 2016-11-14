@@ -19,11 +19,13 @@ import com.google.gson.JsonObject;
 
 import android.util.Log;
 
-public class LoginUserInfoModel implements ILoginUserInfoModel{
+public class LoginUserInfoModel implements ILoginUserInfoModel {
 	private UserInfo userinfo;
+
 	public LoginUserInfoModel() {
 		super();
 	}
+
 	@Override
 	public void login(final String userid, final AsycnCallBack back) {
 		String url = UrlFactory.PostLoginUserInfoUrl();
@@ -31,11 +33,11 @@ public class LoginUserInfoModel implements ILoginUserInfoModel{
 
 			@Override
 			public void onResponse(String response) {
-				
-				Log.e("yangl;ijun", "1111111111111````````````11111111111"+response);
+
+				Log.e("yangl;ijun", "1111111111111````````````11111111111" + response);
 				try {
 					JSONObject obj = new JSONObject(response);
-					userinfo=new UserInfo();
+					userinfo = new UserInfo();
 					userinfo.setUserid(obj.getString("userid"));
 					userinfo.setUsername(obj.getString("username"));
 					userinfo.setPassword(obj.getString("password"));
@@ -70,13 +72,13 @@ public class LoginUserInfoModel implements ILoginUserInfoModel{
 					userinfo.setZhuanjie(obj.getString("zhuanjie"));
 					userinfo.setDeptid(obj.getString("deptid"));
 					userinfo.setAgentid(obj.getString("agentid"));
-					
-					JSONObject j=obj.getJSONObject("info");
-					
+
+					JSONObject j = obj.getJSONObject("info");
+
 					userinfo.setRealname(j.getString("realname"));
-					
+
 					userinfo.setJiav(j.getString("jiav"));
-					if(obj.getString("modelid").equals("36")){
+					if (obj.getString("modelid").equals("36")) {
 						userinfo.setWorktime(j.getString("worktime"));
 						userinfo.setDengji(j.getString("dengji"));
 						userinfo.setCardnumber(j.getString("cardnumber"));
@@ -86,30 +88,25 @@ public class LoginUserInfoModel implements ILoginUserInfoModel{
 						userinfo.setSfzpic(j.getString("sfzpic"));
 						userinfo.setConame(j.getString("coname"));
 					}
-					
-					
-					HouseGoApp app=HouseGoApp.getContext();
+
+					HouseGoApp app = HouseGoApp.getContext();
 					app.SaveCurrentUserInfo(userinfo);
-			
-					
-					
+
 					back.onSuccess(userinfo);
-					
-					
+
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
-				
-				
+
 			}
 		}, new ErrorListener() {
 
 			@Override
 			public void onErrorResponse(VolleyError error) {
 				back.onError(error.getMessage());
-				
+
 			}
-		}){
+		}) {
 			@Override
 			protected Map<String, String> getParams() throws AuthFailureError {
 				Map<String, String> params = new HashMap<String, String>();
@@ -118,7 +115,7 @@ public class LoginUserInfoModel implements ILoginUserInfoModel{
 			}
 		};
 		HouseGoApp.getQueue().add(request);
-		
+
 	}
 
 }

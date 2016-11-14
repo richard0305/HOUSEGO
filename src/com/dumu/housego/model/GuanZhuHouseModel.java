@@ -21,22 +21,23 @@ import android.util.Log;
 public class GuanZhuHouseModel implements IGuanZhuHouseModel {
 
 	@Override
-	public void LoadGuanZhuHouse(final String fromid, final String fromtable,final String userid,final String username,final String type,final String t,
-			final AsycnCallBack back) {
-//		String url=UrlFactory.PostGuanZhuHouseUrl();
-		String url="http://www.taoshenfang.com/index.php?g=api&m=house&a=guanzhu_add";
-		Log.e("============2016-10-10=============", "2016-10-10"+fromid+" "+fromtable+" "+userid+" "+username+" "+type+" "+t);
-		CommonRequest request=new CommonRequest(Method.POST, url, new Listener<String>() {
+	public void LoadGuanZhuHouse(final String fromid, final String fromtable, final String userid,
+			final String username, final String type, final String t, final AsycnCallBack back) {
+		// String url=UrlFactory.PostGuanZhuHouseUrl();
+		String url = "http://www.taoshenfang.com/index.php?g=api&m=house&a=guanzhu_add";
+		Log.e("============2016-10-10=============",
+				"2016-10-10" + fromid + " " + fromtable + " " + userid + " " + username + " " + type + " " + t);
+		CommonRequest request = new CommonRequest(Method.POST, url, new Listener<String>() {
 
 			@Override
 			public void onResponse(String response) {
-			
-				Log.e("============2016-10-10=============", "2016-10-10"+response);
-				
+
+				Log.e("============2016-10-10=============", "2016-10-10" + response);
+
 				try {
 					JSONObject obj = new JSONObject(response);
 					if (obj.getInt("success") == 90) {
-						String infomation=obj.getString("info").toString();
+						String infomation = obj.getString("info").toString();
 						back.onSuccess(infomation);
 					} else {
 						back.onError(obj.getString("info"));
@@ -44,19 +45,18 @@ public class GuanZhuHouseModel implements IGuanZhuHouseModel {
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
-				
+
 			}
 		}, new ErrorListener() {
 
 			@Override
 			public void onErrorResponse(VolleyError error) {
-				
-				
+
 			}
-		}){
+		}) {
 			@Override
 			protected Map<String, String> getParams() throws AuthFailureError {
-				Map<String, String >param=new HashMap<String, String>();
+				Map<String, String> param = new HashMap<String, String>();
 				param.put("fromid", fromid);
 				param.put("fromtable", fromtable);
 				param.put("userid", userid);
@@ -67,7 +67,7 @@ public class GuanZhuHouseModel implements IGuanZhuHouseModel {
 			}
 		};
 		HouseGoApp.getQueue().add(request);
-		
+
 	}
 
 }

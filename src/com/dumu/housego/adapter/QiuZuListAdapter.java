@@ -25,13 +25,12 @@ public class QiuZuListAdapter extends BaseAdapter {
 	private List<QiuZuBuyHouseList> qiuzulists;
 	private Context context;
 	private LayoutInflater Inflater;
-	
 
 	public QiuZuListAdapter(List<QiuZuBuyHouseList> qiuzulists, Context context) {
 		super();
 		this.qiuzulists = qiuzulists;
 		this.context = context;
-		this.Inflater=LayoutInflater.from(context);
+		this.Inflater = LayoutInflater.from(context);
 	}
 
 	@Override
@@ -41,7 +40,7 @@ public class QiuZuListAdapter extends BaseAdapter {
 
 	@Override
 	public QiuZuBuyHouseList getItem(int position) {
-		
+
 		return qiuzulists.get(position);
 	}
 
@@ -53,40 +52,35 @@ public class QiuZuListAdapter extends BaseAdapter {
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		ViewHolder holder;
-		if(convertView==null){
-			convertView=Inflater.inflate(R.layout.item_qiuzu_list, null);
+		if (convertView == null) {
+			convertView = Inflater.inflate(R.layout.item_qiuzu_list, null);
 			holder = new ViewHolder();
-			holder.tvDetails=(TextView) convertView.findViewById(R.id.tv_qiuzulist_detail);
-			holder.tvTime=(TextView) convertView.findViewById(R.id.tv_qiuzulist_time);
-			holder.tvTitle=(TextView) convertView.findViewById(R.id.tv_qiuzulist_title);
-			
-		
+			holder.tvDetails = (TextView) convertView.findViewById(R.id.tv_qiuzulist_detail);
+			holder.tvTime = (TextView) convertView.findViewById(R.id.tv_qiuzulist_time);
+			holder.tvTitle = (TextView) convertView.findViewById(R.id.tv_qiuzulist_title);
+
 			convertView.setTag(holder);
-		}else{
+		} else {
 			holder = (ViewHolder) convertView.getTag();
 		}
-		
-		QiuZuBuyHouseList n=getItem(position);
-			
-		
+
+		QiuZuBuyHouseList n = getItem(position);
+
 		holder.tvTitle.setText(n.getTitle());
-		
-		String time=TimeTurnDate.getStringDateMoreMORE(Long.valueOf(n.getInputtime()));
+
+		String time = TimeTurnDate.getStringDateMoreMORE(Long.valueOf(n.getInputtime()));
 		holder.tvTime.setText(time);
-		
-		
-		
-		holder.tvDetails.setText(n.getZulin()+" / "+n.getShi()+"室 / "+n.getZujinrange()+"元");
-		
-		
+
+		holder.tvDetails.setText(n.getZulin() + " / " + n.getShi() + "室 / " + n.getZujinrange() + "元");
+
 		return convertView;
-		
+
 	}
-	
+
 	class ViewHolder {
 		TextView tvTitle;
 		TextView tvDetails;
 		TextView tvTime;
-	
+
 	}
 }

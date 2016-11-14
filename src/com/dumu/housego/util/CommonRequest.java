@@ -16,18 +16,16 @@ import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.StringRequest;
 
 /**
- * Created by yanglijun 2016-6-27ÏÂÎç3:29:13
+ * Created by yanglijun 2016-6-27ï¿½ï¿½ï¿½ï¿½3:29:13
  */
 public class CommonRequest extends StringRequest {
 	public static String JSESSIONID = null;
 
-	public CommonRequest(int method, String url, Listener<String> listener,
-			ErrorListener errorListener) {
+	public CommonRequest(int method, String url, Listener<String> listener, ErrorListener errorListener) {
 		super(method, url, listener, errorListener);
 	}
 
-	public CommonRequest(String url, Response.Listener<String> listener,
-			Response.ErrorListener errorListener) {
+	public CommonRequest(String url, Response.Listener<String> listener, Response.ErrorListener errorListener) {
 		super(url, listener, errorListener);
 	}
 
@@ -53,13 +51,11 @@ public class CommonRequest extends StringRequest {
 		}
 		String parsed;
 		try {
-			parsed = new String(response.data,
-					HttpHeaderParser.parseCharset(response.headers));
+			parsed = new String(response.data, HttpHeaderParser.parseCharset(response.headers));
 		} catch (UnsupportedEncodingException e) {
 			parsed = new String(response.data);
 		}
-		return Response.success(parsed,
-				HttpHeaderParser.parseCacheHeaders(response));
+		return Response.success(parsed, HttpHeaderParser.parseCacheHeaders(response));
 	}
 
 }

@@ -19,19 +19,20 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 import android.widget.ListView;
 
-public class AgentMainActivity extends Activity implements IAgentModelDataView{
+public class AgentMainActivity extends Activity implements IAgentModelDataView {
 	private ImageView ivAgentBack;
 	private ListView lvAgentList;
 	private AgentDataAdapter agentDataAdapter;
-	private List<AgentData>agentdatas;
+	private List<AgentData> agentdatas;
 	private IAgentModelDataPresenter presenter;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_agent_main);
 		FontHelper.injectFont(findViewById(android.R.id.content));
-		presenter=new AgentModelDataPresenter(this);
-		String catid="52";
+		presenter = new AgentModelDataPresenter(this);
+		String catid = "52";
 		presenter.FindAgentModelData(catid);
 		setViews();
 		setListener();
@@ -44,31 +45,30 @@ public class AgentMainActivity extends Activity implements IAgentModelDataView{
 				finish();
 			}
 		});
-		
+
 		lvAgentList.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				Intent i=new Intent(getApplicationContext(), AgentDetailActivity.class);
-				
-				
+				Intent i = new Intent(getApplicationContext(), AgentDetailActivity.class);
+
 				startActivity(i);
 			}
 		});
-		
+
 	}
 
 	private void setViews() {
-		ivAgentBack=(ImageView) findViewById(R.id.iv_agent_back);
-		lvAgentList=(ListView) findViewById(R.id.lv_agent_list);
+		ivAgentBack = (ImageView) findViewById(R.id.iv_agent_back);
+		lvAgentList = (ListView) findViewById(R.id.lv_agent_list);
 	}
 
 	@Override
 	public void showAgentModelData(List<AgentData> agentdatas) {
-		this.agentdatas=agentdatas;
-		agentDataAdapter=new AgentDataAdapter(agentdatas, this);
+		this.agentdatas = agentdatas;
+		agentDataAdapter = new AgentDataAdapter(agentdatas, this);
 		lvAgentList.setAdapter(agentDataAdapter);
-		
+
 	}
 
 }

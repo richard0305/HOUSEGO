@@ -1,7 +1,8 @@
 package com.dumu.housego.presenter;
+
 /**
- *Created by yanglijun 2016-6-28ионГ9:24:01
+ * Created by yanglijun 2016-6-28О©╫О©╫О©╫О©╫9:24:01
  */
 public interface IErShouFangDetailPresenter {
-	void FindErShouFangdetail(String catid,String id);
+	void FindErShouFangdetail(String catid, String id);
 }

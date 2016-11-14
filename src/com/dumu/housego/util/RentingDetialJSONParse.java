@@ -8,11 +8,11 @@ import com.dumu.housego.entity.NewHouseDetail;
 import com.dumu.housego.entity.RentingDetail;
 
 public class RentingDetialJSONParse {
-	
+
 	public static RentingDetail parseSearch(String json) throws JSONException {
-		JSONObject j = new JSONObject(json); 
+		JSONObject j = new JSONObject(json);
 		RentingDetail n = new RentingDetail();
-			
+
 		n.setAddress(j.getString("address"));
 		n.setArea(j.getString("area"));
 		n.setAreaname(j.getString("areaname"));
@@ -59,7 +59,7 @@ public class RentingDetialJSONParse {
 		n.setShenghuopeitao(j.getString("shenghuopeitao"));
 		n.setShi(j.getString("shi"));
 		n.setShuxing(j.getString("shuxing"));
-		
+
 		n.setStatus(j.getString("status"));
 		n.setStyle(j.getString("style"));
 		n.setSysadd(j.getString("sysadd"));
@@ -89,8 +89,7 @@ public class RentingDetialJSONParse {
 		n.setZulin(j.getString("zulin"));
 		n.setZxdesc(j.getString("zxdesc"));
 		n.setZuobiaodizhi(j.getString("zuobiaodizhi"));
-		
-			
+
 		return n;
 
 	}
