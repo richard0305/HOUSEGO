@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:ignore="ObsoleteLayoutParam,RtlSymmetry,UnknownIdInLayout,TextFields,HardcodedText,RtlHardcoded,InefficientWeight,ContentDescription,UselessLeaf,LabelFor,UselessParent" >
+    tools:ignore="ObsoleteLayoutParam,RtlSymmetry,UnknownIdInLayout,TextFields,HardcodedText,RtlHardcoded,InefficientWeight,ContentDescription,UselessLeaf,LabelFor,UselessParent,UseCompoundDrawables" >
 
     
     <RelativeLayout
@@ -95,7 +95,7 @@
                         android:layout_toRightOf="@+id/TextView03111"
                         android:background="#ffffff"
                         android:gravity="right|center_vertical"
-                        android:text="龙岗新区 布吉"
+                        android:text=""
                         android:textSize="14sp" />
                 </RelativeLayout>
 
@@ -121,17 +121,70 @@
                         android:textSize="14sp" />
 
                     <TextView
-                        android:id="@+id/et_ershou_xiaoquname"
+                        android:id="@+id/tv_ershou_xiaoquname"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="30dp"
+                        android:paddingRight="10dp"
                         android:layout_toRightOf="@+id/textView2121"
                         android:background="@null"
+                        android:text=""
                         android:gravity="right|center_vertical"
                         android:textSize="14sp" />
                 </RelativeLayout>
+                
+                
+                     <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#c9c9cb" />
+
+                <RelativeLayout
+                    android:layout_marginTop="20dp"
+                    android:background="#ffffff"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp" >
+
+                    <TextView
+                        android:id="@+id/taoneimianji_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:text=""
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/TextView5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBaseline="@+id/taoneimianji_1"
+                        android:layout_alignBottom="@+id/taoneimianji_1"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="center_vertical"
+                        android:text="*称呼:"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/et_ershou_chenghu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="2dp"
+                        android:layout_toLeftOf="@+id/taoneimianji_1"
+                        android:background="@null"
+                        android:ems="10"
+                        android:gravity="right|center_vertical"
+                         android:text=""
+                        android:textSize="14sp" >
+                    </EditText>
+                </RelativeLayout>
+                
 
                 <Button
                     android:layout_width="match_parent"
@@ -142,7 +195,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:background="#ffffff"
-                    android:layout_marginTop="20dp" >
+                     >
 
                     <TextView
                         android:id="@+id/textView14"
@@ -177,7 +230,7 @@
                         android:background="@null"
                         android:ems="10"
                         android:gravity="right|center_vertical"
-                        android:hint="sds"
+                       android:text=""
                         android:textSize="14sp" >
                     </EditText>
                 </RelativeLayout>
@@ -187,101 +240,7 @@
                     android:layout_height="1dp"
                     android:background="#c9c9cb" />
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:background="#ffffff"
-                    android:layout_height="45dp" >
-
-                    <TextView
-                        android:id="@+id/zhujianmianji_1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="10dp"
-                        android:text="㎡"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/TextView1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignBaseline="@+id/zhujianmianji_1"
-                        android:layout_alignBottom="@+id/zhujianmianji_1"
-                        android:layout_alignParentLeft="true"
-                        android:layout_marginLeft="10dp"
-                        android:gravity="center_vertical"
-                        android:text="*建筑面积:"
-                        android:textSize="14sp" />
-
-                    <EditText
-                        android:id="@+id/et_ershou_jianzhumianji"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginRight="2dp"
-                        android:layout_toLeftOf="@+id/zhujianmianji_1"
-                        android:background="@null"
-                        android:ems="10"
-                        android:gravity="right|center_vertical"
-                        android:hint="sds"
-                        android:textSize="14sp" >
-                    </EditText>
-                </RelativeLayout>
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#c9c9cb" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:background="#ffffff"
-                    android:layout_height="45dp" >
-
-                    <TextView
-                        android:id="@+id/fangling_1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="10dp"
-                        android:text="年"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/TextView2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignBaseline="@+id/fangling_1"
-                        android:layout_alignBottom="@+id/fangling_1"
-                        android:layout_alignParentLeft="true"
-                        android:layout_marginLeft="10dp"
-                        android:gravity="center_vertical"
-                        android:text="*房  龄:"
-                        android:textSize="14sp" />
-
-                    <EditText
-                        android:id="@+id/et_ershou_fangling"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginRight="2dp"
-                        android:layout_toLeftOf="@+id/fangling_1"
-                        android:background="@null"
-                        android:ems="10"
-                        android:gravity="right|center_vertical"
-                        android:hint="sds"
-                        android:textSize="14sp" >
-                    </EditText>
-                </RelativeLayout>
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#c9c9cb" />
+                
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -321,7 +280,7 @@
                         android:background="@null"
                         android:ems="10"
                         android:gravity="right|center_vertical"
-                        android:hint="sds"
+                          android:text=""
                         android:textSize="14sp" >
                     </EditText>
                 </RelativeLayout>
@@ -369,58 +328,12 @@
                         android:background="@null"
                         android:ems="10"
                         android:gravity="right|center_vertical"
-                        android:hint="sds"
+                        android:text=""
                         android:textSize="14sp" >
                     </EditText>
                 </RelativeLayout>
 
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#c9c9cb" />
-
-                <RelativeLayout
-                    android:background="#ffffff"
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp" >
-
-                    <TextView
-                        android:id="@+id/taoneimianji_1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="10dp"
-                        android:text="㎡"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/TextView5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignBaseline="@+id/taoneimianji_1"
-                        android:layout_alignBottom="@+id/taoneimianji_1"
-                        android:layout_alignParentLeft="true"
-                        android:layout_marginLeft="10dp"
-                        android:gravity="center_vertical"
-                        android:text="套内面积:"
-                        android:textSize="14sp" />
-
-                    <EditText
-                        android:id="@+id/et_ershou_taoneimianji"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginRight="2dp"
-                        android:layout_toLeftOf="@+id/taoneimianji_1"
-                        android:background="@null"
-                        android:ems="10"
-                        android:gravity="right|center_vertical"
-                        android:hint="sds"
-                        android:textSize="14sp" >
-                    </EditText>
-                </RelativeLayout>
+           
 
                 <Button
                     android:layout_width="match_parent"
@@ -456,7 +369,7 @@
                         android:layout_toRightOf="@+id/Tv13"
                         android:background="#ffffff"
                         android:gravity="right|center_vertical"
-                        android:text="ewewewewewe"
+                        android:text=""
                         android:textSize="14sp" />
                 </RelativeLayout>
 
@@ -493,7 +406,7 @@
                         android:layout_toRightOf="@+id/louceng1"
                         android:background="#ffffff"
                         android:gravity="right|center_vertical"
-                        android:text="ewewewewewe"
+                        android:text=""
                         android:textSize="14sp" />
                 </RelativeLayout>
 
@@ -529,7 +442,7 @@
                         android:layout_toRightOf="@+id/loucengMeau1"
                         android:background="#ffffff"
                         android:gravity="right|center_vertical"
-                        android:text="ewewewewewe"
+                        android:text=""
                         android:textSize="14sp" />
                 </RelativeLayout>
 
@@ -538,144 +451,8 @@
                     android:layout_height="1dp"
                     android:background="#c9c9cb" />
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:background="#ffffff" >
 
-                    <TextView
-                        android:id="@+id/wuyeType"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:layout_centerVertical="true"
-                        android:gravity="center_vertical"
-                        android:paddingLeft="10dp"
-                        android:text="物业性质:"
-                        android:textSize="14sp" />
 
-                    <TextView
-                        android:id="@+id/tv_ershou_wuyeType"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignBaseline="@+id/wuyeType"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_toRightOf="@+id/wuyeType"
-                        android:background="#ffffff"
-                        android:gravity="right|center_vertical"
-                        android:text="ewewewewewe"
-                        android:textSize="14sp" />
-                </RelativeLayout>
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#c9c9cb" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:background="#ffffff" >
-
-                    <TextView
-                        android:id="@+id/diyaxinxi"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:layout_centerVertical="true"
-                        android:gravity="center_vertical"
-                        android:paddingLeft="10dp"
-                        android:text="抵押信息:"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/tv_ershou_diyaxinxi"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignBaseline="@+id/diyaxinxi"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_toRightOf="@+id/diyaxinxi"
-                        android:background="#ffffff"
-                        android:gravity="right|center_vertical"
-                        android:text="无抵押"
-                        android:textSize="14sp" />
-                </RelativeLayout>
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#c9c9cb" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:background="#ffffff" >
-
-                    <TextView
-                        android:id="@+id/huType"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:layout_centerVertical="true"
-                        android:gravity="center_vertical"
-                        android:paddingLeft="10dp"
-                        android:text="户  型:"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/tv_ershou_huType"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignBaseline="@+id/huType"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_toRightOf="@+id/huType"
-                        android:background="#ffffff"
-                        android:gravity="right|center_vertical"
-                        android:text="1室1厅1卫"
-                        android:textSize="14sp" />
-                </RelativeLayout>
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#c9c9cb" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:background="#ffffff" >
-
-                    <TextView
-                        android:id="@+id/houseSX"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:layout_centerVertical="true"
-                        android:gravity="center_vertical"
-                        android:paddingLeft="10dp"
-                        android:text="房屋属性:"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/tv_ershou_houseSX"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignBaseline="@+id/houseSX"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_toRightOf="@+id/houseSX"
-                        android:background="#ffffff"
-                        android:gravity="right|center_vertical"
-                        android:text="平层 精装 南"
-                        android:textSize="14sp" />
-                </RelativeLayout>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -705,585 +482,13 @@
                         android:layout_toRightOf="@+id/uploadPic"
                         android:background="#ffffff"
                         android:gravity="right|center_vertical"
-                        android:text="已上传1张图片"
+                        android:text=""
                         android:textSize="14sp" />
                 </RelativeLayout>
 
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#c9c9cb" />
+             
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:background="#ffffff" >
-
-                    <TextView
-                        android:id="@+id/jianzhuType"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:layout_centerVertical="true"
-                        android:gravity="center_vertical"
-                        android:paddingLeft="10dp"
-                        android:text="建筑类型:"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/tv_ershou_jianzhuType"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignBaseline="@+id/jianzhuType"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_toRightOf="@+id/jianzhuType"
-                        android:background="#ffffff"
-                        android:gravity="right|center_vertical"
-                        android:text="塔板结合"
-                        android:textSize="14sp" />
-                </RelativeLayout>
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#c9c9cb" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:background="#ffffff" >
-
-                    <TextView
-                        android:id="@+id/jianzhuJieGou"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:layout_centerVertical="true"
-                        android:gravity="center_vertical"
-                        android:paddingLeft="10dp"
-                        android:text="建筑结构:"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/tv_ershou_jianzhuJiegou"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignBaseline="@+id/jianzhuJieGou"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_toRightOf="@+id/jianzhuJieGou"
-                        android:background="#ffffff"
-                        android:gravity="right|center_vertical"
-                        android:text="钢混结构"
-                        android:textSize="14sp" />
-                </RelativeLayout>
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#c9c9cb" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:background="#ffffff" >
-
-                    <TextView
-                        android:id="@+id/tihubili"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:layout_centerVertical="true"
-                        android:gravity="center_vertical"
-                        android:paddingLeft="10dp"
-                        android:text="梯户比例:"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/tv_ershou_tihubili"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignBaseline="@+id/tihubili"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_toRightOf="@+id/tihubili"
-                        android:background="#ffffff"
-                        android:gravity="right|center_vertical"
-                        android:text="三梯六户"
-                        android:textSize="14sp" />
-                </RelativeLayout>
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#c9c9cb" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:background="#ffffff" >
-
-                    <TextView
-                        android:id="@+id/houseUse"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:layout_centerVertical="true"
-                        android:gravity="center_vertical"
-                        android:paddingLeft="10dp"
-                        android:text="房屋用途:"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/tv_ershou_houseUse"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignBaseline="@+id/houseUse"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_toRightOf="@+id/houseUse"
-                        android:background="#ffffff"
-                        android:gravity="right|center_vertical"
-                        android:text="住宅"
-                        android:textSize="14sp" />
-                </RelativeLayout>
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#c9c9cb" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:background="#ffffff" >
-
-                    <TextView
-                        android:id="@+id/chanquansuoshu"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:layout_centerVertical="true"
-                        android:gravity="center_vertical"
-                        android:paddingLeft="10dp"
-                        android:text="产权所属:"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/tv_ershou_chanquansuoshu"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignBaseline="@+id/chanquansuoshu"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_toRightOf="@+id/chanquansuoshu"
-                        android:background="#ffffff"
-                        android:gravity="right|center_vertical"
-                        android:text="非共有"
-                        android:textSize="14sp" />
-                </RelativeLayout>
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#c9c9cb" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:background="#ffffff" >
-
-                    <TextView
-                        android:id="@+id/SfDianti"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:layout_centerVertical="true"
-                        android:gravity="center_vertical"
-                        android:paddingLeft="10dp"
-                        android:text="是否有电梯:"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/tv_ershou_SfDianti"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignBaseline="@+id/SfDianti"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_toRightOf="@+id/SfDianti"
-                        android:background="#ffffff"
-                        android:gravity="right|center_vertical"
-                        android:text="有"
-                        android:textSize="14sp" />
-                </RelativeLayout>
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#c9c9cb" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:background="#ffffff" >
-
-                    <TextView
-                        android:id="@+id/weiyizhuzhai"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:layout_centerVertical="true"
-                        android:gravity="center_vertical"
-                        android:paddingLeft="10dp"
-                        android:text="唯一住宅:"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/tv_ershou_weiyizhuzhai"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignBaseline="@+id/weiyizhuzhai"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_toRightOf="@+id/weiyizhuzhai"
-                        android:background="#ffffff"
-                        android:gravity="right|center_vertical"
-                        android:text="是"
-                        android:textSize="14sp" />
-                </RelativeLayout>
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#c9c9cb" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:background="#ffffff" >
-
-                    <TextView
-                        android:id="@+id/guapaitime"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:layout_centerVertical="true"
-                        android:gravity="center_vertical"
-                        android:paddingLeft="10dp"
-                        android:text="挂牌时间:"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/tv_ershou_guapaitime"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignBaseline="@+id/guapaitime"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_toRightOf="@+id/guapaitime"
-                        android:background="#ffffff"
-                        android:gravity="right|center_vertical"
-                        android:text="0000-00-00"
-                        android:textSize="14sp" />
-                </RelativeLayout>
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#c9c9cb" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:background="#ffffff" >
-
-                    <TextView
-                        android:id="@+id/biaoqian"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:layout_centerVertical="true"
-                        android:gravity="center_vertical"
-                        android:paddingLeft="10dp"
-                        android:text="标签:"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/tv_ershou_biaoqian"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignBaseline="@+id/biaoqian"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_toRightOf="@+id/biaoqian"
-                        android:background="#ffffff"
-                        android:gravity="right|center_vertical"
-                        android:text="户型方正"
-                        android:textSize="14sp" />
-                </RelativeLayout>
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#c9c9cb" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:background="#ffffff" >
-
-                    <TextView
-                        android:id="@+id/ditieline"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:layout_centerVertical="true"
-                        android:gravity="center_vertical"
-                        android:paddingLeft="10dp"
-                        android:text="地铁线:"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/tv_ershou_ditieline"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignBaseline="@+id/ditieline"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_toRightOf="@+id/ditieline"
-                        android:background="#ffffff"
-                        android:gravity="right|center_vertical"
-                        android:text="[5]"
-                        android:textSize="14sp" />
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:layout_marginTop="20dp"
-                    android:background="#ffffff" >
-
-                    <TextView
-                        android:id="@+id/biaoti"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:layout_centerVertical="true"
-                        android:gravity="center_vertical"
-                        android:paddingLeft="10dp"
-                        android:text="*标题:"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/tv_ershou_biaoti"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignBaseline="@+id/biaoti"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_toRightOf="@+id/biaoti"
-                        android:background="#ffffff"
-                        android:gravity="right|center_vertical"
-                        android:text="深圳龙岗布吉-国展苑"
-                        android:textSize="14sp" />
-                </RelativeLayout>
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#c9c9cb" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:background="#ffffff" >
-
-                    <TextView
-                        android:id="@+id/houseDesc"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:layout_centerVertical="true"
-                        android:gravity="center_vertical"
-                        android:paddingLeft="10dp"
-                        android:text="*房源描述:"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/tv_ershou_houseDesc"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_alignBaseline="@+id/houseDesc"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_toRightOf="@+id/houseDesc"
-                        android:background="#ffffff"
-                        android:gravity="right|center_vertical"
-                        android:lines="1"
-                        android:text="地铁房 独家"
-                        android:textSize="14sp" />
-                </RelativeLayout>
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#c9c9cb" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:background="#ffffff" >
-
-                    <TextView
-                        android:id="@+id/touzifenxi"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:layout_centerVertical="true"
-                        android:gravity="center_vertical"
-                        android:paddingLeft="10dp"
-                        android:text="投资分析:"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/tv_ershou_touzifenxi"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignBaseline="@+id/touzifenxi"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_toRightOf="@+id/touzifenxi"
-                        android:background="#ffffff"
-                        android:gravity="right|center_vertical"
-                        android:text="地铁房,独家"
-                        android:textSize="14sp" />
-                </RelativeLayout>
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#c9c9cb" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:background="#ffffff" >
-
-                    <TextView
-                        android:id="@+id/huxingjieshao"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:layout_centerVertical="true"
-                        android:gravity="center_vertical"
-                        android:paddingLeft="10dp"
-                        android:text="户型介绍:"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/tv_ershou_huxingjieshao"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignBaseline="@+id/huxingjieshao"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_toRightOf="@+id/huxingjieshao"
-                        android:background="#ffffff"
-                        android:gravity="right|center_vertical"
-                        android:singleLine="true"
-                        android:text="此房是萨芬是对方的身份第三方是否刷刷sfdf"
-                        android:textSize="14sp" />
-                </RelativeLayout>
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#c9c9cb" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:background="#ffffff" >
-
-                    <TextView
-                        android:id="@+id/xiaoqujieshao"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:layout_centerVertical="true"
-                        android:gravity="center_vertical"
-                        android:paddingLeft="10dp"
-                        android:text="小区介绍:"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/tv_ershou_xiaoqujieshao"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignBaseline="@+id/xiaoqujieshao"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_toRightOf="@+id/xiaoqujieshao"
-                        android:background="#ffffff"
-                        android:gravity="right|center_vertical"
-                        android:singleLine="true"
-                        android:text="此房是萨芬是对方的身份第三方是否刷刷sfdf"
-                        android:textSize="14sp" />
-                </RelativeLayout>
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#c9c9cb" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:background="#ffffff" >
-
-                    <TextView
-                        android:id="@+id/shuifeijiexi"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:layout_centerVertical="true"
-                        android:gravity="center_vertical"
-                        android:paddingLeft="10dp"
-                        android:text="税费解析:"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/tv_ershou_shuifeijiexi"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignBaseline="@+id/shuifeijiexi"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_toRightOf="@+id/shuifeijiexi"
-                        android:background="#ffffff"
-                        android:gravity="right|center_vertical"
-                        android:singleLine="true"
-                        android:text="此房是萨芬是对方的身份第三方是否刷刷sfdf"
-                        android:textSize="14sp" />
-                </RelativeLayout>
+           
 
                 <Button
                     android:layout_width="match_parent"
@@ -1303,11 +508,11 @@
                         android:layout_centerVertical="true"
                         android:gravity="center_vertical"
                         android:paddingLeft="10dp"
-                        android:text="装修描述:"
+                        android:text="发布方式:"
                         android:textSize="14sp" />
 
                     <TextView
-                        android:id="@+id/tv_ershou_zhuangxiumiaoshu"
+                        android:id="@+id/tv_ershou_gongbufangshi"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_alignBaseline="@+id/zhuangxiumiaoshu"
@@ -1318,7 +523,7 @@
                         android:background="#ffffff"
                         android:gravity="right|center_vertical"
                         android:singleLine="true"
-                        android:text="此房是萨芬是对方的身份第三方是否刷刷sfdf"
+                        android:text=""
                         android:textSize="14sp" />
                 </RelativeLayout>
 
@@ -1340,11 +545,11 @@
                         android:layout_centerVertical="true"
                         android:gravity="center_vertical"
                         android:paddingLeft="10dp"
-                        android:text="周边配套:"
+                        android:text="是否隐藏手机号码:"
                         android:textSize="14sp" />
 
                     <TextView
-                        android:id="@+id/tv_ershou_zhoubianpeitao"
+                        android:id="@+id/tv_ershou_yincangphone"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_alignBaseline="@+id/zhoubianpeitao"
@@ -1352,191 +557,6 @@
                         android:layout_marginLeft="30dp"
                         android:layout_marginRight="10dp"
                         android:layout_toRightOf="@+id/zhoubianpeitao"
-                        android:background="#ffffff"
-                        android:gravity="right|center_vertical"
-                        android:singleLine="true"
-                        android:text="此房是萨芬是对方的身份第三方是否刷刷sfdf"
-                        android:textSize="14sp" />
-                </RelativeLayout>
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#c9c9cb" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:background="#ffffff" >
-
-                    <TextView
-                        android:id="@+id/jiaoyupeitao"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:layout_centerVertical="true"
-                        android:gravity="center_vertical"
-                        android:paddingLeft="10dp"
-                        android:text="教育配套:"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/tv_ershou_jiaoyupeitao"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignBaseline="@+id/jiaoyupeitao"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_toRightOf="@+id/jiaoyupeitao"
-                        android:background="#ffffff"
-                        android:gravity="right|center_vertical"
-                        android:singleLine="true"
-                        android:text="此房是萨芬是对方的身份第三方是否刷刷sfdf"
-                        android:textSize="14sp" />
-                </RelativeLayout>
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#c9c9cb" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:background="#ffffff" >
-
-                    <TextView
-                        android:id="@+id/jiaotongchuxing"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:layout_centerVertical="true"
-                        android:gravity="center_vertical"
-                        android:paddingLeft="10dp"
-                        android:text="交通出行:"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/tv_ershou_jiaotongchuxing"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignBaseline="@+id/jiaotongchuxing"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_toRightOf="@+id/jiaotongchuxing"
-                        android:background="#ffffff"
-                        android:gravity="right|center_vertical"
-                        android:singleLine="true"
-                        android:text="此房是萨芬是对方的身份第三方是否刷刷sfdf"
-                        android:textSize="14sp" />
-                </RelativeLayout>
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#c9c9cb" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:background="#ffffff" >
-
-                    <TextView
-                        android:id="@+id/hexinmaidian"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:layout_centerVertical="true"
-                        android:gravity="center_vertical"
-                        android:paddingLeft="10dp"
-                        android:text="核心卖点:"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/tv_ershou_hexinmaidian"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignBaseline="@+id/hexinmaidian"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_toRightOf="@+id/hexinmaidian"
-                        android:background="#ffffff"
-                        android:gravity="right|center_vertical"
-                        android:singleLine="true"
-                        android:text="此房是萨芬是对方的身份第三方是否刷刷sfdf"
-                        android:textSize="14sp" />
-                </RelativeLayout>
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#c9c9cb" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:background="#ffffff" >
-
-                    <TextView
-                        android:id="@+id/xiaoquyoushi"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:layout_centerVertical="true"
-                        android:gravity="center_vertical"
-                        android:paddingLeft="10dp"
-                        android:text="小区优势:"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/tv_ershou_xiaoquyoushi"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignBaseline="@+id/xiaoquyoushi"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_toRightOf="@+id/xiaoquyoushi"
-                        android:background="#ffffff"
-                        android:gravity="right|center_vertical"
-                        android:singleLine="true"
-                        android:text="此房是萨芬是对方的身份第三方是否刷刷sfdf"
-                        android:textSize="14sp" />
-                </RelativeLayout>
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#c9c9cb" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:background="#ffffff" >
-
-                    <TextView
-                        android:id="@+id/quanshudiya"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:layout_centerVertical="true"
-                        android:gravity="center_vertical"
-                        android:paddingLeft="10dp"
-                        android:text="权属抵押:"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/tv_ershou_quanshudiya"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignBaseline="@+id/quanshudiya"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_toRightOf="@+id/quanshudiya"
                         android:background="#ffffff"
                         android:gravity="right|center_vertical"
                         android:singleLine="true"
@@ -1549,42 +569,6 @@
                     android:layout_height="1dp"
                     android:background="#c9c9cb" />
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:background="#ffffff" >
-
-                    <TextView
-                        android:id="@+id/tuijianliyou"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:layout_centerVertical="true"
-                        android:gravity="center_vertical"
-                        android:paddingLeft="10dp"
-                        android:text="推荐理由:"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/tv_ershou_tuijianliyou"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignBaseline="@+id/tuijianliyou"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_toRightOf="@+id/tuijianliyou"
-                        android:background="#ffffff"
-                        android:gravity="right|center_vertical"
-                        android:singleLine="true"
-                        android:text="满五年唯一"
-                        android:textSize="14sp" />
-                </RelativeLayout>
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#c9c9cb" />
 
                 <Button
                     android:id="@+id/btn_ershou_submit"

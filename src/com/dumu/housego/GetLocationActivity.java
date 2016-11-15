@@ -98,7 +98,7 @@ public class GetLocationActivity extends Activity {
 		option.SetIgnoreCacheException(false);// 可选，默认false，设置是否收集CRASH信息，默认收集
 		option.setEnableSimulateGps(false);// 可选，默认false，设置是否需要过滤GPS仿真结果，默认需要
 		mLocationClient.setLocOption(option);
-		mLocationClient.start();
+//		mLocationClient.start();
 	}
 
 	public class MyLocationListener implements BDLocationListener {

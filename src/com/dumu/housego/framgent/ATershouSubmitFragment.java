@@ -97,6 +97,7 @@ public class ATershouSubmitFragment extends Fragment implements IATershouSubmitV
 	String w12 = "惠州";
 	String q = "深圳";
 	// 房源区域
+	private static final int XIAOQUNAME = 15;
 	private static final int LOCATION = 0;
 	private static final int BIAOTI = 1;
 	private static final int FANGYUANMIAOSHU = 2;
@@ -112,7 +113,7 @@ public class ATershouSubmitFragment extends Fragment implements IATershouSubmitV
 	private static final int XIAOQUYOUSHI = 12;
 	private static final int QUANSHUDIYA = 13;
 	private static final int TUIJIANLIYOU = 14;
-	private static final int XIAOQUNAME = 15;
+	
 	
 	private static final int BACK = 404;
 
@@ -267,10 +268,57 @@ public class ATershouSubmitFragment extends Fragment implements IATershouSubmitV
 				at.setTaoneimianji(et_ershou_taoneimianji.getText().toString());
 				//
 				at.setLouceng(tv_ershou_louceng.getText().toString());
+				
+				//楼层，所在层与总层
+				if(tv_ershou_louceng.getText().toString().length()>0){
+					String[] c=tv_ershou_louceng.getText().toString().split(" ");
+					String c1=c[0].split("层")[0];
+					String z1=c[1].split("层")[0].split("共")[1];
+					at.setCurceng(c1);
+					at.setZongceng(z1);
+				}else{
+					at.setCurceng("");
+					at.setZongceng("");
+				}
+			
+				//户型
+				at.setHuxing(tv_ershou_huType.getText().toString());
+				if(tv_ershou_huType.getText().toString().length()>0){
+					
+					String h=tv_ershou_huType.getText().toString();
+					String shi=h.split(" ")[0].split("室")[0];
+					String ting=h.split(" ")[1].split("厅")[0];
+					String wei=h.split(" ")[2].split("卫")[0];
+					
+					at.setShi(shi);
+					at.setTing(ting);
+					at.setWei(wei);
+				}else{
+					at.setShi("");
+					at.setTing("");
+					at.setWei("");
+				}
+				//房屋属性
+				if(tv_ershou_houseSX.getText().toString().length()>0){
+					String s=tv_ershou_houseSX.getText().toString();
+					 String jiegou=s.split(" ")[0];
+					 String zhuangxiu=s.split(" ")[1];
+					 String chaoxiang=s.split(" ")[2];
+					at.setJiegou(jiegou);
+					at.setZhuangxiu(zhuangxiu);
+					at.setChaoxiang(chaoxiang);	
+				}else{
+					at.setJiegou("");
+					at.setZhuangxiu("");
+					at.setChaoxiang("");	
+				}
+			
+				
+				
 				at.setLoucengshuxing(tv_ershou_loucengmenu.getText().toString());
 				at.setWuyetype(tv_ershou_wuyeType.getText().toString());
 				at.setDiyaxinxi(tv_ershou_diyaxinxi.getText().toString());
-				at.setHuxing(tv_ershou_huType.getText().toString());
+				
 				at.setHouseshuxing(tv_ershou_houseSX.getText().toString());
 				//
 				at.setJianzhutype(tv_ershou_jianzhuType.getText().toString());
@@ -296,7 +344,16 @@ public class ATershouSubmitFragment extends Fragment implements IATershouSubmitV
 				at.setXiaoquyoushi(tv_ershou_xiaoquyoushi.getText().toString());
 				at.setQuanshudiya(tv_ershou_quanshudiya.getText().toString());
 				at.setTuijianliyou(tv_ershou_tuijianliyou.getText().toString());
-				presenter.ATershousubmit(at);
+				
+				if(!tv_ershou_housearea.getText().toString().equals("")&&!tv_ershou_xiaoquname.getText().toString().equals("")&&!tv_ershou_jingweidu.getText().toString().equals("")
+						&&!et_ershou_housrprice.getText().toString().equals("")&&!tv_ershou_biaoti.getText().toString().equals("")&&!tv_ershou_houseDesc.getText().toString().equals("")
+						&&!et_ershou_fangling.getText().toString().equals("")&&!et_ershou_jianzhumianji.getText().toString().equals("")){
+					presenter.ATershousubmit(at);
+				}else{
+					MyToastShowCenter.CenterToast(getActivity(), "还有必填项未填！");
+				}
+				
+				
 			}
 		});
 
@@ -830,18 +887,12 @@ public class ATershouSubmitFragment extends Fragment implements IATershouSubmitV
 			// 反向地理解析
 			geoCoder.reverseGeoCode(new ReverseGeoCodeOption().location(position));
 			// Log.e("request", "result="+latitude+" "+longitude+" "+PoiString);
-			tv_ershou_jingweidu.setText(round(latitude, 6) + "," + round(longitude, 6));
+			tv_ershou_jingweidu.setText(round(longitude, 6) + "," + round(latitude, 6));
 			break;
 
 		case BIAOTI:
-			
-			if(data!=null){
-				String str1 = 
-						data.
-						getStringExtra("M1");
+				String str1 = data.getStringExtra("M1");
 				tv_ershou_biaoti.setText(str1);
-			}
-			
 			break;
 		case FANGYUANMIAOSHU:
 			String str2 = data.getStringExtra("M2");
@@ -1190,7 +1241,7 @@ public class ATershouSubmitFragment extends Fragment implements IATershouSubmitV
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 				if (isChecked) {
-					tcb6 = (String) buttonView.getText();
+					tcb6 = ","+(String) buttonView.getText().toString();
 				} else {
 					tcb6 = "";
 				}
@@ -1200,7 +1251,7 @@ public class ATershouSubmitFragment extends Fragment implements IATershouSubmitV
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 				if (isChecked) {
-					tcb1 = (String) buttonView.getText();
+					tcb1 = ","+(String) buttonView.getText().toString();
 				} else {
 					tcb1 = "";
 				}
@@ -1210,7 +1261,7 @@ public class ATershouSubmitFragment extends Fragment implements IATershouSubmitV
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 				if (isChecked) {
-					tcb2 = (String) buttonView.getText();
+					tcb2 = ","+(String) buttonView.getText().toString();
 				} else {
 					tcb2 = "";
 				}
@@ -1220,7 +1271,7 @@ public class ATershouSubmitFragment extends Fragment implements IATershouSubmitV
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 				if (isChecked) {
-					tcb3 = (String) buttonView.getText();
+					tcb3 = ","+(String) buttonView.getText().toString();
 				} else {
 					tcb3 = "";
 				}
@@ -1230,7 +1281,7 @@ public class ATershouSubmitFragment extends Fragment implements IATershouSubmitV
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 				if (isChecked) {
-					tcb4 = (String) buttonView.getText();
+					tcb4 = ","+(String) buttonView.getText().toString();
 				} else {
 					tcb4 = "";
 				}
@@ -1240,7 +1291,7 @@ public class ATershouSubmitFragment extends Fragment implements IATershouSubmitV
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 				if (isChecked) {
-					tcb5 = (String) buttonView.getText();
+					tcb5 = ","+(String) buttonView.getText().toString();
 				} else {
 					tcb5 = "";
 				}
@@ -1250,7 +1301,16 @@ public class ATershouSubmitFragment extends Fragment implements IATershouSubmitV
 		tvSure.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				tv.setText(tcb1 + " " + tcb2 + " " + tcb3 + " " + tcb4 + " " + tcb5 + " " + tcb6);
+				String cb=tcb1+tcb2+tcb3+tcb4+tcb5+tcb6;
+				
+				if(cb.startsWith(",")){
+					String tx=cb.substring(1);
+					tv.setText(tx.toString());
+				}else{
+					String tx=cb;
+					tv.setText(tx.toString());
+				}
+				
 				alertDialog.cancel();
 			}
 		});

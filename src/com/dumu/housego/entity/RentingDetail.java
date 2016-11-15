@@ -4,6 +4,8 @@ public class RentingDetail {
 	private String id;
 	private String catid;
 	private String typeid;
+	private String modelid;
+	private String userid;
 	private String title;
 	private String style;
 	private String thumb;
@@ -90,7 +92,7 @@ public class RentingDetail {
 			String fukuan, String biaoqian, String xiaoqu, String liangdian, String huxingjieshao, String zxdesc,
 			String czreason, String xiaoquintro, String fangling, String jianzhutype, String wuyetype,
 			String xiaoqutype, String pub_type, String jjr_id, String fenpei_time, String lock, String zaizu,
-			String bianhao, String cityname, String areaname, String xiaoquname) {
+			String bianhao, String cityname, String areaname, String xiaoquname,String modelid,String userid) {
 		super();
 		this.id = id;
 		this.catid = catid;
@@ -168,6 +170,8 @@ public class RentingDetail {
 		this.cityname = cityname;
 		this.areaname = areaname;
 		this.xiaoquname = xiaoquname;
+		this.modelid=modelid;
+		this.userid=userid;
 	}
 
 	public RentingDetail() {
@@ -180,6 +184,14 @@ public class RentingDetail {
 
 	public void setId(String id) {
 		this.id = id;
+	}
+	
+	public String getUserid() {
+		return userid;
+	}
+
+	public void setUserid(String userid) {
+		this.userid = userid;
 	}
 
 	public String getCatid() {
@@ -781,6 +793,15 @@ public class RentingDetail {
 	public void setXiaoquname(String xiaoquname) {
 		this.xiaoquname = xiaoquname;
 	}
+	
+
+	public String getModelid() {
+		return modelid;
+	}
+
+	public void setModelid(String modelid) {
+		this.modelid = modelid;
+	}
 
 	@Override
 	public String toString() {
@@ -804,7 +825,7 @@ public class RentingDetail {
 				+ ", jianzhutype=" + jianzhutype + ", wuyetype=" + wuyetype + ", xiaoqutype=" + xiaoqutype
 				+ ", pub_type=" + pub_type + ", jjr_id=" + jjr_id + ", fenpei_time=" + fenpei_time + ", lock=" + lock
 				+ ", zaizu=" + zaizu + ", bianhao=" + bianhao + ", cityname=" + cityname + ", areaname=" + areaname
-				+ ",xiaoquname=" + xiaoquname + "]";
+				+ ",xiaoquname=" + xiaoquname +",modelid="+modelid+ ",userid="+userid+"]";
 	}
 
 }

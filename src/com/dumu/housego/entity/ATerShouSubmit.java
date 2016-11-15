@@ -49,6 +49,17 @@ public class ATerShouSubmit {
 	private String xiaoquyoushi;
 	private String quanshudiya;
 	private String tuijianliyou;
+	
+	private String curceng;
+	private String zongceng;
+	
+	private String shi;
+	private String ting;
+	private String wei;
+	
+	private String jiegou;
+	private String zhuangxiu;
+	private String chaoxiang;
 	public ATerShouSubmit(String username, String userid, String modelid, String province, String city, String area,
 			String xiaoquname, String jingweidu, String zongjia, String title, String desc, String fangling,
 			String jianzhumianji, String longdong, String menpai, String taoneimianji, String louceng,
@@ -57,7 +68,8 @@ public class ATerShouSubmit {
 			String shifoudianti, String weiyizhuzhai, String guapaishijian, String bianqian, String ditieline,
 			String touzifenxi, String huxingjieshao, String xiaoqujieshao, String shuifeijiexi, String zhuangxiumiaoshu,
 			String zhoubianpeitao, String jiaoyupeitao, String jiaotongchuxing, String hexinmaidian,
-			String xiaoquyoushi, String quanshudiya, String tuijianliyou) {
+			String xiaoquyoushi, String quanshudiya, String tuijianliyou, String curceng, String zongceng, String shi,
+			String ting, String wei, String jiegou, String zhuangxiu, String chaoxiang) {
 		super();
 		this.username = username;
 		this.userid = userid;
@@ -104,6 +116,14 @@ public class ATerShouSubmit {
 		this.xiaoquyoushi = xiaoquyoushi;
 		this.quanshudiya = quanshudiya;
 		this.tuijianliyou = tuijianliyou;
+		this.curceng = curceng;
+		this.zongceng = zongceng;
+		this.shi = shi;
+		this.ting = ting;
+		this.wei = wei;
+		this.jiegou = jiegou;
+		this.zhuangxiu = zhuangxiu;
+		this.chaoxiang = chaoxiang;
 	}
 	public ATerShouSubmit() {
 		super();
@@ -378,6 +398,54 @@ public class ATerShouSubmit {
 	public void setTuijianliyou(String tuijianliyou) {
 		this.tuijianliyou = tuijianliyou;
 	}
+	public String getCurceng() {
+		return curceng;
+	}
+	public void setCurceng(String curceng) {
+		this.curceng = curceng;
+	}
+	public String getZongceng() {
+		return zongceng;
+	}
+	public void setZongceng(String zongceng) {
+		this.zongceng = zongceng;
+	}
+	public String getShi() {
+		return shi;
+	}
+	public void setShi(String shi) {
+		this.shi = shi;
+	}
+	public String getTing() {
+		return ting;
+	}
+	public void setTing(String ting) {
+		this.ting = ting;
+	}
+	public String getWei() {
+		return wei;
+	}
+	public void setWei(String wei) {
+		this.wei = wei;
+	}
+	public String getJiegou() {
+		return jiegou;
+	}
+	public void setJiegou(String jiegou) {
+		this.jiegou = jiegou;
+	}
+	public String getZhuangxiu() {
+		return zhuangxiu;
+	}
+	public void setZhuangxiu(String zhuangxiu) {
+		this.zhuangxiu = zhuangxiu;
+	}
+	public String getChaoxiang() {
+		return chaoxiang;
+	}
+	public void setChaoxiang(String chaoxiang) {
+		this.chaoxiang = chaoxiang;
+	}
 	@Override
 	public String toString() {
 		return "ATerShouSubmit [username=" + username + ", userid=" + userid + ", modelid=" + modelid + ", province="
@@ -394,11 +462,20 @@ public class ATerShouSubmit {
 				+ shuifeijiexi + ", zhuangxiumiaoshu=" + zhuangxiumiaoshu + ", zhoubianpeitao=" + zhoubianpeitao
 				+ ", jiaoyupeitao=" + jiaoyupeitao + ", jiaotongchuxing=" + jiaotongchuxing + ", hexinmaidian="
 				+ hexinmaidian + ", xiaoquyoushi=" + xiaoquyoushi + ", quanshudiya=" + quanshudiya + ", tuijianliyou="
-				+ tuijianliyou + "]";
+				+ tuijianliyou + ", curceng=" + curceng + ", zongceng=" + zongceng + ", shi=" + shi + ", ting=" + ting
+				+ ", wei=" + wei + ", jiegou=" + jiegou + ", zhuangxiu=" + zhuangxiu + ", chaoxiang=" + chaoxiang + "]";
 	}
 	
 	
-
-
-
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

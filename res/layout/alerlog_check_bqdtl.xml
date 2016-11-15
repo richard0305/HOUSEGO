@@ -51,7 +51,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="140dp"
         android:background="@drawable/btn_submit_shap2"
         android:orientation="horizontal" >
 	

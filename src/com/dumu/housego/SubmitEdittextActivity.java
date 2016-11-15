@@ -24,6 +24,13 @@ public class SubmitEdittextActivity extends Activity {
 	private static final int XIAOQUYOUSHI = 12;
 	private static final int QUANSHUDIYA = 13;
 	private static final int TUIJIANLIYOU = 14;
+	
+	private static final int HOUSEADDRESS = 16;
+	private static final int HOUSEBEST = 17;
+	private static final int CHUZUCAUSE = 18;
+	private static final int YEZHUSHUO = 19;
+	
+
 	private static final int BACK = 404;
 
 	private LinearLayout llBackSubmitedittext;
@@ -91,7 +98,20 @@ public class SubmitEdittextActivity extends Activity {
 		case TUIJIANLIYOU:
 			string = getIntent().getStringExtra("S14");
 			break;
-
+			
+		case HOUSEADDRESS:
+			string = getIntent().getStringExtra("S16");
+			break;
+		case HOUSEBEST:
+			string = getIntent().getStringExtra("S17");
+			break;
+		case CHUZUCAUSE:
+			string = getIntent().getStringExtra("S18");
+			break;
+		case YEZHUSHUO:
+			string = getIntent().getStringExtra("S19");
+			break;
+			
 		}
 
 		submitEdittext.setText(string);
@@ -170,6 +190,23 @@ public class SubmitEdittextActivity extends Activity {
 				case TUIJIANLIYOU:
 
 					IntentData(TUIJIANLIYOU, "M14");
+					break;
+					
+				case HOUSEADDRESS:
+
+					IntentData(HOUSEADDRESS, "M16");
+					break;
+				case HOUSEBEST:
+
+					IntentData(HOUSEBEST, "M17");
+					break;
+				case CHUZUCAUSE:
+
+					IntentData(CHUZUCAUSE, "M18");
+					break;
+				case YEZHUSHUO:
+
+					IntentData(YEZHUSHUO, "M19");
 					break;
 
 				}

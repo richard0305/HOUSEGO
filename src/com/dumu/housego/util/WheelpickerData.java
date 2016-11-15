@@ -151,4 +151,34 @@ public class WheelpickerData {
 	public static String DITIELINE4 = "4号线(龙华线)";
 	public static String DITIELINE5 = "5号线(环中线)";
 	public static String DITIELINE6 = "11号线";
+	
+	// 出租方式
+	public static List<String> CHUZUTYPE = new ArrayList<String>();
+	static {
+		CHUZUTYPE.add("整租");
+		CHUZUTYPE.add("合租");
+		CHUZUTYPE.add("--");
+	}
+	// 出租方式
+	public static List<String> ZHIFUTYPE = new ArrayList<String>();
+	static {
+		ZHIFUTYPE.add("付一压一");
+		ZHIFUTYPE.add("付一压二");
+		ZHIFUTYPE.add("付一压三");
+		ZHIFUTYPE.add("付三压一");
+		ZHIFUTYPE.add("其他");
+	}
+	// 发布方式
+	public static List<String> FABUFANGSHI = new ArrayList<String>();
+	static {
+		FABUFANGSHI.add("自售");
+		FABUFANGSHI.add("委托给经纪人");
+		FABUFANGSHI.add("委托给平台");
+	}
+	// 是否隐藏手机号码
+		public static List<String> YINCANGPHONE = new ArrayList<String>();
+		static {
+			YINCANGPHONE.add("公开");
+			YINCANGPHONE.add("保密");
+		}
 }

@@ -18,13 +18,14 @@ import com.dumu.housego.entity.ATerShouSubmit;
 import com.dumu.housego.model.IModel.AsycnCallBack;
 import com.dumu.housego.util.CommonRequest;
 import com.dumu.housego.util.HttpUtils;
+import com.dumu.housego.util.UrlFactory;
 
 public class ATershousubmitModel implements IATershousubmitModel {
 
 	@Override
 	public void ATershousubmit(final ATerShouSubmit at, final AsycnCallBack back) {
 
-		String url = "http://www.taoshenfang.com/index.php?g=api&m=user&a=add_ershou";
+		String url =UrlFactory.PostATershouSubmit();
 		CommonRequest request = new CommonRequest(Method.POST, url, new Listener<String>() {
 
 			@Override
@@ -65,7 +66,46 @@ public class ATershousubmitModel implements IATershousubmitModel {
 				map.put("fangling", at.getFangling());
 				map.put("jianzhumianji", at.getJianzhumianji());
 				// 必传
-
+				map.put("loudong", at.getLongdong());
+				map.put("menpai", at.getMenpai());
+				map.put("taoneimianji", at.getTaoneimianji());
+				map.put("louceng", at.getLouceng());
+				map.put("ceng", at.getLoucengshuxing());
+				map.put("jiaoyiquanshu", at.getWuyetype());
+				map.put("diyaxinxi", at.getDiyaxinxi());
+				map.put("huxing", at.getHuxing());
+				map.put("shuxing", at.getHouseshuxing());
+				map.put("jianzhutype", at.getJianzhutype());
+				map.put("jianzhujiegou", at.getJianzhujiegou());
+				map.put("tihubili", at.getTihubili());
+				map.put("fangwuyongtu", at.getHouseuse());
+				map.put("chanquansuoshu", at.getChanquansuoshu());
+				map.put("dianti", at.getShifoudianti());
+				map.put("isweiyi", at.getWeiyizhuzhai());
+				map.put("guapaidate", at.getGuapaishijian());
+				map.put("biaoqian", at.getBianqian());
+				map.put("ditiexian", at.getDitieline());
+				map.put("touzifenxi", at.getTouzifenxi());
+				map.put("huxingintro", at.getHuxingjieshao());
+				map.put("xiaoquintro", at.getXiaoqujieshao());
+				map.put("shuifeijiexi", at.getShuifeijiexi());
+				map.put("zxdesc", at.getZhuangxiumiaoshu());
+				map.put("shenghuopeitao", at.getZhoubianpeitao());
+				map.put("xuexiaomingcheng", at.getJiaoyupeitao());
+				map.put("jiaotong", at.getJiaotongchuxing());
+				map.put("hexinmaidian", at.getHexinmaidian());
+				map.put("xiaoquyoushi", at.getXiaoquyoushi());
+				map.put("quanshudiya", at.getQuanshudiya());
+				map.put("yezhushuo", at.getTuijianliyou());
+				//
+				map.put("jiegou", at.getJiegou());
+				map.put("zhuangxiu", at.getZhuangxiu());
+				map.put("chaoxiang", at.getChaoxiang());
+				map.put("zongceng", at.getZongceng());
+				map.put("curceng", at.getCurceng());
+				map.put("shi", at.getShi());
+				map.put("ting", at.getTing());
+				map.put("wei", at.getWei());
 				return map;
 			}
 		};

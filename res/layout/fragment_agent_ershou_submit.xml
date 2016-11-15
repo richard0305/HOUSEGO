@@ -133,6 +133,7 @@
                         android:layout_toRightOf="@+id/textView2121"
                         android:background="@null"
                         android:gravity="right|center_vertical"
+                        android:text=""
                         android:textSize="14sp" />
                 </RelativeLayout>
 
@@ -180,7 +181,7 @@
                         android:background="@null"
                         android:ems="10"
                         android:gravity="right|center_vertical"
-                        android:hint=""
+                        android:text=""
                         android:inputType="number"
                         android:textSize="14sp" >
                     </EditText>
@@ -229,7 +230,7 @@
                         android:background="@null"
                         android:ems="10"
                         android:gravity="right|center_vertical"
-                        android:hint=""
+                        android:text=""
                           android:inputType="number"
                         android:textSize="14sp" >
                     </EditText>
@@ -278,7 +279,7 @@
                         android:background="@null"
                         android:ems="10"
                         android:gravity="right|center_vertical"
-                        android:hint=""
+                       android:text=""
                           android:inputType="number"
                         android:textSize="14sp" >
                     </EditText>
@@ -327,7 +328,7 @@
                         android:background="@null"
                         android:ems="10"
                         android:gravity="right|center_vertical"
-                        android:hint=""
+                       android:text=""
                           android:inputType="number"
                         android:textSize="14sp" >
                     </EditText>
@@ -376,7 +377,7 @@
                         android:background="@null"
                         android:ems="10"
                         android:gravity="right|center_vertical"
-                        android:hint=""
+                       android:text=""
                           android:inputType="number"
                         android:textSize="14sp" >
                     </EditText>
@@ -425,7 +426,7 @@
                         android:background="@null"
                         android:ems="10"
                         android:gravity="right|center_vertical"
-                        android:hint=""
+                        android:text=""
                           android:inputType="number"
                         android:textSize="14sp" >
                     </EditText>

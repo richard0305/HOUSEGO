@@ -3,6 +3,27 @@ package com.dumu.housego.util;
 public class UrlFactory {
 
 	public static String TSFURL = "http://www.taoshenfang.com/";
+	
+	//二手房发布
+		public static String PostATershouSubmit() {
+			String path = TSFURL + "index.php?g=api&m=user&a=add_ershou";
+			return path;
+		}
+	
+	//二手房/出租房删除
+	public static String PostDeleteErShouChuZuList() {
+		String path = TSFURL + "index.php?g=api&m=user&a=house_del";
+		return path;
+	}
+
+	//出租房发布
+	public static String PostATrentingSubmit() {
+		String path = TSFURL + "index.php?g=api&m=user&a=add_chuzu";
+		return path;
+	}
+
+	
+	
 	//小区搜索
 	public static String PostSearchXiaoQu() {
 		String path = TSFURL + "index.php?g=api&m=user&a=xiaoqu_search";
