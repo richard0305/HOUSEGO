@@ -31,6 +31,7 @@ import com.dumu.housego.view.IPTershouSubmitView;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
@@ -38,8 +39,8 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup.LayoutParams;
 import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
@@ -47,7 +48,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class PTershouSumbitFragment extends Fragment implements IPTershouSubmitView{
-
 	private List<String> Area = new ArrayList<String>();
 	private List<String> MinArea = new ArrayList<String>();
 	private AddressModel model2 = new AddressModel();
@@ -71,6 +71,9 @@ public class PTershouSumbitFragment extends Fragment implements IPTershouSubmitV
 	String w11 = "东莞";
 	String w12 = "惠州";
 	String q = "深圳";
+
+	//
+	Handler handler=new Handler();
 	//
 	private static final int XIAOQUNAME = 15;
 	private static final int LOCATION = 0;
@@ -86,7 +89,7 @@ public class PTershouSumbitFragment extends Fragment implements IPTershouSubmitV
 	protected String PoiString;
 	protected String louceng1;
 	protected String louceng2;
-	protected CharSequence str;
+	protected String str;
 	private UserInfo userinfo;
 	private String username;
 	private String userid;
@@ -98,6 +101,21 @@ public class PTershouSumbitFragment extends Fragment implements IPTershouSubmitV
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.fragment_pt_ershou_sumbit, null);
+		// 房源区域
+		shen.add(q);
+		Area.add(w1);
+		Area.add(w2);
+		Area.add(w3);
+		Area.add(w4);
+		Area.add(w5);
+		Area.add(w6);
+		Area.add(w7);
+		Area.add(w8);
+		Area.add(w9);
+		Area.add(w10);
+		Area.add(w11);
+		Area.add(w12);
+		
 		presenter=new PTershouSubmitPresenter(this);
 		userinfo=HouseGoApp.getContext().getCurrentUserInfo();
 		username=userinfo.getUsername();
@@ -112,7 +130,7 @@ public class PTershouSumbitFragment extends Fragment implements IPTershouSubmitV
 	private void initView(View view) {
 		ll_back_putongershou = (LinearLayout) view.findViewById(R.id.ll_back_putongershou);
 		tv_ershou_gongbufangshi=(TextView) view.findViewById(R.id.tv_ershou_gongbufangshi);
-		tv_ershou_housearea=(TextView) view.findViewById(R.id.tv_ershou_housearea);
+		tv_ershou_housearea=(TextView) view.findViewById(R.id.tv_ptershou_housearea);
 		tv_ershou_jingweidu=(TextView) view.findViewById(R.id.tv_ershou_jingweidu);
 		tv_ershou_louceng=(TextView) view.findViewById(R.id.tv_ershou_louceng);
 		tv_ershou_loucengmenu=(TextView) view.findViewById(R.id.tv_ershou_loucengmenu);
@@ -139,14 +157,49 @@ public class PTershouSumbitFragment extends Fragment implements IPTershouSubmitV
 				e.setArea(area1);
 				
 				e.setXiaoquname(tv_ershou_xiaoquname.getText().toString());
-				e.setJingweidu(tv_ershou_jingweidu.getText().toString());
 				e.setChenghu(et_ershou_chenghu.getText().toString());
 				e.setZongjia(et_ershou_housrprice.getText().toString());
+				
+				e.setLoudong(et_ershou_loudong.getText().toString());//
+				e.setMenpai(et_ershou_menpai.getText().toString());//
+				
+				e.setJingweidu(tv_ershou_jingweidu.getText().toString());
+				
+				
+				//楼层，所在层与总层
+				if(tv_ershou_louceng.getText().toString().length()>0){
+					String[] c=tv_ershou_louceng.getText().toString().split(" ");
+					String c1=c[0].split("层")[0];
+					String z1=c[1].split("层")[0].split("共")[1];
+					e.setCurceng(c1);
+					e.setZongceng(z1);
+				}else{
+					e.setCurceng("");//
+					e.setZongceng("");//
+				}
+				
+				e.setCeng(tv_ershou_loucengmenu.getText().toString());//
+				
 				e.setTitle(tv_ershou_housearea.getText().toString()+tv_ershou_xiaoquname.getText().toString()+
-						et_ershou_loudong.getText().toString()+et_ershou_menpai.getText().toString());
-				e.setPub_type(tv_ershou_gongbufangshi.getText().toString());
+						et_ershou_loudong.getText().toString()+"栋"+et_ershou_menpai.getText().toString()+"号");
+				
+				
+				String pub=tv_ershou_gongbufangshi.getText().toString();
+				if(pub.equals("自售")){
+					e.setPub_type("1");	
+				}else if(pub.equals("委托给经纪人")){
+					e.setPub_type("2");	
+				}else{
+					e.setPub_type("3");	
+				}
+				
+				
+				
 				e.setHidetel(tv_ershou_yincangphone.getText().toString());
 				
+				
+				
+				Log.e("eeeeeeeeeeeeeeeee", "eeeeeeeeeee"+e.toString());
 				presenter.PTershouSubmit(username, userid, modelid, e);
 				
 			}
@@ -280,6 +333,7 @@ public class PTershouSumbitFragment extends Fragment implements IPTershouSubmitV
 		return b.divide(one, scale, BigDecimal.ROUND_HALF_UP).doubleValue();
 	}
 	
+	
 	/**
 	 * 房源区域选择
 	 * 
@@ -290,7 +344,7 @@ public class PTershouSumbitFragment extends Fragment implements IPTershouSubmitV
 		alertDialog.show();
 		Window window = alertDialog.getWindow();
 		window.setGravity(Gravity.BOTTOM);
-		window.setContentView(R.layout.ac_main_dialog);
+		window.setContentView(R.layout.ac_main_dialog2);
 		window.setLayout(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
 
 		WheelPicker picker1 = (WheelPicker) window.findViewById(R.id.main_dialog_container1);
@@ -441,9 +495,7 @@ public class PTershouSumbitFragment extends Fragment implements IPTershouSubmitV
 		});
 
 		btnTitle.setText("请选择房源区域");
-		
 	}
-	
 	
 	
 	/**
@@ -462,6 +514,7 @@ public class PTershouSumbitFragment extends Fragment implements IPTershouSubmitV
 		window.setGravity(Gravity.BOTTOM);
 		window.setContentView(R.layout.alerlog_wheelpicker_zulin);
 		window.setLayout(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+		
 		WheelPicker picker = (WheelPicker) window.findViewById(R.id.zulin_wheel);
 		TextView tvSure = (TextView) window.findViewById(R.id.tv_wheel_sure);
 		TextView tvCancle = (TextView) window.findViewById(R.id.tv_wheel_cancle);
@@ -574,7 +627,16 @@ public class PTershouSumbitFragment extends Fragment implements IPTershouSubmitV
 	@Override
 	public void PTershouSubmit(String info) {
 		MyToastShowCenter.CenterToast(getActivity(), info);
-		
+		if(info.equals("发布成功")){
+			handler.postDelayed(new Runnable() {
+				public void run() {
+					Fragment fragment = new PTershouListFragment();
+					FragmentTransaction trans = getActivity().getSupportFragmentManager().beginTransaction();
+					trans.replace(R.id.rl_container, fragment);
+					trans.commitAllowingStateLoss();
+				}
+			}, 1000);
+		}
 	}
 	
 	

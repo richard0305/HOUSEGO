@@ -34,15 +34,14 @@ public class ChengJiaoESModel implements IChengJiaoESModel {
 					back.onSuccess(ershoudetails);
 				} catch (JSONException e) {
 
-					//
-					// try {
-					// JSONObject JS = new JSONObject(response);
-					//
-					// String info=JS.getString("info");
-					// back.onError(info);
-					// } catch (JSONException e1) {
-					// e1.printStackTrace();
-					// }
+					 try {
+					 JSONObject JS = new JSONObject(response);
+					
+					 String info=JS.getString("info");
+					 back.onError(info);
+					 } catch (JSONException e1) {
+					 e1.printStackTrace();
+					 }
 
 					e.printStackTrace();
 				}
@@ -52,7 +51,6 @@ public class ChengJiaoESModel implements IChengJiaoESModel {
 
 			@Override
 			public void onErrorResponse(VolleyError error) {
-				back.onError(error.getMessage());
 
 			}
 		}) {

@@ -50,8 +50,10 @@ public class AgentMainActivity extends Activity implements IAgentModelDataView {
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				AgentData a=agentdatas.get(position);
 				Intent i = new Intent(getApplicationContext(), AgentDetailActivity.class);
-
+				i.putExtra("userid", a.getUserid());
+				i.putExtra("username", a.getUsername());
 				startActivity(i);
 			}
 		});

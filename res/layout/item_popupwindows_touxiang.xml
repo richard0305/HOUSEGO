@@ -8,6 +8,7 @@
     tools:ignore="HardcodedText" >
 
     <LinearLayout
+        android:layout_marginTop="10dp"
         android:id="@+id/ll_popup_touxaing"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -85,7 +85,7 @@
                         android:textSize="14sp" />
 
                     <TextView
-                        android:id="@+id/tv_ershou_housearea"
+                        android:id="@+id/tv_ptershou_housearea"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_alignParentRight="true"

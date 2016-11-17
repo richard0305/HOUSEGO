@@ -53,13 +53,20 @@ public class PTershouSubmitModel implements IPTershouSubmitModel{
 				m.put("username", username);
 				m.put("userid", userid);
 				m.put("modelid", modelid);
+				
 				m.put("province", e.getProvince());
 				m.put("city", e.getCity());
 				m.put("area", e.getArea());
 				m.put("xiaoquname", e.getXiaoquname());
-				m.put("jingweidu", e.getJingweidu());
 				m.put("chenghu", e.getChenghu());
 				m.put("zongjia", e.getZongjia());
+				m.put("loudong", e.getLoudong());
+				m.put("menpai", e.getMenpai());
+				
+				m.put("jingweidu", e.getJingweidu());
+				m.put("curceng", e.getCurceng());
+				m.put("zongceng", e.getZongceng());
+				m.put("ceng", e.getCeng());
 				m.put("pub_type", e.getPub_type());
 				m.put("hidetel", e.getHidetel());
 				m.put("title", e.getTitle());

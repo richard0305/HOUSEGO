@@ -70,6 +70,27 @@ public class WheelpickerData {
 		HUTYPE3.add("3卫");
 		HUTYPE3.add("3卫以上");
 	}
+	// 户型2
+	public static List<String> PTHUTYPE1 = new ArrayList<String>();
+	public static List<String> PTHUTYPE2 = new ArrayList<String>();
+	public static List<String> PTHUTYPE3 = new ArrayList<String>();
+	static {
+		PTHUTYPE1.add("1室");
+		PTHUTYPE1.add("2室");
+		PTHUTYPE1.add("3室");
+		PTHUTYPE1.add("4室");
+		PTHUTYPE1.add("5室");
+
+		PTHUTYPE2.add("0厅");
+		PTHUTYPE2.add("1厅");
+		PTHUTYPE2.add("2厅");
+		PTHUTYPE2.add("3厅");
+
+		PTHUTYPE3.add("1卫");
+		PTHUTYPE3.add("2卫");
+		PTHUTYPE3.add("3卫");
+	}
+	
 	// 房屋属性
 	public static List<String> HOUSESX1 = new ArrayList<String>();
 	public static List<String> HOUSESX2 = new ArrayList<String>();

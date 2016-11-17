@@ -102,6 +102,7 @@ public class PersonalMainActivity extends Activity implements IChangeUserInfoVie
 	private PopupWindow popTouXiang;
 	private LinearLayout ll_cancle_touxiang;
 	private LinearLayout ll_popup_touxiang;
+	protected TextView tv_realname;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -235,8 +236,7 @@ public class PersonalMainActivity extends Activity implements IChangeUserInfoVie
 				String userid = userinfo.getUserid();
 				String sex = "1";
 				userinfopresenter.ChangeSex(userid, sex);
-
-				onResume();
+				tv_person_sex.setText("男");
 				pop.dismiss();
 				ll_popup.clearAnimation();
 				ll_cancle.clearAnimation();
@@ -248,7 +248,7 @@ public class PersonalMainActivity extends Activity implements IChangeUserInfoVie
 				String userid = userinfo.getUserid();
 				String sex = "2";
 				userinfopresenter.ChangeSex(userid, sex);
-				onResume();
+				tv_person_sex.setText("女");
 				pop.dismiss();
 				ll_popup.clearAnimation();
 				ll_cancle.clearAnimation();
@@ -295,7 +295,7 @@ public class PersonalMainActivity extends Activity implements IChangeUserInfoVie
 				tv_person_sex.setText("女");
 			}
 			tv_person_fenjihao.setText(userinfo.getVtel());
-
+			tv_realname.setText(userinfo.getRealname());
 		}
 		super.onResume();
 	}
@@ -413,7 +413,9 @@ public class PersonalMainActivity extends Activity implements IChangeUserInfoVie
 				String realname = et_changrealname.getText() + "";
 				String modelid = userinfo.getModelid();
 				userinfopresenter.ChangeRealName(userid, realname, modelid);
-
+				tv_realname.setText(realname);
+				
+					
 				handler.postDelayed(new Runnable() {
 					public void run() {
 
@@ -431,7 +433,6 @@ public class PersonalMainActivity extends Activity implements IChangeUserInfoVie
 			public void onClick(View v) {
 				llchangerealname.setVisibility(View.GONE);
 				scrollview.setVisibility(View.VISIBLE);
-				onResume();
 			}
 		});
 
@@ -443,7 +444,6 @@ public class PersonalMainActivity extends Activity implements IChangeUserInfoVie
 				et_change_repassword.setText("");
 				llchangepassword.setVisibility(View.GONE);
 				scrollview.setVisibility(View.VISIBLE);
-				onResume();
 			}
 		});
 
@@ -455,7 +455,6 @@ public class PersonalMainActivity extends Activity implements IChangeUserInfoVie
 				llfenjihaoshenqing.setVisibility(View.GONE);
 				llchangfenjiahao.setVisibility(View.GONE);
 				scrollview.setVisibility(View.VISIBLE);
-				onResume();
 			}
 		});
 
@@ -467,7 +466,6 @@ public class PersonalMainActivity extends Activity implements IChangeUserInfoVie
 
 				scrollview.setVisibility(View.VISIBLE);
 
-				onResume();
 			}
 		});
 
@@ -482,7 +480,6 @@ public class PersonalMainActivity extends Activity implements IChangeUserInfoVie
 						llfenjihaoshenqing.setVisibility(View.GONE);
 						llchangfenjiahao.setVisibility(View.GONE);
 						scrollview.setVisibility(View.VISIBLE);
-						onResume();
 					}
 				}, 1000);
 
@@ -502,7 +499,6 @@ public class PersonalMainActivity extends Activity implements IChangeUserInfoVie
 						llfenjihaojiebang.setVisibility(View.GONE);
 						llchangfenjiahao.setVisibility(View.GONE);
 						scrollview.setVisibility(View.VISIBLE);
-						onResume();
 					}
 				}, 1000);
 
@@ -520,7 +516,6 @@ public class PersonalMainActivity extends Activity implements IChangeUserInfoVie
 					public void run() {
 						llchangegerenjieshao.setVisibility(View.GONE);
 						scrollview.setVisibility(View.VISIBLE);
-						onResume();
 					}
 				}, 1000);
 			}
@@ -544,7 +539,6 @@ public class PersonalMainActivity extends Activity implements IChangeUserInfoVie
 					public void run() {
 						llchangepassword.setVisibility(View.GONE);
 						scrollview.setVisibility(View.VISIBLE);
-						onResume();
 					}
 				}, 1000);
 
@@ -630,7 +624,7 @@ public class PersonalMainActivity extends Activity implements IChangeUserInfoVie
 		// *
 		// */
 		// }
-
+		tv_realname=(TextView) findViewById(R.id.tv_realname);
 	}
 
 	// protected void onActivityResult(int requestCode, int resultCode, Intent

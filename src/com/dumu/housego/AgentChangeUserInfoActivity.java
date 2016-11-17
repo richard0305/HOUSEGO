@@ -16,6 +16,7 @@ import com.dumu.housego.util.MyToastShowCenter;
 import com.dumu.housego.view.IChangeUserInfoView;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
@@ -23,16 +24,20 @@ import android.os.Handler;
 import android.os.Message;
 import android.view.Gravity;
 import android.view.View;
+import android.view.Window;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 
 public class AgentChangeUserInfoActivity extends Activity implements IChangeUserInfoView {
 	private IChangeUserInfoPresenter userinfopresenter;
@@ -85,9 +90,7 @@ public class AgentChangeUserInfoActivity extends Activity implements IChangeUser
 			});
 			userinfo = HouseGoApp.getContext().getCurrentUserInfo();
 
-			onResume();
 
-			MyToastShowCenter.CenterToast(getApplicationContext(), "我已经刷新了数据");
 
 		}
 	};
@@ -102,6 +105,18 @@ public class AgentChangeUserInfoActivity extends Activity implements IChangeUser
 	private PopupWindow popWorkTime;
 	private LinearLayout ll_popup_worktime;
 	private LinearLayout ll_cancle_worktime;
+	private String tcb1="";
+	private String tcb2="";
+	private String tcb3="";
+	private String tcb4="";
+	private String tcb5="";
+	private String tcb6="";
+	private String tcb7="";
+	private String tcb8="";
+	private String tcb9="";
+	private String tcb10="";
+	private String tcb11="";
+	private String tcb12="";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -153,7 +168,7 @@ public class AgentChangeUserInfoActivity extends Activity implements IChangeUser
 				String userid = userinfo.getUserid();
 				String worktime = "1-2";
 				userinfopresenter.ChangeWorkTime(userid, worktime);
-				onResume();
+				tv_agent_chongyeshijian.setText(worktime+"年");
 				popWorkTime.dismiss();
 				ll_popup_worktime.clearAnimation();
 				ll_cancle_worktime.clearAnimation();
@@ -164,7 +179,7 @@ public class AgentChangeUserInfoActivity extends Activity implements IChangeUser
 				String userid = userinfo.getUserid();
 				String worktime = "2-5";
 				userinfopresenter.ChangeWorkTime(userid, worktime);
-				onResume();
+				tv_agent_chongyeshijian.setText(worktime+"年");
 				popWorkTime.dismiss();
 				ll_popup_worktime.clearAnimation();
 				ll_cancle_worktime.clearAnimation();
@@ -176,7 +191,7 @@ public class AgentChangeUserInfoActivity extends Activity implements IChangeUser
 				String userid = userinfo.getUserid();
 				String worktime = "5";
 				userinfopresenter.ChangeWorkTime(userid, worktime);
-				onResume();
+				tv_agent_chongyeshijian.setText(worktime+"年");
 				popWorkTime.dismiss();
 				ll_popup_worktime.clearAnimation();
 				ll_cancle_worktime.clearAnimation();
@@ -229,7 +244,7 @@ public class AgentChangeUserInfoActivity extends Activity implements IChangeUser
 				String userid = userinfo.getUserid();
 				String leixing = "个人";
 				userinfopresenter.ChangeLeixing(userid, leixing);
-				onResume();
+				tv_agent_zhiyeType.setText(leixing);
 				popType.dismiss();
 				ll_popup_zhiyeType.clearAnimation();
 				ll_cancle_zhiyeType.clearAnimation();
@@ -248,7 +263,7 @@ public class AgentChangeUserInfoActivity extends Activity implements IChangeUser
 				String userid = userinfo.getUserid();
 				String leixing = "公司";
 				userinfopresenter.ChangeLeixing(userid, leixing);
-				onResume();
+				tv_agent_zhiyeType.setText(leixing);
 				popType.dismiss();
 				ll_popup_zhiyeType.clearAnimation();
 				ll_cancle_zhiyeType.clearAnimation();
@@ -296,8 +311,7 @@ public class AgentChangeUserInfoActivity extends Activity implements IChangeUser
 				String userid = userinfo.getUserid();
 				String sex = "1";
 				userinfopresenter.ChangeSex(userid, sex);
-
-				onResume();
+				tv_agent_sex.setText("男");
 				pop.dismiss();
 				ll_popup.clearAnimation();
 				ll_cancle.clearAnimation();
@@ -309,7 +323,7 @@ public class AgentChangeUserInfoActivity extends Activity implements IChangeUser
 				String userid = userinfo.getUserid();
 				String sex = "2";
 				userinfopresenter.ChangeSex(userid, sex);
-				onResume();
+				tv_agent_sex.setText("女");
 				pop.dismiss();
 				ll_popup.clearAnimation();
 				ll_cancle.clearAnimation();
@@ -439,7 +453,7 @@ public class AgentChangeUserInfoActivity extends Activity implements IChangeUser
 		rl_agent_mainarea.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
+				CityCheckDialog();
 			}
 		});
 
@@ -513,7 +527,7 @@ public class AgentChangeUserInfoActivity extends Activity implements IChangeUser
 				String realname = et_agent_changrealname.getText().toString();
 				String modelid = userinfo.getModelid();
 				userinfopresenter.ChangeRealName(userid, realname, modelid);
-
+				tv_agent_realname.setText(realname);
 				handler.postDelayed(new Runnable() {
 					public void run() {
 						ll_agent_changerealname.setVisibility(View.GONE);
@@ -597,7 +611,7 @@ public class AgentChangeUserInfoActivity extends Activity implements IChangeUser
 				String userid = userinfo.getUserid();
 				String about = et_agent_changegerenjieshao.getText().toString();
 				userinfopresenter.ChangeGeRenJieshao(userid, about);
-
+				
 				handler.postDelayed(new Runnable() {
 					public void run() {
 						ll_agent_gerenjieshao.setVisibility(View.GONE);
@@ -790,5 +804,194 @@ public class AgentChangeUserInfoActivity extends Activity implements IChangeUser
 		}, 1000);
 
 	}
+	
+	
+	/**
+	 * 标签，与地铁线
+	 * 
+	 * @param Data
+	 *            数据源，需要展示的数据
+	 * @param tv
+	 *            确认后，所需要显示的什么空间上
+	 * @param title
+	 *            中间显示条目的内容
+	 */
+
+	public void CityCheckDialog() {
+		final AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+		alertDialog.show();
+		Window window = alertDialog.getWindow();
+		window.setGravity(Gravity.BOTTOM);
+		window.setContentView(R.layout.alerlog_check_city);
+		window.setLayout(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+		TextView tvSure = (TextView) window.findViewById(R.id.tv_wheel_sure);
+		TextView tvCancle = (TextView) window.findViewById(R.id.tv_wheel_cancle);
+		TextView tvTitle = (TextView) window.findViewById(R.id.tv_wheel_title);
+
+		final CheckBox cb1 = (CheckBox) window.findViewById(R.id.check_1);
+		final CheckBox cb2 = (CheckBox) window.findViewById(R.id.check_2);
+		final CheckBox cb3 = (CheckBox) window.findViewById(R.id.check_3);
+		final CheckBox cb4 = (CheckBox) window.findViewById(R.id.check_4);
+		final CheckBox cb5 = (CheckBox) window.findViewById(R.id.check_5);
+		final CheckBox cb6 = (CheckBox) window.findViewById(R.id.check_6);
+		final CheckBox cb7 = (CheckBox) window.findViewById(R.id.check_7);
+		final CheckBox cb8 = (CheckBox) window.findViewById(R.id.check_8);
+		final CheckBox cb9 = (CheckBox) window.findViewById(R.id.check_9);
+		final CheckBox cb10 = (CheckBox) window.findViewById(R.id.check_10);
+		final CheckBox cb11= (CheckBox) window.findViewById(R.id.check_11);
+		final CheckBox cb12= (CheckBox) window.findViewById(R.id.check_12);
+		
+		cb12.
+		setOnCheckedChangeListener(
+				new OnCheckedChangeListener() {
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				if (isChecked) {
+					tcb12 = ","+(String) buttonView.getText().toString();
+				} else {
+					tcb12 ="";
+				}
+			}
+		});
+		
+		cb11.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				if (isChecked) {
+					tcb11 = ","+(String) buttonView.getText().toString();
+				} else {
+					tcb11 = "";
+				}
+			}
+		});
+		cb10.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				if (isChecked) {
+					tcb10 = ","+(String) buttonView.getText().toString();
+				} else {
+					tcb10 = "";
+				}
+			}
+		});
+		cb9.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				if (isChecked) {
+					tcb9 = ","+(String) buttonView.getText().toString();
+				} else {
+					tcb9 = "";
+				}
+			}
+		});
+		cb8.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				if (isChecked) {
+					tcb8 = ","+(String) buttonView.getText().toString();
+				} else {
+					tcb8 = "";
+				}
+			}
+		});
+		cb7.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				if (isChecked) {
+					tcb7 = ","+(String) buttonView.getText().toString();
+				} else {
+					tcb7 = "";
+				}
+			}
+		});
+		
+		cb6.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				if (isChecked) {
+					tcb6 = ","+(String) buttonView.getText().toString();
+				} else {
+					tcb6 = "";
+				}
+			}
+		});
+		cb1.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				if (isChecked) {
+					tcb1 = ","+(String) buttonView.getText().toString();
+				} else {
+					tcb1 = "";
+				}
+			}
+		});
+		cb2.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				if (isChecked) {
+					tcb2 = ","+(String) buttonView.getText().toString();
+				} else {
+					tcb2 = "";
+				}
+			}
+		});
+		cb3.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				if (isChecked) {
+					tcb3 = ","+(String) buttonView.getText().toString();
+				} else {
+					tcb3 = "";
+				}
+			}
+		});
+		cb4.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				if (isChecked) {
+					tcb4 = ","+(String) buttonView.getText().toString();
+				} else {
+					tcb4 = "";
+				}
+			}
+		});
+		cb5.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				if (isChecked) {
+					tcb5 = ","+(String) buttonView.getText().toString();
+				} else {
+					tcb5 = "";
+				}
+			}
+		});
+
+		tvSure.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				String cb=tcb1+tcb2+tcb3+tcb4+tcb5+tcb6+tcb7+tcb8+tcb9+tcb10+tcb11+tcb12;
+				
+				if(cb.startsWith(",")){
+					String tx=cb.substring(1);
+					userinfopresenter.ChangeMainArea(userinfo.getUserid(), tx);
+					tv_agent_mainarea.setText(tx.toString());
+				}else{
+					String tx=cb;
+					userinfopresenter.ChangeMainArea(userinfo.getUserid(), tx);
+					tv_agent_mainarea.setText(tx.toString());
+				}
+				
+				alertDialog.cancel();
+			}
+		});
+		tvCancle.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				alertDialog.cancel();
+			}
+		});
+
+	}
+
 
 }

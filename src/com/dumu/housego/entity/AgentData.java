@@ -46,7 +46,7 @@ public class AgentData {
 	private String praise;
 	private String checked;
 	private String coname;
-
+	private String comm_count;
 	public AgentData() {
 		super();
 	}
@@ -57,8 +57,9 @@ public class AgentData {
 			String username, String deptid, String regip, String encrypt, String regdate, String vtel, String groupid,
 			String overduedate, String lastdate, String attention, String zhuanjie, String nickname, String theme,
 			String modelid, String areaid, String lastip, String userpic, String agentid, String islock, String message,
-			String point, String email, String praise, String checked, String coname) {
+			String point, String email, String praise, String checked, String coname,String comm_count) {
 		super();
+		this.comm_count=comm_count;
 		this.sfzpic = sfzpic;
 		this.mainarea = mainarea;
 		this.leixing = leixing;
@@ -114,6 +115,15 @@ public class AgentData {
 		this.sfzpic = sfzpic;
 	}
 
+	public String getComm_count() {
+		return comm_count;
+	}
+
+	public void setComm_count(String comm_count) {
+		this.comm_count = comm_count;
+	}
+	
+	
 	public String getMainarea() {
 		return mainarea;
 	}
@@ -478,7 +488,7 @@ public class AgentData {
 				+ ", attention=" + attention + ", zhuanjie=" + zhuanjie + ", nickname=" + nickname + ", theme=" + theme
 				+ ", modelid=" + modelid + ", areaid=" + areaid + ", lastip=" + lastip + ", userpic=" + userpic
 				+ ", agentid=" + agentid + ", islock=" + islock + ", message=" + message + ", point=" + point
-				+ ", email=" + email + ", praise=" + praise + ", checked=" + checked + ", coname=" + coname + "]";
+				+ ", email=" + email + ", praise=" + praise + ", checked=" + checked + ", coname=" + coname +",comm_count="+comm_count+ "]";
 	}
 
 }

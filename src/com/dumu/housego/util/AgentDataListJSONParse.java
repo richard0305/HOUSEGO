@@ -23,13 +23,17 @@ public class AgentDataListJSONParse {
 			JSONObject obj = array.getJSONObject(i);
 			AgentData n = new AgentData();
 			JSONObject obj2 = obj.getJSONObject("info");
-
+			
+			n.setUserid(obj2.getString("userid"));
 			n.setRealname(obj.getString("realname"));
+			n.setComm_count(obj.getString("comm_count"));
+			n.setUsername(obj2.getString("username"));
 			n.setMainarea(obj.getString("mainarea"));
 			n.setDengji(obj.getString("dengji"));
 			n.setBiaoqian(obj.getString("biaoqian"));
 			n.setCtel(obj2.getString("vtel"));
 			n.setUserpic(obj2.getString("userpic"));
+			
 
 			agentdatas.add(n);
 		}

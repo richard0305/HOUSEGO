@@ -4,6 +4,19 @@ public class UrlFactory {
 
 	public static String TSFURL = "http://www.taoshenfang.com/";
 	
+	//经纪人评论
+	
+	public static String GetAgentComment(String id) {
+		String path = TSFURL + "index.php?g=Api&m=user&a=jjr_comment&id="+id;
+		return path;
+	}
+	
+	//经纪人详情
+	public static String GetAgentDetail(String id) {
+		String path = TSFURL + "index.php?g=Api&m=user&a=jjrshow&id="+id;
+		return path;
+	}
+	
 	//二手房发布
 		public static String PostATershouSubmit() {
 			String path = TSFURL + "index.php?g=api&m=user&a=add_ershou";

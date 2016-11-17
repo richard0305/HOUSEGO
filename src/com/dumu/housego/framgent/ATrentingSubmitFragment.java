@@ -1144,7 +1144,7 @@ public class ATrentingSubmitFragment extends Fragment implements IATrentingSubmi
 		alertDialog.show();
 		Window window = alertDialog.getWindow();
 		window.setGravity(Gravity.BOTTOM);
-		window.setContentView(R.layout.alerlog_check_fangwupeitao);
+		window.setContentView(R.layout.alerlog_check_city);
 		window.setLayout(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
 		TextView tvSure = (TextView) window.findViewById(R.id.tv_wheel_sure);
 		TextView tvCancle = (TextView) window.findViewById(R.id.tv_wheel_cancle);

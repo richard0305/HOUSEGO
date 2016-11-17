@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -59,7 +60,7 @@ public class SubmitRentingListAdapter extends BaseAdapter {
 
 			holder.tvChenHu = (TextView) convertView.findViewById(R.id.tv_submit_renting_list_chuzuType);
 			holder.tvDetail = (TextView) convertView.findViewById(R.id.tv_submit_renting_list_detail);
-			holder.tvEdit = (TextView) convertView.findViewById(R.id.tv_submit_renting_list_edit);
+			holder.btnEdit = (Button) convertView.findViewById(R.id.btn_renting_bianji);
 			holder.tvLouceng = (TextView) convertView.findViewById(R.id.tv_submit_renting_list_area);
 			holder.tvTitle = (TextView) convertView.findViewById(R.id.tv_submit_renting_list_title);
 			holder.tvUpLoad = (TextView) convertView.findViewById(R.id.tv_submit_renting_list_imaup);
@@ -93,7 +94,7 @@ public class SubmitRentingListAdapter extends BaseAdapter {
 			holder.tvTitle.setText(n.getTitle() + "");
 			holder.tvZongjia.setText(n.getZujin() + "");
 
-			holder.tvEdit.setOnClickListener(new OnClickListener() {
+			holder.btnEdit.setOnClickListener(new OnClickListener() {
 
 				@Override
 				public void onClick(View v) {
@@ -125,7 +126,7 @@ public class SubmitRentingListAdapter extends BaseAdapter {
 		TextView tvChenHu;
 		TextView tvZongjia;
 		TextView tvUpLoad;
-		TextView tvEdit;
+		Button btnEdit;
 		ImageView ivPic;
 	}
 }
