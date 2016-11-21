@@ -14,9 +14,11 @@ import com.android.volley.VolleyError;
 import com.dumu.housego.app.HouseGoApp;
 import com.dumu.housego.entity.ErShouFangRecommendData;
 import com.dumu.housego.entity.FourDataPrograma;
+import com.dumu.housego.entity.RentingRecommendData;
 import com.dumu.housego.model.IModel.AsycnCallBack;
 import com.dumu.housego.util.CommonRequest;
 import com.dumu.housego.util.ErShouFangReconmendJSONParse;
+import com.dumu.housego.util.RentingReconmendJSONParse;
 import com.dumu.housego.util.UrlFactory;
 
 import android.util.Log;
@@ -36,8 +38,8 @@ public class RentingProgramaModel implements IFourDataProgramaModel {
 			public void onResponse(String response) {
 				Log.i("YANGLIJUN", "<<<<<<<<<<<<<<<<<<---->>>>>>>>>>----data" + response);
 				try {
-					List<ErShouFangRecommendData> ershoufangrecommends;
-					ershoufangrecommends = ErShouFangReconmendJSONParse.parseSearch(response);
+					List<RentingRecommendData> ershoufangrecommends;
+					ershoufangrecommends = RentingReconmendJSONParse.parseSearch(response);
 					Log.i("YANGLIJUN", "<<<<<<<<<<<<<<<<<<---->>>>>>>>>>----data" + ershoufangrecommends);
 
 					back.onSuccess(ershoufangrecommends);

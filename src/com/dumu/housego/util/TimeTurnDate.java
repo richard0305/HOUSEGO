@@ -19,28 +19,28 @@ public class TimeTurnDate {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CHINA);
 		long times = Long.valueOf(ab);
 		// System.out.println(times);
-		Date date = new Date(times);
+		Date date = new Date(times*1000);
 		String tim = sdf.format(date);
 		return tim;
 	}
 
 	public static String getStringDate(long times) {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd ", Locale.CHINA);
-		Date date = new Date(times);
+		Date date = new Date(times*1000);
 		String tim = sdf.format(date);
 		return tim;
 	}
 
 	public static String getStringDateMore(long times) {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.CHINA);
-		Date date = new Date(times);
+		Date date = new Date(times*1000);
 		String tim = sdf.format(date);
 		return tim;
 	}
 
 	public static String getStringDateMoreMORE(long times) {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CHINA);
-		Date date = new Date(times);
+		Date date = new Date(times*1000);
 		String tim = sdf.format(date);
 		return tim;
 	}

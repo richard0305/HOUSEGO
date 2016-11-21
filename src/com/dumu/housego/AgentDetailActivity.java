@@ -1,9 +1,12 @@
 package com.dumu.housego;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.dumu.housego.adapter.AgentChengJiaoErShouAdapter;
 import com.dumu.housego.adapter.AgentCommentAdapter;
+import com.dumu.housego.adapter.AgentSubmitErShouAdapter;
 import com.dumu.housego.adapter.ChengJiaoErShouAdapter;
 import com.dumu.housego.adapter.SubmitErshouListAdapter;
 import com.dumu.housego.app.HouseGoApp;
@@ -29,28 +32,31 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class AgentDetailActivity extends Activity implements IAgentDetailView,IAgentCommentView,IChengJiaoErShouView,ISubmitErShouListView{
-	private List<ErShouFangDetails> ershoudes;
+	private List<ErShouFangDetails> ershoudes=new ArrayList<ErShouFangDetails>();
 	private List<ErShouFangDetails> ershous=new ArrayList<ErShouFangDetails>();
 	
-	private List<ErShouFangDetails> ESers;
+	private List<ErShouFangDetails> ESers=new ArrayList<ErShouFangDetails>();
 	private List<ErShouFangDetails> ES=new ArrayList<ErShouFangDetails>();
 	
-	private List<AgentCommentList> comments;
+	private List<AgentCommentList> comments=new ArrayList<AgentCommentList>();
 	private List<AgentCommentList> comms=new ArrayList<AgentCommentList>();
 	private AgentCommentAdapter adapter;
-	private ChengJiaoErShouAdapter chengjiaoadapter;
-	private SubmitErshouListAdapter ershouadapter;
+	private AgentChengJiaoErShouAdapter chengjiaoadapter;
+	private AgentSubmitErShouAdapter ershouadapter;
 	private AgentDetail e;
 	private IAgentCommentPresenter commentpresenter;
 	private ISubmitErShouListpresenter ershouPresenter;
@@ -101,6 +107,13 @@ public class AgentDetailActivity extends Activity implements IAgentDetailView,IA
 
 	@Override
 	protected void onResume() {
+		ershoudes.clear();
+		ershous.clear();
+		ESers.clear();
+		ES.clear();
+		comments.clear();
+		comms.clear();
+		
 		username=getIntent().getStringExtra("username");
 		String table="ershou";
 		userid=getIntent().getStringExtra("userid");
@@ -155,12 +168,78 @@ public class AgentDetailActivity extends Activity implements IAgentDetailView,IA
 		imageView2.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				//
+				Intent i=new Intent(AgentDetailActivity.this, ShowAgentDataActivity.class);
+				i.putExtra("TYPE", "COMMENT");
+				i.putExtra("userid", userid);
+				startActivity(i);
+				
 				
 			}
 		});
 		
+		tv_agent_morechengjiaofangyuan.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent i=new Intent(AgentDetailActivity.this, ShowAgentDataActivity.class);
+				i.putExtra("TYPE", "LIST");
+				i.putExtra("TAG", "chengjiao");
+				i.putExtra("chengjiao", (Serializable)ershoudes);
+				startActivity(i);
+				
+			}
+		});
+		tv_agent_moreershoufangyuan.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent i=new Intent(AgentDetailActivity.this, ShowAgentDataActivity.class);
+				i.putExtra("TYPE", "LIST");
+				i.putExtra("TAG", "ershou");
+				i.putExtra("ershou", (Serializable)ESers);
+				startActivity(i);
+				
+			}
+		});
+		tv_agent_morepinglun.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent i=new Intent(AgentDetailActivity.this, ShowAgentDataActivity.class);
+				i.putExtra("TYPE", "LIST");
+				i.putExtra("TAG", "pinglun");
+				i.putExtra("comment", (Serializable)comments);
+				startActivity(i);
+				
+			}
+		});
 		
+		lvChengjiaofangyuan.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				ErShouFangDetails e=	ershoudes.get(position);
+				Intent i = new Intent(AgentDetailActivity.this, ErShouFangDetailsActivity.class);
+				String catid=e.getCatid();
+				String ID=e.getId();
+				i.putExtra("catid", catid);
+				i.putExtra("id", ID);
+				startActivity(i);
+				
+			}
+		});
+		
+		lvErshoufangyuan.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				ErShouFangDetails e=ESers.get(position);
+				Intent i = new Intent(AgentDetailActivity.this, ErShouFangDetailsActivity.class);
+				String catid=e.getCatid();
+				String ID=e.getId();
+				i.putExtra("catid", catid);
+				i.putExtra("id", ID);
+				startActivity(i);
+				
+			}
+		});
 		
 	}
 	
@@ -296,13 +375,14 @@ public class AgentDetailActivity extends Activity implements IAgentDetailView,IA
 		this.ershoudes=ershoudes;
 		ershous.add(ershoudes.get(0));
 		ershous.add(ershoudes.get(1));
+		ershous.add(ershoudes.get(2));
 		chengjiaofangyuan_wushuju.setVisibility(View.GONE);
 		chengjiaofangyuan_youshuju.setVisibility(View.VISIBLE);
-		if(ershoudes.size()>=2){
-			chengjiaoadapter=new ChengJiaoErShouAdapter(ershous, getApplicationContext());
+		if(ershoudes.size()>=3){
+			chengjiaoadapter=new AgentChengJiaoErShouAdapter(ershous, getApplicationContext());
 			lvChengjiaofangyuan.setAdapter(chengjiaoadapter);
 		}else{
-			chengjiaoadapter=new ChengJiaoErShouAdapter(ershoudes, getApplicationContext());
+			chengjiaoadapter=new AgentChengJiaoErShouAdapter(ershoudes, getApplicationContext());
 			lvChengjiaofangyuan.setAdapter(chengjiaoadapter);
 		}
 		
@@ -320,14 +400,15 @@ public class AgentDetailActivity extends Activity implements IAgentDetailView,IA
 		this.ESers=ESers;
 		ES.add(ESers.get(0));
 		ES.add(ESers.get(1));
+		ES.add(ESers.get(2));
 		ershoufangyuan_youshuju.setVisibility(View.VISIBLE);
 		ershoufangyuan_wushuju.setVisibility(View.GONE);
 		
-		if(ESers.size()>=2){
-			ershouadapter=new SubmitErshouListAdapter(ES, getApplicationContext());
+		if(ESers.size()>=3){
+			ershouadapter=new AgentSubmitErShouAdapter(ES, getApplicationContext());
 			lvErshoufangyuan.setAdapter(ershouadapter);
 		}else{
-			ershouadapter=new SubmitErshouListAdapter(ESers, getApplicationContext());
+			ershouadapter=new AgentSubmitErShouAdapter(ESers, getApplicationContext());
 			lvErshoufangyuan.setAdapter(ershouadapter);
 		}
 		

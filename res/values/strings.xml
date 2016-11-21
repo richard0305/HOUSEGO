@@ -47,5 +47,6 @@
     <string name="title_activity_agent_personal">AgentPersonalActivity</string>
     <string name="title_activity_submit_edittext">SubmitEdittextActivity</string>
     <string name="title_activity_search">SearchActivity</string>
+    <string name="title_activity_show_agent_data">ShowAgentDataActivity</string>
 
 </resources>

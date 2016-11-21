@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.dumu.housego.entity.ErShouFangRecommendData;
 import com.dumu.housego.entity.FourDataPrograma;
+import com.dumu.housego.entity.RentingRecommendData;
 import com.dumu.housego.model.ErShouFangProgramaModel;
 import com.dumu.housego.model.IFourDataProgramaModel;
 import com.dumu.housego.model.IModel.AsycnCallBack;
@@ -27,7 +28,7 @@ public class RentingProgramaPresenter implements IFourDataProgramePresenter {
 
 			@Override
 			public void onSuccess(Object success) {
-				List<ErShouFangRecommendData> ershoufangrecommends = (List<ErShouFangRecommendData>) success;
+				List<RentingRecommendData> ershoufangrecommends = (List<RentingRecommendData>) success;
 
 				view.showData(ershoufangrecommends);
 

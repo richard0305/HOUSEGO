@@ -14,10 +14,13 @@ import com.android.volley.AuthFailureError;
 import com.android.volley.VolleyError;
 import com.dumu.housego.app.HouseGoApp;
 import com.dumu.housego.entity.AreaHouse;
+import com.dumu.housego.entity.Street;
+import com.dumu.housego.entity.XiaoquMapHouse;
 import com.dumu.housego.model.IModel.AsycnCallBack;
 import com.dumu.housego.util.CommonRequest;
 import com.dumu.housego.util.MapHouseDataParse;
 import com.dumu.housego.util.UrlFactory;
+import com.dumu.housego.util.XiaoQuMapHouseJSONParse;
 
 import android.util.Log;
 
@@ -32,7 +35,6 @@ public class MapHouseDataModel implements IMapHouseDataModel {
 			public void onResponse(String response) {
 				try {
 					List<AreaHouse> areahouses = MapHouseDataParse.parseSearch(response);
-					Log.e("xxxxxxxxxxxxxxxxxxxxxx00000000000", areahouses.toString());
 					back.onSuccess(areahouses);
 				} catch (JSONException e) {
 					e.printStackTrace();
@@ -56,6 +58,40 @@ public class MapHouseDataModel implements IMapHouseDataModel {
 		};
 		HouseGoApp.getQueue().add(request);
 
+	}
+
+	@Override
+	public void LoadAreaMapHouseData(final String city, final String fromtable, final AsycnCallBack back) {
+		String url = UrlFactory.PostAreaMapHouse();
+		CommonRequest request = new CommonRequest(Method.POST, url, new Listener<String>() {
+
+			@Override
+			public void onResponse(String response) {
+				try {
+					List<AreaHouse> streets = MapHouseDataParse.parseSearch(response);
+					back.onSuccess(streets);
+				} catch (JSONException e) {
+					e.printStackTrace();
+				}
+
+			}
+		}, new ErrorListener() {
+
+			@Override
+			public void onErrorResponse(VolleyError error) {
+				back.onError(error.getMessage());
+
+			}
+		}) {
+			@Override
+			protected Map<String, String> getParams() throws AuthFailureError {
+				Map<String, String> map = new HashMap<String, String>();
+				map.put("fromtable", fromtable);
+				map.put("city", city);
+				return map;
+			}
+		};
+		HouseGoApp.getQueue().add(request);
 	}
 
 }

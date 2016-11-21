@@ -57,6 +57,12 @@ public class ErShouFangRecommendAdapter extends BaseAdapter {
 			holder.tvMeterPrice = (TextView) convertView.findViewById(R.id.tv_ershoufang_price_meter);
 			holder.tvPrice = (TextView) convertView.findViewById(R.id.tv_ershoufang_totalprice);
 			holder.tvTitle = (TextView) convertView.findViewById(R.id.tv_ershoufang_title);
+			holder.tvBiaoqian1=(TextView) convertView.findViewById(R.id.tv_ershou_biaoqian);
+			holder.tvBiaoqian2=(TextView) convertView.findViewById(R.id.tv_ershou_biaoqian2);
+			holder.tvBiaoqian3=(TextView) convertView.findViewById(R.id.tv_ershou_biaoqian3);
+			holder.tvBiaoqian4=(TextView) convertView.findViewById(R.id.tv_ershou_biaoqian4);
+			
+			
 			convertView.setTag(holder);
 		} else {
 			holder = (ViewHolder) convertView.getTag();
@@ -72,22 +78,69 @@ public class ErShouFangRecommendAdapter extends BaseAdapter {
 
 		ImageLoader.getInstance().displayImage(url, holder.ivImg, options);
 
-		// Glide.with(context).load(url).into(holder.ivImg);
 
 		holder.tvTitle.setText(n.getTitle() + "");
 
-		// holder.tvArea.setText(n.getShi()+"��"+n.getTing()+"��
-		// "+n.getJianzhumianji()+"�O ��");
-		// holder.tvPrice.setText(n.getZongjia()+"");
-		// holder.tvAddress.setText("���� "+n.getCity_name()+"
-		// "+n.getXiaoquname());
+		 holder.tvArea.setText(n.getShi()+"室"+n.getTing()+"厅 "+n.getJianzhumianji()+"㎡ "+n.getChaoxiang());
+		 holder.tvPrice.setText(n.getZongjia()+"");
+		 holder.tvAddress.setText(""+n.getCityname()+" "+n.getAreaname());
 
-		// int zongjia=Integer.parseInt(n.getZongjia().trim());
-		// int mianji=Integer.parseInt(n.getJianzhumianji().trim());
-		// int price=(zongjia)*(10000)/mianji;
+		 int zongjia=Integer.valueOf(n.getZongjia());
+		 int mianji=Integer.valueOf(n.getJianzhumianji());
+		 int price=(zongjia)*(10000)/mianji;
+		 
 
-		// holder.tvMeterPrice.setText(price+"Ԫ/�O");
+		 holder.tvMeterPrice.setText(price+"元/㎡");
 
+		 if(!n.getBiaoqian().equals("")){
+				String[] b=n.getBiaoqian().split(",");
+				int l=b.length;
+				switch (l) {
+				case 1:
+					holder.tvBiaoqian1.setText(b[0]);
+					holder.tvBiaoqian1.setVisibility(View.VISIBLE);
+					holder.tvBiaoqian2.setVisibility(View.GONE);
+					holder.tvBiaoqian3.setVisibility(View.GONE);
+					holder.tvBiaoqian4.setVisibility(View.GONE);
+					break;
+				case 2:
+					holder.tvBiaoqian1.setText(b[0]);
+					holder.tvBiaoqian2.setText(b[1]);
+					holder.tvBiaoqian1.setVisibility(View.VISIBLE);
+					holder.tvBiaoqian2.setVisibility(View.VISIBLE);
+					holder.tvBiaoqian3.setVisibility(View.GONE);
+					holder.tvBiaoqian4.setVisibility(View.GONE);
+					break;
+				case 3:
+					holder.tvBiaoqian1.setText(b[0]);
+					holder.tvBiaoqian2.setText(b[1]);
+					holder.tvBiaoqian3.setText(b[2]);
+					holder.tvBiaoqian1.setVisibility(View.VISIBLE);
+					holder.tvBiaoqian2.setVisibility(View.VISIBLE);
+					holder.tvBiaoqian3.setVisibility(View.VISIBLE);
+					holder.tvBiaoqian4.setVisibility(View.GONE);
+					break;
+				case 4:
+					holder.tvBiaoqian1.setText(b[0]);
+					holder.tvBiaoqian2.setText(b[1]);
+					holder.tvBiaoqian3.setText(b[2]);
+					holder.tvBiaoqian4.setText(b[3]);
+					holder.tvBiaoqian1.setVisibility(View.VISIBLE);
+					holder.tvBiaoqian3.setVisibility(View.VISIBLE);
+					holder.tvBiaoqian2.setVisibility(View.VISIBLE);
+					holder.tvBiaoqian4.setVisibility(View.VISIBLE);
+					break;
+				}
+			}else{
+				holder.tvBiaoqian1.setVisibility(View.GONE);
+				holder.tvBiaoqian3.setVisibility(View.GONE);
+				holder.tvBiaoqian2.setVisibility(View.GONE);
+				holder.tvBiaoqian4.setVisibility(View.GONE);
+			}
+			
+			
+		 
+		 
 		return convertView;
 	}
 
@@ -98,6 +151,12 @@ public class ErShouFangRecommendAdapter extends BaseAdapter {
 		TextView tvAddress;
 		TextView tvMeterPrice;
 		ImageView ivImg;
+		
+		TextView tvBiaoqian1;
+		TextView tvBiaoqian2;
+		TextView tvBiaoqian3;
+		TextView tvBiaoqian4;
+		
 	}
 
 }

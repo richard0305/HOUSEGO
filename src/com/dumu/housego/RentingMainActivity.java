@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.dumu.housego.adapter.ErShouFangRecommendAdapter;
+import com.dumu.housego.adapter.RentingRecommendAdapter;
 import com.dumu.housego.entity.BlockTradeList;
 import com.dumu.housego.entity.ErShouFangRecommendData;
 import com.dumu.housego.entity.FourDataPrograma;
+import com.dumu.housego.entity.RentingRecommendData;
 import com.dumu.housego.model.IModel.AsycnCallBack;
 import com.dumu.housego.model.RentingProgramaModel;
 import com.dumu.housego.presenter.IFourDataProgramePresenter;
@@ -31,12 +33,12 @@ import android.widget.ListView;
 public class RentingMainActivity extends Activity implements IRentingProgramaView, OnRefreshListener2<ListView> {
 
 	private LinearLayout llRentingBack;
-	private ErShouFangRecommendAdapter adapter;
+	private RentingRecommendAdapter  adapter;
 	private IFourDataProgramePresenter presenter;
-	private List<ErShouFangRecommendData> ershoufangrecommends;
+	private List<RentingRecommendData> ershoufangrecommends;
 	private FourDataPrograma fourdata;
 	private PullToRefreshListView lvRenting;
-	private List<ErShouFangRecommendData> lastrentings = new ArrayList<ErShouFangRecommendData>();
+	private List<RentingRecommendData> lastrentings = new ArrayList<RentingRecommendData>();
 	int page = 1;
 	private RentingProgramaModel model = new RentingProgramaModel();
 
@@ -90,10 +92,10 @@ public class RentingMainActivity extends Activity implements IRentingProgramaVie
 	}
 
 	@Override
-	public void showData(List<ErShouFangRecommendData> ershoufangrecommends) {
+	public void showData(List<RentingRecommendData> ershoufangrecommends) {
 		this.ershoufangrecommends = ershoufangrecommends;
 		this.lastrentings.addAll(ershoufangrecommends);
-		adapter = new ErShouFangRecommendAdapter(lastrentings, getApplicationContext());
+		adapter = new RentingRecommendAdapter(lastrentings, getApplicationContext());
 		lvRenting.setAdapter(adapter);
 
 	}
@@ -107,7 +109,7 @@ public class RentingMainActivity extends Activity implements IRentingProgramaVie
 
 			@Override
 			public void onSuccess(Object success) {
-				List<ErShouFangRecommendData> ershous = (List<ErShouFangRecommendData>) success;
+				List<RentingRecommendData> ershous = (List<RentingRecommendData>) success;
 
 				// 将数据追加到集合中
 				lastrentings.clear();
@@ -139,7 +141,7 @@ public class RentingMainActivity extends Activity implements IRentingProgramaVie
 			@Override
 			public void onSuccess(Object success) {
 
-				List<ErShouFangRecommendData> ershous = (List<ErShouFangRecommendData>) success;
+				List<RentingRecommendData> ershous = (List<RentingRecommendData>) success;
 				if (ershous==null) {
 					lvRenting.onRefreshComplete();
 					MyToastShowCenter.CenterToast(getApplicationContext(), "已经拉到底部，没有更多的数据了。。。");

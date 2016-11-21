@@ -3,6 +3,7 @@ package com.dumu.housego.presenter;
 import java.util.List;
 
 import com.dumu.housego.entity.AreaHouse;
+import com.dumu.housego.entity.XiaoquMapHouse;
 import com.dumu.housego.model.IMapHouseDataModel;
 import com.dumu.housego.model.IModel.AsycnCallBack;
 import com.dumu.housego.model.MapHouseDataModel;
@@ -36,5 +37,26 @@ public class MapHouseDataPresenter implements IMapHouseDataPresenter {
 		});
 
 	}
+
+	@Override
+	public void LoadAreaMapHouse(String city, String fromtable) {
+		model.LoadAreaMapHouseData(city, fromtable, new AsycnCallBack() {
+			
+			@Override
+			public void onSuccess(Object success) {
+				List<AreaHouse> streetes=(List<AreaHouse>) success;
+				view.ShowAreaMapHouse(streetes);
+			}
+			
+			@Override
+			public void onError(Object error) {
+				
+				
+			}
+		});
+		
+	}
+
+
 
 }

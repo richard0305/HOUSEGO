@@ -1,6 +1,8 @@
 package com.dumu.housego.entity;
 
-public class ErShouFangDetails {
+import java.io.Serializable;
+
+public class ErShouFangDetails implements Serializable{
 	private String id;
 	private String catid;
 	private String typeid;

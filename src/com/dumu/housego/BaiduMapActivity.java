@@ -243,6 +243,7 @@ public class BaiduMapActivity extends Activity {
 			// 从marker中获取info信息
 			Bundle bundle = marker.getExtraInfo();
 			BaiduMapInfo info = (BaiduMapInfo) bundle.getSerializable("info");
+			LatLng winLatLng = new LatLng(info.getLatitude(), info.getLongitude());
 			// 将信息显示在界面上
 
 			InfoWindow infoWindow;
@@ -254,7 +255,6 @@ public class BaiduMapActivity extends Activity {
 			tv.setPadding(30, 20, 30, 20);
 			tv.setText(info.getName() + "");
 
-			LatLng winLatLng = new LatLng(info.getLatitude(), info.getLongitude());
 
 			BitmapDescriptor bit = new BitmapDescriptorFactory().fromView(tv);
 
@@ -333,11 +333,14 @@ public class BaiduMapActivity extends Activity {
 						bitmap = BitmapDescriptorFactory.fromResource(R.drawable.map_pin_icon_sport);
 					} else if (type.equals("美食")) {
 						bitmap = BitmapDescriptorFactory.fromResource(R.drawable.map_pin_icon_restaraunt);
+						
 					}
 
 					options = new MarkerOptions().position(p.location).icon(bitmap).draggable(true);
 					// 添加marker
 					marker = (Marker) mBaiduMAP.addOverlay(options);
+					
+					
 					// 使用marker携带info信息，当点击事件的时候可以通过marker获得info信息
 					Bundle bundle = new Bundle();
 					// info必须实现序列化接口
@@ -385,4 +388,24 @@ public class BaiduMapActivity extends Activity {
 
 	}
 
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		// 在activity执行onDestroy时执行mMapView.onDestroy()，实现地图生命周期管理
+		mMapView.onDestroy();
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		// 在activity执行onResume时执行mMapView. onResume ()，实现地图生命周期管理
+		mMapView.onResume();
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+		// 在activity执行onPause时执行mMapView. onPause ()，实现地图生命周期管理
+		mMapView.onPause();
+	}
 }

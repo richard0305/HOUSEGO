@@ -232,13 +232,18 @@
         </activity>
         <activity
             android:name=".SubmitEdittextActivity"
-               android:theme="@android:style/Theme.Holo.Light.NoActionBar"
-            android:label="@string/title_activity_submit_edittext" >
+            android:label="@string/title_activity_submit_edittext"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
         </activity>
         <activity
             android:name=".SearchActivity"
-               android:theme="@android:style/Theme.Holo.Light.NoActionBar"
-            android:label="@string/title_activity_search" >
+            android:label="@string/title_activity_search"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".ShowAgentDataActivity"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+            android:label="@string/title_activity_show_agent_data" >
         </activity>
     </application>
 

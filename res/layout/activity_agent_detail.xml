@@ -384,12 +384,10 @@
 			    android:layout_width="match_parent"
 			    android:layout_height="wrap_content"
 			    android:background="#fff"
-			    android:visibility="gone"
 			    android:orientation="vertical">
             <com.dumu.housego.util.ListViewForScrollView 
                 android:id="@+id/lv_agent_pinglun"
                 android:layout_width="match_parent"
-                  android:background="#fff"
                 android:layout_height="wrap_content"
                 >
             </com.dumu.housego.util.ListViewForScrollView>
@@ -407,15 +405,15 @@
                    android:paddingLeft="60dp"
                   android:layout_gravity="center"
                    android:paddingRight="60dp"
-                   android:paddingTop="10dp"
-                   android:paddingBottom="10dp"
+                   android:paddingTop="6dp"
+                   android:paddingBottom="6dp"
                    android:textColor="#ff0000"
                    android:background="@drawable/shape_textview_more"
                    />
                 <TextView 
                  android:background="#fff"
 			        android:layout_width="match_parent"
-			        android:layout_height="15dp"
+			        android:layout_height="10dp"
 			        />  
             </LinearLayout>
 			<LinearLayout 
@@ -477,7 +475,6 @@
             <com.dumu.housego.util.ListViewForScrollView 
                 android:id="@+id/lv_agent_chengjiaofangyuan"
                 android:layout_width="match_parent"
-                  android:background="#fff"
                 android:layout_height="wrap_content"
                 >
             </com.dumu.housego.util.ListViewForScrollView>
@@ -495,15 +492,15 @@
                    android:paddingLeft="60dp"
                   android:layout_gravity="center"
                    android:paddingRight="60dp"
-                   android:paddingTop="10dp"
-                   android:paddingBottom="10dp"
+                 android:paddingTop="6dp"
+                   android:paddingBottom="6dp"
                    android:textColor="#ff0000"
                    android:background="@drawable/shape_textview_more"
                    />
              <TextView 
                  android:background="#fff"
 			        android:layout_width="match_parent"
-			        android:layout_height="15dp"
+			        android:layout_height="10dp"
 			        />  
             </LinearLayout>
 			<LinearLayout 
@@ -566,7 +563,6 @@
             <com.dumu.housego.util.ListViewForScrollView 
                 android:id="@+id/lv_agent_ershoufangyuan"
                 android:layout_width="match_parent"
-                 android:background="#fff"
                 android:layout_height="wrap_content"
                 >
             </com.dumu.housego.util.ListViewForScrollView>
@@ -584,15 +580,15 @@
                    android:paddingLeft="60dp"
                   android:layout_gravity="center"
                    android:paddingRight="60dp"
-                   android:paddingTop="10dp"
-                   android:paddingBottom="10dp"
+              android:paddingTop="6dp"
+                   android:paddingBottom="6dp"
                    android:textColor="#ff0000"
                    android:background="@drawable/shape_textview_more"
                    />
                 <TextView 
                  android:background="#fff"
 			        android:layout_width="match_parent"
-			        android:layout_height="15dp"
+			        android:layout_height="10dp"
 			        />  
             </LinearLayout>
 			<LinearLayout 

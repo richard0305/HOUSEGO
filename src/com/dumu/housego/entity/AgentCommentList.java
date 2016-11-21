@@ -1,6 +1,8 @@
 package com.dumu.housego.entity;
 
-public class AgentCommentList {
+import java.io.Serializable;
+
+public class AgentCommentList implements Serializable{
     private String id;
     private String comment_id;
     private String author_ip;
