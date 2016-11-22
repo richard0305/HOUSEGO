@@ -45,7 +45,7 @@ public class MyFramgent extends Fragment {
 	private RelativeLayout rlMyentrust;
 	private RelativeLayout rlMyrenting;
 	private RelativeLayout rlMyershoufang;
-	private RelativeLayout rl_putong_mychuzu, rl_putong_myzhufang, rl_putong_myshophouse;
+	private RelativeLayout rl_putong_mychuzu, rl_putong_myzhufang, rl_putong_myshophouse,rl_putong_mygoudidingdan;
 	private CircleImageView ivMyPic;
 	private UserInfo userinfo;
 	private RelativeLayout rlPTMyGuanZhu, rl_putong_mysalehouse;
@@ -212,6 +212,18 @@ public class MyFramgent extends Fragment {
 
 			}
 		});
+		
+		rl_putong_mygoudidingdan.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				Intent i = new Intent(getActivity(), PuTongMyGuanZhuActivity.class);
+				i.putExtra("v", "goudi");
+				startActivity(i);
+
+			}
+		});
+		//
 
 		rlAgentErshou.setOnClickListener(new OnClickListener() {
 			@Override
@@ -259,6 +271,9 @@ public class MyFramgent extends Fragment {
 		rl_putong_myzhufang = (RelativeLayout) view.findViewById(R.id.rl_putong_myzhufang);
 		rl_putong_mychuzu = (RelativeLayout) view.findViewById(R.id.rl_putong_mychuzu);
 		rl_putong_mysalehouse = (RelativeLayout) view.findViewById(R.id.rl_putong_mysalehouse);
+		rl_putong_mygoudidingdan=(RelativeLayout) view.findViewById(R.id.rl_putong_mygoudidingdan);
+		
+		
 		rlAgentErshou = (RelativeLayout) view.findViewById(R.id.rl_agent_ershoufangguanli);
 		rlAgentRenting = (RelativeLayout) view.findViewById(R.id.rl_agent_chuzufangguanli);
 		rl_putong_myshophouse = (RelativeLayout) view.findViewById(R.id.rl_putong_myshophouse);

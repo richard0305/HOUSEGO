@@ -3,6 +3,21 @@ package com.dumu.housego.util;
 public class UrlFactory {
 
 	public static String TSFURL = "http://www.taoshenfang.com/";
+	
+	
+	//勾地订单列表
+	public static String GetGouDiList(String userid) {
+		String path = TSFURL + "index.php?g=api&m=house&a=goudi_orderlist&userid="+userid;
+		return path;
+	}
+	
+	//勾地订单添加接口
+	public static String PostGouDiAdd() {
+		String path = TSFURL + "index.php?g=api&m=house&a=goudi_add";
+		return path;
+	}
+	
+	
 	//指定小区下的所有房源
 	public static String PostXiaoQuAllHosue() {
 		String path = TSFURL + "index.php?g=api&m=map&a=house";

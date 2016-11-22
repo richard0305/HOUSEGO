@@ -104,7 +104,7 @@ public class MapHouseMainActivity extends Activity implements IMapHouseDataView 
 		setViews();
 		setListeners();
 		initMarker();
-		rbErShouFang.setTextColor(getResources().getColor(R.color.button_ckeck));
+//		rbErShouFang.setTextColor(getResources().getColor(R.color.button_ckeck));
 		areapresenter = new MapHouseDataPresenter(this);
 		xiaoqupresenter=new XiaoquMapHousePresenter(this);
 		
@@ -337,8 +337,8 @@ public class MapHouseMainActivity extends Activity implements IMapHouseDataView 
 				mBaiduMAP.clear();
 				MapHouseMainActivity.this.fromtable="ershou";
 				onResume();
-				rbErShouFang.setTextColor(getResources().getColor(R.color.button_ckeck));
-				rbRenting.setTextColor(getResources().getColor(R.color.button_unckeck));
+//				rbErShouFang.setTextColor(getResources().getColor(R.color.button_ckeck));
+//				rbRenting.setTextColor(getResources().getColor(R.color.button_unckeck));
 			}
 		});
 
@@ -348,8 +348,8 @@ public class MapHouseMainActivity extends Activity implements IMapHouseDataView 
 				mBaiduMAP.clear();
 				MapHouseMainActivity.this.fromtable="chuzu";
 				onResume();
-				rbErShouFang.setTextColor(getResources().getColor(R.color.button_unckeck));
-				rbRenting.setTextColor(getResources().getColor(R.color.button_ckeck));
+//				rbErShouFang.setTextColor(getResources().getColor(R.color.button_unckeck));
+//				rbRenting.setTextColor(getResources().getColor(R.color.button_ckeck));
 			}
 		});
 

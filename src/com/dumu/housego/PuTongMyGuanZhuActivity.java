@@ -11,15 +11,11 @@ import com.dumu.housego.entity.UserInfo;
 import com.dumu.housego.framgent.GZErShouFramgent;
 import com.dumu.housego.framgent.GZNewFramgent;
 import com.dumu.housego.framgent.PTBuyHouseListFragment;
+import com.dumu.housego.framgent.PTGouDiListFragment;
 import com.dumu.housego.framgent.PTQiuZuListFragment;
 import com.dumu.housego.framgent.PTershouListFragment;
-import com.dumu.housego.framgent.PTershouSumbitFragment;
 import com.dumu.housego.framgent.PTrentingListFragment;
-import com.dumu.housego.framgent.PTrentingSumbitFragment;
-import com.dumu.housego.presenter.IMyYuYueHousePresenter;
-import com.dumu.housego.util.MyToastShowCenter;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -28,7 +24,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.FrameLayout;
@@ -37,7 +32,6 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 public class PuTongMyGuanZhuActivity extends FragmentActivity {
 
@@ -106,6 +100,14 @@ public class PuTongMyGuanZhuActivity extends FragmentActivity {
 		} else if (tag.equals("maifang")) {
 			rl_container.setVisibility(View.VISIBLE);
 			fragment = new PTBuyHouseListFragment();
+			FragmentTransaction trans = getSupportFragmentManager().beginTransaction();
+			trans.replace(R.id.rl_container, fragment);
+			trans.commitAllowingStateLoss();
+		}else if (tag.equals("goudi")) {
+			
+			rl_container.setVisibility(View.VISIBLE);
+			fragment = new PTGouDiListFragment();
+			
 			FragmentTransaction trans = getSupportFragmentManager().beginTransaction();
 			trans.replace(R.id.rl_container, fragment);
 			trans.commitAllowingStateLoss();
