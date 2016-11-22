@@ -165,7 +165,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:orientation="horizontal"
-        android:background="@drawable/linearlayout_shap"
+        android:background="@drawable/linearlayout_map_shap"
         android:layout_marginBottom="30dp" >
         
             

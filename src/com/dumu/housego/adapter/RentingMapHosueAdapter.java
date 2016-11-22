@@ -22,12 +22,14 @@ public class RentingMapHosueAdapter extends BaseAdapter {
 	private List<RentingRecommendData> ershoufangrecommends;
 	private Context context;
 	private LayoutInflater Inflater;
+	private String xiaoquname;
 
-	public RentingMapHosueAdapter(List<RentingRecommendData> ershoufangrecommends, Context context) {
+	public RentingMapHosueAdapter(List<RentingRecommendData> ershoufangrecommends, Context context,String xiaoquname) {
 		super();
 		this.ershoufangrecommends = ershoufangrecommends;
 		this.context = context;
 		this.Inflater = LayoutInflater.from(context);
+		this.xiaoquname=xiaoquname;
 	}
 
 	@Override
@@ -81,8 +83,7 @@ public class RentingMapHosueAdapter extends BaseAdapter {
 
 		 holder.tvArea.setText(n.getShi()+"室"+n.getTing()+"厅 "+n.getMianji()+"㎡ "+n.getChaoxiang());
 		 holder.tvPrice.setText(n.getZujin()+"元");
-//		 String xiaoquname=n.getTitle().split("-")[1];
-//		 holder.tvAddress.setText(xiaoquname);
+		 holder.tvAddress.setText(xiaoquname);
 
 		 
 

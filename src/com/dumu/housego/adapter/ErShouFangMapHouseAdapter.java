@@ -21,12 +21,14 @@ public class ErShouFangMapHouseAdapter extends BaseAdapter {
 	private List<ErShouFangRecommendData> ershoufangrecommends;
 	private Context context;
 	private LayoutInflater Inflater;
-
-	public ErShouFangMapHouseAdapter(List<ErShouFangRecommendData> ershoufangrecommends, Context context) {
+	private String xiaoquname;
+	
+	public ErShouFangMapHouseAdapter(List<ErShouFangRecommendData> ershoufangrecommends, Context context,String xiaoquname) {
 		super();
 		this.ershoufangrecommends = ershoufangrecommends;
 		this.context = context;
 		this.Inflater = LayoutInflater.from(context);
+		this.xiaoquname=xiaoquname;
 	}
 
 	@Override
@@ -86,14 +88,14 @@ public class ErShouFangMapHouseAdapter extends BaseAdapter {
 		 
 //		 String xiaoquname=n.getTitle().split("-")[1];
 		 
-//		 holder.tvAddress.setText(xiaoquname);
+		 holder.tvAddress.setText(xiaoquname);
 
 		 int zongjia=Integer.valueOf(n.getZongjia());
 		 int mianji=Integer.valueOf(n.getJianzhumianji());
 //		 int price=(zongjia)*(10000)/mianji;
 //		 
 //
-//		 holder.tvMeterPrice.setText(price+"元/㎡");
+//		 holder.tvMeterPrice.setText(xiaoquname);
 
 		 if(!n.getBiaoqian().equals("")){
 				String[] b=n.getBiaoqian().split(",");

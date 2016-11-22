@@ -345,13 +345,11 @@ public class AgentDetailActivity extends Activity implements IAgentDetailView,IA
 	@Override
 	public void AgentCommentSuccess(List<AgentCommentList> comments) {
 		this.comments=comments;
-		
-		comms.add(comments.get(0));
-		comms.add(comments.get(1));
-		
 		pinglun_wushuju.setVisibility(View.GONE);
 		pinglun_youshuju.setVisibility(View.VISIBLE);
 		if(comments.size()>=2){
+			comms.add(comments.get(0));
+			comms.add(comments.get(1));
 			adapter=new AgentCommentAdapter(comms, getApplicationContext());
 			lvPinglun.setAdapter(adapter);
 		}else{
@@ -373,12 +371,15 @@ public class AgentDetailActivity extends Activity implements IAgentDetailView,IA
 	@Override
 	public void ChengjiaoErShouSuccess(List<ErShouFangDetails> ershoudes) {
 		this.ershoudes=ershoudes;
-		ershous.add(ershoudes.get(0));
-		ershous.add(ershoudes.get(1));
-		ershous.add(ershoudes.get(2));
+		
 		chengjiaofangyuan_wushuju.setVisibility(View.GONE);
 		chengjiaofangyuan_youshuju.setVisibility(View.VISIBLE);
 		if(ershoudes.size()>=3){
+			
+			ershous.add(ershoudes.get(0));
+			ershous.add(ershoudes.get(1));
+			ershous.add(ershoudes.get(2));
+			
 			chengjiaoadapter=new AgentChengJiaoErShouAdapter(ershous, getApplicationContext());
 			lvChengjiaofangyuan.setAdapter(chengjiaoadapter);
 		}else{
@@ -398,13 +399,14 @@ public class AgentDetailActivity extends Activity implements IAgentDetailView,IA
 	@Override
 	public void SubmitListSuccess(List<ErShouFangDetails> ESers) {
 		this.ESers=ESers;
-		ES.add(ESers.get(0));
-		ES.add(ESers.get(1));
-		ES.add(ESers.get(2));
+	
 		ershoufangyuan_youshuju.setVisibility(View.VISIBLE);
 		ershoufangyuan_wushuju.setVisibility(View.GONE);
 		
 		if(ESers.size()>=3){
+			ES.add(ESers.get(0));
+			ES.add(ESers.get(1));
+			ES.add(ESers.get(2));
 			ershouadapter=new AgentSubmitErShouAdapter(ES, getApplicationContext());
 			lvErshoufangyuan.setAdapter(ershouadapter);
 		}else{

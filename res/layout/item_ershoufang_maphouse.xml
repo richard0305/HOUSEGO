@@ -81,17 +81,6 @@
             android:textSize="12sp" />
 
         <TextView
-            android:id="@+id/tv_ershoufang_price_meter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/tv_ershoufang_address"
-            android:layout_alignBottom="@+id/tv_ershoufang_address"
-            android:layout_alignParentRight="true"
-            android:text="3750元/㎡"
-            android:textColor="#b1b4b5"
-            android:textSize="12sp" />
-
-        <TextView
             android:id="@+id/tv_ershou_biaoqian"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

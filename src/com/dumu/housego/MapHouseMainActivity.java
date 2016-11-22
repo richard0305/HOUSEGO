@@ -94,6 +94,8 @@ public class MapHouseMainActivity extends Activity implements IMapHouseDataView 
 
 	private ErShouFangMapHouseAdapter ershouadapter;
 	private RentingMapHosueAdapter rentingadapter;
+	private String xiaoquname;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -488,7 +490,7 @@ public class MapHouseMainActivity extends Activity implements IMapHouseDataView 
 		 LayoutInflater layoutInflater = (LayoutInflater)this.getSystemService(LAYOUT_INFLATER_SERVICE);  
 		 View v=layoutInflater.inflate(R.layout.map_house_show2, null); 
 		 TextView tv=(TextView) v.findViewById(R.id.tv_map_house);
-		 
+		 Log.e("=================", "xiaoqu="+xiaoqus);
 		if(!xiaoqus.equals("")&&xiaoqus!=null){
 		for(XiaoquMapHouse x :xiaoqus){
 			
@@ -527,6 +529,7 @@ public class MapHouseMainActivity extends Activity implements IMapHouseDataView 
 
 	protected void ShowAllHouse(Marker marke) {
 		this.ershous.clear();
+		this.rentings.clear();
 		Bundle bundle = marke.getExtraInfo();
 		BaiduMapInfo info = (BaiduMapInfo) bundle.getSerializable("infos");
 		xiaoqu=info.getName();
@@ -535,19 +538,19 @@ public class MapHouseMainActivity extends Activity implements IMapHouseDataView 
 		
 		tvMarkerTitle.setText(title);
 		tvMarkerHouseCount.setText("在售"+count+"套房源");
-		
+		xiaoquname=title;
 		//执行获取小区所以房源请求
 		xiaoqupresenter.Allxiaoqu(xiaoqu, fromtable);
-		
+		ll_marker_showlay.setVisibility(View.VISIBLE);
 		
 	}
 
 	@Override
 	public void AllxiaoquhouseErshou(List<ErShouFangRecommendData> ershous) {
 		this.ershous=ershous;
-		ll_marker_showlay.setVisibility(View.VISIBLE);
+//		ll_marker_showlay.setVisibility(View.VISIBLE);
 		if(!ershous.equals("")&&ershous!=null){
-			ershouadapter=new ErShouFangMapHouseAdapter(ershous, getApplicationContext());
+			ershouadapter=new ErShouFangMapHouseAdapter(ershous, getApplicationContext(),xiaoquname);
 			lvMarker.setAdapter(ershouadapter);
 		}
 		
@@ -557,9 +560,9 @@ public class MapHouseMainActivity extends Activity implements IMapHouseDataView 
 	@Override
 	public void AllxiaoquhouseRenting(List<RentingRecommendData> rentings) {
 		this.rentings=rentings;
-		ll_marker_showlay.setVisibility(View.VISIBLE);
+//		ll_marker_showlay.setVisibility(View.VISIBLE);
 		if(!rentings.equals("")&&rentings!=null){
-			rentingadapter=new RentingMapHosueAdapter(rentings, getApplicationContext());
+			rentingadapter=new RentingMapHosueAdapter(rentings, getApplicationContext(),xiaoquname);
 			lvMarker.setAdapter(rentingadapter);
 		}
 		
