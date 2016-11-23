@@ -1,6 +1,7 @@
 package com.dumu.housego;
 
 import com.dumu.housego.framgent.AGChengJiaohouseFragment;
+import com.dumu.housego.framgent.ATGouDiListFragment;
 import com.dumu.housego.framgent.ATershouListFragment;
 import com.dumu.housego.framgent.ATershouSubmitFragment;
 import com.dumu.housego.framgent.ATrentingListFragment;
@@ -22,6 +23,7 @@ public class AgentPersonalActivity extends FragmentActivity {
 	public static final int AGENT_RENTING_LIST = 2;// 经纪人出租房列表
 	public static final int AGENT_RENTING_SUBMIT = 3;// 经纪人出租房发布
 	public static final int AGENT_CHENGJIAO = 4; // 经纪人成交房源
+	public static final int AGENT_GOUDI = 5; // 经纪人成交房源
 
 	private FrameLayout flAgentFragment;
 	private Fragment fragment;
@@ -49,7 +51,9 @@ public class AgentPersonalActivity extends FragmentActivity {
 		case AGENT_CHENGJIAO:
 			fragment = new AGChengJiaohouseFragment();
 			break;
-
+		case AGENT_GOUDI:
+			fragment = new ATGouDiListFragment();
+			break;
 		default:
 			break;
 		}

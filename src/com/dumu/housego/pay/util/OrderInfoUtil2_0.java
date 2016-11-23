@@ -12,6 +12,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Random;
 
+import com.dumu.housego.adapter.AgentSubmitErShouAdapter;
 import com.dumu.housego.pay.SignUtils;
 
 public class OrderInfoUtil2_0 {
@@ -67,12 +68,12 @@ public class OrderInfoUtil2_0 {
 	 * @param target_id
 	 * @return
 	 */
-	public static Map<String, String> buildOrderParamMap(String app_id) {
+	public static Map<String, String> buildOrderParamMap(String app_id,String price,String subject,String version,String outtradeno) {
 		Map<String, String> keyValues = new HashMap<String, String>();
 
 		keyValues.put("app_id", app_id);
 
-		keyValues.put("biz_content", "{\"timeout_express\":\"30m\",\"product_code\":\"QUICK_MSECURITY_PAY\",\"total_amount\":\"0.01\",\"subject\":\"1\",\"body\":\"我是测试数据\",\"out_trade_no\":\"" + getOutTradeNo() +  "\"}");
+		keyValues.put("biz_content", "{\"timeout_express\":\"30m\",\"product_code\":\"QUICK_MSECURITY_PAY\",\"total_amount\":\""+price+"\",\"subject\":\""+subject+"\",\"body\":\"我是测试数据\",\"out_trade_no\":\"" +outtradeno+"\"}");
 		
 		keyValues.put("charset", "utf-8");
 
@@ -82,7 +83,9 @@ public class OrderInfoUtil2_0 {
 
 		keyValues.put("timestamp", "2016-07-29 16:55:53");
 
-		keyValues.put("version", "1.0");
+		keyValues.put("version", version); 
+		
+		keyValues.put("notify_url", "http://www.taoshenfang.com/index.php?g=Api&m=Api&a=app_return_url"); 
 		
 		return keyValues;
 	}
@@ -176,14 +179,14 @@ public class OrderInfoUtil2_0 {
 	 * 要求外部订单号必须唯一。
 	 * @return
 	 */
-	private static String getOutTradeNo() {
+	private static String getTime() {
 		SimpleDateFormat format = new SimpleDateFormat("MMddHHmmss", Locale.getDefault());
-		Date date = new Date();
+		Date date = new Date(System.currentTimeMillis());
 		String key = format.format(date);
 
-		Random r = new Random();
-		key = key + r.nextInt();
-		key = key.substring(0, 15);
+//		Random r = new Random();
+//		key = key + r.nextInt();
+//		key = key.substring(0, 15);
 		return key;
 	}
 

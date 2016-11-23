@@ -1,7 +1,9 @@
 package com.dumu.housego.model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -10,6 +12,7 @@ import org.json.JSONObject;
 import com.android.volley.Request.Method;
 import com.android.volley.Response.ErrorListener;
 import com.android.volley.Response.Listener;
+import com.android.volley.AuthFailureError;
 import com.android.volley.VolleyError;
 import com.dumu.housego.app.HouseGoApp;
 import com.dumu.housego.entity.GouDiInfo;
@@ -70,10 +73,47 @@ public class GouDiListModel implements IGouDiListModel{
 			@Override
 			public void onErrorResponse(VolleyError error) {
 				// TODO Auto-generated method stub
-				
 			}
 		});
 		HouseGoApp.getQueue().add(request);
+	}
+
+	
+	
+	@Override
+	public void GouDiDelete(final String id, final String userid,final AsycnCallBack back) {
+		String url=UrlFactory.PostGouDiDelete();
+		CommonRequest request=new CommonRequest(Method.POST, url, new Listener<String>() {
+
+			@Override
+			public void onResponse(String response) {
+				try {
+					JSONObject j=new JSONObject(response);
+					String info=j.getString("info");
+					back.onSuccess(info);
+				} catch (JSONException e) {
+					e.printStackTrace();
+				}
+						
+				
+			}
+		}, new ErrorListener() {
+
+			@Override
+			public void onErrorResponse(VolleyError error) {
+				// TODO Auto-generated method stub
+			}
+		}){
+			@Override
+			protected Map<String, String> getParams() throws AuthFailureError {
+				Map<String, String>map=new HashMap<String, String>();
+				map.put("id", id);
+				map.put("userid", userid);
+				return map;
+			}
+		};
+		HouseGoApp.getQueue().add(request);
+		
 	}
 
 }

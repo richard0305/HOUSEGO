@@ -62,11 +62,6 @@ public class ErShouFangMainActivity extends Activity implements IErShouFangRecom
 		setViews();
 		setListener();
 
-		spinnerList1.add("区域");
-		spinnerList1.add("罗湖");
-		spinnerList1.add("福山");
-		spinnerList1.add("南山");
-		spinnerList1.add("龙岗");
 
 		presenter = new ErShouFangProgramaPresenter(this);
 
@@ -139,6 +134,16 @@ public class ErShouFangMainActivity extends Activity implements IErShouFangRecom
 		// }
 
 	}
+	
+	
+	
+	
+	
+	
+	
+	/**
+	 * 刷新
+	 */
 
 	@Override
 	public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {

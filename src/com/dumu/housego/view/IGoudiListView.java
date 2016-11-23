@@ -8,5 +8,6 @@ public interface IGoudiListView {
 	
 	void GouDilistSuccess(List<GouDiInfo>goudis);
 	void GouDiFail(String info);
+	void GouDiDelete(String info);
 	
 }

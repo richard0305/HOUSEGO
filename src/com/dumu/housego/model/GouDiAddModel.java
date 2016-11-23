@@ -33,8 +33,9 @@ public class GouDiAddModel implements IGouDiAddModel{
 					JSONObject j=new JSONObject(response);
 					if(j.getInt("success")==82){
 						String info=j.getString("info");
-						String result=j.getString("result");
-						back.onSuccess(info+result);
+						JSONObject b=j.getJSONObject("result");
+						String order_no=b.getString("order_no");
+						back.onSuccess(order_no);
 					}else{
 						back.onError(j.getString("info"));
 					}

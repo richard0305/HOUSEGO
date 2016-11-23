@@ -5,6 +5,12 @@ public class UrlFactory {
 	public static String TSFURL = "http://www.taoshenfang.com/";
 	
 	
+	//删除勾地订单
+		public static String PostGouDiDelete() {
+			String path = TSFURL + "index.php?g=api&m=house&a=goudi_del";
+			return path;
+		}
+	
 	//勾地订单列表
 	public static String GetGouDiList(String userid) {
 		String path = TSFURL + "index.php?g=api&m=house&a=goudi_orderlist&userid="+userid;

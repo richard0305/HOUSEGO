@@ -41,4 +41,22 @@ public class GoudiListPresenter implements IGoudiListPresenter {
 		
 	}
 
+	@Override
+	public void GouDiDelete(String id, String userid) {
+		model.GouDiDelete(id, userid, new AsycnCallBack() {
+			
+			@Override
+			public void onSuccess(Object success) {
+				String info=(String) success;
+				view.GouDiDelete(info);
+			}
+			
+			@Override
+			public void onError(Object error) {
+				// TODO Auto-generated method stub
+			}
+		});
+		
+	}
+
 }

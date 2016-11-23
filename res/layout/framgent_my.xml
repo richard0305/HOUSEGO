@@ -328,6 +328,7 @@
             android:layout_below="@+id/iv_my_back"
             android:background="#ffffff"
             android:orientation="vertical"
+            android:visibility="gone"
         >
             
              

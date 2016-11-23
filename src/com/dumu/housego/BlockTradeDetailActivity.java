@@ -164,6 +164,8 @@ public class BlockTradeDetailActivity extends Activity implements IBlockTradeDet
 
 	private UserInfo userinfo;
 
+	private String order_no;
+	
 	private View view;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -247,7 +249,7 @@ public class BlockTradeDetailActivity extends Activity implements IBlockTradeDet
 		}
 		tv_block_trade_detail_title.setText(b.getTitle());
 		tv_block_trade_detail_content.setText(b.getTitle());
-		tv_block_trade_detail_goudi.setText(b.getGoudijine() + "元");
+		tv_block_trade_detail_goudi.setText(b.getGoudijine()+"元");
 
 		String date = TimeTurnDate.getStringDate(b.getUpdatetime());
 		tv_block_trade_detail_date.setText(date);
@@ -344,9 +346,12 @@ public class BlockTradeDetailActivity extends Activity implements IBlockTradeDet
 		 * 
 		 * orderInfo的获取必须来自服务端；
 		 */
-		Map<String, String> params = OrderInfoUtil2_0.buildOrderParamMap(APPID);
+		
+		
+		Map<String, String> params = OrderInfoUtil2_0.buildOrderParamMap(APPID, "0.01", b.getTitle(), "2.0", order_no);
 		String orderParam = OrderInfoUtil2_0.buildOrderParam(params);
 		String sign = OrderInfoUtil2_0.getSign(params, RSA_PRIVATE);
+		
 		final String orderInfo = orderParam + "&" + sign;
 		
 		Runnable payRunnable = new Runnable() {
@@ -368,6 +373,7 @@ public class BlockTradeDetailActivity extends Activity implements IBlockTradeDet
 		payThread.start();
 	}
 
+	
 	/**
 	 * 支付宝账户授权业务
 	 * 
@@ -420,10 +426,11 @@ public class BlockTradeDetailActivity extends Activity implements IBlockTradeDet
 	 * get the sdk version. 获取SDK版本号
 	 * 
 	 */
-	public void getSDKVersion() {
+	public String getSDKVersion() {
 		PayTask payTask = new PayTask(this);
 		String version = payTask.getVersion();
-		MyToastShowCenter.CenterToast(this, version);
+//		MyToastShowCenter.CenterToast(this, version);
+		return version;
 	}
 
 	/**
@@ -446,12 +453,14 @@ public class BlockTradeDetailActivity extends Activity implements IBlockTradeDet
 		startActivity(intent);
 	}
 
+	
 	@Override
 	public void addGoudiSuccess(String info) {
-		
+		order_no=info.split("GD")[1];
 		MyToastShowCenter.CenterToast(getApplicationContext(), "勾地成功");
 		handler.postDelayed(new Runnable() {
 			public void run() {
+				Log.e("eeeeeeeeeeeeeee", "order_no="+order_no);
 				payV2(view);
 			}
 		}, 500);

@@ -50,7 +50,7 @@ public class MyFramgent extends Fragment {
 	private UserInfo userinfo;
 	private RelativeLayout rlPTMyGuanZhu, rl_putong_mysalehouse;
 	private LinearLayout llMysettingAgentLogin, llMysettingPuTongLogin, llMysettingNologin;
-	private RelativeLayout rlAgentErshou, rlAgentRenting, rlAgentChengjiaoHouse;
+	private RelativeLayout rlAgentErshou, rlAgentRenting, rlAgentChengjiaoHouse,rlAgentGoudidingdan;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -250,6 +250,15 @@ public class MyFramgent extends Fragment {
 				startActivity(i);
 			}
 		});
+		
+		rlAgentGoudidingdan.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent i = new Intent(getActivity(), AgentPersonalActivity.class);
+				i.putExtra("FRAGMENT_KEY", AgentPersonalActivity.AGENT_GOUDI);
+				startActivity(i);
+			}
+		});
 
 	}
 
@@ -279,6 +288,7 @@ public class MyFramgent extends Fragment {
 		rl_putong_myshophouse = (RelativeLayout) view.findViewById(R.id.rl_putong_myshophouse);
 
 		rlAgentChengjiaoHouse = (RelativeLayout) view.findViewById(R.id.rl_agent_chengjiaofangyuan);
+		rlAgentGoudidingdan=(RelativeLayout) view.findViewById(R.id.rl_agent_goudidingdan);
 	}
 
 }
