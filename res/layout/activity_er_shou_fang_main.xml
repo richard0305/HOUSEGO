@@ -89,58 +89,88 @@
         android:layout_alignParentLeft="true"
         android:orientation="horizontal"
         android:gravity="center"
+        android:background="#fff"
         android:layout_below="@+id/rl_ershoufang_title" >
          
-        <Spinner 
+        <RelativeLayout 
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            >
+              <TextView 
             android:paddingLeft="20dp"
             android:id="@+id/ershoufang_quyu_sp1"
+            android:layout_width="wrap_content"
+           android:textSize="14sp"
+            android:layout_gravity="center_vertical"
+            android:layout_height="wrap_content"
+            android:text="区域"
+            android:padding="10dp"
+            android:textColor="#333"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            /> 
+            
+        </RelativeLayout>
+        
+     
+          <RelativeLayout 
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:background="#F2F2F2"
-            android:layout_gravity="center_vertical"
-            android:spinnerMode="dropdown"
             android:layout_height="match_parent"
-            android:entries="@array/ershoufangarea"
+            >
+      
+        <TextView 
+            android:id="@+id/ershoufang_quyu_sp2"
+            android:layout_width="wrap_content"
+              android:text="价格"
+            android:padding="10dp"
+             android:textSize="14sp"
+            android:textColor="#333"
+            android:layout_centerInParent="true"
+            android:layout_height="wrap_content"
             />
         
-      
-        <Spinner 
-            android:id="@+id/ershoufang_quyu_sp2"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:background="#F2F2F2"
-            android:paddingLeft="20dp"
-            android:layout_gravity="center_vertical"
-            android:spinnerMode="dropdown"
-            android:layout_height="match_parent"
-            android:entries="@array/ershoufangtotal"
-            />
+           </RelativeLayout>
          <Button 
-            android:layout_width="1dp"
+            android:layout_width="@dimen/fengexian"
             android:layout_height="match_parent"
             android:background="#c9c9cb"
             />
-         <Spinner 
+         
+           <RelativeLayout 
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            >
+         <TextView 
             android:id="@+id/ershoufang_quyu_sp3"
-            android:layout_width="0dp"
-            android:spinnerMode="dropdown"
-            android:layout_weight="1"
-            android:background="#F2F2F2"
-             android:paddingLeft="30dp"
-            android:layout_height="match_parent"
-            android:entries="@array/ershoufanghousetype"
+            android:layout_width="wrap_content"
+             android:text="房型"
+            android:padding="10dp"
+            android:textColor="#333"
+             android:textSize="14sp"
+            android:layout_centerInParent="true"
+            android:layout_height="wrap_content"
             />
-            <Spinner 
+            </RelativeLayout>
+           <RelativeLayout 
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            >
+            <TextView 
             android:id="@+id/ershoufang_quyu_sp4"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:background="#F2F2F2"
-            android:paddingLeft="30dp"
-            android:layout_gravity="center_vertical"
-            android:spinnerMode="dropdown"
-            android:layout_height="match_parent"
-            android:entries="@array/ershoufangmore"
+            android:layout_width="wrap_content"
+             android:text="更多"
+              android:textSize="14sp"
+            android:padding="10dp"
+            android:textColor="#333"
+            android:singleLine="true"
+            android:layout_centerInParent="true"
+            android:layout_height="wrap_content"
             />
+               </RelativeLayout>
     </LinearLayout>
     
     <com.handmark.pulltorefresh.library.PullToRefreshListView

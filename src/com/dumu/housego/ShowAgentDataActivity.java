@@ -62,9 +62,10 @@ public class ShowAgentDataActivity extends Activity implements IAddAgentCommentV
 	@Override
 	protected void onResume() {
 		userinfo=HouseGoApp.getContext().getCurrentUserInfo();
-		
-		user_id=userinfo.getUserid();
-		author=userinfo.getUsername();
+	
+//		
+//		user_id=userinfo.getUserid();
+//		author=userinfo.getUsername();
 		agent="android";
 		id=getIntent().getStringExtra("userid");
 		
@@ -97,7 +98,6 @@ public class ShowAgentDataActivity extends Activity implements IAddAgentCommentV
 				adapter=new AgentCommentAdapter(comments, getApplicationContext());
 				agent_listview.setAdapter(adapter);
 			}
-			
 			
 		}
 		
@@ -155,6 +155,8 @@ public class ShowAgentDataActivity extends Activity implements IAddAgentCommentV
 			public void onClick(View v) {
 				content=et_comment_agent.getText().toString();
 				
+				user_id=userinfo.getUserid();
+				author=userinfo.getUsername();
 				presenter.AgentComment(id, user_id, author, agent, content);
 			}
 		});

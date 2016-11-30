@@ -20,22 +20,21 @@ public class AgentModelDataPresenter implements IAgentModelDataPresenter {
 	}
 
 	@Override
-	public void FindAgentModelData(String catid) {
-		model.FindAgentModelData(catid, new AsycnCallBack() {
+	public void FindAgentModelData(String catid, String ct, String bq, String kw) {
+		model.FindAgentModelData(catid, ct,bq,kw,new AsycnCallBack() {
 
 			@Override
 			public void onSuccess(Object success) {
 				List<AgentData> agentdatas = (List<AgentData>) success;
 				view.showAgentModelData(agentdatas);
-
 			}
-
 			@Override
 			public void onError(Object error) {
-
+				view.showAgentFail(error.toString());
 			}
 		});
 
 	}
+
 
 }

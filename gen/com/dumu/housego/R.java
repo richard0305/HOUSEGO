@@ -9,38 +9,422 @@ package com.dumu.housego;
 
 public final class R {
     public static final class anim {
-        public static final int activity_translate_in=0x7f040000;
-        public static final int activity_translate_out=0x7f040001;
-        public static final int popup_enter=0x7f040002;
-        public static final int popup_exit=0x7f040003;
-        public static final int reverse_anim=0x7f040004;
-        public static final int rotating=0x7f040005;
-        public static final int slide_in_from_bottom=0x7f040006;
-        public static final int slide_in_from_top=0x7f040007;
-        public static final int slide_out_to_bottom=0x7f040008;
-        public static final int slide_out_to_top=0x7f040009;
+        public static final int abc_fade_in=0x7f040000;
+        public static final int abc_fade_out=0x7f040001;
+        public static final int abc_slide_in_bottom=0x7f040002;
+        public static final int abc_slide_in_top=0x7f040003;
+        public static final int abc_slide_out_bottom=0x7f040004;
+        public static final int abc_slide_out_top=0x7f040005;
+        public static final int activity_translate_in=0x7f040006;
+        public static final int activity_translate_out=0x7f040007;
+        public static final int popup_enter=0x7f040008;
+        public static final int popup_exit=0x7f040009;
+        public static final int reverse_anim=0x7f04000a;
+        public static final int rotating=0x7f04000b;
+        public static final int slide_in_from_bottom=0x7f04000c;
+        public static final int slide_in_from_top=0x7f04000d;
+        public static final int slide_out_to_bottom=0x7f04000e;
+        public static final int slide_out_to_top=0x7f04000f;
     }
     public static final class array {
-        public static final int QIUZU_tingshi_wheel=0x7f080003;
-        public static final int WheelArrayConstellation=0x7f080004;
-        public static final int WheelArrayDefault=0x7f080002;
-        public static final int WheelArrayZodiac=0x7f080005;
-        public static final int ershoufangarea=0x7f080000;
-        public static final int ershoufanghousetype=0x7f080006;
-        public static final int ershoufangmore=0x7f080007;
-        public static final int ershoufangtotal=0x7f08000a;
-        public static final int maphousearea=0x7f080001;
-        public static final int maphousepaixun=0x7f080008;
-        public static final int maphousesaixuan=0x7f080009;
+        public static final int QIUZU_tingshi_wheel=0x7f0c0003;
+        public static final int WheelArrayConstellation=0x7f0c0004;
+        public static final int WheelArrayDefault=0x7f0c0002;
+        public static final int WheelArrayZodiac=0x7f0c0005;
+        public static final int ershoufangarea=0x7f0c0000;
+        public static final int ershoufanghousetype=0x7f0c0006;
+        public static final int ershoufangmore=0x7f0c0007;
+        public static final int ershoufangtotal=0x7f0c000a;
+        public static final int maphousearea=0x7f0c0001;
+        public static final int maphousepaixun=0x7f0c0008;
+        public static final int maphousesaixuan=0x7f0c0009;
     }
     public static final class attr {
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int PagerIndicatorStyle=0x7f01001b;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int SliderStyle=0x7f01001a;
+        /**  Custom divider drawable to use for elements in the action bar. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int actionBarDivider=0x7f01002b;
+        /**  Custom item state list drawable background for action bar items. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int actionBarItemBackground=0x7f01002c;
+        /**  Size of the Action Bar, including the contextual
+         bar used to present Action Modes. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int actionBarSize=0x7f01002a;
+        /**  Reference to a theme that should be used to inflate widgets
+         and layouts destined for the action bar. Most of the time
+         this will be a reference to the current theme, but when
+         the action bar has a significantly different contrast
+         profile than the rest of the activity the difference
+         can become important. If this is set to @null the current
+         theme will be used.
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int actionBarSplitStyle=0x7f010028;
+        /**  Reference to a style for the Action Bar 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int actionBarStyle=0x7f010027;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int actionBarTabBarStyle=0x7f010024;
+        /**  Default style for tabs within an action bar 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int actionBarTabStyle=0x7f010023;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int actionBarTabTextStyle=0x7f010025;
+        /**  Reference to a theme that should be used to inflate widgets
+         and layouts destined for the action bar. Most of the time
+         this will be a reference to the current theme, but when
+         the action bar has a significantly different contrast
+         profile than the rest of the activity the difference
+         can become important. If this is set to @null the current
+         theme will be used.
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int actionBarWidgetTheme=0x7f010029;
+        /**  Default action button style. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int actionButtonStyle=0x7f010032;
+        /**  Default ActionBar dropdown style. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int actionDropDownStyle=0x7f010063;
+        /**  An optional layout to be used as an action view.
+             See {@link android.view.MenuItem#setActionView(android.view.View)}
+             for more info. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int actionLayout=0x7f01006a;
+        /**  TextAppearance style that will be applied to text that
+         appears within action menu items. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int actionMenuTextAppearance=0x7f01002d;
+        /**  Color for text that appears within action menu items. 
+         <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+         */
+        public static final int actionMenuTextColor=0x7f01002e;
+        /**  Background drawable to use for action mode UI 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int actionModeBackground=0x7f010058;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int actionModeCloseButtonStyle=0x7f010057;
+        /**  Drawable to use for the close action mode button 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int actionModeCloseDrawable=0x7f01005a;
+        /**  Drawable to use for the Copy action button in Contextual Action Bar 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int actionModeCopyDrawable=0x7f01005c;
+        /**  Drawable to use for the Cut action button in Contextual Action Bar 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int actionModeCutDrawable=0x7f01005b;
+        /**  Drawable to use for the Find action button in WebView selection action modes 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int actionModeFindDrawable=0x7f010060;
+        /**  Drawable to use for the Paste action button in Contextual Action Bar 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int actionModePasteDrawable=0x7f01005d;
+        /**  PopupWindow style to use for action modes when showing as a window overlay. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int actionModePopupWindowStyle=0x7f010062;
+        /**  Drawable to use for the Select all action button in Contextual Action Bar 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int actionModeSelectAllDrawable=0x7f01005e;
+        /**  Drawable to use for the Share action button in WebView selection action modes 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int actionModeShareDrawable=0x7f01005f;
+        /**  Background drawable to use for action mode UI in the lower split bar 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int actionModeSplitBackground=0x7f010059;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int actionModeStyle=0x7f010056;
+        /**  Drawable to use for the Web Search action button in WebView selection action modes 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int actionModeWebSearchDrawable=0x7f010061;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int actionOverflowButtonStyle=0x7f010026;
+        /**  The name of an optional ActionProvider class to instantiate an action view
+             and perform operations such as default action for that menu item.
+             See {@link android.view.MenuItem#setActionProvider(android.view.ActionProvider)}
+             for more info. 
+         <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int actionProviderClass=0x7f01006c;
+        /**  The name of an optional View class to instantiate and use as an
+             action view. See {@link android.view.MenuItem#setActionView(android.view.View)}
+             for more info. 
+         <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int actionViewClass=0x7f01006b;
+        /**  Default ActivityChooserView style. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int activityChooserViewStyle=0x7f010088;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int auto_cycle=0x7f010001;
+        /**  Specifies a background drawable for the action bar. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int background=0x7f01004b;
+        /**  Specifies a background drawable for the bottom component of a split action bar. 
+         <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+         */
+        public static final int backgroundSplit=0x7f01004d;
+        /**  Specifies a background drawable for a second stacked row of the action bar. 
+         <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+         */
+        public static final int backgroundStacked=0x7f01004c;
+        /**  A style that may be applied to Buttons placed within a
+         LinearLayout with the style buttonBarStyle to form a button bar. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int buttonBarButtonStyle=0x7f010034;
+        /**  A style that may be applied to horizontal LinearLayouts
+         to form a button bar. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int buttonBarStyle=0x7f010033;
         /**  未选中时颜色 
          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
          */
-        public static final int checkedColor=0x7f010014;
+        public static final int checkedColor=0x7f01009e;
+        /**  Specifies a layout for custom navigation. Overrides navigationMode. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int customNavigationLayout=0x7f01004e;
+        /**  Whether this spinner should mark child views as enabled/disabled when
+             the spinner itself is enabled/disabled. 
+         <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int disableChildrenWhenDisabled=0x7f010070;
+        /**  Options affecting how the action bar is displayed. 
+         <p>Must be one or more (separated by '|') of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>useLogo</code></td><td>0x1</td><td></td></tr>
+<tr><td><code>showHome</code></td><td>0x2</td><td></td></tr>
+<tr><td><code>homeAsUp</code></td><td>0x4</td><td></td></tr>
+<tr><td><code>showTitle</code></td><td>0x8</td><td></td></tr>
+<tr><td><code>showCustom</code></td><td>0x10</td><td></td></tr>
+<tr><td><code>disableHome</code></td><td>0x20</td><td></td></tr>
+</table>
+         */
+        public static final int displayOptions=0x7f010044;
+        /**  Specifies the drawable used for item dividers. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int divider=0x7f01004a;
+        /**  A drawable that may be used as a horizontal divider between visual elements. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int dividerHorizontal=0x7f010037;
+        /**  Size of padding on either end of a divider. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int dividerPadding=0x7f010072;
+        /**  A drawable that may be used as a vertical divider between visual elements. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int dividerVertical=0x7f010036;
+        /**  ListPopupWindow comaptibility 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int dropDownListViewStyle=0x7f01003d;
+        /**  The preferred item height for dropdown lists. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int dropdownListPreferredItemHeight=0x7f010064;
+        /**  The drawable to show in the button for expanding the activities overflow popup.
+             <strong>Note:</strong> Clients would like to set this drawable
+             as a clue about the action the chosen activity will perform. For
+             example, if share activity is to be chosen the drawable should
+             give a clue that sharing is to be performed.
+         
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int expandActivityOverflowButtonDrawable=0x7f010087;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int height=0x7f010042;
+        /**  Specifies a drawable to use for the 'home as up' indicator. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int homeAsUpIndicator=0x7f01002f;
+        /**  Specifies a layout to use for the "home" section of the action bar. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int homeLayout=0x7f01004f;
+        /**  Specifies the drawable used for the application icon. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int icon=0x7f010048;
+        /**  The default state of the SearchView. If true, it will be iconified when not in
+             use and expanded when clicked. 
+         <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int iconifiedByDefault=0x7f010076;
+        /**  Specifies a style resource to use for an indeterminate progress spinner. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int indeterminateProgressStyle=0x7f010051;
+        /**  indicator visibility 
+         <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>visible</code></td><td>0</td><td></td></tr>
+<tr><td><code>invisible</code></td><td>1</td><td></td></tr>
+</table>
+         */
+        public static final int indicator_visibility=0x7f010000;
+        /**  The maximal number of items initially shown in the activity list. 
+         <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int initialActivityCount=0x7f010086;
         /**  选中时颜色 
          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
@@ -49,7 +433,28 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int isChecked=0x7f010015;
+        public static final int isChecked=0x7f01009f;
+        /**  Specifies whether the theme is light, otherwise it is dark. 
+         <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int isLightTheme=0x7f010075;
+        /**  Specifies padding that should be applied to the left and right sides of
+             system-provided items in the bar. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int itemPadding=0x7f010053;
         /**  是否选中 
          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
@@ -60,7 +465,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int lineHeight=0x7f010016;
+        public static final int lineHeight=0x7f0100a0;
         /**  底部线的高度 
          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
@@ -71,14 +476,242 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int lineWight=0x7f010017;
+        public static final int lineWight=0x7f0100a1;
+        /**  Drawable used as a background for selected list items. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int listChoiceBackgroundIndicator=0x7f010068;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int listPopupWindowStyle=0x7f01003e;
+        /**  The preferred list item height. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int listPreferredItemHeight=0x7f010038;
+        /**  A larger, more robust list item height. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int listPreferredItemHeightLarge=0x7f01003a;
+        /**  A smaller, sleeker list item height. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int listPreferredItemHeightSmall=0x7f010039;
+        /**  The preferred padding along the left edge of list items. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int listPreferredItemPaddingLeft=0x7f01003b;
+        /**  The preferred padding along the right edge of list items. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int listPreferredItemPaddingRight=0x7f01003c;
+        /**  Specifies the drawable used for the application logo. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int logo=0x7f010049;
+        /**  The type of navigation to use. 
+         <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>normal</code></td><td>0</td><td> Normal static title text </td></tr>
+<tr><td><code>listMode</code></td><td>1</td><td> The action bar will use a selection list for navigation. </td></tr>
+<tr><td><code>tabMode</code></td><td>2</td><td> The action bar will use a series of horizontal tabs for navigation. </td></tr>
+</table>
+         */
+        public static final int navigationMode=0x7f010043;
+        /**  Sets the padding, in pixels, of the end edge; see {@link android.R.attr#padding}. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int paddingEnd=0x7f010055;
+        /**  Sets the padding, in pixels, of the start edge; see {@link android.R.attr#padding}. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int paddingStart=0x7f010054;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int padding_bottom=0x7f010011;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int padding_left=0x7f01000e;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int padding_right=0x7f01000f;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int padding_top=0x7f010010;
+        /**  page animation 
+         <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>Default</code></td><td>0</td><td></td></tr>
+<tr><td><code>Accordion</code></td><td>1</td><td></td></tr>
+<tr><td><code>Background2Foreground</code></td><td>2</td><td></td></tr>
+<tr><td><code>CubeIn</code></td><td>3</td><td></td></tr>
+<tr><td><code>DepthPage</code></td><td>4</td><td></td></tr>
+<tr><td><code>Fade</code></td><td>5</td><td></td></tr>
+<tr><td><code>FlipHorizontal</code></td><td>6</td><td></td></tr>
+<tr><td><code>FlipPage</code></td><td>7</td><td></td></tr>
+<tr><td><code>Foreground2Background</code></td><td>8</td><td></td></tr>
+<tr><td><code>RotateDown</code></td><td>9</td><td></td></tr>
+<tr><td><code>RotateUp</code></td><td>10</td><td></td></tr>
+<tr><td><code>Stack</code></td><td>11</td><td></td></tr>
+<tr><td><code>Tablet</code></td><td>12</td><td></td></tr>
+<tr><td><code>ZoomIn</code></td><td>13</td><td></td></tr>
+<tr><td><code>ZoomOutSlide</code></td><td>14</td><td></td></tr>
+<tr><td><code>ZoomOut</code></td><td>15</td><td></td></tr>
+</table>
+         */
+        public static final int pager_animation=0x7f010002;
+        /**  page animation time span 
+         <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int pager_animation_span=0x7f010003;
+        /**  Default Panel Menu style. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int panelMenuListTheme=0x7f010067;
+        /**  Default Panel Menu width. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int panelMenuListWidth=0x7f010066;
+        /**  Default PopupMenu style. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int popupMenuStyle=0x7f010065;
+        /**  Reference to a layout to use for displaying a prompt in the dropdown for
+             spinnerMode="dropdown". This layout must contain a TextView with the id
+             {@code @android:id/text1} to be populated with the prompt text. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int popupPromptView=0x7f01006f;
+        /**  Specifies the horizontal padding on either end for an embedded progress bar. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int progressBarPadding=0x7f010052;
+        /**  Specifies a style resource to use for an embedded progress bar. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int progressBarStyle=0x7f010050;
+        /**  The prompt to display when the spinner's dialog is shown. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int prompt=0x7f01006d;
         /**  BELOW HERE ARE DEPRECEATED. DO NOT USE. 
          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
          */
-        public static final int ptrAdapterViewBackground=0x7f010010;
+        public static final int ptrAdapterViewBackground=0x7f01009a;
         /**  Style of Animation should be used displayed when pulling. 
          <p>Must be one or more (separated by '|') of the following constant values.</p>
 <table>
@@ -90,56 +723,56 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <tr><td><code>flip</code></td><td>0x1</td><td></td></tr>
 </table>
          */
-        public static final int ptrAnimationStyle=0x7f01000c;
+        public static final int ptrAnimationStyle=0x7f010096;
         /**  Drawable to use as Loading Indicator. Changes both Header and Footer. 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int ptrDrawable=0x7f010006;
+        public static final int ptrDrawable=0x7f010090;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int ptrDrawableBottom=0x7f010012;
+        public static final int ptrDrawableBottom=0x7f01009c;
         /**  Drawable to use as Loading Indicator in the Footer View. Overrides value set in ptrDrawable. 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int ptrDrawableEnd=0x7f010008;
+        public static final int ptrDrawableEnd=0x7f010092;
         /**  Drawable to use as Loading Indicator in the Header View. Overrides value set in ptrDrawable. 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int ptrDrawableStart=0x7f010007;
+        public static final int ptrDrawableStart=0x7f010091;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int ptrDrawableTop=0x7f010011;
+        public static final int ptrDrawableTop=0x7f01009b;
         /**  A drawable to use as the background of the Header and Footer Loading Views 
          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
          */
-        public static final int ptrHeaderBackground=0x7f010001;
+        public static final int ptrHeaderBackground=0x7f01008b;
         /**  Text Color of the Header and Footer Loading Views Sub Header 
          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
          */
-        public static final int ptrHeaderSubTextColor=0x7f010003;
+        public static final int ptrHeaderSubTextColor=0x7f01008d;
         /**  Base text color, typeface, size, and style for Header and Footer Loading Views 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int ptrHeaderTextAppearance=0x7f01000a;
+        public static final int ptrHeaderTextAppearance=0x7f010094;
         /**  Text Color of the Header and Footer Loading Views 
          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
          */
-        public static final int ptrHeaderTextColor=0x7f010002;
+        public static final int ptrHeaderTextColor=0x7f01008c;
         /** 
         	Whether PullToRefreshListView has it's extras enabled. This allows the user to be 
         	able to scroll while refreshing, and behaves better. It acheives this by adding
@@ -149,7 +782,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
          */
-        public static final int ptrListViewExtrasEnabled=0x7f01000e;
+        public static final int ptrListViewExtrasEnabled=0x7f010098;
         /**  Mode of Pull-to-Refresh that should be used 
          <p>Must be one or more (separated by '|') of the following constant values.</p>
 <table>
@@ -166,20 +799,20 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <tr><td><code>pullUpFromBottom</code></td><td>0x2</td><td></td></tr>
 </table>
          */
-        public static final int ptrMode=0x7f010004;
+        public static final int ptrMode=0x7f01008e;
         /**  Whether Android's built-in Over Scroll should be utilised for Pull-to-Refresh. 
          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
          */
-        public static final int ptrOverScroll=0x7f010009;
+        public static final int ptrOverScroll=0x7f010093;
         /**  A drawable to use as the background of the Refreshable View 
          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
          */
-        public static final int ptrRefreshableViewBackground=0x7f010000;
+        public static final int ptrRefreshableViewBackground=0x7f01008a;
         /** 
         	Whether the Drawable should be continually rotated as you pull. This only
         	takes effect when using the 'Rotate' Animation Style.
@@ -188,24 +821,33 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
          */
-        public static final int ptrRotateDrawableWhilePulling=0x7f01000f;
+        public static final int ptrRotateDrawableWhilePulling=0x7f010099;
         /**  Whether the user can scroll while the View is Refreshing 
          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
          */
-        public static final int ptrScrollingWhileRefreshingEnabled=0x7f01000d;
+        public static final int ptrScrollingWhileRefreshingEnabled=0x7f010097;
         /**  Whether the Indicator overlay(s) should be used 
          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
          */
-        public static final int ptrShowIndicator=0x7f010005;
+        public static final int ptrShowIndicator=0x7f01008f;
         /**  Base text color, typeface, size, and style for Header and Footer Loading Views Sub Header 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int ptrSubHeaderTextAppearance=0x7f01000b;
+        public static final int ptrSubHeaderTextAppearance=0x7f010095;
+        /**  An optional query hint string to be displayed in the empty query field. 
+         <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int queryHint=0x7f010077;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -215,7 +857,235 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int right_width=0x7f01001a;
+        public static final int right_width=0x7f0100a4;
+        /**  SearchView dropdown background 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int searchDropdownBackground=0x7f010078;
+        /**  The list item height for search results. @hide 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int searchResultListItemHeight=0x7f010081;
+        /**  SearchView AutoCompleteTextView style 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int searchViewAutoCompleteTextView=0x7f010085;
+        /**  SearchView close button icon 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int searchViewCloseIcon=0x7f010079;
+        /**  SearchView query refinement icon 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int searchViewEditQuery=0x7f01007d;
+        /**  SearchView query refinement icon background 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int searchViewEditQueryBackground=0x7f01007e;
+        /**  SearchView Go button icon 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int searchViewGoIcon=0x7f01007a;
+        /**  SearchView Search icon 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int searchViewSearchIcon=0x7f01007b;
+        /**  SearchView text field background for the left section 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int searchViewTextField=0x7f01007f;
+        /**  SearchView text field background for the right section 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int searchViewTextFieldRight=0x7f010080;
+        /**  SearchView Voice button icon 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int searchViewVoiceIcon=0x7f01007c;
+        /**  A style that may be applied to buttons or other selectable items
+         that should react to pressed and focus states, but that do not
+         have a clear visual border along the edges. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int selectableItemBackground=0x7f010035;
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int selected_color=0x7f010006;
+        /**  indicator style 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int selected_drawable=0x7f010008;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int selected_height=0x7f01000b;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int selected_padding_bottom=0x7f010015;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int selected_padding_left=0x7f010012;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int selected_padding_right=0x7f010013;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int selected_padding_top=0x7f010014;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int selected_width=0x7f01000a;
+        /** <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>oval</code></td><td>0</td><td></td></tr>
+<tr><td><code>rect</code></td><td>1</td><td></td></tr>
+</table>
+         */
+        public static final int shape=0x7f010005;
+        /**  How this item should display in the Action Bar, if present. 
+         <p>Must be one or more (separated by '|') of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>never</code></td><td>0</td><td> Never show this item in an action bar, show it in the overflow menu instead.
+                 Mutually exclusive with "ifRoom" and "always". </td></tr>
+<tr><td><code>ifRoom</code></td><td>1</td><td> Show this item in an action bar if there is room for it as determined
+                 by the system. Favor this option over "always" where possible.
+                 Mutually exclusive with "never" and "always". </td></tr>
+<tr><td><code>always</code></td><td>2</td><td> Always show this item in an actionbar, even if it would override
+                 the system's limits of how much stuff to put there. This may make
+                 your action bar look bad on some screens. In most cases you should
+                 use "ifRoom" instead. Mutually exclusive with "ifRoom" and "never". </td></tr>
+<tr><td><code>withText</code></td><td>4</td><td> When this item is shown as an action in the action bar, show a text
+                 label with it even if it has an icon representation. </td></tr>
+<tr><td><code>collapseActionView</code></td><td>8</td><td> This item's action view collapses to a normal menu
+                 item. When expanded, the action view takes over a
+                 larger segment of its container. </td></tr>
+</table>
+         */
+        public static final int showAsAction=0x7f010069;
+        /**  Setting for which dividers to show. 
+         <p>Must be one or more (separated by '|') of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>none</code></td><td>0</td><td></td></tr>
+<tr><td><code>beginning</code></td><td>1</td><td></td></tr>
+<tr><td><code>middle</code></td><td>2</td><td></td></tr>
+<tr><td><code>end</code></td><td>4</td><td></td></tr>
+</table>
+         */
+        public static final int showDividers=0x7f010071;
+        /**  Default Spinner style. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int spinnerDropDownItemStyle=0x7f010074;
+        /**  Display mode for spinner options. 
+         <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>dialog</code></td><td>0</td><td> Spinner options will be presented to the user as a dialog window. </td></tr>
+<tr><td><code>dropdown</code></td><td>1</td><td> Spinner options will be presented to the user as an inline dropdown
+                 anchored to the spinner widget itself. </td></tr>
+</table>
+         */
+        public static final int spinnerMode=0x7f01006e;
+        /**  Default Spinner style. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int spinnerStyle=0x7f010073;
+        /**  Specifies subtitle text used for navigationMode="normal" 
+         <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int subtitle=0x7f010045;
+        /**  Specifies a style to use for subtitle text. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int subtitleTextStyle=0x7f010047;
         /**  底部线的宽度 
          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
 <p>This may also be a reference to a resource (in the form
@@ -224,7 +1094,50 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int text=0x7f010018;
+        public static final int text=0x7f0100a2;
+        /**  Present the text in ALL CAPS. This may use a small-caps form when available. 
+         <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
+         */
+        public static final int textAllCaps=0x7f010089;
+        /**  Text color, typeface, size, and style for the text inside of a popup menu. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int textAppearanceLargePopupMenu=0x7f010030;
+        /**  The preferred TextAppearance for the primary text of list items. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int textAppearanceListItem=0x7f01003f;
+        /**  The preferred TextAppearance for the primary text of small list items. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int textAppearanceListItemSmall=0x7f010040;
+        /**  Text color, typeface, size, and style for system search result subtitle. Defaults to primary inverse text color. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int textAppearanceSearchResultSubtitle=0x7f010083;
+        /**  Text color, typeface, size, and style for system search result title. Defaults to primary inverse text color. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int textAppearanceSearchResultTitle=0x7f010082;
+        /**  Text color, typeface, size, and style for small text inside of a popup menu. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int textAppearanceSmallPopupMenu=0x7f010031;
+        /**  Text color for urls in search suggestions, used by things like global search 
+         <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+         */
+        public static final int textColorSearchUrl=0x7f010084;
         /**  中间文本内容 
          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
@@ -235,17 +1148,115 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int textSize=0x7f010019;
+        public static final int textSize=0x7f0100a3;
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int title=0x7f010041;
+        /**  Specifies a style to use for title text. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int titleTextStyle=0x7f010046;
         /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
          */
-        public static final int unCheckedColor=0x7f010013;
+        public static final int unCheckedColor=0x7f01009d;
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int unselected_color=0x7f010007;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int wheel_data=0x7f01001b;
+        public static final int unselected_drawable=0x7f010009;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int unselected_height=0x7f01000d;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int unselected_padding_bottom=0x7f010019;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int unselected_padding_left=0x7f010016;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int unselected_padding_right=0x7f010017;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int unselected_padding_top=0x7f010018;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int unselected_width=0x7f01000c;
+        /**  indicator visibility 
+         <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>visible</code></td><td>0</td><td></td></tr>
+<tr><td><code>invisible</code></td><td>1</td><td></td></tr>
+</table>
+         */
+        public static final int visibility=0x7f010004;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int wheel_data=0x7f0100a5;
         /** <p>Must be one of the following constant values.</p>
 <table>
 <colgroup align="left" />
@@ -256,7 +1267,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <tr><td><code>vertical</code></td><td>1</td><td></td></tr>
 </table>
          */
-        public static final int wheel_direction=0x7f01001d;
+        public static final int wheel_direction=0x7f0100a7;
         /** <p>Must be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -264,7 +1275,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int wheel_item_count=0x7f010022;
+        public static final int wheel_item_count=0x7f0100ac;
         /** <p>Must be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -272,7 +1283,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int wheel_item_index=0x7f01001e;
+        public static final int wheel_item_index=0x7f0100a8;
         /** <p>Must be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -280,7 +1291,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int wheel_item_index_height_maximum=0x7f010020;
+        public static final int wheel_item_index_height_maximum=0x7f0100aa;
         /** <p>Must be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -288,7 +1299,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int wheel_item_index_width_maximum=0x7f01001f;
+        public static final int wheel_item_index_width_maximum=0x7f0100a9;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -296,7 +1307,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int wheel_item_same_size=0x7f010021;
+        public static final int wheel_item_same_size=0x7f0100ab;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -306,7 +1317,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int wheel_item_space=0x7f010023;
+        public static final int wheel_item_space=0x7f0100ad;
         /** <p>Must be one of the following constant values.</p>
 <table>
 <colgroup align="left" />
@@ -317,7 +1328,7 @@ containing a value of this type.
 <tr><td><code>curved</code></td><td>1</td><td></td></tr>
 </table>
          */
-        public static final int wheel_style=0x7f01001c;
+        public static final int wheel_style=0x7f0100a6;
         /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
@@ -326,7 +1337,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int wheel_text_color=0x7f010027;
+        public static final int wheel_text_color=0x7f0100b1;
         /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -334,7 +1345,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int wheel_text_maximum_height=0x7f010026;
+        public static final int wheel_text_maximum_height=0x7f0100b0;
         /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -342,7 +1353,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int wheel_text_maximum_width=0x7f010025;
+        public static final int wheel_text_maximum_width=0x7f0100af;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -352,477 +1363,685 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int wheel_text_size=0x7f010024;
+        public static final int wheel_text_size=0x7f0100ae;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int windowActionBar=0x7f01001c;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int windowActionBarOverlay=0x7f01001d;
+        /**  A fixed height for the window along the major axis of the screen,
+             that is, when in portrait. Can be either an absolute dimension
+             or a fraction of the screen size in that dimension. 
+         <p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>May be a fractional value, which is a floating point number appended with either % or %p, such as "<code>14.5%</code>".
+The % suffix always means a percentage of the base size; the optional %p suffix provides a size relative to
+some parent container.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int windowFixedHeightMajor=0x7f010022;
+        /**  A fixed height for the window along the minor axis of the screen,
+             that is, when in landscape. Can be either an absolute dimension
+             or a fraction of the screen size in that dimension. 
+         <p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>May be a fractional value, which is a floating point number appended with either % or %p, such as "<code>14.5%</code>".
+The % suffix always means a percentage of the base size; the optional %p suffix provides a size relative to
+some parent container.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int windowFixedHeightMinor=0x7f010020;
+        /**  A fixed width for the window along the major axis of the screen,
+             that is, when in landscape. Can be either an absolute dimension
+             or a fraction of the screen size in that dimension. 
+         <p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>May be a fractional value, which is a floating point number appended with either % or %p, such as "<code>14.5%</code>".
+The % suffix always means a percentage of the base size; the optional %p suffix provides a size relative to
+some parent container.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int windowFixedWidthMajor=0x7f01001f;
+        /**  A fixed width for the window along the minor axis of the screen,
+             that is, when in portrait. Can be either an absolute dimension
+             or a fraction of the screen size in that dimension. 
+         <p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>May be a fractional value, which is a floating point number appended with either % or %p, such as "<code>14.5%</code>".
+The % suffix always means a percentage of the base size; the optional %p suffix provides a size relative to
+some parent container.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int windowFixedWidthMinor=0x7f010021;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int windowSplitActionBar=0x7f01001e;
+    }
+    public static final class bool {
+        public static final int abc_action_bar_embed_tabs_pre_jb=0x7f070000;
+        public static final int abc_action_bar_expanded_action_views_exclusive=0x7f070001;
+        /**  Whether action menu items should be displayed in ALLCAPS or not.
+         Defaults to true. If this is not appropriate for specific locales
+         it should be disabled in that locale's resources. 
+         */
+        public static final int abc_config_actionMenuItemAllCaps=0x7f070005;
+        /**  Whether action menu items should obey the "withText" showAsAction
+    flag. This may be set to false for situations where space is
+    extremely limited. 
+ Whether action menu items should obey the "withText" showAsAction.
+         This may be set to false for situations where space is
+         extremely limited. 
+         */
+        public static final int abc_config_allowActionMenuItemTextWithIcon=0x7f070004;
+        public static final int abc_config_showMenuShortcutsWhenKeyboardPresent=0x7f070003;
+        public static final int abc_split_action_bar_is_narrow=0x7f070002;
     }
     public static final class color {
+        public static final int abc_search_url_text_holo=0x7f0800a8;
+        public static final int abc_search_url_text_normal=0x7f080000;
+        public static final int abc_search_url_text_pressed=0x7f080002;
+        public static final int abc_search_url_text_selected=0x7f080001;
+        public static final int albumback=0x7f080099;
         /**  蜜色 
          */
-        public static final int aliceblue=0x7f09002e;
+        public static final int aliceblue=0x7f080031;
         /**  亚麻色 
          */
-        public static final int antiquewhite=0x7f090024;
-        public static final int appRed=0x7f090000;
+        public static final int antiquewhite=0x7f080027;
+        public static final int appRed=0x7f080003;
         /**  中灰兰色 
          */
-        public static final int aqua=0x7f090084;
+        public static final int aqua=0x7f080087;
         /**  粟色 
          */
-        public static final int aquamarine=0x7f090065;
+        public static final int aquamarine=0x7f080068;
         /**  沙褐色 
          */
-        public static final int azure=0x7f09002c;
+        public static final int azure=0x7f08002f;
         /**  烟白色 
          */
-        public static final int beige=0x7f090029;
+        public static final int beige=0x7f08002c;
         /**  浅玫瑰色 
          */
-        public static final int bisque=0x7f09000f;
+        public static final int bisque=0x7f080012;
         /**  海军色 
          */
-        public static final int black=0x7f090093;
+        public static final int black=0x7f080096;
         /**  番木色 
          */
-        public static final int blanchedalmond=0x7f09000d;
+        public static final int blanchedalmond=0x7f080010;
         /**  暗绿色 
          */
-        public static final int blue=0x7f09008f;
+        public static final int blue=0x7f080092;
         /**  暗红色 
          */
-        public static final int blueviolet=0x7f09005d;
+        public static final int blueviolet=0x7f080060;
         /**  暗灰色 
          */
-        public static final int brown=0x7f090052;
+        public static final int brown=0x7f080055;
         /**  亮青色 
          */
-        public static final int burlywood=0x7f090036;
-        public static final int button_ckeck=0x7f090099;
+        public static final int burlywood=0x7f080039;
+        public static final int button_ckeck=0x7f08009f;
         /**  main下面的四个button选中颜色 
          */
-        public static final int button_unckeck=0x7f090098;
+        public static final int button_unckeck=0x7f08009e;
         /**  菊兰色 
          */
-        public static final int cadetblue=0x7f090073;
+        public static final int cadetblue=0x7f080076;
         /**  碧绿色 
          */
-        public static final int chartreuse=0x7f090066;
+        public static final int chartreuse=0x7f080069;
         /**  茶色 
          */
-        public static final int chocolate=0x7f090041;
+        public static final int chocolate=0x7f080044;
         /**  暗桔黄色 
          */
-        public static final int coral=0x7f090019;
+        public static final int coral=0x7f08001c;
         /**  中绿色 
          */
-        public static final int cornflowerblue=0x7f090072;
+        public static final int cornflowerblue=0x7f080075;
         /**  柠檬绸色 
          */
-        public static final int cornsilk=0x7f090009;
+        public static final int cornsilk=0x7f08000c;
         /**  淡灰色 
          */
-        public static final int crimson=0x7f090039;
+        public static final int crimson=0x7f08003c;
         /**  浅绿色 
          */
-        public static final int cyan=0x7f090085;
+        public static final int cyan=0x7f080088;
         /**  中兰色 
          */
-        public static final int darkblue=0x7f090091;
+        public static final int darkblue=0x7f080094;
         /**  深天蓝色 
          */
-        public static final int darkcyan=0x7f09008b;
+        public static final int darkcyan=0x7f08008e;
         /**  中粉紫色 
          */
-        public static final int darkgoldenrod=0x7f090049;
+        public static final int darkgoldenrod=0x7f08004c;
         /**  亮蓝色 
          */
-        public static final int darkgray=0x7f090050;
+        public static final int darkgray=0x7f080053;
         /**  绿色 
          */
-        public static final int darkgreen=0x7f09008e;
+        public static final int darkgreen=0x7f080091;
         /**  暗灰色 
          */
-        public static final int darkgrey=0x7f090051;
+        public static final int darkgrey=0x7f080054;
         /**  银色 
          */
-        public static final int darkkhaki=0x7f090046;
+        public static final int darkkhaki=0x7f080049;
         /**  重褐色 
          */
-        public static final int darkmagenta=0x7f09005b;
+        public static final int darkmagenta=0x7f08005e;
         /**  军兰色 
          */
-        public static final int darkolivegreen=0x7f090074;
+        public static final int darkolivegreen=0x7f080077;
         /**  亮肉色 
          */
-        public static final int darkorange=0x7f090018;
+        public static final int darkorange=0x7f08001b;
         /**  赭色 
          */
-        public static final int darkorchid=0x7f090054;
+        public static final int darkorchid=0x7f080057;
         /**  暗洋红 
          */
-        public static final int darkred=0x7f09005c;
+        public static final int darkred=0x7f08005f;
         /**  紫罗兰色 
          */
-        public static final int darksalmon=0x7f090033;
+        public static final int darksalmon=0x7f080036;
         /**  亮绿色 
          */
-        public static final int darkseagreen=0x7f090059;
+        public static final int darkseagreen=0x7f08005c;
         /**  中绿宝石 
          */
-        public static final int darkslateblue=0x7f090077;
+        public static final int darkslateblue=0x7f08007a;
         /**  橙绿色 
          */
-        public static final int darkslategray=0x7f09007d;
+        public static final int darkslategray=0x7f080080;
         /**  暗瓦灰色 
          */
-        public static final int darkslategrey=0x7f09007e;
+        public static final int darkslategrey=0x7f080081;
         /**  中春绿色 
          */
-        public static final int darkturquoise=0x7f090089;
+        public static final int darkturquoise=0x7f08008c;
         /**  苍绿色 
          */
-        public static final int darkviolet=0x7f090056;
+        public static final int darkviolet=0x7f080059;
         /**  红橙色 
          */
-        public static final int deeppink=0x7f09001d;
+        public static final int deeppink=0x7f080020;
         /**  暗宝石绿 
          */
-        public static final int deepskyblue=0x7f09008a;
+        public static final int deepskyblue=0x7f08008d;
         /**  石蓝色 
          */
-        public static final int dimgray=0x7f09006f;
+        public static final int dimgray=0x7f080072;
         /**  暗灰色 
          */
-        public static final int dimgrey=0x7f090070;
+        public static final int dimgrey=0x7f080073;
         /**  亮海蓝色 
          */
-        public static final int dodgerblue=0x7f090082;
+        public static final int dodgerblue=0x7f080085;
         /**  暗金黄色 
          */
-        public static final int firebrick=0x7f09004a;
+        public static final int firebrick=0x7f08004d;
         /**  雪白色 
          */
-        public static final int floralwhite=0x7f090007;
+        public static final int floralwhite=0x7f08000a;
         /**  海绿色 
          */
-        public static final int forestgreen=0x7f090080;
+        public static final int forestgreen=0x7f080083;
         /**  深粉红色 
          */
-        public static final int fuchsia=0x7f09001e;
+        public static final int fuchsia=0x7f080021;
         /**  洋李色 
          */
-        public static final int gainsboro=0x7f090038;
+        public static final int gainsboro=0x7f08003b;
         /**  鲜肉色 
          */
-        public static final int ghostwhite=0x7f090026;
+        public static final int ghostwhite=0x7f080029;
         /**  桃色 
          */
-        public static final int gold=0x7f090013;
+        public static final int gold=0x7f080016;
         /**  苍紫罗兰色 
          */
-        public static final int goldenrod=0x7f09003b;
+        public static final int goldenrod=0x7f08003e;
         /**  天蓝色 
          */
-        public static final int gray=0x7f090060;
+        public static final int gray=0x7f080063;
         /**  水鸭色 
          */
-        public static final int green=0x7f09008d;
+        public static final int green=0x7f080090;
         /**  苍宝石绿 
          */
-        public static final int greenyellow=0x7f09004e;
+        public static final int greenyellow=0x7f080051;
         /**  灰色 
          */
-        public static final int grey=0x7f090061;
+        public static final int grey=0x7f080064;
         /**  天蓝色 
          */
-        public static final int honeydew=0x7f09002d;
+        public static final int honeydew=0x7f080030;
         /**  珊瑚色 
          */
-        public static final int hotpink=0x7f09001a;
+        public static final int hotpink=0x7f08001d;
         /**  秘鲁色 
          */
-        public static final int indianred=0x7f090043;
+        public static final int indianred=0x7f080046;
         /**  暗橄榄绿 
          */
-        public static final int indigo=0x7f090075;
+        public static final int indigo=0x7f080078;
         /**  白色 
          */
-        public static final int ivory=0x7f090003;
+        public static final int ivory=0x7f080006;
         /**  艾利斯兰 
          */
-        public static final int khaki=0x7f09002f;
+        public static final int khaki=0x7f080032;
         /**  暗肉色 
          */
-        public static final int lavender=0x7f090034;
+        public static final int lavender=0x7f080037;
         /**  海贝色 
          */
-        public static final int lavenderblush=0x7f09000b;
+        public static final int lavenderblush=0x7f08000e;
         /**  黄绿色 
          */
-        public static final int lawngreen=0x7f090067;
+        public static final int lawngreen=0x7f08006a;
         /**  花白色 
          */
-        public static final int lemonchiffon=0x7f090008;
-        public static final int light_blue=0x7f090002;
+        public static final int lemonchiffon=0x7f08000b;
+        public static final int light_blue=0x7f080005;
         /**  黄绿色 
          */
-        public static final int lightblue=0x7f09004f;
+        public static final int lightblue=0x7f080052;
         /**  黄褐色 
          */
-        public static final int lightcoral=0x7f090030;
+        public static final int lightcoral=0x7f080033;
         /**  淡紫色 
          */
-        public static final int lightcyan=0x7f090035;
+        public static final int lightcyan=0x7f080038;
         /**  老花色 
          */
-        public static final int lightgoldenrodyellow=0x7f090022;
+        public static final int lightgoldenrodyellow=0x7f080025;
         /**  蓟色 
          */
-        public static final int lightgray=0x7f09003e;
+        public static final int lightgray=0x7f080041;
         /**  中紫色 
          */
-        public static final int lightgreen=0x7f090058;
+        public static final int lightgreen=0x7f08005b;
         /**  亮灰色 
          */
-        public static final int lightgrey=0x7f09003f;
+        public static final int lightgrey=0x7f080042;
         /**  粉红色 
          */
-        public static final int lightpink=0x7f090015;
+        public static final int lightpink=0x7f080018;
         /**  橙色 
          */
-        public static final int lightsalmon=0x7f090017;
+        public static final int lightsalmon=0x7f08001a;
         /**  森林绿 
          */
-        public static final int lightseagreen=0x7f090081;
+        public static final int lightseagreen=0x7f080084;
         /**  紫罗兰蓝色 
          */
-        public static final int lightskyblue=0x7f09005e;
+        public static final int lightskyblue=0x7f080061;
         /**  中暗蓝色 
          */
-        public static final int lightslategray=0x7f090069;
+        public static final int lightslategray=0x7f08006c;
         /**  亮蓝灰 
          */
-        public static final int lightslategrey=0x7f09006a;
+        public static final int lightslategrey=0x7f08006d;
         /**  粉蓝色 
          */
-        public static final int lightsteelblue=0x7f09004c;
+        public static final int lightsteelblue=0x7f08004f;
         /**  象牙色 
          */
-        public static final int lightyellow=0x7f090004;
+        public static final int lightyellow=0x7f080007;
         /**  春绿色 
          */
-        public static final int lime=0x7f090087;
+        public static final int lime=0x7f08008a;
         /**  中海蓝 
          */
-        public static final int limegreen=0x7f09007c;
+        public static final int limegreen=0x7f08007f;
         /**  亮金黄色 
          */
-        public static final int linen=0x7f090023;
+        public static final int linen=0x7f080026;
         /**  紫红色 
          */
-        public static final int magenta=0x7f09001f;
+        public static final int magenta=0x7f080022;
         /**  紫色 
          */
-        public static final int maroon=0x7f090064;
+        public static final int maroon=0x7f080067;
         /**  暗灰色 
          */
-        public static final int mediumaquamarine=0x7f090071;
+        public static final int mediumaquamarine=0x7f080074;
         /**  蓝色 
          */
-        public static final int mediumblue=0x7f090090;
+        public static final int mediumblue=0x7f080093;
         /**  褐玫瑰红 
          */
-        public static final int mediumorchid=0x7f090048;
+        public static final int mediumorchid=0x7f08004b;
         /**  暗紫罗兰色 
          */
-        public static final int mediumpurple=0x7f090057;
+        public static final int mediumpurple=0x7f08005a;
         /**  青绿色 
          */
-        public static final int mediumseagreen=0x7f09007b;
+        public static final int mediumseagreen=0x7f08007e;
         /**  草绿色 
          */
-        public static final int mediumslateblue=0x7f090068;
+        public static final int mediumslateblue=0x7f08006b;
         /**  酸橙色 
          */
-        public static final int mediumspringgreen=0x7f090088;
+        public static final int mediumspringgreen=0x7f08008b;
         /**  靛青色 
          */
-        public static final int mediumturquoise=0x7f090076;
+        public static final int mediumturquoise=0x7f080079;
         /**  印第安红 
          */
-        public static final int mediumvioletred=0x7f090044;
+        public static final int mediumvioletred=0x7f080047;
         /**  闪兰色 
          */
-        public static final int midnightblue=0x7f090083;
+        public static final int midnightblue=0x7f080086;
         /**  幽灵白 
          */
-        public static final int mintcream=0x7f090027;
+        public static final int mintcream=0x7f08002a;
         /**  白杏色 
          */
-        public static final int mistyrose=0x7f09000e;
+        public static final int mistyrose=0x7f080011;
         /**  桔黄色 
          */
-        public static final int moccasin=0x7f090010;
+        public static final int moccasin=0x7f080013;
         /**  鹿皮色 
          */
-        public static final int navajowhite=0x7f090011;
+        public static final int navajowhite=0x7f080014;
         /**  暗蓝色 
          */
-        public static final int navy=0x7f090092;
+        public static final int navy=0x7f080095;
         /**  新房button文字字样 
          */
-        public static final int newhousebuttoncheck=0x7f090096;
-        public static final int newhousebuttonuncheck=0x7f090097;
+        public static final int newhousebuttoncheck=0x7f08009c;
+        public static final int newhousebuttonuncheck=0x7f08009d;
+        /**  黑色 
+ 上传图片添加的颜色 
+         */
+        public static final int none_color=0x7f080097;
         /**  红色 
          */
-        public static final int oldlace=0x7f090021;
+        public static final int oldlace=0x7f080024;
         /**  灰色 
          */
-        public static final int olive=0x7f090062;
+        public static final int olive=0x7f080065;
         /**  灰石色 
          */
-        public static final int olivedrab=0x7f09006d;
+        public static final int olivedrab=0x7f080070;
         /**  亮粉红色 
          */
-        public static final int orange=0x7f090016;
+        public static final int orange=0x7f080019;
         /**  西红柿色 
          */
-        public static final int orangered=0x7f09001c;
+        public static final int orangered=0x7f08001f;
         /**  金麒麟色 
          */
-        public static final int orchid=0x7f09003c;
+        public static final int orchid=0x7f08003f;
         /**  亮珊瑚色 
          */
-        public static final int palegoldenrod=0x7f090031;
+        public static final int palegoldenrod=0x7f080034;
         /**  暗紫色 
          */
-        public static final int palegreen=0x7f090055;
+        public static final int palegreen=0x7f080058;
         /**  亮钢兰色 
          */
-        public static final int paleturquoise=0x7f09004d;
+        public static final int paleturquoise=0x7f080050;
         /**  暗深红色 
          */
-        public static final int palevioletred=0x7f09003a;
+        public static final int palevioletred=0x7f08003d;
         /**  淡紫红 
          */
-        public static final int papayawhip=0x7f09000c;
+        public static final int papayawhip=0x7f08000f;
         /**  纳瓦白 
          */
-        public static final int peachpuff=0x7f090012;
+        public static final int peachpuff=0x7f080015;
         /**  巧可力色 
          */
-        public static final int peru=0x7f090042;
+        public static final int peru=0x7f080045;
         /**  金色 
          */
-        public static final int pink=0x7f090014;
+        public static final int pink=0x7f080017;
+        public static final int plugin_camera_black=0x7f080098;
         /**  实木色 
          */
-        public static final int plum=0x7f090037;
+        public static final int plum=0x7f08003a;
         /**  火砖色 
          */
-        public static final int powderblue=0x7f09004b;
+        public static final int powderblue=0x7f08004e;
         /**  橄榄色 
          */
-        public static final int purple=0x7f090063;
+        public static final int purple=0x7f080066;
         /**  百度地图的兴趣点 
          */
-        public static final int radio_baidumapcheck=0x7f090094;
-        public static final int radio_baidumapuncheck=0x7f090095;
+        public static final int radio_baidumapcheck=0x7f08009a;
+        public static final int radio_baidumapuncheck=0x7f08009b;
+        /**  spinner-radiobutton 
+         */
+        public static final int radio_button_check=0x7f0800a0;
+        public static final int radio_button_uncheck=0x7f0800a1;
+        /**  spinner-radiobutton 
+         */
+        public static final int radio_buttontext_check=0x7f0800a2;
+        public static final int radio_buttontext_uncheck=0x7f0800a3;
         /**  红紫色 
          */
-        public static final int red=0x7f090020;
+        public static final int red=0x7f080023;
         /**  暗黄褐色 
          */
-        public static final int rosybrown=0x7f090047;
+        public static final int rosybrown=0x7f08004a;
         /**  钢兰色 
          */
-        public static final int royalblue=0x7f090079;
+        public static final int royalblue=0x7f08007c;
         /**  暗海兰色 
          */
-        public static final int saddlebrown=0x7f09005a;
+        public static final int saddlebrown=0x7f08005d;
         /**  古董白 
          */
-        public static final int salmon=0x7f090025;
+        public static final int salmon=0x7f080028;
         /**  浅黄色 
          */
-        public static final int sandybrown=0x7f09002b;
+        public static final int sandybrown=0x7f08002e;
         /**  暗瓦灰色 
          */
-        public static final int seagreen=0x7f09007f;
+        public static final int seagreen=0x7f080082;
         /**  米绸色 
          */
-        public static final int seashell=0x7f09000a;
-        public static final int send_code_back=0x7f09009d;
+        public static final int seashell=0x7f08000d;
+        public static final int send_code_back=0x7f0800a7;
         /**  发送验证码的框色 
          */
-        public static final int send_code_rectangle=0x7f09009c;
+        public static final int send_code_rectangle=0x7f0800a6;
         /**  褐色 
          */
-        public static final int sienna=0x7f090053;
+        public static final int sienna=0x7f080056;
         /**  中紫罗兰色 
          */
-        public static final int silver=0x7f090045;
+        public static final int silver=0x7f080048;
         /**  亮天蓝色 
          */
-        public static final int skyblue=0x7f09005f;
+        public static final int skyblue=0x7f080062;
         /**  深绿褐色 
          */
-        public static final int slateblue=0x7f09006e;
+        public static final int slateblue=0x7f080071;
         /**  亮蓝灰 
          */
-        public static final int slategray=0x7f09006b;
+        public static final int slategray=0x7f08006e;
         /**  灰石色 
          */
-        public static final int slategrey=0x7f09006c;
+        public static final int slategrey=0x7f08006f;
         /**  黄色 
          */
-        public static final int snow=0x7f090006;
+        public static final int snow=0x7f080009;
         /**  青色 
          */
-        public static final int springgreen=0x7f090086;
+        public static final int springgreen=0x7f080089;
         /**  暗灰蓝色 
          */
-        public static final int steelblue=0x7f090078;
-        public static final int tab_back=0x7f09009b;
-        public static final int tab_red=0x7f09009a;
+        public static final int steelblue=0x7f08007b;
+        public static final int tab_back=0x7f0800a5;
+        public static final int tab_red=0x7f0800a4;
         /**  亮灰色 
          */
-        public static final int tan=0x7f090040;
+        public static final int tan=0x7f080043;
         /**  暗青色 
          */
-        public static final int teal=0x7f09008c;
+        public static final int teal=0x7f08008f;
         /**  淡紫色 
          */
-        public static final int thistle=0x7f09003d;
+        public static final int thistle=0x7f080040;
         /**  热粉红色 
          */
-        public static final int tomato=0x7f09001b;
+        public static final int tomato=0x7f08001e;
         /**  皇家蓝 
          */
-        public static final int turquoise=0x7f09007a;
+        public static final int turquoise=0x7f08007d;
         /**  苍麒麟色 
          */
-        public static final int violet=0x7f090032;
+        public static final int violet=0x7f080035;
         /**  米色 
          */
-        public static final int wheat=0x7f09002a;
-        public static final int white=0x7f090001;
+        public static final int wheat=0x7f08002d;
+        public static final int white=0x7f080004;
         /**  薄荷色 
          */
-        public static final int whitesmoke=0x7f090028;
+        public static final int whitesmoke=0x7f08002b;
         /**  亮黄色 
          */
-        public static final int yellow=0x7f090005;
+        public static final int yellow=0x7f080008;
     }
     public static final class dimen {
-        public static final int ItemSpaceLarge=0x7f05000e;
-        public static final int TextSizeLarge=0x7f05000d;
+        public static final int ItemSpaceLarge=0x7f090023;
+        public static final int TextSizeLarge=0x7f090022;
         /** 通用尺寸
 General sizes
          */
-        public static final int WheelItemSpace=0x7f050008;
-        public static final int WheelLabelTextSize=0x7f05000c;
-        public static final int WheelPadding1x=0x7f050009;
-        public static final int WheelPadding2x=0x7f05000a;
-        public static final int WheelTextSize=0x7f05000b;
+        public static final int WheelItemSpace=0x7f09001d;
+        public static final int WheelLabelTextSize=0x7f090021;
+        public static final int WheelPadding1x=0x7f09001e;
+        public static final int WheelPadding2x=0x7f09001f;
+        public static final int WheelTextSize=0x7f090020;
+        /**  Default height of an action bar. 
+ Default height of an action bar. 
+ Default height of an action bar. 
+ Default height of an action bar. 
+ Default height of an action bar. 
+         */
+        public static final int abc_action_bar_default_height=0x7f090002;
+        /**  Vertical padding around action bar icons. 
+ Vertical padding around action bar icons. 
+ Vertical padding around action bar icons. 
+ Vertical padding around action bar icons. 
+ Vertical padding around action bar icons. 
+         */
+        public static final int abc_action_bar_icon_vertical_padding=0x7f090003;
+        /**  Size of the indeterminate Progress Bar 
+ Size of the indeterminate Progress Bar 
+         */
+        public static final int abc_action_bar_progress_bar_size=0x7f09000a;
+        /**  Maximum height for a stacked tab bar as part of an action bar 
+         */
+        public static final int abc_action_bar_stacked_max_height=0x7f090009;
+        /**  Maximum width for a stacked action bar tab. This prevents
+         action bar tabs from becoming too wide on a wide screen when only
+         a few are present. 
+         */
+        public static final int abc_action_bar_stacked_tab_max_width=0x7f090001;
+        /**  Bottom margin for action bar subtitles 
+ Bottom margin for action bar subtitles 
+ Bottom margin for action bar subtitles 
+ Bottom margin for action bar subtitles 
+ Bottom margin for action bar subtitles 
+         */
+        public static final int abc_action_bar_subtitle_bottom_margin=0x7f090007;
+        /**  Text size for action bar subtitles 
+ Text size for action bar subtitles 
+ Text size for action bar subtitles 
+ Text size for action bar subtitles 
+ Text size for action bar subtitles 
+         */
+        public static final int abc_action_bar_subtitle_text_size=0x7f090005;
+        /**  Top margin for action bar subtitles 
+ Top margin for action bar subtitles 
+ Top margin for action bar subtitles 
+ Top margin for action bar subtitles 
+ Top margin for action bar subtitles 
+         */
+        public static final int abc_action_bar_subtitle_top_margin=0x7f090006;
+        /**  Text size for action bar titles 
+ Text size for action bar titles 
+ Text size for action bar titles 
+ Text size for action bar titles 
+ Text size for action bar titles 
+         */
+        public static final int abc_action_bar_title_text_size=0x7f090004;
+        /**  Minimum width for an action button in the menu area of an action bar 
+ Minimum width for an action button in the menu area of an action bar 
+ Minimum width for an action button in the menu area of an action bar 
+         */
+        public static final int abc_action_button_min_width=0x7f090008;
+        /**  The maximum width we would prefer dialogs to be.  0 if there is no
+    maximum (let them grow as large as the screen).  Actual values are
+    specified for -large and -xlarge configurations. 
+ see comment in values/config.xml 
+ see comment in values/config.xml 
+         */
+        public static final int abc_config_prefDialogWidth=0x7f090000;
+        /**  Width of the icon in a dropdown list 
+         */
+        public static final int abc_dropdownitem_icon_width=0x7f090010;
+        /**  Text padding for dropdown items 
+         */
+        public static final int abc_dropdownitem_text_padding_left=0x7f09000e;
+        public static final int abc_dropdownitem_text_padding_right=0x7f09000f;
+        public static final int abc_panel_menu_list_width=0x7f09000b;
+        /**  Preferred width of the search view. 
+         */
+        public static final int abc_search_view_preferred_width=0x7f09000d;
+        /**  Minimum width of the search view text entry area. 
+ Minimum width of the search view text entry area. 
+ Minimum width of the search view text entry area. 
+ Minimum width of the search view text entry area. 
+         */
+        public static final int abc_search_view_text_min_width=0x7f09000c;
         /**  Default screen margins, per the Android Design guidelines. 
 
          Example customization of dimensions originally defined in res/values/dimens.xml
@@ -830,1592 +2049,2188 @@ General sizes
          would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively).
     
          */
-        public static final int activity_horizontal_margin=0x7f050005;
-        public static final int activity_vertical_margin=0x7f050006;
-        public static final int fengexian=0x7f050007;
-        public static final int header_footer_left_right_padding=0x7f050003;
-        public static final int header_footer_top_bottom_padding=0x7f050004;
-        public static final int indicator_corner_radius=0x7f050001;
-        public static final int indicator_internal_padding=0x7f050002;
-        public static final int indicator_right_padding=0x7f050000;
+        public static final int activity_horizontal_margin=0x7f09001a;
+        public static final int activity_vertical_margin=0x7f09001b;
+        /**  The platform's desired fixed height for a dialog along the major axis
+         (the screen is in portrait). This may be either a fraction or a dimension.
+ The platform's desired fixed height for a dialog along the major axis
+         (the screen is in portrait). This may be either a fraction or a dimension.
+ The platform's desired fixed height for a dialog along the major axis
+         (the screen is in portrait). This may be either a fraction or a dimension.
+         */
+        public static final int dialog_fixed_height_major=0x7f090013;
+        /**  The platform's desired fixed height for a dialog along the minor axis
+         (the screen is in landscape). This may be either a fraction or a dimension.
+ The platform's desired fixed height for a dialog along the minor axis
+         (the screen is in landscape). This may be either a fraction or a dimension.
+ The platform's desired fixed height for a dialog along the minor axis
+         (the screen is in landscape). This may be either a fraction or a dimension.
+         */
+        public static final int dialog_fixed_height_minor=0x7f090014;
+        /**  The platform's desired fixed width for a dialog along the major axis
+         (the screen is in landscape). This may be either a fraction or a dimension.
+ The platform's desired fixed width for a dialog along the major axis
+         (the screen is in landscape). This may be either a fraction or a dimension.
+ The platform's desired fixed width for a dialog along the major axis
+         (the screen is in landscape). This may be either a fraction or a dimension.
+         */
+        public static final int dialog_fixed_width_major=0x7f090011;
+        /**  The platform's desired fixed width for a dialog along the minor axis
+         (the screen is in portrait). This may be either a fraction or a dimension.
+ The platform's desired fixed width for a dialog along the minor axis
+         (the screen is in portrait). This may be either a fraction or a dimension.
+ The platform's desired fixed width for a dialog along the minor axis
+         (the screen is in portrait). This may be either a fraction or a dimension.
+         */
+        public static final int dialog_fixed_width_minor=0x7f090012;
+        public static final int fengexian=0x7f09001c;
+        public static final int header_footer_left_right_padding=0x7f090018;
+        public static final int header_footer_top_bottom_padding=0x7f090019;
+        public static final int indicator_corner_radius=0x7f090016;
+        public static final int indicator_internal_padding=0x7f090017;
+        public static final int indicator_right_padding=0x7f090015;
+        /**  Default screen margins, per the Android Design guidelines. 
+         */
+        public static final int ui_10_dip=0x7f090024;
     }
     public static final class drawable {
-        public static final int addpic=0x7f020000;
-        public static final int agent1=0x7f020001;
-        public static final int agent2=0x7f020002;
-        public static final int appicon120x120=0x7f020003;
-        public static final int appicon160x160=0x7f020004;
-        public static final int appicon60x60=0x7f020005;
-        public static final int appicon80x80=0x7f020006;
-        public static final int bg_good_rating_ratio=0x7f020007;
-        public static final int bg_overitem_1=0x7f020008;
-        public static final int bg_overitem_3=0x7f020009;
-        public static final int bg_rounded_bottom=0x7f02000a;
-        public static final int bg_transparent=0x7f02000b;
-        public static final int bianjipinglun=0x7f02000c;
-        public static final int bt_nobgd=0x7f02000d;
-        public static final int btn_submit_shap=0x7f02000e;
-        public static final int btn_submit_shap2=0x7f02000f;
-        public static final int btn_submit_shap3=0x7f020010;
-        public static final int click1=0x7f020011;
-        public static final int cont=0x7f020012;
-        public static final int default_ptr_flip=0x7f020013;
-        public static final int default_ptr_rotate=0x7f020014;
-        public static final int delete_goudi=0x7f020015;
-        public static final int er=0x7f020016;
-        public static final int er1=0x7f020017;
-        public static final int ershoufang1=0x7f020018;
-        public static final int fangzi=0x7f020019;
-        public static final int first_back=0x7f02001a;
-        public static final int gray_left=0x7f02001b;
-        public static final int gray_location=0x7f02001c;
-        public static final int gray_right=0x7f02001d;
-        public static final int grayheart=0x7f02001e;
-        public static final int h=0x7f02001f;
-        public static final int house_histroy=0x7f020020;
-        public static final int i=0x7f020021;
-        public static final int ic_launcher=0x7f020022;
-        public static final int ic_location=0x7f020023;
-        public static final int icon1=0x7f020024;
-        public static final int icon_account_normal=0x7f020025;
-        public static final int icon_account_selected=0x7f020026;
-        public static final int icon_agent_tele_60=0x7f020027;
-        public static final int icon_gcoding=0x7f020028;
-        public static final int icon_home_normal=0x7f020029;
-        public static final int icon_home_selected=0x7f02002a;
-        public static final int icon_kanfang_normal=0x7f02002b;
-        public static final int icon_kanfang_selected=0x7f02002c;
-        public static final int icon_mylocation=0x7f02002d;
-        public static final int icon_newhouse_map=0x7f02002e;
-        public static final int icon_news_normal=0x7f02002f;
-        public static final int icon_news_selected=0x7f020030;
-        public static final int icon_pingjia_photo=0x7f020031;
-        public static final int indicator_arrow=0x7f020032;
-        public static final int indicator_bg_bottom=0x7f020033;
-        public static final int indicator_bg_top=0x7f020034;
-        public static final int iphone_16px=0x7f020035;
-        public static final int iphone_24px=0x7f020036;
-        public static final int j=0x7f020037;
-        public static final int k=0x7f020038;
-        public static final int l=0x7f020039;
-        public static final int linearlayout_map_shap=0x7f02003a;
-        public static final int linearlayout_map_shap2=0x7f02003b;
-        public static final int linearlayout_selector=0x7f02003c;
-        public static final int linearlayout_shap=0x7f02003d;
-        public static final int lishijilu=0x7f02003e;
-        public static final int load_failed=0x7f02003f;
-        public static final int load_succeed=0x7f020040;
-        public static final int loading=0x7f020041;
-        public static final int location=0x7f020042;
-        public static final int location_gray_40x31=0x7f020043;
-        public static final int location_white_40x31=0x7f020044;
-        public static final int lock_16px=0x7f020045;
-        public static final int lock_24px=0x7f020046;
-        public static final int m=0x7f020047;
-        public static final int main2=0x7f020048;
-        public static final int main3=0x7f020049;
-        public static final int main4=0x7f02004a;
-        public static final int main5=0x7f02004b;
-        public static final int main6=0x7f02004c;
-        public static final int main7=0x7f02004d;
-        public static final int main8=0x7f02004e;
-        public static final int map_house_overlay=0x7f02004f;
-        public static final int map_icon_bank_normal=0x7f020050;
-        public static final int map_icon_bank_selected=0x7f020051;
-        public static final int map_icon_bus_normal=0x7f020052;
-        public static final int map_icon_bus_selected=0x7f020053;
-        public static final int map_icon_eating_normal=0x7f020054;
-        public static final int map_icon_eating_selected=0x7f020055;
-        public static final int map_icon_education_normal=0x7f020056;
-        public static final int map_icon_education_selected=0x7f020057;
-        public static final int map_icon_game_normal=0x7f020058;
-        public static final int map_icon_game_selected=0x7f020059;
-        public static final int map_icon_hospital_normal=0x7f02005a;
-        public static final int map_icon_hospital_selected=0x7f02005b;
-        public static final int map_icon_shopping_normal=0x7f02005c;
-        public static final int map_icon_shopping_selected=0x7f02005d;
-        public static final int map_icon_sport_normal=0x7f02005e;
-        public static final int map_icon_sport_selected=0x7f02005f;
-        public static final int map_icon_subway_normal=0x7f020060;
-        public static final int map_icon_subway_selected=0x7f020061;
-        public static final int map_menu=0x7f020062;
-        public static final int map_pin_icon_bank=0x7f020063;
-        public static final int map_pin_icon_education=0x7f020064;
-        public static final int map_pin_icon_entertainment=0x7f020065;
-        public static final int map_pin_icon_hospital=0x7f020066;
-        public static final int map_pin_icon_restaraunt=0x7f020067;
-        public static final int map_pin_icon_shopping=0x7f020068;
-        public static final int map_pin_icon_sport=0x7f020069;
-        public static final int map_pin_icon_subway=0x7f02006a;
-        public static final int map_pin_icon_transportation=0x7f02006b;
-        public static final int map_xiuxian=0x7f02006c;
-        public static final int maphouse_button_back=0x7f02006d;
-        public static final int maphouse_button_back2=0x7f02006e;
-        public static final int maphouse_button_textcol=0x7f02006f;
-        public static final int msg_gray_44x34=0x7f020070;
-        public static final int msg_white_40x31=0x7f020071;
-        public static final int msm=0x7f020072;
-        public static final int my_renting_house_agent_edit=0x7f020073;
-        public static final int mybackground=0x7f020074;
-        public static final int newhouse_tuijianloupan1=0x7f020075;
-        public static final int newhouse_tuijianloupan2=0x7f020076;
-        public static final int newhousetuan=0x7f020077;
-        public static final int page_indicator_focused=0x7f020078;
-        public static final int page_indicator_unfocused=0x7f020079;
-        public static final int pic1=0x7f02007a;
-        public static final int pic2=0x7f02007b;
-        public static final int pic3=0x7f02007c;
-        public static final int pic4=0x7f02007d;
-        public static final int propirtor2=0x7f02007e;
-        public static final int propirtor3=0x7f02007f;
-        public static final int propirtor6=0x7f020080;
-        public static final int propirtor_2=0x7f020081;
-        public static final int proprietor1=0x7f020082;
-        public static final int propritor3=0x7f020083;
-        public static final int propritor_ershou=0x7f020084;
-        public static final int propritor_renting=0x7f020085;
-        public static final int propritorbanner=0x7f020086;
-        public static final int pull_icon_big=0x7f020087;
-        public static final int pullup_icon_big=0x7f020088;
-        public static final int redheart=0x7f020089;
-        public static final int refresh_failed=0x7f02008a;
-        public static final int refresh_succeed=0x7f02008b;
-        public static final int refreshing=0x7f02008c;
-        public static final int right1=0x7f02008d;
-        public static final int right2=0x7f02008e;
-        public static final int right_corner_tag_stop=0x7f02008f;
-        public static final int search1=0x7f020090;
-        public static final int search2=0x7f020091;
-        public static final int search3=0x7f020092;
-        public static final int search_gray_32x30=0x7f020093;
-        public static final int search_gray_40x38=0x7f020094;
-        public static final int search_red_30x30=0x7f020095;
-        public static final int search_red_40x40=0x7f020096;
-        public static final int search_white_30x30=0x7f020097;
-        public static final int selector_1=0x7f020098;
-        public static final int selector_2=0x7f020099;
-        public static final int selector_3=0x7f02009a;
-        public static final int selector_4=0x7f02009b;
-        public static final int selector_baidu_bank=0x7f02009c;
-        public static final int selector_baidu_bank_color=0x7f02009d;
-        public static final int selector_baidu_bus=0x7f02009e;
-        public static final int selector_baidu_eating=0x7f02009f;
-        public static final int selector_baidu_education=0x7f0200a0;
-        public static final int selector_baidu_game=0x7f0200a1;
-        public static final int selector_baidu_hospital=0x7f0200a2;
-        public static final int selector_baidu_shopping=0x7f0200a3;
-        public static final int selector_baidu_sport=0x7f0200a4;
-        public static final int selector_baidu_subway=0x7f0200a5;
-        public static final int selector_bt_item=0x7f0200a6;
-        public static final int selector_guanzhu_check=0x7f0200a7;
-        public static final int selector_house_date=0x7f0200a8;
-        public static final int selector_house_histroy=0x7f0200a9;
-        public static final int selector_newhouse_button=0x7f0200aa;
-        public static final int selector_newhousedetail_egg=0x7f0200ab;
-        public static final int send_code_button=0x7f0200ac;
-        public static final int shap_code_button=0x7f0200ad;
-        public static final int shap_goudi_text=0x7f0200ae;
-        public static final int shap_house_date=0x7f0200af;
-        public static final int shap_house_histroy=0x7f0200b0;
-        public static final int shap_maphouse=0x7f0200b1;
-        public static final int shape_textview_biaoqian1=0x7f0200b2;
-        public static final int shape_textview_biaoqian2=0x7f0200b3;
-        public static final int shape_textview_biaoqian3=0x7f0200b4;
-        public static final int shape_textview_biaoqian4=0x7f0200b5;
-        public static final int shape_textview_more=0x7f0200b6;
-        public static final int shezhi=0x7f0200b7;
-        public static final int startimage=0x7f0200b8;
-        public static final int touxiang=0x7f0200b9;
-        public static final int touxiang2=0x7f0200ba;
-        public static final int touxiang3=0x7f0200bb;
-        public static final int usernoinfo=0x7f0200bc;
-        public static final int white_left=0x7f0200bd;
-        public static final int white_right=0x7f0200be;
-        public static final int wodeweituo=0x7f0200bf;
-        public static final int xinfang=0x7f0200c0;
-        public static final int yuyueguanli=0x7f0200c1;
+        public static final int abc_ab_bottom_solid_dark_holo=0x7f020000;
+        public static final int abc_ab_bottom_solid_light_holo=0x7f020001;
+        public static final int abc_ab_bottom_transparent_dark_holo=0x7f020002;
+        public static final int abc_ab_bottom_transparent_light_holo=0x7f020003;
+        public static final int abc_ab_share_pack_holo_dark=0x7f020004;
+        public static final int abc_ab_share_pack_holo_light=0x7f020005;
+        public static final int abc_ab_solid_dark_holo=0x7f020006;
+        public static final int abc_ab_solid_light_holo=0x7f020007;
+        public static final int abc_ab_stacked_solid_dark_holo=0x7f020008;
+        public static final int abc_ab_stacked_solid_light_holo=0x7f020009;
+        public static final int abc_ab_stacked_transparent_dark_holo=0x7f02000a;
+        public static final int abc_ab_stacked_transparent_light_holo=0x7f02000b;
+        public static final int abc_ab_transparent_dark_holo=0x7f02000c;
+        public static final int abc_ab_transparent_light_holo=0x7f02000d;
+        public static final int abc_cab_background_bottom_holo_dark=0x7f02000e;
+        public static final int abc_cab_background_bottom_holo_light=0x7f02000f;
+        public static final int abc_cab_background_top_holo_dark=0x7f020010;
+        public static final int abc_cab_background_top_holo_light=0x7f020011;
+        public static final int abc_ic_ab_back_holo_dark=0x7f020012;
+        public static final int abc_ic_ab_back_holo_light=0x7f020013;
+        public static final int abc_ic_cab_done_holo_dark=0x7f020014;
+        public static final int abc_ic_cab_done_holo_light=0x7f020015;
+        public static final int abc_ic_clear=0x7f020016;
+        public static final int abc_ic_clear_disabled=0x7f020017;
+        public static final int abc_ic_clear_holo_light=0x7f020018;
+        public static final int abc_ic_clear_normal=0x7f020019;
+        public static final int abc_ic_clear_search_api_disabled_holo_light=0x7f02001a;
+        public static final int abc_ic_clear_search_api_holo_light=0x7f02001b;
+        public static final int abc_ic_commit_search_api_holo_dark=0x7f02001c;
+        public static final int abc_ic_commit_search_api_holo_light=0x7f02001d;
+        public static final int abc_ic_go=0x7f02001e;
+        public static final int abc_ic_go_search_api_holo_light=0x7f02001f;
+        public static final int abc_ic_menu_moreoverflow_normal_holo_dark=0x7f020020;
+        public static final int abc_ic_menu_moreoverflow_normal_holo_light=0x7f020021;
+        public static final int abc_ic_menu_share_holo_dark=0x7f020022;
+        public static final int abc_ic_menu_share_holo_light=0x7f020023;
+        public static final int abc_ic_search=0x7f020024;
+        public static final int abc_ic_search_api_holo_light=0x7f020025;
+        public static final int abc_ic_voice_search=0x7f020026;
+        public static final int abc_ic_voice_search_api_holo_light=0x7f020027;
+        public static final int abc_item_background_holo_dark=0x7f020028;
+        public static final int abc_item_background_holo_light=0x7f020029;
+        public static final int abc_list_divider_holo_dark=0x7f02002a;
+        public static final int abc_list_divider_holo_light=0x7f02002b;
+        public static final int abc_list_focused_holo=0x7f02002c;
+        public static final int abc_list_longpressed_holo=0x7f02002d;
+        public static final int abc_list_pressed_holo_dark=0x7f02002e;
+        public static final int abc_list_pressed_holo_light=0x7f02002f;
+        public static final int abc_list_selector_background_transition_holo_dark=0x7f020030;
+        public static final int abc_list_selector_background_transition_holo_light=0x7f020031;
+        public static final int abc_list_selector_disabled_holo_dark=0x7f020032;
+        public static final int abc_list_selector_disabled_holo_light=0x7f020033;
+        public static final int abc_list_selector_holo_dark=0x7f020034;
+        public static final int abc_list_selector_holo_light=0x7f020035;
+        public static final int abc_menu_dropdown_panel_holo_dark=0x7f020036;
+        public static final int abc_menu_dropdown_panel_holo_light=0x7f020037;
+        public static final int abc_menu_hardkey_panel_holo_dark=0x7f020038;
+        public static final int abc_menu_hardkey_panel_holo_light=0x7f020039;
+        public static final int abc_search_dropdown_dark=0x7f02003a;
+        public static final int abc_search_dropdown_light=0x7f02003b;
+        public static final int abc_spinner_ab_default_holo_dark=0x7f02003c;
+        public static final int abc_spinner_ab_default_holo_light=0x7f02003d;
+        public static final int abc_spinner_ab_disabled_holo_dark=0x7f02003e;
+        public static final int abc_spinner_ab_disabled_holo_light=0x7f02003f;
+        public static final int abc_spinner_ab_focused_holo_dark=0x7f020040;
+        public static final int abc_spinner_ab_focused_holo_light=0x7f020041;
+        public static final int abc_spinner_ab_holo_dark=0x7f020042;
+        public static final int abc_spinner_ab_holo_light=0x7f020043;
+        public static final int abc_spinner_ab_pressed_holo_dark=0x7f020044;
+        public static final int abc_spinner_ab_pressed_holo_light=0x7f020045;
+        public static final int abc_tab_indicator_ab_holo=0x7f020046;
+        public static final int abc_tab_selected_focused_holo=0x7f020047;
+        public static final int abc_tab_selected_holo=0x7f020048;
+        public static final int abc_tab_selected_pressed_holo=0x7f020049;
+        public static final int abc_tab_unselected_pressed_holo=0x7f02004a;
+        public static final int abc_textfield_search_default_holo_dark=0x7f02004b;
+        public static final int abc_textfield_search_default_holo_light=0x7f02004c;
+        public static final int abc_textfield_search_right_default_holo_dark=0x7f02004d;
+        public static final int abc_textfield_search_right_default_holo_light=0x7f02004e;
+        public static final int abc_textfield_search_right_selected_holo_dark=0x7f02004f;
+        public static final int abc_textfield_search_right_selected_holo_light=0x7f020050;
+        public static final int abc_textfield_search_selected_holo_dark=0x7f020051;
+        public static final int abc_textfield_search_selected_holo_light=0x7f020052;
+        public static final int abc_textfield_searchview_holo_dark=0x7f020053;
+        public static final int abc_textfield_searchview_holo_light=0x7f020054;
+        public static final int abc_textfield_searchview_right_holo_dark=0x7f020055;
+        public static final int abc_textfield_searchview_right_holo_light=0x7f020056;
+        public static final int addpic=0x7f020057;
+        public static final int agent1=0x7f020058;
+        public static final int agent2=0x7f020059;
+        public static final int appicon120x120=0x7f02005a;
+        public static final int appicon160x160=0x7f02005b;
+        public static final int appicon60x60=0x7f02005c;
+        public static final int appicon80x80=0x7f02005d;
+        public static final int bg_good_rating_ratio=0x7f02005e;
+        public static final int bg_overitem_1=0x7f02005f;
+        public static final int bg_overitem_3=0x7f020060;
+        public static final int bg_rounded_bottom=0x7f020061;
+        public static final int bg_transparent=0x7f020062;
+        public static final int bianjipinglun=0x7f020063;
+        public static final int bt_nobgd=0x7f020064;
+        public static final int btn_submit_shap=0x7f020065;
+        public static final int btn_submit_shap2=0x7f020066;
+        public static final int btn_submit_shap3=0x7f020067;
+        public static final int click1=0x7f020068;
+        public static final int cont=0x7f020069;
+        public static final int default_ptr_flip=0x7f02006a;
+        public static final int default_ptr_rotate=0x7f02006b;
+        public static final int delete_goudi=0x7f02006c;
+        public static final int er=0x7f02006d;
+        public static final int er1=0x7f02006e;
+        public static final int ershoufang1=0x7f02006f;
+        public static final int fangzi=0x7f020070;
+        public static final int first_back=0x7f020071;
+        public static final int gray_left=0x7f020072;
+        public static final int gray_location=0x7f020073;
+        public static final int gray_right=0x7f020074;
+        public static final int grayheart=0x7f020075;
+        public static final int h=0x7f020076;
+        public static final int house_histroy=0x7f020077;
+        public static final int i=0x7f020078;
+        public static final int ic_launcher=0x7f020079;
+        public static final int ic_location=0x7f02007a;
+        public static final int icon1=0x7f02007b;
+        public static final int icon_account_normal=0x7f02007c;
+        public static final int icon_account_selected=0x7f02007d;
+        public static final int icon_addpic_focused=0x7f02007e;
+        public static final int icon_addpic_unfocused=0x7f02007f;
+        public static final int icon_agent_tele_60=0x7f020080;
+        public static final int icon_data_select=0x7f020081;
+        public static final int icon_gcoding=0x7f020082;
+        public static final int icon_home_normal=0x7f020083;
+        public static final int icon_home_selected=0x7f020084;
+        public static final int icon_kanfang_normal=0x7f020085;
+        public static final int icon_kanfang_selected=0x7f020086;
+        public static final int icon_mylocation=0x7f020087;
+        public static final int icon_newhouse_map=0x7f020088;
+        public static final int icon_news_normal=0x7f020089;
+        public static final int icon_news_selected=0x7f02008a;
+        public static final int icon_pingjia_photo=0x7f02008b;
+        public static final int icon_queding_focused=0x7f02008c;
+        public static final int icon_queding_unfocused=0x7f02008d;
+        public static final int icon_quxiao_focused=0x7f02008e;
+        public static final int icon_quxiao_unfocused=0x7f02008f;
+        public static final int icon_shanchu_focused=0x7f020090;
+        public static final int icon_shanchu_unfocused=0x7f020091;
+        public static final int indicator_arrow=0x7f020092;
+        public static final int indicator_bg_bottom=0x7f020093;
+        public static final int indicator_bg_top=0x7f020094;
+        public static final int indicator_corner_bg=0x7f020095;
+        public static final int iphone_16px=0x7f020096;
+        public static final int iphone_24px=0x7f020097;
+        public static final int j=0x7f020098;
+        public static final int k=0x7f020099;
+        public static final int l=0x7f02009a;
+        public static final int linearlayout_map_shap=0x7f02009b;
+        public static final int linearlayout_map_shap2=0x7f02009c;
+        public static final int linearlayout_selector=0x7f02009d;
+        public static final int linearlayout_shap=0x7f02009e;
+        public static final int lishijilu=0x7f02009f;
+        public static final int load_failed=0x7f0200a0;
+        public static final int load_succeed=0x7f0200a1;
+        public static final int loading=0x7f0200a2;
+        public static final int location=0x7f0200a3;
+        public static final int location_gray_40x31=0x7f0200a4;
+        public static final int location_white_40x31=0x7f0200a5;
+        public static final int lock_16px=0x7f0200a6;
+        public static final int lock_24px=0x7f0200a7;
+        public static final int m=0x7f0200a8;
+        public static final int main2=0x7f0200a9;
+        public static final int main3=0x7f0200aa;
+        public static final int main4=0x7f0200ab;
+        public static final int main5=0x7f0200ac;
+        public static final int main6=0x7f0200ad;
+        public static final int main7=0x7f0200ae;
+        public static final int main8=0x7f0200af;
+        public static final int map_house_overlay=0x7f0200b0;
+        public static final int map_icon_bank_normal=0x7f0200b1;
+        public static final int map_icon_bank_selected=0x7f0200b2;
+        public static final int map_icon_bus_normal=0x7f0200b3;
+        public static final int map_icon_bus_selected=0x7f0200b4;
+        public static final int map_icon_eating_normal=0x7f0200b5;
+        public static final int map_icon_eating_selected=0x7f0200b6;
+        public static final int map_icon_education_normal=0x7f0200b7;
+        public static final int map_icon_education_selected=0x7f0200b8;
+        public static final int map_icon_game_normal=0x7f0200b9;
+        public static final int map_icon_game_selected=0x7f0200ba;
+        public static final int map_icon_hospital_normal=0x7f0200bb;
+        public static final int map_icon_hospital_selected=0x7f0200bc;
+        public static final int map_icon_shopping_normal=0x7f0200bd;
+        public static final int map_icon_shopping_selected=0x7f0200be;
+        public static final int map_icon_sport_normal=0x7f0200bf;
+        public static final int map_icon_sport_selected=0x7f0200c0;
+        public static final int map_icon_subway_normal=0x7f0200c1;
+        public static final int map_icon_subway_selected=0x7f0200c2;
+        public static final int map_menu=0x7f0200c3;
+        public static final int map_pin_icon_bank=0x7f0200c4;
+        public static final int map_pin_icon_education=0x7f0200c5;
+        public static final int map_pin_icon_entertainment=0x7f0200c6;
+        public static final int map_pin_icon_hospital=0x7f0200c7;
+        public static final int map_pin_icon_restaraunt=0x7f0200c8;
+        public static final int map_pin_icon_shopping=0x7f0200c9;
+        public static final int map_pin_icon_sport=0x7f0200ca;
+        public static final int map_pin_icon_subway=0x7f0200cb;
+        public static final int map_pin_icon_transportation=0x7f0200cc;
+        public static final int map_xiuxian=0x7f0200cd;
+        public static final int maphouse_button_back=0x7f0200ce;
+        public static final int maphouse_button_back2=0x7f0200cf;
+        public static final int maphouse_button_textcol=0x7f0200d0;
+        public static final int msg_gray_44x34=0x7f0200d1;
+        public static final int msg_white_40x31=0x7f0200d2;
+        public static final int msm=0x7f0200d3;
+        public static final int my_renting_house_agent_edit=0x7f0200d4;
+        public static final int mybackground=0x7f0200d5;
+        public static final int newhouse_tuijianloupan1=0x7f0200d6;
+        public static final int newhouse_tuijianloupan2=0x7f0200d7;
+        public static final int newhousetuan=0x7f0200d8;
+        public static final int page_indicator_focused=0x7f0200d9;
+        public static final int page_indicator_unfocused=0x7f0200da;
+        public static final int pic1=0x7f0200db;
+        public static final int pic2=0x7f0200dc;
+        public static final int pic3=0x7f0200dd;
+        public static final int pic4=0x7f0200de;
+        public static final int plubin_camera_del_focused=0x7f0200df;
+        public static final int plugin_camera_album_back=0x7f0200e0;
+        public static final int plugin_camera_albumbackground=0x7f0200e1;
+        public static final int plugin_camera_back_btn=0x7f0200e2;
+        public static final int plugin_camera_back_btn_pressed=0x7f0200e3;
+        public static final int plugin_camera_bottom_bar=0x7f0200e4;
+        public static final int plugin_camera_cancel=0x7f0200e5;
+        public static final int plugin_camera_cancel_pressed=0x7f0200e6;
+        public static final int plugin_camera_choose_back=0x7f0200e7;
+        public static final int plugin_camera_choosed=0x7f0200e8;
+        public static final int plugin_camera_del_state=0x7f0200e9;
+        public static final int plugin_camera_del_unfocused=0x7f0200ea;
+        public static final int plugin_camera_filenum=0x7f0200eb;
+        public static final int plugin_camera_no_pictures=0x7f0200ec;
+        public static final int plugin_camera_ok_btn_state=0x7f0200ed;
+        public static final int plugin_camera_pic_choose_selector=0x7f0200ee;
+        public static final int plugin_camera_preview_focused=0x7f0200ef;
+        public static final int plugin_camera_preview_pressed=0x7f0200f0;
+        public static final int plugin_camera_preview_unselected=0x7f0200f1;
+        public static final int plugin_camera_send_focused=0x7f0200f2;
+        public static final int plugin_camera_send_pressed=0x7f0200f3;
+        public static final int plugin_camera_send_unselected=0x7f0200f4;
+        public static final int plugin_camera_title_bar=0x7f0200f5;
+        public static final int plugin_camera_title_btn_back=0x7f0200f6;
+        public static final int plugin_camera_title_btn_cancel=0x7f0200f7;
+        public static final int plugin_camera_title_btn_preview=0x7f0200f8;
+        public static final int propirtor2=0x7f0200f9;
+        public static final int propirtor3=0x7f0200fa;
+        public static final int propirtor6=0x7f0200fb;
+        public static final int propirtor_2=0x7f0200fc;
+        public static final int proprietor1=0x7f0200fd;
+        public static final int propritor3=0x7f0200fe;
+        public static final int propritor_ershou=0x7f0200ff;
+        public static final int propritor_renting=0x7f020100;
+        public static final int propritorbanner=0x7f020101;
+        public static final int pull_icon_big=0x7f020102;
+        public static final int pullup_icon_big=0x7f020103;
+        public static final int redheart=0x7f020104;
+        public static final int refresh_failed=0x7f020105;
+        public static final int refresh_succeed=0x7f020106;
+        public static final int refreshing=0x7f020107;
+        public static final int right1=0x7f020108;
+        public static final int right2=0x7f020109;
+        public static final int right_corner_tag_stop=0x7f02010a;
+        public static final int search1=0x7f02010b;
+        public static final int search2=0x7f02010c;
+        public static final int search3=0x7f02010d;
+        public static final int search_gray_32x30=0x7f02010e;
+        public static final int search_gray_40x38=0x7f02010f;
+        public static final int search_red_30x30=0x7f020110;
+        public static final int search_red_40x40=0x7f020111;
+        public static final int search_white_30x30=0x7f020112;
+        public static final int selector_1=0x7f020113;
+        public static final int selector_2=0x7f020114;
+        public static final int selector_3=0x7f020115;
+        public static final int selector_4=0x7f020116;
+        public static final int selector_baidu_bank=0x7f020117;
+        public static final int selector_baidu_bank_color=0x7f020118;
+        public static final int selector_baidu_bus=0x7f020119;
+        public static final int selector_baidu_eating=0x7f02011a;
+        public static final int selector_baidu_education=0x7f02011b;
+        public static final int selector_baidu_game=0x7f02011c;
+        public static final int selector_baidu_hospital=0x7f02011d;
+        public static final int selector_baidu_shopping=0x7f02011e;
+        public static final int selector_baidu_sport=0x7f02011f;
+        public static final int selector_baidu_subway=0x7f020120;
+        public static final int selector_bt_item=0x7f020121;
+        public static final int selector_guanzhu_check=0x7f020122;
+        public static final int selector_house_date=0x7f020123;
+        public static final int selector_house_histroy=0x7f020124;
+        public static final int selector_listview_item=0x7f020125;
+        public static final int selector_newhouse_button=0x7f020126;
+        public static final int selector_newhousedetail_egg=0x7f020127;
+        public static final int selector_spinner_radiobutton=0x7f020128;
+        public static final int selector_spinner_radiobuttontext=0x7f020129;
+        public static final int send_code_button=0x7f02012a;
+        public static final int shap_code_button=0x7f02012b;
+        public static final int shap_edittext=0x7f02012c;
+        public static final int shap_goudi_text=0x7f02012d;
+        public static final int shap_house_date=0x7f02012e;
+        public static final int shap_house_histroy=0x7f02012f;
+        public static final int shap_maphouse=0x7f020130;
+        public static final int shap_spinner_text=0x7f020131;
+        public static final int shap_text_back=0x7f020132;
+        public static final int shape_textview_biaoqian1=0x7f020133;
+        public static final int shape_textview_biaoqian2=0x7f020134;
+        public static final int shape_textview_biaoqian3=0x7f020135;
+        public static final int shape_textview_biaoqian4=0x7f020136;
+        public static final int shape_textview_more=0x7f020137;
+        public static final int shezhi=0x7f020138;
+        public static final int startimage=0x7f020139;
+        public static final int text_while=0x7f02013a;
+        public static final int touxiang=0x7f02013b;
+        public static final int touxiang2=0x7f02013c;
+        public static final int touxiang3=0x7f02013d;
+        public static final int usernoinfo=0x7f02013e;
+        public static final int white_left=0x7f02013f;
+        public static final int white_right=0x7f020140;
+        public static final int wodeweituo=0x7f020141;
+        public static final int xinfang=0x7f020142;
+        public static final int yuyueguanli=0x7f020143;
     }
     public static final class id {
-        public static final int Date_wheel=0x7f06027c;
-        public static final int EditText01=0x7f060125;
-        public static final int EditText02=0x7f060128;
-        public static final int EditText03=0x7f06012a;
-        public static final int EditText05=0x7f060251;
-        public static final int EditText06=0x7f060253;
-        public static final int EditText11=0x7f06017c;
-        public static final int EditText12=0x7f06012b;
-        public static final int EditText13=0x7f060182;
-        public static final int EditText14=0x7f060185;
-        public static final int EditText15=0x7f060188;
-        public static final int HouseDetails=0x7f060367;
-        public static final int ImageView01=0x7f060127;
-        public static final int ImageView02=0x7f0601c1;
-        public static final int ImageView04=0x7f060145;
-        public static final int ImageView05=0x7f060143;
-        public static final int RelativeLayout01=0x7f060126;
-        public static final int RelativeLayout02=0x7f06024f;
-        public static final int RelativeLayout04=0x7f060250;
-        public static final int RelativeLayout05=0x7f060252;
-        public static final int SfDianti=0x7f0602be;
-        public static final int ShopHouseGuide=0x7f06036e;
-        public static final int T15=0x7f06012c;
-        public static final int TextView01=0x7f0600af;
-        public static final int TextView011=0x7f06012d;
-        public static final int TextView02=0x7f06001f;
-        public static final int TextView03=0x7f060022;
-        public static final int TextView03111=0x7f06028d;
-        public static final int TextView04=0x7f0600bd;
-        public static final int TextView05=0x7f0600be;
-        public static final int TextView06=0x7f0600de;
-        public static final int TextView07=0x7f0600eb;
-        public static final int TextView071=0x7f060174;
-        public static final int TextView0733=0x7f060292;
-        public static final int TextView08=0x7f0600ec;
-        public static final int TextView09=0x7f0600da;
-        public static final int TextView1=0x7f060295;
-        public static final int TextView10=0x7f0600db;
-        public static final int TextView11=0x7f0600dc;
-        public static final int TextView12=0x7f0600ed;
-        public static final int TextView13=0x7f060180;
-        public static final int TextView14=0x7f0600ee;
-        public static final int TextView15=0x7f0600ef;
-        public static final int TextView16=0x7f0600f7;
-        public static final int TextView17=0x7f0600f8;
-        public static final int TextView18=0x7f0600f9;
-        public static final int TextView19=0x7f0600fa;
-        public static final int TextView2=0x7f060298;
-        public static final int TextView20=0x7f0600fb;
-        public static final int TextView21=0x7f0600fc;
-        public static final int TextView3=0x7f06029b;
-        public static final int TextView4=0x7f06013f;
-        public static final int TextView5=0x7f0602a0;
-        public static final int Tv13=0x7f0602a3;
-        public static final int Tv3=0x7f06016f;
-        public static final int Tv31=0x7f060177;
-        public static final int Tv32=0x7f06018a;
-        public static final int Tv33=0x7f06018e;
-        public static final int Tv_fangling=0x7f0600d8;
-        public static final int Tv_fangyuanbianhao=0x7f0600e4;
-        public static final int Tv_xiaoqu=0x7f0600e3;
-        public static final int action_settings=0x7f06048d;
-        public static final int agent_changeshow=0x7f060013;
-        public static final int agent_fenjihao_jiebang=0x7f060052;
-        public static final int agent_fenjihao_shenqing=0x7f06004f;
-        public static final int agent_listview=0x7f06025b;
-        public static final int all=0x7f0601d6;
-        public static final int back_agent_changeinfo=0x7f060015;
-        public static final int baidu_map=0x7f06009f;
-        public static final int biaoqian=0x7f0602c4;
-        public static final int biaoti=0x7f0602c8;
-        public static final int blocktrade_ll_spinner=0x7f0600c6;
-        public static final int both=0x7f060003;
-        public static final int btn1=0x7f06015d;
-        public static final int btn2=0x7f06015f;
-        public static final int btn_1=0x7f060096;
-        public static final int btn_Login=0x7f06014d;
-        public static final int btn_Regist=0x7f060221;
-        public static final int btn_agent_changefenjihao_jiebang=0x7f060054;
-        public static final int btn_agent_changefenjihao_shenqing=0x7f060051;
-        public static final int btn_agent_changepassword_submit=0x7f060069;
-        public static final int btn_buyhouse_submit=0x7f060335;
-        public static final int btn_cancle_search=0x7f060256;
-        public static final int btn_changefenjihao_jiebang=0x7f0601f6;
-        public static final int btn_changefenjihao_shenqing=0x7f0601f3;
-        public static final int btn_changepassword_submit=0x7f060203;
-        public static final int btn_curved=0x7f0603cd;
-        public static final int btn_dialog_cancle=0x7f060283;
-        public static final int btn_dialog_sure=0x7f060284;
-        public static final int btn_ershou_submit=0x7f0602e4;
-        public static final int btn_ershoufang=0x7f060157;
-        public static final int btn_find_sendcode=0x7f060134;
-        public static final int btn_find_submit=0x7f06013b;
-        public static final int btn_general_Login=0x7f060474;
-        public static final int btn_goudi_gou=0x7f06027b;
-        public static final int btn_house_Login=0x7f06031f;
-        public static final int btn_house_noLogin_Login=0x7f060378;
-        public static final int btn_line=0x7f06001c;
-        public static final int btn_line1=0x7f060327;
-        public static final int btn_line2=0x7f060045;
-        public static final int btn_line3=0x7f060136;
-        public static final int btn_line4=0x7f060138;
-        public static final int btn_line5=0x7f06013a;
-        public static final int btn_line6=0x7f060220;
-        public static final int btn_map_location=0x7f06015c;
-        public static final int btn_map_trans=0x7f06015e;
-        public static final int btn_map_zhoubian=0x7f060160;
-        public static final int btn_obtain=0x7f0603cc;
-        public static final int btn_qiuzu_submit=0x7f060351;
-        public static final int btn_quicklogin_sendcode=0x7f060477;
-        public static final int btn_renting=0x7f060158;
-        public static final int btn_renting_bianji=0x7f060467;
-        public static final int btn_renting_submit=0x7f060130;
-        public static final int btn_sendcode=0x7f06021a;
-        public static final int btn_short_Login=0x7f06047b;
-        public static final int btn_straight=0x7f0603cb;
-        public static final int btn_yuyuekanfang=0x7f060118;
-        public static final int building=0x7f0601d2;
-        public static final int button1=0x7f060146;
-        public static final int cb_goudi_check=0x7f06027a;
-        public static final int chanquansuoshu=0x7f0602bc;
-        public static final int check_1=0x7f06026d;
-        public static final int check_10=0x7f060276;
-        public static final int check_11=0x7f060277;
-        public static final int check_12=0x7f060278;
-        public static final int check_2=0x7f06026e;
-        public static final int check_3=0x7f06026f;
-        public static final int check_4=0x7f060270;
-        public static final int check_5=0x7f060271;
-        public static final int check_6=0x7f060272;
-        public static final int check_7=0x7f060273;
-        public static final int check_8=0x7f060274;
-        public static final int check_9=0x7f060275;
-        public static final int chengjiao_ershou=0x7f060312;
-        public static final int chengjiao_viewpage=0x7f060314;
-        public static final int chengjiao_zufang=0x7f060313;
-        public static final int chengjiaofangyuan_wushuju=0x7f06008a;
-        public static final int chengjiaofangyuan_youshuju=0x7f060087;
-        public static final int chuzuCause=0x7f060306;
-        public static final int chuzutype=0x7f0602f7;
-        public static final int circleImageView1=0x7f06006f;
-        public static final int curved=0x7f06000c;
-        public static final int disabled=0x7f060004;
-        public static final int ditieline=0x7f0602c6;
-        public static final int diyaxinxi=0x7f0602ac;
-        public static final int ershou_bmapView=0x7f06010a;
-        public static final int ershoufang_feiyuyue=0x7f0600c8;
-        public static final int ershoufang_huxing=0x7f0600d2;
-        public static final int ershoufang_mianji=0x7f0600d4;
-        public static final int ershoufang_quyu_sp1=0x7f06011c;
-        public static final int ershoufang_quyu_sp2=0x7f06011d;
-        public static final int ershoufang_quyu_sp3=0x7f06011e;
-        public static final int ershoufang_quyu_sp4=0x7f06011f;
-        public static final int ershoufang_scrollview=0x7f0600cc;
-        public static final int ershoufang_shoujia=0x7f0600d0;
-        public static final int ershoufangyuan_wushuju=0x7f06008f;
-        public static final int ershoufangyuan_youshuju=0x7f06008c;
-        public static final int et12=0x7f060172;
-        public static final int et123=0x7f06016b;
-        public static final int et1gyhtg=0x7f06016c;
-        public static final int et2132=0x7f060169;
-        public static final int et_21=0x7f060192;
-        public static final int et_22=0x7f060194;
-        public static final int et_23=0x7f060196;
-        public static final int et_24=0x7f060198;
-        public static final int et_25=0x7f06019a;
-        public static final int et_26=0x7f06019c;
-        public static final int et_27=0x7f06019e;
-        public static final int et_28=0x7f0601a0;
-        public static final int et_agent_change_Newpassword=0x7f060066;
-        public static final int et_agent_change_currentpassword=0x7f060064;
-        public static final int et_agent_change_repassword=0x7f060068;
-        public static final int et_agent_changecompanyname=0x7f060060;
-        public static final int et_agent_changegerenjieshao=0x7f060058;
-        public static final int et_agent_changeshenfenzheng=0x7f06005c;
-        public static final int et_agent_changrealname=0x7f06004b;
-        public static final int et_block_trade_search=0x7f0600c5;
-        public static final int et_buyhouse_chenghu=0x7f060329;
-        public static final int et_change_Newpassword=0x7f060200;
-        public static final int et_change_currentpassword=0x7f0601fe;
-        public static final int et_change_repassword=0x7f060202;
-        public static final int et_changegerenjieshao=0x7f0601fa;
-        public static final int et_changrealname=0x7f0601ee;
-        public static final int et_comment_agent=0x7f060261;
-        public static final int et_ershou_chenghu=0x7f06033d;
-        public static final int et_ershou_fangling=0x7f060299;
-        public static final int et_ershou_housrprice=0x7f060293;
-        public static final int et_ershou_jianzhumianji=0x7f060296;
-        public static final int et_ershou_loudong=0x7f06029c;
-        public static final int et_ershou_menpai=0x7f06029e;
-        public static final int et_ershou_taoneimianji=0x7f0602a1;
-        public static final int et_ershoufang_search=0x7f060094;
-        public static final int et_find_password=0x7f060137;
-        public static final int et_find_phonenumb=0x7f060133;
-        public static final int et_find_repassword=0x7f060139;
-        public static final int et_find_smscode=0x7f060135;
-        public static final int et_first_search=0x7f06035c;
-        public static final int et_genal_login_lock=0x7f060473;
-        public static final int et_genal_login_phonenumber=0x7f060470;
-        public static final int et_password=0x7f060218;
-        public static final int et_phonenumb=0x7f06021b;
-        public static final int et_qi1=0x7f060175;
-        public static final int et_qiuzu_cehnghu=0x7f060346;
-        public static final int et_qiwangzujin=0x7f060129;
-        public static final int et_renting_fangling=0x7f0602ef;
-        public static final int et_renting_housrprice=0x7f0602ed;
-        public static final int et_renting_mianji=0x7f0602ee;
-        public static final int et_renting_proprietor_address=0x7f060123;
-        public static final int et_renting_proprietor_title=0x7f060122;
-        public static final int et_renting_search=0x7f06024a;
-        public static final int et_repassword=0x7f06006a;
-        public static final int et_search=0x7f060255;
-        public static final int et_short_login_lock_quick=0x7f06047a;
-        public static final int et_short_login_phonenumber=0x7f060476;
-        public static final int et_smscode=0x7f060217;
-        public static final int fangling_1=0x7f060297;
-        public static final int fenjihao_jiebang=0x7f0601f4;
-        public static final int fenjihao_shenqing=0x7f0601f1;
-        public static final int first=0x7f060150;
-        public static final int first_scrollview=0x7f060358;
-        public static final int fl_agent_fragment=0x7f06009c;
-        public static final int fl_inner=0x7f06047d;
-        public static final int flip=0x7f06000a;
-        public static final int four=0x7f0601d5;
-        public static final int fragmentershoulist=0x7f060289;
-        public static final int fragmentrentinglist=0x7f0602e7;
-        public static final int futian=0x7f0601cc;
-        public static final int gridview=0x7f060000;
-        public static final int guanzhu_ershou=0x7f06020e;
-        public static final int guanzhu_new=0x7f06020f;
-        public static final int guanzhu_viewpage=0x7f060210;
-        public static final int guapaitime=0x7f0602c2;
-        public static final int head_view=0x7f060482;
-        public static final int hexinmaidian=0x7f0602dc;
-        public static final int horizontal=0x7f06000e;
-        public static final int house=0x7f060152;
-        public static final int houseBest=0x7f060304;
-        public static final int houseDesc=0x7f0602ca;
-        public static final int houseSX=0x7f0602b0;
-        public static final int houseUse=0x7f0602ba;
-        public static final int house_viewpage=0x7f060374;
-        public static final int houseaddress=0x7f060301;
-        public static final int housepeizhi=0x7f0602fb;
-        public static final int huType=0x7f0602ae;
-        public static final int huxing=0x7f0600d1;
-        public static final int huxingjieshao=0x7f0602ce;
-        public static final int imageView1=0x7f06006d;
-        public static final int imageView10=0x7f06038a;
-        public static final int imageView1021=0x7f06039f;
-        public static final int imageView10216=0x7f0603c0;
-        public static final int imageView1032=0x7f0603a7;
-        public static final int imageView10382=0x7f0603c8;
-        public static final int imageView1042=0x7f0603bc;
-        public static final int imageView1052=0x7f0603a3;
-        public static final int imageView10526=0x7f0603c4;
-        public static final int imageView11=0x7f06017b;
-        public static final int imageView111=0x7f0603aa;
-        public static final int imageView1111=0x7f0603ca;
-        public static final int imageView12=0x7f06017e;
-        public static final int imageView13=0x7f060181;
-        public static final int imageView14=0x7f060184;
-        public static final int imageView15=0x7f060187;
-        public static final int imageView171=0x7f060399;
-        public static final int imageView176=0x7f0603b6;
-        public static final int imageView181=0x7f06039b;
-        public static final int imageView1861=0x7f0603b8;
-        public static final int imageView2=0x7f06001a;
-        public static final int imageView21=0x7f060027;
-        public static final int imageView211=0x7f06002b;
-        public static final int imageView2111=0x7f06002f;
-        public static final int imageView21111=0x7f060037;
-        public static final int imageView213=0x7f060033;
-        public static final int imageView2145=0x7f060041;
-        public static final int imageView215=0x7f06003d;
-        public static final int imageView25=0x7f06003a;
-        public static final int imageView251=0x7f0603ac;
-        public static final int imageView3=0x7f060046;
-        public static final int imageView31=0x7f06038e;
-        public static final int imageView351=0x7f0603ae;
-        public static final int imageView4=0x7f060140;
-        public static final int imageView41=0x7f060390;
-        public static final int imageView415=0x7f0603b0;
-        public static final int imageView5=0x7f06012f;
-        public static final int imageView51=0x7f060392;
-        public static final int imageView541=0x7f0603b2;
-        public static final int imageView6=0x7f0601a6;
-        public static final int imageView61=0x7f060393;
-        public static final int imageView641=0x7f0603b4;
-        public static final int imageView7=0x7f06012e;
-        public static final int imageView71=0x7f060386;
-        public static final int imageView711=0x7f060395;
-        public static final int imageView8=0x7f060384;
-        public static final int imageView81=0x7f060388;
-        public static final int imageView811=0x7f060397;
-        public static final int imageView89=0x7f06023b;
-        public static final int imageView9=0x7f06023d;
-        public static final int imageView912=0x7f06039d;
-        public static final int imageView9126=0x7f0603be;
-        public static final int imageView924=0x7f0603ba;
-        public static final int imageView932=0x7f0603a5;
-        public static final int imageView942=0x7f0603a1;
-        public static final int imageView9426=0x7f0603c2;
-        public static final int imageView9732=0x7f0603c6;
-        public static final int item_left=0x7f0603ce;
-        public static final int item_popupwindows_btn1=0x7f060436;
-        public static final int item_popupwindows_btn2=0x7f060437;
-        public static final int item_popupwindows_cancel=0x7f060438;
-        public static final int item_popupwindows_sure=0x7f06043c;
-        public static final int item_popupwindows_title=0x7f06043b;
-        public static final int item_popupwindows_touxaing1=0x7f060440;
-        public static final int item_popupwindows_touxaing2=0x7f060441;
-        public static final int item_popupwindows_touxaing_cancel=0x7f060442;
-        public static final int item_popupwindows_worktime_btn1=0x7f060446;
-        public static final int item_popupwindows_worktime_btn2=0x7f060447;
-        public static final int item_popupwindows_worktime_btn3=0x7f060448;
-        public static final int item_popupwindows_worktime_btn4=0x7f060449;
-        public static final int item_popupwindows_worktime_cancel=0x7f06044a;
-        public static final int item_popupwindows_yizhitype_btn1=0x7f06044e;
-        public static final int item_popupwindows_yizhitype_btn2=0x7f06044f;
-        public static final int item_popupwindows_yizhitype_btn3=0x7f060450;
-        public static final int item_popupwindows_yizhitype_cancel=0x7f060451;
-        public static final int item_right=0x7f0603d6;
-        public static final int item_right_txt=0x7f0603d7;
-        public static final int iv3=0x7f060170;
-        public static final int iv31=0x7f060178;
-        public static final int iv32=0x7f06018b;
-        public static final int iv33=0x7f06018f;
-        public static final int iv_1=0x7f060207;
-        public static final int iv_MsM=0x7f0600c3;
-        public static final int iv_agent_Photo=0x7f06001b;
-        public static final int iv_agent_author=0x7f0603e6;
-        public static final int iv_agent_back=0x7f060091;
-        public static final int iv_agent_search=0x7f060095;
-        public static final int iv_agent_upload=0x7f060043;
-        public static final int iv_agentdata_phone=0x7f0603e4;
-        public static final int iv_agentdata_pic=0x7f0603d8;
-        public static final int iv_block_trade_detail=0x7f0600ad;
-        public static final int iv_block_trade_detail_MsM=0x7f0600aa;
-        public static final int iv_chengjiaoershou=0x7f0603cf;
-        public static final int iv_delete=0x7f060411;
-        public static final int iv_ershoufang_img=0x7f0603f1;
-        public static final int iv_guanzhuershou=0x7f060412;
-        public static final int iv_housepic=0x7f0600ce;
-        public static final int iv_iphone=0x7f06046f;
-        public static final int iv_location=0x7f060092;
-        public static final int iv_lock=0x7f060472;
-        public static final int iv_lock_quick=0x7f060479;
-        public static final int iv_my_Photo=0x7f06037e;
-        public static final int iv_my_back=0x7f06037c;
-        public static final int iv_new_house_detail=0x7f0601ab;
-        public static final int iv_new_house_detail_MsM=0x7f0601a9;
-        public static final int iv_newhouse_ad=0x7f0601ca;
-        public static final int iv_newhouse_back=0x7f0601c9;
-        public static final int iv_newhousedetail_tuan=0x7f0601b5;
-        public static final int iv_personal_Photo=0x7f0601df;
-        public static final int iv_proprietor=0x7f060205;
-        public static final int iv_recommend_img=0x7f060456;
-        public static final int iv_recommend_pic_web=0x7f060214;
-        public static final int iv_renting_pic=0x7f060225;
-        public static final int iv_submit_ershou_list=0x7f060459;
-        public static final int iv_submit_renting_list=0x7f060461;
-        public static final int iv_welcome=0x7f060268;
-        public static final int jianzhuJieGou=0x7f0602b6;
-        public static final int jianzhuType=0x7f0602b4;
-        public static final int jiaotongchuxing=0x7f0602da;
-        public static final int jiaoyupeitao=0x7f0602d8;
-        public static final int lin1=0x7f06015a;
-        public static final int listview_search=0x7f060257;
-        public static final int ll__person_changfenjiahao=0x7f0601ef;
-        public static final int ll_aegnt_changfenjiahao=0x7f06004d;
-        public static final int ll_agent_changecompanyname=0x7f06005d;
-        public static final int ll_agent_changecompanyname_back=0x7f06005e;
-        public static final int ll_agent_changefenjihao_back=0x7f06004e;
-        public static final int ll_agent_changegerenjieshao_back=0x7f060056;
-        public static final int ll_agent_changeinfo_back=0x7f060014;
-        public static final int ll_agent_changepassword=0x7f060061;
-        public static final int ll_agent_changepassword_back=0x7f060062;
-        public static final int ll_agent_changerealname=0x7f060047;
-        public static final int ll_agent_changerealname_back=0x7f060049;
-        public static final int ll_agent_changeshenfenzheng=0x7f060059;
-        public static final int ll_agent_changeshenfenzheng_back=0x7f06005a;
-        public static final int ll_agent_gerenjieshao=0x7f060055;
-        public static final int ll_agent_house=0x7f060379;
-        public static final int ll_agent_search=0x7f060093;
-        public static final int ll_agent_spinner=0x7f060097;
-        public static final int ll_agentdetail_back=0x7f06006c;
-        public static final int ll_at_goudilist_back=0x7f06030d;
-        public static final int ll_back_agent=0x7f06025a;
-        public static final int ll_back_agent2=0x7f06025f;
-        public static final int ll_back_agentchengjiao=0x7f060310;
-        public static final int ll_back_agentershoulist=0x7f060287;
-        public static final int ll_back_agentershousubmit=0x7f06028a;
-        public static final int ll_back_agentrentinglist=0x7f0602e5;
-        public static final int ll_back_agentrentingsubmit=0x7f0602e8;
-        public static final int ll_back_ershoufangdetails=0x7f0600ca;
-        public static final int ll_back_login=0x7f060216;
-        public static final int ll_back_pt_buyhouselist=0x7f060322;
-        public static final int ll_back_ptbuyhousesubmit=0x7f060325;
-        public static final int ll_back_ptqiuzulist=0x7f060340;
-        public static final int ll_back_ptqiuzusubmit=0x7f060343;
-        public static final int ll_back_putongershou=0x7f06033a;
-        public static final int ll_back_putongershoulist=0x7f060336;
-        public static final int ll_back_putongguanzhu=0x7f06020b;
-        public static final int ll_back_putongrenting=0x7f060355;
-        public static final int ll_back_putongrentinglist=0x7f060352;
-        public static final int ll_back_renting_house_agent=0x7f060166;
-        public static final int ll_back_rentingdetails=0x7f060223;
-        public static final int ll_back_submitedittext=0x7f060263;
-        public static final int ll_back_yuyuekanfnag=0x7f060111;
-        public static final int ll_baidumap_back=0x7f06009e;
-        public static final int ll_block_trade_back=0x7f0600c4;
-        public static final int ll_block_trade_detail_back=0x7f0600ab;
-        public static final int ll_cancle=0x7f060435;
-        public static final int ll_cancle_touxaing=0x7f06043f;
-        public static final int ll_cancle_worktime=0x7f060445;
-        public static final int ll_cancle_yizhitype=0x7f06044d;
-        public static final int ll_changefenjihao_back=0x7f0601f0;
-        public static final int ll_changegerenjieshao_back=0x7f0601f8;
-        public static final int ll_changepassword_back=0x7f0601fc;
-        public static final int ll_changerealname_back=0x7f0601ec;
-        public static final int ll_contorl=0x7f060371;
-        public static final int ll_ershoufang_back=0x7f06011a;
-        public static final int ll_ershoufang_proprietor_back=0x7f060121;
-        public static final int ll_ershoufang_spinner=0x7f06011b;
-        public static final int ll_ershoufangdetail_bottom=0x7f0600cd;
-        public static final int ll_find_pasword_back=0x7f060131;
-        public static final int ll_goudilist_back=0x7f060316;
-        public static final int ll_house_price_detail_back=0x7f060267;
-        public static final int ll_house_puchase_back=0x7f06013c;
-        public static final int ll_housetype1=0x7f0601cb;
-        public static final int ll_housetype2=0x7f0601cf;
-        public static final int ll_housetype3=0x7f0601d3;
-        public static final int ll_kanfangdate=0x7f06031a;
-        public static final int ll_kanfangdate_list=0x7f060320;
-        public static final int ll_login=0x7f06014a;
-        public static final int ll_map_house_back=0x7f060156;
-        public static final int ll_map_house_spinner=0x7f060159;
-        public static final int ll_marker_showlay=0x7f060161;
-        public static final int ll_mysetting_agent_login=0x7f0603a8;
-        public static final int ll_mysetting_nologin=0x7f06037f;
-        public static final int ll_mysetting_putong_login=0x7f06038b;
-        public static final int ll_new_house_detail_back=0x7f0601aa;
-        public static final int ll_newhouselist_back=0x7f0601c4;
-        public static final int ll_newhouselist_spinner=0x7f0601c5;
-        public static final int ll_noLogin_house=0x7f06031e;
-        public static final int ll_one=0x7f060359;
-        public static final int ll_person_changepassword=0x7f0601fb;
-        public static final int ll_person_gerenjieshao=0x7f0601f7;
-        public static final int ll_personal_back=0x7f0601dd;
-        public static final int ll_pop_choice=0x7f060488;
-        public static final int ll_popup=0x7f060434;
-        public static final int ll_popup_delete=0x7f06043a;
-        public static final int ll_popup_spinner=0x7f060431;
-        public static final int ll_popup_touxaing=0x7f06043e;
-        public static final int ll_popup_worktime=0x7f060444;
-        public static final int ll_popup_yizhitype=0x7f06044c;
-        public static final int ll_proprietor_back=0x7f060204;
-        public static final int ll_putong_house=0x7f060370;
-        public static final int ll_recommend_back_web=0x7f060212;
-        public static final int ll_regist_type=0x7f06021c;
-        public static final int ll_renting_back=0x7f060249;
-        public static final int ll_renting_proprietor_back=0x7f06024e;
-        public static final int ll_renting_spinner=0x7f06024b;
-        public static final int ll_search=0x7f06035b;
-        public static final int ll_setting_back=0x7f0601a1;
-        public static final int ll_show_phone=0x7f060429;
-        public static final int ll_title=0x7f06020c;
-        public static final int ll_tree=0x7f060362;
-        public static final int ll_two=0x7f06035d;
-        public static final int ll_weizhifu=0x7f0603fb;
-        public static final int ll_wheelPicker=0x7f060489;
-        public static final int ll_yuyuedate=0x7f060112;
-        public static final int ll_yuyuetime=0x7f060115;
-        public static final int ll_zhifu=0x7f060402;
-        public static final int loading_icon=0x7f06046b;
-        public static final int loadmore_view=0x7f060469;
-        public static final int loadstate_iv=0x7f06046d;
-        public static final int loadstate_tv=0x7f06046c;
-        public static final int login_tabstrip=0x7f06014c;
-        public static final int login_viewpager=0x7f06014b;
-        public static final int longgang=0x7f0601d0;
-        public static final int louceng1=0x7f0602a6;
-        public static final int loucengMeau1=0x7f0602a8;
-        public static final int loudong_1=0x7f06029a;
-        public static final int loushizixun=0x7f0601d7;
-        public static final int luohu=0x7f0601d4;
-        public static final int lv_ShopGuide=0x7f06036f;
-        public static final int lv_agent_chengjiaofangyuan=0x7f060088;
-        public static final int lv_agent_ershoufangyuan=0x7f06008d;
-        public static final int lv_agent_list=0x7f06009b;
-        public static final int lv_agent_pinglun=0x7f060083;
-        public static final int lv_at_goudilist=0x7f06030e;
-        public static final int lv_blocktrade=0x7f0600c7;
-        public static final int lv_buyhouse_list=0x7f060324;
-        public static final int lv_chengjiao_ershou=0x7f06030f;
-        public static final int lv_goudilist=0x7f060317;
-        public static final int lv_guanzhu_ershou=0x7f060318;
-        public static final int lv_guanzhu_new=0x7f060319;
-        public static final int lv_haofangtuijian=0x7f06010b;
-        public static final int lv_kandangdate=0x7f060321;
-        public static final int lv_loushizixun=0x7f0601d8;
-        public static final int lv_marke_list=0x7f060165;
-        public static final int lv_newhouselist=0x7f0601c6;
-        public static final int lv_popwin_list=0x7f060432;
-        public static final int lv_qiuzu_list=0x7f060342;
-        public static final int lv_rentinglist=0x7f06024d;
-        public static final int lv_rexiaofangyuan=0x7f0601da;
-        public static final int lv_submit_ershou_list1=0x7f060338;
-        public static final int lv_submit_renting_list=0x7f060354;
-        public static final int lv_tongxiaoqujilu=0x7f060107;
-        public static final int mCarouselView=0x7f06031c;
-        public static final int main_dialog_container1=0x7f060010;
-        public static final int main_dialog_container2=0x7f060011;
-        public static final int main_dialog_container3=0x7f060012;
-        public static final int manualOnly=0x7f060005;
-        public static final int maphouse_bmapView=0x7f06015b;
-        public static final int maphouse_sp1=0x7f060098;
-        public static final int maphouse_sp2=0x7f060099;
-        public static final int maphouse_sp3=0x7f06009a;
-        public static final int maphouse_sp4=0x7f06024c;
-        public static final int menpai_1=0x7f06029d;
-        public static final int message=0x7f060151;
-        public static final int mianji=0x7f0600d3;
-        public static final int monthnumber=0x7f060369;
-        public static final int my=0x7f060153;
-        public static final int myyuyue_kanfang_guoqi=0x7f060427;
-        public static final int myyuyue_kanfang_image_zhuangzai=0x7f060428;
-        public static final int myyuyue_kanfang_phone=0x7f06042a;
-        public static final int myyuyue_kanfang_time=0x7f060425;
-        public static final int myyuyue_kanfang_title=0x7f060426;
-        public static final int myyuyue_kanfang_zhuangtai=0x7f060424;
-        public static final int newHouse_scrollview=0x7f0601c7;
-        public static final int new_bmapView=0x7f0601c0;
-        public static final int newhouse_rexiao_address=0x7f060239;
-        public static final int newhouse_rexiao_address1=0x7f060246;
-        public static final int newhouse_rexiao_address2=0x7f060241;
-        public static final int newhouse_rexiao_area=0x7f060238;
-        public static final int newhouse_rexiao_area1=0x7f060245;
-        public static final int newhouse_rexiao_area2=0x7f060240;
-        public static final int newhouse_rexiao_iv=0x7f060236;
-        public static final int newhouse_rexiao_iv1=0x7f060243;
-        public static final int newhouse_rexiao_iv2=0x7f06023e;
-        public static final int newhouse_rexiao_price=0x7f06023a;
-        public static final int newhouse_rexiao_price1=0x7f060247;
-        public static final int newhouse_rexiao_price2=0x7f060242;
-        public static final int newhouse_rexiao_title=0x7f060237;
-        public static final int newhouse_rexiao_title1=0x7f060244;
-        public static final int newhouse_rexiao_title2=0x7f06023f;
-        public static final int newhouselist_address=0x7f06042d;
-        public static final int newhouselist_area=0x7f06042e;
-        public static final int newhouselist_iv=0x7f06042b;
-        public static final int newhouselist_price=0x7f06042f;
-        public static final int newhouselist_title=0x7f06042c;
-        public static final int nologin_mCarouselView=0x7f060376;
-        public static final int nologin_pointLayout=0x7f060377;
-        public static final int nologin_relativeLayout1=0x7f060375;
-        public static final int parent=0x7f060433;
-        public static final int parent_delete=0x7f060439;
-        public static final int parent_spinner=0x7f060430;
-        public static final int parent_touxaing=0x7f06043d;
-        public static final int parent_wheel=0x7f060487;
-        public static final int parent_worktime=0x7f060443;
-        public static final int parent_yizhitype=0x7f06044b;
-        public static final int pinglun_wushuju=0x7f060085;
-        public static final int pinglun_youshuju=0x7f060082;
-        public static final int pointLayout=0x7f06031d;
-        public static final int pullDownFromTop=0x7f060006;
-        public static final int pullFromEnd=0x7f060007;
-        public static final int pullFromStart=0x7f060008;
-        public static final int pullUpFromBottom=0x7f060009;
-        public static final int pull_icon=0x7f060483;
-        public static final int pull_to_refresh_image=0x7f06047e;
-        public static final int pull_to_refresh_progress=0x7f06047f;
-        public static final int pull_to_refresh_sub_text=0x7f060481;
-        public static final int pull_to_refresh_text=0x7f060480;
-        public static final int pullup_icon=0x7f06046a;
-        public static final int quanshiprice=0x7f060368;
-        public static final int quanshudiya=0x7f0602e0;
-        public static final int rb_agent=0x7f06021f;
-        public static final int rb_baidumap_bank=0x7f0600a0;
-        public static final int rb_baidumap_ditie=0x7f0600a2;
-        public static final int rb_baidumap_gongjiao=0x7f0600a1;
-        public static final int rb_baidumap_jianshen=0x7f0600a7;
-        public static final int rb_baidumap_jiaoyu=0x7f0600a3;
-        public static final int rb_baidumap_meishi=0x7f0600a8;
-        public static final int rb_baidumap_shop=0x7f0600a6;
-        public static final int rb_baidumap_xiuxian=0x7f0600a5;
-        public static final int rb_baidumap_yiyuan=0x7f0600a4;
-        public static final int rb_dazongjiaoyi=0x7f060364;
-        public static final int rb_dituzhaofang=0x7f060365;
-        public static final int rb_domestic_consumer=0x7f06021e;
-        public static final int rb_ershoufang=0x7f06035e;
-        public static final int rb_ershoufangguanzhu=0x7f06010d;
-        public static final int rb_goufangxuzhi=0x7f060366;
-        public static final int rb_jingjiren=0x7f060361;
-        public static final int rb_xinfang=0x7f06035f;
-        public static final int rb_yezhuweituo=0x7f060363;
-        public static final int rb_zufang=0x7f060360;
-        public static final int refined_decoration=0x7f0601ce;
-        public static final int refresh_listview=0x7f060120;
-        public static final int refreshing_icon=0x7f060484;
-        public static final int relativeLayout1=0x7f06031b;
-        public static final int renting_bmapView=0x7f06023c;
-        public static final int renting_chaoxiang=0x7f06022b;
-        public static final int renting_ditie=0x7f06022f;
-        public static final int renting_fabushijian=0x7f06022e;
-        public static final int renting_fangshi=0x7f06022a;
-        public static final int renting_huxing=0x7f06022d;
-        public static final int renting_location=0x7f06022c;
-        public static final int renting_louceng=0x7f060227;
-        public static final int renting_mianji=0x7f060229;
-        public static final int renting_tedian=0x7f060226;
-        public static final int renting_xiaoqu=0x7f060230;
-        public static final int renting_zhuangxiu=0x7f060228;
-        public static final int rg_chengjiao_control=0x7f060311;
-        public static final int rg_control=0x7f06014f;
-        public static final int rg_guanzhu_control=0x7f06020d;
-        public static final int rg_regist_type=0x7f06021d;
-        public static final int rl_1=0x7f0603fc;
-        public static final int rl_121=0x7f060176;
-        public static final int rl_1212=0x7f060189;
-        public static final int rl_123=0x7f06018d;
-        public static final int rl_2=0x7f060403;
-        public static final int rl_Histroy=0x7f060389;
-        public static final int rl_MyTouxiang=0x7f0601de;
-        public static final int rl_Myentrust=0x7f060382;
-        public static final int rl_Myershoufang=0x7f060380;
-        public static final int rl_Mynichen=0x7f06001d;
-        public static final int rl_Myrenting=0x7f060381;
-        public static final int rl_Yuyueguanli=0x7f060383;
-        public static final int rl_aegnt_MyTouxiang=0x7f060017;
-        public static final int rl_agent_changepassword=0x7f060044;
-        public static final int rl_agent_changrealname=0x7f06004c;
-        public static final int rl_agent_chengjiaofangyuan=0x7f0603b1;
-        public static final int rl_agent_chongyeshijian=0x7f06003f;
-        public static final int rl_agent_chuzufangguanli=0x7f0603ad;
-        public static final int rl_agent_comment=0x7f06025c;
-        public static final int rl_agent_companyName=0x7f06003e;
-        public static final int rl_agent_ershoufangguanli=0x7f0603a9;
-        public static final int rl_agent_fenjihao=0x7f06002c;
-        public static final int rl_agent_gerenjieshao=0x7f060031;
-        public static final int rl_agent_goudidingdan=0x7f0603c1;
-        public static final int rl_agent_list=0x7f060258;
-        public static final int rl_agent_mainarea=0x7f060038;
-        public static final int rl_agent_myhistroy=0x7f0603c5;
-        public static final int rl_agent_myyouhuiquan=0x7f0603bd;
-        public static final int rl_agent_phone=0x7f06001e;
-        public static final int rl_agent_pinglun=0x7f0603e5;
-        public static final int rl_agent_qiugouguanli=0x7f0603b9;
-        public static final int rl_agent_qiuzuguanli=0x7f0603b5;
-        public static final int rl_agent_realname=0x7f060024;
-        public static final int rl_agent_sex=0x7f060028;
-        public static final int rl_agent_shenfenzheng=0x7f060034;
-        public static final int rl_agent_title=0x7f060090;
-        public static final int rl_agent_upload=0x7f060042;
-        public static final int rl_agent_viptype=0x7f060021;
-        public static final int rl_agent_zhiyeType=0x7f06003b;
-        public static final int rl_baidumap=0x7f060109;
-        public static final int rl_baidumap_title=0x7f06009d;
-        public static final int rl_block_trade_title=0x7f0600a9;
-        public static final int rl_buyhouse_fangyuanquyu=0x7f06032c;
-        public static final int rl_buyhouse_qiwangtingshi=0x7f06032f;
-        public static final int rl_buyhouse_yusuanjine=0x7f060332;
-        public static final int rl_changrealname=0x7f060048;
-        public static final int rl_container=0x7f060211;
-        public static final int rl_ershou_jingweidu=0x7f0602a2;
-        public static final int rl_ershou_louceng=0x7f0602a5;
-        public static final int rl_ershoufang_proprietor=0x7f060206;
-        public static final int rl_ershoufang_title=0x7f060119;
-        public static final int rl_ershoufang_yuyuewindows=0x7f06010f;
-        public static final int rl_fabuershou_title=0x7f06028c;
-        public static final int rl_faburenting_title=0x7f0602ea;
-        public static final int rl_find_phonenumber=0x7f060132;
-        public static final int rl_genal_login_lock=0x7f060471;
-        public static final int rl_goufangliucheng=0x7f06013e;
-        public static final int rl_jiaoyibaoxian=0x7f06013d;
-        public static final int rl_login_lock=0x7f060475;
-        public static final int rl_map_house_title=0x7f060155;
-        public static final int rl_message_no=0x7f06037b;
-        public static final int rl_my_renting_house=0x7f06016e;
-        public static final int rl_myguanzhu=0x7f060385;
-        public static final int rl_new_house_title=0x7f06006b;
-        public static final int rl_newhouse_title=0x7f0601c8;
-        public static final int rl_newhouselist_title=0x7f0601c3;
-        public static final int rl_person_changerealname=0x7f0601eb;
-        public static final int rl_person_fenjihao=0x7f0601e7;
-        public static final int rl_person_gerenjieshao=0x7f0601e9;
-        public static final int rl_person_realname=0x7f0601e3;
-        public static final int rl_person_sex=0x7f0601e5;
-        public static final int rl_personal_changepassword=0x7f0601ea;
-        public static final int rl_personal_phone=0x7f060030;
-        public static final int rl_personal_viptype=0x7f0601e1;
-        public static final int rl_phonenumber=0x7f06046e;
-        public static final int rl_putong_mychuzu=0x7f060391;
-        public static final int rl_putong_mygoudidingdan=0x7f0603a0;
-        public static final int rl_putong_myguanzhu=0x7f06038c;
-        public static final int rl_putong_myhistroy=0x7f0603a4;
-        public static final int rl_putong_mysalehouse=0x7f06038d;
-        public static final int rl_putong_myshophouse=0x7f060398;
-        public static final int rl_putong_myyouhuiquan=0x7f06039c;
-        public static final int rl_putong_myzhufang=0x7f060394;
-        public static final int rl_qiuzu_fangyuanquyu=0x7f060348;
-        public static final int rl_qiuzu_qiwangjine=0x7f06034f;
-        public static final int rl_qiuzu_qiwangtingshi=0x7f06034d;
-        public static final int rl_qiuzu_rentingType=0x7f06034a;
-        public static final int rl_qiuzu_title=0x7f060345;
-        public static final int rl_regist_phonenumber=0x7f060219;
-        public static final int rl_renting_agent_1=0x7f06017a;
-        public static final int rl_renting_agent_2=0x7f06017d;
-        public static final int rl_renting_agent_3=0x7f06017f;
-        public static final int rl_renting_agent_4=0x7f060183;
-        public static final int rl_renting_agent_5=0x7f060186;
-        public static final int rl_renting_fangyuantese=0x7f060231;
-        public static final int rl_renting_jingweidu=0x7f0602f0;
-        public static final int rl_renting_proprietor=0x7f060208;
-        public static final int rl_renting_title=0x7f060248;
-        public static final int rl_search=0x7f060254;
-        public static final int rl_setting_aboutUs=0x7f0601a4;
-        public static final int rl_setting_clear=0x7f0601a2;
-        public static final int rl_setting_point=0x7f0601a7;
-        public static final int rl_setting_sendsetting=0x7f060124;
-        public static final int rl_setting_tdc=0x7f0601a5;
-        public static final int rl_setting_update=0x7f0601a3;
-        public static final int rl_settings=0x7f0603c9;
-        public static final int rl_short_login_lock=0x7f060478;
-        public static final int rl_title=0x7f060018;
-        public static final int rl_title1=0x7f06025d;
-        public static final int rl_title2=0x7f06037a;
-        public static final int rl_title_yuyue=0x7f060110;
-        public static final int rl_zhuyishixiang1=0x7f060141;
-        public static final int rl_zhuyishixiang2=0x7f060142;
-        public static final int rl_zhuyishixiang_3=0x7f060144;
-        public static final int rotate=0x7f06000b;
-        public static final int scrollview=0x7f060002;
-        public static final int scrollview_changeshow=0x7f0601dc;
-        public static final int shoujia=0x7f0600cf;
-        public static final int shuifeijiexi=0x7f0602d2;
-        public static final int spinner_yuyuedate=0x7f060114;
-        public static final int spinner_yuyuetime=0x7f060117;
-        public static final int state_iv=0x7f060486;
-        public static final int state_tv=0x7f060485;
-        public static final int straight=0x7f06000d;
-        public static final int submit_edittext=0x7f060264;
-        public static final int taoneimianji_1=0x7f06029f;
-        public static final int textView1=0x7f060016;
-        public static final int textView11=0x7f060328;
-        public static final int textView112=0x7f06032a;
-        public static final int textView12=0x7f0601be;
-        public static final int textView14=0x7f060291;
-        public static final int textView16=0x7f0601c2;
-        public static final int textView171=0x7f06039a;
-        public static final int textView1716=0x7f0603b7;
-        public static final int textView2=0x7f060019;
-        public static final int textView21=0x7f060025;
-        public static final int textView211=0x7f060029;
-        public static final int textView2111=0x7f06002d;
-        public static final int textView2121=0x7f06028f;
-        public static final int textView213=0x7f060032;
-        public static final int textView221=0x7f0603ab;
-        public static final int textView3=0x7f060035;
-        public static final int textView31=0x7f06038f;
-        public static final int textView351=0x7f0603af;
-        public static final int textView4=0x7f0600b5;
-        public static final int textView41=0x7f060173;
-        public static final int textView5=0x7f060113;
-        public static final int textView51=0x7f060116;
-        public static final int textView541=0x7f0603b3;
-        public static final int textView6=0x7f0600b4;
-        public static final int textView7=0x7f0600b6;
-        public static final int textView71=0x7f060387;
-        public static final int textView711=0x7f060396;
-        public static final int textView8=0x7f0600b7;
-        public static final int textView9=0x7f0601bc;
-        public static final int textView921=0x7f06039e;
-        public static final int textView9216=0x7f0603bf;
-        public static final int textView932=0x7f0603a6;
-        public static final int textView9382=0x7f0603c7;
-        public static final int textView942=0x7f0603a2;
-        public static final int textView9426=0x7f0603c3;
-        public static final int textView9442=0x7f0603bb;
-        public static final int tihubili=0x7f0602b8;
-        public static final int touzifenxi=0x7f0602cc;
-        public static final int tree=0x7f0601d1;
-        public static final int tuijianliyou=0x7f0602e2;
-        public static final int tv1=0x7f060171;
-        public static final int tv11=0x7f060179;
-        public static final int tv12=0x7f060168;
-        public static final int tv121=0x7f060167;
-        public static final int tv13=0x7f060190;
-        public static final int tv21=0x7f060191;
-        public static final int tv22=0x7f060193;
-        public static final int tv23=0x7f060195;
-        public static final int tv24=0x7f060197;
-        public static final int tv25=0x7f060199;
-        public static final int tv26=0x7f06019b;
-        public static final int tv27=0x7f06019d;
-        public static final int tv28=0x7f06019f;
-        public static final int tv32=0x7f06018c;
-        public static final int tv34=0x7f06016d;
-        public static final int tv9898=0x7f06016a;
-        public static final int tv_agent_author=0x7f0603e8;
-        public static final int tv_agent_biaoqian=0x7f060074;
-        public static final int tv_agent_biaoqian2=0x7f060075;
-        public static final int tv_agent_biaoqian3=0x7f060076;
-        public static final int tv_agent_biaoqian4=0x7f060077;
-        public static final int tv_agent_changecompanyname_save=0x7f06005f;
-        public static final int tv_agent_changegerenjieshao_save=0x7f060057;
-        public static final int tv_agent_changerealname_save=0x7f06004a;
-        public static final int tv_agent_changeshenfenzheng_save=0x7f06005b;
-        public static final int tv_agent_chengjiaofangyuan=0x7f060086;
-        public static final int tv_agent_chongyeshijian=0x7f060040;
-        public static final int tv_agent_company=0x7f06007d;
-        public static final int tv_agent_content=0x7f0603e7;
-        public static final int tv_agent_current_password=0x7f060063;
-        public static final int tv_agent_date=0x7f0603e9;
-        public static final int tv_agent_dengji=0x7f060071;
-        public static final int tv_agent_ershoufangyuan=0x7f06008b;
-        public static final int tv_agent_fenjihao=0x7f06002e;
-        public static final int tv_agent_fenjihao_show=0x7f060050;
-        public static final int tv_agent_fenjihao_show_1=0x7f060053;
-        public static final int tv_agent_history=0x7f06007e;
-        public static final int tv_agent_list_title=0x7f060259;
-        public static final int tv_agent_mainarea=0x7f060039;
-        public static final int tv_agent_mianarea2=0x7f06007b;
-        public static final int tv_agent_morechengjiaofangyuan=0x7f060089;
-        public static final int tv_agent_moreershoufangyuan=0x7f06008e;
-        public static final int tv_agent_morepinglun=0x7f060084;
-        public static final int tv_agent_name=0x7f060070;
-        public static final int tv_agent_new_password=0x7f060065;
-        public static final int tv_agent_phone=0x7f060020;
-        public static final int tv_agent_pingjunzhouqi=0x7f06007f;
-        public static final int tv_agent_pinglun=0x7f06025e;
-        public static final int tv_agent_re_password=0x7f060067;
-        public static final int tv_agent_realname=0x7f060026;
-        public static final int tv_agent_sanshiday=0x7f060080;
-        public static final int tv_agent_sex=0x7f06002a;
-        public static final int tv_agent_shenfenzheng=0x7f060036;
-        public static final int tv_agent_viptype=0x7f060023;
-        public static final int tv_agent_vtel=0x7f060073;
-        public static final int tv_agent_worktime=0x7f060079;
-        public static final int tv_agent_year=0x7f060072;
-        public static final int tv_agent_yonghupingjia=0x7f060081;
-        public static final int tv_agent_zhiyeType=0x7f06003c;
-        public static final int tv_agentdata_biaoqian=0x7f0603dc;
-        public static final int tv_agentdata_biaoqian2=0x7f0603e1;
-        public static final int tv_agentdata_biaoqian3=0x7f0603e2;
-        public static final int tv_agentdata_biaoqian4=0x7f0603e3;
-        public static final int tv_agentdata_level=0x7f0603da;
-        public static final int tv_agentdata_mainarea=0x7f0603db;
-        public static final int tv_agentdata_name=0x7f0603d9;
-        public static final int tv_agentdata_pinglun=0x7f0603df;
-        public static final int tv_agentdata_pinglun1=0x7f0603e0;
-        public static final int tv_agentdata_point=0x7f0603dd;
-        public static final int tv_agentershoulist_submit=0x7f060288;
-        public static final int tv_agentpersonal=0x7f06020a;
-        public static final int tv_agentrentinglist_submit=0x7f0602e6;
-        public static final int tv_block_trade_detail_address=0x7f0600bc;
-        public static final int tv_block_trade_detail_area=0x7f0600b8;
-        public static final int tv_block_trade_detail_content=0x7f0600ae;
-        public static final int tv_block_trade_detail_date=0x7f0600b1;
-        public static final int tv_block_trade_detail_goudi=0x7f0600b0;
-        public static final int tv_block_trade_detail_hezuofangshi=0x7f0600b9;
-        public static final int tv_block_trade_detail_jianzhumianji=0x7f0600bf;
-        public static final int tv_block_trade_detail_lianxiren=0x7f0600bb;
-        public static final int tv_block_trade_detail_phone=0x7f0600b2;
-        public static final int tv_block_trade_detail_shiyongnianxian=0x7f0600c0;
-        public static final int tv_block_trade_detail_title=0x7f0600ac;
-        public static final int tv_block_trade_detail_wuyeleixing=0x7f0600ba;
-        public static final int tv_block_trade_detail_xiangxijieshao=0x7f0600c2;
-        public static final int tv_block_trade_detail_yusuanjine=0x7f0600c1;
-        public static final int tv_block_trade_goudiimage=0x7f0600b3;
-        public static final int tv_buyhouse_housearea=0x7f06032e;
-        public static final int tv_buyhouse_jine=0x7f060334;
-        public static final int tv_buyhouse_phone=0x7f06032b;
-        public static final int tv_buyhouse_tingshi=0x7f060331;
-        public static final int tv_cancle=0x7f060148;
-        public static final int tv_changegerenjieshao_save=0x7f0601f9;
-        public static final int tv_changerealname_save=0x7f0601ed;
-        public static final int tv_chaoxiang=0x7f0600e0;
-        public static final int tv_chengjiao_date=0x7f0603d5;
-        public static final int tv_chengjiaoershou_area=0x7f0603ed;
-        public static final int tv_chengjiaoershou_chaoxiang=0x7f0603ee;
-        public static final int tv_chengjiaoershou_fangxing=0x7f0603ec;
-        public static final int tv_chengjiaoershou_housedetail=0x7f0603d0;
-        public static final int tv_chengjiaoershou_jianzhutype=0x7f0603d2;
-        public static final int tv_chengjiaoershou_jine=0x7f0603d4;
-        public static final int tv_chengjiaoershou_junjia=0x7f0603d3;
-        public static final int tv_chengjiaoershou_louceng=0x7f0603f0;
-        public static final int tv_chengjiaoershou_title=0x7f0603d1;
-        public static final int tv_chengjiaoershou_xiaoquname=0x7f0603eb;
-        public static final int tv_chengjiaoershou_zongjia=0x7f0603ef;
-        public static final int tv_company=0x7f06007c;
-        public static final int tv_current_password=0x7f0601fd;
-        public static final int tv_daikuanjine=0x7f0600fe;
-        public static final int tv_daikuanleixing=0x7f0600fd;
-        public static final int tv_daikuanqixian=0x7f0600ff;
-        public static final int tv_dialog_message=0x7f060282;
-        public static final int tv_dialog_message1=0x7f060285;
-        public static final int tv_dialog_message2=0x7f060286;
-        public static final int tv_dialog_title=0x7f060281;
-        public static final int tv_dingdan=0x7f0603fd;
-        public static final int tv_ershou_SfDianti=0x7f0602bf;
-        public static final int tv_ershou_biaoqian=0x7f0602c5;
-        public static final int tv_ershou_biaoqian2=0x7f0603f7;
-        public static final int tv_ershou_biaoqian3=0x7f0603f8;
-        public static final int tv_ershou_biaoqian4=0x7f0603f9;
-        public static final int tv_ershou_biaoti=0x7f0602c9;
-        public static final int tv_ershou_chanquansuoshu=0x7f0602bd;
-        public static final int tv_ershou_ditieline=0x7f0602c7;
-        public static final int tv_ershou_diyaxinxi=0x7f0602ad;
-        public static final int tv_ershou_gongbufangshi=0x7f06033e;
-        public static final int tv_ershou_guapaitime=0x7f0602c3;
-        public static final int tv_ershou_hexinmaidian=0x7f0602dd;
-        public static final int tv_ershou_houseDesc=0x7f0602cb;
-        public static final int tv_ershou_houseSX=0x7f0602b1;
-        public static final int tv_ershou_houseUse=0x7f0602bb;
-        public static final int tv_ershou_housearea=0x7f06028e;
-        public static final int tv_ershou_huType=0x7f0602af;
-        public static final int tv_ershou_huxingjieshao=0x7f0602cf;
-        public static final int tv_ershou_jianzhuJiegou=0x7f0602b7;
-        public static final int tv_ershou_jianzhuType=0x7f0602b5;
-        public static final int tv_ershou_jiaotongchuxing=0x7f0602db;
-        public static final int tv_ershou_jiaoyupeitao=0x7f0602d9;
-        public static final int tv_ershou_jingweidu=0x7f0602a4;
-        public static final int tv_ershou_louceng=0x7f0602a7;
-        public static final int tv_ershou_loucengmenu=0x7f0602a9;
-        public static final int tv_ershou_quanshudiya=0x7f0602e1;
-        public static final int tv_ershou_shuifeijiexi=0x7f0602d3;
-        public static final int tv_ershou_tihubili=0x7f0602b9;
-        public static final int tv_ershou_touzifenxi=0x7f0602cd;
-        public static final int tv_ershou_tuijianliyou=0x7f0602e3;
-        public static final int tv_ershou_uploadPic=0x7f0602b3;
-        public static final int tv_ershou_weiyizhuzhai=0x7f0602c1;
-        public static final int tv_ershou_wuyeType=0x7f0602ab;
-        public static final int tv_ershou_xiaoqujieshao=0x7f0602d1;
-        public static final int tv_ershou_xiaoquname=0x7f060290;
-        public static final int tv_ershou_xiaoquyoushi=0x7f0602df;
-        public static final int tv_ershou_yincangphone=0x7f06033f;
-        public static final int tv_ershou_zhoubianpeitao=0x7f0602d7;
-        public static final int tv_ershou_zhuangxiumiaoshu=0x7f0602d5;
-        public static final int tv_ershoufang_address=0x7f0603f6;
-        public static final int tv_ershoufang_price_area=0x7f0603f3;
-        public static final int tv_ershoufang_price_meter=0x7f0603fa;
-        public static final int tv_ershoufang_title=0x7f0603f2;
-        public static final int tv_ershoufang_totalprice=0x7f0603f4;
-        public static final int tv_ershoufang_wan=0x7f0603f5;
-        public static final int tv_ershoufangdetails=0x7f0600c9;
-        public static final int tv_ershoupersonal=0x7f060339;
-        public static final int tv_fangyuanbianhao=0x7f0600dd;
-        public static final int tv_fangyuanliangdian=0x7f060233;
-        public static final int tv_fenjihao_show=0x7f0601f2;
-        public static final int tv_fenjihao_show_1=0x7f0601f5;
-        public static final int tv_forgivepw=0x7f06014e;
-        public static final int tv_frist_title=0x7f06035a;
-        public static final int tv_goudi_dingdanhao=0x7f0603fe;
-        public static final int tv_goudi_info=0x7f060279;
-        public static final int tv_goudi_loupan=0x7f0603ff;
-        public static final int tv_goudi_paystatus=0x7f060400;
-        public static final int tv_guanzhu_area=0x7f060416;
-        public static final int tv_guanzhu_chaoxiang=0x7f060417;
-        public static final int tv_guanzhu_ditiexian=0x7f06041c;
-        public static final int tv_guanzhu_fangxing=0x7f060415;
-        public static final int tv_guanzhu_jianzhutype=0x7f06041a;
-        public static final int tv_guanzhu_junjia=0x7f06041b;
-        public static final int tv_guanzhu_louceng=0x7f060419;
-        public static final int tv_guanzhu_loupandizhi=0x7f060420;
-        public static final int tv_guanzhu_new_area=0x7f06041e;
-        public static final int tv_guanzhu_new_junjia=0x7f06041f;
-        public static final int tv_guanzhu_new_loupandizhi=0x7f060421;
-        public static final int tv_guanzhu_new_phone=0x7f060422;
-        public static final int tv_guanzhu_new_shi=0x7f06041d;
-        public static final int tv_guanzhu_new_time=0x7f060423;
-        public static final int tv_guanzhu_title=0x7f060414;
-        public static final int tv_guanzhu_xiaoquname=0x7f060413;
-        public static final int tv_guanzhu_zongjia=0x7f060418;
-        public static final int tv_guapaishijian=0x7f0600df;
-        public static final int tv_haopinglv=0x7f0603de;
-        public static final int tv_hexinmaidian=0x7f0600e6;
-        public static final int tv_hexinmaidian1=0x7f0600e7;
-        public static final int tv_house_puchase=0x7f060147;
-        public static final int tv_housearea=0x7f0600f5;
-        public static final int tv_housenumber=0x7f06036c;
-        public static final int tv_housetotilprice=0x7f060102;
-        public static final int tv_html_fukuanfangshi=0x7f0601bd;
-        public static final int tv_html_huxingjieshao=0x7f0601ba;
-        public static final int tv_jiaotongchuxing=0x7f0600e8;
-        public static final int tv_jiaotongchuxing1=0x7f0600e9;
-        public static final int tv_jizhengfangshi=0x7f0600f4;
-        public static final int tv_jizhunlilv=0x7f060100;
-        public static final int tv_junjia=0x7f0600d5;
-        public static final int tv_jushangcijiaoyi=0x7f0600f2;
-        public static final int tv_kanfangshijian=0x7f0600d9;
-        public static final int tv_liushuihao=0x7f060407;
-        public static final int tv_lixi=0x7f060101;
-        public static final int tv_logincancle=0x7f0600cb;
-        public static final int tv_look_date=0x7f060372;
-        public static final int tv_look_histroy=0x7f060373;
-        public static final int tv_louceng=0x7f0600d6;
-        public static final int tv_louxing=0x7f0600e1;
-        public static final int tv_maifangjiatingshoutao=0x7f0600f3;
-        public static final int tv_maifangjiatingweiyi=0x7f0600f1;
-        public static final int tv_map_baidu=0x7f0603ea;
-        public static final int tv_map_house=0x7f06047c;
-        public static final int tv_marke_canle=0x7f060164;
-        public static final int tv_marke_housecount=0x7f060163;
-        public static final int tv_marke_title=0x7f060162;
-        public static final int tv_mianarea=0x7f06007a;
-        public static final int tv_morechengjiaojilu=0x7f060108;
-        public static final int tv_morefangyuantuijian=0x7f06010c;
-        public static final int tv_morehousetese=0x7f0600ea;
-        public static final int tv_morenews=0x7f0600e5;
-        public static final int tv_my_login_regist=0x7f06037d;
-        public static final int tv_new_house_detail_title=0x7f06006e;
-        public static final int tv_new_password=0x7f0601ff;
-        public static final int tv_newhouse_morenews=0x7f0601d9;
-        public static final int tv_newhouse_morenews_rexiao=0x7f0601db;
-        public static final int tv_newhousedetail_chanquannianxian=0x7f0601b9;
-        public static final int tv_newhousedetail_dianping=0x7f0601bf;
-        public static final int tv_newhousedetail_housetype=0x7f0601ad;
-        public static final int tv_newhousedetail_jiaofangshijian=0x7f0601af;
-        public static final int tv_newhousedetail_kaifashang=0x7f0601b6;
-        public static final int tv_newhousedetail_kaipanshijian=0x7f0601ae;
-        public static final int tv_newhousedetail_loupandizhi=0x7f0601b0;
-        public static final int tv_newhousedetail_maintype=0x7f0601b1;
-        public static final int tv_newhousedetail_price=0x7f0601b3;
-        public static final int tv_newhousedetail_title=0x7f0601ac;
-        public static final int tv_newhousedetail_updatetime=0x7f0601b2;
-        public static final int tv_newhousedetail_zaishou=0x7f0601b4;
-        public static final int tv_newhousedetail_zuixinjiaofang=0x7f0601b8;
-        public static final int tv_newhousedetail_zuixinkaipan=0x7f0601b7;
-        public static final int tv_number=0x7f06036d;
-        public static final int tv_person_fenjihao=0x7f0601e8;
-        public static final int tv_person_sex=0x7f0601e6;
-        public static final int tv_personal_phone=0x7f0601e0;
-        public static final int tv_personal_viptype=0x7f0601e2;
-        public static final int tv_price=0x7f06036b;
-        public static final int tv_pricenumber=0x7f06036a;
-        public static final int tv_ptbuyhouse_submit=0x7f060323;
-        public static final int tv_ptershou_housearea=0x7f06033c;
-        public static final int tv_ptqiuzu_submit=0x7f060341;
-        public static final int tv_putongershoulist_submit=0x7f060337;
-        public static final int tv_putongrentinglist_submit=0x7f060353;
-        public static final int tv_qiuzu_fangyuan=0x7f06032d;
-        public static final int tv_qiuzu_housearea=0x7f060349;
-        public static final int tv_qiuzu_jine=0x7f060350;
-        public static final int tv_qiuzu_phone=0x7f060347;
-        public static final int tv_qiuzu_qiwangjine1=0x7f060333;
-        public static final int tv_qiuzu_qiwangtingshi1=0x7f060330;
-        public static final int tv_qiuzu_rentingtype1=0x7f06034b;
-        public static final int tv_qiuzu_tingshi=0x7f06034e;
-        public static final int tv_qiuzu_zulinType=0x7f06034c;
-        public static final int tv_qiuzulist_detail=0x7f060453;
-        public static final int tv_qiuzulist_time=0x7f060454;
-        public static final int tv_qiuzulist_title=0x7f060452;
-        public static final int tv_quyu=0x7f0600e2;
-        public static final int tv_re_password=0x7f060201;
-        public static final int tv_realname=0x7f0601e4;
-        public static final int tv_recommend_content=0x7f060457;
-        public static final int tv_recommend_rcontent_web=0x7f060215;
-        public static final int tv_recommend_title=0x7f060455;
-        public static final int tv_recommend_title_web=0x7f060213;
-        public static final int tv_regist=0x7f060149;
-        public static final int tv_renting_biaoqian=0x7f0602fe;
-        public static final int tv_renting_biaoti=0x7f0602ff;
-        public static final int tv_renting_chuzuCause=0x7f060307;
-        public static final int tv_renting_chuzutype=0x7f0602f8;
-        public static final int tv_renting_ditieline=0x7f0602fd;
-        public static final int tv_renting_fabufangshi=0x7f060356;
-        public static final int tv_renting_houseBest=0x7f060305;
-        public static final int tv_renting_houseDesc=0x7f060300;
-        public static final int tv_renting_houseSX=0x7f0602f3;
-        public static final int tv_renting_houseaddress=0x7f060302;
-        public static final int tv_renting_housearea=0x7f0602eb;
-        public static final int tv_renting_housepeizhi=0x7f0602fc;
-        public static final int tv_renting_huType=0x7f0602f2;
-        public static final int tv_renting_huxingjieshao=0x7f060303;
-        public static final int tv_renting_jianzhuType=0x7f0602f6;
-        public static final int tv_renting_jiaotongchuxing=0x7f06030a;
-        public static final int tv_renting_jingweidu=0x7f0602f1;
-        public static final int tv_renting_lishijilu=0x7f060235;
-        public static final int tv_renting_louceng=0x7f0602f5;
-        public static final int tv_renting_uploadPic=0x7f0602f4;
-        public static final int tv_renting_xiaoquintro=0x7f060309;
-        public static final int tv_renting_xiaoquname=0x7f0602ec;
-        public static final int tv_renting_yezhushuo=0x7f06030c;
-        public static final int tv_renting_yincangphone=0x7f060357;
-        public static final int tv_renting_zhifuType=0x7f0602fa;
-        public static final int tv_rentingdetailcancle=0x7f060224;
-        public static final int tv_rentingdetails=0x7f060222;
-        public static final int tv_sa=0x7f060232;
-        public static final int tv_sas=0x7f060234;
-        public static final int tv_search_title=0x7f060458;
-        public static final int tv_setting_LoginOut=0x7f0601a8;
-        public static final int tv_show=0x7f060315;
-        public static final int tv_submit_comment=0x7f060260;
-        public static final int tv_submit_ershou_list_chenhu=0x7f06045e;
-        public static final int tv_submit_ershou_list_detail=0x7f06045a;
-        public static final int tv_submit_ershou_list_edit=0x7f060460;
-        public static final int tv_submit_ershou_list_imaup=0x7f06045f;
-        public static final int tv_submit_ershou_list_louceng=0x7f06045d;
-        public static final int tv_submit_ershou_list_title=0x7f06045b;
-        public static final int tv_submit_ershou_list_zongjia=0x7f06045c;
-        public static final int tv_submit_renting_list_area=0x7f060465;
-        public static final int tv_submit_renting_list_chuzuType=0x7f060466;
-        public static final int tv_submit_renting_list_detail=0x7f060462;
-        public static final int tv_submit_renting_list_imaup=0x7f060468;
-        public static final int tv_submit_renting_list_title=0x7f060463;
-        public static final int tv_submit_renting_list_zongjia=0x7f060464;
-        public static final int tv_submiteditsave=0x7f060262;
-        public static final int tv_totalhistroy=0x7f060105;
-        public static final int tv_totalhistroy1=0x7f060106;
-        public static final int tv_version=0x7f060269;
-        public static final int tv_weekhistroy=0x7f060103;
-        public static final int tv_weekhistroy1=0x7f060104;
-        public static final int tv_wheel_cancle=0x7f06026a;
-        public static final int tv_wheel_sure=0x7f06026b;
-        public static final int tv_wheel_title=0x7f06026c;
-        public static final int tv_work=0x7f060078;
-        public static final int tv_wuyeleixing=0x7f0600f0;
-        public static final int tv_yuyuekanfang=0x7f06010e;
-        public static final int tv_zhanghao=0x7f060409;
-        public static final int tv_zhifu_dingdan=0x7f060404;
-        public static final int tv_zhifu_dingdanhao=0x7f060405;
-        public static final int tv_zhifu_liushuihao=0x7f060408;
-        public static final int tv_zhifu_loupan=0x7f060406;
-        public static final int tv_zhifu_zhanghao=0x7f06040a;
-        public static final int tv_zhifu_zhifujine=0x7f06040c;
-        public static final int tv_zhifu_zhifustatus=0x7f060410;
-        public static final int tv_zhifu_zhifutime=0x7f06040e;
-        public static final int tv_zhifujine=0x7f06040b;
-        public static final int tv_zhifustatus=0x7f06040f;
-        public static final int tv_zhifutime=0x7f06040d;
-        public static final int tv_zhuangtai=0x7f060401;
-        public static final int tv_zhuangxiu=0x7f0600d7;
-        public static final int tv_zhuanrangshuifei=0x7f0600f6;
-        public static final int two=0x7f0601cd;
-        public static final int uploadPic=0x7f0602b2;
-        public static final int vertical=0x7f06000f;
-        public static final int viewpage=0x7f060154;
-        public static final int web_ershoufang=0x7f060265;
-        public static final int web_house_price=0x7f060266;
-        public static final int webview=0x7f060001;
-        public static final int weiyizhuzhai=0x7f0602c0;
-        public static final int window_agent_ershou=0x7f06028b;
-        public static final int window_putong_buyhouse=0x7f060326;
-        public static final int window_putong_ershou=0x7f06033b;
-        public static final int window_putong_guanzhu=0x7f060209;
-        public static final int window_putong_qiuzu=0x7f060344;
-        public static final int window_putong_renting=0x7f0602e9;
-        public static final int wp_a=0x7f06048a;
-        public static final int wp_b=0x7f06048b;
-        public static final int wp_c=0x7f06048c;
-        public static final int wuyeType=0x7f0602aa;
-        public static final int xiaoqujieshao=0x7f0602d0;
-        public static final int xiaoquname=0x7f060308;
-        public static final int xiaoquyoushi=0x7f0602de;
-        public static final int yangbantu=0x7f0601bb;
-        public static final int yezhushuo=0x7f06030b;
-        public static final int zhifuType=0x7f0602f9;
-        public static final int zhoubianpeitao=0x7f0602d6;
-        public static final int zhuangxiumiaoshu=0x7f0602d4;
-        public static final int zhujianmianji_1=0x7f060294;
-        public static final int zulin_wheel=0x7f060280;
-        public static final int zulin_wheel1=0x7f06027d;
-        public static final int zulin_wheel2=0x7f06027e;
-        public static final int zulin_wheel3=0x7f06027f;
+        public static final int Accordion=0x7f0b000b;
+        public static final int Background2Foreground=0x7f0b000c;
+        public static final int CubeIn=0x7f0b000d;
+        public static final int Date_wheel=0x7f0b02e3;
+        public static final int Default=0x7f0b000e;
+        public static final int DepthPage=0x7f0b000f;
+        public static final int EditText01=0x7f0b0179;
+        public static final int EditText02=0x7f0b017c;
+        public static final int EditText03=0x7f0b017e;
+        public static final int EditText05=0x7f0b02b5;
+        public static final int EditText06=0x7f0b02b7;
+        public static final int EditText11=0x7f0b01d3;
+        public static final int EditText12=0x7f0b017f;
+        public static final int EditText13=0x7f0b01d9;
+        public static final int EditText14=0x7f0b01dc;
+        public static final int EditText15=0x7f0b01df;
+        public static final int Fade=0x7f0b0010;
+        public static final int FlipHorizontal=0x7f0b0011;
+        public static final int FlipPage=0x7f0b0012;
+        public static final int Foreground2Background=0x7f0b0013;
+        public static final int HouseDetails=0x7f0b03ce;
+        public static final int ImageView01=0x7f0b017b;
+        public static final int ImageView02=0x7f0b021d;
+        public static final int ImageView04=0x7f0b0199;
+        public static final int ImageView05=0x7f0b0197;
+        public static final int RelativeLayout01=0x7f0b017a;
+        public static final int RelativeLayout02=0x7f0b02b3;
+        public static final int RelativeLayout04=0x7f0b02b4;
+        public static final int RelativeLayout05=0x7f0b02b6;
+        public static final int RotateDown=0x7f0b0014;
+        public static final int RotateUp=0x7f0b0015;
+        public static final int SfDianti=0x7f0b0325;
+        public static final int ShopHouseGuide=0x7f0b03d5;
+        public static final int Stack=0x7f0b0016;
+        public static final int T15=0x7f0b0180;
+        public static final int Tablet=0x7f0b0017;
+        public static final int TextView01=0x7f0b00fe;
+        public static final int TextView011=0x7f0b0181;
+        public static final int TextView02=0x7f0b006f;
+        public static final int TextView03=0x7f0b0072;
+        public static final int TextView03111=0x7f0b02f4;
+        public static final int TextView04=0x7f0b010c;
+        public static final int TextView05=0x7f0b010d;
+        public static final int TextView06=0x7f0b0132;
+        public static final int TextView07=0x7f0b013f;
+        public static final int TextView071=0x7f0b01cb;
+        public static final int TextView0733=0x7f0b02f9;
+        public static final int TextView08=0x7f0b0140;
+        public static final int TextView09=0x7f0b012e;
+        public static final int TextView1=0x7f0b02fc;
+        public static final int TextView10=0x7f0b012f;
+        public static final int TextView11=0x7f0b0130;
+        public static final int TextView12=0x7f0b0141;
+        public static final int TextView13=0x7f0b01d7;
+        public static final int TextView14=0x7f0b0142;
+        public static final int TextView15=0x7f0b0143;
+        public static final int TextView16=0x7f0b014b;
+        public static final int TextView17=0x7f0b014c;
+        public static final int TextView18=0x7f0b014d;
+        public static final int TextView19=0x7f0b014e;
+        public static final int TextView2=0x7f0b02ff;
+        public static final int TextView20=0x7f0b014f;
+        public static final int TextView21=0x7f0b0150;
+        public static final int TextView3=0x7f0b0302;
+        public static final int TextView4=0x7f0b0193;
+        public static final int TextView5=0x7f0b0307;
+        public static final int Tv13=0x7f0b030a;
+        public static final int Tv3=0x7f0b01c6;
+        public static final int Tv31=0x7f0b01ce;
+        public static final int Tv32=0x7f0b01e1;
+        public static final int Tv33=0x7f0b01e5;
+        public static final int Tv_fangling=0x7f0b012c;
+        public static final int Tv_fangyuanbianhao=0x7f0b0138;
+        public static final int Tv_xiaoqu=0x7f0b0137;
+        public static final int ZoomIn=0x7f0b0018;
+        public static final int ZoomOut=0x7f0b0019;
+        public static final int ZoomOutSlide=0x7f0b001a;
+        public static final int action_bar=0x7f0b0040;
+        public static final int action_bar_activity_content=0x7f0b0001;
+        public static final int action_bar_container=0x7f0b003f;
+        public static final int action_bar_overlay_layout=0x7f0b0043;
+        public static final int action_bar_root=0x7f0b003e;
+        public static final int action_bar_subtitle=0x7f0b0047;
+        public static final int action_bar_title=0x7f0b0046;
+        public static final int action_context_bar=0x7f0b0041;
+        public static final int action_menu_divider=0x7f0b0002;
+        public static final int action_menu_presenter=0x7f0b0003;
+        public static final int action_mode_close_button=0x7f0b0048;
+        public static final int action_settings=0x7f0b05b8;
+        public static final int activity_chooser_view_content=0x7f0b0049;
+        public static final int activity_selectimg_send=0x7f0b02bc;
+        public static final int agent_changeshow=0x7f0b0063;
+        public static final int agent_fenjihao_jiebang=0x7f0b00a2;
+        public static final int agent_fenjihao_shenqing=0x7f0b009f;
+        public static final int agent_listview=0x7f0b02c2;
+        public static final int agent_quyu_sp1=0x7f0b00e7;
+        public static final int agent_quyu_sp2=0x7f0b00e8;
+        public static final int agent_quyu_sp3=0x7f0b00e9;
+        public static final int all=0x7f0b0236;
+        public static final int always=0x7f0b0026;
+        public static final int back=0x7f0b0572;
+        public static final int back_agent_changeinfo=0x7f0b0065;
+        public static final int baidu_map=0x7f0b00ee;
+        public static final int beginning=0x7f0b002d;
+        public static final int biaoqian=0x7f0b032b;
+        public static final int biaoti=0x7f0b032f;
+        public static final int blockbrade_fangshi_bufenzhuanrang=0x7f0b047b;
+        public static final int blockbrade_fangshi_guquanrongzi=0x7f0b047c;
+        public static final int blockbrade_fangshi_kongguquanzhuanrang=0x7f0b047a;
+        public static final int blockbrade_fangshi_zhaiquanrongzi=0x7f0b047d;
+        public static final int blockbrade_fangshi_zhengtizhuanrang=0x7f0b0479;
+        public static final int blockbrade_fangshi_zulinrongzi=0x7f0b047e;
+        public static final int blockbrade_sx_cunjiti=0x7f0b046c;
+        public static final int blockbrade_sx_junduiyongdi=0x7f0b046d;
+        public static final int blockbrade_sx_linyeyongdi=0x7f0b046e;
+        public static final int blockbrade_sx_shangye=0x7f0b0469;
+        public static final int blockbrade_sx_shangyongbangong=0x7f0b0468;
+        public static final int blockbrade_sx_zhuzhaiyongdi=0x7f0b046b;
+        public static final int blockbrade_sx_zongheyongdi=0x7f0b046a;
+        public static final int blockbrade_type_gongyeyongfang=0x7f0b0473;
+        public static final int blockbrade_type_jiti=0x7f0b0475;
+        public static final int blockbrade_type_jiudian=0x7f0b0474;
+        public static final int blockbrade_type_junchanfang=0x7f0b0476;
+        public static final int blockbrade_type_shangyeyong=0x7f0b0470;
+        public static final int blockbrade_type_xiezilou=0x7f0b0472;
+        public static final int blockbrade_type_zhuzhaiyong=0x7f0b0471;
+        public static final int blocktrade_quyu_sp1=0x7f0b0116;
+        public static final int blocktrade_quyu_sp2=0x7f0b0117;
+        public static final int blocktrade_quyu_sp3=0x7f0b0118;
+        public static final int blocktrade_quyu_sp4=0x7f0b0119;
+        public static final int blocktrade_spinner_cancle=0x7f0b047f;
+        public static final int both=0x7f0b0031;
+        public static final int bottom_layout=0x7f0b0574;
+        public static final int btn1=0x7f0b01b4;
+        public static final int btn2=0x7f0b01b6;
+        public static final int btn_1=0x7f0b00e5;
+        public static final int btn_Login=0x7f0b01a1;
+        public static final int btn_Regist=0x7f0b0281;
+        public static final int btn_agent_changefenjihao_jiebang=0x7f0b00a4;
+        public static final int btn_agent_changefenjihao_shenqing=0x7f0b00a1;
+        public static final int btn_agent_changepassword_submit=0x7f0b00b9;
+        public static final int btn_buyhouse_submit=0x7f0b039c;
+        public static final int btn_cancle_search=0x7f0b02ba;
+        public static final int btn_changefenjihao_jiebang=0x7f0b0256;
+        public static final int btn_changefenjihao_shenqing=0x7f0b0253;
+        public static final int btn_changepassword_submit=0x7f0b0263;
+        public static final int btn_curved=0x7f0b0435;
+        public static final int btn_dialog_cancle=0x7f0b02ea;
+        public static final int btn_dialog_sure=0x7f0b02eb;
+        public static final int btn_ershou_submit=0x7f0b034b;
+        public static final int btn_ershoufang=0x7f0b01ab;
+        public static final int btn_find_sendcode=0x7f0b0188;
+        public static final int btn_find_submit=0x7f0b018f;
+        public static final int btn_general_Login=0x7f0b0568;
+        public static final int btn_goudi_gou=0x7f0b02e2;
+        public static final int btn_house_Login=0x7f0b0386;
+        public static final int btn_house_noLogin_Login=0x7f0b03df;
+        public static final int btn_line=0x7f0b006c;
+        public static final int btn_line1=0x7f0b038e;
+        public static final int btn_line2=0x7f0b0095;
+        public static final int btn_line3=0x7f0b018a;
+        public static final int btn_line4=0x7f0b018c;
+        public static final int btn_line5=0x7f0b018e;
+        public static final int btn_line6=0x7f0b0280;
+        public static final int btn_map_location=0x7f0b01b3;
+        public static final int btn_map_trans=0x7f0b01b5;
+        public static final int btn_map_zhoubian=0x7f0b01b7;
+        public static final int btn_obtain=0x7f0b0434;
+        public static final int btn_qiuzu_submit=0x7f0b03b8;
+        public static final int btn_quicklogin_sendcode=0x7f0b056b;
+        public static final int btn_renting=0x7f0b01ac;
+        public static final int btn_renting_bianji=0x7f0b055b;
+        public static final int btn_renting_submit=0x7f0b0184;
+        public static final int btn_sendcode=0x7f0b027a;
+        public static final int btn_short_Login=0x7f0b056f;
+        public static final int btn_straight=0x7f0b0433;
+        public static final int btn_yhq_sendcode=0x7f0b059b;
+        public static final int btn_yuyuekanfang=0x7f0b016c;
+        public static final int building=0x7f0b0232;
+        public static final int button1=0x7f0b019a;
+        public static final int cancel=0x7f0b0573;
+        public static final int cb_goudi_check=0x7f0b02e1;
+        public static final int cb_spinner1=0x7f0b0456;
+        public static final int cb_spinner2=0x7f0b0457;
+        public static final int cb_spinner3=0x7f0b0458;
+        public static final int cb_spinner4=0x7f0b0459;
+        public static final int cb_spinner5=0x7f0b045a;
+        public static final int cb_spinner6=0x7f0b045b;
+        public static final int chanquansuoshu=0x7f0b0323;
+        public static final int check_1=0x7f0b02d4;
+        public static final int check_10=0x7f0b02dd;
+        public static final int check_11=0x7f0b02de;
+        public static final int check_12=0x7f0b02df;
+        public static final int check_2=0x7f0b02d5;
+        public static final int check_3=0x7f0b02d6;
+        public static final int check_4=0x7f0b02d7;
+        public static final int check_5=0x7f0b02d8;
+        public static final int check_6=0x7f0b02d9;
+        public static final int check_7=0x7f0b02da;
+        public static final int check_8=0x7f0b02db;
+        public static final int check_9=0x7f0b02dc;
+        public static final int checkbox=0x7f0b0051;
+        public static final int chengjiao_ershou=0x7f0b0379;
+        public static final int chengjiao_viewpage=0x7f0b037b;
+        public static final int chengjiao_zufang=0x7f0b037a;
+        public static final int chengjiaofangyuan_wushuju=0x7f0b00da;
+        public static final int chengjiaofangyuan_youshuju=0x7f0b00d7;
+        public static final int choose_back=0x7f0b0583;
+        public static final int choosedbt=0x7f0b0589;
+        public static final int chuzuCause=0x7f0b036d;
+        public static final int chuzutype=0x7f0b035e;
+        public static final int circleImageView1=0x7f0b00bf;
+        public static final int collapseActionView=0x7f0b0027;
+        public static final int curved=0x7f0b003a;
+        public static final int daimajia_indicator_wrapper=0x7f0b0436;
+        public static final int daimajia_slider_image=0x7f0b05a7;
+        public static final int daimajia_slider_viewpager=0x7f0b05ab;
+        public static final int default_activity_button=0x7f0b004c;
+        public static final int default_bottom_left_indicator=0x7f0b05ae;
+        public static final int default_bottom_right_indicator=0x7f0b05ad;
+        public static final int default_center_bottom_indicator=0x7f0b05ac;
+        public static final int default_center_top_indicator=0x7f0b05af;
+        public static final int default_center_top_left_indicator=0x7f0b05b1;
+        public static final int default_center_top_right_indicator=0x7f0b05b0;
+        public static final int description=0x7f0b05aa;
+        public static final int description_layout=0x7f0b05a9;
+        public static final int dialog=0x7f0b002b;
+        public static final int disableHome=0x7f0b0020;
+        public static final int disabled=0x7f0b0032;
+        public static final int ditieline=0x7f0b032d;
+        public static final int diyaxinxi=0x7f0b0313;
+        public static final int dropdown=0x7f0b002c;
+        public static final int edit_query=0x7f0b0054;
+        public static final int end=0x7f0b002e;
+        public static final int ershou_biaoqian_jing=0x7f0b04ee;
+        public static final int ershou_biaoqian_weiyi=0x7f0b04ef;
+        public static final int ershou_bmapView=0x7f0b015e;
+        public static final int ershou_chaoxiang_bei=0x7f0b04e5;
+        public static final int ershou_chaoxiang_dong=0x7f0b04e2;
+        public static final int ershou_chaoxiang_nan=0x7f0b04e3;
+        public static final int ershou_chaoxiang_nanbei=0x7f0b04e6;
+        public static final int ershou_chaoxiang_xi=0x7f0b04e4;
+        public static final int ershou_from_agent=0x7f0b04fb;
+        public static final int ershou_from_yezhu=0x7f0b04fa;
+        public static final int ershou_highprice_et=0x7f0b04d9;
+        public static final int ershou_louceng_center=0x7f0b04f1;
+        public static final int ershou_louceng_high=0x7f0b04f2;
+        public static final int ershou_louceng_low=0x7f0b04f0;
+        public static final int ershou_lowprice_et=0x7f0b04d8;
+        public static final int ershou_mianji_ershi=0x7f0b046f;
+        public static final int ershou_mianji_jiu_shiyi=0x7f0b04ea;
+        public static final int ershou_mianji_qi_jiu=0x7f0b04e9;
+        public static final int ershou_mianji_shiqi_ershi=0x7f0b04ed;
+        public static final int ershou_mianji_shisi_shiqi=0x7f0b04ec;
+        public static final int ershou_mianji_shiyi_shisi=0x7f0b04eb;
+        public static final int ershou_mianji_wu_qi=0x7f0b04e8;
+        public static final int ershou_mianji_wushi=0x7f0b04e7;
+        public static final int ershou_spinner_cancle=0x7f0b0500;
+        public static final int ershou_type_gongyu=0x7f0b04fd;
+        public static final int ershou_type_shangpu=0x7f0b04fe;
+        public static final int ershou_type_xiezilou=0x7f0b04ff;
+        public static final int ershou_type_zuzhai=0x7f0b04fc;
+        public static final int ershou_wuye_cunweitongjian=0x7f0b04f4;
+        public static final int ershou_wuye_gerenzijianshe=0x7f0b04f6;
+        public static final int ershou_wuye_gongyechangzufang=0x7f0b04f9;
+        public static final int ershou_wuye_gongyechanquanfang=0x7f0b0477;
+        public static final int ershou_wuye_junquchanfang=0x7f0b04f7;
+        public static final int ershou_wuye_kaifangshangjianshe=0x7f0b04f5;
+        public static final int ershou_wuye_qita=0x7f0b0478;
+        public static final int ershou_wuye_shangpinfang=0x7f0b04f3;
+        public static final int ershou_wuye_wujingchanfang=0x7f0b04f8;
+        public static final int ershoufang_feiyuyue=0x7f0b011b;
+        public static final int ershoufang_huxing=0x7f0b0126;
+        public static final int ershoufang_mianji=0x7f0b0128;
+        public static final int ershoufang_quyu_sp1=0x7f0b0170;
+        public static final int ershoufang_quyu_sp2=0x7f0b0171;
+        public static final int ershoufang_quyu_sp3=0x7f0b0172;
+        public static final int ershoufang_quyu_sp4=0x7f0b0173;
+        public static final int ershoufang_scrollview=0x7f0b011f;
+        public static final int ershoufang_shoujia=0x7f0b0124;
+        public static final int ershoufangyuan_wushuju=0x7f0b00df;
+        public static final int ershoufangyuan_youshuju=0x7f0b00dc;
+        public static final int et12=0x7f0b01c9;
+        public static final int et123=0x7f0b01c2;
+        public static final int et1gyhtg=0x7f0b01c3;
+        public static final int et2132=0x7f0b01c0;
+        public static final int et_21=0x7f0b01e9;
+        public static final int et_22=0x7f0b01eb;
+        public static final int et_23=0x7f0b01ed;
+        public static final int et_24=0x7f0b01ef;
+        public static final int et_25=0x7f0b01f1;
+        public static final int et_26=0x7f0b01f3;
+        public static final int et_27=0x7f0b01f5;
+        public static final int et_28=0x7f0b01f7;
+        public static final int et_agent_change_Newpassword=0x7f0b00b6;
+        public static final int et_agent_change_currentpassword=0x7f0b00b4;
+        public static final int et_agent_change_repassword=0x7f0b00b8;
+        public static final int et_agent_changecompanyname=0x7f0b00b0;
+        public static final int et_agent_changegerenjieshao=0x7f0b00a8;
+        public static final int et_agent_changeshenfenzheng=0x7f0b00ac;
+        public static final int et_agent_changrealname=0x7f0b009b;
+        public static final int et_block_trade_search=0x7f0b0114;
+        public static final int et_buyhouse_chenghu=0x7f0b0390;
+        public static final int et_change_Newpassword=0x7f0b0260;
+        public static final int et_change_currentpassword=0x7f0b025e;
+        public static final int et_change_repassword=0x7f0b0262;
+        public static final int et_changegerenjieshao=0x7f0b025a;
+        public static final int et_changrealname=0x7f0b024e;
+        public static final int et_comment_agent=0x7f0b02c8;
+        public static final int et_ershou_chenghu=0x7f0b03a4;
+        public static final int et_ershou_fangling=0x7f0b0300;
+        public static final int et_ershou_housrprice=0x7f0b02fa;
+        public static final int et_ershou_jianzhumianji=0x7f0b02fd;
+        public static final int et_ershou_loudong=0x7f0b0303;
+        public static final int et_ershou_menpai=0x7f0b0305;
+        public static final int et_ershou_taoneimianji=0x7f0b0308;
+        public static final int et_ershoufang_search=0x7f0b00e4;
+        public static final int et_find_password=0x7f0b018b;
+        public static final int et_find_phonenumb=0x7f0b0187;
+        public static final int et_find_repassword=0x7f0b018d;
+        public static final int et_find_smscode=0x7f0b0189;
+        public static final int et_first_search=0x7f0b03c3;
+        public static final int et_genal_login_lock=0x7f0b0567;
+        public static final int et_genal_login_phonenumber=0x7f0b0564;
+        public static final int et_goufangren=0x7f0b0596;
+        public static final int et_password=0x7f0b0278;
+        public static final int et_phonenumb=0x7f0b027b;
+        public static final int et_qi1=0x7f0b01cc;
+        public static final int et_qiuzu_cehnghu=0x7f0b03ad;
+        public static final int et_qiwangzujin=0x7f0b017d;
+        public static final int et_renting_fangling=0x7f0b0356;
+        public static final int et_renting_housrprice=0x7f0b0354;
+        public static final int et_renting_mianji=0x7f0b0355;
+        public static final int et_renting_proprietor_address=0x7f0b0177;
+        public static final int et_renting_proprietor_title=0x7f0b0176;
+        public static final int et_renting_search=0x7f0b02ab;
+        public static final int et_repassword=0x7f0b00ba;
+        public static final int et_search=0x7f0b02b9;
+        public static final int et_short_login_lock_quick=0x7f0b056e;
+        public static final int et_short_login_phonenumber=0x7f0b056a;
+        public static final int et_shoujihao=0x7f0b0598;
+        public static final int et_smscode=0x7f0b0277;
+        public static final int et_yanzhenma=0x7f0b059a;
+        public static final int expand_activities_button=0x7f0b004a;
+        public static final int expanded_menu=0x7f0b0050;
+        public static final int fangling_1=0x7f0b02fe;
+        public static final int fenjihao_jiebang=0x7f0b0254;
+        public static final int fenjihao_shenqing=0x7f0b0251;
+        public static final int file=0x7f0b0580;
+        public static final int fileGridView=0x7f0b057e;
+        public static final int file_back=0x7f0b0581;
+        public static final int file_image=0x7f0b0582;
+        public static final int filenum=0x7f0b0584;
+        public static final int first=0x7f0b01a4;
+        public static final int first_scrollview=0x7f0b03bf;
+        public static final int fl_agent_fragment=0x7f0b00eb;
+        public static final int fl_inner=0x7f0b059d;
+        public static final int flip=0x7f0b0038;
+        public static final int four=0x7f0b0235;
+        public static final int fragmentershoulist=0x7f0b02f0;
+        public static final int fragmentrentinglist=0x7f0b034e;
+        public static final int futian=0x7f0b022c;
+        public static final int gallery01=0x7f0b057c;
+        public static final int gallery_back=0x7f0b0579;
+        public static final int gallery_del=0x7f0b057a;
+        public static final int gridview=0x7f0b0006;
+        public static final int guanzhu_ershou=0x7f0b026e;
+        public static final int guanzhu_new=0x7f0b026f;
+        public static final int guanzhu_viewpage=0x7f0b0270;
+        public static final int guapaitime=0x7f0b0329;
+        public static final int head_view=0x7f0b05a2;
+        public static final int headerTitle=0x7f0b057d;
+        public static final int headview=0x7f0b0571;
+        public static final int hexinmaidian=0x7f0b0343;
+        public static final int home=0x7f0b0000;
+        public static final int homeAsUp=0x7f0b0021;
+        public static final int horizontal=0x7f0b003c;
+        public static final int house=0x7f0b01a6;
+        public static final int houseBest=0x7f0b036b;
+        public static final int houseDesc=0x7f0b0331;
+        public static final int houseSX=0x7f0b0317;
+        public static final int houseUse=0x7f0b0321;
+        public static final int house_viewpage=0x7f0b03db;
+        public static final int houseaddress=0x7f0b0368;
+        public static final int housepeizhi=0x7f0b0362;
+        public static final int huType=0x7f0b0315;
+        public static final int huxing=0x7f0b0125;
+        public static final int huxingjieshao=0x7f0b0335;
+        public static final int icon=0x7f0b004e;
+        public static final int id_gallery=0x7f0b0432;
+        public static final int ifRoom=0x7f0b0028;
+        public static final int image=0x7f0b004b;
+        public static final int imageView1=0x7f0b00bd;
+        public static final int imageView10=0x7f0b03f1;
+        public static final int imageView1021=0x7f0b0406;
+        public static final int imageView10216=0x7f0b0427;
+        public static final int imageView1032=0x7f0b040e;
+        public static final int imageView10382=0x7f0b042f;
+        public static final int imageView1042=0x7f0b0423;
+        public static final int imageView1052=0x7f0b040a;
+        public static final int imageView10526=0x7f0b042b;
+        public static final int imageView11=0x7f0b01d2;
+        public static final int imageView111=0x7f0b0411;
+        public static final int imageView1111=0x7f0b0431;
+        public static final int imageView12=0x7f0b01d5;
+        public static final int imageView13=0x7f0b01d8;
+        public static final int imageView14=0x7f0b01db;
+        public static final int imageView15=0x7f0b01de;
+        public static final int imageView171=0x7f0b0400;
+        public static final int imageView176=0x7f0b041d;
+        public static final int imageView181=0x7f0b0402;
+        public static final int imageView1861=0x7f0b041f;
+        public static final int imageView2=0x7f0b006a;
+        public static final int imageView21=0x7f0b0077;
+        public static final int imageView211=0x7f0b007b;
+        public static final int imageView2111=0x7f0b007f;
+        public static final int imageView21111=0x7f0b0087;
+        public static final int imageView213=0x7f0b0083;
+        public static final int imageView2145=0x7f0b0091;
+        public static final int imageView215=0x7f0b008d;
+        public static final int imageView25=0x7f0b008a;
+        public static final int imageView251=0x7f0b0413;
+        public static final int imageView3=0x7f0b0096;
+        public static final int imageView31=0x7f0b03f5;
+        public static final int imageView351=0x7f0b0415;
+        public static final int imageView4=0x7f0b0194;
+        public static final int imageView41=0x7f0b03f7;
+        public static final int imageView415=0x7f0b0417;
+        public static final int imageView5=0x7f0b0183;
+        public static final int imageView51=0x7f0b03f9;
+        public static final int imageView541=0x7f0b0419;
+        public static final int imageView6=0x7f0b01fd;
+        public static final int imageView61=0x7f0b03fa;
+        public static final int imageView641=0x7f0b041b;
+        public static final int imageView7=0x7f0b0182;
+        public static final int imageView71=0x7f0b03ed;
+        public static final int imageView711=0x7f0b03fc;
+        public static final int imageView8=0x7f0b03eb;
+        public static final int imageView81=0x7f0b03ef;
+        public static final int imageView811=0x7f0b03fe;
+        public static final int imageView89=0x7f0b029c;
+        public static final int imageView9=0x7f0b029e;
+        public static final int imageView912=0x7f0b0404;
+        public static final int imageView9126=0x7f0b0425;
+        public static final int imageView924=0x7f0b0421;
+        public static final int imageView932=0x7f0b040c;
+        public static final int imageView942=0x7f0b0408;
+        public static final int imageView9426=0x7f0b0429;
+        public static final int imageView9732=0x7f0b042d;
+        public static final int image_view=0x7f0b0586;
+        public static final int invisible=0x7f0b0009;
+        public static final int item_grida_image=0x7f0b0522;
+        public static final int item_left=0x7f0b0438;
+        public static final int item_popupwindows_Photo=0x7f0b0504;
+        public static final int item_popupwindows_btn1=0x7f0b0507;
+        public static final int item_popupwindows_btn2=0x7f0b0508;
+        public static final int item_popupwindows_camera=0x7f0b0503;
+        public static final int item_popupwindows_cancel=0x7f0b0505;
+        public static final int item_popupwindows_sure=0x7f0b050c;
+        public static final int item_popupwindows_title=0x7f0b050b;
+        public static final int item_popupwindows_touxaing1=0x7f0b0510;
+        public static final int item_popupwindows_touxaing2=0x7f0b0511;
+        public static final int item_popupwindows_touxaing_cancel=0x7f0b0512;
+        public static final int item_popupwindows_worktime_btn1=0x7f0b0516;
+        public static final int item_popupwindows_worktime_btn2=0x7f0b0517;
+        public static final int item_popupwindows_worktime_btn3=0x7f0b0518;
+        public static final int item_popupwindows_worktime_btn4=0x7f0b0519;
+        public static final int item_popupwindows_worktime_cancel=0x7f0b051a;
+        public static final int item_popupwindows_yizhitype_btn1=0x7f0b051e;
+        public static final int item_popupwindows_yizhitype_btn2=0x7f0b051f;
+        public static final int item_popupwindows_yizhitype_btn3=0x7f0b0520;
+        public static final int item_popupwindows_yizhitype_cancel=0x7f0b0521;
+        public static final int item_right=0x7f0b0440;
+        public static final int item_right_txt=0x7f0b0441;
+        public static final int iv3=0x7f0b01c7;
+        public static final int iv31=0x7f0b01cf;
+        public static final int iv32=0x7f0b01e2;
+        public static final int iv33=0x7f0b01e6;
+        public static final int iv_1=0x7f0b0267;
+        public static final int iv_MsM=0x7f0b0112;
+        public static final int iv_agent_Photo=0x7f0b006b;
+        public static final int iv_agent_author=0x7f0b0450;
+        public static final int iv_agent_back=0x7f0b00e1;
+        public static final int iv_agent_upload=0x7f0b0093;
+        public static final int iv_agentdata_phone=0x7f0b044e;
+        public static final int iv_agentdata_pic=0x7f0b0442;
+        public static final int iv_block_trade_detail=0x7f0b00fc;
+        public static final int iv_block_trade_detail_MsM=0x7f0b00f9;
+        public static final int iv_chengjiaoershou=0x7f0b0439;
+        public static final int iv_delete=0x7f0b04a0;
+        public static final int iv_ershoufang_img=0x7f0b045f;
+        public static final int iv_guanzhuershou=0x7f0b04a1;
+        public static final int iv_housepic=0x7f0b0121;
+        public static final int iv_iphone=0x7f0b0563;
+        public static final int iv_location=0x7f0b00e2;
+        public static final int iv_lock=0x7f0b0566;
+        public static final int iv_lock_quick=0x7f0b056d;
+        public static final int iv_my_Photo=0x7f0b03e5;
+        public static final int iv_my_back=0x7f0b03e3;
+        public static final int iv_new_house_detail=0x7f0b0202;
+        public static final int iv_new_house_detail_MsM=0x7f0b0200;
+        public static final int iv_newhouse_ad=0x7f0b022a;
+        public static final int iv_newhouse_back=0x7f0b0229;
+        public static final int iv_newhousedetail_tuan=0x7f0b020f;
+        public static final int iv_personal_Photo=0x7f0b023f;
+        public static final int iv_proprietor=0x7f0b0265;
+        public static final int iv_recommend_img=0x7f0b0527;
+        public static final int iv_recommend_pic_web=0x7f0b0274;
+        public static final int iv_renting_pic=0x7f0b0285;
+        public static final int iv_submit_ershou_list=0x7f0b054d;
+        public static final int iv_submit_renting_list=0x7f0b0555;
+        public static final int iv_welcome=0x7f0b02cf;
+        public static final int jianzhuJieGou=0x7f0b031d;
+        public static final int jianzhuType=0x7f0b031b;
+        public static final int jiaotongchuxing=0x7f0b0341;
+        public static final int jiaoyupeitao=0x7f0b033f;
+        public static final int lin1=0x7f0b01b1;
+        public static final int listMode=0x7f0b001d;
+        public static final int list_item=0x7f0b004d;
+        public static final int list_item_text=0x7f0b0437;
+        public static final int listview_search=0x7f0b02bb;
+        public static final int ll__person_changfenjiahao=0x7f0b024f;
+        public static final int ll_aegnt_changfenjiahao=0x7f0b009d;
+        public static final int ll_agent_changecompanyname=0x7f0b00ad;
+        public static final int ll_agent_changecompanyname_back=0x7f0b00ae;
+        public static final int ll_agent_changefenjihao_back=0x7f0b009e;
+        public static final int ll_agent_changegerenjieshao_back=0x7f0b00a6;
+        public static final int ll_agent_changeinfo_back=0x7f0b0064;
+        public static final int ll_agent_changepassword=0x7f0b00b1;
+        public static final int ll_agent_changepassword_back=0x7f0b00b2;
+        public static final int ll_agent_changerealname=0x7f0b0097;
+        public static final int ll_agent_changerealname_back=0x7f0b0099;
+        public static final int ll_agent_changeshenfenzheng=0x7f0b00a9;
+        public static final int ll_agent_changeshenfenzheng_back=0x7f0b00aa;
+        public static final int ll_agent_gerenjieshao=0x7f0b00a5;
+        public static final int ll_agent_house=0x7f0b03e0;
+        public static final int ll_agent_search=0x7f0b00e3;
+        public static final int ll_agent_spinner=0x7f0b00e6;
+        public static final int ll_agentdetail_back=0x7f0b00bc;
+        public static final int ll_at_goudilist_back=0x7f0b0374;
+        public static final int ll_back_agent=0x7f0b02c1;
+        public static final int ll_back_agent2=0x7f0b02c6;
+        public static final int ll_back_agentchengjiao=0x7f0b0377;
+        public static final int ll_back_agentershoulist=0x7f0b02ee;
+        public static final int ll_back_agentershousubmit=0x7f0b02f1;
+        public static final int ll_back_agentrentinglist=0x7f0b034c;
+        public static final int ll_back_agentrentingsubmit=0x7f0b034f;
+        public static final int ll_back_ershoufangdetails=0x7f0b011d;
+        public static final int ll_back_login=0x7f0b0276;
+        public static final int ll_back_pt_buyhouselist=0x7f0b0389;
+        public static final int ll_back_ptbuyhousesubmit=0x7f0b038c;
+        public static final int ll_back_ptqiuzulist=0x7f0b03a7;
+        public static final int ll_back_ptqiuzusubmit=0x7f0b03aa;
+        public static final int ll_back_putongershou=0x7f0b03a1;
+        public static final int ll_back_putongershoulist=0x7f0b039d;
+        public static final int ll_back_putongguanzhu=0x7f0b026b;
+        public static final int ll_back_putongrenting=0x7f0b03bc;
+        public static final int ll_back_putongrentinglist=0x7f0b03b9;
+        public static final int ll_back_renting_house_agent=0x7f0b01bd;
+        public static final int ll_back_rentingdetails=0x7f0b0283;
+        public static final int ll_back_submitedittext=0x7f0b02ca;
+        public static final int ll_back_yuyuekanfnag=0x7f0b0165;
+        public static final int ll_baidumap_back=0x7f0b00ed;
+        public static final int ll_block_trade_back=0x7f0b0113;
+        public static final int ll_block_trade_detail_back=0x7f0b00fa;
+        public static final int ll_blocktrade_spinner=0x7f0b0115;
+        public static final int ll_cancle=0x7f0b0506;
+        public static final int ll_cancle_touxaing=0x7f0b050f;
+        public static final int ll_cancle_worktime=0x7f0b0515;
+        public static final int ll_cancle_yizhitype=0x7f0b051d;
+        public static final int ll_changefenjihao_back=0x7f0b0250;
+        public static final int ll_changegerenjieshao_back=0x7f0b0258;
+        public static final int ll_changepassword_back=0x7f0b025c;
+        public static final int ll_changerealname_back=0x7f0b024c;
+        public static final int ll_contorl=0x7f0b03d8;
+        public static final int ll_ershoufang_back=0x7f0b016e;
+        public static final int ll_ershoufang_proprietor_back=0x7f0b0175;
+        public static final int ll_ershoufang_spinner=0x7f0b016f;
+        public static final int ll_ershoufangdetail_bottom=0x7f0b0120;
+        public static final int ll_find_pasword_back=0x7f0b0185;
+        public static final int ll_goudilist_back=0x7f0b037d;
+        public static final int ll_house_price_detail_back=0x7f0b02ce;
+        public static final int ll_house_puchase_back=0x7f0b0190;
+        public static final int ll_housetype1=0x7f0b022b;
+        public static final int ll_housetype2=0x7f0b022f;
+        public static final int ll_housetype3=0x7f0b0233;
+        public static final int ll_kanfangdate=0x7f0b0381;
+        public static final int ll_kanfangdate_list=0x7f0b0387;
+        public static final int ll_login=0x7f0b019e;
+        public static final int ll_map_house_back=0x7f0b01aa;
+        public static final int ll_map_house_spinner=0x7f0b01ad;
+        public static final int ll_marker_showlay=0x7f0b01b8;
+        public static final int ll_mysetting_agent_login=0x7f0b040f;
+        public static final int ll_mysetting_nologin=0x7f0b03e6;
+        public static final int ll_mysetting_putong_login=0x7f0b03f2;
+        public static final int ll_new_house_detail_back=0x7f0b0201;
+        public static final int ll_newhouse_spinner=0x7f0b0221;
+        public static final int ll_newhouselist_back=0x7f0b0220;
+        public static final int ll_noLogin_house=0x7f0b0385;
+        public static final int ll_one=0x7f0b03c0;
+        public static final int ll_person_changepassword=0x7f0b025b;
+        public static final int ll_person_gerenjieshao=0x7f0b0257;
+        public static final int ll_personal_back=0x7f0b023d;
+        public static final int ll_pop_choice=0x7f0b05b3;
+        public static final int ll_popup=0x7f0b0502;
+        public static final int ll_popup_delete=0x7f0b050a;
+        public static final int ll_popup_spinner=0x7f0b04c0;
+        public static final int ll_popup_spinner2=0x7f0b0455;
+        public static final int ll_popup_spinner_more=0x7f0b0467;
+        public static final int ll_popup_spinner_quyu=0x7f0b04dc;
+        public static final int ll_popup_touxaing=0x7f0b050e;
+        public static final int ll_popup_worktime=0x7f0b0514;
+        public static final int ll_popup_yhq=0x7f0b0594;
+        public static final int ll_popup_yizhitype=0x7f0b051c;
+        public static final int ll_proprietor_back=0x7f0b0264;
+        public static final int ll_putong_house=0x7f0b03d7;
+        public static final int ll_recommend_back_web=0x7f0b0272;
+        public static final int ll_regist_type=0x7f0b027c;
+        public static final int ll_renting_back=0x7f0b02aa;
+        public static final int ll_renting_proprietor_back=0x7f0b02b2;
+        public static final int ll_renting_spinner=0x7f0b02ac;
+        public static final int ll_search=0x7f0b03c2;
+        public static final int ll_setting_back=0x7f0b01f8;
+        public static final int ll_show_phone=0x7f0b04b8;
+        public static final int ll_title=0x7f0b026c;
+        public static final int ll_tree=0x7f0b03c9;
+        public static final int ll_two=0x7f0b03c4;
+        public static final int ll_weizhifu=0x7f0b048a;
+        public static final int ll_wheelPicker=0x7f0b05b4;
+        public static final int ll_yuyuedate=0x7f0b0166;
+        public static final int ll_yuyuetime=0x7f0b0169;
+        public static final int ll_zhifu=0x7f0b0491;
+        public static final int loading_bar=0x7f0b05a8;
+        public static final int loading_icon=0x7f0b055f;
+        public static final int loadmore_view=0x7f0b055d;
+        public static final int loadstate_iv=0x7f0b0561;
+        public static final int loadstate_tv=0x7f0b0560;
+        public static final int login_tabstrip=0x7f0b01a0;
+        public static final int login_viewpager=0x7f0b019f;
+        public static final int longgang=0x7f0b0230;
+        public static final int louceng1=0x7f0b030d;
+        public static final int loucengMeau1=0x7f0b030f;
+        public static final int loudong_1=0x7f0b0301;
+        public static final int loushizixun=0x7f0b0237;
+        public static final int luohu=0x7f0b0234;
+        public static final int lv_ShopGuide=0x7f0b03d6;
+        public static final int lv_agent_chengjiaofangyuan=0x7f0b00d8;
+        public static final int lv_agent_ershoufangyuan=0x7f0b00dd;
+        public static final int lv_agent_list=0x7f0b00ea;
+        public static final int lv_agent_pinglun=0x7f0b00d3;
+        public static final int lv_at_goudilist=0x7f0b0375;
+        public static final int lv_blocktrade=0x7f0b011a;
+        public static final int lv_buyhouse_list=0x7f0b038b;
+        public static final int lv_chengjiao_ershou=0x7f0b0376;
+        public static final int lv_goudilist=0x7f0b037e;
+        public static final int lv_guanzhu_ershou=0x7f0b037f;
+        public static final int lv_guanzhu_new=0x7f0b0380;
+        public static final int lv_haofangtuijian=0x7f0b015f;
+        public static final int lv_kandangdate=0x7f0b0388;
+        public static final int lv_loushizixun=0x7f0b0238;
+        public static final int lv_marke_list=0x7f0b01bc;
+        public static final int lv_newhouselist=0x7f0b0226;
+        public static final int lv_popwin_list=0x7f0b04c1;
+        public static final int lv_popwin_list2=0x7f0b04c2;
+        public static final int lv_popwin_list_area=0x7f0b04e1;
+        public static final int lv_popwin_list_quyu=0x7f0b04e0;
+        public static final int lv_qiuzu_list=0x7f0b03a9;
+        public static final int lv_rentinglist=0x7f0b02b1;
+        public static final int lv_rexiaofangyuan=0x7f0b023a;
+        public static final int lv_submit_ershou_list1=0x7f0b039f;
+        public static final int lv_submit_renting_list=0x7f0b03bb;
+        public static final int lv_tongxiaoqujilu=0x7f0b015b;
+        public static final int mCarouselView=0x7f0b0383;
+        public static final int main_dialog_container1=0x7f0b0060;
+        public static final int main_dialog_container2=0x7f0b0061;
+        public static final int main_dialog_container3=0x7f0b0062;
+        public static final int manualOnly=0x7f0b0033;
+        public static final int maphouse_bmapView=0x7f0b01b2;
+        public static final int maphouse_sp1=0x7f0b01ae;
+        public static final int maphouse_sp2=0x7f0b01af;
+        public static final int maphouse_sp3=0x7f0b01b0;
+        public static final int menpai_1=0x7f0b0304;
+        public static final int message=0x7f0b01a5;
+        public static final int mianji=0x7f0b0127;
+        public static final int middle=0x7f0b002f;
+        public static final int monthnumber=0x7f0b03d0;
+        public static final int my=0x7f0b01a7;
+        public static final int myGrid=0x7f0b0577;
+        public static final int myText=0x7f0b0578;
+        public static final int myyuyue_kanfang_guoqi=0x7f0b04b6;
+        public static final int myyuyue_kanfang_image_zhuangzai=0x7f0b04b7;
+        public static final int myyuyue_kanfang_phone=0x7f0b04b9;
+        public static final int myyuyue_kanfang_time=0x7f0b04b4;
+        public static final int myyuyue_kanfang_title=0x7f0b04b5;
+        public static final int myyuyue_kanfang_zhuangtai=0x7f0b04b3;
+        public static final int name=0x7f0b0585;
+        public static final int never=0x7f0b0029;
+        public static final int newHouse_scrollview=0x7f0b0227;
+        public static final int new_bmapView=0x7f0b021c;
+        public static final int newhouse_all_cancle=0x7f0b04d7;
+        public static final int newhouse_quyu_sp1=0x7f0b0222;
+        public static final int newhouse_quyu_sp2=0x7f0b0223;
+        public static final int newhouse_quyu_sp3=0x7f0b0224;
+        public static final int newhouse_quyu_sp4=0x7f0b0225;
+        public static final int newhouse_rexiao_address=0x7f0b029a;
+        public static final int newhouse_rexiao_address1=0x7f0b02a7;
+        public static final int newhouse_rexiao_address2=0x7f0b02a2;
+        public static final int newhouse_rexiao_area=0x7f0b0299;
+        public static final int newhouse_rexiao_area1=0x7f0b02a6;
+        public static final int newhouse_rexiao_area2=0x7f0b02a1;
+        public static final int newhouse_rexiao_iv=0x7f0b0297;
+        public static final int newhouse_rexiao_iv1=0x7f0b02a4;
+        public static final int newhouse_rexiao_iv2=0x7f0b029f;
+        public static final int newhouse_rexiao_price=0x7f0b029b;
+        public static final int newhouse_rexiao_price1=0x7f0b02a8;
+        public static final int newhouse_rexiao_price2=0x7f0b02a3;
+        public static final int newhouse_rexiao_title=0x7f0b0298;
+        public static final int newhouse_rexiao_title1=0x7f0b02a5;
+        public static final int newhouse_rexiao_title2=0x7f0b02a0;
+        public static final int newhouse_sx_cunwei=0x7f0b04cd;
+        public static final int newhouse_sx_geren=0x7f0b04cf;
+        public static final int newhouse_sx_gongyechangzu=0x7f0b04d2;
+        public static final int newhouse_sx_gongyechanquan=0x7f0b04d3;
+        public static final int newhouse_sx_junjuchanfang=0x7f0b04d0;
+        public static final int newhouse_sx_kaifangshang=0x7f0b04ce;
+        public static final int newhouse_sx_qita=0x7f0b04d4;
+        public static final int newhouse_sx_shangpin=0x7f0b04cc;
+        public static final int newhouse_sx_wujingchanfang=0x7f0b04d1;
+        public static final int newhouse_type_bangong=0x7f0b04c7;
+        public static final int newhouse_type_changfang=0x7f0b04ca;
+        public static final int newhouse_type_juzhu=0x7f0b04c6;
+        public static final int newhouse_type_shangye=0x7f0b04c8;
+        public static final int newhouse_type_shangzhu=0x7f0b04c9;
+        public static final int newhouse_type_zomngheti=0x7f0b04cb;
+        public static final int newhouse_xq_dudong=0x7f0b04d5;
+        public static final int newhouse_xq_xiaoqu=0x7f0b04d6;
+        public static final int newhouse_zx_jian=0x7f0b04c4;
+        public static final int newhouse_zx_jing=0x7f0b04c3;
+        public static final int newhouse_zx_mao=0x7f0b04c5;
+        public static final int newhouselist_address=0x7f0b04bc;
+        public static final int newhouselist_area=0x7f0b04bd;
+        public static final int newhouselist_iv=0x7f0b04ba;
+        public static final int newhouselist_price=0x7f0b04be;
+        public static final int newhouselist_title=0x7f0b04bb;
+        public static final int noScrollgridview=0x7f0b02be;
+        public static final int no_picture_confirm=0x7f0b057f;
+        public static final int nologin_mCarouselView=0x7f0b03dd;
+        public static final int nologin_pointLayout=0x7f0b03de;
+        public static final int nologin_relativeLayout1=0x7f0b03dc;
+        public static final int none=0x7f0b0030;
+        public static final int normal=0x7f0b001e;
+        public static final int ok_button=0x7f0b0576;
+        public static final int oval=0x7f0b001b;
+        public static final int parent=0x7f0b0501;
+        public static final int parent_delete=0x7f0b0509;
+        public static final int parent_spinner=0x7f0b04bf;
+        public static final int parent_spinner2=0x7f0b0454;
+        public static final int parent_spinner_more=0x7f0b0466;
+        public static final int parent_spinner_quyu=0x7f0b04db;
+        public static final int parent_touxaing=0x7f0b050d;
+        public static final int parent_wheel=0x7f0b05b2;
+        public static final int parent_worktime=0x7f0b0513;
+        public static final int parent_yhq=0x7f0b0593;
+        public static final int parent_yizhitype=0x7f0b051b;
+        public static final int pinglun_wushuju=0x7f0b00d5;
+        public static final int pinglun_youshuju=0x7f0b00d2;
+        public static final int pointLayout=0x7f0b0384;
+        public static final int preview=0x7f0b0575;
+        public static final int progress_circular=0x7f0b0004;
+        public static final int progress_horizontal=0x7f0b0005;
+        public static final int pullDownFromTop=0x7f0b0034;
+        public static final int pullFromEnd=0x7f0b0035;
+        public static final int pullFromStart=0x7f0b0036;
+        public static final int pullUpFromBottom=0x7f0b0037;
+        public static final int pull_icon=0x7f0b05a3;
+        public static final int pull_to_refresh_image=0x7f0b059e;
+        public static final int pull_to_refresh_progress=0x7f0b059f;
+        public static final int pull_to_refresh_sub_text=0x7f0b05a1;
+        public static final int pull_to_refresh_text=0x7f0b05a0;
+        public static final int pullup_icon=0x7f0b055e;
+        public static final int quanshiprice=0x7f0b03cf;
+        public static final int quanshudiya=0x7f0b0347;
+        public static final int radio=0x7f0b0053;
+        public static final int rb_agent=0x7f0b027f;
+        public static final int rb_baidumap_bank=0x7f0b00ef;
+        public static final int rb_baidumap_ditie=0x7f0b00f1;
+        public static final int rb_baidumap_gongjiao=0x7f0b00f0;
+        public static final int rb_baidumap_jianshen=0x7f0b00f6;
+        public static final int rb_baidumap_jiaoyu=0x7f0b00f2;
+        public static final int rb_baidumap_meishi=0x7f0b00f7;
+        public static final int rb_baidumap_shop=0x7f0b00f5;
+        public static final int rb_baidumap_xiuxian=0x7f0b00f4;
+        public static final int rb_baidumap_yiyuan=0x7f0b00f3;
+        public static final int rb_dazongjiaoyi=0x7f0b03cb;
+        public static final int rb_dituzhaofang=0x7f0b03cc;
+        public static final int rb_domestic_consumer=0x7f0b027e;
+        public static final int rb_ershoufang=0x7f0b03c5;
+        public static final int rb_ershoufangguanzhu=0x7f0b0161;
+        public static final int rb_goufangxuzhi=0x7f0b03cd;
+        public static final int rb_jingjiren=0x7f0b03c8;
+        public static final int rb_popwin_ditie=0x7f0b04df;
+        public static final int rb_popwin_quyu=0x7f0b04de;
+        public static final int rb_xinfang=0x7f0b03c6;
+        public static final int rb_yezhuweituo=0x7f0b03ca;
+        public static final int rb_zufang=0x7f0b03c7;
+        public static final int rect=0x7f0b001c;
+        public static final int refined_decoration=0x7f0b022e;
+        public static final int refresh_listview=0x7f0b0174;
+        public static final int refreshing_icon=0x7f0b05a4;
+        public static final int relativeLayout1=0x7f0b0382;
+        public static final int renting_biaoqian_jingzhuangxiu=0x7f0b0536;
+        public static final int renting_biaoqian_suishikanfang=0x7f0b0537;
+        public static final int renting_bmapView=0x7f0b029d;
+        public static final int renting_chaoxiang=0x7f0b028f;
+        public static final int renting_chaoxiang_bei=0x7f0b052c;
+        public static final int renting_chaoxiang_dong=0x7f0b0529;
+        public static final int renting_chaoxiang_nan=0x7f0b052a;
+        public static final int renting_chaoxiang_nanbei=0x7f0b052d;
+        public static final int renting_chaoxiang_xi=0x7f0b052b;
+        public static final int renting_ditie=0x7f0b0290;
+        public static final int renting_fabushijian=0x7f0b028e;
+        public static final int renting_fangshi=0x7f0b028b;
+        public static final int renting_fangshi_hezu=0x7f0b0545;
+        public static final int renting_fangshi_zhengzu=0x7f0b0544;
+        public static final int renting_huxing=0x7f0b028d;
+        public static final int renting_location=0x7f0b028c;
+        public static final int renting_louceng=0x7f0b0288;
+        public static final int renting_louceng_center=0x7f0b0539;
+        public static final int renting_louceng_high=0x7f0b053a;
+        public static final int renting_louceng_low=0x7f0b0538;
+        public static final int renting_mianji=0x7f0b028a;
+        public static final int renting_mianji_ershi=0x7f0b0535;
+        public static final int renting_mianji_jiu_shiyi=0x7f0b0531;
+        public static final int renting_mianji_qi_jiu=0x7f0b0530;
+        public static final int renting_mianji_shiqi_ershi=0x7f0b0534;
+        public static final int renting_mianji_shisi_shiqi=0x7f0b0533;
+        public static final int renting_mianji_shiyi_shisi=0x7f0b0532;
+        public static final int renting_mianji_wu_qi=0x7f0b052f;
+        public static final int renting_mianji_wushi=0x7f0b052e;
+        public static final int renting_quyu_sp1=0x7f0b02ad;
+        public static final int renting_quyu_sp2=0x7f0b02ae;
+        public static final int renting_quyu_sp3=0x7f0b02af;
+        public static final int renting_quyu_sp4=0x7f0b02b0;
+        public static final int renting_spinner_cancle=0x7f0b054a;
+        public static final int renting_tedian=0x7f0b0287;
+        public static final int renting_type_gongyu=0x7f0b0547;
+        public static final int renting_type_shangpu=0x7f0b0548;
+        public static final int renting_type_xiezilou=0x7f0b0549;
+        public static final int renting_type_zuzhai=0x7f0b0546;
+        public static final int renting_wuye_cunweitongjian=0x7f0b053c;
+        public static final int renting_wuye_gerenzijianshe=0x7f0b053e;
+        public static final int renting_wuye_gongyechangzufang=0x7f0b0541;
+        public static final int renting_wuye_gongyechanquanfang=0x7f0b0542;
+        public static final int renting_wuye_junquchanfang=0x7f0b053f;
+        public static final int renting_wuye_kaifangshangjianshe=0x7f0b053d;
+        public static final int renting_wuye_qita=0x7f0b0543;
+        public static final int renting_wuye_shangpinfang=0x7f0b053b;
+        public static final int renting_wuye_wujingchanfang=0x7f0b0540;
+        public static final int renting_xiaoqu=0x7f0b0291;
+        public static final int renting_zhuangxiu=0x7f0b0289;
+        public static final int rg_chengjiao_control=0x7f0b0378;
+        public static final int rg_control=0x7f0b01a3;
+        public static final int rg_guanzhu_control=0x7f0b026d;
+        public static final int rg_popwin_title=0x7f0b04dd;
+        public static final int rg_regist_type=0x7f0b027d;
+        public static final int rl_1=0x7f0b048b;
+        public static final int rl_121=0x7f0b01cd;
+        public static final int rl_1212=0x7f0b01e0;
+        public static final int rl_123=0x7f0b01e4;
+        public static final int rl_2=0x7f0b0492;
+        public static final int rl_Histroy=0x7f0b03f0;
+        public static final int rl_MyTouxiang=0x7f0b023e;
+        public static final int rl_Myentrust=0x7f0b03e9;
+        public static final int rl_Myershoufang=0x7f0b03e7;
+        public static final int rl_Mynichen=0x7f0b006d;
+        public static final int rl_Myrenting=0x7f0b03e8;
+        public static final int rl_Yuyueguanli=0x7f0b03ea;
+        public static final int rl_aegnt_MyTouxiang=0x7f0b0067;
+        public static final int rl_agent_changepassword=0x7f0b0094;
+        public static final int rl_agent_changrealname=0x7f0b009c;
+        public static final int rl_agent_chengjiaofangyuan=0x7f0b0418;
+        public static final int rl_agent_chongyeshijian=0x7f0b008f;
+        public static final int rl_agent_chuzufangguanli=0x7f0b0414;
+        public static final int rl_agent_comment=0x7f0b02c3;
+        public static final int rl_agent_companyName=0x7f0b008e;
+        public static final int rl_agent_ershoufangguanli=0x7f0b0410;
+        public static final int rl_agent_fenjihao=0x7f0b007c;
+        public static final int rl_agent_gerenjieshao=0x7f0b0081;
+        public static final int rl_agent_goudidingdan=0x7f0b0428;
+        public static final int rl_agent_list=0x7f0b02bf;
+        public static final int rl_agent_mainarea=0x7f0b0088;
+        public static final int rl_agent_myhistroy=0x7f0b042c;
+        public static final int rl_agent_myyouhuiquan=0x7f0b0424;
+        public static final int rl_agent_phone=0x7f0b006e;
+        public static final int rl_agent_pinglun=0x7f0b044f;
+        public static final int rl_agent_qiugouguanli=0x7f0b0420;
+        public static final int rl_agent_qiuzuguanli=0x7f0b041c;
+        public static final int rl_agent_realname=0x7f0b0074;
+        public static final int rl_agent_sex=0x7f0b0078;
+        public static final int rl_agent_shenfenzheng=0x7f0b0084;
+        public static final int rl_agent_title=0x7f0b00e0;
+        public static final int rl_agent_upload=0x7f0b0092;
+        public static final int rl_agent_viptype=0x7f0b0071;
+        public static final int rl_agent_zhiyeType=0x7f0b008b;
+        public static final int rl_baidumap=0x7f0b015d;
+        public static final int rl_baidumap_title=0x7f0b00ec;
+        public static final int rl_block_trade_title=0x7f0b00f8;
+        public static final int rl_buyhouse_fangyuanquyu=0x7f0b0393;
+        public static final int rl_buyhouse_qiwangtingshi=0x7f0b0396;
+        public static final int rl_buyhouse_yusuanjine=0x7f0b0399;
+        public static final int rl_changrealname=0x7f0b0098;
+        public static final int rl_container=0x7f0b0271;
+        public static final int rl_ershou_jingweidu=0x7f0b0309;
+        public static final int rl_ershou_louceng=0x7f0b030c;
+        public static final int rl_ershoufang_proprietor=0x7f0b0266;
+        public static final int rl_ershoufang_title=0x7f0b016d;
+        public static final int rl_ershoufang_yuyuewindows=0x7f0b0163;
+        public static final int rl_fabuershou_title=0x7f0b02f3;
+        public static final int rl_faburenting_title=0x7f0b0351;
+        public static final int rl_find_phonenumber=0x7f0b0186;
+        public static final int rl_genal_login_lock=0x7f0b0565;
+        public static final int rl_goufangliucheng=0x7f0b0192;
+        public static final int rl_jiaoyibaoxian=0x7f0b0191;
+        public static final int rl_login_lock=0x7f0b0569;
+        public static final int rl_map_house_title=0x7f0b01a9;
+        public static final int rl_message_no=0x7f0b03e2;
+        public static final int rl_my_renting_house=0x7f0b01c5;
+        public static final int rl_myguanzhu=0x7f0b03ec;
+        public static final int rl_new_house_title=0x7f0b00bb;
+        public static final int rl_new_yhq=0x7f0b020e;
+        public static final int rl_newhouse_title=0x7f0b0228;
+        public static final int rl_newhouselist_title=0x7f0b021f;
+        public static final int rl_person_changerealname=0x7f0b024b;
+        public static final int rl_person_fenjihao=0x7f0b0247;
+        public static final int rl_person_gerenjieshao=0x7f0b0249;
+        public static final int rl_person_realname=0x7f0b0243;
+        public static final int rl_person_sex=0x7f0b0245;
+        public static final int rl_personal_changepassword=0x7f0b024a;
+        public static final int rl_personal_phone=0x7f0b0080;
+        public static final int rl_personal_viptype=0x7f0b0241;
+        public static final int rl_phonenumber=0x7f0b0562;
+        public static final int rl_putong_mychuzu=0x7f0b03f8;
+        public static final int rl_putong_mygoudidingdan=0x7f0b0407;
+        public static final int rl_putong_myguanzhu=0x7f0b03f3;
+        public static final int rl_putong_myhistroy=0x7f0b040b;
+        public static final int rl_putong_mysalehouse=0x7f0b03f4;
+        public static final int rl_putong_myshophouse=0x7f0b03ff;
+        public static final int rl_putong_myyouhuiquan=0x7f0b0403;
+        public static final int rl_putong_myzhufang=0x7f0b03fb;
+        public static final int rl_qiuzu_fangyuanquyu=0x7f0b03af;
+        public static final int rl_qiuzu_qiwangjine=0x7f0b03b6;
+        public static final int rl_qiuzu_qiwangtingshi=0x7f0b03b4;
+        public static final int rl_qiuzu_rentingType=0x7f0b03b1;
+        public static final int rl_qiuzu_title=0x7f0b03ac;
+        public static final int rl_regist_phonenumber=0x7f0b0279;
+        public static final int rl_renting_agent_1=0x7f0b01d1;
+        public static final int rl_renting_agent_2=0x7f0b01d4;
+        public static final int rl_renting_agent_3=0x7f0b01d6;
+        public static final int rl_renting_agent_4=0x7f0b01da;
+        public static final int rl_renting_agent_5=0x7f0b01dd;
+        public static final int rl_renting_fangyuantese=0x7f0b0292;
+        public static final int rl_renting_jingweidu=0x7f0b0357;
+        public static final int rl_renting_proprietor=0x7f0b0268;
+        public static final int rl_renting_title=0x7f0b02a9;
+        public static final int rl_search=0x7f0b02b8;
+        public static final int rl_setting_aboutUs=0x7f0b01fb;
+        public static final int rl_setting_clear=0x7f0b01f9;
+        public static final int rl_setting_point=0x7f0b01fe;
+        public static final int rl_setting_sendsetting=0x7f0b0178;
+        public static final int rl_setting_tdc=0x7f0b01fc;
+        public static final int rl_setting_update=0x7f0b01fa;
+        public static final int rl_settings=0x7f0b0430;
+        public static final int rl_short_login_lock=0x7f0b056c;
+        public static final int rl_title=0x7f0b0068;
+        public static final int rl_title1=0x7f0b02c4;
+        public static final int rl_title2=0x7f0b03e1;
+        public static final int rl_title_yuyue=0x7f0b0164;
+        public static final int rl_zhuyishixiang1=0x7f0b0195;
+        public static final int rl_zhuyishixiang2=0x7f0b0196;
+        public static final int rl_zhuyishixiang_3=0x7f0b0198;
+        public static final int rotate=0x7f0b0039;
+        public static final int scrollview=0x7f0b0008;
+        public static final int scrollview_changeshow=0x7f0b023c;
+        public static final int search_badge=0x7f0b0056;
+        public static final int search_bar=0x7f0b0055;
+        public static final int search_button=0x7f0b0057;
+        public static final int search_close_btn=0x7f0b005c;
+        public static final int search_edit_frame=0x7f0b0058;
+        public static final int search_go_btn=0x7f0b005e;
+        public static final int search_mag_icon=0x7f0b0059;
+        public static final int search_plate=0x7f0b005a;
+        public static final int search_src_text=0x7f0b005b;
+        public static final int search_voice_btn=0x7f0b005f;
+        public static final int send_button=0x7f0b057b;
+        public static final int shortcut=0x7f0b0052;
+        public static final int shoujia=0x7f0b0123;
+        public static final int showCustom=0x7f0b0022;
+        public static final int showHome=0x7f0b0023;
+        public static final int showTitle=0x7f0b0024;
+        public static final int showallphoto_back=0x7f0b058b;
+        public static final int showallphoto_bottom_layout=0x7f0b058e;
+        public static final int showallphoto_cancel=0x7f0b058d;
+        public static final int showallphoto_headtitle=0x7f0b058c;
+        public static final int showallphoto_headview=0x7f0b058a;
+        public static final int showallphoto_myGrid=0x7f0b0591;
+        public static final int showallphoto_ok_button=0x7f0b0590;
+        public static final int showallphoto_preview=0x7f0b058f;
+        public static final int showallphoto_progressbar=0x7f0b0592;
+        public static final int shuifeijiexi=0x7f0b0339;
+        public static final int slider=0x7f0b0122;
+        public static final int slider_new=0x7f0b0203;
+        public static final int slider_renting=0x7f0b0286;
+        public static final int spinner_yuyuedate=0x7f0b0168;
+        public static final int spinner_yuyuetime=0x7f0b016b;
+        public static final int split_action_bar=0x7f0b0042;
+        public static final int state_iv=0x7f0b05a6;
+        public static final int state_tv=0x7f0b05a5;
+        public static final int straight=0x7f0b003b;
+        public static final int submit_area=0x7f0b005d;
+        public static final int submit_edittext=0x7f0b02cb;
+        public static final int tabMode=0x7f0b001f;
+        public static final int taoneimianji_1=0x7f0b0306;
+        public static final int textView1=0x7f0b0066;
+        public static final int textView11=0x7f0b038f;
+        public static final int textView112=0x7f0b0391;
+        public static final int textView12=0x7f0b021a;
+        public static final int textView14=0x7f0b02f8;
+        public static final int textView16=0x7f0b021e;
+        public static final int textView171=0x7f0b0401;
+        public static final int textView1716=0x7f0b041e;
+        public static final int textView2=0x7f0b0069;
+        public static final int textView21=0x7f0b0075;
+        public static final int textView211=0x7f0b0079;
+        public static final int textView2111=0x7f0b007d;
+        public static final int textView2121=0x7f0b02f6;
+        public static final int textView213=0x7f0b0082;
+        public static final int textView221=0x7f0b0412;
+        public static final int textView3=0x7f0b0085;
+        public static final int textView31=0x7f0b03f6;
+        public static final int textView351=0x7f0b0416;
+        public static final int textView4=0x7f0b0104;
+        public static final int textView41=0x7f0b01ca;
+        public static final int textView5=0x7f0b0167;
+        public static final int textView51=0x7f0b016a;
+        public static final int textView541=0x7f0b041a;
+        public static final int textView6=0x7f0b0103;
+        public static final int textView7=0x7f0b0105;
+        public static final int textView71=0x7f0b03ee;
+        public static final int textView711=0x7f0b03fd;
+        public static final int textView8=0x7f0b0106;
+        public static final int textView9=0x7f0b0218;
+        public static final int textView921=0x7f0b0405;
+        public static final int textView9216=0x7f0b0426;
+        public static final int textView932=0x7f0b040d;
+        public static final int textView9382=0x7f0b042e;
+        public static final int textView942=0x7f0b0409;
+        public static final int textView9426=0x7f0b042a;
+        public static final int textView9442=0x7f0b0422;
+        public static final int tihubili=0x7f0b031f;
+        public static final int title=0x7f0b004f;
+        public static final int toggle=0x7f0b0587;
+        public static final int toggle_button=0x7f0b0588;
+        public static final int top_action_bar=0x7f0b0044;
+        public static final int touzifenxi=0x7f0b0333;
+        public static final int tree=0x7f0b0231;
+        public static final int tuijianliyou=0x7f0b0349;
+        public static final int tv1=0x7f0b01c8;
+        public static final int tv11=0x7f0b01d0;
+        public static final int tv12=0x7f0b01bf;
+        public static final int tv121=0x7f0b01be;
+        public static final int tv13=0x7f0b01e7;
+        public static final int tv2=0x7f0b0597;
+        public static final int tv21=0x7f0b01e8;
+        public static final int tv22=0x7f0b01ea;
+        public static final int tv23=0x7f0b01ec;
+        public static final int tv24=0x7f0b01ee;
+        public static final int tv25=0x7f0b01f0;
+        public static final int tv26=0x7f0b01f2;
+        public static final int tv27=0x7f0b01f4;
+        public static final int tv28=0x7f0b01f6;
+        public static final int tv3=0x7f0b0599;
+        public static final int tv32=0x7f0b01e3;
+        public static final int tv34=0x7f0b01c4;
+        public static final int tv9898=0x7f0b01c1;
+        public static final int tv_agent__spinner_cancle=0x7f0b045c;
+        public static final int tv_agent__spinner_submit=0x7f0b045d;
+        public static final int tv_agent_author=0x7f0b0452;
+        public static final int tv_agent_biaoqian=0x7f0b00c4;
+        public static final int tv_agent_biaoqian2=0x7f0b00c5;
+        public static final int tv_agent_biaoqian3=0x7f0b00c6;
+        public static final int tv_agent_biaoqian4=0x7f0b00c7;
+        public static final int tv_agent_changecompanyname_save=0x7f0b00af;
+        public static final int tv_agent_changegerenjieshao_save=0x7f0b00a7;
+        public static final int tv_agent_changerealname_save=0x7f0b009a;
+        public static final int tv_agent_changeshenfenzheng_save=0x7f0b00ab;
+        public static final int tv_agent_chengjiaofangyuan=0x7f0b00d6;
+        public static final int tv_agent_chongyeshijian=0x7f0b0090;
+        public static final int tv_agent_company=0x7f0b00cd;
+        public static final int tv_agent_content=0x7f0b0451;
+        public static final int tv_agent_current_password=0x7f0b00b3;
+        public static final int tv_agent_date=0x7f0b0453;
+        public static final int tv_agent_dengji=0x7f0b00c1;
+        public static final int tv_agent_ershoufangyuan=0x7f0b00db;
+        public static final int tv_agent_fenjihao=0x7f0b007e;
+        public static final int tv_agent_fenjihao_show=0x7f0b00a0;
+        public static final int tv_agent_fenjihao_show_1=0x7f0b00a3;
+        public static final int tv_agent_history=0x7f0b00ce;
+        public static final int tv_agent_list_title=0x7f0b02c0;
+        public static final int tv_agent_mainarea=0x7f0b0089;
+        public static final int tv_agent_mianarea2=0x7f0b00cb;
+        public static final int tv_agent_morechengjiaofangyuan=0x7f0b00d9;
+        public static final int tv_agent_moreershoufangyuan=0x7f0b00de;
+        public static final int tv_agent_morepinglun=0x7f0b00d4;
+        public static final int tv_agent_name=0x7f0b00c0;
+        public static final int tv_agent_new_password=0x7f0b00b5;
+        public static final int tv_agent_phone=0x7f0b0070;
+        public static final int tv_agent_pingjunzhouqi=0x7f0b00cf;
+        public static final int tv_agent_pinglun=0x7f0b02c5;
+        public static final int tv_agent_re_password=0x7f0b00b7;
+        public static final int tv_agent_realname=0x7f0b0076;
+        public static final int tv_agent_sanshiday=0x7f0b00d0;
+        public static final int tv_agent_sex=0x7f0b007a;
+        public static final int tv_agent_shenfenzheng=0x7f0b0086;
+        public static final int tv_agent_viptype=0x7f0b0073;
+        public static final int tv_agent_vtel=0x7f0b00c3;
+        public static final int tv_agent_worktime=0x7f0b00c9;
+        public static final int tv_agent_year=0x7f0b00c2;
+        public static final int tv_agent_yonghupingjia=0x7f0b00d1;
+        public static final int tv_agent_zhiyeType=0x7f0b008c;
+        public static final int tv_agentdata_biaoqian=0x7f0b0446;
+        public static final int tv_agentdata_biaoqian2=0x7f0b044b;
+        public static final int tv_agentdata_biaoqian3=0x7f0b044c;
+        public static final int tv_agentdata_biaoqian4=0x7f0b044d;
+        public static final int tv_agentdata_level=0x7f0b0444;
+        public static final int tv_agentdata_mainarea=0x7f0b0445;
+        public static final int tv_agentdata_name=0x7f0b0443;
+        public static final int tv_agentdata_pinglun=0x7f0b0449;
+        public static final int tv_agentdata_pinglun1=0x7f0b044a;
+        public static final int tv_agentdata_point=0x7f0b0447;
+        public static final int tv_agentershoulist_submit=0x7f0b02ef;
+        public static final int tv_agentpersonal=0x7f0b026a;
+        public static final int tv_agentrentinglist_submit=0x7f0b034d;
+        public static final int tv_block_trade_detail_address=0x7f0b010b;
+        public static final int tv_block_trade_detail_area=0x7f0b0107;
+        public static final int tv_block_trade_detail_content=0x7f0b00fd;
+        public static final int tv_block_trade_detail_date=0x7f0b0100;
+        public static final int tv_block_trade_detail_goudi=0x7f0b00ff;
+        public static final int tv_block_trade_detail_hezuofangshi=0x7f0b0108;
+        public static final int tv_block_trade_detail_jianzhumianji=0x7f0b010e;
+        public static final int tv_block_trade_detail_lianxiren=0x7f0b010a;
+        public static final int tv_block_trade_detail_phone=0x7f0b0101;
+        public static final int tv_block_trade_detail_shiyongnianxian=0x7f0b010f;
+        public static final int tv_block_trade_detail_title=0x7f0b00fb;
+        public static final int tv_block_trade_detail_wuyeleixing=0x7f0b0109;
+        public static final int tv_block_trade_detail_xiangxijieshao=0x7f0b0111;
+        public static final int tv_block_trade_detail_yusuanjine=0x7f0b0110;
+        public static final int tv_block_trade_goudiimage=0x7f0b0102;
+        public static final int tv_buyhouse_housearea=0x7f0b0395;
+        public static final int tv_buyhouse_jine=0x7f0b039b;
+        public static final int tv_buyhouse_phone=0x7f0b0392;
+        public static final int tv_buyhouse_tingshi=0x7f0b0398;
+        public static final int tv_cancle=0x7f0b019c;
+        public static final int tv_changegerenjieshao_save=0x7f0b0259;
+        public static final int tv_changerealname_save=0x7f0b024d;
+        public static final int tv_chaoxiang=0x7f0b0134;
+        public static final int tv_chengjiao_date=0x7f0b043f;
+        public static final int tv_chengjiaoershou_area=0x7f0b0482;
+        public static final int tv_chengjiaoershou_chaoxiang=0x7f0b0483;
+        public static final int tv_chengjiaoershou_fangxing=0x7f0b0481;
+        public static final int tv_chengjiaoershou_housedetail=0x7f0b043a;
+        public static final int tv_chengjiaoershou_jianzhutype=0x7f0b043c;
+        public static final int tv_chengjiaoershou_jine=0x7f0b043e;
+        public static final int tv_chengjiaoershou_junjia=0x7f0b043d;
+        public static final int tv_chengjiaoershou_louceng=0x7f0b0485;
+        public static final int tv_chengjiaoershou_title=0x7f0b043b;
+        public static final int tv_chengjiaoershou_xiaoquname=0x7f0b0480;
+        public static final int tv_chengjiaoershou_zongjia=0x7f0b0484;
+        public static final int tv_company=0x7f0b00cc;
+        public static final int tv_current_password=0x7f0b025d;
+        public static final int tv_daikuanjine=0x7f0b0152;
+        public static final int tv_daikuanleixing=0x7f0b0151;
+        public static final int tv_daikuanqixian=0x7f0b0153;
+        public static final int tv_dialog_message=0x7f0b02e9;
+        public static final int tv_dialog_message1=0x7f0b02ec;
+        public static final int tv_dialog_message2=0x7f0b02ed;
+        public static final int tv_dialog_title=0x7f0b02e8;
+        public static final int tv_dingdan=0x7f0b048c;
+        public static final int tv_ershou_SfDianti=0x7f0b0326;
+        public static final int tv_ershou_biaoqian=0x7f0b032c;
+        public static final int tv_ershou_biaoqian2=0x7f0b0486;
+        public static final int tv_ershou_biaoqian3=0x7f0b0487;
+        public static final int tv_ershou_biaoqian4=0x7f0b0488;
+        public static final int tv_ershou_biaoti=0x7f0b0330;
+        public static final int tv_ershou_chanquansuoshu=0x7f0b0324;
+        public static final int tv_ershou_ditieline=0x7f0b032e;
+        public static final int tv_ershou_diyaxinxi=0x7f0b0314;
+        public static final int tv_ershou_gongbufangshi=0x7f0b03a5;
+        public static final int tv_ershou_guapaitime=0x7f0b032a;
+        public static final int tv_ershou_hexinmaidian=0x7f0b0344;
+        public static final int tv_ershou_houseDesc=0x7f0b0332;
+        public static final int tv_ershou_houseSX=0x7f0b0318;
+        public static final int tv_ershou_houseUse=0x7f0b0322;
+        public static final int tv_ershou_housearea=0x7f0b02f5;
+        public static final int tv_ershou_huType=0x7f0b0316;
+        public static final int tv_ershou_huxingjieshao=0x7f0b0336;
+        public static final int tv_ershou_jianzhuJiegou=0x7f0b031e;
+        public static final int tv_ershou_jianzhuType=0x7f0b031c;
+        public static final int tv_ershou_jiaotongchuxing=0x7f0b0342;
+        public static final int tv_ershou_jiaoyupeitao=0x7f0b0340;
+        public static final int tv_ershou_jingweidu=0x7f0b030b;
+        public static final int tv_ershou_louceng=0x7f0b030e;
+        public static final int tv_ershou_loucengmenu=0x7f0b0310;
+        public static final int tv_ershou_nianxain=0x7f0b0465;
+        public static final int tv_ershou_quanshudiya=0x7f0b0348;
+        public static final int tv_ershou_shuifeijiexi=0x7f0b033a;
+        public static final int tv_ershou_tihubili=0x7f0b0320;
+        public static final int tv_ershou_touzifenxi=0x7f0b0334;
+        public static final int tv_ershou_tuijianliyou=0x7f0b034a;
+        public static final int tv_ershou_uploadPic=0x7f0b031a;
+        public static final int tv_ershou_weiyizhuzhai=0x7f0b0328;
+        public static final int tv_ershou_wuyeType=0x7f0b0312;
+        public static final int tv_ershou_xiaoqujieshao=0x7f0b0338;
+        public static final int tv_ershou_xiaoquname=0x7f0b02f7;
+        public static final int tv_ershou_xiaoquyoushi=0x7f0b0346;
+        public static final int tv_ershou_yincangphone=0x7f0b03a6;
+        public static final int tv_ershou_zhoubianpeitao=0x7f0b033e;
+        public static final int tv_ershou_zhuangxiumiaoshu=0x7f0b033c;
+        public static final int tv_ershoufang_address=0x7f0b0464;
+        public static final int tv_ershoufang_price_area=0x7f0b0461;
+        public static final int tv_ershoufang_price_meter=0x7f0b0489;
+        public static final int tv_ershoufang_title=0x7f0b0460;
+        public static final int tv_ershoufang_totalprice=0x7f0b0462;
+        public static final int tv_ershoufang_wan=0x7f0b0463;
+        public static final int tv_ershoufangdetails=0x7f0b011c;
+        public static final int tv_ershoupersonal=0x7f0b03a0;
+        public static final int tv_fangyuanbianhao=0x7f0b0131;
+        public static final int tv_fangyuanliangdian=0x7f0b0294;
+        public static final int tv_fenjihao_show=0x7f0b0252;
+        public static final int tv_fenjihao_show_1=0x7f0b0255;
+        public static final int tv_forgivepw=0x7f0b01a2;
+        public static final int tv_frist_title=0x7f0b03c1;
+        public static final int tv_goudi_dingdanhao=0x7f0b048d;
+        public static final int tv_goudi_info=0x7f0b02e0;
+        public static final int tv_goudi_loupan=0x7f0b048e;
+        public static final int tv_goudi_paystatus=0x7f0b048f;
+        public static final int tv_guanzhu_area=0x7f0b04a5;
+        public static final int tv_guanzhu_chaoxiang=0x7f0b04a6;
+        public static final int tv_guanzhu_ditiexian=0x7f0b04ab;
+        public static final int tv_guanzhu_fangxing=0x7f0b04a4;
+        public static final int tv_guanzhu_jianzhutype=0x7f0b04a9;
+        public static final int tv_guanzhu_junjia=0x7f0b04aa;
+        public static final int tv_guanzhu_louceng=0x7f0b04a8;
+        public static final int tv_guanzhu_loupandizhi=0x7f0b04af;
+        public static final int tv_guanzhu_new_area=0x7f0b04ad;
+        public static final int tv_guanzhu_new_junjia=0x7f0b04ae;
+        public static final int tv_guanzhu_new_loupandizhi=0x7f0b04b0;
+        public static final int tv_guanzhu_new_phone=0x7f0b04b1;
+        public static final int tv_guanzhu_new_shi=0x7f0b04ac;
+        public static final int tv_guanzhu_new_time=0x7f0b04b2;
+        public static final int tv_guanzhu_title=0x7f0b04a3;
+        public static final int tv_guanzhu_xiaoquname=0x7f0b04a2;
+        public static final int tv_guanzhu_zongjia=0x7f0b04a7;
+        public static final int tv_guapaishijian=0x7f0b0133;
+        public static final int tv_haopinglv=0x7f0b0448;
+        public static final int tv_hexinmaidian=0x7f0b013a;
+        public static final int tv_hexinmaidian1=0x7f0b013b;
+        public static final int tv_house_puchase=0x7f0b019b;
+        public static final int tv_housearea=0x7f0b0149;
+        public static final int tv_housenumber=0x7f0b03d3;
+        public static final int tv_housetotilprice=0x7f0b0156;
+        public static final int tv_html_fukuanfangshi=0x7f0b0219;
+        public static final int tv_html_huxingjieshao=0x7f0b0216;
+        public static final int tv_jiaotongchuxing=0x7f0b013c;
+        public static final int tv_jiaotongchuxing1=0x7f0b013d;
+        public static final int tv_jizhengfangshi=0x7f0b0148;
+        public static final int tv_jizhunlilv=0x7f0b0154;
+        public static final int tv_junjia=0x7f0b0129;
+        public static final int tv_jushangcijiaoyi=0x7f0b0146;
+        public static final int tv_kanfangshijian=0x7f0b012d;
+        public static final int tv_lijiqianggou=0x7f0b059c;
+        public static final int tv_liushuihao=0x7f0b0496;
+        public static final int tv_lixi=0x7f0b0155;
+        public static final int tv_logincancle=0x7f0b011e;
+        public static final int tv_look_date=0x7f0b03d9;
+        public static final int tv_look_histroy=0x7f0b03da;
+        public static final int tv_louceng=0x7f0b012a;
+        public static final int tv_louxing=0x7f0b0135;
+        public static final int tv_low_high=0x7f0b04da;
+        public static final int tv_maifangjiatingshoutao=0x7f0b0147;
+        public static final int tv_maifangjiatingweiyi=0x7f0b0145;
+        public static final int tv_map_baidu=0x7f0b045e;
+        public static final int tv_map_house=0x7f0b0570;
+        public static final int tv_marke_canle=0x7f0b01bb;
+        public static final int tv_marke_housecount=0x7f0b01ba;
+        public static final int tv_marke_title=0x7f0b01b9;
+        public static final int tv_mianarea=0x7f0b00ca;
+        public static final int tv_morechengjiaojilu=0x7f0b015c;
+        public static final int tv_morefangyuantuijian=0x7f0b0160;
+        public static final int tv_morehousetese=0x7f0b013e;
+        public static final int tv_morenews=0x7f0b0139;
+        public static final int tv_my_login_regist=0x7f0b03e4;
+        public static final int tv_new_house_detail_title=0x7f0b00be;
+        public static final int tv_new_password=0x7f0b025f;
+        public static final int tv_new_yhq_1=0x7f0b0210;
+        public static final int tv_new_yhq_2=0x7f0b0211;
+        public static final int tv_newhouse_morenews=0x7f0b0239;
+        public static final int tv_newhouse_morenews_rexiao=0x7f0b023b;
+        public static final int tv_newhousedetail_chanquannianxian=0x7f0b0215;
+        public static final int tv_newhousedetail_dianping=0x7f0b021b;
+        public static final int tv_newhousedetail_housetype=0x7f0b0205;
+        public static final int tv_newhousedetail_jiaofangshijian=0x7f0b0207;
+        public static final int tv_newhousedetail_kaifashang=0x7f0b0212;
+        public static final int tv_newhousedetail_kaipanshijian=0x7f0b0206;
+        public static final int tv_newhousedetail_loupandizhi=0x7f0b0208;
+        public static final int tv_newhousedetail_maintype=0x7f0b0209;
+        public static final int tv_newhousedetail_price=0x7f0b020b;
+        public static final int tv_newhousedetail_title=0x7f0b0204;
+        public static final int tv_newhousedetail_updatetime=0x7f0b020a;
+        public static final int tv_newhousedetail_zaishou=0x7f0b020c;
+        public static final int tv_newhousedetail_zuixinjiaofang=0x7f0b0214;
+        public static final int tv_newhousedetail_zuixinkaipan=0x7f0b0213;
+        public static final int tv_number=0x7f0b03d4;
+        public static final int tv_person_fenjihao=0x7f0b0248;
+        public static final int tv_person_sex=0x7f0b0246;
+        public static final int tv_personal_phone=0x7f0b0240;
+        public static final int tv_personal_viptype=0x7f0b0242;
+        public static final int tv_price=0x7f0b03d2;
+        public static final int tv_pricenumber=0x7f0b03d1;
+        public static final int tv_ptbuyhouse_submit=0x7f0b038a;
+        public static final int tv_ptershou_housearea=0x7f0b03a3;
+        public static final int tv_ptqiuzu_submit=0x7f0b03a8;
+        public static final int tv_putongershoulist_submit=0x7f0b039e;
+        public static final int tv_putongrentinglist_submit=0x7f0b03ba;
+        public static final int tv_qiuzu_fangyuan=0x7f0b0394;
+        public static final int tv_qiuzu_housearea=0x7f0b03b0;
+        public static final int tv_qiuzu_jine=0x7f0b03b7;
+        public static final int tv_qiuzu_phone=0x7f0b03ae;
+        public static final int tv_qiuzu_qiwangjine1=0x7f0b039a;
+        public static final int tv_qiuzu_qiwangtingshi1=0x7f0b0397;
+        public static final int tv_qiuzu_rentingtype1=0x7f0b03b2;
+        public static final int tv_qiuzu_tingshi=0x7f0b03b5;
+        public static final int tv_qiuzu_zulinType=0x7f0b03b3;
+        public static final int tv_qiuzulist_detail=0x7f0b0524;
+        public static final int tv_qiuzulist_time=0x7f0b0525;
+        public static final int tv_qiuzulist_title=0x7f0b0523;
+        public static final int tv_quyu=0x7f0b0136;
+        public static final int tv_re_password=0x7f0b0261;
+        public static final int tv_realname=0x7f0b0244;
+        public static final int tv_recommend_content=0x7f0b0528;
+        public static final int tv_recommend_rcontent_web=0x7f0b0275;
+        public static final int tv_recommend_title=0x7f0b0526;
+        public static final int tv_recommend_title_web=0x7f0b0273;
+        public static final int tv_regist=0x7f0b019d;
+        public static final int tv_renting_biaoqian=0x7f0b0365;
+        public static final int tv_renting_biaoti=0x7f0b0366;
+        public static final int tv_renting_chuzuCause=0x7f0b036e;
+        public static final int tv_renting_chuzutype=0x7f0b035f;
+        public static final int tv_renting_ditieline=0x7f0b0364;
+        public static final int tv_renting_fabufangshi=0x7f0b03bd;
+        public static final int tv_renting_houseBest=0x7f0b036c;
+        public static final int tv_renting_houseDesc=0x7f0b0367;
+        public static final int tv_renting_houseSX=0x7f0b035a;
+        public static final int tv_renting_houseaddress=0x7f0b0369;
+        public static final int tv_renting_housearea=0x7f0b0352;
+        public static final int tv_renting_housepeizhi=0x7f0b0363;
+        public static final int tv_renting_huType=0x7f0b0359;
+        public static final int tv_renting_huxingjieshao=0x7f0b036a;
+        public static final int tv_renting_jianzhuType=0x7f0b035d;
+        public static final int tv_renting_jiaotongchuxing=0x7f0b0371;
+        public static final int tv_renting_jingweidu=0x7f0b0358;
+        public static final int tv_renting_lishijilu=0x7f0b0296;
+        public static final int tv_renting_louceng=0x7f0b035c;
+        public static final int tv_renting_uploadPic=0x7f0b035b;
+        public static final int tv_renting_xiaoquintro=0x7f0b0370;
+        public static final int tv_renting_xiaoquname=0x7f0b0353;
+        public static final int tv_renting_yezhushuo=0x7f0b0373;
+        public static final int tv_renting_yincangphone=0x7f0b03be;
+        public static final int tv_renting_zhifuType=0x7f0b0361;
+        public static final int tv_rentingdetailcancle=0x7f0b0284;
+        public static final int tv_rentingdetails=0x7f0b0282;
+        public static final int tv_sa=0x7f0b0293;
+        public static final int tv_sas=0x7f0b0295;
+        public static final int tv_search_title=0x7f0b054b;
+        public static final int tv_setting_LoginOut=0x7f0b01ff;
+        public static final int tv_show=0x7f0b037c;
+        public static final int tv_spinner_show=0x7f0b054c;
+        public static final int tv_submit_comment=0x7f0b02c7;
+        public static final int tv_submit_ershou_list_chenhu=0x7f0b0552;
+        public static final int tv_submit_ershou_list_detail=0x7f0b054e;
+        public static final int tv_submit_ershou_list_edit=0x7f0b0554;
+        public static final int tv_submit_ershou_list_imaup=0x7f0b0553;
+        public static final int tv_submit_ershou_list_louceng=0x7f0b0551;
+        public static final int tv_submit_ershou_list_title=0x7f0b054f;
+        public static final int tv_submit_ershou_list_zongjia=0x7f0b0550;
+        public static final int tv_submit_renting_list_area=0x7f0b0559;
+        public static final int tv_submit_renting_list_chuzuType=0x7f0b055a;
+        public static final int tv_submit_renting_list_detail=0x7f0b0556;
+        public static final int tv_submit_renting_list_imaup=0x7f0b055c;
+        public static final int tv_submit_renting_list_title=0x7f0b0557;
+        public static final int tv_submit_renting_list_zongjia=0x7f0b0558;
+        public static final int tv_submiteditsave=0x7f0b02c9;
+        public static final int tv_totalhistroy=0x7f0b0159;
+        public static final int tv_totalhistroy1=0x7f0b015a;
+        public static final int tv_version=0x7f0b02d0;
+        public static final int tv_weekhistroy=0x7f0b0157;
+        public static final int tv_weekhistroy1=0x7f0b0158;
+        public static final int tv_wheel_cancle=0x7f0b02d1;
+        public static final int tv_wheel_sure=0x7f0b02d2;
+        public static final int tv_wheel_title=0x7f0b02d3;
+        public static final int tv_work=0x7f0b00c8;
+        public static final int tv_wuyeleixing=0x7f0b0144;
+        public static final int tv_yhq_none=0x7f0b020d;
+        public static final int tv_yhq_title=0x7f0b0595;
+        public static final int tv_yuyuekanfang=0x7f0b0162;
+        public static final int tv_zhanghao=0x7f0b0498;
+        public static final int tv_zhifu_dingdan=0x7f0b0493;
+        public static final int tv_zhifu_dingdanhao=0x7f0b0494;
+        public static final int tv_zhifu_liushuihao=0x7f0b0497;
+        public static final int tv_zhifu_loupan=0x7f0b0495;
+        public static final int tv_zhifu_zhanghao=0x7f0b0499;
+        public static final int tv_zhifu_zhifujine=0x7f0b049b;
+        public static final int tv_zhifu_zhifustatus=0x7f0b049f;
+        public static final int tv_zhifu_zhifutime=0x7f0b049d;
+        public static final int tv_zhifujine=0x7f0b049a;
+        public static final int tv_zhifustatus=0x7f0b049e;
+        public static final int tv_zhifutime=0x7f0b049c;
+        public static final int tv_zhuangtai=0x7f0b0490;
+        public static final int tv_zhuangxiu=0x7f0b012b;
+        public static final int tv_zhuanrangshuifei=0x7f0b014a;
+        public static final int two=0x7f0b022d;
+        public static final int up=0x7f0b0045;
+        public static final int uploadPic=0x7f0b0319;
+        public static final int uploadpic=0x7f0b02bd;
+        public static final int useLogo=0x7f0b0025;
+        public static final int vertical=0x7f0b003d;
+        public static final int viewpage=0x7f0b01a8;
+        public static final int visible=0x7f0b000a;
+        public static final int web_ershoufang=0x7f0b02cc;
+        public static final int web_house_price=0x7f0b02cd;
+        public static final int webview=0x7f0b0007;
+        public static final int weiyizhuzhai=0x7f0b0327;
+        public static final int window_agent_ershou=0x7f0b02f2;
+        public static final int window_putong_buyhouse=0x7f0b038d;
+        public static final int window_putong_ershou=0x7f0b03a2;
+        public static final int window_putong_guanzhu=0x7f0b0269;
+        public static final int window_putong_qiuzu=0x7f0b03ab;
+        public static final int window_putong_renting=0x7f0b0350;
+        public static final int withText=0x7f0b002a;
+        public static final int wp_a=0x7f0b05b5;
+        public static final int wp_b=0x7f0b05b6;
+        public static final int wp_c=0x7f0b05b7;
+        public static final int wuyeType=0x7f0b0311;
+        public static final int xiaoqujieshao=0x7f0b0337;
+        public static final int xiaoquname=0x7f0b036f;
+        public static final int xiaoquyoushi=0x7f0b0345;
+        public static final int yangbantu=0x7f0b0217;
+        public static final int yezhushuo=0x7f0b0372;
+        public static final int zhifuType=0x7f0b0360;
+        public static final int zhoubianpeitao=0x7f0b033d;
+        public static final int zhuangxiumiaoshu=0x7f0b033b;
+        public static final int zhujianmianji_1=0x7f0b02fb;
+        public static final int zulin_wheel=0x7f0b02e7;
+        public static final int zulin_wheel1=0x7f0b02e4;
+        public static final int zulin_wheel2=0x7f0b02e5;
+        public static final int zulin_wheel3=0x7f0b02e6;
+    }
+    public static final class integer {
+        /**  The maximum number of action buttons that should be permitted within
+         an action bar/action mode. This will be used to determine how many
+         showAsAction="ifRoom" items can fit. "always" items can override this. 
+ The maximum number of action buttons that should be permitted within
+     an action bar/action mode. This will be used to determine how many
+     showAsAction="ifRoom" items can fit. "always" items can override this. 
+ The maximum number of action buttons that should be permitted within
+         an action bar/action mode. This will be used to determine how many
+         showAsAction="ifRoom" items can fit. "always" items can override this. 
+ The maximum number of action buttons that should be permitted within
+         an action bar/action mode. This will be used to determine how many
+         showAsAction="ifRoom" items can fit. "always" items can override this. 
+ The maximum number of action buttons that should be permitted within
+         an action bar/action mode. This will be used to determine how many
+         showAsAction="ifRoom" items can fit. "always" items can override this. 
+ The maximum number of action buttons that should be permitted within
+         an action bar/action mode. This will be used to determine how many
+         showAsAction="ifRoom" items can fit. "always" items can override this. 
+ The maximum number of action buttons that should be permitted within
+         an action bar/action mode. This will be used to determine how many
+         showAsAction="ifRoom" items can fit. "always" items can override this. 
+         */
+        public static final int abc_max_action_buttons=0x7f0a0000;
     }
     public static final class layout {
-        public static final int ac_main_dialog=0x7f030000;
-        public static final int ac_main_dialog2=0x7f030001;
-        public static final int activity_agent_change_user_info=0x7f030002;
-        public static final int activity_agent_detail=0x7f030003;
-        public static final int activity_agent_main=0x7f030004;
-        public static final int activity_agent_personal=0x7f030005;
-        public static final int activity_baidu_map=0x7f030006;
-        public static final int activity_block_trade_detail=0x7f030007;
-        public static final int activity_block_trade_main=0x7f030008;
-        public static final int activity_er_shou_fang_details=0x7f030009;
-        public static final int activity_er_shou_fang_main=0x7f03000a;
-        public static final int activity_ershou_fang_proprietor=0x7f03000b;
-        public static final int activity_find_password_main=0x7f03000c;
-        public static final int activity_get_location=0x7f03000d;
-        public static final int activity_house_puchase_main=0x7f03000e;
-        public static final int activity_login=0x7f03000f;
-        public static final int activity_main=0x7f030010;
-        public static final int activity_map_house_main=0x7f030011;
-        public static final int activity_my_renting_house=0x7f030012;
-        public static final int activity_my_setting_main=0x7f030013;
-        public static final int activity_new_house_detail=0x7f030014;
-        public static final int activity_new_house_list=0x7f030015;
-        public static final int activity_new_house_main=0x7f030016;
-        public static final int activity_personal_main=0x7f030017;
-        public static final int activity_proprietor_main=0x7f030018;
-        public static final int activity_pu_tong_my_guan_zhu=0x7f030019;
-        public static final int activity_recommend_newsl=0x7f03001a;
-        public static final int activity_regist=0x7f03001b;
-        public static final int activity_renting_detail=0x7f03001c;
-        public static final int activity_renting_main=0x7f03001d;
-        public static final int activity_renting_proprietor=0x7f03001e;
-        public static final int activity_search=0x7f03001f;
-        public static final int activity_show_agent_data=0x7f030020;
-        public static final int activity_submit_edittext=0x7f030021;
-        public static final int activity_web_er_sshou_fang_main=0x7f030022;
-        public static final int activity_web_house_price_detail=0x7f030023;
-        public static final int activity_web_recommed_news_main=0x7f030024;
-        public static final int activity_welcome_main=0x7f030025;
-        public static final int alerlog_check_biaoqian=0x7f030026;
-        public static final int alerlog_check_bqdtl=0x7f030027;
-        public static final int alerlog_check_city=0x7f030028;
-        public static final int alerlog_check_fangwupeitao=0x7f030029;
-        public static final int alerlog_goudi_info=0x7f03002a;
-        public static final int alerlog_wheel_guapaitime=0x7f03002b;
-        public static final int alerlog_wheelpicker_jine=0x7f03002c;
-        public static final int alerlog_wheelpicker_tingshi=0x7f03002d;
-        public static final int alerlog_wheelpicker_zulin=0x7f03002e;
-        public static final int dialog_main_info=0x7f03002f;
-        public static final int dialog_sex_info=0x7f030030;
-        public static final int fragment_agent_ershou_list=0x7f030031;
-        public static final int fragment_agent_ershou_submit=0x7f030032;
-        public static final int fragment_agent_renting_list=0x7f030033;
-        public static final int fragment_agent_renting_submit=0x7f030034;
-        public static final int fragment_at_goudilist=0x7f030035;
-        public static final int fragment_chengjiao_ershou=0x7f030036;
-        public static final int fragment_chengjiao_zufang=0x7f030037;
-        public static final int fragment_chengjiaohouse=0x7f030038;
-        public static final int fragment_ershou_pt=0x7f030039;
-        public static final int fragment_goudi_list=0x7f03003a;
-        public static final int fragment_guanzhu_ershou=0x7f03003b;
-        public static final int fragment_guanzhu_new=0x7f03003c;
-        public static final int fragment_look_date=0x7f03003d;
-        public static final int fragment_look_histroy=0x7f03003e;
-        public static final int fragment_pt_buyhouselist=0x7f03003f;
-        public static final int fragment_pt_buyhousesubmit=0x7f030040;
-        public static final int fragment_pt_ershou_list=0x7f030041;
-        public static final int fragment_pt_ershou_sumbit=0x7f030042;
-        public static final int fragment_pt_qiuzhulist=0x7f030043;
-        public static final int fragment_pt_qiuzhusubmit=0x7f030044;
-        public static final int fragment_pt_renting_list=0x7f030045;
-        public static final int fragment_pt_renting_sumbit=0x7f030046;
-        public static final int fragment_submitedittext=0x7f030047;
-        public static final int framgent_first=0x7f030048;
-        public static final int framgent_house=0x7f030049;
-        public static final int framgent_message=0x7f03004a;
-        public static final int framgent_my=0x7f03004b;
-        public static final int include_style_btn=0x7f03004c;
-        public static final int item_agent_chengjiao_ershou=0x7f03004d;
-        public static final int item_agent_data_list=0x7f03004e;
-        public static final int item_agent_pinglun=0x7f03004f;
-        public static final int item_baidu_map=0x7f030050;
-        public static final int item_chengjiao_ershou=0x7f030051;
-        public static final int item_ershoufang_maphouse=0x7f030052;
-        public static final int item_ershoufang_recommend=0x7f030053;
-        public static final int item_goudi_list=0x7f030054;
-        public static final int item_goudi_list2=0x7f030055;
-        public static final int item_guanzhu_ershou=0x7f030056;
-        public static final int item_guanzhu_new=0x7f030057;
-        public static final int item_myyuyue_kanfang=0x7f030058;
-        public static final int item_new_house_list=0x7f030059;
-        public static final int item_new_house_rexiao=0x7f03005a;
-        public static final int item_popupwin_spinner=0x7f03005b;
-        public static final int item_popupwindows=0x7f03005c;
-        public static final int item_popupwindows_delete=0x7f03005d;
-        public static final int item_popupwindows_delete2=0x7f03005e;
-        public static final int item_popupwindows_touxiang=0x7f03005f;
-        public static final int item_popupwindows_worktime=0x7f030060;
-        public static final int item_popupwindows_zhiyetype=0x7f030061;
-        public static final int item_qiuzu_list=0x7f030062;
-        public static final int item_recommend_house=0x7f030063;
-        public static final int item_renting_maphouse=0x7f030064;
-        public static final int item_renting_recommend=0x7f030065;
-        public static final int item_search_xiaoqu=0x7f030066;
-        public static final int item_submit_ershou_list=0x7f030067;
-        public static final int item_submit_renting_list=0x7f030068;
-        public static final int load_more=0x7f030069;
-        public static final int login_general=0x7f03006a;
-        public static final int login_shortcut=0x7f03006b;
-        public static final int map_house_show=0x7f03006c;
-        public static final int map_house_show2=0x7f03006d;
-        public static final int mark_baidu_map=0x7f03006e;
-        public static final int marke_map_house=0x7f03006f;
-        public static final int pull_to_refresh_header_horizontal=0x7f030070;
-        public static final int pull_to_refresh_header_vertical=0x7f030071;
-        public static final int refresh_head=0x7f030072;
-        public static final int wheelpicker_ptzufang_address=0x7f030073;
+        public static final int abc_action_bar_decor=0x7f030000;
+        public static final int abc_action_bar_decor_include=0x7f030001;
+        public static final int abc_action_bar_decor_overlay=0x7f030002;
+        public static final int abc_action_bar_home=0x7f030003;
+        public static final int abc_action_bar_tab=0x7f030004;
+        public static final int abc_action_bar_tabbar=0x7f030005;
+        public static final int abc_action_bar_title_item=0x7f030006;
+        public static final int abc_action_bar_view_list_nav_layout=0x7f030007;
+        public static final int abc_action_menu_item_layout=0x7f030008;
+        public static final int abc_action_menu_layout=0x7f030009;
+        public static final int abc_action_mode_bar=0x7f03000a;
+        public static final int abc_action_mode_close_item=0x7f03000b;
+        public static final int abc_activity_chooser_view=0x7f03000c;
+        public static final int abc_activity_chooser_view_include=0x7f03000d;
+        public static final int abc_activity_chooser_view_list_item=0x7f03000e;
+        public static final int abc_expanded_menu_layout=0x7f03000f;
+        public static final int abc_list_menu_item_checkbox=0x7f030010;
+        public static final int abc_list_menu_item_icon=0x7f030011;
+        public static final int abc_list_menu_item_layout=0x7f030012;
+        public static final int abc_list_menu_item_radio=0x7f030013;
+        public static final int abc_popup_menu_item_layout=0x7f030014;
+        public static final int abc_search_dropdown_item_icons_2line=0x7f030015;
+        public static final int abc_search_view=0x7f030016;
+        public static final int abc_simple_decor=0x7f030017;
+        public static final int ac_main_dialog=0x7f030018;
+        public static final int ac_main_dialog2=0x7f030019;
+        public static final int activity_agent_change_user_info=0x7f03001a;
+        public static final int activity_agent_detail=0x7f03001b;
+        public static final int activity_agent_main=0x7f03001c;
+        public static final int activity_agent_personal=0x7f03001d;
+        public static final int activity_baidu_map=0x7f03001e;
+        public static final int activity_block_trade_detail=0x7f03001f;
+        public static final int activity_block_trade_main=0x7f030020;
+        public static final int activity_er_shou_fang_details=0x7f030021;
+        public static final int activity_er_shou_fang_main=0x7f030022;
+        public static final int activity_ershou_fang_proprietor=0x7f030023;
+        public static final int activity_find_password_main=0x7f030024;
+        public static final int activity_get_location=0x7f030025;
+        public static final int activity_house_puchase_main=0x7f030026;
+        public static final int activity_login=0x7f030027;
+        public static final int activity_main=0x7f030028;
+        public static final int activity_map_house_main=0x7f030029;
+        public static final int activity_my_renting_house=0x7f03002a;
+        public static final int activity_my_setting_main=0x7f03002b;
+        public static final int activity_new_house_detail=0x7f03002c;
+        public static final int activity_new_house_list=0x7f03002d;
+        public static final int activity_new_house_main=0x7f03002e;
+        public static final int activity_personal_main=0x7f03002f;
+        public static final int activity_proprietor_main=0x7f030030;
+        public static final int activity_pu_tong_my_guan_zhu=0x7f030031;
+        public static final int activity_recommend_newsl=0x7f030032;
+        public static final int activity_regist=0x7f030033;
+        public static final int activity_renting_detail=0x7f030034;
+        public static final int activity_renting_main=0x7f030035;
+        public static final int activity_renting_proprietor=0x7f030036;
+        public static final int activity_search=0x7f030037;
+        public static final int activity_selectimg=0x7f030038;
+        public static final int activity_show_agent_data=0x7f030039;
+        public static final int activity_submit_edittext=0x7f03003a;
+        public static final int activity_web_er_sshou_fang_main=0x7f03003b;
+        public static final int activity_web_house_price_detail=0x7f03003c;
+        public static final int activity_web_recommed_news_main=0x7f03003d;
+        public static final int activity_welcome_main=0x7f03003e;
+        public static final int alerlog_check_biaoqian=0x7f03003f;
+        public static final int alerlog_check_bqdtl=0x7f030040;
+        public static final int alerlog_check_city=0x7f030041;
+        public static final int alerlog_check_fangwupeitao=0x7f030042;
+        public static final int alerlog_goudi_info=0x7f030043;
+        public static final int alerlog_wheel_guapaitime=0x7f030044;
+        public static final int alerlog_wheelpicker_jine=0x7f030045;
+        public static final int alerlog_wheelpicker_tingshi=0x7f030046;
+        public static final int alerlog_wheelpicker_zulin=0x7f030047;
+        public static final int dialog_main_info=0x7f030048;
+        public static final int dialog_sex_info=0x7f030049;
+        public static final int fragment_agent_ershou_list=0x7f03004a;
+        public static final int fragment_agent_ershou_submit=0x7f03004b;
+        public static final int fragment_agent_renting_list=0x7f03004c;
+        public static final int fragment_agent_renting_submit=0x7f03004d;
+        public static final int fragment_at_goudilist=0x7f03004e;
+        public static final int fragment_chengjiao_ershou=0x7f03004f;
+        public static final int fragment_chengjiao_zufang=0x7f030050;
+        public static final int fragment_chengjiaohouse=0x7f030051;
+        public static final int fragment_ershou_pt=0x7f030052;
+        public static final int fragment_goudi_list=0x7f030053;
+        public static final int fragment_guanzhu_ershou=0x7f030054;
+        public static final int fragment_guanzhu_new=0x7f030055;
+        public static final int fragment_look_date=0x7f030056;
+        public static final int fragment_look_histroy=0x7f030057;
+        public static final int fragment_pt_buyhouselist=0x7f030058;
+        public static final int fragment_pt_buyhousesubmit=0x7f030059;
+        public static final int fragment_pt_ershou_list=0x7f03005a;
+        public static final int fragment_pt_ershou_sumbit=0x7f03005b;
+        public static final int fragment_pt_qiuzhulist=0x7f03005c;
+        public static final int fragment_pt_qiuzhusubmit=0x7f03005d;
+        public static final int fragment_pt_renting_list=0x7f03005e;
+        public static final int fragment_pt_renting_sumbit=0x7f03005f;
+        public static final int fragment_submitedittext=0x7f030060;
+        public static final int framgent_first=0x7f030061;
+        public static final int framgent_house=0x7f030062;
+        public static final int framgent_message=0x7f030063;
+        public static final int framgent_my=0x7f030064;
+        public static final int grally_horlscrollview=0x7f030065;
+        public static final int include_style_btn=0x7f030066;
+        public static final int indicator_layout=0x7f030067;
+        public static final int item=0x7f030068;
+        public static final int item_agent_chengjiao_ershou=0x7f030069;
+        public static final int item_agent_data_list=0x7f03006a;
+        public static final int item_agent_pinglun=0x7f03006b;
+        public static final int item_agent_spinner_saixuan=0x7f03006c;
+        public static final int item_baidu_map=0x7f03006d;
+        public static final int item_blocktrade_recommend=0x7f03006e;
+        public static final int item_blocktrade_spinner4=0x7f03006f;
+        public static final int item_chengjiao_ershou=0x7f030070;
+        public static final int item_ershoufang_maphouse=0x7f030071;
+        public static final int item_ershoufang_recommend=0x7f030072;
+        public static final int item_goudi_list=0x7f030073;
+        public static final int item_goudi_list2=0x7f030074;
+        public static final int item_guanzhu_ershou=0x7f030075;
+        public static final int item_guanzhu_new=0x7f030076;
+        public static final int item_image=0x7f030077;
+        public static final int item_myyuyue_kanfang=0x7f030078;
+        public static final int item_new_house_list=0x7f030079;
+        public static final int item_new_house_rexiao=0x7f03007a;
+        public static final int item_newhouse_spinner1=0x7f03007b;
+        public static final int item_newhouse_spinner4=0x7f03007c;
+        public static final int item_popupwin_spinner=0x7f03007d;
+        public static final int item_popupwin_spinner2=0x7f03007e;
+        public static final int item_popupwin_spinner3=0x7f03007f;
+        public static final int item_popupwin_spinner4=0x7f030080;
+        public static final int item_popupwindows=0x7f030081;
+        public static final int item_popupwindows_1=0x7f030082;
+        public static final int item_popupwindows_delete=0x7f030083;
+        public static final int item_popupwindows_delete2=0x7f030084;
+        public static final int item_popupwindows_touxiang=0x7f030085;
+        public static final int item_popupwindows_worktime=0x7f030086;
+        public static final int item_popupwindows_zhiyetype=0x7f030087;
+        public static final int item_published_grida=0x7f030088;
+        public static final int item_qiuzu_list=0x7f030089;
+        public static final int item_recommend_house=0x7f03008a;
+        public static final int item_renting_maphouse=0x7f03008b;
+        public static final int item_renting_recommend=0x7f03008c;
+        public static final int item_renting_spinner4=0x7f03008d;
+        public static final int item_search_xiaoqu=0x7f03008e;
+        public static final int item_spinner_show=0x7f03008f;
+        public static final int item_submit_ershou_list=0x7f030090;
+        public static final int item_submit_renting_list=0x7f030091;
+        public static final int load_more=0x7f030092;
+        public static final int login_general=0x7f030093;
+        public static final int login_shortcut=0x7f030094;
+        public static final int map_house_show=0x7f030095;
+        public static final int map_house_show2=0x7f030096;
+        public static final int mark_baidu_map=0x7f030097;
+        public static final int marke_map_house=0x7f030098;
+        public static final int plugin_camera_album=0x7f030099;
+        public static final int plugin_camera_gallery=0x7f03009a;
+        public static final int plugin_camera_image_file=0x7f03009b;
+        public static final int plugin_camera_no_image_file=0x7f03009c;
+        public static final int plugin_camera_select_folder=0x7f03009d;
+        public static final int plugin_camera_select_imageview=0x7f03009e;
+        public static final int plugin_camera_show_all_photo=0x7f03009f;
+        public static final int popwin_new_yhq=0x7f0300a0;
+        public static final int pull_to_refresh_header_horizontal=0x7f0300a1;
+        public static final int pull_to_refresh_header_vertical=0x7f0300a2;
+        public static final int refresh_head=0x7f0300a3;
+        public static final int render_type_default=0x7f0300a4;
+        public static final int render_type_text=0x7f0300a5;
+        public static final int slider_layout=0x7f0300a6;
+        public static final int support_simple_spinner_dropdown_item=0x7f0300a7;
+        public static final int wheelpicker_ptzufang_address=0x7f0300a8;
     }
     public static final class menu {
-        public static final int agent_detail=0x7f0b0000;
-        public static final int agent_main=0x7f0b0001;
-        public static final int agent_personal=0x7f0b0002;
-        public static final int baidu_map=0x7f0b0003;
-        public static final int block_trade_main=0x7f0b0004;
-        public static final int change_user_info=0x7f0b0005;
-        public static final int er_shou_fang_details=0x7f0b0006;
-        public static final int er_shou_fang_main=0x7f0b0007;
-        public static final int ershou_fang_proprietor=0x7f0b0008;
-        public static final int find_password_main=0x7f0b0009;
-        public static final int get_location=0x7f0b000a;
-        public static final int house_puchase_main=0x7f0b000b;
-        public static final int login=0x7f0b000c;
-        public static final int main=0x7f0b000d;
-        public static final int map_house_main=0x7f0b000e;
-        public static final int my_renting_house=0x7f0b000f;
-        public static final int my_setting_main=0x7f0b0010;
-        public static final int new_house_detail=0x7f0b0011;
-        public static final int new_house_list=0x7f0b0012;
-        public static final int new_house_main=0x7f0b0013;
-        public static final int personal_main=0x7f0b0014;
-        public static final int proprietor_main=0x7f0b0015;
-        public static final int pu_tong_my_guan_zhu=0x7f0b0016;
-        public static final int regist=0x7f0b0017;
-        public static final int renting_detail=0x7f0b0018;
-        public static final int renting_main=0x7f0b0019;
-        public static final int renting_proprietor=0x7f0b001a;
-        public static final int search=0x7f0b001b;
-        public static final int show_agent_data=0x7f0b001c;
-        public static final int submit_edittext=0x7f0b001d;
-        public static final int web_er_sshou_fang_main=0x7f0b001e;
-        public static final int web_house_price_detail=0x7f0b001f;
-        public static final int web_recommed_news_main=0x7f0b0020;
-        public static final int welcome_main=0x7f0b0021;
+        public static final int agent_detail=0x7f0d0000;
+        public static final int agent_main=0x7f0d0001;
+        public static final int agent_personal=0x7f0d0002;
+        public static final int baidu_map=0x7f0d0003;
+        public static final int block_trade_main=0x7f0d0004;
+        public static final int change_user_info=0x7f0d0005;
+        public static final int er_shou_fang_details=0x7f0d0006;
+        public static final int er_shou_fang_main=0x7f0d0007;
+        public static final int ershou_fang_proprietor=0x7f0d0008;
+        public static final int find_password_main=0x7f0d0009;
+        public static final int get_location=0x7f0d000a;
+        public static final int house_puchase_main=0x7f0d000b;
+        public static final int login=0x7f0d000c;
+        public static final int main=0x7f0d000d;
+        public static final int map_house_main=0x7f0d000e;
+        public static final int my_renting_house=0x7f0d000f;
+        public static final int my_setting_main=0x7f0d0010;
+        public static final int new_house_detail=0x7f0d0011;
+        public static final int new_house_list=0x7f0d0012;
+        public static final int new_house_main=0x7f0d0013;
+        public static final int personal_main=0x7f0d0014;
+        public static final int proprietor_main=0x7f0d0015;
+        public static final int pu_tong_my_guan_zhu=0x7f0d0016;
+        public static final int regist=0x7f0d0017;
+        public static final int renting_detail=0x7f0d0018;
+        public static final int renting_main=0x7f0d0019;
+        public static final int renting_proprietor=0x7f0d001a;
+        public static final int search=0x7f0d001b;
+        public static final int show_agent_data=0x7f0d001c;
+        public static final int submit_edittext=0x7f0d001d;
+        public static final int web_er_sshou_fang_main=0x7f0d001e;
+        public static final int web_house_price_detail=0x7f0d001f;
+        public static final int web_recommed_news_main=0x7f0d0020;
+        public static final int welcome_main=0x7f0d0021;
     }
     public static final class string {
-        public static final int action_settings=0x7f070008;
-        public static final int app_name=0x7f070006;
-        public static final int head=0x7f070025;
-        public static final int hello_world=0x7f070007;
-        public static final int load_fail=0x7f07002f;
-        public static final int load_succeed=0x7f07002e;
-        public static final int loading=0x7f07002d;
-        public static final int pull_to_refresh=0x7f070026;
+        /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
+         */
+        public static final int abc_action_bar_home_description=0x7f050002;
+        /**  Content description for the action bar "up" affordance. [CHAR LIMIT=NONE] 
+         */
+        public static final int abc_action_bar_up_description=0x7f050003;
+        /**  Content description for the action menu overflow button. [CHAR LIMIT=NONE] 
+         */
+        public static final int abc_action_menu_overflow_description=0x7f050004;
+        /**  Label for the "Done" button on the far left of action mode toolbars. 
+         */
+        public static final int abc_action_mode_done=0x7f050001;
+        /**  Title for a button to expand the list of activities in ActivityChooserView [CHAR LIMIT=25] 
+         */
+        public static final int abc_activity_chooser_view_see_all=0x7f05000b;
+        /**  ActivityChooserView - accessibility support 
+ Description of the shwoing of a popup window with activities to choose from. [CHAR LIMIT=NONE] 
+         */
+        public static final int abc_activitychooserview_choose_application=0x7f05000a;
+        /**  SearchView accessibility description for clear button [CHAR LIMIT=NONE] 
+         */
+        public static final int abc_searchview_description_clear=0x7f050007;
+        /**  SearchView accessibility description for search text field [CHAR LIMIT=NONE] 
+         */
+        public static final int abc_searchview_description_query=0x7f050006;
+        /**  SearchView accessibility description for search button [CHAR LIMIT=NONE] 
+         */
+        public static final int abc_searchview_description_search=0x7f050005;
+        /**  SearchView accessibility description for submit button [CHAR LIMIT=NONE] 
+         */
+        public static final int abc_searchview_description_submit=0x7f050008;
+        /**  SearchView accessibility description for voice button [CHAR LIMIT=NONE] 
+         */
+        public static final int abc_searchview_description_voice=0x7f050009;
+        /**  Description of the choose target button in a ShareActionProvider (share UI). [CHAR LIMIT=NONE] 
+         */
+        public static final int abc_shareactionprovider_share_with=0x7f05000d;
+        /**  Description of a share target (both in the list of such or the default share button) in a ShareActionProvider (share UI). [CHAR LIMIT=NONE] 
+         */
+        public static final int abc_shareactionprovider_share_with_application=0x7f05000c;
+        public static final int action_settings=0x7f050015;
+        public static final int album=0x7f050046;
+        public static final int app_name=0x7f050000;
+        public static final int camera_cancel=0x7f050049;
+        public static final int finish=0x7f050043;
+        public static final int head=0x7f050032;
+        public static final int hello_world=0x7f050014;
+        public static final int invalidSD=0x7f050044;
+        public static final int load_fail=0x7f05003c;
+        public static final int load_succeed=0x7f05003b;
+        public static final int loading=0x7f05003a;
+        public static final int no_photo=0x7f05004a;
+        /**  图片浏览 
+         */
+        public static final int only_choose_num=0x7f050042;
+        public static final int photo=0x7f050045;
+        public static final int preview=0x7f050047;
+        public static final int pull_to_refresh=0x7f050033;
         /**  Just use standard Pull Down String when pulling up. These can be set for languages which require it 
  Just use standard Pull Down String when pulling up. These can be set for languages which require it 
          */
-        public static final int pull_to_refresh_from_bottom_pull_label=0x7f070003;
-        public static final int pull_to_refresh_from_bottom_refreshing_label=0x7f070005;
-        public static final int pull_to_refresh_from_bottom_release_label=0x7f070004;
-        public static final int pull_to_refresh_pull_label=0x7f070000;
-        public static final int pull_to_refresh_refreshing_label=0x7f070002;
-        public static final int pull_to_refresh_release_label=0x7f070001;
-        public static final int pullup_to_load=0x7f07002b;
-        public static final int refresh_fail=0x7f07002a;
-        public static final int refresh_succeed=0x7f070029;
-        public static final int refreshing=0x7f070028;
-        public static final int release_to_load=0x7f07002c;
-        public static final int release_to_refresh=0x7f070027;
-        public static final int title_activity_agent_detail=0x7f070022;
-        public static final int title_activity_agent_main=0x7f07000e;
-        public static final int title_activity_agent_personal=0x7f070031;
-        public static final int title_activity_baidu_map=0x7f070024;
-        public static final int title_activity_block_trade_main=0x7f070010;
-        public static final int title_activity_change_user_info=0x7f07001b;
-        public static final int title_activity_er_shou_fang_details=0x7f07001e;
-        public static final int title_activity_er_shou_fang_main=0x7f07000b;
-        public static final int title_activity_ershou_fang_proprietor=0x7f070019;
-        public static final int title_activity_find_password_main=0x7f070017;
-        public static final int title_activity_get_location=0x7f070030;
-        public static final int title_activity_house_puchase_main=0x7f070012;
-        public static final int title_activity_login=0x7f070009;
-        public static final int title_activity_map_house_main=0x7f070011;
-        public static final int title_activity_my_renting_house=0x7f07001c;
-        public static final int title_activity_my_setting_main=0x7f070015;
-        public static final int title_activity_new_house_detail=0x7f070020;
-        public static final int title_activity_new_house_list=0x7f07001f;
-        public static final int title_activity_new_house_main=0x7f07000c;
-        public static final int title_activity_personal_main=0x7f070016;
-        public static final int title_activity_proprietor_main=0x7f07000f;
-        public static final int title_activity_pu_tong_my_guan_zhu=0x7f070023;
-        public static final int title_activity_regist=0x7f07000a;
-        public static final int title_activity_renting_detail=0x7f070021;
-        public static final int title_activity_renting_main=0x7f07000d;
-        public static final int title_activity_renting_proprietor=0x7f070018;
-        public static final int title_activity_search=0x7f070033;
-        public static final int title_activity_show_agent_data=0x7f070034;
-        public static final int title_activity_submit_edittext=0x7f070032;
-        public static final int title_activity_web_er_sshou_fang_main=0x7f07001a;
-        public static final int title_activity_web_house_price_detail=0x7f07001d;
-        public static final int title_activity_web_recommed_news_main=0x7f070014;
-        public static final int title_activity_welcome_main=0x7f070013;
+        public static final int pull_to_refresh_from_bottom_pull_label=0x7f050011;
+        public static final int pull_to_refresh_from_bottom_refreshing_label=0x7f050013;
+        public static final int pull_to_refresh_from_bottom_release_label=0x7f050012;
+        public static final int pull_to_refresh_pull_label=0x7f05000e;
+        public static final int pull_to_refresh_refreshing_label=0x7f050010;
+        public static final int pull_to_refresh_release_label=0x7f05000f;
+        public static final int pullup_to_load=0x7f050038;
+        public static final int refresh_fail=0x7f050037;
+        public static final int refresh_succeed=0x7f050036;
+        public static final int refreshing=0x7f050035;
+        public static final int release_to_load=0x7f050039;
+        public static final int release_to_refresh=0x7f050034;
+        public static final int title_activity_agent_detail=0x7f05002f;
+        public static final int title_activity_agent_main=0x7f05001b;
+        public static final int title_activity_agent_personal=0x7f05003e;
+        public static final int title_activity_baidu_map=0x7f050031;
+        public static final int title_activity_block_trade_main=0x7f05001d;
+        public static final int title_activity_change_user_info=0x7f050028;
+        public static final int title_activity_er_shou_fang_details=0x7f05002b;
+        public static final int title_activity_er_shou_fang_main=0x7f050018;
+        public static final int title_activity_ershou_fang_proprietor=0x7f050026;
+        public static final int title_activity_find_password_main=0x7f050024;
+        public static final int title_activity_get_location=0x7f05003d;
+        public static final int title_activity_house_puchase_main=0x7f05001f;
+        public static final int title_activity_login=0x7f050016;
+        public static final int title_activity_map_house_main=0x7f05001e;
+        public static final int title_activity_my_renting_house=0x7f050029;
+        public static final int title_activity_my_setting_main=0x7f050022;
+        public static final int title_activity_new_house_detail=0x7f05002d;
+        public static final int title_activity_new_house_list=0x7f05002c;
+        public static final int title_activity_new_house_main=0x7f050019;
+        public static final int title_activity_personal_main=0x7f050023;
+        public static final int title_activity_proprietor_main=0x7f05001c;
+        public static final int title_activity_pu_tong_my_guan_zhu=0x7f050030;
+        public static final int title_activity_regist=0x7f050017;
+        public static final int title_activity_renting_detail=0x7f05002e;
+        public static final int title_activity_renting_main=0x7f05001a;
+        public static final int title_activity_renting_proprietor=0x7f050025;
+        public static final int title_activity_search=0x7f050040;
+        public static final int title_activity_show_agent_data=0x7f050041;
+        public static final int title_activity_submit_edittext=0x7f05003f;
+        public static final int title_activity_web_er_sshou_fang_main=0x7f050027;
+        public static final int title_activity_web_house_price_detail=0x7f05002a;
+        public static final int title_activity_web_recommed_news_main=0x7f050021;
+        public static final int title_activity_welcome_main=0x7f050020;
+        public static final int unfinished=0x7f050048;
     }
     public static final class style {
+        public static final int AndroidImageSlider_Attractive_Rect_Blue=0x7f060001;
+        public static final int AndroidImageSlider_Corner_Oval_Orange=0x7f060000;
+        public static final int AndroidImageSlider_Magnifier_Oval_Black=0x7f060002;
         /** 
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
@@ -2437,13 +4252,1838 @@ General sizes
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f0a0000;
+        public static final int AppBaseTheme=0x7f06008e;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f0a0001;
+        public static final int AppTheme=0x7f06008f;
+        /**  Mimic text appearance in select_dialog_item.xml 
+         */
+        public static final int TextAppearance_AppCompat_Base_CompactMenu_Dialog=0x7f060066;
+        public static final int TextAppearance_AppCompat_Base_SearchResult=0x7f060070;
+        public static final int TextAppearance_AppCompat_Base_SearchResult_Subtitle=0x7f060072;
+        /**  Search View result styles 
+         */
+        public static final int TextAppearance_AppCompat_Base_SearchResult_Title=0x7f060071;
+        public static final int TextAppearance_AppCompat_Base_Widget_PopupMenu_Large=0x7f06006c;
+        public static final int TextAppearance_AppCompat_Base_Widget_PopupMenu_Small=0x7f06006d;
+        public static final int TextAppearance_AppCompat_Light_Base_SearchResult=0x7f060073;
+        public static final int TextAppearance_AppCompat_Light_Base_SearchResult_Subtitle=0x7f060075;
+        /** 
+        TextAppearance.Holo.Light.SearchResult.* are private so we extend from the default
+        versions instead (which are exactly the same).
+    
+         */
+        public static final int TextAppearance_AppCompat_Light_Base_SearchResult_Title=0x7f060074;
+        public static final int TextAppearance_AppCompat_Light_Base_Widget_PopupMenu_Large=0x7f06006e;
+        public static final int TextAppearance_AppCompat_Light_Base_Widget_PopupMenu_Small=0x7f06006f;
+        public static final int TextAppearance_AppCompat_Light_SearchResult_Subtitle=0x7f060038;
+        public static final int TextAppearance_AppCompat_Light_SearchResult_Title=0x7f060037;
+        public static final int TextAppearance_AppCompat_Light_Widget_PopupMenu_Large=0x7f060033;
+        public static final int TextAppearance_AppCompat_Light_Widget_PopupMenu_Small=0x7f060034;
+        public static final int TextAppearance_AppCompat_SearchResult_Subtitle=0x7f060036;
+        public static final int TextAppearance_AppCompat_SearchResult_Title=0x7f060035;
+        public static final int TextAppearance_AppCompat_Widget_ActionBar_Menu=0x7f06001d;
+        public static final int TextAppearance_AppCompat_Widget_ActionBar_Subtitle=0x7f060009;
+        public static final int TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse=0x7f06000b;
+        public static final int TextAppearance_AppCompat_Widget_ActionBar_Title=0x7f060008;
+        public static final int TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse=0x7f06000a;
+        public static final int TextAppearance_AppCompat_Widget_ActionMode_Subtitle=0x7f060021;
+        public static final int TextAppearance_AppCompat_Widget_ActionMode_Subtitle_Inverse=0x7f060023;
+        public static final int TextAppearance_AppCompat_Widget_ActionMode_Title=0x7f060020;
+        public static final int TextAppearance_AppCompat_Widget_ActionMode_Title_Inverse=0x7f060022;
+        public static final int TextAppearance_AppCompat_Widget_Base_ActionBar_Menu=0x7f060057;
+        public static final int TextAppearance_AppCompat_Widget_Base_ActionBar_Subtitle=0x7f060059;
+        public static final int TextAppearance_AppCompat_Widget_Base_ActionBar_Subtitle_Inverse=0x7f06005b;
+        public static final int TextAppearance_AppCompat_Widget_Base_ActionBar_Title=0x7f060058;
+        public static final int TextAppearance_AppCompat_Widget_Base_ActionBar_Title_Inverse=0x7f06005a;
+        public static final int TextAppearance_AppCompat_Widget_Base_ActionMode_Subtitle=0x7f060054;
+        public static final int TextAppearance_AppCompat_Widget_Base_ActionMode_Subtitle_Inverse=0x7f060056;
+        public static final int TextAppearance_AppCompat_Widget_Base_ActionMode_Title=0x7f060053;
+        public static final int TextAppearance_AppCompat_Widget_Base_ActionMode_Title_Inverse=0x7f060055;
+        public static final int TextAppearance_AppCompat_Widget_Base_DropDownItem=0x7f060064;
+        public static final int TextAppearance_AppCompat_Widget_DropDownItem=0x7f060024;
+        public static final int TextAppearance_AppCompat_Widget_PopupMenu_Large=0x7f060031;
+        public static final int TextAppearance_AppCompat_Widget_PopupMenu_Small=0x7f060032;
+        public static final int TextAppearance_Widget_AppCompat_Base_ExpandedMenu_Item=0x7f060065;
+        public static final int TextAppearance_Widget_AppCompat_ExpandedMenu_Item=0x7f06002b;
+        /**  Themes in the "Theme.AppCompat" family will contain an action bar by default.
+         If Holo themes are available on the current platform version they will be used.
+         A limited Holo-styled action bar will be provided on platform versions older
+         than 3.0. (API 11)
+
+         These theme declarations contain any version-independent specification. Items
+         that need to vary based on platform version should be defined in the corresponding
+         "Theme.Base" theme. 
+ Platform-independent theme providing an action bar in a dark-themed activity. 
+         */
+        public static final int Theme_AppCompat=0x7f06007a;
+        /**  Menu/item attributes 
+         */
+        public static final int Theme_AppCompat_Base_CompactMenu=0x7f060086;
+        public static final int Theme_AppCompat_Base_CompactMenu_Dialog=0x7f060087;
+        /**  Menu/item attributes 
+         */
+        public static final int Theme_AppCompat_CompactMenu=0x7f06007f;
+        public static final int Theme_AppCompat_CompactMenu_Dialog=0x7f060080;
+        public static final int Theme_AppCompat_DialogWhenLarge=0x7f06007d;
+        /**  Platform-independent theme providing an action bar in a light-themed activity. 
+         */
+        public static final int Theme_AppCompat_Light=0x7f06007b;
+        /**  Platform-independent theme providing an action bar in a dark-themed activity. 
+         */
+        public static final int Theme_AppCompat_Light_DarkActionBar=0x7f06007c;
+        public static final int Theme_AppCompat_Light_DialogWhenLarge=0x7f06007e;
+        /**  Base platform-dependent theme  
+         */
+        public static final int Theme_Base=0x7f060081;
+        /**  Base platform-dependent theme providing an action bar in a dark-themed activity. 
+ Base platform-dependent theme providing an action bar in a dark-themed activity. 
+         */
+        public static final int Theme_Base_AppCompat=0x7f060083;
+        public static final int Theme_Base_AppCompat_Dialog_FixedSize=0x7f06008a;
+        public static final int Theme_Base_AppCompat_Dialog_Light_FixedSize=0x7f06008b;
+        public static final int Theme_Base_AppCompat_DialogWhenLarge=0x7f060088;
+        /** 
+        As we have defined the theme in values-large (for compat) and values-large takes precedence
+        over values-v14, we need to reset back to the Holo parent in values-large-v14. As the themes
+        in values-v14 & values-large-v14 are exactly the same, these "double base" themes can be
+        inherited from in both values-v14 and values-large-v14.
+    
+         */
+        public static final int Theme_Base_AppCompat_DialogWhenLarge_Base=0x7f06008c;
+        /**  Base platform-dependent theme providing an action bar in a light-themed activity. 
+ Base platform-dependent theme providing an action bar in a light-themed activity. 
+         */
+        public static final int Theme_Base_AppCompat_Light=0x7f060084;
+        /**  Base platform-dependent theme providing a dark action bar in a light-themed activity. 
+ Base platform-dependent theme providing a dark action bar in a light-themed activity. 
+         */
+        public static final int Theme_Base_AppCompat_Light_DarkActionBar=0x7f060085;
+        public static final int Theme_Base_AppCompat_Light_DialogWhenLarge=0x7f060089;
+        public static final int Theme_Base_AppCompat_Light_DialogWhenLarge_Base=0x7f06008d;
+        /**  Base platform-dependent theme providing a light-themed activity. 
+         */
+        public static final int Theme_Base_Light=0x7f060082;
+        /**  Styles in here can be extended for customisation in your application. Each utilises
+         one of the Base styles. If Holo themes are available on the current platform version
+         they will be used instead of the compat styles. 
+         */
+        public static final int Widget_AppCompat_ActionBar=0x7f060003;
+        public static final int Widget_AppCompat_ActionBar_Solid=0x7f060005;
+        public static final int Widget_AppCompat_ActionBar_TabBar=0x7f060014;
+        public static final int Widget_AppCompat_ActionBar_TabText=0x7f06001a;
+        public static final int Widget_AppCompat_ActionBar_TabView=0x7f060017;
+        public static final int Widget_AppCompat_ActionButton=0x7f06000e;
+        public static final int Widget_AppCompat_ActionButton_CloseMode=0x7f060010;
+        public static final int Widget_AppCompat_ActionButton_Overflow=0x7f060012;
+        public static final int Widget_AppCompat_ActionMode=0x7f06001e;
+        public static final int Widget_AppCompat_ActivityChooserView=0x7f06003b;
+        public static final int Widget_AppCompat_AutoCompleteTextView=0x7f060039;
+        public static final int Widget_AppCompat_Base_ActionBar=0x7f06003d;
+        public static final int Widget_AppCompat_Base_ActionBar_Solid=0x7f06003f;
+        public static final int Widget_AppCompat_Base_ActionBar_TabBar=0x7f060048;
+        public static final int Widget_AppCompat_Base_ActionBar_TabText=0x7f06004e;
+        public static final int Widget_AppCompat_Base_ActionBar_TabView=0x7f06004b;
+        /**  Action Button Styles 
+         */
+        public static final int Widget_AppCompat_Base_ActionButton=0x7f060042;
+        public static final int Widget_AppCompat_Base_ActionButton_CloseMode=0x7f060044;
+        public static final int Widget_AppCompat_Base_ActionButton_Overflow=0x7f060046;
+        public static final int Widget_AppCompat_Base_ActionMode=0x7f060051;
+        public static final int Widget_AppCompat_Base_ActivityChooserView=0x7f060078;
+        /**  AutoCompleteTextView styles (for SearchView) 
+         */
+        public static final int Widget_AppCompat_Base_AutoCompleteTextView=0x7f060076;
+        public static final int Widget_AppCompat_Base_DropDownItem_Spinner=0x7f060060;
+        /**  Popup Menu 
+         */
+        public static final int Widget_AppCompat_Base_ListPopupWindow=0x7f060068;
+        /**  Spinner Widgets 
+         */
+        public static final int Widget_AppCompat_Base_ListView_DropDown=0x7f060062;
+        public static final int Widget_AppCompat_Base_ListView_Menu=0x7f060067;
+        public static final int Widget_AppCompat_Base_PopupMenu=0x7f06006a;
+        public static final int Widget_AppCompat_Base_ProgressBar=0x7f06005d;
+        /**  Progress Bar 
+         */
+        public static final int Widget_AppCompat_Base_ProgressBar_Horizontal=0x7f06005c;
+        /**  Action Bar Spinner Widgets 
+         */
+        public static final int Widget_AppCompat_Base_Spinner=0x7f06005e;
+        public static final int Widget_AppCompat_DropDownItem_Spinner=0x7f060027;
+        public static final int Widget_AppCompat_Light_ActionBar=0x7f060004;
+        public static final int Widget_AppCompat_Light_ActionBar_Solid=0x7f060006;
+        public static final int Widget_AppCompat_Light_ActionBar_Solid_Inverse=0x7f060007;
+        public static final int Widget_AppCompat_Light_ActionBar_TabBar=0x7f060015;
+        public static final int Widget_AppCompat_Light_ActionBar_TabBar_Inverse=0x7f060016;
+        public static final int Widget_AppCompat_Light_ActionBar_TabText=0x7f06001b;
+        public static final int Widget_AppCompat_Light_ActionBar_TabText_Inverse=0x7f06001c;
+        public static final int Widget_AppCompat_Light_ActionBar_TabView=0x7f060018;
+        public static final int Widget_AppCompat_Light_ActionBar_TabView_Inverse=0x7f060019;
+        public static final int Widget_AppCompat_Light_ActionButton=0x7f06000f;
+        public static final int Widget_AppCompat_Light_ActionButton_CloseMode=0x7f060011;
+        public static final int Widget_AppCompat_Light_ActionButton_Overflow=0x7f060013;
+        public static final int Widget_AppCompat_Light_ActionMode_Inverse=0x7f06001f;
+        public static final int Widget_AppCompat_Light_ActivityChooserView=0x7f06003c;
+        public static final int Widget_AppCompat_Light_AutoCompleteTextView=0x7f06003a;
+        public static final int Widget_AppCompat_Light_Base_ActionBar=0x7f06003e;
+        public static final int Widget_AppCompat_Light_Base_ActionBar_Solid=0x7f060040;
+        public static final int Widget_AppCompat_Light_Base_ActionBar_Solid_Inverse=0x7f060041;
+        public static final int Widget_AppCompat_Light_Base_ActionBar_TabBar=0x7f060049;
+        public static final int Widget_AppCompat_Light_Base_ActionBar_TabBar_Inverse=0x7f06004a;
+        public static final int Widget_AppCompat_Light_Base_ActionBar_TabText=0x7f06004f;
+        public static final int Widget_AppCompat_Light_Base_ActionBar_TabText_Inverse=0x7f060050;
+        public static final int Widget_AppCompat_Light_Base_ActionBar_TabView=0x7f06004c;
+        public static final int Widget_AppCompat_Light_Base_ActionBar_TabView_Inverse=0x7f06004d;
+        public static final int Widget_AppCompat_Light_Base_ActionButton=0x7f060043;
+        public static final int Widget_AppCompat_Light_Base_ActionButton_CloseMode=0x7f060045;
+        public static final int Widget_AppCompat_Light_Base_ActionButton_Overflow=0x7f060047;
+        public static final int Widget_AppCompat_Light_Base_ActionMode_Inverse=0x7f060052;
+        public static final int Widget_AppCompat_Light_Base_ActivityChooserView=0x7f060079;
+        public static final int Widget_AppCompat_Light_Base_AutoCompleteTextView=0x7f060077;
+        public static final int Widget_AppCompat_Light_Base_DropDownItem_Spinner=0x7f060061;
+        public static final int Widget_AppCompat_Light_Base_ListPopupWindow=0x7f060069;
+        public static final int Widget_AppCompat_Light_Base_ListView_DropDown=0x7f060063;
+        public static final int Widget_AppCompat_Light_Base_PopupMenu=0x7f06006b;
+        public static final int Widget_AppCompat_Light_Base_Spinner=0x7f06005f;
+        public static final int Widget_AppCompat_Light_DropDownItem_Spinner=0x7f060028;
+        public static final int Widget_AppCompat_Light_ListPopupWindow=0x7f06002d;
+        public static final int Widget_AppCompat_Light_ListView_DropDown=0x7f06002a;
+        public static final int Widget_AppCompat_Light_PopupMenu=0x7f06002f;
+        public static final int Widget_AppCompat_Light_Spinner_DropDown_ActionBar=0x7f060026;
+        public static final int Widget_AppCompat_ListPopupWindow=0x7f06002c;
+        public static final int Widget_AppCompat_ListView_DropDown=0x7f060029;
+        public static final int Widget_AppCompat_ListView_Menu=0x7f060030;
+        public static final int Widget_AppCompat_PopupMenu=0x7f06002e;
+        public static final int Widget_AppCompat_ProgressBar=0x7f06000d;
+        public static final int Widget_AppCompat_ProgressBar_Horizontal=0x7f06000c;
+        public static final int Widget_AppCompat_Spinner_DropDown_ActionBar=0x7f060025;
     }
     public static final class styleable {
+        /**  ============================================ 
+ Attributes used to style the Action Bar.
+         These should be set on your theme; the default actionBarStyle will
+         propagate them to the correct elements as needed.
+
+         Please Note: when overriding attributes for an ActionBar style
+         you must specify each attribute twice: once with the "android:"
+         namespace prefix and once without. 
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #ActionBar_background com.dumu.housego:background}</code></td><td> Specifies a background drawable for the action bar.</td></tr>
+           <tr><td><code>{@link #ActionBar_backgroundSplit com.dumu.housego:backgroundSplit}</code></td><td> Specifies a background drawable for the bottom component of a split action bar.</td></tr>
+           <tr><td><code>{@link #ActionBar_backgroundStacked com.dumu.housego:backgroundStacked}</code></td><td> Specifies a background drawable for a second stacked row of the action bar.</td></tr>
+           <tr><td><code>{@link #ActionBar_customNavigationLayout com.dumu.housego:customNavigationLayout}</code></td><td> Specifies a layout for custom navigation.</td></tr>
+           <tr><td><code>{@link #ActionBar_displayOptions com.dumu.housego:displayOptions}</code></td><td> Options affecting how the action bar is displayed.</td></tr>
+           <tr><td><code>{@link #ActionBar_divider com.dumu.housego:divider}</code></td><td> Specifies the drawable used for item dividers.</td></tr>
+           <tr><td><code>{@link #ActionBar_height com.dumu.housego:height}</code></td><td> Specifies a fixed height.</td></tr>
+           <tr><td><code>{@link #ActionBar_homeLayout com.dumu.housego:homeLayout}</code></td><td> Specifies a layout to use for the "home" section of the action bar.</td></tr>
+           <tr><td><code>{@link #ActionBar_icon com.dumu.housego:icon}</code></td><td> Specifies the drawable used for the application icon.</td></tr>
+           <tr><td><code>{@link #ActionBar_indeterminateProgressStyle com.dumu.housego:indeterminateProgressStyle}</code></td><td> Specifies a style resource to use for an indeterminate progress spinner.</td></tr>
+           <tr><td><code>{@link #ActionBar_itemPadding com.dumu.housego:itemPadding}</code></td><td> Specifies padding that should be applied to the left and right sides of
+             system-provided items in the bar.</td></tr>
+           <tr><td><code>{@link #ActionBar_logo com.dumu.housego:logo}</code></td><td> Specifies the drawable used for the application logo.</td></tr>
+           <tr><td><code>{@link #ActionBar_navigationMode com.dumu.housego:navigationMode}</code></td><td> The type of navigation to use.</td></tr>
+           <tr><td><code>{@link #ActionBar_progressBarPadding com.dumu.housego:progressBarPadding}</code></td><td> Specifies the horizontal padding on either end for an embedded progress bar.</td></tr>
+           <tr><td><code>{@link #ActionBar_progressBarStyle com.dumu.housego:progressBarStyle}</code></td><td> Specifies a style resource to use for an embedded progress bar.</td></tr>
+           <tr><td><code>{@link #ActionBar_subtitle com.dumu.housego:subtitle}</code></td><td> Specifies subtitle text used for navigationMode="normal" </td></tr>
+           <tr><td><code>{@link #ActionBar_subtitleTextStyle com.dumu.housego:subtitleTextStyle}</code></td><td> Specifies a style to use for subtitle text.</td></tr>
+           <tr><td><code>{@link #ActionBar_title com.dumu.housego:title}</code></td><td> Specifies title text used for navigationMode="normal" </td></tr>
+           <tr><td><code>{@link #ActionBar_titleTextStyle com.dumu.housego:titleTextStyle}</code></td><td> Specifies a style to use for title text.</td></tr>
+           </table>
+           @see #ActionBar_background
+           @see #ActionBar_backgroundSplit
+           @see #ActionBar_backgroundStacked
+           @see #ActionBar_customNavigationLayout
+           @see #ActionBar_displayOptions
+           @see #ActionBar_divider
+           @see #ActionBar_height
+           @see #ActionBar_homeLayout
+           @see #ActionBar_icon
+           @see #ActionBar_indeterminateProgressStyle
+           @see #ActionBar_itemPadding
+           @see #ActionBar_logo
+           @see #ActionBar_navigationMode
+           @see #ActionBar_progressBarPadding
+           @see #ActionBar_progressBarStyle
+           @see #ActionBar_subtitle
+           @see #ActionBar_subtitleTextStyle
+           @see #ActionBar_title
+           @see #ActionBar_titleTextStyle
+         */
+        public static final int[] ActionBar = {
+            0x7f010041, 0x7f010042, 0x7f010043, 0x7f010044,
+            0x7f010045, 0x7f010046, 0x7f010047, 0x7f010048,
+            0x7f010049, 0x7f01004a, 0x7f01004b, 0x7f01004c,
+            0x7f01004d, 0x7f01004e, 0x7f01004f, 0x7f010050,
+            0x7f010051, 0x7f010052, 0x7f010053
+        };
+        /**
+          <p>
+          @attr description
+           Specifies a background drawable for the action bar. 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:background
+        */
+        public static final int ActionBar_background = 10;
+        /**
+          <p>
+          @attr description
+           Specifies a background drawable for the bottom component of a split action bar. 
+
+
+          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:backgroundSplit
+        */
+        public static final int ActionBar_backgroundSplit = 12;
+        /**
+          <p>
+          @attr description
+           Specifies a background drawable for a second stacked row of the action bar. 
+
+
+          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:backgroundStacked
+        */
+        public static final int ActionBar_backgroundStacked = 11;
+        /**
+          <p>
+          @attr description
+           Specifies a layout for custom navigation. Overrides navigationMode. 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:customNavigationLayout
+        */
+        public static final int ActionBar_customNavigationLayout = 13;
+        /**
+          <p>
+          @attr description
+           Options affecting how the action bar is displayed. 
+
+
+          <p>Must be one or more (separated by '|') of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>useLogo</code></td><td>0x1</td><td></td></tr>
+<tr><td><code>showHome</code></td><td>0x2</td><td></td></tr>
+<tr><td><code>homeAsUp</code></td><td>0x4</td><td></td></tr>
+<tr><td><code>showTitle</code></td><td>0x8</td><td></td></tr>
+<tr><td><code>showCustom</code></td><td>0x10</td><td></td></tr>
+<tr><td><code>disableHome</code></td><td>0x20</td><td></td></tr>
+</table>
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:displayOptions
+        */
+        public static final int ActionBar_displayOptions = 3;
+        /**
+          <p>
+          @attr description
+           Specifies the drawable used for item dividers. 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:divider
+        */
+        public static final int ActionBar_divider = 9;
+        /**
+          <p>
+          @attr description
+           Specifies a fixed height. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:height
+        */
+        public static final int ActionBar_height = 1;
+        /**
+          <p>
+          @attr description
+           Specifies a layout to use for the "home" section of the action bar. 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:homeLayout
+        */
+        public static final int ActionBar_homeLayout = 14;
+        /**
+          <p>
+          @attr description
+           Specifies the drawable used for the application icon. 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:icon
+        */
+        public static final int ActionBar_icon = 7;
+        /**
+          <p>
+          @attr description
+           Specifies a style resource to use for an indeterminate progress spinner. 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:indeterminateProgressStyle
+        */
+        public static final int ActionBar_indeterminateProgressStyle = 16;
+        /**
+          <p>
+          @attr description
+           Specifies padding that should be applied to the left and right sides of
+             system-provided items in the bar. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:itemPadding
+        */
+        public static final int ActionBar_itemPadding = 18;
+        /**
+          <p>
+          @attr description
+           Specifies the drawable used for the application logo. 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:logo
+        */
+        public static final int ActionBar_logo = 8;
+        /**
+          <p>
+          @attr description
+           The type of navigation to use. 
+
+
+          <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>normal</code></td><td>0</td><td> Normal static title text </td></tr>
+<tr><td><code>listMode</code></td><td>1</td><td> The action bar will use a selection list for navigation. </td></tr>
+<tr><td><code>tabMode</code></td><td>2</td><td> The action bar will use a series of horizontal tabs for navigation. </td></tr>
+</table>
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:navigationMode
+        */
+        public static final int ActionBar_navigationMode = 2;
+        /**
+          <p>
+          @attr description
+           Specifies the horizontal padding on either end for an embedded progress bar. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:progressBarPadding
+        */
+        public static final int ActionBar_progressBarPadding = 17;
+        /**
+          <p>
+          @attr description
+           Specifies a style resource to use for an embedded progress bar. 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:progressBarStyle
+        */
+        public static final int ActionBar_progressBarStyle = 15;
+        /**
+          <p>
+          @attr description
+           Specifies subtitle text used for navigationMode="normal" 
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:subtitle
+        */
+        public static final int ActionBar_subtitle = 4;
+        /**
+          <p>
+          @attr description
+           Specifies a style to use for subtitle text. 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:subtitleTextStyle
+        */
+        public static final int ActionBar_subtitleTextStyle = 6;
+        /**
+          <p>
+          @attr description
+           Specifies title text used for navigationMode="normal" 
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:title
+        */
+        public static final int ActionBar_title = 0;
+        /**
+          <p>
+          @attr description
+           Specifies a style to use for title text. 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:titleTextStyle
+        */
+        public static final int ActionBar_titleTextStyle = 5;
+        /**  Valid LayoutParams for views placed in the action bar as custom views. 
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #ActionBarLayout_android_layout_gravity android:layout_gravity}</code></td><td></td></tr>
+           </table>
+           @see #ActionBarLayout_android_layout_gravity
+         */
+        public static final int[] ActionBarLayout = {
+            0x010100b3
+        };
+        /**
+          <p>This symbol is the offset where the {@link android.R.attr#layout_gravity}
+          attribute's value can be found in the {@link #ActionBarLayout} array.
+          @attr name android:layout_gravity
+        */
+        public static final int ActionBarLayout_android_layout_gravity = 0;
+        /**  These attributes are meant to be specified and customized by the app.
+         The system will read and apply them as needed. These attributes control
+         properties of the activity window, such as whether an action bar should
+         be present and whether it should overlay content. 
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #ActionBarWindow_windowActionBar com.dumu.housego:windowActionBar}</code></td><td></td></tr>
+           <tr><td><code>{@link #ActionBarWindow_windowActionBarOverlay com.dumu.housego:windowActionBarOverlay}</code></td><td></td></tr>
+           <tr><td><code>{@link #ActionBarWindow_windowFixedHeightMajor com.dumu.housego:windowFixedHeightMajor}</code></td><td> A fixed height for the window along the major axis of the screen,
+             that is, when in portrait.</td></tr>
+           <tr><td><code>{@link #ActionBarWindow_windowFixedHeightMinor com.dumu.housego:windowFixedHeightMinor}</code></td><td> A fixed height for the window along the minor axis of the screen,
+             that is, when in landscape.</td></tr>
+           <tr><td><code>{@link #ActionBarWindow_windowFixedWidthMajor com.dumu.housego:windowFixedWidthMajor}</code></td><td> A fixed width for the window along the major axis of the screen,
+             that is, when in landscape.</td></tr>
+           <tr><td><code>{@link #ActionBarWindow_windowFixedWidthMinor com.dumu.housego:windowFixedWidthMinor}</code></td><td> A fixed width for the window along the minor axis of the screen,
+             that is, when in portrait.</td></tr>
+           <tr><td><code>{@link #ActionBarWindow_windowSplitActionBar com.dumu.housego:windowSplitActionBar}</code></td><td></td></tr>
+           </table>
+           @see #ActionBarWindow_windowActionBar
+           @see #ActionBarWindow_windowActionBarOverlay
+           @see #ActionBarWindow_windowFixedHeightMajor
+           @see #ActionBarWindow_windowFixedHeightMinor
+           @see #ActionBarWindow_windowFixedWidthMajor
+           @see #ActionBarWindow_windowFixedWidthMinor
+           @see #ActionBarWindow_windowSplitActionBar
+         */
+        public static final int[] ActionBarWindow = {
+            0x7f01001c, 0x7f01001d, 0x7f01001e, 0x7f01001f,
+            0x7f010020, 0x7f010021, 0x7f010022
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.dumu.housego.R.attr#windowActionBar}
+          attribute's value can be found in the {@link #ActionBarWindow} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.dumu.housego:windowActionBar
+        */
+        public static final int ActionBarWindow_windowActionBar = 0;
+        /**
+          <p>This symbol is the offset where the {@link com.dumu.housego.R.attr#windowActionBarOverlay}
+          attribute's value can be found in the {@link #ActionBarWindow} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.dumu.housego:windowActionBarOverlay
+        */
+        public static final int ActionBarWindow_windowActionBarOverlay = 1;
+        /**
+          <p>
+          @attr description
+           A fixed height for the window along the major axis of the screen,
+             that is, when in portrait. Can be either an absolute dimension
+             or a fraction of the screen size in that dimension. 
+
+
+          <p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>May be a fractional value, which is a floating point number appended with either % or %p, such as "<code>14.5%</code>".
+The % suffix always means a percentage of the base size; the optional %p suffix provides a size relative to
+some parent container.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:windowFixedHeightMajor
+        */
+        public static final int ActionBarWindow_windowFixedHeightMajor = 6;
+        /**
+          <p>
+          @attr description
+           A fixed height for the window along the minor axis of the screen,
+             that is, when in landscape. Can be either an absolute dimension
+             or a fraction of the screen size in that dimension. 
+
+
+          <p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>May be a fractional value, which is a floating point number appended with either % or %p, such as "<code>14.5%</code>".
+The % suffix always means a percentage of the base size; the optional %p suffix provides a size relative to
+some parent container.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:windowFixedHeightMinor
+        */
+        public static final int ActionBarWindow_windowFixedHeightMinor = 4;
+        /**
+          <p>
+          @attr description
+           A fixed width for the window along the major axis of the screen,
+             that is, when in landscape. Can be either an absolute dimension
+             or a fraction of the screen size in that dimension. 
+
+
+          <p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>May be a fractional value, which is a floating point number appended with either % or %p, such as "<code>14.5%</code>".
+The % suffix always means a percentage of the base size; the optional %p suffix provides a size relative to
+some parent container.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:windowFixedWidthMajor
+        */
+        public static final int ActionBarWindow_windowFixedWidthMajor = 3;
+        /**
+          <p>
+          @attr description
+           A fixed width for the window along the minor axis of the screen,
+             that is, when in portrait. Can be either an absolute dimension
+             or a fraction of the screen size in that dimension. 
+
+
+          <p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>May be a fractional value, which is a floating point number appended with either % or %p, such as "<code>14.5%</code>".
+The % suffix always means a percentage of the base size; the optional %p suffix provides a size relative to
+some parent container.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:windowFixedWidthMinor
+        */
+        public static final int ActionBarWindow_windowFixedWidthMinor = 5;
+        /**
+          <p>This symbol is the offset where the {@link com.dumu.housego.R.attr#windowSplitActionBar}
+          attribute's value can be found in the {@link #ActionBarWindow} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.dumu.housego:windowSplitActionBar
+        */
+        public static final int ActionBarWindow_windowSplitActionBar = 2;
+        /** Attributes that can be used with a ActionMenuItemView.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #ActionMenuItemView_android_minWidth android:minWidth}</code></td><td></td></tr>
+           </table>
+           @see #ActionMenuItemView_android_minWidth
+         */
+        public static final int[] ActionMenuItemView = {
+            0x0101013f
+        };
+        /**
+          <p>This symbol is the offset where the {@link android.R.attr#minWidth}
+          attribute's value can be found in the {@link #ActionMenuItemView} array.
+          @attr name android:minWidth
+        */
+        public static final int ActionMenuItemView_android_minWidth = 0;
+        /**  Size of padding on either end of a divider. 
+         */
+        public static final int[] ActionMenuView = {
+            
+        };
+        /** Attributes that can be used with a ActionMode.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #ActionMode_background com.dumu.housego:background}</code></td><td> Specifies a background for the action mode bar.</td></tr>
+           <tr><td><code>{@link #ActionMode_backgroundSplit com.dumu.housego:backgroundSplit}</code></td><td> Specifies a background for the split action mode bar.</td></tr>
+           <tr><td><code>{@link #ActionMode_height com.dumu.housego:height}</code></td><td> Specifies a fixed height for the action mode bar.</td></tr>
+           <tr><td><code>{@link #ActionMode_subtitleTextStyle com.dumu.housego:subtitleTextStyle}</code></td><td> Specifies a style to use for subtitle text.</td></tr>
+           <tr><td><code>{@link #ActionMode_titleTextStyle com.dumu.housego:titleTextStyle}</code></td><td> Specifies a style to use for title text.</td></tr>
+           </table>
+           @see #ActionMode_background
+           @see #ActionMode_backgroundSplit
+           @see #ActionMode_height
+           @see #ActionMode_subtitleTextStyle
+           @see #ActionMode_titleTextStyle
+         */
+        public static final int[] ActionMode = {
+            0x7f010042, 0x7f010046, 0x7f010047, 0x7f01004b,
+            0x7f01004d
+        };
+        /**
+          <p>
+          @attr description
+           Specifies a background for the action mode bar. 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:background
+        */
+        public static final int ActionMode_background = 3;
+        /**
+          <p>
+          @attr description
+           Specifies a background for the split action mode bar. 
+
+
+          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:backgroundSplit
+        */
+        public static final int ActionMode_backgroundSplit = 4;
+        /**
+          <p>
+          @attr description
+           Specifies a fixed height for the action mode bar. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:height
+        */
+        public static final int ActionMode_height = 0;
+        /**
+          <p>
+          @attr description
+           Specifies a style to use for subtitle text. 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:subtitleTextStyle
+        */
+        public static final int ActionMode_subtitleTextStyle = 2;
+        /**
+          <p>
+          @attr description
+           Specifies a style to use for title text. 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:titleTextStyle
+        */
+        public static final int ActionMode_titleTextStyle = 1;
+        /**  Attrbitutes for a ActivityChooserView. 
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #ActivityChooserView_expandActivityOverflowButtonDrawable com.dumu.housego:expandActivityOverflowButtonDrawable}</code></td><td> The drawable to show in the button for expanding the activities overflow popup.</td></tr>
+           <tr><td><code>{@link #ActivityChooserView_initialActivityCount com.dumu.housego:initialActivityCount}</code></td><td> The maximal number of items initially shown in the activity list.</td></tr>
+           </table>
+           @see #ActivityChooserView_expandActivityOverflowButtonDrawable
+           @see #ActivityChooserView_initialActivityCount
+         */
+        public static final int[] ActivityChooserView = {
+            0x7f010086, 0x7f010087
+        };
+        /**
+          <p>
+          @attr description
+           The drawable to show in the button for expanding the activities overflow popup.
+             <strong>Note:</strong> Clients would like to set this drawable
+             as a clue about the action the chosen activity will perform. For
+             example, if share activity is to be chosen the drawable should
+             give a clue that sharing is to be performed.
+         
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:expandActivityOverflowButtonDrawable
+        */
+        public static final int ActivityChooserView_expandActivityOverflowButtonDrawable = 1;
+        /**
+          <p>
+          @attr description
+           The maximal number of items initially shown in the activity list. 
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:initialActivityCount
+        */
+        public static final int ActivityChooserView_initialActivityCount = 0;
+        /** Attributes that can be used with a CompatTextView.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #CompatTextView_textAllCaps com.dumu.housego:textAllCaps}</code></td><td> Present the text in ALL CAPS.</td></tr>
+           </table>
+           @see #CompatTextView_textAllCaps
+         */
+        public static final int[] CompatTextView = {
+            0x7f010089
+        };
+        /**
+          <p>
+          @attr description
+           Present the text in ALL CAPS. This may use a small-caps form when available. 
+
+
+          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:textAllCaps
+        */
+        public static final int CompatTextView_textAllCaps = 0;
+        /** Attributes that can be used with a LinearLayoutICS.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #LinearLayoutICS_divider com.dumu.housego:divider}</code></td><td> Drawable to use as a vertical divider between buttons.</td></tr>
+           <tr><td><code>{@link #LinearLayoutICS_dividerPadding com.dumu.housego:dividerPadding}</code></td><td> Size of padding on either end of a divider.</td></tr>
+           <tr><td><code>{@link #LinearLayoutICS_showDividers com.dumu.housego:showDividers}</code></td><td> Setting for which dividers to show.</td></tr>
+           </table>
+           @see #LinearLayoutICS_divider
+           @see #LinearLayoutICS_dividerPadding
+           @see #LinearLayoutICS_showDividers
+         */
+        public static final int[] LinearLayoutICS = {
+            0x7f01004a, 0x7f010071, 0x7f010072
+        };
+        /**
+          <p>
+          @attr description
+           Drawable to use as a vertical divider between buttons. 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:divider
+        */
+        public static final int LinearLayoutICS_divider = 0;
+        /**
+          <p>
+          @attr description
+           Size of padding on either end of a divider. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:dividerPadding
+        */
+        public static final int LinearLayoutICS_dividerPadding = 2;
+        /**
+          <p>
+          @attr description
+           Setting for which dividers to show. 
+
+
+          <p>Must be one or more (separated by '|') of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>none</code></td><td>0</td><td></td></tr>
+<tr><td><code>beginning</code></td><td>1</td><td></td></tr>
+<tr><td><code>middle</code></td><td>2</td><td></td></tr>
+<tr><td><code>end</code></td><td>4</td><td></td></tr>
+</table>
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:showDividers
+        */
+        public static final int LinearLayoutICS_showDividers = 1;
+        /**  Base attributes that are available to all groups. 
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #MenuGroup_android_checkableBehavior android:checkableBehavior}</code></td><td> Whether the items are capable of displaying a check mark.</td></tr>
+           <tr><td><code>{@link #MenuGroup_android_enabled android:enabled}</code></td><td> Whether the items are enabled.</td></tr>
+           <tr><td><code>{@link #MenuGroup_android_id android:id}</code></td><td> The ID of the group.</td></tr>
+           <tr><td><code>{@link #MenuGroup_android_menuCategory android:menuCategory}</code></td><td> The category applied to all items within this group.</td></tr>
+           <tr><td><code>{@link #MenuGroup_android_orderInCategory android:orderInCategory}</code></td><td> The order within the category applied to all items within this group.</td></tr>
+           <tr><td><code>{@link #MenuGroup_android_visible android:visible}</code></td><td> Whether the items are shown/visible.</td></tr>
+           </table>
+           @see #MenuGroup_android_checkableBehavior
+           @see #MenuGroup_android_enabled
+           @see #MenuGroup_android_id
+           @see #MenuGroup_android_menuCategory
+           @see #MenuGroup_android_orderInCategory
+           @see #MenuGroup_android_visible
+         */
+        public static final int[] MenuGroup = {
+            0x0101000e, 0x010100d0, 0x01010194, 0x010101de,
+            0x010101df, 0x010101e0
+        };
+        /**
+          <p>
+          @attr description
+           Whether the items are capable of displaying a check mark. 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#checkableBehavior}.
+          @attr name android:checkableBehavior
+        */
+        public static final int MenuGroup_android_checkableBehavior = 5;
+        /**
+          <p>
+          @attr description
+           Whether the items are enabled. 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#enabled}.
+          @attr name android:enabled
+        */
+        public static final int MenuGroup_android_enabled = 0;
+        /**
+          <p>
+          @attr description
+           The ID of the group. 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#id}.
+          @attr name android:id
+        */
+        public static final int MenuGroup_android_id = 1;
+        /**
+          <p>
+          @attr description
+           The category applied to all items within this group.
+             (This will be or'ed with the orderInCategory attribute.) 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#menuCategory}.
+          @attr name android:menuCategory
+        */
+        public static final int MenuGroup_android_menuCategory = 3;
+        /**
+          <p>
+          @attr description
+           The order within the category applied to all items within this group.
+             (This will be or'ed with the category attribute.) 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#orderInCategory}.
+          @attr name android:orderInCategory
+        */
+        public static final int MenuGroup_android_orderInCategory = 4;
+        /**
+          <p>
+          @attr description
+           Whether the items are shown/visible. 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#visible}.
+          @attr name android:visible
+        */
+        public static final int MenuGroup_android_visible = 2;
+        /**  Base attributes that are available to all Item objects. 
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #MenuItem_actionLayout com.dumu.housego:actionLayout}</code></td><td> An optional layout to be used as an action view.</td></tr>
+           <tr><td><code>{@link #MenuItem_actionProviderClass com.dumu.housego:actionProviderClass}</code></td><td> The name of an optional ActionProvider class to instantiate an action view
+             and perform operations such as default action for that menu item.</td></tr>
+           <tr><td><code>{@link #MenuItem_actionViewClass com.dumu.housego:actionViewClass}</code></td><td> The name of an optional View class to instantiate and use as an
+             action view.</td></tr>
+           <tr><td><code>{@link #MenuItem_android_alphabeticShortcut android:alphabeticShortcut}</code></td><td> The alphabetic shortcut key.</td></tr>
+           <tr><td><code>{@link #MenuItem_android_checkable android:checkable}</code></td><td> Whether the item is capable of displaying a check mark.</td></tr>
+           <tr><td><code>{@link #MenuItem_android_checked android:checked}</code></td><td> Whether the item is checked.</td></tr>
+           <tr><td><code>{@link #MenuItem_android_enabled android:enabled}</code></td><td> Whether the item is enabled.</td></tr>
+           <tr><td><code>{@link #MenuItem_android_icon android:icon}</code></td><td> The icon associated with this item.</td></tr>
+           <tr><td><code>{@link #MenuItem_android_id android:id}</code></td><td> The ID of the item.</td></tr>
+           <tr><td><code>{@link #MenuItem_android_menuCategory android:menuCategory}</code></td><td> The category applied to the item.</td></tr>
+           <tr><td><code>{@link #MenuItem_android_numericShortcut android:numericShortcut}</code></td><td> The numeric shortcut key.</td></tr>
+           <tr><td><code>{@link #MenuItem_android_onClick android:onClick}</code></td><td> Name of a method on the Context used to inflate the menu that will be
+             called when the item is clicked.</td></tr>
+           <tr><td><code>{@link #MenuItem_android_orderInCategory android:orderInCategory}</code></td><td> The order within the category applied to the item.</td></tr>
+           <tr><td><code>{@link #MenuItem_android_title android:title}</code></td><td> The title associated with the item.</td></tr>
+           <tr><td><code>{@link #MenuItem_android_titleCondensed android:titleCondensed}</code></td><td> The condensed title associated with the item.</td></tr>
+           <tr><td><code>{@link #MenuItem_android_visible android:visible}</code></td><td> Whether the item is shown/visible.</td></tr>
+           <tr><td><code>{@link #MenuItem_showAsAction com.dumu.housego:showAsAction}</code></td><td> How this item should display in the Action Bar, if present.</td></tr>
+           </table>
+           @see #MenuItem_actionLayout
+           @see #MenuItem_actionProviderClass
+           @see #MenuItem_actionViewClass
+           @see #MenuItem_android_alphabeticShortcut
+           @see #MenuItem_android_checkable
+           @see #MenuItem_android_checked
+           @see #MenuItem_android_enabled
+           @see #MenuItem_android_icon
+           @see #MenuItem_android_id
+           @see #MenuItem_android_menuCategory
+           @see #MenuItem_android_numericShortcut
+           @see #MenuItem_android_onClick
+           @see #MenuItem_android_orderInCategory
+           @see #MenuItem_android_title
+           @see #MenuItem_android_titleCondensed
+           @see #MenuItem_android_visible
+           @see #MenuItem_showAsAction
+         */
+        public static final int[] MenuItem = {
+            0x01010002, 0x0101000e, 0x010100d0, 0x01010106,
+            0x01010194, 0x010101de, 0x010101df, 0x010101e1,
+            0x010101e2, 0x010101e3, 0x010101e4, 0x010101e5,
+            0x0101026f, 0x7f010069, 0x7f01006a, 0x7f01006b,
+            0x7f01006c
+        };
+        /**
+          <p>
+          @attr description
+           An optional layout to be used as an action view.
+             See {@link android.view.MenuItem#setActionView(android.view.View)}
+             for more info. 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:actionLayout
+        */
+        public static final int MenuItem_actionLayout = 14;
+        /**
+          <p>
+          @attr description
+           The name of an optional ActionProvider class to instantiate an action view
+             and perform operations such as default action for that menu item.
+             See {@link android.view.MenuItem#setActionProvider(android.view.ActionProvider)}
+             for more info. 
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:actionProviderClass
+        */
+        public static final int MenuItem_actionProviderClass = 16;
+        /**
+          <p>
+          @attr description
+           The name of an optional View class to instantiate and use as an
+             action view. See {@link android.view.MenuItem#setActionView(android.view.View)}
+             for more info. 
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:actionViewClass
+        */
+        public static final int MenuItem_actionViewClass = 15;
+        /**
+          <p>
+          @attr description
+           The alphabetic shortcut key.  This is the shortcut when using a keyboard
+             with alphabetic keys. 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#alphabeticShortcut}.
+          @attr name android:alphabeticShortcut
+        */
+        public static final int MenuItem_android_alphabeticShortcut = 9;
+        /**
+          <p>
+          @attr description
+           Whether the item is capable of displaying a check mark. 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#checkable}.
+          @attr name android:checkable
+        */
+        public static final int MenuItem_android_checkable = 11;
+        /**
+          <p>
+          @attr description
+           Whether the item is checked.  Note that you must first have enabled checking with
+             the checkable attribute or else the check mark will not appear. 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#checked}.
+          @attr name android:checked
+        */
+        public static final int MenuItem_android_checked = 3;
+        /**
+          <p>
+          @attr description
+           Whether the item is enabled. 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#enabled}.
+          @attr name android:enabled
+        */
+        public static final int MenuItem_android_enabled = 1;
+        /**
+          <p>
+          @attr description
+           The icon associated with this item.  This icon will not always be shown, so
+             the title should be sufficient in describing this item. 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#icon}.
+          @attr name android:icon
+        */
+        public static final int MenuItem_android_icon = 0;
+        /**
+          <p>
+          @attr description
+           The ID of the item. 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#id}.
+          @attr name android:id
+        */
+        public static final int MenuItem_android_id = 2;
+        /**
+          <p>
+          @attr description
+           The category applied to the item.
+             (This will be or'ed with the orderInCategory attribute.) 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#menuCategory}.
+          @attr name android:menuCategory
+        */
+        public static final int MenuItem_android_menuCategory = 5;
+        /**
+          <p>
+          @attr description
+           The numeric shortcut key.  This is the shortcut when using a numeric (e.g., 12-key)
+             keyboard. 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#numericShortcut}.
+          @attr name android:numericShortcut
+        */
+        public static final int MenuItem_android_numericShortcut = 10;
+        /**
+          <p>
+          @attr description
+           Name of a method on the Context used to inflate the menu that will be
+             called when the item is clicked. 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#onClick}.
+          @attr name android:onClick
+        */
+        public static final int MenuItem_android_onClick = 12;
+        /**
+          <p>
+          @attr description
+           The order within the category applied to the item.
+             (This will be or'ed with the category attribute.) 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#orderInCategory}.
+          @attr name android:orderInCategory
+        */
+        public static final int MenuItem_android_orderInCategory = 6;
+        /**
+          <p>
+          @attr description
+           The title associated with the item. 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#title}.
+          @attr name android:title
+        */
+        public static final int MenuItem_android_title = 7;
+        /**
+          <p>
+          @attr description
+           The condensed title associated with the item.  This is used in situations where the
+             normal title may be too long to be displayed. 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#titleCondensed}.
+          @attr name android:titleCondensed
+        */
+        public static final int MenuItem_android_titleCondensed = 8;
+        /**
+          <p>
+          @attr description
+           Whether the item is shown/visible. 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#visible}.
+          @attr name android:visible
+        */
+        public static final int MenuItem_android_visible = 4;
+        /**
+          <p>
+          @attr description
+           How this item should display in the Action Bar, if present. 
+
+
+          <p>Must be one or more (separated by '|') of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>never</code></td><td>0</td><td> Never show this item in an action bar, show it in the overflow menu instead.
+                 Mutually exclusive with "ifRoom" and "always". </td></tr>
+<tr><td><code>ifRoom</code></td><td>1</td><td> Show this item in an action bar if there is room for it as determined
+                 by the system. Favor this option over "always" where possible.
+                 Mutually exclusive with "never" and "always". </td></tr>
+<tr><td><code>always</code></td><td>2</td><td> Always show this item in an actionbar, even if it would override
+                 the system's limits of how much stuff to put there. This may make
+                 your action bar look bad on some screens. In most cases you should
+                 use "ifRoom" instead. Mutually exclusive with "ifRoom" and "never". </td></tr>
+<tr><td><code>withText</code></td><td>4</td><td> When this item is shown as an action in the action bar, show a text
+                 label with it even if it has an icon representation. </td></tr>
+<tr><td><code>collapseActionView</code></td><td>8</td><td> This item's action view collapses to a normal menu
+                 item. When expanded, the action view takes over a
+                 larger segment of its container. </td></tr>
+</table>
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:showAsAction
+        */
+        public static final int MenuItem_showAsAction = 13;
+        /** Attributes that can be used with a MenuView.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #MenuView_android_headerBackground android:headerBackground}</code></td><td> Default background for the menu header.</td></tr>
+           <tr><td><code>{@link #MenuView_android_horizontalDivider android:horizontalDivider}</code></td><td> Default horizontal divider between rows of menu items.</td></tr>
+           <tr><td><code>{@link #MenuView_android_itemBackground android:itemBackground}</code></td><td> Default background for each menu item.</td></tr>
+           <tr><td><code>{@link #MenuView_android_itemIconDisabledAlpha android:itemIconDisabledAlpha}</code></td><td> Default disabled icon alpha for each menu item that shows an icon.</td></tr>
+           <tr><td><code>{@link #MenuView_android_itemTextAppearance android:itemTextAppearance}</code></td><td> Default appearance of menu item text.</td></tr>
+           <tr><td><code>{@link #MenuView_android_preserveIconSpacing android:preserveIconSpacing}</code></td><td> Whether space should be reserved in layout when an icon is missing.</td></tr>
+           <tr><td><code>{@link #MenuView_android_verticalDivider android:verticalDivider}</code></td><td> Default vertical divider between menu items.</td></tr>
+           <tr><td><code>{@link #MenuView_android_windowAnimationStyle android:windowAnimationStyle}</code></td><td> Default animations for the menu.</td></tr>
+           </table>
+           @see #MenuView_android_headerBackground
+           @see #MenuView_android_horizontalDivider
+           @see #MenuView_android_itemBackground
+           @see #MenuView_android_itemIconDisabledAlpha
+           @see #MenuView_android_itemTextAppearance
+           @see #MenuView_android_preserveIconSpacing
+           @see #MenuView_android_verticalDivider
+           @see #MenuView_android_windowAnimationStyle
+         */
+        public static final int[] MenuView = {
+            0x010100ae, 0x0101012c, 0x0101012d, 0x0101012e,
+            0x0101012f, 0x01010130, 0x01010131, 0x0101040c
+        };
+        /**
+          <p>
+          @attr description
+           Default background for the menu header. 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#headerBackground}.
+          @attr name android:headerBackground
+        */
+        public static final int MenuView_android_headerBackground = 4;
+        /**
+          <p>
+          @attr description
+           Default horizontal divider between rows of menu items. 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#horizontalDivider}.
+          @attr name android:horizontalDivider
+        */
+        public static final int MenuView_android_horizontalDivider = 2;
+        /**
+          <p>
+          @attr description
+           Default background for each menu item. 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#itemBackground}.
+          @attr name android:itemBackground
+        */
+        public static final int MenuView_android_itemBackground = 5;
+        /**
+          <p>
+          @attr description
+           Default disabled icon alpha for each menu item that shows an icon. 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#itemIconDisabledAlpha}.
+          @attr name android:itemIconDisabledAlpha
+        */
+        public static final int MenuView_android_itemIconDisabledAlpha = 6;
+        /**
+          <p>
+          @attr description
+           Default appearance of menu item text. 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#itemTextAppearance}.
+          @attr name android:itemTextAppearance
+        */
+        public static final int MenuView_android_itemTextAppearance = 1;
+        /**
+          <p>
+          @attr description
+           Whether space should be reserved in layout when an icon is missing. 
+          <p>This is a private symbol.
+          @attr name android:preserveIconSpacing
+        */
+        public static final int MenuView_android_preserveIconSpacing = 7;
+        /**
+          <p>
+          @attr description
+           Default vertical divider between menu items. 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#verticalDivider}.
+          @attr name android:verticalDivider
+        */
+        public static final int MenuView_android_verticalDivider = 3;
+        /**
+          <p>
+          @attr description
+           Default animations for the menu. 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#windowAnimationStyle}.
+          @attr name android:windowAnimationStyle
+        */
+        public static final int MenuView_android_windowAnimationStyle = 0;
+        /** Attributes that can be used with a PagerIndicator.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #PagerIndicator_padding_bottom com.dumu.housego:padding_bottom}</code></td><td></td></tr>
+           <tr><td><code>{@link #PagerIndicator_padding_left com.dumu.housego:padding_left}</code></td><td></td></tr>
+           <tr><td><code>{@link #PagerIndicator_padding_right com.dumu.housego:padding_right}</code></td><td></td></tr>
+           <tr><td><code>{@link #PagerIndicator_padding_top com.dumu.housego:padding_top}</code></td><td></td></tr>
+           <tr><td><code>{@link #PagerIndicator_selected_color com.dumu.housego:selected_color}</code></td><td></td></tr>
+           <tr><td><code>{@link #PagerIndicator_selected_drawable com.dumu.housego:selected_drawable}</code></td><td> indicator style </td></tr>
+           <tr><td><code>{@link #PagerIndicator_selected_height com.dumu.housego:selected_height}</code></td><td></td></tr>
+           <tr><td><code>{@link #PagerIndicator_selected_padding_bottom com.dumu.housego:selected_padding_bottom}</code></td><td></td></tr>
+           <tr><td><code>{@link #PagerIndicator_selected_padding_left com.dumu.housego:selected_padding_left}</code></td><td></td></tr>
+           <tr><td><code>{@link #PagerIndicator_selected_padding_right com.dumu.housego:selected_padding_right}</code></td><td></td></tr>
+           <tr><td><code>{@link #PagerIndicator_selected_padding_top com.dumu.housego:selected_padding_top}</code></td><td></td></tr>
+           <tr><td><code>{@link #PagerIndicator_selected_width com.dumu.housego:selected_width}</code></td><td></td></tr>
+           <tr><td><code>{@link #PagerIndicator_shape com.dumu.housego:shape}</code></td><td></td></tr>
+           <tr><td><code>{@link #PagerIndicator_unselected_color com.dumu.housego:unselected_color}</code></td><td></td></tr>
+           <tr><td><code>{@link #PagerIndicator_unselected_drawable com.dumu.housego:unselected_drawable}</code></td><td></td></tr>
+           <tr><td><code>{@link #PagerIndicator_unselected_height com.dumu.housego:unselected_height}</code></td><td></td></tr>
+           <tr><td><code>{@link #PagerIndicator_unselected_padding_bottom com.dumu.housego:unselected_padding_bottom}</code></td><td></td></tr>
+           <tr><td><code>{@link #PagerIndicator_unselected_padding_left com.dumu.housego:unselected_padding_left}</code></td><td></td></tr>
+           <tr><td><code>{@link #PagerIndicator_unselected_padding_right com.dumu.housego:unselected_padding_right}</code></td><td></td></tr>
+           <tr><td><code>{@link #PagerIndicator_unselected_padding_top com.dumu.housego:unselected_padding_top}</code></td><td></td></tr>
+           <tr><td><code>{@link #PagerIndicator_unselected_width com.dumu.housego:unselected_width}</code></td><td></td></tr>
+           <tr><td><code>{@link #PagerIndicator_visibility com.dumu.housego:visibility}</code></td><td> indicator visibility </td></tr>
+           </table>
+           @see #PagerIndicator_padding_bottom
+           @see #PagerIndicator_padding_left
+           @see #PagerIndicator_padding_right
+           @see #PagerIndicator_padding_top
+           @see #PagerIndicator_selected_color
+           @see #PagerIndicator_selected_drawable
+           @see #PagerIndicator_selected_height
+           @see #PagerIndicator_selected_padding_bottom
+           @see #PagerIndicator_selected_padding_left
+           @see #PagerIndicator_selected_padding_right
+           @see #PagerIndicator_selected_padding_top
+           @see #PagerIndicator_selected_width
+           @see #PagerIndicator_shape
+           @see #PagerIndicator_unselected_color
+           @see #PagerIndicator_unselected_drawable
+           @see #PagerIndicator_unselected_height
+           @see #PagerIndicator_unselected_padding_bottom
+           @see #PagerIndicator_unselected_padding_left
+           @see #PagerIndicator_unselected_padding_right
+           @see #PagerIndicator_unselected_padding_top
+           @see #PagerIndicator_unselected_width
+           @see #PagerIndicator_visibility
+         */
+        public static final int[] PagerIndicator = {
+            0x7f010004, 0x7f010005, 0x7f010006, 0x7f010007,
+            0x7f010008, 0x7f010009, 0x7f01000a, 0x7f01000b,
+            0x7f01000c, 0x7f01000d, 0x7f01000e, 0x7f01000f,
+            0x7f010010, 0x7f010011, 0x7f010012, 0x7f010013,
+            0x7f010014, 0x7f010015, 0x7f010016, 0x7f010017,
+            0x7f010018, 0x7f010019
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.dumu.housego.R.attr#padding_bottom}
+          attribute's value can be found in the {@link #PagerIndicator} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.dumu.housego:padding_bottom
+        */
+        public static final int PagerIndicator_padding_bottom = 13;
+        /**
+          <p>This symbol is the offset where the {@link com.dumu.housego.R.attr#padding_left}
+          attribute's value can be found in the {@link #PagerIndicator} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.dumu.housego:padding_left
+        */
+        public static final int PagerIndicator_padding_left = 10;
+        /**
+          <p>This symbol is the offset where the {@link com.dumu.housego.R.attr#padding_right}
+          attribute's value can be found in the {@link #PagerIndicator} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.dumu.housego:padding_right
+        */
+        public static final int PagerIndicator_padding_right = 11;
+        /**
+          <p>This symbol is the offset where the {@link com.dumu.housego.R.attr#padding_top}
+          attribute's value can be found in the {@link #PagerIndicator} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.dumu.housego:padding_top
+        */
+        public static final int PagerIndicator_padding_top = 12;
+        /**
+          <p>This symbol is the offset where the {@link com.dumu.housego.R.attr#selected_color}
+          attribute's value can be found in the {@link #PagerIndicator} array.
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.dumu.housego:selected_color
+        */
+        public static final int PagerIndicator_selected_color = 2;
+        /**
+          <p>
+          @attr description
+           indicator style 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:selected_drawable
+        */
+        public static final int PagerIndicator_selected_drawable = 4;
+        /**
+          <p>This symbol is the offset where the {@link com.dumu.housego.R.attr#selected_height}
+          attribute's value can be found in the {@link #PagerIndicator} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.dumu.housego:selected_height
+        */
+        public static final int PagerIndicator_selected_height = 7;
+        /**
+          <p>This symbol is the offset where the {@link com.dumu.housego.R.attr#selected_padding_bottom}
+          attribute's value can be found in the {@link #PagerIndicator} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.dumu.housego:selected_padding_bottom
+        */
+        public static final int PagerIndicator_selected_padding_bottom = 17;
+        /**
+          <p>This symbol is the offset where the {@link com.dumu.housego.R.attr#selected_padding_left}
+          attribute's value can be found in the {@link #PagerIndicator} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.dumu.housego:selected_padding_left
+        */
+        public static final int PagerIndicator_selected_padding_left = 14;
+        /**
+          <p>This symbol is the offset where the {@link com.dumu.housego.R.attr#selected_padding_right}
+          attribute's value can be found in the {@link #PagerIndicator} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.dumu.housego:selected_padding_right
+        */
+        public static final int PagerIndicator_selected_padding_right = 15;
+        /**
+          <p>This symbol is the offset where the {@link com.dumu.housego.R.attr#selected_padding_top}
+          attribute's value can be found in the {@link #PagerIndicator} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.dumu.housego:selected_padding_top
+        */
+        public static final int PagerIndicator_selected_padding_top = 16;
+        /**
+          <p>This symbol is the offset where the {@link com.dumu.housego.R.attr#selected_width}
+          attribute's value can be found in the {@link #PagerIndicator} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.dumu.housego:selected_width
+        */
+        public static final int PagerIndicator_selected_width = 6;
+        /**
+          <p>This symbol is the offset where the {@link com.dumu.housego.R.attr#shape}
+          attribute's value can be found in the {@link #PagerIndicator} array.
+
+
+          <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>oval</code></td><td>0</td><td></td></tr>
+<tr><td><code>rect</code></td><td>1</td><td></td></tr>
+</table>
+          @attr name com.dumu.housego:shape
+        */
+        public static final int PagerIndicator_shape = 1;
+        /**
+          <p>This symbol is the offset where the {@link com.dumu.housego.R.attr#unselected_color}
+          attribute's value can be found in the {@link #PagerIndicator} array.
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.dumu.housego:unselected_color
+        */
+        public static final int PagerIndicator_unselected_color = 3;
+        /**
+          <p>This symbol is the offset where the {@link com.dumu.housego.R.attr#unselected_drawable}
+          attribute's value can be found in the {@link #PagerIndicator} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name com.dumu.housego:unselected_drawable
+        */
+        public static final int PagerIndicator_unselected_drawable = 5;
+        /**
+          <p>This symbol is the offset where the {@link com.dumu.housego.R.attr#unselected_height}
+          attribute's value can be found in the {@link #PagerIndicator} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.dumu.housego:unselected_height
+        */
+        public static final int PagerIndicator_unselected_height = 9;
+        /**
+          <p>This symbol is the offset where the {@link com.dumu.housego.R.attr#unselected_padding_bottom}
+          attribute's value can be found in the {@link #PagerIndicator} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.dumu.housego:unselected_padding_bottom
+        */
+        public static final int PagerIndicator_unselected_padding_bottom = 21;
+        /**
+          <p>This symbol is the offset where the {@link com.dumu.housego.R.attr#unselected_padding_left}
+          attribute's value can be found in the {@link #PagerIndicator} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.dumu.housego:unselected_padding_left
+        */
+        public static final int PagerIndicator_unselected_padding_left = 18;
+        /**
+          <p>This symbol is the offset where the {@link com.dumu.housego.R.attr#unselected_padding_right}
+          attribute's value can be found in the {@link #PagerIndicator} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.dumu.housego:unselected_padding_right
+        */
+        public static final int PagerIndicator_unselected_padding_right = 19;
+        /**
+          <p>This symbol is the offset where the {@link com.dumu.housego.R.attr#unselected_padding_top}
+          attribute's value can be found in the {@link #PagerIndicator} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.dumu.housego:unselected_padding_top
+        */
+        public static final int PagerIndicator_unselected_padding_top = 20;
+        /**
+          <p>This symbol is the offset where the {@link com.dumu.housego.R.attr#unselected_width}
+          attribute's value can be found in the {@link #PagerIndicator} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.dumu.housego:unselected_width
+        */
+        public static final int PagerIndicator_unselected_width = 8;
+        /**
+          <p>
+          @attr description
+           indicator visibility 
+
+
+          <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>visible</code></td><td>0</td><td></td></tr>
+<tr><td><code>invisible</code></td><td>1</td><td></td></tr>
+</table>
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:visibility
+        */
+        public static final int PagerIndicator_visibility = 0;
         /** Attributes that can be used with a PullToRefresh.
            <p>Includes the following attributes:</p>
            <table>
@@ -2493,11 +6133,11 @@ General sizes
            @see #PullToRefresh_ptrSubHeaderTextAppearance
          */
         public static final int[] PullToRefresh = {
-            0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003,
-            0x7f010004, 0x7f010005, 0x7f010006, 0x7f010007,
-            0x7f010008, 0x7f010009, 0x7f01000a, 0x7f01000b,
-            0x7f01000c, 0x7f01000d, 0x7f01000e, 0x7f01000f,
-            0x7f010010, 0x7f010011, 0x7f010012
+            0x7f01008a, 0x7f01008b, 0x7f01008c, 0x7f01008d,
+            0x7f01008e, 0x7f01008f, 0x7f010090, 0x7f010091,
+            0x7f010092, 0x7f010093, 0x7f010094, 0x7f010095,
+            0x7f010096, 0x7f010097, 0x7f010098, 0x7f010099,
+            0x7f01009a, 0x7f01009b, 0x7f01009c
         };
         /**
           <p>
@@ -2764,6 +6404,555 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           @attr name com.dumu.housego:ptrSubHeaderTextAppearance
         */
         public static final int PullToRefresh_ptrSubHeaderTextAppearance = 11;
+        /** Attributes that can be used with a SearchView.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #SearchView_android_imeOptions android:imeOptions}</code></td><td> The IME options to set on the query text field.</td></tr>
+           <tr><td><code>{@link #SearchView_android_inputType android:inputType}</code></td><td> The input type to set on the query text field.</td></tr>
+           <tr><td><code>{@link #SearchView_android_maxWidth android:maxWidth}</code></td><td> An optional maximum width of the SearchView.</td></tr>
+           <tr><td><code>{@link #SearchView_iconifiedByDefault com.dumu.housego:iconifiedByDefault}</code></td><td> The default state of the SearchView.</td></tr>
+           <tr><td><code>{@link #SearchView_queryHint com.dumu.housego:queryHint}</code></td><td> An optional query hint string to be displayed in the empty query field.</td></tr>
+           </table>
+           @see #SearchView_android_imeOptions
+           @see #SearchView_android_inputType
+           @see #SearchView_android_maxWidth
+           @see #SearchView_iconifiedByDefault
+           @see #SearchView_queryHint
+         */
+        public static final int[] SearchView = {
+            0x0101011f, 0x01010220, 0x01010264, 0x7f010076,
+            0x7f010077
+        };
+        /**
+          <p>
+          @attr description
+           The IME options to set on the query text field. 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#imeOptions}.
+          @attr name android:imeOptions
+        */
+        public static final int SearchView_android_imeOptions = 2;
+        /**
+          <p>
+          @attr description
+           The input type to set on the query text field. 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#inputType}.
+          @attr name android:inputType
+        */
+        public static final int SearchView_android_inputType = 1;
+        /**
+          <p>
+          @attr description
+           An optional maximum width of the SearchView. 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#maxWidth}.
+          @attr name android:maxWidth
+        */
+        public static final int SearchView_android_maxWidth = 0;
+        /**
+          <p>
+          @attr description
+           The default state of the SearchView. If true, it will be iconified when not in
+             use and expanded when clicked. 
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:iconifiedByDefault
+        */
+        public static final int SearchView_iconifiedByDefault = 3;
+        /**
+          <p>
+          @attr description
+           An optional query hint string to be displayed in the empty query field. 
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:queryHint
+        */
+        public static final int SearchView_queryHint = 4;
+        /** Attributes that can be used with a SliderLayout.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #SliderLayout_auto_cycle com.dumu.housego:auto_cycle}</code></td><td></td></tr>
+           <tr><td><code>{@link #SliderLayout_indicator_visibility com.dumu.housego:indicator_visibility}</code></td><td> indicator visibility </td></tr>
+           <tr><td><code>{@link #SliderLayout_pager_animation com.dumu.housego:pager_animation}</code></td><td> page animation </td></tr>
+           <tr><td><code>{@link #SliderLayout_pager_animation_span com.dumu.housego:pager_animation_span}</code></td><td> page animation time span </td></tr>
+           </table>
+           @see #SliderLayout_auto_cycle
+           @see #SliderLayout_indicator_visibility
+           @see #SliderLayout_pager_animation
+           @see #SliderLayout_pager_animation_span
+         */
+        public static final int[] SliderLayout = {
+            0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.dumu.housego.R.attr#auto_cycle}
+          attribute's value can be found in the {@link #SliderLayout} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.dumu.housego:auto_cycle
+        */
+        public static final int SliderLayout_auto_cycle = 1;
+        /**
+          <p>
+          @attr description
+           indicator visibility 
+
+
+          <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>visible</code></td><td>0</td><td></td></tr>
+<tr><td><code>invisible</code></td><td>1</td><td></td></tr>
+</table>
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:indicator_visibility
+        */
+        public static final int SliderLayout_indicator_visibility = 0;
+        /**
+          <p>
+          @attr description
+           page animation 
+
+
+          <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>Default</code></td><td>0</td><td></td></tr>
+<tr><td><code>Accordion</code></td><td>1</td><td></td></tr>
+<tr><td><code>Background2Foreground</code></td><td>2</td><td></td></tr>
+<tr><td><code>CubeIn</code></td><td>3</td><td></td></tr>
+<tr><td><code>DepthPage</code></td><td>4</td><td></td></tr>
+<tr><td><code>Fade</code></td><td>5</td><td></td></tr>
+<tr><td><code>FlipHorizontal</code></td><td>6</td><td></td></tr>
+<tr><td><code>FlipPage</code></td><td>7</td><td></td></tr>
+<tr><td><code>Foreground2Background</code></td><td>8</td><td></td></tr>
+<tr><td><code>RotateDown</code></td><td>9</td><td></td></tr>
+<tr><td><code>RotateUp</code></td><td>10</td><td></td></tr>
+<tr><td><code>Stack</code></td><td>11</td><td></td></tr>
+<tr><td><code>Tablet</code></td><td>12</td><td></td></tr>
+<tr><td><code>ZoomIn</code></td><td>13</td><td></td></tr>
+<tr><td><code>ZoomOutSlide</code></td><td>14</td><td></td></tr>
+<tr><td><code>ZoomOut</code></td><td>15</td><td></td></tr>
+</table>
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:pager_animation
+        */
+        public static final int SliderLayout_pager_animation = 2;
+        /**
+          <p>
+          @attr description
+           page animation time span 
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:pager_animation_span
+        */
+        public static final int SliderLayout_pager_animation_span = 3;
+        /** Attributes that can be used with a Spinner.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #Spinner_android_dropDownHorizontalOffset android:dropDownHorizontalOffset}</code></td><td> Horizontal offset from the spinner widget for positioning the dropdown
+             in spinnerMode="dropdown".</td></tr>
+           <tr><td><code>{@link #Spinner_android_dropDownSelector android:dropDownSelector}</code></td><td> List selector to use for spinnerMode="dropdown" display.</td></tr>
+           <tr><td><code>{@link #Spinner_android_dropDownVerticalOffset android:dropDownVerticalOffset}</code></td><td> Vertical offset from the spinner widget for positioning the dropdown in
+             spinnerMode="dropdown".</td></tr>
+           <tr><td><code>{@link #Spinner_android_dropDownWidth android:dropDownWidth}</code></td><td> Width of the dropdown in spinnerMode="dropdown".</td></tr>
+           <tr><td><code>{@link #Spinner_android_gravity android:gravity}</code></td><td> Gravity setting for positioning the currently selected item.</td></tr>
+           <tr><td><code>{@link #Spinner_android_popupBackground android:popupBackground}</code></td><td> Background drawable to use for the dropdown in spinnerMode="dropdown".</td></tr>
+           <tr><td><code>{@link #Spinner_disableChildrenWhenDisabled com.dumu.housego:disableChildrenWhenDisabled}</code></td><td> Whether this spinner should mark child views as enabled/disabled when
+             the spinner itself is enabled/disabled.</td></tr>
+           <tr><td><code>{@link #Spinner_popupPromptView com.dumu.housego:popupPromptView}</code></td><td> Reference to a layout to use for displaying a prompt in the dropdown for
+             spinnerMode="dropdown".</td></tr>
+           <tr><td><code>{@link #Spinner_prompt com.dumu.housego:prompt}</code></td><td> The prompt to display when the spinner's dialog is shown.</td></tr>
+           <tr><td><code>{@link #Spinner_spinnerMode com.dumu.housego:spinnerMode}</code></td><td> Display mode for spinner options.</td></tr>
+           </table>
+           @see #Spinner_android_dropDownHorizontalOffset
+           @see #Spinner_android_dropDownSelector
+           @see #Spinner_android_dropDownVerticalOffset
+           @see #Spinner_android_dropDownWidth
+           @see #Spinner_android_gravity
+           @see #Spinner_android_popupBackground
+           @see #Spinner_disableChildrenWhenDisabled
+           @see #Spinner_popupPromptView
+           @see #Spinner_prompt
+           @see #Spinner_spinnerMode
+         */
+        public static final int[] Spinner = {
+            0x010100af, 0x01010175, 0x01010176, 0x01010262,
+            0x010102ac, 0x010102ad, 0x7f01006d, 0x7f01006e,
+            0x7f01006f, 0x7f010070
+        };
+        /**
+          <p>
+          @attr description
+           Horizontal offset from the spinner widget for positioning the dropdown
+             in spinnerMode="dropdown". 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#dropDownHorizontalOffset}.
+          @attr name android:dropDownHorizontalOffset
+        */
+        public static final int Spinner_android_dropDownHorizontalOffset = 4;
+        /**
+          <p>
+          @attr description
+           List selector to use for spinnerMode="dropdown" display. 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#dropDownSelector}.
+          @attr name android:dropDownSelector
+        */
+        public static final int Spinner_android_dropDownSelector = 1;
+        /**
+          <p>
+          @attr description
+           Vertical offset from the spinner widget for positioning the dropdown in
+             spinnerMode="dropdown". 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#dropDownVerticalOffset}.
+          @attr name android:dropDownVerticalOffset
+        */
+        public static final int Spinner_android_dropDownVerticalOffset = 5;
+        /**
+          <p>
+          @attr description
+           Width of the dropdown in spinnerMode="dropdown". 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#dropDownWidth}.
+          @attr name android:dropDownWidth
+        */
+        public static final int Spinner_android_dropDownWidth = 3;
+        /**
+          <p>
+          @attr description
+           Gravity setting for positioning the currently selected item. 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#gravity}.
+          @attr name android:gravity
+        */
+        public static final int Spinner_android_gravity = 0;
+        /**
+          <p>
+          @attr description
+           Background drawable to use for the dropdown in spinnerMode="dropdown". 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#popupBackground}.
+          @attr name android:popupBackground
+        */
+        public static final int Spinner_android_popupBackground = 2;
+        /**
+          <p>
+          @attr description
+           Whether this spinner should mark child views as enabled/disabled when
+             the spinner itself is enabled/disabled. 
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:disableChildrenWhenDisabled
+        */
+        public static final int Spinner_disableChildrenWhenDisabled = 9;
+        /**
+          <p>
+          @attr description
+           Reference to a layout to use for displaying a prompt in the dropdown for
+             spinnerMode="dropdown". This layout must contain a TextView with the id
+             {@code @android:id/text1} to be populated with the prompt text. 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:popupPromptView
+        */
+        public static final int Spinner_popupPromptView = 8;
+        /**
+          <p>
+          @attr description
+           The prompt to display when the spinner's dialog is shown. 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:prompt
+        */
+        public static final int Spinner_prompt = 6;
+        /**
+          <p>
+          @attr description
+           Display mode for spinner options. 
+
+
+          <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>dialog</code></td><td>0</td><td> Spinner options will be presented to the user as a dialog window. </td></tr>
+<tr><td><code>dropdown</code></td><td>1</td><td> Spinner options will be presented to the user as an inline dropdown
+                 anchored to the spinner widget itself. </td></tr>
+</table>
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:spinnerMode
+        */
+        public static final int Spinner_spinnerMode = 7;
+        /**  These are the standard attributes that make up a complete theme. 
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #Theme_actionDropDownStyle com.dumu.housego:actionDropDownStyle}</code></td><td> Default ActionBar dropdown style.</td></tr>
+           <tr><td><code>{@link #Theme_dropdownListPreferredItemHeight com.dumu.housego:dropdownListPreferredItemHeight}</code></td><td> The preferred item height for dropdown lists.</td></tr>
+           <tr><td><code>{@link #Theme_listChoiceBackgroundIndicator com.dumu.housego:listChoiceBackgroundIndicator}</code></td><td> Drawable used as a background for selected list items.</td></tr>
+           <tr><td><code>{@link #Theme_panelMenuListTheme com.dumu.housego:panelMenuListTheme}</code></td><td> Default Panel Menu style.</td></tr>
+           <tr><td><code>{@link #Theme_panelMenuListWidth com.dumu.housego:panelMenuListWidth}</code></td><td> Default Panel Menu width.</td></tr>
+           <tr><td><code>{@link #Theme_popupMenuStyle com.dumu.housego:popupMenuStyle}</code></td><td> Default PopupMenu style.</td></tr>
+           </table>
+           @see #Theme_actionDropDownStyle
+           @see #Theme_dropdownListPreferredItemHeight
+           @see #Theme_listChoiceBackgroundIndicator
+           @see #Theme_panelMenuListTheme
+           @see #Theme_panelMenuListWidth
+           @see #Theme_popupMenuStyle
+         */
+        public static final int[] Theme = {
+            0x7f010063, 0x7f010064, 0x7f010065, 0x7f010066,
+            0x7f010067, 0x7f010068
+        };
+        /**
+          <p>
+          @attr description
+           Default ActionBar dropdown style. 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:actionDropDownStyle
+        */
+        public static final int Theme_actionDropDownStyle = 0;
+        /**
+          <p>
+          @attr description
+           The preferred item height for dropdown lists. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:dropdownListPreferredItemHeight
+        */
+        public static final int Theme_dropdownListPreferredItemHeight = 1;
+        /**
+          <p>
+          @attr description
+           Drawable used as a background for selected list items. 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:listChoiceBackgroundIndicator
+        */
+        public static final int Theme_listChoiceBackgroundIndicator = 5;
+        /**
+          <p>
+          @attr description
+           Default Panel Menu style. 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:panelMenuListTheme
+        */
+        public static final int Theme_panelMenuListTheme = 4;
+        /**
+          <p>
+          @attr description
+           Default Panel Menu width. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:panelMenuListWidth
+        */
+        public static final int Theme_panelMenuListWidth = 3;
+        /**
+          <p>
+          @attr description
+           Default PopupMenu style. 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:popupMenuStyle
+        */
+        public static final int Theme_popupMenuStyle = 2;
+        /** Attributes that can be used with a Themes.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #Themes_PagerIndicatorStyle com.dumu.housego:PagerIndicatorStyle}</code></td><td></td></tr>
+           <tr><td><code>{@link #Themes_SliderStyle com.dumu.housego:SliderStyle}</code></td><td></td></tr>
+           </table>
+           @see #Themes_PagerIndicatorStyle
+           @see #Themes_SliderStyle
+         */
+        public static final int[] Themes = {
+            0x7f01001a, 0x7f01001b
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.dumu.housego.R.attr#PagerIndicatorStyle}
+          attribute's value can be found in the {@link #Themes} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name com.dumu.housego:PagerIndicatorStyle
+        */
+        public static final int Themes_PagerIndicatorStyle = 1;
+        /**
+          <p>This symbol is the offset where the {@link com.dumu.housego.R.attr#SliderStyle}
+          attribute's value can be found in the {@link #Themes} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name com.dumu.housego:SliderStyle
+        */
+        public static final int Themes_SliderStyle = 0;
+        /** Attributes that can be used with a View.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #View_android_focusable android:focusable}</code></td><td> Boolean that controls whether a view can take focus.</td></tr>
+           <tr><td><code>{@link #View_paddingEnd com.dumu.housego:paddingEnd}</code></td><td> Sets the padding, in pixels, of the end edge; see {@link android.R.attr#padding}.</td></tr>
+           <tr><td><code>{@link #View_paddingStart com.dumu.housego:paddingStart}</code></td><td> Sets the padding, in pixels, of the start edge; see {@link android.R.attr#padding}.</td></tr>
+           </table>
+           @see #View_android_focusable
+           @see #View_paddingEnd
+           @see #View_paddingStart
+         */
+        public static final int[] View = {
+            0x010100da, 0x7f010054, 0x7f010055
+        };
+        /**
+          <p>
+          @attr description
+           Boolean that controls whether a view can take focus.  By default the user can not
+             move focus to a view; by setting this attribute to true the view is
+             allowed to take focus.  This value does not impact the behavior of
+             directly calling {@link android.view.View#requestFocus}, which will
+             always request focus regardless of this view.  It only impacts where
+             focus navigation will try to move focus. 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#focusable}.
+          @attr name android:focusable
+        */
+        public static final int View_android_focusable = 0;
+        /**
+          <p>
+          @attr description
+           Sets the padding, in pixels, of the end edge; see {@link android.R.attr#padding}. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:paddingEnd
+        */
+        public static final int View_paddingEnd = 2;
+        /**
+          <p>
+          @attr description
+           Sets the padding, in pixels, of the start edge; see {@link android.R.attr#padding}. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.dumu.housego:paddingStart
+        */
+        public static final int View_paddingStart = 1;
         /** Attributes that can be used with a WheelPicker.
            <p>Includes the following attributes:</p>
            <table>
@@ -2799,10 +6988,10 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            @see #WheelPicker_wheel_text_size
          */
         public static final int[] WheelPicker = {
-            0x7f01001b, 0x7f01001c, 0x7f01001d, 0x7f01001e,
-            0x7f01001f, 0x7f010020, 0x7f010021, 0x7f010022,
-            0x7f010023, 0x7f010024, 0x7f010025, 0x7f010026,
-            0x7f010027
+            0x7f0100a5, 0x7f0100a6, 0x7f0100a7, 0x7f0100a8,
+            0x7f0100a9, 0x7f0100aa, 0x7f0100ab, 0x7f0100ac,
+            0x7f0100ad, 0x7f0100ae, 0x7f0100af, 0x7f0100b0,
+            0x7f0100b1
         };
         /**
           <p>This symbol is the offset where the {@link com.dumu.housego.R.attr#wheel_data}
@@ -3004,7 +7193,7 @@ containing a value of this type.
            @see #swipelistviewstyle_right_width
          */
         public static final int[] swipelistviewstyle = {
-            0x7f01001a
+            0x7f0100a4
         };
         /**
           <p>This symbol is the offset where the {@link com.dumu.housego.R.attr#right_width}
@@ -3045,8 +7234,8 @@ containing a value of this type.
            @see #underLineBtn_unCheckedColor
          */
         public static final int[] underLineBtn = {
-            0x7f010013, 0x7f010014, 0x7f010015, 0x7f010016,
-            0x7f010017, 0x7f010018, 0x7f010019
+            0x7f01009d, 0x7f01009e, 0x7f01009f, 0x7f0100a0,
+            0x7f0100a1, 0x7f0100a2, 0x7f0100a3
         };
         /**
           <p>

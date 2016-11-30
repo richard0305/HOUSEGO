@@ -35,7 +35,7 @@ public class BlockTradeProgramaPresenter implements IFourDataProgramePresenter {
 
 			@Override
 			public void onError(Object error) {
-				// TODO Auto-generated method stub
+				view.showDataFail(error.toString());
 
 			}
 		});

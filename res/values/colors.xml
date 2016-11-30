@@ -298,5 +298,10 @@
     <!-- 海军色 -->
     <color name="black">#000000</color>
     <!-- 黑色 -->
-
+    
+     <!-- 上传图片添加的颜色 -->
+ <color name="none_color">#00000000</color>
+ <color name="plugin_camera_black">#000000</color>
+ <color name="albumback">#E1E0DE</color>
+ 
 </resources>

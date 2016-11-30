@@ -44,6 +44,7 @@ public class RentingProgramaModel implements IFourDataProgramaModel {
 
 					back.onSuccess(ershoufangrecommends);
 				} catch (JSONException e) {
+					back.onError("无对应房源数据！");
 					e.printStackTrace();
 				}
 
@@ -52,7 +53,7 @@ public class RentingProgramaModel implements IFourDataProgramaModel {
 
 			@Override
 			public void onErrorResponse(VolleyError error) {
-				back.onError(error.getMessage());
+			
 
 			}
 		}) {
@@ -61,8 +62,21 @@ public class RentingProgramaModel implements IFourDataProgramaModel {
 				Map<String, String> params = new HashMap<String, String>();
 				params.put("catid", fourdata.getCatid());
 				params.put("page", fourdata.getPage());
-				// params.put("catid", fourdata.getCatid());
-				// params.put("catid", fourdata.getCatid());
+				params.put("ct", fourdata.getCt());
+				params.put("ar", fourdata.getAr());
+				params.put("dt", fourdata.getDt());
+				params.put("zj", fourdata.getZj());
+				params.put("mj", fourdata.getMj());
+				params.put("shi", fourdata.getShi());
+				params.put("qs", fourdata.getQs());
+				params.put("yt", fourdata.getYt());
+				params.put("xq", fourdata.getXq());
+				params.put("cx", fourdata.getCx());
+				params.put("lc", fourdata.getLc());
+				params.put("zl", fourdata.getZl());
+				params.put("zx", fourdata.getZx());
+				params.put("kf", fourdata.getKf());
+				params.put("kwds", fourdata.getKwds());
 
 				return params;
 			}

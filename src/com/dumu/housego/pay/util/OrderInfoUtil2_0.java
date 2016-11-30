@@ -85,7 +85,6 @@ public class OrderInfoUtil2_0 {
 
 		keyValues.put("version", version); 
 		
-		keyValues.put("notify_url", "http://www.taoshenfang.com/index.php?g=Api&m=Api&a=app_return_url"); 
 		
 		return keyValues;
 	}

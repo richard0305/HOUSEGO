@@ -1,10 +1,15 @@
 package com.dumu.housego.util;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.dumu.housego.entity.ErShouFangDetails;
 import com.dumu.housego.entity.NewHouseDetail;
+import com.dumu.housego.entity.Pics;
 
 public class NewHouseDetialJSONParse {
 
@@ -50,7 +55,7 @@ public class NewHouseDetialJSONParse {
 		n.setListorder(j.getString("listorder"));
 		n.setLoupandizhi(j.getString("loupandizhi"));
 		n.setLoupandongtai(j.getString("loupandongtai"));
-		n.setLoupantupian(j.getString("loupantupian"));
+		
 		n.setLowzongjia(j.getString("lowzongjia"));
 		n.setLvhualv(j.getString("lvhualv"));
 		n.setMianjiarea(j.getString("mianjiarea"));
@@ -59,7 +64,6 @@ public class NewHouseDetialJSONParse {
 		n.setProvince(j.getString("province"));
 		n.setRongjilv(j.getString("rongjilv"));
 		n.setShiarea(j.getString("shiarea"));
-		n.setShijingtu(j.getString("shijingtu"));
 		n.setShouloudizhi(j.getString("shouloudizhi"));
 		n.setShuidianranqi(j.getString("shuidianranqi"));
 		n.setStatus(j.getString("status"));
@@ -74,14 +78,11 @@ public class NewHouseDetialJSONParse {
 		n.setViews(j.getString("views"));
 		n.setViewsupdatetime(j.getString("viewsupdatetime"));
 		n.setWeekviews(j.getString("weekviews"));
-		n.setWeizhitu(j.getString("weizhitu"));
 		n.setWuyefei(j.getString("wuyefei"));
 		n.setWuyegongsi(j.getString("wuyegongsi"));
 		n.setWuyeleixing(j.getString("wuyeleixing"));
 		n.setXiaoqu(j.getString("xiaoqu"));
-		n.setXiaoqutu(j.getString("xiaoqutu"));
 		n.setXiaoqutype(j.getString("xiaoqutype"));
-		n.setYangbantu(j.getString("yangbantu"));
 		n.setYesterdayviews(j.getString("yesterdayviews"));
 		n.setYhq_enddate(j.getString("yhq_enddate"));
 		n.setYhquan(j.getString("yhquan"));
@@ -92,6 +93,104 @@ public class NewHouseDetialJSONParse {
 		n.setZongjiarange(j.getString("zongjiarange"));
 		n.setZuobiaodizhi(j.getString("zuobiaodizhi"));
 
+		if(j.get("loupantupian")!=""){
+		JSONArray arr=j.getJSONArray("loupantupian");
+		List<Pics> loupans = new ArrayList<Pics>();
+		for (int i = 0; i < arr.length(); i++) {
+			JSONObject o = arr.getJSONObject(i);
+			Pics p= new Pics();
+
+			p.setAlt(o.getString("alt"));
+			p.setUrl("http://www.taoshenfang.com"+o.getString("url"));
+		
+			loupans.add(p);
+		}
+		n.setLoupantupian(loupans);
+		}else{
+			n.setLoupantupian(null);
+		}
+		
+		if(j.get("weizhitu")!=""){
+		JSONArray arr1=j.getJSONArray("weizhitu");
+		List<Pics> weizhis = new ArrayList<Pics>();
+		for (int i = 0; i < arr1.length(); i++) {
+			JSONObject o = arr1.getJSONObject(i);
+			Pics p= new Pics();
+
+			p.setAlt(o.getString("alt"));
+			p.setUrl("http://www.taoshenfang.com"+o.getString("url"));
+		
+			weizhis.add(p);
+		}
+		n.setWeizhitu(weizhis);
+		}else{
+			n.setWeizhitu(null);
+		}
+		
+		
+		
+		if(j.get("yangbantu")!=""){
+		JSONArray arr2=j.getJSONArray("yangbantu");
+		List<Pics>yangbans = new ArrayList<Pics>();
+		for (int i = 0; i < arr2.length(); i++) {
+			JSONObject o = arr2.getJSONObject(i);
+			Pics p= new Pics();
+
+			p.setAlt(o.getString("alt"));
+			p.setUrl("http://www.taoshenfang.com"+o.getString("url"));
+		
+			yangbans.add(p);
+		}
+		n.setYangbantu(yangbans);
+		}else{
+			n.setYangbantu(null);
+		}
+		
+		
+		
+		
+		if(j.get("shijingtu")!=""){
+		JSONArray arr3=j.getJSONArray("shijingtu");
+		List<Pics>shijings = new ArrayList<Pics>();
+		for (int i = 0; i < arr3.length(); i++) {
+			JSONObject o = arr3.getJSONObject(i);
+			Pics p= new Pics();
+
+			p.setAlt(o.getString("alt"));
+			p.setUrl("http://www.taoshenfang.com"+o.getString("url"));
+		
+			shijings.add(p);
+		}
+		n.setShijingtu(shijings);
+		}else{
+			n.setShijingtu(null);
+		}
+		
+		
+		if(j.get("xiaoqutu")!=""){
+			JSONArray arr4=j.getJSONArray("xiaoqutu");
+			List<Pics>xiaoqus = new ArrayList<Pics>();
+			for (int i = 0; i < arr4.length(); i++) {
+				JSONObject o = arr4.getJSONObject(i);
+				Pics p= new Pics();
+
+				p.setAlt(o.getString("alt"));
+				p.setUrl("http://www.taoshenfang.com"+o.getString("url"));
+			
+				xiaoqus.add(p);
+			}
+			n.setXiaoqutu(xiaoqus);
+		}else{
+			n.setXiaoqutu(null);
+		}
+		
+		
+		
+		
+		
+		
+		
+		
 		return n;
 
 	}

@@ -116,7 +116,7 @@
             android:text="房东信赖"
             android:textColor="#11cd6e"
             android:textSize="10sp"
-            android:visibility="gone" />
+           />
 
         <TextView
             android:id="@+id/tv_ershou_biaoqian3"
@@ -130,7 +130,7 @@
             android:text="房东信赖"
             android:textColor="#ea8010"
             android:textSize="10sp"
-            android:visibility="gone" />
+            />
 
         <TextView
             android:id="@+id/tv_ershou_biaoqian4"
@@ -141,11 +141,10 @@
             android:layout_toRightOf="@+id/tv_ershou_biaoqian3"
             android:background="@drawable/shape_textview_biaoqian4"
             android:padding="1dp"
-            android:singleLine="true"
             android:text="房东信赖"
             android:textColor="#328fca"
             android:textSize="10sp"
-            android:visibility="gone" />
+            />
     </RelativeLayout>
 
 </RelativeLayout>

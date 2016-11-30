@@ -1,5 +1,7 @@
 package com.dumu.housego.entity;
 
+import java.util.List;
+
 public class NewHouseDetail {
 	private String id;
 	private String catid;
@@ -42,7 +44,6 @@ public class NewHouseDetail {
 	private String rongjilv;
 	private String loupandizhi;
 	private String junjia;
-	private String loupantupian;
 	private String province;
 	private String city;
 	private String area;
@@ -62,10 +63,11 @@ public class NewHouseDetail {
 	private String shiarea;
 	private String mianjiarea;
 	private String fangwuyongtu;
-	private String weizhitu;
-	private String yangbantu;
-	private String shijingtu;
-	private String xiaoqutu;
+	private List<Pics> weizhitu;
+	private List<Pics> yangbantu;
+	private List<Pics> shijingtu;
+	private List<Pics> xiaoqutu;
+	private List<Pics> loupantupian;
 	private String loupandongtai;
 	private String yhquan;
 	private String lowzongjia;
@@ -74,11 +76,11 @@ public class NewHouseDetail {
 	private String zaishou;
 	private String xiaoqutype;
 	private String yhq_enddate;
+	
 	private String hasyhq;
 	private String xiaoqu;
 	private String cityname;
 	private String areaname;
-
 	public NewHouseDetail(String id, String catid, String typeid, String title, String style, String thumb,
 			String keywords, String tags, String description, String posid, String url, String listorder, String status,
 			String sysadd, String islink, String username, String inputtime, String updatetime, String views,
@@ -86,13 +88,14 @@ public class NewHouseDetail {
 			String kaifashang, String guihuahushu, String kaipandate, String zhandimianji, String jiaofangdate,
 			String jianzhumianji, String wuyeleixing, String guihuachewei, String chanquannianxian, String wuyegongsi,
 			String wuyefei, String shuidianranqi, String jianzhuleixing, String lvhualv, String rongjilv,
-			String loupandizhi, String junjia, String loupantupian, String province, String city, String area,
-			String jingweidu, String dituzuobiao, String zuobiaodizhi, String contacttel, String bianhao,
-			String fabulaiyuan, String zhuangxiu, String shouloudizhi, String zhulihuxing, String dafen_zbpt,
-			String dafen_jt, String dafen_hj, String dianping, String shiarea, String mianjiarea, String fangwuyongtu,
-			String weizhitu, String yangbantu, String shijingtu, String xiaoqutu, String loupandongtai, String yhquan,
-			String lowzongjia, String highzongjia, String zongjiarange, String zaishou, String xiaoqutype,
-			String yhq_enddate, String hasyhq, String xiaoqu, String cityname, String areaname) {
+			String loupandizhi, String junjia, String province, String city, String area, String jingweidu,
+			String dituzuobiao, String zuobiaodizhi, String contacttel, String bianhao, String fabulaiyuan,
+			String zhuangxiu, String shouloudizhi, String zhulihuxing, String dafen_zbpt, String dafen_jt,
+			String dafen_hj, String dianping, String shiarea, String mianjiarea, String fangwuyongtu,
+			List<Pics> weizhitu, List<Pics> yangbantu, List<Pics> shijingtu, List<Pics> xiaoqutu,
+			List<Pics> loupantupian, String loupandongtai, String yhquan, String lowzongjia, String highzongjia,
+			String zongjiarange, String zaishou, String xiaoqutype, String yhq_enddate, String hasyhq, String xiaoqu,
+			String cityname, String areaname) {
 		super();
 		this.id = id;
 		this.catid = catid;
@@ -135,7 +138,6 @@ public class NewHouseDetail {
 		this.rongjilv = rongjilv;
 		this.loupandizhi = loupandizhi;
 		this.junjia = junjia;
-		this.loupantupian = loupantupian;
 		this.province = province;
 		this.city = city;
 		this.area = area;
@@ -159,6 +161,7 @@ public class NewHouseDetail {
 		this.yangbantu = yangbantu;
 		this.shijingtu = shijingtu;
 		this.xiaoqutu = xiaoqutu;
+		this.loupantupian = loupantupian;
 		this.loupandongtai = loupandongtai;
 		this.yhquan = yhquan;
 		this.lowzongjia = lowzongjia;
@@ -172,627 +175,471 @@ public class NewHouseDetail {
 		this.cityname = cityname;
 		this.areaname = areaname;
 	}
-
 	public NewHouseDetail() {
 		super();
 	}
-
 	public String getId() {
 		return id;
 	}
-
 	public void setId(String id) {
 		this.id = id;
 	}
-
 	public String getCatid() {
 		return catid;
 	}
-
 	public void setCatid(String catid) {
 		this.catid = catid;
 	}
-
 	public String getTypeid() {
 		return typeid;
 	}
-
 	public void setTypeid(String typeid) {
 		this.typeid = typeid;
 	}
-
 	public String getTitle() {
 		return title;
 	}
-
 	public void setTitle(String title) {
 		this.title = title;
 	}
-
 	public String getStyle() {
 		return style;
 	}
-
 	public void setStyle(String style) {
 		this.style = style;
 	}
-
 	public String getThumb() {
 		return thumb;
 	}
-
 	public void setThumb(String thumb) {
 		this.thumb = thumb;
 	}
-
 	public String getKeywords() {
 		return keywords;
 	}
-
 	public void setKeywords(String keywords) {
 		this.keywords = keywords;
 	}
-
 	public String getTags() {
 		return tags;
 	}
-
 	public void setTags(String tags) {
 		this.tags = tags;
 	}
-
 	public String getDescription() {
 		return description;
 	}
-
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
 	public String getPosid() {
 		return posid;
 	}
-
 	public void setPosid(String posid) {
 		this.posid = posid;
 	}
-
 	public String getUrl() {
 		return url;
 	}
-
 	public void setUrl(String url) {
 		this.url = url;
 	}
-
 	public String getListorder() {
 		return listorder;
 	}
-
 	public void setListorder(String listorder) {
 		this.listorder = listorder;
 	}
-
 	public String getStatus() {
 		return status;
 	}
-
 	public void setStatus(String status) {
 		this.status = status;
 	}
-
 	public String getSysadd() {
 		return sysadd;
 	}
-
 	public void setSysadd(String sysadd) {
 		this.sysadd = sysadd;
 	}
-
 	public String getIslink() {
 		return islink;
 	}
-
 	public void setIslink(String islink) {
 		this.islink = islink;
 	}
-
 	public String getUsername() {
 		return username;
 	}
-
 	public void setUsername(String username) {
 		this.username = username;
 	}
-
 	public String getInputtime() {
 		return inputtime;
 	}
-
 	public void setInputtime(String inputtime) {
 		this.inputtime = inputtime;
 	}
-
 	public String getUpdatetime() {
 		return updatetime;
 	}
-
 	public void setUpdatetime(String updatetime) {
 		this.updatetime = updatetime;
 	}
-
 	public String getViews() {
 		return views;
 	}
-
 	public void setViews(String views) {
 		this.views = views;
 	}
-
 	public String getYesterdayviews() {
 		return yesterdayviews;
 	}
-
 	public void setYesterdayviews(String yesterdayviews) {
 		this.yesterdayviews = yesterdayviews;
 	}
-
 	public String getDayviews() {
 		return dayviews;
 	}
-
 	public void setDayviews(String dayviews) {
 		this.dayviews = dayviews;
 	}
-
 	public String getWeekviews() {
 		return weekviews;
 	}
-
 	public void setWeekviews(String weekviews) {
 		this.weekviews = weekviews;
 	}
-
 	public String getMonthviews() {
 		return monthviews;
 	}
-
 	public void setMonthviews(String monthviews) {
 		this.monthviews = monthviews;
 	}
-
 	public String getViewsupdatetime() {
 		return viewsupdatetime;
 	}
-
 	public void setViewsupdatetime(String viewsupdatetime) {
 		this.viewsupdatetime = viewsupdatetime;
 	}
-
 	public String getKaifashang() {
 		return kaifashang;
 	}
-
 	public void setKaifashang(String kaifashang) {
 		this.kaifashang = kaifashang;
 	}
-
 	public String getGuihuahushu() {
 		return guihuahushu;
 	}
-
 	public void setGuihuahushu(String guihuahushu) {
 		this.guihuahushu = guihuahushu;
 	}
-
 	public String getKaipandate() {
 		return kaipandate;
 	}
-
 	public void setKaipandate(String kaipandate) {
 		this.kaipandate = kaipandate;
 	}
-
 	public String getZhandimianji() {
 		return zhandimianji;
 	}
-
 	public void setZhandimianji(String zhandimianji) {
 		this.zhandimianji = zhandimianji;
 	}
-
 	public String getJiaofangdate() {
 		return jiaofangdate;
 	}
-
 	public void setJiaofangdate(String jiaofangdate) {
 		this.jiaofangdate = jiaofangdate;
 	}
-
 	public String getJianzhumianji() {
 		return jianzhumianji;
 	}
-
 	public void setJianzhumianji(String jianzhumianji) {
 		this.jianzhumianji = jianzhumianji;
 	}
-
 	public String getWuyeleixing() {
 		return wuyeleixing;
 	}
-
 	public void setWuyeleixing(String wuyeleixing) {
 		this.wuyeleixing = wuyeleixing;
 	}
-
 	public String getGuihuachewei() {
 		return guihuachewei;
 	}
-
 	public void setGuihuachewei(String guihuachewei) {
 		this.guihuachewei = guihuachewei;
 	}
-
 	public String getChanquannianxian() {
 		return chanquannianxian;
 	}
-
 	public void setChanquannianxian(String chanquannianxian) {
 		this.chanquannianxian = chanquannianxian;
 	}
-
 	public String getWuyegongsi() {
 		return wuyegongsi;
 	}
-
 	public void setWuyegongsi(String wuyegongsi) {
 		this.wuyegongsi = wuyegongsi;
 	}
-
 	public String getWuyefei() {
 		return wuyefei;
 	}
-
 	public void setWuyefei(String wuyefei) {
 		this.wuyefei = wuyefei;
 	}
-
 	public String getShuidianranqi() {
 		return shuidianranqi;
 	}
-
 	public void setShuidianranqi(String shuidianranqi) {
 		this.shuidianranqi = shuidianranqi;
 	}
-
 	public String getJianzhuleixing() {
 		return jianzhuleixing;
 	}
-
 	public void setJianzhuleixing(String jianzhuleixing) {
 		this.jianzhuleixing = jianzhuleixing;
 	}
-
 	public String getLvhualv() {
 		return lvhualv;
 	}
-
 	public void setLvhualv(String lvhualv) {
 		this.lvhualv = lvhualv;
 	}
-
 	public String getRongjilv() {
 		return rongjilv;
 	}
-
 	public void setRongjilv(String rongjilv) {
 		this.rongjilv = rongjilv;
 	}
-
 	public String getLoupandizhi() {
 		return loupandizhi;
 	}
-
 	public void setLoupandizhi(String loupandizhi) {
 		this.loupandizhi = loupandizhi;
 	}
-
 	public String getJunjia() {
 		return junjia;
 	}
-
 	public void setJunjia(String junjia) {
 		this.junjia = junjia;
 	}
-
-	public String getLoupantupian() {
-		return loupantupian;
-	}
-
-	public void setLoupantupian(String loupantupian) {
-		this.loupantupian = loupantupian;
-	}
-
 	public String getProvince() {
 		return province;
 	}
-
 	public void setProvince(String province) {
 		this.province = province;
 	}
-
 	public String getCity() {
 		return city;
 	}
-
 	public void setCity(String city) {
 		this.city = city;
 	}
-
 	public String getArea() {
 		return area;
 	}
-
 	public void setArea(String area) {
 		this.area = area;
 	}
-
 	public String getJingweidu() {
 		return jingweidu;
 	}
-
 	public void setJingweidu(String jingweidu) {
 		this.jingweidu = jingweidu;
 	}
-
 	public String getDituzuobiao() {
 		return dituzuobiao;
 	}
-
 	public void setDituzuobiao(String dituzuobiao) {
 		this.dituzuobiao = dituzuobiao;
 	}
-
 	public String getZuobiaodizhi() {
 		return zuobiaodizhi;
 	}
-
 	public void setZuobiaodizhi(String zuobiaodizhi) {
 		this.zuobiaodizhi = zuobiaodizhi;
 	}
-
 	public String getContacttel() {
 		return contacttel;
 	}
-
 	public void setContacttel(String contacttel) {
 		this.contacttel = contacttel;
 	}
-
 	public String getBianhao() {
 		return bianhao;
 	}
-
 	public void setBianhao(String bianhao) {
 		this.bianhao = bianhao;
 	}
-
 	public String getFabulaiyuan() {
 		return fabulaiyuan;
 	}
-
 	public void setFabulaiyuan(String fabulaiyuan) {
 		this.fabulaiyuan = fabulaiyuan;
 	}
-
 	public String getZhuangxiu() {
 		return zhuangxiu;
 	}
-
 	public void setZhuangxiu(String zhuangxiu) {
 		this.zhuangxiu = zhuangxiu;
 	}
-
 	public String getShouloudizhi() {
 		return shouloudizhi;
 	}
-
 	public void setShouloudizhi(String shouloudizhi) {
 		this.shouloudizhi = shouloudizhi;
 	}
-
 	public String getZhulihuxing() {
 		return zhulihuxing;
 	}
-
 	public void setZhulihuxing(String zhulihuxing) {
 		this.zhulihuxing = zhulihuxing;
 	}
-
 	public String getDafen_zbpt() {
 		return dafen_zbpt;
 	}
-
 	public void setDafen_zbpt(String dafen_zbpt) {
 		this.dafen_zbpt = dafen_zbpt;
 	}
-
 	public String getDafen_jt() {
 		return dafen_jt;
 	}
-
 	public void setDafen_jt(String dafen_jt) {
 		this.dafen_jt = dafen_jt;
 	}
-
 	public String getDafen_hj() {
 		return dafen_hj;
 	}
-
 	public void setDafen_hj(String dafen_hj) {
 		this.dafen_hj = dafen_hj;
 	}
-
 	public String getDianping() {
 		return dianping;
 	}
-
 	public void setDianping(String dianping) {
 		this.dianping = dianping;
 	}
-
 	public String getShiarea() {
 		return shiarea;
 	}
-
 	public void setShiarea(String shiarea) {
 		this.shiarea = shiarea;
 	}
-
 	public String getMianjiarea() {
 		return mianjiarea;
 	}
-
 	public void setMianjiarea(String mianjiarea) {
 		this.mianjiarea = mianjiarea;
 	}
-
 	public String getFangwuyongtu() {
 		return fangwuyongtu;
 	}
-
 	public void setFangwuyongtu(String fangwuyongtu) {
 		this.fangwuyongtu = fangwuyongtu;
 	}
-
-	public String getWeizhitu() {
+	public List<Pics> getWeizhitu() {
 		return weizhitu;
 	}
-
-	public void setWeizhitu(String weizhitu) {
+	public void setWeizhitu(List<Pics> weizhitu) {
 		this.weizhitu = weizhitu;
 	}
-
-	public String getYangbantu() {
+	public List<Pics> getYangbantu() {
 		return yangbantu;
 	}
-
-	public void setYangbantu(String yangbantu) {
+	public void setYangbantu(List<Pics> yangbantu) {
 		this.yangbantu = yangbantu;
 	}
-
-	public String getShijingtu() {
+	public List<Pics> getShijingtu() {
 		return shijingtu;
 	}
-
-	public void setShijingtu(String shijingtu) {
+	public void setShijingtu(List<Pics> shijingtu) {
 		this.shijingtu = shijingtu;
 	}
-
-	public String getXiaoqutu() {
+	public List<Pics> getXiaoqutu() {
 		return xiaoqutu;
 	}
-
-	public void setXiaoqutu(String xiaoqutu) {
+	public void setXiaoqutu(List<Pics> xiaoqutu) {
 		this.xiaoqutu = xiaoqutu;
 	}
-
+	public List<Pics> getLoupantupian() {
+		return loupantupian;
+	}
+	public void setLoupantupian(List<Pics> loupantupian) {
+		this.loupantupian = loupantupian;
+	}
 	public String getLoupandongtai() {
 		return loupandongtai;
 	}
-
 	public void setLoupandongtai(String loupandongtai) {
 		this.loupandongtai = loupandongtai;
 	}
-
 	public String getYhquan() {
 		return yhquan;
 	}
-
 	public void setYhquan(String yhquan) {
 		this.yhquan = yhquan;
 	}
-
 	public String getLowzongjia() {
 		return lowzongjia;
 	}
-
 	public void setLowzongjia(String lowzongjia) {
 		this.lowzongjia = lowzongjia;
 	}
-
 	public String getHighzongjia() {
 		return highzongjia;
 	}
-
 	public void setHighzongjia(String highzongjia) {
 		this.highzongjia = highzongjia;
 	}
-
 	public String getZongjiarange() {
 		return zongjiarange;
 	}
-
 	public void setZongjiarange(String zongjiarange) {
 		this.zongjiarange = zongjiarange;
 	}
-
 	public String getZaishou() {
 		return zaishou;
 	}
-
 	public void setZaishou(String zaishou) {
 		this.zaishou = zaishou;
 	}
-
 	public String getXiaoqutype() {
 		return xiaoqutype;
 	}
-
 	public void setXiaoqutype(String xiaoqutype) {
 		this.xiaoqutype = xiaoqutype;
 	}
-
 	public String getYhq_enddate() {
 		return yhq_enddate;
 	}
-
 	public void setYhq_enddate(String yhq_enddate) {
 		this.yhq_enddate = yhq_enddate;
 	}
-
 	public String getHasyhq() {
 		return hasyhq;
 	}
-
 	public void setHasyhq(String hasyhq) {
 		this.hasyhq = hasyhq;
 	}
-
 	public String getXiaoqu() {
 		return xiaoqu;
 	}
-
 	public void setXiaoqu(String xiaoqu) {
 		this.xiaoqu = xiaoqu;
 	}
-
 	public String getCityname() {
 		return cityname;
 	}
-
 	public void setCityname(String cityname) {
 		this.cityname = cityname;
 	}
-
 	public String getAreaname() {
 		return areaname;
 	}
-
 	public void setAreaname(String areaname) {
 		this.areaname = areaname;
 	}
-
 	@Override
 	public String toString() {
 		return "NewHouseDetail [id=" + id + ", catid=" + catid + ", typeid=" + typeid + ", title=" + title + ", style="
@@ -806,18 +653,24 @@ public class NewHouseDetail {
 				+ ", jianzhumianji=" + jianzhumianji + ", wuyeleixing=" + wuyeleixing + ", guihuachewei=" + guihuachewei
 				+ ", chanquannianxian=" + chanquannianxian + ", wuyegongsi=" + wuyegongsi + ", wuyefei=" + wuyefei
 				+ ", shuidianranqi=" + shuidianranqi + ", jianzhuleixing=" + jianzhuleixing + ", lvhualv=" + lvhualv
-				+ ", rongjilv=" + rongjilv + ", loupandizhi=" + loupandizhi + ", junjia=" + junjia + ", loupantupian="
-				+ loupantupian + ", province=" + province + ", city=" + city + ", area=" + area + ", jingweidu="
-				+ jingweidu + ", dituzuobiao=" + dituzuobiao + ", zuobiaodizhi=" + zuobiaodizhi + ", contacttel="
-				+ contacttel + ", bianhao=" + bianhao + ", fabulaiyuan=" + fabulaiyuan + ", zhuangxiu=" + zhuangxiu
-				+ ", shouloudizhi=" + shouloudizhi + ", zhulihuxing=" + zhulihuxing + ", dafen_zbpt=" + dafen_zbpt
-				+ ", dafen_jt=" + dafen_jt + ", dafen_hj=" + dafen_hj + ", dianping=" + dianping + ", shiarea="
-				+ shiarea + ", mianjiarea=" + mianjiarea + ", fangwuyongtu=" + fangwuyongtu + ", weizhitu=" + weizhitu
-				+ ", yangbantu=" + yangbantu + ", shijingtu=" + shijingtu + ", xiaoqutu=" + xiaoqutu
+				+ ", rongjilv=" + rongjilv + ", loupandizhi=" + loupandizhi + ", junjia=" + junjia + ", province="
+				+ province + ", city=" + city + ", area=" + area + ", jingweidu=" + jingweidu + ", dituzuobiao="
+				+ dituzuobiao + ", zuobiaodizhi=" + zuobiaodizhi + ", contacttel=" + contacttel + ", bianhao=" + bianhao
+				+ ", fabulaiyuan=" + fabulaiyuan + ", zhuangxiu=" + zhuangxiu + ", shouloudizhi=" + shouloudizhi
+				+ ", zhulihuxing=" + zhulihuxing + ", dafen_zbpt=" + dafen_zbpt + ", dafen_jt=" + dafen_jt
+				+ ", dafen_hj=" + dafen_hj + ", dianping=" + dianping + ", shiarea=" + shiarea + ", mianjiarea="
+				+ mianjiarea + ", fangwuyongtu=" + fangwuyongtu + ", weizhitu=" + weizhitu + ", yangbantu=" + yangbantu
+				+ ", shijingtu=" + shijingtu + ", xiaoqutu=" + xiaoqutu + ", loupantupian=" + loupantupian
 				+ ", loupandongtai=" + loupandongtai + ", yhquan=" + yhquan + ", lowzongjia=" + lowzongjia
 				+ ", highzongjia=" + highzongjia + ", zongjiarange=" + zongjiarange + ", zaishou=" + zaishou
 				+ ", xiaoqutype=" + xiaoqutype + ", yhq_enddate=" + yhq_enddate + ", hasyhq=" + hasyhq + ", xiaoqu="
 				+ xiaoqu + ", cityname=" + cityname + ", areaname=" + areaname + "]";
 	}
+	
+
+
+	
+
+
 
 }

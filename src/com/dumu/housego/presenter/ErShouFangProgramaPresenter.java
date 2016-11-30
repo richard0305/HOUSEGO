@@ -33,7 +33,7 @@ public class ErShouFangProgramaPresenter implements IFourDataProgramePresenter {
 
 			@Override
 			public void onError(Object error) {
-
+				view.showDatafail(error.toString());
 			}
 		});
 

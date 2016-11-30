@@ -7,4 +7,5 @@ import com.dumu.housego.entity.NewHouseRecommendData;
 
 public interface IErShouFangRecommendView {
 	void showData(List<ErShouFangRecommendData> ershoufangrecommends);
+	void showDatafail(String info);
 }

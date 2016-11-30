@@ -32,7 +32,7 @@ public class NewHouseListPresenter implements IFourDataProgramePresenter {
 
 			@Override
 			public void onError(Object error) {
-				// TODO Auto-generated method stub
+				view.showlistFail(error.toString());
 
 			}
 		});

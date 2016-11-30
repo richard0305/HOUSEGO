@@ -7,14 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.dumu.housego.entity.ErShouFangDetails;
-import com.dumu.housego.entity.ErShouFangRecommendData;
-import com.dumu.housego.entity.NewHouseRecommendData;
-import com.dumu.housego.entity.RecommendNews;
 import com.dumu.housego.entity.RentingDetail;
-import com.dumu.housego.entity.SubmitErshouList;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 
 public class SubMitRentingListJSONParse {
 	public static List<RentingDetail> parseSearch(String json) throws JSONException {
@@ -63,7 +56,10 @@ public class SubMitRentingListJSONParse {
 			n.setLouceng(j.getString("louceng"));
 			n.setMianji(j.getString("mianji"));
 			n.setMonthviews(j.getString("monthviews"));
-			n.setPics(j.getString("pics"));
+			
+			
+			
+			
 			n.setPosid(j.getString("posid"));
 			n.setProvince(j.getString("province"));
 			n.setPub_type(j.getString("pub_type"));

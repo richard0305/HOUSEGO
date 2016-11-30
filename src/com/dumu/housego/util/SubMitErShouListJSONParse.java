@@ -8,12 +8,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.dumu.housego.entity.ErShouFangDetails;
-import com.dumu.housego.entity.ErShouFangRecommendData;
-import com.dumu.housego.entity.NewHouseRecommendData;
-import com.dumu.housego.entity.RecommendNews;
-import com.dumu.housego.entity.SubmitErshouList;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
+import com.dumu.housego.entity.Pics;
 
 public class SubMitErShouListJSONParse {
 	public static List<ErShouFangDetails> parseSearch(String json) throws JSONException {
@@ -77,7 +72,6 @@ public class SubMitErShouListJSONParse {
 			n.setLoudong(j.getString("loudong"));
 			n.setMenpai(j.getString("menpai"));
 			n.setMonthviews(j.getString("monthviews"));
-			n.setPics(j.getString("pics"));
 			n.setPosid(j.getString("posid"));
 			n.setProvince(j.getString("province"));
 			n.setPub_type(j.getString("pub_type"));
@@ -116,6 +110,22 @@ public class SubMitErShouListJSONParse {
 			n.setZxdesc(j.getString("zxdesc"));
 
 			n.setXiaoquname(j.getString("xiaoquname"));
+			
+			
+			JSONArray arr=j.getJSONArray("pics");
+			List<Pics> pics = new ArrayList<Pics>();
+			for (int t = 0; i < arr.length(); t++) {
+				JSONObject o = arr.getJSONObject(t);
+				Pics p= new Pics();
+
+				p.setAlt(o.getString("alt"));
+				p.setUrl(o.getString("url"));
+			
+				pics.add(p);
+			}
+			
+			n.setPics(pics);
+			
 			ershoulists.add(n);
 		}
 

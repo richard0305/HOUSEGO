@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+       xmlns:custom="http://schemas.android.com/apk/res-auto"
     tools:context="com.dumu.housego.RentingDetailActivity"
     tools:ignore="ObsoleteLayoutParam,UseCompoundDrawables,RtlSymmetry,UnknownIdInLayout,HardcodedText,RtlHardcoded,ContentDescription,TooManyViews" >
 
@@ -68,9 +69,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                
+                android:visibility="gone"
                 android:src="@drawable/touxiang" />
 
+                <com.daimajia.slider.library.SliderLayout
+        android:id="@+id/slider_renting"
+        android:layout_width="match_parent"
+        custom:pager_animation="Default"
+        custom:auto_cycle="true"
+        custom:indicator_visibility="visible"
+        custom:pager_animation_span="1100"
+        android:layout_height="300dp"/>
+            
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -358,16 +368,7 @@
                     android:textColor="#000000"
                     android:textSize="12sp" />
 
-                <TextView
-                    android:id="@+id/renting_chaoxiang"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/TextView10"
-                    android:layout_alignBottom="@+id/TextView10"
-                    android:layout_toRightOf="@+id/TextView10"
-                    android:text="南"
-                    android:textColor="#000000"
-                    android:textSize="12sp" />
+                
 
                 <TextView
                     android:id="@+id/renting_location"
@@ -414,9 +415,20 @@
                     android:id="@+id/TextView10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_above="@+id/TextView01"
-                    android:layout_alignRight="@+id/renting_tedian"
+                    android:layout_alignBaseline="@+id/renting_louceng"
+                    android:layout_toRightOf="@+id/renting_louceng"
+                    android:layout_marginLeft="70dp"
                     android:text="朝向:"
+                    android:textSize="12sp" />
+                
+                <TextView
+                    android:id="@+id/renting_chaoxiang"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/TextView10"
+                    android:layout_toRightOf="@+id/TextView10"
+                    android:text="南"
+                    android:textColor="#000000"
                     android:textSize="12sp" />
 
                 <TextView
@@ -728,7 +740,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="10dp"
                     android:gravity="center_vertical"
-                    android:text="位置及周边"
+                    android:text="周边房源"
                     android:textColor="#000000"
                     android:textSize="13sp" />
 

@@ -8,9 +8,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.dumu.housego.entity.NewHouseHotRecommend;
-import com.dumu.housego.entity.RecommendNews;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 
 public class NewHouseHotJSONParse {
 	public static List<NewHouseHotRecommend> parseSearch(String json) throws JSONException {

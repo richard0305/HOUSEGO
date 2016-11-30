@@ -1,6 +1,7 @@
 package com.dumu.housego;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.xutils.x;
@@ -18,9 +19,14 @@ import com.baidu.mapapi.map.MarkerOptions;
 import com.baidu.mapapi.map.OverlayOptions;
 import com.baidu.mapapi.model.LatLng;
 import com.bumptech.glide.Glide;
+import com.daimajia.slider.library.SliderLayout;
+import com.daimajia.slider.library.Animations.DescriptionAnimation;
+import com.daimajia.slider.library.SliderTypes.BaseSliderView;
+import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.dumu.housego.activity.LoginActivity;
 import com.dumu.housego.app.HouseGoApp;
 import com.dumu.housego.entity.ErShouFangDetails;
+import com.dumu.housego.entity.Pics;
 import com.dumu.housego.entity.UserInfo;
 import com.dumu.housego.presenter.ErShouFangDetailPresenter;
 import com.dumu.housego.presenter.GuanZhuHousePresenter;
@@ -47,9 +53,9 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
+import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
@@ -63,10 +69,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 public class ErShouFangDetailsActivity extends Activity
-		implements IYuYueHouseView, IErShouFangDetailView, IGuanZhuHouseView {
+		implements BaseSliderView.OnSliderClickListener,IYuYueHouseView, IErShouFangDetailView, IGuanZhuHouseView {
 	private String dateyuyue;
 	private String timeyuyue;
-
+	
+	
 	private BaiduMap mBaiduMAP;
 	private MapView mMapView;
 	private RadioButton rbErshoufangGuanzhu;
@@ -83,7 +90,9 @@ public class ErShouFangDetailsActivity extends Activity
 	private IYuYueHousePresenter yuyuepresenter;
 
 	private Button btnYuyuekanfang;
-
+	
+	private List<Pics>pics=new ArrayList<Pics>();
+	
 	@ViewInject(R.id.iv_housepic)
 	ImageView ivIMG;
 	@ViewInject(R.id.tv_ershoufangdetails)
@@ -162,7 +171,7 @@ public class ErShouFangDetailsActivity extends Activity
 	private ArrayAdapter<String> Spinneradapter1;
 	private ArrayAdapter<String> Spinneradapter2;
 
-	private Handler handler = new Handler() {
+	private Handler mhandler = new Handler() {
 		@Override
 		public void handleMessage(Message msg) {
 			switch (msg.what) {
@@ -184,7 +193,9 @@ public class ErShouFangDetailsActivity extends Activity
 	private LinearLayout ll_popup;
 	private LinearLayout ll_cancle;
 	private View parentView;
-
+	
+	//轮播图
+	private SliderLayout mDemoSlider;	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -347,7 +358,7 @@ public class ErShouFangDetailsActivity extends Activity
 			public void onClick(View v) {
 				if (userinfo == null) {
 					MyToastShowCenter.CenterToast(getApplicationContext(), "您还没有登录，请先登录");
-					handler.postDelayed(new Runnable() {
+					mhandler.postDelayed(new Runnable() {
 						public void run() {
 							startActivity(new Intent(getApplicationContext(), LoginActivity.class));
 						}
@@ -450,7 +461,7 @@ public class ErShouFangDetailsActivity extends Activity
 
 				yuyuepresenter.loadyuyue(formid, fromtable, username, fromuser, type, yuyuedate, yuyuetime, t);
 
-				handler.postDelayed(new Runnable() {
+				mhandler.postDelayed(new Runnable() {
 					public void run() {
 						ershoufang_feiyuyue.setVisibility(View.VISIBLE);
 						rlErshoufangYuyuewindows.setVisibility(View.GONE);
@@ -497,6 +508,17 @@ public class ErShouFangDetailsActivity extends Activity
 	}
 
 	private void initViews() {
+		mDemoSlider=(SliderLayout) findViewById(R.id.slider);
+		
+	    HashMap<String,String> url_maps = new HashMap<String, String>();
+        url_maps.put("Hannibal", "http://static2.hypable.com/wp-content/uploads/2013/12/hannibal-season-2-release-date.jpg");
+        url_maps.put("Big Bang Theory", "http://www.sznews.com/photo/images/attachement/jpg/site3/20151109/6c0b840b679917aa45f60c.jpg");
+        url_maps.put("胡歌", "http://img3.imgtn.bdimg.com/it/u=585164059,602042378&fm=23&gp=0.jpg");
+        url_maps.put("Game of Thrones", "http://images.boomsbeat.com/data/images/full/19640/game-of-thrones-season-4-jpg.jpg");
+
+
+        
+        
 		rbErshoufangGuanzhu = (RadioButton) findViewById(R.id.rb_ershoufangguanzhu);
 		llBackErshoufangdetails = (LinearLayout) findViewById(R.id.ll_back_ershoufangdetails);
 		rlBaidumap = (RelativeLayout) findViewById(R.id.rl_baidumap);
@@ -512,6 +534,9 @@ public class ErShouFangDetailsActivity extends Activity
 		llBackYuyuekanfang = (LinearLayout) findViewById(R.id.ll_back_yuyuekanfnag);
 		btnYuyuekanfang = (Button) findViewById(R.id.btn_yuyuekanfang);
 
+		
+		 
+		
 		mMapView = (MapView) findViewById(R.id.ershou_bmapView);
 		mBaiduMAP = mMapView.getMap();
 		mMapView.showZoomControls(false);
@@ -524,11 +549,12 @@ public class ErShouFangDetailsActivity extends Activity
 		Message msg = new Message();
 		msg.what = 1;
 		msg.obj = ershoufangdetail;
-		handler.sendMessage(msg);
+		mhandler.sendMessage(msg);
 
 	}
 
 	private void Show() {
+		this.pics=e.getPics();
 		String url = "http://www.taoshenfang.com" + e.getThumb();
 		Glide.with(this).load(url).into(ivIMG);
 		tvtitle.setText(e.getTitle());
@@ -538,7 +564,7 @@ public class ErShouFangDetailsActivity extends Activity
 		tvChaoxiang.setText(e.getChaoxiang() + "");
 		tvguapaishijian.setText(e.getGuapaidate() + "");
 
-		double zongjia = Integer.valueOf(e.getZongjia()).doubleValue();
+		double zongjia = Integer.valueOf(e.getZongjia().trim()).doubleValue();
 		double mianji = Integer.valueOf(e.getJianzhumianji()).doubleValue();
 		double junjia = zongjia / mianji;
 		int x = (int) (junjia + 0.5);
@@ -578,7 +604,31 @@ public class ErShouFangDetailsActivity extends Activity
 		//
 		tvWeekhistroy.setText(e.getWeekviews());
 		tvTotalhistroy.setText(e.getViews());
+		
+		
+        for(Pics p : pics){
+            TextSliderView textSliderView = new TextSliderView(this);
+            // initialize a SliderLayout
+            textSliderView
+                    .description(p.getAlt())
+                    .image(p.getUrl())
+                    .setScaleType(BaseSliderView.ScaleType.Fit)
+                    .setOnSliderClickListener(this);
 
+            //add your extra information
+            textSliderView.getBundle()
+                    .putString("extra",p.getAlt());
+
+           mDemoSlider.addSlider(textSliderView);
+        }
+        
+        mDemoSlider.setPresetTransformer(SliderLayout.Transformer.Default);
+        mDemoSlider.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
+        mDemoSlider.setCustomAnimation(new DescriptionAnimation());
+        mDemoSlider.setDuration(4000);
+		
+		//
+		
 		/**
 		 * ���ðٶȵ�ͼ ��λ����Դ��γ��
 		 */
@@ -631,33 +681,14 @@ public class ErShouFangDetailsActivity extends Activity
 
 	}
 
-	// private class MyLocationListener implements BDLocationListener{
-	//
-	// @Override
-	// public void onReceiveLocation(BDLocation location) {
-	// MyLocationData data=new MyLocationData.Builder()//
-	// .accuracy(location.getRadius())//
-	// .latitude(location.getLatitude())//
-	// .longitude(location.getLongitude())//
-	// .build();
-	//
-	//// MyLocationConfiguration config=new
-	// MyLocationConfiguration(LocationMode.NORMAL, arg1, arg2);
-	//
-	// if(isFirstIn){
-	//
-	// isFirstIn=false;
-	// LatLng ll=new LatLng(location.getLatitude(), location.getLongitude());
-	// MapStatus.Builder builder=new MapStatus.Builder();
-	// builder.target(ll).zoom(18.0f);
-	//
-	//
-	//
-	// }
-	//
-	//
-	// }
-	//
-	// }
+	@Override
+	public void onSliderClick(BaseSliderView slider) {
+//		 Toast.makeText(this,slider.getBundle().get("extra") + "",Toast.LENGTH_SHORT).show();
+		
+	}
+
+	
+	
+
 
 }

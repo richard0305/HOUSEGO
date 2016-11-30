@@ -4,5 +4,5 @@ package com.dumu.housego.model;
  * Created by yanglijun 2016-6-28����9:27:29
  */
 public interface IAgentModelDataModel extends IModel {
-	void FindAgentModelData(String catid, AsycnCallBack back);
+	void FindAgentModelData(String catid, String ct, String bq, String kw, AsycnCallBack back);
 }

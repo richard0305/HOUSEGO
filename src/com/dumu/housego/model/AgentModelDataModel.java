@@ -29,7 +29,7 @@ public class AgentModelDataModel implements IAgentModelDataModel {
 	}
 
 	@Override
-	public void FindAgentModelData(final String catid, final AsycnCallBack back) {
+	public void FindAgentModelData(final String catid,final String ct,final String bq,final String kw, final AsycnCallBack back) {
 		String url = UrlFactory.PostAgentmodelUrl();
 		CommonRequest request = new CommonRequest(Request.Method.POST, url, new Listener<String>() {
 
@@ -43,6 +43,7 @@ public class AgentModelDataModel implements IAgentModelDataModel {
 
 					back.onSuccess(agentdatas);
 				} catch (JSONException e) {
+					back.onError("无对应房源数据！");
 					e.printStackTrace();
 				}
 
@@ -51,7 +52,6 @@ public class AgentModelDataModel implements IAgentModelDataModel {
 
 			@Override
 			public void onErrorResponse(VolleyError error) {
-				back.onError(error.getMessage());
 
 			}
 		}) {
@@ -59,6 +59,9 @@ public class AgentModelDataModel implements IAgentModelDataModel {
 			protected Map<String, String> getParams() throws AuthFailureError {
 				Map<String, String> params = new HashMap<String, String>();
 				params.put("catid", catid);
+				params.put("ct", ct);
+				params.put("bq", bq);
+				params.put("kw", kw);
 				return params;
 			}
 		};

@@ -1,0 +1,668 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent_spinner_more"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_transparent"
+    tools:ignore="HardcodedText" >
+
+    <LinearLayout
+        android:id="@+id/ll_popup_spinner_more"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:orientation="vertical" >
+
+        <com.dumu.housego.util.MyReboundScrollView
+            android:layout_width="match_parent"
+            android:scrollbars="none"
+            android:layout_height="wrap_content" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:padding="10dp"
+                    android:text="朝向"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+
+                    <TextView
+                         android:id="@+id/renting_chaoxiang_dong"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/shap_spinner_text"
+                        android:gravity="center"
+                        android:padding="3dp"
+                        android:text="朝东"
+                        android:textColor="#bfbfbf" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/shap_spinner_text"
+                        android:gravity="center"
+                        android:padding="3dp"
+                        android:text="朝南"
+                        android:id="@+id/renting_chaoxiang_nan"
+                        android:textColor="#bfbfbf" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/shap_spinner_text"
+                        android:gravity="center"
+                        android:padding="3dp"
+                        android:id="@+id/renting_chaoxiang_xi"
+                        android:text="朝西"
+                        android:textColor="#bfbfbf" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal"
+                     >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/shap_spinner_text"
+                        android:gravity="center"
+                        android:padding="3dp"
+                        android:id="@+id/renting_chaoxiang_bei"
+                        android:text="朝北"
+                        android:textColor="#bfbfbf" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/shap_spinner_text"
+                        android:gravity="center"
+                        android:padding="3dp"
+                        android:id="@+id/renting_chaoxiang_nanbei"
+                        android:text="南北"
+                        android:textColor="#bfbfbf" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="3dp"
+                        android:textColor="#bfbfbf" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:padding="10dp"
+                    android:text="面积"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/shap_spinner_text"
+                        android:gravity="center"
+                        android:padding="3dp"
+                                android:id="@+id/renting_mianji_wushi"
+                        android:text="50平以下"
+                        android:textColor="#bfbfbf" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="1"
+                        android:id="@+id/renting_mianji_wu_qi"
+                        android:background="@drawable/shap_spinner_text"
+                        android:gravity="center"
+                        android:padding="3dp"
+                        android:text="50-70平"
+                        android:textColor="#bfbfbf" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/shap_spinner_text"
+                        android:gravity="center"
+                        android:padding="3dp"
+                         android:id="@+id/renting_mianji_qi_jiu"
+                        android:text="70-90平"
+                        android:textColor="#bfbfbf" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal"
+                >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/shap_spinner_text"
+                        android:gravity="center"
+                        android:padding="3dp"
+                         android:id="@+id/renting_mianji_jiu_shiyi"
+                        android:text="90-110平"
+                        android:textColor="#bfbfbf" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/shap_spinner_text"
+                        android:gravity="center"
+                        android:padding="3dp"
+                              android:id="@+id/renting_mianji_shiyi_shisi"
+                        android:text="110-140平"
+                        android:textColor="#bfbfbf" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/shap_spinner_text"
+                        android:gravity="center"
+                        android:padding="3dp"
+                           android:id="@+id/renting_mianji_shisi_shiqi"
+                        android:text="140-170平"
+                        android:textColor="#bfbfbf" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal"
+                    >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/shap_spinner_text"
+                        android:gravity="center"
+                        android:padding="3dp"
+                        android:text="170-200平"
+                        android:id="@+id/renting_mianji_shiqi_ershi"
+                        android:textColor="#bfbfbf" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/shap_spinner_text"
+                        android:gravity="center"
+                        android:padding="3dp"
+                         android:id="@+id/renting_mianji_ershi"
+                        android:text="200平以上"
+                        android:textColor="#bfbfbf" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="3dp"
+                        android:textColor="#bfbfbf" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:padding="10dp"
+                    android:text="标签"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/shap_spinner_text"
+                        android:gravity="center"
+                        android:padding="3dp"
+                            android:id="@+id/renting_biaoqian_jingzhuangxiu"
+                        android:text="精装修"
+                        android:textColor="#bfbfbf" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/shap_spinner_text"
+                        android:gravity="center"
+                        android:padding="3dp"
+                        android:text="随时看房"
+                        android:id="@+id/renting_biaoqian_suishikanfang"
+                        android:textColor="#bfbfbf" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="3dp"
+                        android:textColor="#bfbfbf" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:padding="10dp"
+                    android:text="楼层"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/shap_spinner_text"
+                        android:gravity="center"
+                        android:padding="3dp"
+                        android:text="低层"
+                        android:id="@+id/renting_louceng_low"
+                        android:textColor="#bfbfbf" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                                     android:id="@+id/renting_louceng_center"
+                        android:layout_weight="1"
+                        android:background="@drawable/shap_spinner_text"
+                        android:gravity="center"
+                        android:padding="3dp"
+                        android:text="中层"
+                        android:textColor="#bfbfbf" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/shap_spinner_text"
+                        android:gravity="center"
+                        android:padding="3dp"
+                            android:id="@+id/renting_louceng_high"
+                        android:text="高层"
+                        android:textColor="#bfbfbf" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:padding="10dp"
+                    android:text="物业"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                             android:id="@+id/renting_wuye_shangpinfang"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/shap_spinner_text"
+                        android:gravity="center"
+                        android:padding="3dp"
+                        android:text="商品房"
+                        android:textColor="#bfbfbf" />
+
+                    <TextView
+                         android:id="@+id/renting_wuye_cunweitongjian"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/shap_spinner_text"
+                        android:gravity="center"
+                        android:padding="3dp"
+                        android:text="村委统建"
+                        android:textColor="#bfbfbf" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/shap_spinner_text"
+                        android:gravity="center"
+                        android:padding="3dp"
+                        android:id="@+id/renting_wuye_kaifangshangjianshe"
+                        android:text="开发商建设"
+                        android:textColor="#bfbfbf" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                               android:layout_marginTop="10dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/shap_spinner_text"
+                        android:gravity="center"
+                        android:padding="3dp"
+                         android:id="@+id/renting_wuye_gerenzijianshe"
+                        android:text="个人自建房"
+                        android:textColor="#bfbfbf" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/shap_spinner_text"
+                        android:gravity="center"
+                        android:paddingTop="3dp"
+                          android:id="@+id/renting_wuye_junquchanfang"
+                        android:paddingBottom="3dp"
+                        android:text="军区军产房"
+                        android:textColor="#bfbfbf" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:id="@+id/renting_wuye_wujingchanfang"
+                        android:background="@drawable/shap_spinner_text"
+                        android:gravity="center"
+                        android:padding="3dp"
+                        android:text="武警军产房"
+                        android:textColor="#bfbfbf" />
+                </LinearLayout>
+                
+                           <LinearLayout
+                               android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/shap_spinner_text"
+                        android:gravity="center"
+                        android:padding="3dp"
+                        android:text="工业长租房"
+                            android:id="@+id/renting_wuye_gongyechangzufang"
+                        android:textColor="#bfbfbf" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/shap_spinner_text"
+                        android:gravity="center"
+                        android:padding="3dp"
+                         android:id="@+id/renting_wuye_gongyechanquanfang"
+                        android:text="工业产权房"
+                        android:textColor="#bfbfbf" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:id="@+id/renting_wuye_qita"
+                        android:background="@drawable/shap_spinner_text"
+                        android:gravity="center"
+                        android:padding="3dp"
+                        android:text="其他"
+                        android:textColor="#bfbfbf" />
+                </LinearLayout>  
+                
+                   <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:padding="10dp"
+                    android:text="方式"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                         android:id="@+id/renting_fangshi_zhengzu"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/shap_spinner_text"
+                        android:gravity="center"
+                        android:padding="3dp"
+                        android:text="整租"
+                        android:textColor="#bfbfbf" />
+
+                    <TextView
+                             android:id="@+id/renting_fangshi_hezu"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/shap_spinner_text"
+                        android:gravity="center"
+                        android:padding="3dp"
+                        android:text="合租"
+                        android:textColor="#bfbfbf" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="3dp"
+                        android:textColor="#bfbfbf" />
+                </LinearLayout>
+
+                  <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:padding="10dp"
+                    android:text="类型"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                         android:id="@+id/renting_type_zuzhai"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/shap_spinner_text"
+                        android:gravity="center"
+                        android:padding="3dp"
+                        android:text="住宅"
+                        android:textColor="#bfbfbf" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                           android:id="@+id/renting_type_gongyu"
+                        android:layout_weight="1"
+                        android:background="@drawable/shap_spinner_text"
+                        android:gravity="center"
+                        android:padding="3dp"
+                        android:text="公寓"
+                        android:textColor="#bfbfbf" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/shap_spinner_text"
+                        android:text="商铺"
+                        android:gravity="center"
+                          android:id="@+id/renting_type_shangpu"
+                        android:padding="3dp"
+                        android:textColor="#bfbfbf" />
+                </LinearLayout>
+                
+                  <LinearLayout
+                      android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/shap_spinner_text"
+                        android:gravity="center"
+                        android:padding="3dp"
+                        android:id="@+id/renting_type_xiezilou"
+                        android:text="写字楼"
+                        android:textColor="#bfbfbf" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="3dp"
+                        android:textColor="#bfbfbf" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="3dp"
+                        android:textColor="#bfbfbf" />
+                </LinearLayout>             
+                           
+                           
+                           
+                           
+                <TextView
+                    android:id="@+id/renting_spinner_cancle"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:padding="10dp" 
+                    android:textColor="#bfbfbf" 
+                    android:text="清空条件"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="14sp"
+                    />           
+                <TextView 
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:background="#fff"
+                    />           
+                           
+            </LinearLayout>
+        </com.dumu.housego.util.MyReboundScrollView>
+    </LinearLayout>
+
+</RelativeLayout>

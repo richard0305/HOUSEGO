@@ -38,9 +38,9 @@ public class NewHouseListModel implements IFourDataProgramaModel {
 				try {
 					List<NewHouseList> newhouselists;
 					newhouselists = NewHouseListJSONParse.parseSearch(response);
-					Log.e("0000000000000000000000000000000", "yanglijun" + response);
 					back.onSuccess(newhouselists);
 				} catch (JSONException e) {
+					back.onError("无对应房源数据！");
 					e.printStackTrace();
 				}
 
@@ -49,7 +49,6 @@ public class NewHouseListModel implements IFourDataProgramaModel {
 
 			@Override
 			public void onErrorResponse(VolleyError error) {
-				back.onError(error.getMessage());
 
 			}
 		}) {
@@ -58,7 +57,15 @@ public class NewHouseListModel implements IFourDataProgramaModel {
 				Map<String, String> params = new HashMap<String, String>();
 				params.put("catid", fourdata.getCatid());
 				params.put("page", fourdata.getPage());
-
+				params.put("ct", fourdata.getCt());
+				params.put("ar", fourdata.getAr());
+				params.put("zx", fourdata.getZx());
+				params.put("zj", fourdata.getZj());
+				params.put("shi", fourdata.getShi());
+				params.put("yt", fourdata.getYt());
+				params.put("wy", fourdata.getWy());
+				params.put("xq", fourdata.getXq());
+				params.put("kwds", fourdata.getKwds());
 				return params;
 			}
 

@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+     xmlns:custom="http://schemas.android.com/apk/res-auto"
     tools:context="com.dumu.housego.NewHouseDetailActivity"
     tools:ignore="HardcodedText,RtlHardcoded,ContentDescription" >
 
@@ -65,8 +66,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:visibility="gone"
                 android:src="@drawable/touxiang"
                 />
+            
+       <com.daimajia.slider.library.SliderLayout
+        android:id="@+id/slider_new"
+        android:layout_width="match_parent"
+        custom:pager_animation="Default"
+        custom:auto_cycle="true"
+        custom:indicator_visibility="visible"
+        custom:pager_animation_span="1100"
+        android:layout_height="300dp"/>
+            
             
             <RelativeLayout 
                 android:layout_width="match_parent"
@@ -250,6 +262,23 @@
                  android:layout_width="match_parent"
                  android:layout_height="50dp"
                  >
+                <TextView 
+                    android:id="@+id/tv_yhq_none"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="暂无优惠"
+                    android:textSize="14sp"
+                    android:layout_centerInParent="true"
+                    android:textColor="#333"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    />
+                 
+                <RelativeLayout 
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/rl_new_yhq"
+                    >
                  <ImageView
                      android:id="@+id/iv_newhousedetail_tuan"
                      android:layout_width="30dp"
@@ -260,7 +289,7 @@
                      />
 
                  <TextView
-                     android:id="@+id/textView3"
+                     android:id="@+id/tv_new_yhq_1"
                      android:layout_width="110dp"
                      android:layout_height="30dp"
                      android:layout_centerVertical="true"
@@ -272,17 +301,17 @@
                      android:text="3万抵5万" />
                  
                  <TextView
-                     android:id="@+id/textView4"
+                     android:id="@+id/tv_new_yhq_2"
                      android:layout_width="110dp"
                      android:layout_height="30dp"
                      android:layout_centerVertical="true"
                      android:layout_marginLeft="20dp"
-                     android:layout_toRightOf="@+id/textView3"
+                     android:layout_toRightOf="@+id/tv_new_yhq_1"
                      android:textColor="#ffffff"
                      android:background="#e12442"
                      android:gravity="center"
                      android:text="5万抵8万" />
-                 
+              </RelativeLayout>   
              </RelativeLayout>
             <Button 
                android:layout_width="match_parent"

@@ -8,4 +8,5 @@ import com.dumu.housego.entity.RentingRecommendData;
 
 public interface IRentingProgramaView {
 	void showData(List<RentingRecommendData> ershoufangrecommends);
+	void showlistFail(String info);
 }

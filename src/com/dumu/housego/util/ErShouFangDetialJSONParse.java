@@ -1,9 +1,15 @@
 package com.dumu.housego.util;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.dumu.housego.entity.ErShouFangDetails;
+import com.dumu.housego.entity.ErShouFangRecommendData;
+import com.dumu.housego.entity.Pics;
 
 public class ErShouFangDetialJSONParse {
 
@@ -65,7 +71,6 @@ public class ErShouFangDetialJSONParse {
 		n.setLoudong(j.getString("loudong"));
 		n.setMenpai(j.getString("menpai"));
 		n.setMonthviews(j.getString("monthviews"));
-		n.setPics(j.getString("pics"));
 		n.setPosid(j.getString("posid"));
 		n.setProvince(j.getString("province"));
 		n.setPub_type(j.getString("pub_type"));
@@ -102,7 +107,22 @@ public class ErShouFangDetialJSONParse {
 		n.setZongjia(j.getString("zongjia"));
 		n.setZuobiaodizhi(j.getString("zuobiaodizhi"));
 		n.setZxdesc(j.getString("zxdesc"));
+		
+		JSONArray arr=j.getJSONArray("pics");
+		List<Pics> pics = new ArrayList<Pics>();
+		for (int i = 0; i < arr.length(); i++) {
+			JSONObject o = arr.getJSONObject(i);
+			Pics p= new Pics();
 
+			p.setAlt(o.getString("alt"));
+			p.setUrl("http://www.taoshenfang.com"+o.getString("url"));
+		
+			pics.add(p);
+		}
+		
+		n.setPics(pics);
+		
+		
 		return n;
 
 	}

@@ -7,14 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.dumu.housego.entity.AgentData;
-import com.dumu.housego.entity.BlockTradeList;
-import com.dumu.housego.entity.ErShouFangRecommendData;
-import com.dumu.housego.entity.NewHouseRecommendData;
-import com.dumu.housego.entity.RecommendNews;
 import com.dumu.housego.entity.XiaoquMapHouse;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 
 public class XiaoQuMapHouseJSONParse {
 	public static List<XiaoquMapHouse> parseSearch(String json) throws JSONException {

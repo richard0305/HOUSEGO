@@ -5,8 +5,8 @@ import com.dumu.housego.activity.LoginActivity;
 import com.dumu.housego.activity.MainActivity;
 import com.dumu.housego.app.HouseGoApp;
 import com.dumu.housego.entity.UserInfo;
-import com.dumu.housego.model.LoginUserInfoModel;
 import com.dumu.housego.model.IModel.AsycnCallBack;
+import com.dumu.housego.model.LoginUserInfoModel;
 import com.dumu.housego.presenter.ChangeUserInfoPresenter;
 import com.dumu.housego.presenter.IChangeUserInfoPresenter;
 import com.dumu.housego.util.CircleImageView;
@@ -24,20 +24,20 @@ import android.os.Handler;
 import android.os.Message;
 import android.view.Gravity;
 import android.view.View;
-import android.view.Window;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
+import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.CompoundButton.OnCheckedChangeListener;
 
 public class AgentChangeUserInfoActivity extends Activity implements IChangeUserInfoView {
 	private IChangeUserInfoPresenter userinfopresenter;
@@ -275,7 +275,7 @@ public class AgentChangeUserInfoActivity extends Activity implements IChangeUser
 	private void showPopWindowSex() {
 		pop = new PopupWindow(AgentChangeUserInfoActivity.this);
 
-		View view = getLayoutInflater().inflate(R.layout.item_popupwindows, null);
+		View view = getLayoutInflater().inflate(R.layout.item_popupwindows_1, null);
 
 		ll_popup = (LinearLayout) view.findViewById(R.id.ll_popup);
 		ll_cancle = (LinearLayout) view.findViewById(R.id.ll_cancle);

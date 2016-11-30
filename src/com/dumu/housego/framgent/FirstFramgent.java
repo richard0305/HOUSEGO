@@ -14,6 +14,7 @@ import com.dumu.housego.R;
 import com.dumu.housego.RentingMainActivity;
 import com.dumu.housego.WapRecommedMainActivity;
 import com.dumu.housego.WebHousePriceDetailActivity;
+import com.dumu.housego.activity.ImageGrallyMain;
 import com.dumu.housego.adapter.RecommendHouseAdapter;
 import com.dumu.housego.entity.RecommendNews;
 import com.dumu.housego.presenter.IRecommendHousePresenter;
@@ -62,6 +63,8 @@ public class FirstFramgent extends Fragment implements IShopGuideView{
 	private TextView tvMonthNumber, tvPriceNumber, tvHouseNumber;
 	private LinearLayout llSearch;
 	private MyReboundScrollView scrollview;
+	
+
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -98,6 +101,7 @@ public class FirstFramgent extends Fragment implements IShopGuideView{
 			@Override
 			public void onClick(View v) {
 				startActivity(new Intent(getActivity(), AgentMainActivity.class));
+//				startActivity(new Intent(getActivity(),ImageGrallyMain.class));
 			}
 		});
 

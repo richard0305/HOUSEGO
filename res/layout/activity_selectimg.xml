@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="#F0EFF5" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="上传图片"
+            android:textColor="#333"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/activity_selectimg_send"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:gravity="center"
+            android:text="上传"
+            android:textColor="#b1b4b5"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/uploadpic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:src="@drawable/gray_left" />
+
+    </RelativeLayout>
+
+    <GridView 
+        android:id="@+id/noScrollgridview"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:horizontalSpacing="3dp"        
+        android:numColumns="3"
+        android:scrollbars="none"
+        android:verticalSpacing="5dp" >
+    </GridView>
+
+</LinearLayout>

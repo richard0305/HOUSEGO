@@ -36,7 +36,7 @@ public class RentingProgramaPresenter implements IFourDataProgramePresenter {
 
 			@Override
 			public void onError(Object error) {
-
+				view.showlistFail(error.toString());
 			}
 		});
 

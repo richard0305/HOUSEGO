@@ -5,4 +5,5 @@ package com.dumu.housego.model;
  */
 public interface INewHouseDetailaModel extends IModel {
 	void FindNewHouseDetail(String catid, String id, AsycnCallBack back);
+	void GetYHQinfo(String new_id,String new_catid,AsycnCallBack back);
 }

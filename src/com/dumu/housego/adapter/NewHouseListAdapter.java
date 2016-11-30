@@ -81,7 +81,11 @@ public class NewHouseListAdapter extends BaseAdapter {
 
 		holder.newhouselist_address.setText(n.getLoupandizhi());
 		holder.newhouselist_title.setText(n.getTitle());
-		holder.newhouselist_price.setText(n.getJunjia() + "元/㎡");
+		if(n.getJunjia().equals("0")){
+			holder.newhouselist_price.setText( "未定价");
+		}else{
+			holder.newhouselist_price.setText(n.getJunjia() + "元/㎡");
+		}
 		holder.newhouselist_area.setText(n.getCityname() + " " + n.getAreaname());
 
 		return convertView;

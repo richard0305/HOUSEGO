@@ -1,5 +1,8 @@
 package com.dumu.housego;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.xutils.x;
 import org.xutils.view.annotation.ViewInject;
 
@@ -16,6 +19,11 @@ import com.baidu.mapapi.map.OverlayOptions;
 import com.baidu.mapapi.map.UiSettings;
 import com.baidu.mapapi.model.LatLng;
 import com.bumptech.glide.Glide;
+import com.daimajia.slider.library.SliderLayout;
+import com.daimajia.slider.library.Animations.DescriptionAnimation;
+import com.daimajia.slider.library.SliderTypes.BaseSliderView;
+import com.daimajia.slider.library.SliderTypes.TextSliderView;
+import com.dumu.housego.entity.Pics;
 import com.dumu.housego.entity.RentingDetail;
 import com.dumu.housego.presenter.IRentingDetailPresenter;
 import com.dumu.housego.presenter.RentingDetailPresenter;
@@ -35,7 +43,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class RentingDetailActivity extends Activity implements IRentingDetailView {
+public class RentingDetailActivity extends Activity implements BaseSliderView.OnSliderClickListener,IRentingDetailView {
 	private LinearLayout llBackRentingdetails;
 	private IRentingDetailPresenter presenter;
 	private RentingDetail b;
@@ -97,6 +105,10 @@ public class RentingDetailActivity extends Activity implements IRentingDetailVie
 		}
 	};
 	private BitmapDescriptor mCurrentMarker;
+	
+	//轮播图
+		private SliderLayout mDemoSlider;	
+		private List<Pics>pics=new ArrayList<Pics>();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -114,7 +126,7 @@ public class RentingDetailActivity extends Activity implements IRentingDetailVie
 	}
 
 	protected void Show() {
-
+		pics=b.getPics();
 		if (b.getThumb().startsWith("http://www.tao")) {
 
 			Glide.with(getApplicationContext()).load(b.getThumb()).into(ivRentingpic);
@@ -148,6 +160,37 @@ public class RentingDetailActivity extends Activity implements IRentingDetailVie
 		tvJiaotongchuxing.setText(" " + b.getJiaotong());
 		tvRentingLishijilu.setText("近一个月新增记录" + b.getMonthviews() + "位");
 
+		/**
+		 * 
+		 */
+        for(Pics p : pics){
+            TextSliderView textSliderView = new TextSliderView(this);
+            // initialize a SliderLayout
+            textSliderView
+                    .description(p.getAlt())
+                    .image(p.getUrl())
+                    .setScaleType(BaseSliderView.ScaleType.Fit)
+                    .setOnSliderClickListener(this);
+
+            //add your extra information
+            textSliderView.getBundle()
+                    .putString("extra",p.getAlt());
+
+           mDemoSlider.addSlider(textSliderView);
+        }
+        
+        mDemoSlider.setPresetTransformer(SliderLayout.Transformer.Default);
+        mDemoSlider.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
+        mDemoSlider.setCustomAnimation(new DescriptionAnimation());
+        mDemoSlider.setDuration(4000);
+		
+		
+		
+		
+		
+		
+		
+		
 		/**
 		 * ���ðٶȵ�ͼ ��λ����Դ��γ��
 		 */
@@ -184,6 +227,8 @@ public class RentingDetailActivity extends Activity implements IRentingDetailVie
 	}
 
 	private void setViews() {
+		mDemoSlider=(SliderLayout) findViewById(R.id.slider_renting);
+		
 		llBackRentingdetails = (LinearLayout) findViewById(R.id.ll_back_rentingdetails);
 
 		mMapView = (MapView) findViewById(R.id.renting_bmapView);
@@ -253,6 +298,12 @@ public class RentingDetailActivity extends Activity implements IRentingDetailVie
 		msg.obj = detail;
 		handler.sendMessage(msg);
 
+	}
+
+	@Override
+	public void onSliderClick(BaseSliderView slider) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

@@ -1,6 +1,7 @@
 package com.dumu.housego.framgent;
 
 import java.math.BigDecimal;
+import java.sql.NClob;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +19,7 @@ import com.dumu.housego.GetLocationActivity;
 import com.dumu.housego.R;
 import com.dumu.housego.SearchActivity;
 import com.dumu.housego.SubmitEdittextActivity;
+import com.dumu.housego.activity.ImageGrallyMain;
 import com.dumu.housego.app.HouseGoApp;
 import com.dumu.housego.entity.ATerShouSubmit;
 import com.dumu.housego.entity.Address;
@@ -113,6 +115,7 @@ public class ATershouSubmitFragment extends Fragment implements IATershouSubmitV
 	private static final int XIAOQUYOUSHI = 12;
 	private static final int QUANSHUDIYA = 13;
 	private static final int TUIJIANLIYOU = 14;
+	private static final int ATERSHOUPIC =20;
 	
 	
 	private static final int BACK = 404;
@@ -128,7 +131,7 @@ public class ATershouSubmitFragment extends Fragment implements IATershouSubmitV
 	private TextView tv_ershou_biaoti, tv_ershou_houseDesc, tv_ershou_touzifenxi, tv_ershou_huxingjieshao,
 			tv_ershou_xiaoqujieshao, tv_ershou_shuifeijiexi, tv_ershou_zhuangxiumiaoshu, tv_ershou_zhoubianpeitao,
 			tv_ershou_jiaoyupeitao, tv_ershou_jiaotongchuxing, tv_ershou_hexinmaidian, tv_ershou_xiaoquyoushi,
-			tv_ershou_quanshudiya, tv_ershou_tuijianliyou;
+			tv_ershou_quanshudiya, tv_ershou_tuijianliyou,tv_ershou_uploadPic;
 	private Button btn_ershou_submit;
 
 	// 地图地标返回信息
@@ -209,6 +212,8 @@ public class ATershouSubmitFragment extends Fragment implements IATershouSubmitV
 		tv_ershou_guapaitime = (TextView) view.findViewById(R.id.tv_ershou_guapaitime);
 		tv_ershou_biaoqian = (TextView) view.findViewById(R.id.tv_ershou_biaoqian);
 		tv_ershou_ditieline = (TextView) view.findViewById(R.id.tv_ershou_ditieline);
+		
+		tv_ershou_uploadPic=(TextView) view.findViewById(R.id.tv_ershou_uploadPic);
 		//
 		tv_ershou_biaoti = (TextView) view.findViewById(R.id.tv_ershou_biaoti);
 		tv_ershou_houseDesc = (TextView) view.findViewById(R.id.tv_ershou_houseDesc);
@@ -232,6 +237,16 @@ public class ATershouSubmitFragment extends Fragment implements IATershouSubmitV
 
 	private void setListener() {
 
+		tv_ershou_uploadPic.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent i = new Intent(getActivity(), ImageGrallyMain.class);
+				startActivityForResult(i, ATERSHOUPIC);
+				
+			}
+		});
+		
 		btn_ershou_submit.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -371,9 +386,6 @@ public class ATershouSubmitFragment extends Fragment implements IATershouSubmitV
 			@Override
 			public void onClick(View v) {
 				HouseAreaAlertDialog();
-				
-				
-			
 				
 			}
 		});

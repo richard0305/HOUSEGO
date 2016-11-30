@@ -50,12 +50,12 @@ public class BlockTradeLsitAdapter extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		ViewHolder holder;
 		if (convertView == null) {
-			convertView = Inflater.inflate(R.layout.item_ershoufang_recommend, null);
+			convertView = Inflater.inflate(R.layout.item_blocktrade_recommend, null);
 			holder = new ViewHolder();
 			holder.ivImg = (ImageView) convertView.findViewById(R.id.iv_ershoufang_img);
 			holder.tvAddress = (TextView) convertView.findViewById(R.id.tv_ershoufang_address);
 			holder.tvArea = (TextView) convertView.findViewById(R.id.tv_ershoufang_price_area);
-			holder.tvMeterPrice = (TextView) convertView.findViewById(R.id.tv_ershoufang_price_meter);
+			holder.tvMeterPrice = (TextView) convertView.findViewById(R.id.tv_ershou_nianxain);
 			holder.tvPrice = (TextView) convertView.findViewById(R.id.tv_ershoufang_totalprice);
 			holder.tvTitle = (TextView) convertView.findViewById(R.id.tv_ershoufang_title);
 			convertView.setTag(holder);
@@ -65,7 +65,6 @@ public class BlockTradeLsitAdapter extends BaseAdapter {
 		BlockTradeList n = getItem(position);
 
 		String url = "http://www.taoshenfang.com" + n.getThumb();
-		// Glide.with(context).load(url).into(holder.ivImg);
 
 		DisplayImageOptions options = new DisplayImageOptions.Builder().cacheInMemory(true).cacheOnDisc(true)
 				.bitmapConfig(Bitmap.Config.RGB_565).build();
@@ -73,13 +72,18 @@ public class BlockTradeLsitAdapter extends BaseAdapter {
 		ImageLoader.getInstance().displayImage(url, holder.ivImg, options);
 
 		holder.tvTitle.setText(n.getTitle() + "");
+		
 		// holder.tvPrice.setText(n.getZongjia()+"");
-		// holder.tvAddress.setText(n.getProvince_name()+" "+n.getCity_name()+"
-		// "+n.getArea_name());
+		 holder.tvAddress.setText(n.getHezuofangshi()+"/"+n.getWuyetype());
 
-		// String price=(n.getZongjia())*(10000)/n.getJianzhumianji();
+		holder.tvArea.setText(n.getCityname()+" "+n.getAreaname()+"/"+n.getZhandimianji()+"㎡");
 
-		// holder.tvMeterPrice.setText(n.getZongjia()*(10000)/n.getJianzhumianji()+"");
+		holder.tvPrice.setText(n.getZongjia()+"");
+		if(n.getShiyongnianxian()==null||!n.getShiyongnianxian().equals("")){
+			holder.tvMeterPrice.setText("使用年限:999");
+		}else{
+			holder.tvMeterPrice.setText("使用年限:"+n.getShiyongnianxian());
+		}
 
 		return convertView;
 	}

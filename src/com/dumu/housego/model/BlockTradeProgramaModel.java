@@ -50,6 +50,7 @@ public class BlockTradeProgramaModel implements IFourDataProgramaModel {
 
 					back.onSuccess(blocktrades);
 				} catch (JSONException e) {
+					back.onError("无对应房源数据！");
 					e.printStackTrace();
 				}
 
@@ -58,7 +59,7 @@ public class BlockTradeProgramaModel implements IFourDataProgramaModel {
 
 			@Override
 			public void onErrorResponse(VolleyError error) {
-				back.onError(error.getMessage());
+			
 
 			}
 		}) {
@@ -67,6 +68,17 @@ public class BlockTradeProgramaModel implements IFourDataProgramaModel {
 				Map<String, String> params = new HashMap<String, String>();
 				params.put("catid", fourdata.getCatid());
 				params.put("page", fourdata.getPage());
+				params.put("ct", fourdata.getCt());
+				params.put("ar", fourdata.getAr());
+				
+				params.put("zj", fourdata.getZj());
+				params.put("mj", fourdata.getMj());
+				params.put("sx", fourdata.getSx());
+				
+				params.put("lx", fourdata.getLx());
+				params.put("fs", fourdata.getFs());
+				params.put("kwds", fourdata.getKwds());
+				
 
 				return params;
 			}

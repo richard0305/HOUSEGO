@@ -200,7 +200,7 @@ public class PersonalMainActivity extends Activity implements IChangeUserInfoVie
 	private void showPopWindow() {
 		pop = new PopupWindow(PersonalMainActivity.this);
 
-		View view = getLayoutInflater().inflate(R.layout.item_popupwindows, null);
+		View view = getLayoutInflater().inflate(R.layout.item_popupwindows_1, null);
 
 		ll_popup = (LinearLayout) view.findViewById(R.id.ll_popup);
 		ll_cancle = (LinearLayout) view.findViewById(R.id.ll_cancle);

@@ -5,6 +5,7 @@ import java.util.Map;
 import com.alipay.sdk.app.AuthTask;
 import com.alipay.sdk.app.PayTask;
 import com.bumptech.glide.Glide;
+import com.dumu.housego.activity.LoginActivity;
 import com.dumu.housego.app.HouseGoApp;
 import com.dumu.housego.entity.BlockTradeDetail;
 import com.dumu.housego.entity.UserInfo;
@@ -16,10 +17,13 @@ import com.dumu.housego.presenter.BlockTradeDetailPresenter;
 import com.dumu.housego.presenter.GouDiAddPresenter;
 import com.dumu.housego.presenter.IBlockTradeDetailPresenter;
 import com.dumu.housego.presenter.IGouDiAddPresenter;
+import com.dumu.housego.presenter.IPaySuccessPresenter;
+import com.dumu.housego.presenter.PaySuccessPresenter;
 import com.dumu.housego.util.MyToastShowCenter;
 import com.dumu.housego.util.TimeTurnDate;
 import com.dumu.housego.view.IBlockTradeDetailView;
 import com.dumu.housego.view.IGouDiAddView;
+import com.dumu.housego.view.IPaySuccessView;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -44,9 +48,8 @@ import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-public class BlockTradeDetailActivity extends Activity implements IBlockTradeDetailView,IGouDiAddView{
+public class BlockTradeDetailActivity extends Activity implements IPaySuccessView,IBlockTradeDetailView,IGouDiAddView{
 	
 	
 	/** 支付宝支付业务：入参app_id */
@@ -58,22 +61,11 @@ public class BlockTradeDetailActivity extends Activity implements IBlockTradeDet
 	public static final String TARGET_ID = "ruianxingye888@126.com";
 
 	/** 商户私钥，pkcs8格式 */
-	public static final String RSA_PRIVATE = "MIICdgIBADANBgkqhk"
-			+ "iG9w0BAQEFAASCAmAwggJcAgEAAoGBAMVCIS8JtPMwQtwM4clQKW/NAev"
-			+ "AZCxnNUsf9z2ZSpSBMoOzg7Xj4NHCfuwlcXmobLOOlZ3vl6m3kve1H/Ckw+0lxij"
-			+ "fP3kgNsAVJaxx+f4Y+ulXgys0xyBqxK8+yjOicl7bXCQZVSuOpQ1U/nW+8jT30paBFzW"
-			+ "OtWVJh+rMFZTZAgMBAAECgYA7W5fyuKAL4gTshK/YzVd6vh0K3R0Hw5Lk5VyX2632nB"
-			+ "4gRX+n10fKtxVMaEQKUOVM7uYU3Yks2AHQql9PIbWW+tvwhQl7tf3GWDA5RdUQ+8B"
-			+ "oOK66czwelJvHZyrnwiLk2xUogWVhm1/filvJzwXNcZWmbp9kiDQ8xOHjd7P2AQJBAOLtLLl"
-			+ "6XAM194fTI5q0UIPNO5rJIA8gnZ7lByfBBDQ+TptHe3C/tE8QIPy7jm8wWl0Yzfex7YPpeODgvG"
-			+ "MqbEECQQDeh+MezJFxkYtLdkP2aM6pMLDMsbHqYmbMucpmUgKX4I5mm77PX3BBNguqRYYIo5Age0r"
-			+ "MYVvvNvqVJMgfymKZAkEAjzKzomfAYJZRmXh3Y0yd8k40ary4alNeo8JK/Z8jlAQtfndhQgj3M10u"
-			+ "M833V9rfaxgYAVJaW3+dM+sddkZzAQJAe++KmtisGGhLABg5+b6derVXgmllAXkUb+j5xMrgDt5N8O/E8"
-			+ "ZHh3y/Oh2J5J86QssZ3/iQrI6unG/GEU9BP4QJAerlafELCke1mP7U/Z5Z4IZvZi+1d4JwO4taB+3pyAK2M+n"
-			+ "WVN3F9ZyLw1GmVox0N2pvV/ZieTAwFCcNTLuicEA==";
+	public static final String RSA_PRIVATE = "MIICeAIBADANBgkqhkiG9w0BAQEFAASCAmIwggJeAgEAAoGBANPTGHR7P3aPng0zA841Gh6uE19hesCd6NlOGBZKeXzTq5PLTPA0tGGAfIpqx1ze+hWsz5On/P2fBILF3U23S1u7wP/Yem1Ci2T4DYx5AZZe6xz927nNsnJO7vrUohl25/tXuSn/LaY01RABabvt1p5+a50uAqCS0FkapzqPebCFAgMBAAECgYEAkjPXYz5WFU0XN+EINWGtf5OCx4iOozfaqXIfafNJWwD2IfJmTjzya4G1dAwzQkSctC0ssKt4EM2a3XAYSTXECnBb4zJ7ppOhI8+OOPfScEnalCqq7XAC33bcgG17PHLfyAqesh0f+o5uwVptXpGOjX7Cu0qdYCjn3VAybVgi1kECQQD8C6T16v+mj8E9oG2p7IkuZmywqF8zc4dNY5lK7tjk+BnaFPe3Xy8uUZUYEfo11Rg3pjGYlT6/djaNgJm3/VNZAkEA1yXmy8sJ9ix4+QUKODRTN9BpgYh4ummSFgsP/DRMtA0LZCK83s/Kgu9fjuxVo/cSOjqAuywOZ1AYBkDkCfp9DQJARvO8N2I1H51eR8vusyQcJgy9UinDywcdsqJ0F80PD73sASFf7qYD8SUUNJdy+U6Ip7nIQmzZIirUBpeKLmpI2QJBAKmrtkvZn82IXQ7lrp2MhmRp9Aq3eZ5pS1AfAUhAZo1IDEe4LYL6FBcWeCHat99LJhDNul/h6qoHPCsSWcSUyrECQQDKnNGXtAwGQLYxIYIEHiWbmidKuJZoG8XgohLLvUGOx7uBDbU4e4TohyffdGJ9uZqF2v1OCtYLhqu/O56oCnGE";
 	
 	private static final int SDK_PAY_FLAG = 1;
 	private static final int SDK_AUTH_FLAG = 2;
+
 
 	@SuppressLint("HandlerLeak")
 	private Handler mHandler = new Handler() {
@@ -91,6 +83,7 @@ public class BlockTradeDetailActivity extends Activity implements IBlockTradeDet
 				// 判断resultStatus 为9000则代表支付成功
 				if (TextUtils.equals(resultStatus, "9000")) {
 					// 该笔订单是否真实支付成功，需要依赖服务端的异步通知。
+					paypresenter.PayInfo(resultStatus,"0.01", order_no);
 					MyToastShowCenter.CenterToast(BlockTradeDetailActivity.this, "支付成功");
 				} else {
 					// 该笔订单真实的支付结果，需要依赖服务端的异步通知。
@@ -138,6 +131,8 @@ public class BlockTradeDetailActivity extends Activity implements IBlockTradeDet
 			tv_block_trade_detail_jianzhumianji, tv_block_trade_detail_lianxiren, tv_block_trade_detail_address,
 			tv_block_trade_detail_xiangxijieshao;
 	private ImageView iv_block_trade_detail;
+	
+	private IPaySuccessPresenter paypresenter;
 
 	private Handler handler = new Handler() {
 		@Override
@@ -145,7 +140,6 @@ public class BlockTradeDetailActivity extends Activity implements IBlockTradeDet
 			switch (msg.what) {
 			case 1:
 				b = (BlockTradeDetail) msg.obj;
-				Log.e("==============", "`````+++++++++~~~~~~" + b);
 				Show();
 				break;
 
@@ -181,7 +175,7 @@ public class BlockTradeDetailActivity extends Activity implements IBlockTradeDet
 
 		iv_block_trade_detail.setImageResource(R.drawable.touxiang);
 		presenter = new BlockTradeDetailPresenter(this);
-
+		paypresenter=new PaySuccessPresenter(this);
 		presenter.FindBlockTradedetail(catid, id);
 
 	}
@@ -219,8 +213,12 @@ public class BlockTradeDetailActivity extends Activity implements IBlockTradeDet
 
 			@Override
 			public void onClick(View v) {
-//				Toast.makeText(getApplicationContext(), "15005148914", Toast.LENGTH_SHORT).show();
-				GouDiXuZhi("在网上搜索了以下，有很多这方面的教程，但大部分教程过于陈旧，而且描述的过于简单。在网上搜索了以下，有很多这方面的教程，但大部分教程过于陈旧，而且描述的过于简单。在网上搜索了以下，有很多这方面的教程，但大部分教程过于陈旧，而且描述的过于简单。在网上搜索了以下，有很多这方面的教程，但大部分教程过于陈旧，而且描述的过于简单。在网上搜索了以下，有很多这方面的教程，但大部分教程过于陈旧，而且描述的过于简单。在网上搜索了以下，有很多这方面的教程，但大部分教程过于陈旧，而且描述的过于简单。在网上搜索了以下，有很多这方面的教程，但大部分教程过于陈旧，而且描述的过于简单。在网上搜索了以下，有很多这方面的教程，但大部分教程过于陈旧，而且描述的过于简单。在网上搜索了以下，有很多这方面的教程，但大部分教程过于陈旧，而且描述的过于简单。在网上搜索了以下，有很多这方面的教程，但大部分教程过于陈旧，而且描述的过于简单。在网上搜索了以下，有很多这方面的教程，但大部分教程过于陈旧，而且描述的过于简单。而且支付宝提供的接口一直在更新，可能支付宝那边是为了让接口更容易被调用吧，以前有些老的教程稍微跟现在接口有些不能“对号入座”，于是，我决定抽空写一篇关于调用支付宝接口的文章，跟大家分享，让大家以最快的速度掌握如何调用支付宝接口的方法。如果写的不好，请大家多多指教哦。");
+				if(userinfo!=null){
+					
+					GouDiXuZhi("在网上搜索了以下，有很多这方面的教程，但大部分教程过于陈旧，而且描述的过于简单。在网上搜索了以下，有很多这方面的教程，但大部分教程过于陈旧，而且描述的过于简单。在网上搜索了以下，有很多这方面的教程，但大部分教程过于陈旧，而且描述的过于简单。在网上搜索了以下，有很多这方面的教程，但大部分教程过于陈旧，而且描述的过于简单。在网上搜索了以下，有很多这方面的教程，但大部分教程过于陈旧，而且描述的过于简单。在网上搜索了以下，有很多这方面的教程，但大部分教程过于陈旧，而且描述的过于简单。在网上搜索了以下，有很多这方面的教程，但大部分教程过于陈旧，而且描述的过于简单。在网上搜索了以下，有很多这方面的教程，但大部分教程过于陈旧，而且描述的过于简单。在网上搜索了以下，有很多这方面的教程，但大部分教程过于陈旧，而且描述的过于简单。在网上搜索了以下，有很多这方面的教程，但大部分教程过于陈旧，而且描述的过于简单。在网上搜索了以下，有很多这方面的教程，但大部分教程过于陈旧，而且描述的过于简单。而且支付宝提供的接口一直在更新，可能支付宝那边是为了让接口更容易被调用吧，以前有些老的教程稍微跟现在接口有些不能“对号入座”，于是，我决定抽空写一篇关于调用支付宝接口的文章，跟大家分享，让大家以最快的速度掌握如何调用支付宝接口的方法。如果写的不好，请大家多多指教哦。");
+				}else{
+					startActivity(new Intent(BlockTradeDetailActivity.this, LoginActivity.class));
+				}
 
 			}
 		});
@@ -300,7 +298,10 @@ public class BlockTradeDetailActivity extends Activity implements IBlockTradeDet
 			@Override
 			public void onClick(View v) {
 				BlockTradeDetailActivity.this.view=v;
-				goudipresenter.AddGoudi(b.getId(), userinfo.getUserid(), b.getTitle(), b.getGoudijine());
+				goudipresenter.AddGoudi(b.getId(),
+						userinfo.getUserid(),
+						b.getTitle(),
+						b.getGoudijine());
 				alertDialog.cancel();
 			}
 		});
@@ -456,7 +457,7 @@ public class BlockTradeDetailActivity extends Activity implements IBlockTradeDet
 	
 	@Override
 	public void addGoudiSuccess(String info) {
-		order_no=info.split("GD")[1];
+		order_no=info;
 		MyToastShowCenter.CenterToast(getApplicationContext(), "勾地成功");
 		handler.postDelayed(new Runnable() {
 			public void run() {
@@ -469,6 +470,12 @@ public class BlockTradeDetailActivity extends Activity implements IBlockTradeDet
 	@Override
 	public void addGoudiFail(String info) {
 		MyToastShowCenter.CenterToast(getApplicationContext(), info);
+		
+	}
+
+	@Override
+	public void PayInfo(String info) {
+		// TODO Auto-generated method stub
 		
 	}
 	

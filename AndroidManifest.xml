@@ -27,7 +27,7 @@
     <application
         android:name=".app.HouseGoApp"
         android:allowBackup="true"
-        android:icon="@drawable/appicon60x60"
+        android:icon="@drawable/appicon160x160"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <meta-data
@@ -259,6 +259,29 @@
             android:theme="@android:style/Theme.Holo.Light.NoActionBar"
             android:label="@string/title_activity_show_agent_data" >
         </activity>
+        
+        <activity android:name="activity.AlbumActivity"
+              android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+            >
+        </activity>
+          <activity android:name="activity.GalleryActivity"
+              android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+            >
+        </activity>
+         <activity android:name="activity.ImageFile"
+              android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+            >
+        </activity> 
+        
+          <activity android:name="activity.ShowAllPhoto"
+              android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+            >
+        </activity> 
+        
+          <activity 
+              android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+              android:name="com.dumu.housego.activity.ImageGrallyMain"
+              ></activity>
     </application>
 
 </manifest>

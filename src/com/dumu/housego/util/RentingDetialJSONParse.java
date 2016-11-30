@@ -1,10 +1,15 @@
 package com.dumu.housego.util;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.dumu.housego.entity.ErShouFangDetails;
 import com.dumu.housego.entity.NewHouseDetail;
+import com.dumu.housego.entity.Pics;
 import com.dumu.housego.entity.RentingDetail;
 
 public class RentingDetialJSONParse {
@@ -52,7 +57,7 @@ public class RentingDetialJSONParse {
 		n.setLouceng(j.getString("louceng"));
 		n.setMianji(j.getString("mianji"));
 		n.setMonthviews(j.getString("monthviews"));
-		n.setPics(j.getString("pics"));
+		
 		n.setPosid(j.getString("posid"));
 		n.setProvince(j.getString("province"));
 		n.setPub_type(j.getString("pub_type"));
@@ -90,6 +95,20 @@ public class RentingDetialJSONParse {
 		n.setZxdesc(j.getString("zxdesc"));
 		n.setZuobiaodizhi(j.getString("zuobiaodizhi"));
 
+		JSONArray arr=j.getJSONArray("pics");
+		List<Pics> pics = new ArrayList<Pics>();
+		for (int i = 0; i < arr.length(); i++) {
+			JSONObject o = arr.getJSONObject(i);
+			Pics p= new Pics();
+
+			p.setAlt(o.getString("alt"));
+			p.setUrl("http://www.taoshenfang.com"+o.getString("url"));
+		
+			pics.add(p);
+		}
+		
+		n.setPics(pics);
+		
 		return n;
 
 	}

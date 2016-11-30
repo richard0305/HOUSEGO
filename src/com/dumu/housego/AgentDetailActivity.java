@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.dumu.housego.activity.LoginActivity;
 import com.dumu.housego.adapter.AgentChengJiaoErShouAdapter;
 import com.dumu.housego.adapter.AgentCommentAdapter;
 import com.dumu.housego.adapter.AgentSubmitErShouAdapter;
@@ -24,6 +25,7 @@ import com.dumu.housego.presenter.ISubmitErShouListpresenter;
 import com.dumu.housego.presenter.SubmitErShoulistpresenter;
 import com.dumu.housego.util.CircleImageView;
 import com.dumu.housego.util.ListViewForScrollView;
+import com.dumu.housego.util.MyToastShowCenter;
 import com.dumu.housego.view.IAgentCommentView;
 import com.dumu.housego.view.IAgentDetailView;
 import com.dumu.housego.view.IChengJiaoErShouView;
@@ -92,6 +94,7 @@ public class AgentDetailActivity extends Activity implements IAgentDetailView,IA
 	private ListViewForScrollView lvPinglun,lvChengjiaofangyuan,lvErshoufangyuan;
 	private TextView tv_agent_morepinglun,tv_agent_morechengjiaofangyuan,tv_agent_moreershoufangyuan;
 	private LinearLayout ershoufangyuan_wushuju;
+	protected UserInfo userinfo;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -168,11 +171,17 @@ public class AgentDetailActivity extends Activity implements IAgentDetailView,IA
 		imageView2.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent i=new Intent(AgentDetailActivity.this, ShowAgentDataActivity.class);
-				i.putExtra("TYPE", "COMMENT");
-				i.putExtra("userid", userid);
-				startActivity(i);
-				
+				userinfo=HouseGoApp.getContext().getCurrentUserInfo();
+				if(userinfo==null){
+					MyToastShowCenter.CenterToast(getApplicationContext(), "你还没有登录，请先登录！");
+					Intent i=new Intent(AgentDetailActivity.this, LoginActivity.class);
+					startActivity(i);
+				}else{
+					Intent i=new Intent(AgentDetailActivity.this, ShowAgentDataActivity.class);
+					i.putExtra("TYPE", "COMMENT");
+					i.putExtra("userid", userid);
+					startActivity(i);
+				}
 				
 			}
 		});

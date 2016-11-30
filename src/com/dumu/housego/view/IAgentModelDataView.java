@@ -7,4 +7,5 @@ import com.dumu.housego.entity.BlockTradeList;
 
 public interface IAgentModelDataView {
 	void showAgentModelData(List<AgentData> agentdatas);
+	void showAgentFail(String info);
 }

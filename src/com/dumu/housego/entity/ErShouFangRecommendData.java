@@ -1,5 +1,7 @@
 package com.dumu.housego.entity;
 
+import java.util.List;
+
 public class ErShouFangRecommendData {
 	private String id;
 	private String catid;
@@ -33,11 +35,12 @@ public class ErShouFangRecommendData {
 	private String wei;
 	private String zaishou;
 	private String lock;
+	private List<Pics>pics;
 	public ErShouFangRecommendData(String id, String catid, String module, String modelid, String listorder,
 			String expiration, String extention, String synedit, String title, String province, String xiaoquname,
 			String zongjia, String jianzhumianji, String ting, String shi, String thumb, String city, String area,
 			String posid, String style, String url, String provincename, String cityname, String areaname,
-			String chaoxiang, String biaoqian, String wei, String zaishou, String lock) {
+			String chaoxiang, String biaoqian, String wei, String zaishou, String lock, List<Pics> pics) {
 		super();
 		this.id = id;
 		this.catid = catid;
@@ -68,6 +71,7 @@ public class ErShouFangRecommendData {
 		this.wei = wei;
 		this.zaishou = zaishou;
 		this.lock = lock;
+		this.pics = pics;
 	}
 	public ErShouFangRecommendData() {
 		super();
@@ -207,8 +211,8 @@ public class ErShouFangRecommendData {
 	public String getCityname() {
 		return cityname;
 	}
-	public void setCityname(String city_name) {
-		this.cityname = city_name;
+	public void setCityname(String cityname) {
+		this.cityname = cityname;
 	}
 	public String getAreaname() {
 		return areaname;
@@ -246,6 +250,12 @@ public class ErShouFangRecommendData {
 	public void setLock(String lock) {
 		this.lock = lock;
 	}
+	public List<Pics> getPics() {
+		return pics;
+	}
+	public void setPics(List<Pics> pics) {
+		this.pics = pics;
+	}
 	
 	@Override
 	public String toString() {
@@ -256,8 +266,11 @@ public class ErShouFangRecommendData {
 				+ ", city=" + city + ", area=" + area + ", posid=" + posid + ", style=" + style + ", url=" + url
 				+ ", provincename=" + provincename + ", cityname=" + cityname + ", areaname=" + areaname
 				+ ", chaoxiang=" + chaoxiang + ", biaoqian=" + biaoqian + ", wei=" + wei + ", zaishou=" + zaishou
-				+ ", lock=" + lock + "]";
+				+ ", lock=" + lock + ", pics=" + pics + "]";
 	}
+	
+	
+	
 	
 	
 

@@ -7,12 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.dumu.housego.entity.ErShouFangRecommendData;
-import com.dumu.housego.entity.NewHouseRecommendData;
-import com.dumu.housego.entity.RecommendNews;
 import com.dumu.housego.entity.SearchXiaoQu;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 
 public class SearchXiaoQuJSONParse {
 	public static List<SearchXiaoQu> parseSearch(String json) throws JSONException {

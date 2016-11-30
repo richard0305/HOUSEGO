@@ -51,19 +51,7 @@ public class PTGouDiListFragment extends Fragment implements IGoudiListView{
 	public static final String TARGET_ID = "ruianxingye888@126.com";
 
 	/** 商户私钥，pkcs8格式 */
-	public static final String RSA_PRIVATE = "MIICdgIBADANBgkqhk"
-			+ "iG9w0BAQEFAASCAmAwggJcAgEAAoGBAMVCIS8JtPMwQtwM4clQKW/NAev"
-			+ "AZCxnNUsf9z2ZSpSBMoOzg7Xj4NHCfuwlcXmobLOOlZ3vl6m3kve1H/Ckw+0lxij"
-			+ "fP3kgNsAVJaxx+f4Y+ulXgys0xyBqxK8+yjOicl7bXCQZVSuOpQ1U/nW+8jT30paBFzW"
-			+ "OtWVJh+rMFZTZAgMBAAECgYA7W5fyuKAL4gTshK/YzVd6vh0K3R0Hw5Lk5VyX2632nB"
-			+ "4gRX+n10fKtxVMaEQKUOVM7uYU3Yks2AHQql9PIbWW+tvwhQl7tf3GWDA5RdUQ+8B"
-			+ "oOK66czwelJvHZyrnwiLk2xUogWVhm1/filvJzwXNcZWmbp9kiDQ8xOHjd7P2AQJBAOLtLLl"
-			+ "6XAM194fTI5q0UIPNO5rJIA8gnZ7lByfBBDQ+TptHe3C/tE8QIPy7jm8wWl0Yzfex7YPpeODgvG"
-			+ "MqbEECQQDeh+MezJFxkYtLdkP2aM6pMLDMsbHqYmbMucpmUgKX4I5mm77PX3BBNguqRYYIo5Age0r"
-			+ "MYVvvNvqVJMgfymKZAkEAjzKzomfAYJZRmXh3Y0yd8k40ary4alNeo8JK/Z8jlAQtfndhQgj3M10u"
-			+ "M833V9rfaxgYAVJaW3+dM+sddkZzAQJAe++KmtisGGhLABg5+b6derVXgmllAXkUb+j5xMrgDt5N8O/E8"
-			+ "ZHh3y/Oh2J5J86QssZ3/iQrI6unG/GEU9BP4QJAerlafELCke1mP7U/Z5Z4IZvZi+1d4JwO4taB+3pyAK2M+n"
-			+ "WVN3F9ZyLw1GmVox0N2pvV/ZieTAwFCcNTLuicEA==";
+	public static final String RSA_PRIVATE = "MIICeAIBADANBgkqhkiG9w0BAQEFAASCAmIwggJeAgEAAoGBANPTGHR7P3aPng0zA841Gh6uE19hesCd6NlOGBZKeXzTq5PLTPA0tGGAfIpqx1ze+hWsz5On/P2fBILF3U23S1u7wP/Yem1Ci2T4DYx5AZZe6xz927nNsnJO7vrUohl25/tXuSn/LaY01RABabvt1p5+a50uAqCS0FkapzqPebCFAgMBAAECgYEAkjPXYz5WFU0XN+EINWGtf5OCx4iOozfaqXIfafNJWwD2IfJmTjzya4G1dAwzQkSctC0ssKt4EM2a3XAYSTXECnBb4zJ7ppOhI8+OOPfScEnalCqq7XAC33bcgG17PHLfyAqesh0f+o5uwVptXpGOjX7Cu0qdYCjn3VAybVgi1kECQQD8C6T16v+mj8E9oG2p7IkuZmywqF8zc4dNY5lK7tjk+BnaFPe3Xy8uUZUYEfo11Rg3pjGYlT6/djaNgJm3/VNZAkEA1yXmy8sJ9ix4+QUKODRTN9BpgYh4ummSFgsP/DRMtA0LZCK83s/Kgu9fjuxVo/cSOjqAuywOZ1AYBkDkCfp9DQJARvO8N2I1H51eR8vusyQcJgy9UinDywcdsqJ0F80PD73sASFf7qYD8SUUNJdy+U6Ip7nIQmzZIirUBpeKLmpI2QJBAKmrtkvZn82IXQ7lrp2MhmRp9Aq3eZ5pS1AfAUhAZo1IDEe4LYL6FBcWeCHat99LJhDNul/h6qoHPCsSWcSUyrECQQDKnNGXtAwGQLYxIYIEHiWbmidKuJZoG8XgohLLvUGOx7uBDbU4e4TohyffdGJ9uZqF2v1OCtYLhqu/O56oCnGE";
 	
 	private static final int SDK_PAY_FLAG = 1;
 	private static final int SDK_AUTH_FLAG = 2;

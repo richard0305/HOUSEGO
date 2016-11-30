@@ -5,4 +5,5 @@ package com.dumu.housego.presenter;
  */
 public interface INewHouseDetailPresenter {
 	void FindNewHousedetail(String catid, String id);
+	void GetYHQinfo(String new_id,String new_catid);
 }

@@ -1,5 +1,6 @@
 package com.dumu.housego.model;
 
+import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -19,6 +20,8 @@ import com.dumu.housego.entity.UserInfo;
 import com.dumu.housego.util.CommonRequest;
 import com.dumu.housego.util.UrlFactory;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.util.Base64;
 import android.util.Log;
 
@@ -63,12 +66,19 @@ public class ChangeHeadPhotoModel implements IChangeHeadPhotoModel {
 
 			}
 		}) {
+			private Bitmap bitmap;
+			private byte[] multipartBody;
+
 			@Override
 			protected Map<String, String> getParams() throws AuthFailureError {
 				Map<String, String> params = new HashMap<String, String>();
-				String image = getImageStr(imagePath);
+				
+				bitmap = BitmapFactory.decodeFile(imagePath);
+				multipartBody =getImageBytes(bitmap);
+				String path=new String(multipartBody);
+//				String image = getImageStr(imagePath);
 				params.put("userid", userid);
-				params.put("__avatar1", image);
+				params.put("__avatar1", path);
 				return params;
 			}
 		};
@@ -76,38 +86,53 @@ public class ChangeHeadPhotoModel implements IChangeHeadPhotoModel {
 		HouseGoApp.getQueue().add(request);
 	}
 
-	public static String getImageStr(String filePath) {
+	
+//	public static String getImageStr(String filePath) {
+//
+//		// 将图片文件转化为字节数组字符串，并对其进行Base64编码处理
+//
+//		InputStream in = null;
+//
+//		byte[] data = null;
+//
+//		// 读取图片字节数组
+//
+//		try {
+//
+//			in = new FileInputStream(filePath);
+//
+//			data = new byte[in.available()];
+//
+//			in.read(data);
+//
+//			in.close();
+//
+//		} catch (IOException e) {
+//
+//			e.printStackTrace();
+//
+//		}
+//
+//		// 对字节数组Base64编码
+//
+//		// 返回Base64编码过的字节数组字符串
+//
+//		return Base64.encodeToString(data, Base64.DEFAULT);
+//
+//	}
+	public byte[]getImageBytes(Bitmap bmp){
 
-		// 将图片文件转化为字节数组字符串，并对其进行Base64编码处理
+		if(bmp==null)return null;
 
-		InputStream in = null;
+		ByteArrayOutputStream baos =new ByteArrayOutputStream();
 
-		byte[] data = null;
+		bmp.compress(Bitmap.CompressFormat.JPEG,100,baos);
 
-		// 读取图片字节数组
+		byte[] imageBytes = baos.toByteArray();
 
-		try {
-
-			in = new FileInputStream(filePath);
-
-			data = new byte[in.available()];
-
-			in.read(data);
-
-			in.close();
-
-		} catch (IOException e) {
-
-			e.printStackTrace();
+		return imageBytes;
 
 		}
 
-		// 对字节数组Base64编码
-
-		// 返回Base64编码过的字节数组字符串
-
-		return Base64.encodeToString(data, Base64.DEFAULT);
-
-	}
 
 }
