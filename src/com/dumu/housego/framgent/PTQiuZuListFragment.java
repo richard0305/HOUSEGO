@@ -3,9 +3,11 @@ package com.dumu.housego.framgent;
 import java.util.List;
 
 import com.dumu.housego.R;
+import com.dumu.housego.adapter.ATQiuZuLsitAdapter;
 import com.dumu.housego.adapter.QiuZuListAdapter;
 import com.dumu.housego.app.HouseGoApp;
 import com.dumu.housego.entity.QiuZuBuyHouseList;
+import com.dumu.housego.entity.QiuzuANDQiuGou;
 import com.dumu.housego.entity.UserInfo;
 import com.dumu.housego.presenter.IQiuZuListDeletePresenter;
 import com.dumu.housego.presenter.IQiuZuListPresenter;
@@ -41,8 +43,8 @@ public class PTQiuZuListFragment extends Fragment implements IQiuZuListView, IQi
 	private ListView lv_qiuzu_list;
 	private LinearLayout ll_back_ptqiuzulist;
 	private TextView tv_ptqiuzu_submit;
-	private List<QiuZuBuyHouseList> qiuzulists;
-	private QiuZuListAdapter adapter;
+	private List<QiuzuANDQiuGou> qiuzulists;
+	private ATQiuZuLsitAdapter adapter;
 	private IQiuZuListPresenter listpresenter;
 	private IQiuZuListDeletePresenter deletePresenter;
 	private UserInfo userinfo;
@@ -171,9 +173,9 @@ public class PTQiuZuListFragment extends Fragment implements IQiuZuListView, IQi
 	}
 
 	@Override
-	public void QiuZuListSuccess(List<QiuZuBuyHouseList> qiuzulists) {
+	public void QiuZuListSuccess(List<QiuzuANDQiuGou> qiuzulists) {
 		this.qiuzulists = qiuzulists;
-		adapter = new QiuZuListAdapter(qiuzulists, getActivity());
+		adapter = new ATQiuZuLsitAdapter(qiuzulists, getContext());
 		lv_qiuzu_list.setAdapter(adapter);
 
 	}

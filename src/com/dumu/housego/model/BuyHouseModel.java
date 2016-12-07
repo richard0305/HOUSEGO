@@ -15,6 +15,8 @@ import com.android.volley.AuthFailureError;
 import com.android.volley.VolleyError;
 import com.dumu.housego.app.HouseGoApp;
 import com.dumu.housego.entity.QiuZuBuyHouseList;
+import com.dumu.housego.entity.QiuzuANDQiuGou;
+import com.dumu.housego.util.ATQiuGouListJSONParse;
 import com.dumu.housego.util.BuyHouseListJSONParse;
 import com.dumu.housego.util.CommonRequest;
 import com.dumu.housego.util.UrlFactory;
@@ -29,7 +31,7 @@ public class BuyHouseModel implements IBuyHouseModel {
 			@Override
 			public void onResponse(String response) {
 				try {
-					List<QiuZuBuyHouseList> lists = BuyHouseListJSONParse.parseSearch(response);
+					List<QiuzuANDQiuGou> lists = ATQiuGouListJSONParse.parseSearch(response);
 					back.onSuccess(lists);
 				} catch (JSONException e) {
 					e.printStackTrace();

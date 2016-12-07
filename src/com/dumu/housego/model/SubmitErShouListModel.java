@@ -20,6 +20,7 @@ import com.dumu.housego.entity.SubmitErshouList;
 import com.dumu.housego.model.IModel.AsycnCallBack;
 import com.dumu.housego.util.CommonRequest;
 import com.dumu.housego.util.SubMitErShouListJSONParse;
+import com.dumu.housego.util.SubMitErShouListJSONParse2;
 import com.dumu.housego.util.SubMitRentingListJSONParse;
 import com.dumu.housego.util.UrlFactory;
 
@@ -38,7 +39,7 @@ public class SubmitErShouListModel implements ISubmitErShouListModel {
 			public void onResponse(String response) {
 				Log.e("2016-11-1", "201601101-response" + response);
 				try {
-					List<ErShouFangDetails> submitershous = SubMitErShouListJSONParse.parseSearch(response);
+					List<ErShouFangDetails> submitershous = SubMitErShouListJSONParse2.parseSearch(response);
 					back.onSuccess(submitershous);
 
 				} catch (JSONException e) {

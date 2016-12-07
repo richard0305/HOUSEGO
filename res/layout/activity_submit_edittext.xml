@@ -44,7 +44,7 @@
     </RelativeLayout>
 
     	<EditText
-        android:hint="我的天"
+        android:hint="请输入内容"
         android:id="@+id/submit_edittext"
         android:layout_width="match_parent"
         android:layout_height="200dp"

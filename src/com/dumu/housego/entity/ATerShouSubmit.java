@@ -1,5 +1,7 @@
 package com.dumu.housego.entity;
 
+import java.util.List;
+
 public class ATerShouSubmit {
 	private String username;
 	private String userid;
@@ -25,7 +27,7 @@ public class ATerShouSubmit {
 	private String huxing;
 	private String houseshuxing;
 	
-	private String pic;
+	private List<Pics> pic;
 	private String jianzhutype;
 	private String jianzhujiegou;
 	private String tihubili;
@@ -63,7 +65,7 @@ public class ATerShouSubmit {
 	public ATerShouSubmit(String username, String userid, String modelid, String province, String city, String area,
 			String xiaoquname, String jingweidu, String zongjia, String title, String desc, String fangling,
 			String jianzhumianji, String longdong, String menpai, String taoneimianji, String louceng,
-			String loucengshuxing, String wuyetype, String diyaxinxi, String huxing, String houseshuxing, String pic,
+			String loucengshuxing, String wuyetype, String diyaxinxi, String huxing, String houseshuxing, List<Pics> pic,
 			String jianzhutype, String jianzhujiegou, String tihubili, String houseuse, String chanquansuoshu,
 			String shifoudianti, String weiyizhuzhai, String guapaishijian, String bianqian, String ditieline,
 			String touzifenxi, String huxingjieshao, String xiaoqujieshao, String shuifeijiexi, String zhuangxiumiaoshu,
@@ -260,10 +262,10 @@ public class ATerShouSubmit {
 	public void setHouseshuxing(String houseshuxing) {
 		this.houseshuxing = houseshuxing;
 	}
-	public String getPic() {
+	public List<Pics> getPic() {
 		return pic;
 	}
-	public void setPic(String pic) {
+	public void setPic(List<Pics> pic) {
 		this.pic = pic;
 	}
 	public String getJianzhutype() {

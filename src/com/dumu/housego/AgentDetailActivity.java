@@ -121,6 +121,7 @@ public class AgentDetailActivity extends Activity implements IAgentDetailView,IA
 		String table="ershou";
 		userid=getIntent().getStringExtra("userid");
 		presenter.AgentDetail(userid);
+		
 		commentpresenter.AgentComment(userid);
 		ershouPresenter.SubmitErShouList(username, userid, table);
 		chengjiaoPresenter.ChengJiaoES(username, table);

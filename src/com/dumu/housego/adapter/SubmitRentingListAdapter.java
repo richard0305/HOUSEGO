@@ -60,10 +60,11 @@ public class SubmitRentingListAdapter extends BaseAdapter {
 
 			holder.tvChenHu = (TextView) convertView.findViewById(R.id.tv_submit_renting_list_chuzuType);
 			holder.tvDetail = (TextView) convertView.findViewById(R.id.tv_submit_renting_list_detail);
-			holder.btnEdit = (Button) convertView.findViewById(R.id.btn_renting_bianji);
+			holder.btnEdit = (TextView) convertView.findViewById(R.id.btn_renting_bianji);
 			holder.tvLouceng = (TextView) convertView.findViewById(R.id.tv_submit_renting_list_area);
 			holder.tvTitle = (TextView) convertView.findViewById(R.id.tv_submit_renting_list_title);
-			holder.tvUpLoad = (TextView) convertView.findViewById(R.id.tv_submit_renting_list_imaup);
+			holder.tvUpLoadsfz = (TextView) convertView.findViewById(R.id.tv_submit_renting_list_sfz);
+			holder.tvUpLoadht = (TextView) convertView.findViewById(R.id.tv_submit_renting_list_hetong);
 			holder.tvZongjia = (TextView) convertView.findViewById(R.id.tv_submit_renting_list_zongjia);
 
 			convertView.setTag(holder);
@@ -102,7 +103,16 @@ public class SubmitRentingListAdapter extends BaseAdapter {
 				}
 			});
 
-			holder.tvUpLoad.setOnClickListener(new OnClickListener() {
+			holder.tvUpLoadht.setOnClickListener(new OnClickListener() {
+
+				@Override
+				public void onClick(View v) {
+					MyToastShowCenter.CenterToast(context, "还不能上传图片");
+
+				}
+			});
+
+			holder.tvUpLoadsfz.setOnClickListener(new OnClickListener() {
 
 				@Override
 				public void onClick(View v) {
@@ -125,8 +135,9 @@ public class SubmitRentingListAdapter extends BaseAdapter {
 		TextView tvLouceng;
 		TextView tvChenHu;
 		TextView tvZongjia;
-		TextView tvUpLoad;
-		Button btnEdit;
+		TextView tvUpLoadht;
+		TextView tvUpLoadsfz;
+		TextView btnEdit;
 		ImageView ivPic;
 	}
 }

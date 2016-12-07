@@ -73,7 +73,6 @@ public class ErShouFangDetailsActivity extends Activity
 	private String dateyuyue;
 	private String timeyuyue;
 	
-	
 	private BaiduMap mBaiduMAP;
 	private MapView mMapView;
 	private RadioButton rbErshoufangGuanzhu;
@@ -208,8 +207,8 @@ public class ErShouFangDetailsActivity extends Activity
 		showPopWindow();
 		initListener();
 
-		long times = System.currentTimeMillis();
-		long oneday = 24L * 60 * 60 * 1000;
+		long times = System.currentTimeMillis()/1000;
+		long oneday = 24L * 60 * 60 * 1000/1000;
 		String today = TimeTurnDate.getStringDate(times);
 		String tomorrow = TimeTurnDate.getStringDate(times + oneday);
 		String afterTomrrow = TimeTurnDate.getStringDate(times + 2 * oneday);
@@ -241,7 +240,7 @@ public class ErShouFangDetailsActivity extends Activity
 	private void showPopWindow() {
 		pop = new PopupWindow(ErShouFangDetailsActivity.this);
 
-		View view = getLayoutInflater().inflate(R.layout.item_popupwindows, null);
+		View view = getLayoutInflater().inflate(R.layout.item_popupwindows_1, null);
 
 		ll_popup = (LinearLayout) view.findViewById(R.id.ll_popup);
 		ll_cancle = (LinearLayout) view.findViewById(R.id.ll_cancle);

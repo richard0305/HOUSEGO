@@ -58,7 +58,7 @@
     
         <Button 
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+           android:layout_height="@dimen/fengexian"
         android:background="#c9c9cb"
         />
         
@@ -102,7 +102,7 @@
   			    />
   			<Button
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+       android:layout_height="@dimen/fengexian"
         android:background="#c9c9cb" />
     </LinearLayout>
     
@@ -191,7 +191,7 @@
     </LinearLayout>
     <Button 
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+         android:layout_height="@dimen/fengexian"
         android:background="#c9c9cb"
         />
      <RelativeLayout 

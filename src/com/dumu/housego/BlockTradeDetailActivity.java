@@ -2,6 +2,9 @@ package com.dumu.housego;
 
 import java.util.Map;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import com.alipay.sdk.app.AuthTask;
 import com.alipay.sdk.app.PayTask;
 import com.bumptech.glide.Glide;
@@ -50,7 +53,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class BlockTradeDetailActivity extends Activity implements IPaySuccessView,IBlockTradeDetailView,IGouDiAddView{
-	
+	String 		total_amount;
 	
 	/** 支付宝支付业务：入参app_id */
 	public static final String APPID = "2016072301657641";
@@ -66,7 +69,7 @@ public class BlockTradeDetailActivity extends Activity implements IPaySuccessVie
 	private static final int SDK_PAY_FLAG = 1;
 	private static final int SDK_AUTH_FLAG = 2;
 
-
+private String trade_no;
 	@SuppressLint("HandlerLeak")
 	private Handler mHandler = new Handler() {
 		@SuppressWarnings("unused")
@@ -83,7 +86,17 @@ public class BlockTradeDetailActivity extends Activity implements IPaySuccessVie
 				// 判断resultStatus 为9000则代表支付成功
 				if (TextUtils.equals(resultStatus, "9000")) {
 					// 该笔订单是否真实支付成功，需要依赖服务端的异步通知。
-					paypresenter.PayInfo(resultStatus,"0.01", order_no);
+					
+					try {
+						JSONObject b=new JSONObject(resultInfo);
+						JSONObject j=b.getJSONObject("alipay_trade_app_pay_response");
+						trade_no=j.getString(trade_no);
+						Log.e("resultInfo", "resultInfo="+resultInfo);
+					} catch (JSONException e) {
+						e.printStackTrace();
+					}
+					
+					paypresenter.PayInfo(resultStatus,total_amount, order_no,trade_no);
 					MyToastShowCenter.CenterToast(BlockTradeDetailActivity.this, "支付成功");
 				} else {
 					// 该笔订单真实的支付结果，需要依赖服务端的异步通知。
@@ -215,7 +228,7 @@ public class BlockTradeDetailActivity extends Activity implements IPaySuccessVie
 			public void onClick(View v) {
 				if(userinfo!=null){
 					
-					GouDiXuZhi("在网上搜索了以下，有很多这方面的教程，但大部分教程过于陈旧，而且描述的过于简单。在网上搜索了以下，有很多这方面的教程，但大部分教程过于陈旧，而且描述的过于简单。在网上搜索了以下，有很多这方面的教程，但大部分教程过于陈旧，而且描述的过于简单。在网上搜索了以下，有很多这方面的教程，但大部分教程过于陈旧，而且描述的过于简单。在网上搜索了以下，有很多这方面的教程，但大部分教程过于陈旧，而且描述的过于简单。在网上搜索了以下，有很多这方面的教程，但大部分教程过于陈旧，而且描述的过于简单。在网上搜索了以下，有很多这方面的教程，但大部分教程过于陈旧，而且描述的过于简单。在网上搜索了以下，有很多这方面的教程，但大部分教程过于陈旧，而且描述的过于简单。在网上搜索了以下，有很多这方面的教程，但大部分教程过于陈旧，而且描述的过于简单。在网上搜索了以下，有很多这方面的教程，但大部分教程过于陈旧，而且描述的过于简单。在网上搜索了以下，有很多这方面的教程，但大部分教程过于陈旧，而且描述的过于简单。而且支付宝提供的接口一直在更新，可能支付宝那边是为了让接口更容易被调用吧，以前有些老的教程稍微跟现在接口有些不能“对号入座”，于是，我决定抽空写一篇关于调用支付宝接口的文章，跟大家分享，让大家以最快的速度掌握如何调用支付宝接口的方法。如果写的不好，请大家多多指教哦。");
+					GouDiXuZhi("在网上搜索了以下，有很多，很多，而了以下，过于陈旧，而且描述的过于简单。在网上搜索了以下，有很多这方面的教程，但大部分教程过于陈旧，而且描述的过于简单。在网上搜索了以下，有很多这方面的教程，但大部分教程过于陈旧，而且描述的过于简单。在网上搜索了以下，有很多这方面的教程，但大部分教程过于陈旧，而且描述的过于简单。在网上搜索了以下，有很多这方面的教程，但大部分教程过于陈旧，而且描述的过于简单。而且支付宝提供的接口一直在更新，可能支付宝那边是为了让接口更容易被调用吧，以前有些老的教程稍微跟现在接口有些不能“对号入座”，于是，我决定抽空写一篇关于调用支付宝接口的文章，跟大家分享，让大家以最快的速度掌握如何调用支付宝接口的方法。如果写的不好，请大家多多指教哦。");
 				}else{
 					startActivity(new Intent(BlockTradeDetailActivity.this, LoginActivity.class));
 				}
@@ -348,8 +361,8 @@ public class BlockTradeDetailActivity extends Activity implements IPaySuccessVie
 		 * orderInfo的获取必须来自服务端；
 		 */
 		
-		
-		Map<String, String> params = OrderInfoUtil2_0.buildOrderParamMap(APPID, "0.01", b.getTitle(), "2.0", order_no);
+		total_amount=b.getGoudijine();
+		Map<String, String> params = OrderInfoUtil2_0.buildOrderParamMap(APPID, total_amount, b.getTitle(), "2.0", order_no);
 		String orderParam = OrderInfoUtil2_0.buildOrderParam(params);
 		String sign = OrderInfoUtil2_0.getSign(params, RSA_PRIVATE);
 		

@@ -12,10 +12,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.dumu.housego.entity.QiuZuBuyHouseList;
+import com.dumu.housego.entity.QiuzuANDQiuGou;
 import com.android.volley.AuthFailureError;
 import com.android.volley.VolleyError;
 import com.dumu.housego.app.HouseGoApp;
 import com.dumu.housego.model.IModel.AsycnCallBack;
+import com.dumu.housego.util.ATQiuZuListJSONParse;
 import com.dumu.housego.util.CommonRequest;
 import com.dumu.housego.util.QiuZuListJSONParse;
 import com.dumu.housego.util.UrlFactory;
@@ -30,9 +32,18 @@ public class QiuZuListModel implements IQiuZuListModel {
 			@Override
 			public void onResponse(String response) {
 				try {
-					List<QiuZuBuyHouseList> qiuzulists = QiuZuListJSONParse.parseSearch(response);
+					List<QiuzuANDQiuGou> qiuzulists = ATQiuZuListJSONParse.parseSearch(response);
 					back.onSuccess(qiuzulists);
 				} catch (JSONException e) {
+					JSONObject j;
+					try {
+						j = new JSONObject(response);
+						String info=j.getString("info");
+						back.onError(info);
+					} catch (JSONException e1) {
+						e1.printStackTrace();
+					}
+					
 					e.printStackTrace();
 				}
 
@@ -41,7 +52,7 @@ public class QiuZuListModel implements IQiuZuListModel {
 
 			@Override
 			public void onErrorResponse(VolleyError error) {
-				back.onError(error.getMessage());
+				
 			}
 		}) {
 			@Override

@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.VolleyError;
@@ -32,6 +33,15 @@ public class GuanZhuNewModel implements IGuanZhuNewModel {
 					List<NewHouseDetail> newhousedetails = GuanZhuNewJSONParse.parseSearch(response);
 					back.onSuccess(newhousedetails);
 				} catch (JSONException e) {
+					try {
+						JSONObject j=new JSONObject(response);
+						String info=j.getString("info");
+						back.onError(info);
+					} catch (JSONException e1) {
+						e1.printStackTrace();
+					}
+					
+					
 					e.printStackTrace();
 				}
 
@@ -40,7 +50,7 @@ public class GuanZhuNewModel implements IGuanZhuNewModel {
 
 			@Override
 			public void onErrorResponse(VolleyError error) {
-				back.onError(error.getMessage());
+				
 
 			}
 		}) {

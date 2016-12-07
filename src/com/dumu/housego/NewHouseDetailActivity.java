@@ -1,5 +1,6 @@
 package com.dumu.housego;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,18 +25,29 @@ import com.daimajia.slider.library.Animations.DescriptionAnimation;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.dumu.housego.activity.LoginActivity;
+import com.dumu.housego.adapter.NewHouseDongTaiAdapter;
 import com.dumu.housego.app.HouseGoApp;
+import com.dumu.housego.entity.NewDongTai;
 import com.dumu.housego.entity.NewHouseDetail;
+import com.dumu.housego.entity.NewHtml;
 import com.dumu.housego.entity.Pics;
 import com.dumu.housego.entity.UserInfo;
 import com.dumu.housego.entity.YHQ;
 import com.dumu.housego.entity.YHQinfo;
+import com.dumu.housego.framgent.MessageFramgent;
+import com.dumu.housego.presenter.GuanZhuHousePresenter;
+import com.dumu.housego.presenter.GuanZhuNewPresenter;
+import com.dumu.housego.presenter.IGuanZhuHousePresenter;
+import com.dumu.housego.presenter.IGuanZhuNewPresenter;
 import com.dumu.housego.presenter.INewHouseDetailPresenter;
 import com.dumu.housego.presenter.IYHQGetyzmPresenter;
 import com.dumu.housego.presenter.NewHouseDetailPresenter;
 import com.dumu.housego.presenter.YHQGetYzmPresenter;
+import com.dumu.housego.util.ListViewForScrollView;
 import com.dumu.housego.util.MyToastShowCenter;
 import com.dumu.housego.util.TimeTurnDate;
+import com.dumu.housego.view.IGuanZhuHouseView;
+import com.dumu.housego.view.IGuanZhuNewView;
 import com.dumu.housego.view.INewHouseDetailView;
 import com.dumu.housego.view.IYHQGetYzmView;import android.accounts.Account;
 import android.accounts.OnAccountsUpdateListener;
@@ -46,6 +58,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.text.Html;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -54,19 +67,25 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import android.widget.RadioButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-public class NewHouseDetailActivity extends Activity implements BaseSliderView.OnSliderClickListener,IYHQGetYzmView,INewHouseDetailView {
+public class NewHouseDetailActivity extends Activity implements   IGuanZhuNewView,IGuanZhuHouseView, BaseSliderView.OnSliderClickListener,IYHQGetYzmView,INewHouseDetailView {
 	private INewHouseDetailPresenter presenter;
 	private IYHQGetyzmPresenter yhqpresenter;
 	private NewHouseDetail e;
 	private List<YHQinfo> yhqs;
+	
+	private ListViewForScrollView lvLoupanDongtai;
+	private TextView tvNoDongTai;
+	
 	private TextView tv_yhq_none,tv_new_yhq_1,tv_new_yhq_2;
 	private RelativeLayout rl_new_yhq;
 	@ViewInject(R.id.ll_new_house_detail_back)
@@ -103,6 +122,10 @@ public class NewHouseDetailActivity extends Activity implements BaseSliderView.O
 	@ViewInject(R.id.tv_newhousedetail_dianping)
 	TextView tvNewhousedetailDianping;
 
+	@ViewInject(R.id.wb_huxingjieshao)
+	WebView wbHuXing;
+	@ViewInject(R.id.wb_fukuanfangshi)
+	WebView wbfukuanfangshi;
 	private BaiduMap mBaiduMAP;
 	private MapView mMapView;
 
@@ -137,8 +160,9 @@ private 	String catid ;
 	private String userid;
 	private String username;
 	private String title="";
-	
-	
+	private	NewHtml html;
+	private List<NewDongTai>dongtais;
+	private List<NewDongTai>oneDongtai=new ArrayList<NewDongTai>();
 	//轮播图
 		private SliderLayout mDemoSlider;
 		private List<Pics> pics=new ArrayList<Pics>();	
@@ -147,6 +171,30 @@ private 	String catid ;
 		private List<Pics> yangban=new ArrayList<Pics>();	
 		private List<Pics> shijing=new ArrayList<Pics>();	
 		private List<Pics> xiaoqu=new ArrayList<Pics>();	
+		
+		
+		//发送验证码变化
+		Thread thread = null;
+		private boolean tag12 = true;
+		private int i = 60;
+		public boolean isChange = false;
+	
+		private NewHouseDongTaiAdapter dongtaiAdapter;
+		
+		private TextView tv_html_fukuanfangshi,tv_newhousezixun;
+		
+		private RelativeLayout rl_loupanxiangqing,rl_new_loupandongtai;
+		
+		private RadioButton rb_newhouseguanzhu;
+		
+		private IGuanZhuHousePresenter guanzhupresenter;
+		
+		private IGuanZhuNewPresenter newpresenter;
+		
+		private String t;
+		
+		private List<NewHouseDetail> newhousedetails=new ArrayList<NewHouseDetail>();
+		
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -159,8 +207,9 @@ private 	String catid ;
 		 catid = getIntent().getStringExtra("catid");
 		 
 		presenter = new NewHouseDetailPresenter(this);
+		guanzhupresenter=new GuanZhuHousePresenter(this);
 		yhqpresenter=new YHQGetYzmPresenter(this);
-	
+		newpresenter=new GuanZhuNewPresenter(this);
 
 	}
 	
@@ -169,17 +218,37 @@ private 	String catid ;
 		userinfo=HouseGoApp.getContext().getCurrentUserInfo();
 		presenter.FindNewHousedetail(catid, id);
 		presenter.GetYHQinfo(id, catid);
+		if(userinfo!=null){
+			userid=userinfo.getUserid();
+			username=userinfo.getUsername();
+			newpresenter.LoadGuanZhuNew(username, "new");
+		}else{
+			
+		}
 		
 		super.onResume();
 	}
 
 	private void initView() {
+		
+		
+		tv_newhousezixun=(TextView) findViewById(R.id.tv_newhousezixun);
+		rb_newhouseguanzhu=(RadioButton) findViewById(R.id.rb_newhouseguanzhu);
+		
+		rl_loupanxiangqing=(RelativeLayout) findViewById(R.id.rl_loupanxiangqing);
+		rl_new_loupandongtai=(RelativeLayout) findViewById(R.id.rl_new_loupandongtai);
+		tv_html_fukuanfangshi=(TextView) findViewById(R.id.tv_html_fukuanfangshi);
+		lvLoupanDongtai=(ListViewForScrollView) findViewById(R.id.lv_newhouse_loupandongtai);
+		tvNoDongTai=(TextView) findViewById(R.id.wudongtai);		
+				
+				
+		wbfukuanfangshi.getSettings().setJavaScriptEnabled(true);
+		wbHuXing.getSettings().setJavaScriptEnabled(true);
 		rl_new_yhq=(RelativeLayout) findViewById(R.id.rl_new_yhq);
 		tv_yhq_none=(TextView) findViewById(R.id.tv_yhq_none);
 		tv_new_yhq_1=(TextView) findViewById(R.id.tv_new_yhq_1);
 		tv_new_yhq_2=(TextView) findViewById(R.id.tv_new_yhq_2);
 		mDemoSlider=(SliderLayout) findViewById(R.id.slider_new);
-		
 		
 		mMapView = (MapView) findViewById(R.id.new_bmapView);
 		mBaiduMAP = mMapView.getMap();
@@ -199,14 +268,96 @@ private 	String catid ;
 	}
 
 	protected void Show() {
-
+		this.html=e.getHtml();
+		this.dongtais=e.getDongtais();
+		
+		if(dongtais!=null){
+			lvLoupanDongtai.setVisibility(View.VISIBLE);
+			tvNoDongTai.setVisibility(View.GONE);
+			oneDongtai.clear();
+			oneDongtai.add(dongtais.get(0));
+			dongtaiAdapter=new NewHouseDongTaiAdapter(oneDongtai, getApplicationContext());
+			lvLoupanDongtai.setAdapter(dongtaiAdapter);
+		}else{
+			lvLoupanDongtai.setVisibility(View.GONE);
+			tvNoDongTai.setVisibility(View.VISIBLE);
+		}
+		
+		
+		if(html!=null){
+			if(!html.getHuxingintro().equals("")&&html.getHuxingintro()!=null){
+			String intro=html.getHuxingintro();
+			String intro1=intro.replace("/d", "http://www.taoshenfang.com/d");
+			Log.e("intro1", "intro1="+intro1);
+			String customHtml = "<html>"
+								+ "<head>"
+								+ "<style type=text/css>"
+									+ "body{font-size: 12; color: #999;} "
+									+ "img{width:200;height:auto;}"
+								+ "</style>"
+								+ "</head> "
+								+ "<body>"+intro1+"</body>"
+										+ "</html>";
+			wbHuXing.loadData(customHtml,"text/html; charset=UTF-8", null);
+//			mLJWebView.loadDataWithBaseURL("about:blank", customHtml, "text/html", "utf-8", null);
+			}
+			
+			if(!html.getFukuanfangshi().equals("")&&html.getFukuanfangshi()!=null){
+				
+				tv_html_fukuanfangshi.setVisibility(View.GONE);
+				wbfukuanfangshi.setVisibility(View.VISIBLE);
+				
+				String fukun=html.getFukuanfangshi();
+				String fukun2=fukun.replace("/d", "http://www.taoshenfang.com/d");
+				Log.e("fukun2", "fukun2="+fukun2);
+				String customHtml = "<html>"
+									+ "<head>"
+									+ "<style type=text/css>"
+										+ "body{font-size: 12; color: #999;} "
+										+ "img{width:200;height:auto;}"
+									+ "</style>"
+									+ "</head>"
+									+ "<body>"+fukun2+"</body>"
+											+ "</html>";
+				wbfukuanfangshi.loadData(customHtml,"text/html; charset=UTF-8", null);
+//				mLJWebView.loadDataWithBaseURL("about:blank", customHtml, "text/html", "utf-8", null);
+				}else{
+					tv_html_fukuanfangshi.setVisibility(View.VISIBLE);
+					wbfukuanfangshi.setVisibility(View.GONE);
+				}
+		}
+		
 		try {
+			
+			if(!newhousedetails.equals(null)){
+				for (NewHouseDetail i : newhousedetails) {
+						if(id.equals(i.getId())){
+						rb_newhouseguanzhu.setChecked(true);
+						rb_newhouseguanzhu.setText("已关注");
+						t="0";
+						}else{
+							t="1";
+						}
+				}
+				
+			}
+			
+			
+			
+			
+			
+			
+			
+			
 			if (e.getThumb().startsWith("http://www.tao")) {
 				Glide.with(this).load(e.getThumb()).into(ivNewHouse);
 			} else {
 				String url = "http://www.taoshenfang.com" + e.getThumb();
 				Glide.with(this).load(url).into(ivNewHouse);
 			}
+			
+			
+			
 			tvNewhousedetailLoupandizhi.setText(e.getLoupandizhi());
 			tvNewhousedetailMaintype.setText(e.getZhulihuxing());
 			tvNewhousedetailUpdatetime.setText(TimeTurnDate.getStringDate(e.getUpdatetime()));
@@ -222,7 +373,7 @@ private 	String catid ;
 			;
 			tvNewhousedetailZuixinkaipan.setText(e.getKaipandate());
 			;
-			tvNewhousedetailChanquannianxian.setText(e.getChanquannianxian());
+			tvNewhousedetailChanquannianxian.setText(e.getChanquannianxian()+"年");
 			;
 			tvNewhousedetailZuixinjiaofang.setText(e.getJiaofangdate());
 			;
@@ -279,11 +430,6 @@ private 	String catid ;
 		        mDemoSlider.setCustomAnimation(new DescriptionAnimation());
 		        mDemoSlider.setDuration(4000);
 			
-			
-			
-			
-			
-			
 
 			/**
 			 * 
@@ -308,8 +454,78 @@ private 	String catid ;
 		}
 
 	}
+	
+	
+	
+
+
+	
+	
+	
+	
+	
 
 	private void setListener() {
+		
+		tv_newhousezixun.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		
+		rb_newhouseguanzhu.setOnClickListener(new OnClickListener() {
+			
+			private String fromid;
+			private String fromtable;
+			private String type;
+		
+			@Override
+			public void onClick(View v) {
+				if(userinfo!=null){
+					fromtable="new";
+					type="新房";
+					guanzhupresenter.LoadGuanZhuHouse(id, fromtable, userid, username, type, t);
+				}else{
+					startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+				}
+				
+				
+			}
+		});
+		
+		rl_loupanxiangqing.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent i=new Intent(getApplicationContext(),HouseAllDetailsActivity.class);
+				i.putExtra("xiangqing", (Serializable)e);
+				i.putExtra("TAG", "2");
+				startActivity(i);
+				
+			}
+		});
+		
+		rl_new_loupandongtai.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent i=new Intent(getApplicationContext(),HouseAllDetailsActivity.class);
+				if(dongtais!=null){
+					i.putExtra("dongtai", (Serializable)dongtais);
+					i.putExtra("dongtaiNull", "y");
+				}else{
+					i.putExtra("dongtaiNull", "w");
+				}
+				i.putExtra("TAG", "1");
+				startActivity(i);
+				
+			}
+		});
+		
+		
+		
 		llNewHouseDetailBack.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -453,7 +669,7 @@ private 	String catid ;
 		final EditText etname=(EditText) view.findViewById(R.id.et_goufangren);
 		final EditText etphone=(EditText) view.findViewById(R.id.et_shoujihao);
 		final EditText etyzm=(EditText) view.findViewById(R.id.et_yanzhenma);
-		Button btsend=(Button) view.findViewById(R.id.btn_yhq_sendcode);
+		final Button btsend=(Button) view.findViewById(R.id.btn_yhq_sendcode);                                                                                                                                                                                                                                                                                                                                                                                                                                     
 		TextView tvLijiGou=(TextView) view.findViewById(R.id.tv_lijiqianggou);
 		
 	
@@ -469,8 +685,61 @@ private 	String catid ;
 				}else{
 					//发送验证码
 					yhqpresenter.YzmInfo(phone);
+					isChange = true;
+
+					changeBtnGetCode();
 				}
 			}
+
+			private  void changeBtnGetCode() {
+				thread = new Thread() {
+					@Override
+					public void run() {
+						if (tag12) {
+							while (i > 0) {
+								i--;
+								if (NewHouseDetailActivity.this == null) {
+									break;
+								}
+								// ���ı������ݸı�ʱ������ѭ����
+								if (isChange && !btsend.isClickable()) {
+									isChange = false;
+									break;
+								}
+
+								NewHouseDetailActivity.this.runOnUiThread(new Runnable() {
+									@Override
+									public void run() {
+										btsend.setText("重发(" + i + "s)");
+										btsend.setClickable(false);
+									}
+								});
+								try {
+									Thread.sleep(1000);
+								} catch (InterruptedException e) {
+									throw new RuntimeException(e);
+								}
+							}
+							tag12 = false;
+						}
+
+						i = 60;
+						tag12 = true;
+						if (NewHouseDetailActivity.this != null) {
+							NewHouseDetailActivity.this.runOnUiThread(new Runnable() {
+								@Override
+								public void run() {
+									btsend.setText("发送验证码");
+									btsend.setClickable(true);
+								}
+							});
+						}
+					};
+				};
+				thread.start();
+
+			}
+			
 		});
 		
 		//立即抢购
@@ -488,6 +757,8 @@ private 	String catid ;
 				username=userinfo.getUsername();
 				Log.e("aaaaaaaaaaaaaaaaaa", "id="+id  + " coupon_id="+ coupon_id  +" userid="+userid+" buyname="+  buyname+" buytel=" +buytel+ " username="+username+" yzm="+yzm);
 				yhqpresenter.AddYHQ(id, coupon_id, userid, buyname, buytel, username, yzm);
+				Mpop.dismiss();
+				llpopupSpinnerMore.clearAnimation();
 			}
 		});
 		
@@ -498,6 +769,7 @@ private 	String catid ;
 				llpopupSpinnerMore.clearAnimation();
 			}
 		});
+		
 		
 	}
 	
@@ -532,6 +804,31 @@ private 	String catid ;
 	@Override
 	public void onSliderClick(BaseSliderView slider) {
 		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void GuanZhuSuccess(String info) {
+		MyToastShowCenter.CenterToast(getApplicationContext(), info);
+		rb_newhouseguanzhu.setText("已关注");
+		
+	}
+
+	@Override
+	public void GuanZhuFail(String errorinfo) {
+		MyToastShowCenter.CenterToast(getApplicationContext(), errorinfo);
+		
+	}
+
+	@Override
+	public void showGuanZhuSuccess(List<NewHouseDetail> newhousedetails) {
+		this.newhousedetails=newhousedetails;
+		
+	}
+
+	@Override
+	public void showGuanZhuFail(String errorinfo) {
+		
 		
 	}
 

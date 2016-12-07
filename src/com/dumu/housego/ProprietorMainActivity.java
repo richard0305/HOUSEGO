@@ -1,6 +1,12 @@
 package com.dumu.housego;
 
+import com.dumu.housego.activity.LoginActivity;
+import com.dumu.housego.app.HouseGoApp;
+import com.dumu.housego.entity.UserInfo;
+import com.dumu.housego.framgent.PTrentingSumbitFragment;
+import com.dumu.housego.model.PTershouSubmitModel;
 import com.dumu.housego.util.FontHelper;
+import com.dumu.housego.util.MyToastShowCenter;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -15,12 +21,14 @@ public class ProprietorMainActivity extends Activity {
 	private LinearLayout llProprietorBack;
 	private RelativeLayout rlRentingProprietor;
 	private RelativeLayout rlErshoufangProprietor;
+	private UserInfo userinfo;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_proprietor_main);
 		FontHelper.injectFont(findViewById(android.R.id.content));
+		userinfo=HouseGoApp.getContext().getCurrentUserInfo();
 		setViews();
 		setListener();
 
@@ -40,8 +48,25 @@ public class ProprietorMainActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				startActivity(new Intent(getApplicationContext(), ErshouFangProprietorActivity.class));
-
+				
+				if(userinfo!=null){
+					if(userinfo.getModelid().equals("35")){
+					Intent i=new Intent(getApplicationContext(), PuTongMyGuanZhuActivity.class);
+					startActivity(i);
+					i.putExtra("v", "yezhuershou");
+					Bundle b=new Bundle();
+					b.putString("v", "yezhuershou");
+					i.putExtras(b);
+					startActivity(i);
+					}else{
+						MyToastShowCenter.CenterToast(getApplicationContext(), "经纪人没有委托权限");
+					}
+				}else{
+					MyToastShowCenter.CenterToast(getApplicationContext(), "你还没有登录，请先登录");
+					startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+				}
+				
+			
 			}
 		});
 
@@ -49,7 +74,21 @@ public class ProprietorMainActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				startActivity(new Intent(getApplicationContext(), RentingProprietorActivity.class));
+				if(userinfo!=null){
+					if(userinfo.getModelid().equals("35")){
+						Intent i=new Intent(getApplicationContext(), PuTongMyGuanZhuActivity.class);
+						i.putExtra("v", "yezhurenting");
+						Bundle b=new Bundle();
+						b.putString("v", "yezhurenting");
+						i.putExtras(b);
+						startActivity(i);
+					}else{
+						MyToastShowCenter.CenterToast(getApplicationContext(), "经纪人没有委托权限");
+					}
+				}else{
+					MyToastShowCenter.CenterToast(getApplicationContext(), "你还没有登录，请先登录");
+					startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+				}
 
 			}
 		});

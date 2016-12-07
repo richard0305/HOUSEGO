@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+     android:descendantFocusability="blocksDescendants"
     android:layout_height="match_parent" >
     
     <RelativeLayout
@@ -16,7 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:paddingLeft="5dp"
-            android:text="我的出租房"
+            android:text="我要租房"
             android:textColor="#ffffff"
             android:textSize="14sp" />
 

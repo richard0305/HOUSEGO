@@ -61,7 +61,8 @@ public class SubmitErshouListAdapter extends BaseAdapter {
 			holder.tvEdit = (TextView) convertView.findViewById(R.id.tv_submit_ershou_list_edit);
 			holder.tvLouceng = (TextView) convertView.findViewById(R.id.tv_submit_ershou_list_louceng);
 			holder.tvTitle = (TextView) convertView.findViewById(R.id.tv_submit_ershou_list_title);
-			holder.tvUpLoad = (TextView) convertView.findViewById(R.id.tv_submit_ershou_list_imaup);
+			holder.tvUpLoadht = (TextView) convertView.findViewById(R.id.tv_submit_ershou_list_hetong);
+			holder.tvUpLoadsfz = (TextView) convertView.findViewById(R.id.tv_submit_ershou_list_sfz);
 			holder.tvZongjia = (TextView) convertView.findViewById(R.id.tv_submit_ershou_list_zongjia);
 
 			convertView.setTag(holder);
@@ -78,7 +79,17 @@ public class SubmitErshouListAdapter extends BaseAdapter {
 					.bitmapConfig(Bitmap.Config.RGB_565).build();
 			ImageLoader.getInstance().displayImage(url, holder.ivPic, options);
 
-			holder.tvChenHu.setText("称呼: / " + n.getUsername() + " / 自售");
+			String type=n.getTypeid();
+			
+			String pubtype = n.getPub_type();
+			if (pubtype.equals("1")) {
+				holder.tvChenHu.setText(n.getUsername()+"/直接出租");
+			} else if (pubtype.equals("2")) {
+				holder.tvChenHu.setText(n.getUsername()+"/委托给经纪人");
+			} else {
+				holder.tvChenHu.setText(n.getUsername()+"/委托给平台");
+			}
+			
 			holder.tvDetail.setText(n.getCityname() + " / " + n.getAreaname() + " / " + n.getXiaoquname());
 			holder.tvLouceng.setText(n.getCeng() + "(共" + n.getZongceng() + "层)");
 			holder.tvTitle.setText(n.getTitle() + "");
@@ -92,7 +103,16 @@ public class SubmitErshouListAdapter extends BaseAdapter {
 				}
 			});
 
-			holder.tvUpLoad.setOnClickListener(new OnClickListener() {
+			holder.tvUpLoadht.setOnClickListener(new OnClickListener() {
+
+				@Override
+				public void onClick(View v) {
+					MyToastShowCenter.CenterToast(context, "还不能上传图片");
+
+				}
+			});
+			
+			holder.tvUpLoadsfz.setOnClickListener(new OnClickListener() {
 
 				@Override
 				public void onClick(View v) {
@@ -115,7 +135,8 @@ public class SubmitErshouListAdapter extends BaseAdapter {
 		TextView tvLouceng;
 		TextView tvChenHu;
 		TextView tvZongjia;
-		TextView tvUpLoad;
+		TextView tvUpLoadht;
+		TextView tvUpLoadsfz;
 		TextView tvEdit;
 		ImageView ivPic;
 	}

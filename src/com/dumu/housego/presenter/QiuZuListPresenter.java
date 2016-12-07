@@ -3,6 +3,7 @@ package com.dumu.housego.presenter;
 import java.util.List;
 
 import com.dumu.housego.entity.QiuZuBuyHouseList;
+import com.dumu.housego.entity.QiuzuANDQiuGou;
 import com.dumu.housego.model.IModel.AsycnCallBack;
 import com.dumu.housego.model.IQiuZuListModel;
 import com.dumu.housego.model.QiuZuListModel;
@@ -24,14 +25,14 @@ public class QiuZuListPresenter implements IQiuZuListPresenter {
 		model.QiuZuList(username, table, new AsycnCallBack() {
 			@Override
 			public void onSuccess(Object success) {
-				List<QiuZuBuyHouseList> qiuzulists = (List<QiuZuBuyHouseList>) success;
+				List<QiuzuANDQiuGou> qiuzulists = (List<QiuzuANDQiuGou>) success;
 				view.QiuZuListSuccess(qiuzulists);
 
 			}
 
 			@Override
 			public void onError(Object error) {
-
+				view.QiuZuListFail(error.toString());
 			}
 		});
 

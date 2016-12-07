@@ -197,7 +197,7 @@
             android:layout_marginTop="10dp"
         android:id="@+id/btn_line2"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+          android:layout_height="@dimen/fengexian"
         android:layout_below="@+id/ll_housetype3"
         android:background="#c9c9cb" />
     <TextView
@@ -214,7 +214,7 @@
     <Button
         android:id="@+id/btn_line"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+         android:layout_height="@dimen/fengexian"
         android:layout_below="@+id/loushizixun"
         android:background="#c9c9cb" />
 
@@ -230,7 +230,7 @@
 	    <Button
         android:id="@+id/btn_line3"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+          android:layout_height="@dimen/fengexian"
         android:background="#c9c9cb" />
 	    
 	    <TextView 
@@ -249,7 +249,7 @@
             android:layout_marginTop="10dp"
         android:id="@+id/btn_line4"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+           android:layout_height="@dimen/fengexian"
         android:background="#c9c9cb" />
 <TextView 
                android:layout_width="wrap_content"
@@ -262,7 +262,7 @@
   <Button 
                android:layout_width="match_parent"
                android:background="#c9c9cb"
-               android:layout_height="1dp"
+                android:layout_height="@dimen/fengexian"
                />
   <com.dumu.housego.util.ListViewForScrollView
         android:id="@+id/lv_rexiaofangyuan"
@@ -273,7 +273,7 @@
     
     <Button
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+           android:layout_height="@dimen/fengexian"
         android:background="#c9c9cb" />
 	    
 	    <TextView 

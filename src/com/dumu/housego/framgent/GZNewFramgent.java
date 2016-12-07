@@ -10,11 +10,13 @@ import com.dumu.housego.entity.ErShouFangDetails;
 import com.dumu.housego.entity.NewHouseDetail;
 import com.dumu.housego.entity.UserInfo;
 import com.dumu.housego.framgent.GZErShouFramgent.GuanZhuErShouLsitAdapter.ViewHolder;
+import com.dumu.housego.presenter.GuanZhuDeletePresenter;
 import com.dumu.housego.presenter.GuanZhuNewPresenter;
 import com.dumu.housego.presenter.IGuanZhuDeletePresenter;
 import com.dumu.housego.presenter.IGuanZhuNewPresenter;
 import com.dumu.housego.util.MyToastShowCenter;
 import com.dumu.housego.util.SwipeListView;
+import com.dumu.housego.view.IGuanZhuDeleteView;
 import com.dumu.housego.view.IGuanZhuNewView;
 
 import android.content.Context;
@@ -33,35 +35,35 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.LinearLayout.LayoutParams;
 
-public class GZNewFramgent extends Fragment implements IGuanZhuNewView {
+public class GZNewFramgent extends Fragment implements IGuanZhuNewView , IGuanZhuDeleteView{
 	private SwipeListView listview;
 	private List<NewHouseDetail> newhousedetails;
 	private GuanZhuNewLsitAdapter adapter;
 	private UserInfo userinfo;
 	private IGuanZhuNewPresenter presenter;
-
+	private IGuanZhuDeletePresenter deletePresenter;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.fragment_guanzhu_new, null);
 		initView(view);
 		setListener();
-		presenter = new GuanZhuNewPresenter(this);
-		userinfo = HouseGoApp.getContext().getCurrentUserInfo();
-		String username = userinfo.getUsername();
-		presenter.LoadGuanZhuNew(username, "new");
+		
+		
 
 		return view;
 	}
 
-	// @Override
-	// public void onResume() {
-	// userinfo=HouseGoApp.getContext().getCurrentUserInfo();
-	// String username=userinfo.getUsername();
-	// presenter.LoadGuanZhuNew(username);;
-	// MyToastShowCenter.CenterToast(getActivity(), "����������");
-	// super.onResume();
-	// }
-	//
+	 @Override
+	 public void onResume() {
+		 presenter = new GuanZhuNewPresenter(this);
+			deletePresenter = new GuanZhuDeletePresenter(this);
+			userinfo = HouseGoApp.getContext().getCurrentUserInfo();
+			String username = userinfo.getUsername();
+		 deletePresenter = new GuanZhuDeletePresenter(this);
+		 presenter.LoadGuanZhuNew(username, "new");
+	 super.onResume();
+	 }
+	
 
 	private void setListener() {
 		// TODO Auto-generated method stub
@@ -193,7 +195,7 @@ public class GZNewFramgent extends Fragment implements IGuanZhuNewView {
 				final String userid = info.getUserid();
 				final String username = info.getUsername();
 
-				// deletePresenter.deleteGuanZhu(id, userid, username);
+				 deletePresenter.deleteGuanZhu(id, userid, username);
 				newhousedetails.remove(msg.arg2);
 				adapter.notifyDataSetChanged();
 			}
@@ -213,6 +215,18 @@ public class GZNewFramgent extends Fragment implements IGuanZhuNewView {
 			RelativeLayout item_left;
 			RelativeLayout item_right;
 		}
+	}
+
+	@Override
+	public void deleteGuanZhuSuccess(String info) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteGuanZhuFail(String errorinfo) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

@@ -177,7 +177,7 @@
             <Button 
                android:layout_width="match_parent"
                android:background="#c9c9cb"
-               android:layout_height="1dp"
+             android:layout_height="@dimen/fengexian"
                />
             
             <RelativeLayout
@@ -367,7 +367,7 @@
             <Button 
                android:layout_width="match_parent"
                android:background="#c9c9cb"
-               android:layout_height="1dp"
+              android:layout_height="@dimen/fengexian"
                />
             
             <TextView 

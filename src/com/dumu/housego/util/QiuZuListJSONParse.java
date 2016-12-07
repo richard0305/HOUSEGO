@@ -41,7 +41,7 @@ public class QiuZuListJSONParse {
 			n.setViewsupdatetime(j.getString("viewsupdatetime"));
 			n.setZujinrange(j.getString("zujinrange"));
 			n.setZulin(j.getString("zulin"));
-
+		
 			qiuzulists.add(n);
 
 		}

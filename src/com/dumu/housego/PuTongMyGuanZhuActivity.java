@@ -12,9 +12,13 @@ import com.dumu.housego.framgent.GZErShouFramgent;
 import com.dumu.housego.framgent.GZNewFramgent;
 import com.dumu.housego.framgent.PTBuyHouseListFragment;
 import com.dumu.housego.framgent.PTGouDiListFragment;
+import com.dumu.housego.framgent.PTHistroyDataFragment;
 import com.dumu.housego.framgent.PTQiuZuListFragment;
+import com.dumu.housego.framgent.PTYHQListFragment;
 import com.dumu.housego.framgent.PTershouListFragment;
+import com.dumu.housego.framgent.PTershouSumbitFragment;
 import com.dumu.housego.framgent.PTrentingListFragment;
+import com.dumu.housego.framgent.PTrentingSumbitFragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -107,6 +111,36 @@ public class PuTongMyGuanZhuActivity extends FragmentActivity {
 			
 			rl_container.setVisibility(View.VISIBLE);
 			fragment = new PTGouDiListFragment();
+			
+			FragmentTransaction trans = getSupportFragmentManager().beginTransaction();
+			trans.replace(R.id.rl_container, fragment);
+			trans.commitAllowingStateLoss();
+		}else if (tag.equals("yezhuershou")) {
+			
+			rl_container.setVisibility(View.VISIBLE);
+			fragment = new PTershouSumbitFragment();
+			
+			FragmentTransaction trans = getSupportFragmentManager().beginTransaction();
+			trans.replace(R.id.rl_container, fragment);
+			trans.commitAllowingStateLoss();
+		}else if (tag.equals("yezhurenting")) {
+			
+			rl_container.setVisibility(View.VISIBLE);
+			fragment = new PTrentingSumbitFragment();
+			
+			FragmentTransaction trans = getSupportFragmentManager().beginTransaction();
+			trans.replace(R.id.rl_container, fragment);
+			trans.commitAllowingStateLoss();
+		}else if(tag.equals("yhq")){
+			rl_container.setVisibility(View.VISIBLE);
+			fragment = new PTYHQListFragment();
+			
+			FragmentTransaction trans = getSupportFragmentManager().beginTransaction();
+			trans.replace(R.id.rl_container, fragment);
+			trans.commitAllowingStateLoss();
+		}else if(tag.equals("histroy")){
+			rl_container.setVisibility(View.VISIBLE);
+			fragment = new PTHistroyDataFragment();
 			
 			FragmentTransaction trans = getSupportFragmentManager().beginTransaction();
 			trans.replace(R.id.rl_container, fragment);

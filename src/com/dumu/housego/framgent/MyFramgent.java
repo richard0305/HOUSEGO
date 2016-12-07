@@ -50,7 +50,8 @@ public class MyFramgent extends Fragment {
 	private UserInfo userinfo;
 	private RelativeLayout rlPTMyGuanZhu, rl_putong_mysalehouse;
 	private LinearLayout llMysettingAgentLogin, llMysettingPuTongLogin, llMysettingNologin;
-	private RelativeLayout rlAgentErshou, rlAgentRenting, rlAgentChengjiaoHouse,rlAgentGoudidingdan;
+	private RelativeLayout rlAgentErshou, rlAgentRenting, rlAgentChengjiaoHouse,rlAgentGoudidingdan,rl_putong_myyouhuiquan;
+	private RelativeLayout rl_agent_myyouhuiquan,rl_agent_qiuzuguanli,rl_agent_qiugouguanli,rl_putong_myhistroy,rl_agent_myhistroy;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -223,6 +224,28 @@ public class MyFramgent extends Fragment {
 
 			}
 		});
+		
+		rl_putong_myyouhuiquan.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent i = new Intent(getActivity(), PuTongMyGuanZhuActivity.class);
+				i.putExtra("v", "yhq");
+				startActivity(i);
+				
+			}
+		});
+		
+		rl_putong_myhistroy.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent i = new Intent(getActivity(), PuTongMyGuanZhuActivity.class);
+				i.putExtra("v", "histroy");
+				startActivity(i);
+			}
+		});
+		
+		
+		
 		//
 
 		rlAgentErshou.setOnClickListener(new OnClickListener() {
@@ -259,11 +282,55 @@ public class MyFramgent extends Fragment {
 				startActivity(i);
 			}
 		});
-
+		
+		rl_agent_myyouhuiquan.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent i = new Intent(getActivity(), AgentPersonalActivity.class);
+				i.putExtra("FRAGMENT_KEY", AgentPersonalActivity.AGENT_YHQ);
+				startActivity(i);
+			}
+		});
+		
+		rl_agent_qiuzuguanli.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent i = new Intent(getActivity(), AgentPersonalActivity.class);
+				i.putExtra("FRAGMENT_KEY", AgentPersonalActivity.AGENT_QIUZU);
+				startActivity(i);
+			}
+		});
+		rl_agent_qiugouguanli.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent i = new Intent(getActivity(), AgentPersonalActivity.class);
+				i.putExtra("FRAGMENT_KEY", AgentPersonalActivity.AGENT_QIUGOU);
+				startActivity(i);
+			}
+		});
+		
+		rl_agent_myhistroy.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent i = new Intent(getActivity(), AgentPersonalActivity.class);
+				i.putExtra("FRAGMENT_KEY", AgentPersonalActivity.AGENT_HISTROY);
+				startActivity(i);
+			}
+		});
 	}
 
 	private void setViews(View view) {
-
+		rl_putong_myhistroy=(RelativeLayout) view.findViewById(R.id.rl_putong_myhistroy);
+		rl_agent_myhistroy=(RelativeLayout) view.findViewById(R.id.rl_agent_myhistroy);
+		
+		
+		rl_agent_qiuzuguanli=(RelativeLayout) view.findViewById(R.id.rl_agent_qiuzuguanli);
+		rl_agent_qiugouguanli=(RelativeLayout) view.findViewById(R.id.rl_agent_qiugouguanli);
+		
+		
 		tvLoginRegist = (TextView) view.findViewById(R.id.tv_my_login_regist);
 		rlSetting = (RelativeLayout) view.findViewById(R.id.rl_settings);
 		rlHistory = (RelativeLayout) view.findViewById(R.id.rl_Histroy);
@@ -289,6 +356,9 @@ public class MyFramgent extends Fragment {
 
 		rlAgentChengjiaoHouse = (RelativeLayout) view.findViewById(R.id.rl_agent_chengjiaofangyuan);
 		rlAgentGoudidingdan=(RelativeLayout) view.findViewById(R.id.rl_agent_goudidingdan);
+	
+		rl_putong_myyouhuiquan=(RelativeLayout) view.findViewById(R.id.rl_putong_myyouhuiquan);
+		rl_agent_myyouhuiquan=(RelativeLayout) view.findViewById(R.id.rl_agent_myyouhuiquan);
 	}
 
 }

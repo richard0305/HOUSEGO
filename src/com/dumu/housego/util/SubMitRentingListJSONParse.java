@@ -58,8 +58,6 @@ public class SubMitRentingListJSONParse {
 			n.setMonthviews(j.getString("monthviews"));
 			
 			
-			
-			
 			n.setPosid(j.getString("posid"));
 			n.setProvince(j.getString("province"));
 			n.setPub_type(j.getString("pub_type"));

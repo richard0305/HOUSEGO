@@ -3,6 +3,7 @@ package com.dumu.housego.presenter;
 import java.util.List;
 
 import com.dumu.housego.entity.QiuZuBuyHouseList;
+import com.dumu.housego.entity.QiuzuANDQiuGou;
 import com.dumu.housego.model.BuyHouseModel;
 import com.dumu.housego.model.IBuyHouseModel;
 import com.dumu.housego.model.IModel.AsycnCallBack;
@@ -23,7 +24,7 @@ public class BuyHouseListPresenter implements IBuyHouseListPresenter {
 		model.buyhouselist(username, table, new AsycnCallBack() {
 			@Override
 			public void onSuccess(Object success) {
-				List<QiuZuBuyHouseList> lists = (List<QiuZuBuyHouseList>) success;
+				List<QiuzuANDQiuGou> lists = (List<QiuzuANDQiuGou>) success;
 				view.buyhouseSuccess(lists);
 			}
 

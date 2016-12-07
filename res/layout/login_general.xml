@@ -10,7 +10,7 @@
         android:id="@+id/btn_line"
         android:layout_below="@+id/rl_phonenumber"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+          android:layout_height="@dimen/fengexian"
         android:background="#c9c9cb" />
 
     <RelativeLayout
@@ -23,7 +23,7 @@
         android:id="@+id/btn_line5"
        android:layout_alignParentTop="true"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+          android:layout_height="@dimen/fengexian"
         android:background="#c9c9cb" />
 
         <ImageView
@@ -81,7 +81,7 @@
         android:id="@+id/btn_line3"
         android:layout_below="@+id/rl_genal_login_lock"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="@dimen/fengexian"
         
         android:background="#c9c9cb" />
     
@@ -114,7 +114,7 @@
         android:id="@+id/btn_line6"
         android:layout_width="match_parent"
         android:layout_below="@+id/rl_login_lock"
-        android:layout_height="1dp"
+          android:layout_height="@dimen/fengexian"
         android:background="#c9c9cb" />
 
 </RelativeLayout>

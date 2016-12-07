@@ -1,5 +1,6 @@
 package com.dumu.housego.framgent;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.NClob;
 import java.util.ArrayList;
@@ -23,6 +24,7 @@ import com.dumu.housego.activity.ImageGrallyMain;
 import com.dumu.housego.app.HouseGoApp;
 import com.dumu.housego.entity.ATerShouSubmit;
 import com.dumu.housego.entity.Address;
+import com.dumu.housego.entity.Pics;
 import com.dumu.housego.entity.UserInfo;
 import com.dumu.housego.model.AddressModel;
 import com.dumu.housego.model.IModel.AsycnCallBack;
@@ -149,6 +151,7 @@ public class ATershouSubmitFragment extends Fragment implements IATershouSubmitV
 	private UserInfo userinfo;
 	
 	Handler handler=new Handler();
+	private List<Pics> pics=new ArrayList<Pics>();
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -178,6 +181,7 @@ public class ATershouSubmitFragment extends Fragment implements IATershouSubmitV
 	@Override
 	public void onResume() {
 		userinfo = HouseGoApp.getContext().getCurrentUserInfo();
+		tv_ershou_uploadPic.setText("已经上传"+pics.size()+"张");
 		super.onResume();
 	}
 
@@ -214,6 +218,8 @@ public class ATershouSubmitFragment extends Fragment implements IATershouSubmitV
 		tv_ershou_ditieline = (TextView) view.findViewById(R.id.tv_ershou_ditieline);
 		
 		tv_ershou_uploadPic=(TextView) view.findViewById(R.id.tv_ershou_uploadPic);
+		
+	
 		//
 		tv_ershou_biaoti = (TextView) view.findViewById(R.id.tv_ershou_biaoti);
 		tv_ershou_houseDesc = (TextView) view.findViewById(R.id.tv_ershou_houseDesc);
@@ -242,7 +248,8 @@ public class ATershouSubmitFragment extends Fragment implements IATershouSubmitV
 			@Override
 			public void onClick(View v) {
 				Intent i = new Intent(getActivity(), ImageGrallyMain.class);
-				startActivityForResult(i, ATERSHOUPIC);
+				i.putExtra("TAG", 3);
+				startActivityForResult(i, ImageGrallyMain.ATERSHOUPIC);
 				
 			}
 		});
@@ -283,6 +290,7 @@ public class ATershouSubmitFragment extends Fragment implements IATershouSubmitV
 				at.setTaoneimianji(et_ershou_taoneimianji.getText().toString());
 				//
 				at.setLouceng(tv_ershou_louceng.getText().toString());
+				at.setPic(pics);
 				
 				//楼层，所在层与总层
 				if(tv_ershou_louceng.getText().toString().length()>0){
@@ -329,7 +337,7 @@ public class ATershouSubmitFragment extends Fragment implements IATershouSubmitV
 				}
 			
 				
-				
+				at.setPic(pics);
 				at.setLoucengshuxing(tv_ershou_loucengmenu.getText().toString());
 				at.setWuyetype(tv_ershou_wuyeType.getText().toString());
 				at.setDiyaxinxi(tv_ershou_diyaxinxi.getText().toString());
@@ -869,6 +877,7 @@ public class ATershouSubmitFragment extends Fragment implements IATershouSubmitV
 	/**
 	 * 地图返回坐标
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 		
@@ -968,7 +977,11 @@ public class ATershouSubmitFragment extends Fragment implements IATershouSubmitV
 			String xiaoquname = data.getStringExtra("XIAOQUNAME");
 			tv_ershou_xiaoquname.setText(xiaoquname);
 			break;
-
+		case ImageGrallyMain.ATERSHOUPIC:
+			pics.clear();
+			this.pics=(List<Pics>) data.getSerializableExtra("pics");
+			tv_ershou_uploadPic.setText("已经上传"+pics.size()+"张");
+			break;
 		}
 		}
 		super.onActivityResult(requestCode, resultCode, data);

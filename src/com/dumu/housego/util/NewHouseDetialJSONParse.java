@@ -8,7 +8,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.dumu.housego.entity.ErShouFangDetails;
+import com.dumu.housego.entity.NewDongTai;
 import com.dumu.housego.entity.NewHouseDetail;
+import com.dumu.housego.entity.NewHtml;
 import com.dumu.housego.entity.Pics;
 
 public class NewHouseDetialJSONParse {
@@ -54,7 +56,6 @@ public class NewHouseDetialJSONParse {
 		n.setKeywords(j.getString("keywords"));
 		n.setListorder(j.getString("listorder"));
 		n.setLoupandizhi(j.getString("loupandizhi"));
-		n.setLoupandongtai(j.getString("loupandongtai"));
 		
 		n.setLowzongjia(j.getString("lowzongjia"));
 		n.setLvhualv(j.getString("lvhualv"));
@@ -92,7 +93,56 @@ public class NewHouseDetialJSONParse {
 		n.setZhulihuxing(j.getString("zhulihuxing"));
 		n.setZongjiarange(j.getString("zongjiarange"));
 		n.setZuobiaodizhi(j.getString("zuobiaodizhi"));
+		
+		if(j.get("html")!=""){
+			JSONObject h=j.getJSONObject("html");
+			NewHtml html=new NewHtml();
+			html.setAllow_comment(h.getString("allow_comment"));
+			html.setContent(h.getString("content"));
+			html.setFukuanfangshi(h.getString("fukuanfangshi"));
+			html.setHuxingintro(h.getString("huxingintro"));
+			html.setId(h.getString("id"));
+			html.setMaxcharperpage(h.getString("maxcharperpage"));
+			html.setPaginationtype(h.getString("paginationtype"));
+			html.setPaytype(h.getString("paytype"));
+			html.setRelation(h.getString("relation"));
+			html.setTemplate(h.getString("template"));
+			n.setHtml(html);;
+			}else{
+				n.setHtml(null);
+			}
+		
+		
+		
+		
+		if(!j.get("dongtai").equals("")&&!j.get("dongtai").equals(null)){
+			JSONArray arr=j.getJSONArray("dongtai");
+			List<NewDongTai> loupans = new ArrayList<NewDongTai>();
+			for (int i = 0; i < arr.length(); i++) {
+				JSONObject o = arr.getJSONObject(i);
+				NewDongTai p= new NewDongTai();
 
+				p.setBiaoqian(o.getString("biaoqian"));
+				p.setThumb(o.getString("thumb"));
+				p.setTitle(o.getString("title"));
+				p.setDescription(o.getString("description"));
+			
+				loupans.add(p);
+			}
+			n.setDongtais(loupans);;
+			}else{
+				n.setDongtais(null);
+			}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		if(j.get("loupantupian")!=""){
 		JSONArray arr=j.getJSONArray("loupantupian");
 		List<Pics> loupans = new ArrayList<Pics>();

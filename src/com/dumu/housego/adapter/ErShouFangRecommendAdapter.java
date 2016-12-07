@@ -87,7 +87,11 @@ public class ErShouFangRecommendAdapter extends BaseAdapter {
 
 		 int zongjia=Integer.valueOf(n.getZongjia().trim());
 		 int mianji=Integer.valueOf(n.getJianzhumianji());
-		 int price=(zongjia)*(10000)/mianji;
+		 
+		 int price = 0;
+		 if(zongjia!=0&&mianji!=0){
+			price=(zongjia)*(10000)/mianji;
+		 }
 		 
 
 		 holder.tvMeterPrice.setText(price+"元/㎡");

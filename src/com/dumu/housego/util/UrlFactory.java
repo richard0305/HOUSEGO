@@ -4,6 +4,36 @@ public class UrlFactory {
 
 	public static String TSFURL = "http://www.taoshenfang.com/";
 	
+	
+	//
+	//经纪人求租求购管理
+		public static String PostQiuZuQiuGou() {
+			String path = TSFURL + "index.php?g=api&m=user&a=qiu_list";
+			return path;
+		}	
+		
+		
+	//单张图片上传接口
+	public static String PostupLoadPic() {
+		String path = TSFURL + "index.php?g=api&m=user&a=uploadimg";
+		return path;
+	}	
+	
+	
+	
+//	删除优惠券列表接口
+	public static String PostYHQListDelete() {
+		String path = TSFURL + "index.php?g=api&m=house&a=coupon_del";
+		return path;
+	}		
+	
+//	获取优惠券列表接口
+	public static String GetYHQList(String userid) {
+		String path = TSFURL + "index.php?g=api&m=house&a=coupon_orderlist&userid="+userid;
+		return path;
+	}	
+	
+	
 //	购买优惠券接口
 	public static String PostAddYHQ() {
 		String path = TSFURL + "index.php?g=api&m=house&a=coupon_add";

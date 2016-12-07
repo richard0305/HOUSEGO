@@ -1,8 +1,9 @@
 package com.dumu.housego.entity;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class NewHouseDetail {
+public class NewHouseDetail implements Serializable{
 	private String id;
 	private String catid;
 	private String typeid;
@@ -68,7 +69,6 @@ public class NewHouseDetail {
 	private List<Pics> shijingtu;
 	private List<Pics> xiaoqutu;
 	private List<Pics> loupantupian;
-	private String loupandongtai;
 	private String yhquan;
 	private String lowzongjia;
 	private String highzongjia;
@@ -76,7 +76,8 @@ public class NewHouseDetail {
 	private String zaishou;
 	private String xiaoqutype;
 	private String yhq_enddate;
-	
+	private NewHtml html;
+	private List<NewDongTai>dongtais;
 	private String hasyhq;
 	private String xiaoqu;
 	private String cityname;
@@ -94,8 +95,8 @@ public class NewHouseDetail {
 			String dafen_hj, String dianping, String shiarea, String mianjiarea, String fangwuyongtu,
 			List<Pics> weizhitu, List<Pics> yangbantu, List<Pics> shijingtu, List<Pics> xiaoqutu,
 			List<Pics> loupantupian, String loupandongtai, String yhquan, String lowzongjia, String highzongjia,
-			String zongjiarange, String zaishou, String xiaoqutype, String yhq_enddate, String hasyhq, String xiaoqu,
-			String cityname, String areaname) {
+			String zongjiarange, String zaishou, String xiaoqutype, String yhq_enddate, NewHtml html,
+			List<NewDongTai> dongtais, String hasyhq, String xiaoqu, String cityname, String areaname) {
 		super();
 		this.id = id;
 		this.catid = catid;
@@ -162,7 +163,6 @@ public class NewHouseDetail {
 		this.shijingtu = shijingtu;
 		this.xiaoqutu = xiaoqutu;
 		this.loupantupian = loupantupian;
-		this.loupandongtai = loupandongtai;
 		this.yhquan = yhquan;
 		this.lowzongjia = lowzongjia;
 		this.highzongjia = highzongjia;
@@ -170,6 +170,8 @@ public class NewHouseDetail {
 		this.zaishou = zaishou;
 		this.xiaoqutype = xiaoqutype;
 		this.yhq_enddate = yhq_enddate;
+		this.html = html;
+		this.dongtais = dongtais;
 		this.hasyhq = hasyhq;
 		this.xiaoqu = xiaoqu;
 		this.cityname = cityname;
@@ -568,12 +570,6 @@ public class NewHouseDetail {
 	public void setLoupantupian(List<Pics> loupantupian) {
 		this.loupantupian = loupantupian;
 	}
-	public String getLoupandongtai() {
-		return loupandongtai;
-	}
-	public void setLoupandongtai(String loupandongtai) {
-		this.loupandongtai = loupandongtai;
-	}
 	public String getYhquan() {
 		return yhquan;
 	}
@@ -615,6 +611,18 @@ public class NewHouseDetail {
 	}
 	public void setYhq_enddate(String yhq_enddate) {
 		this.yhq_enddate = yhq_enddate;
+	}
+	public NewHtml getHtml() {
+		return html;
+	}
+	public void setHtml(NewHtml html) {
+		this.html = html;
+	}
+	public List<NewDongTai> getDongtais() {
+		return dongtais;
+	}
+	public void setDongtais(List<NewDongTai> dongtais) {
+		this.dongtais = dongtais;
 	}
 	public String getHasyhq() {
 		return hasyhq;
@@ -661,16 +669,12 @@ public class NewHouseDetail {
 				+ ", dafen_hj=" + dafen_hj + ", dianping=" + dianping + ", shiarea=" + shiarea + ", mianjiarea="
 				+ mianjiarea + ", fangwuyongtu=" + fangwuyongtu + ", weizhitu=" + weizhitu + ", yangbantu=" + yangbantu
 				+ ", shijingtu=" + shijingtu + ", xiaoqutu=" + xiaoqutu + ", loupantupian=" + loupantupian
-				+ ", loupandongtai=" + loupandongtai + ", yhquan=" + yhquan + ", lowzongjia=" + lowzongjia
+				+ ", yhquan=" + yhquan + ", lowzongjia=" + lowzongjia
 				+ ", highzongjia=" + highzongjia + ", zongjiarange=" + zongjiarange + ", zaishou=" + zaishou
-				+ ", xiaoqutype=" + xiaoqutype + ", yhq_enddate=" + yhq_enddate + ", hasyhq=" + hasyhq + ", xiaoqu="
-				+ xiaoqu + ", cityname=" + cityname + ", areaname=" + areaname + "]";
+				+ ", xiaoqutype=" + xiaoqutype + ", yhq_enddate=" + yhq_enddate + ", html=" + html + ", dongtais="
+				+ dongtais + ", hasyhq=" + hasyhq + ", xiaoqu=" + xiaoqu + ", cityname=" + cityname + ", areaname="
+				+ areaname + "]";
 	}
-	
-
-
-	
-
 
 
 }

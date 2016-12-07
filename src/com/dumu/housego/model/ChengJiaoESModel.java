@@ -18,7 +18,10 @@ import com.dumu.housego.entity.ErShouFangDetails;
 import com.dumu.housego.model.IModel.AsycnCallBack;
 import com.dumu.housego.util.CommonRequest;
 import com.dumu.housego.util.SubMitErShouListJSONParse;
+import com.dumu.housego.util.SubMitErShouListJSONParse2;
 import com.dumu.housego.util.UrlFactory;
+
+import android.util.Log;
 
 public class ChengJiaoESModel implements IChengJiaoESModel {
 
@@ -30,8 +33,11 @@ public class ChengJiaoESModel implements IChengJiaoESModel {
 			@Override
 			public void onResponse(String response) {
 				try {
-					List<ErShouFangDetails> ershoudetails = SubMitErShouListJSONParse.parseSearch(response);
+					List<ErShouFangDetails> ershoudetails = SubMitErShouListJSONParse2.parseSearch(response);
+					Log.e("成交房源", "成交房源="+response);
+					Log.e("成交房源", "成交房源11111111="+ershoudetails);
 					back.onSuccess(ershoudetails);
+					
 				} catch (JSONException e) {
 
 					 try {

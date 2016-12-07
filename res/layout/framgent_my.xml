@@ -49,13 +49,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/iv_my_back"
-            android:background="#ffffff"
-            android:visibility="gone"
             android:orientation="vertical" >
             
                <Button
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="@dimen/fengexian"
                   android:layout_marginTop="18dp"
                 android:background="#c9c9cb" />
 
@@ -63,6 +61,7 @@
                 android:id="@+id/rl_Myershoufang"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
+                android:background="#fff"
                 android:layout_alignParentLeft="true"
               
                >
@@ -99,7 +98,7 @@
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+           android:layout_height="@dimen/fengexian"
                 android:layout_marginLeft="50dp"
                 android:background="#c9c9cb" />
 
@@ -107,6 +106,7 @@
                 android:id="@+id/rl_Myrenting"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
+                  android:background="#fff"
                 android:layout_alignParentLeft="true"
                 android:layout_below="@+id/rl_Myershoufang"
             >
@@ -143,7 +143,7 @@
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+             android:layout_height="@dimen/fengexian"
                 android:layout_marginLeft="50dp"
                 android:background="#c9c9cb" />
 
@@ -151,6 +151,7 @@
                 android:id="@+id/rl_Myentrust"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
+                  android:background="#fff"
                 android:layout_below="@+id/rl_Myrenting"
                >
 
@@ -187,13 +188,14 @@
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+            android:layout_height="@dimen/fengexian"
                 android:layout_marginLeft="50dp"
                 android:background="#c9c9cb" />
 
             <RelativeLayout
                 android:id="@+id/rl_Yuyueguanli"
                 android:layout_width="match_parent"
+                  android:background="#fff"
                 android:layout_height="45dp"
                 android:layout_below="@+id/rl_Myentrust"
               >
@@ -230,7 +232,7 @@
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                 android:layout_height="@dimen/fengexian"
                 android:layout_marginLeft="50dp"
                 android:background="#c9c9cb" />
 
@@ -238,6 +240,7 @@
                 android:id="@+id/rl_myguanzhu"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
+                  android:background="#fff"
                 android:layout_below="@+id/rl_Myentrust"
               >
 
@@ -273,7 +276,7 @@
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+              android:layout_height="@dimen/fengexian"
                 android:layout_marginLeft="50dp"
                 android:background="#c9c9cb" />
 
@@ -281,6 +284,7 @@
                 android:id="@+id/rl_Histroy"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
+                  android:background="#fff"
                 android:layout_below="@+id/rl_Yuyueguanli"
                 >
 
@@ -315,7 +319,7 @@
             </RelativeLayout>
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+               android:layout_height="@dimen/fengexian"
                 android:background="#c9c9cb" />
         </LinearLayout>
 
@@ -326,7 +330,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/iv_my_back"
-            android:background="#ffffff"
             android:orientation="vertical"
             android:visibility="gone"
         >
@@ -334,7 +337,7 @@
              
                <Button
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="@dimen/fengexian"
                   android:layout_marginTop="18dp"
                 android:background="#c9c9cb" />
 
@@ -377,7 +380,7 @@
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="@dimen/fengexian"
                 android:layout_marginLeft="50dp"
                 android:background="#c9c9cb" />
 
@@ -421,7 +424,7 @@
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+             android:layout_height="@dimen/fengexian"
                 android:layout_marginLeft="50dp"
                 android:background="#c9c9cb" />
 
@@ -464,7 +467,7 @@
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+            android:layout_height="@dimen/fengexian"
                 android:layout_marginLeft="50dp"
                 android:background="#c9c9cb" />
 
@@ -507,7 +510,7 @@
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+               android:layout_height="@dimen/fengexian"
                 android:layout_marginLeft="50dp"
                 android:background="#c9c9cb" />
 
@@ -550,7 +553,7 @@
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="@dimen/fengexian"
                 android:layout_marginLeft="50dp"
                 android:background="#c9c9cb" />
 
@@ -595,7 +598,7 @@
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                 android:layout_height="@dimen/fengexian"
                 android:layout_marginLeft="50dp"
                 android:background="#c9c9cb" />
 
@@ -638,7 +641,7 @@
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+            android:layout_height="@dimen/fengexian"
                 android:layout_marginLeft="50dp"
                 android:background="#c9c9cb" />
 
@@ -681,7 +684,7 @@
             
              <Button
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+             android:layout_height="@dimen/fengexian"
                 android:background="#c9c9cb" />
         </LinearLayout>
 
@@ -693,14 +696,13 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/iv_my_back"
             android:orientation="vertical"
-            android:background="#ffffff"
             android:visibility="gone"
             >
 
              
                <Button
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+        android:layout_height="@dimen/fengexian"
                   android:layout_marginTop="18dp"
                 android:background="#c9c9cb" />
             <RelativeLayout
@@ -742,7 +744,7 @@
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+             android:layout_height="@dimen/fengexian"
                 android:layout_marginLeft="50dp"
                 android:background="#c9c9cb" />
 
@@ -786,7 +788,7 @@
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+               android:layout_height="@dimen/fengexian"
                 android:layout_marginLeft="50dp"
                 android:background="#c9c9cb" />
 
@@ -829,7 +831,7 @@
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+            android:layout_height="@dimen/fengexian"
                 android:layout_marginLeft="50dp"
                 android:background="#c9c9cb" />
 
@@ -875,7 +877,7 @@
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="@dimen/fengexian"
                 android:layout_marginLeft="50dp"
                 android:background="#c9c9cb" />
 
@@ -918,7 +920,7 @@
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="@dimen/fengexian"
                 android:layout_marginLeft="50dp"
                 android:background="#c9c9cb" />
 
@@ -961,7 +963,7 @@
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+             android:layout_height="@dimen/fengexian"
                 android:layout_marginLeft="50dp"
                 android:background="#c9c9cb" />
 
@@ -1004,7 +1006,7 @@
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="@dimen/fengexian"
                 android:layout_marginLeft="50dp"
                 android:background="#c9c9cb" />
 
@@ -1047,14 +1049,14 @@
             
              <Button
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+               android:layout_height="@dimen/fengexian"
                 android:background="#c9c9cb" />
         </LinearLayout>
 
         <Button
             android:id="@+id/btn_line"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+             android:layout_height="@dimen/fengexian"
             android:layout_marginTop="15dp"
             android:background="#c9c9cb" />
 
@@ -1098,10 +1100,18 @@
         <Button
             android:id="@+id/btn_line1"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+           android:layout_height="@dimen/fengexian"
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/rl_settings"
             android:background="#c9c9cb" />
+       
+       
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+          />
+        
+        
     </LinearLayout>
 
 </com.dumu.housego.util.MyReboundScrollView>

@@ -140,6 +140,7 @@
                 android:layout_alignTop="@+id/iv_guanzhuershou"
                 android:layout_toRightOf="@+id/iv_guanzhuershou"
                 android:text="深圳大鹏新区葵涌"
+                 android:singleLine="true"
                 android:textSize="14sp" />
 
         </RelativeLayout>

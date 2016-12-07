@@ -1,9 +1,31 @@
 package com.dumu.housego.activity;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import com.dumu.housego.AgentPersonalActivity;
+import com.dumu.housego.PuTongMyGuanZhuActivity;
 import com.dumu.housego.R;
+import com.dumu.housego.app.HouseGoApp;
+import com.dumu.housego.entity.Pics;
+import com.dumu.housego.entity.UpLoadPic;
+import com.dumu.housego.entity.UserInfo;
+import com.dumu.housego.presenter.HouseUpLoadPicPresenter;
+import com.dumu.housego.presenter.IHouseUpLoadPicPresenter;
+import com.dumu.housego.util.UrlFactory;
+import com.dumu.housego.utils.UploadUtil;
+import com.dumu.housego.utils.UploadUtil.OnUploadProcessListener;
+import com.dumu.housego.view.IHouseUploadPicView;
 
 import activity.AlbumActivity;
 import activity.GalleryActivity;
@@ -45,7 +67,7 @@ import util.ImageItem;
 import util.PublicWay;
 import util.Res;
 
-public class ImageGrallyMain extends Activity{
+public class ImageGrallyMain extends Activity implements OnUploadProcessListener, IHouseUploadPicView{
 
 	private GridView noScrollgridview;
 	private GridAdapter adapter;
@@ -53,10 +75,21 @@ public class ImageGrallyMain extends Activity{
 	private PopupWindow pop = null;
 	private LinearLayout ll_popup;
 	public static Bitmap bimap ;
-	private static final int ATERSHOUPIC =20;
+	public static final int ATERSHOUPIC =20;
+	public static final int ATRentingPIC =21;
+	
+	public static final int PTERSHOUPIC =22;
+	public static final int PTRentingPIC =23;
+
+	
 	private ImageView uploadpic;
 	private TextView activity_selectimg_send;
-	
+	private IHouseUpLoadPicPresenter presenter;
+	private String userid;
+	private String catid;
+	private UserInfo userinfo;
+	List<Pics>pics=new ArrayList<Pics>();
+	private int TAG;
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		Res.init(this);
@@ -66,9 +99,23 @@ public class ImageGrallyMain extends Activity{
 		PublicWay.activityList.add(this);
 		parentView = getLayoutInflater().inflate(R.layout.activity_selectimg, null);
 		setContentView(parentView);
+		presenter=new HouseUpLoadPicPresenter(this);
+		userinfo=HouseGoApp.getContext().getCurrentUserInfo();
+		userid=userinfo.
+				getUserid();
+		catid="6";
 		Init();
 		initView();
 		setlistener();
+	}
+	
+	@Override
+	protected void onResume() {
+		TAG=getIntent().getIntExtra("TAG", 1);
+		
+		
+		
+		super.onResume();
 	}
 
 	private void setlistener() {
@@ -84,17 +131,22 @@ public class ImageGrallyMain extends Activity{
 			
 			@Override
 			public void onClick(View v) {
+				String RequestURL=UrlFactory.PostupLoadPic();
 				Map<String, String>p=new HashMap<String, String>();
 				for(int i=0;i<Bimp.tempSelectBitmap.size();i++){
 					String path=Bimp.tempSelectBitmap.get(i).imagePath;
 						String name=Bimp.tempSelectBitmap.get(i).thumbnailPath;
-						p.put(name, path);
+						Bitmap bm=Bimp.tempSelectBitmap.get(i).getBitmap();
+						UploadPic(path, bm, userid, catid, RequestURL);
 				}
 				
-				Intent i=new Intent();
+				
+//				Intent i=new Intent();
+//				i.putExtra("pics", (Serializable)pics);
+//				startActivityForResult(i, ATERSHOUPIC);
 				
 				
-				startActivityForResult(i, ATERSHOUPIC);
+				
 				
 			}
 		});
@@ -324,23 +376,56 @@ public class ImageGrallyMain extends Activity{
 				Bitmap bm = (Bitmap) data.getExtras().get("data");
 				FileUtils.saveBitmap(bm, fileName);
 				
-//				//上传，返回bitmap的数据
-//				String imagepath=FileUtils.
-				
-				
-				
-				
-				
-				
 				ImageItem takePhoto = new ImageItem();
 				takePhoto.setBitmap(bm);
-				takePhoto.setThumbnailPath(fileName);;
+				takePhoto.setImagePath(FileUtils.SDPATH+fileName + ".JPEG");
 				
-				takePhoto.setImagePath(FileUtils.SDPATH+"/"+fileName + ".JPEG");;
+				String	RequestURL=UrlFactory.PostupLoadPic();
+				Log.e("zzzzzzzzzzzzzzzzzzzzz", "zzzzzz="+FileUtils.SDPATH+fileName + ".JPEG");
 				Bimp.tempSelectBitmap.add(takePhoto);
+				
+				Pics p=new Pics();
+				
+				
+				
 			}
 			break;
 		}
+	}
+
+	private void UploadPic(String fileName, Bitmap bm,String userid,String catid,String RequestURL) {
+		File f = null ;
+		FileOutputStream out=null;
+		try {
+			if (!FileUtils.isFileExist("")) {
+				File tempf = FileUtils.createSDDir("");
+			}
+			 f = new File(fileName); 
+			if (f.exists()) {
+				f.delete();
+			}
+			out = new FileOutputStream(f);
+			bm.compress(Bitmap.CompressFormat.JPEG, 90, out);
+			out.flush();
+			out.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		Log.e("ffffff", "ffffffffffffffff="+f.toString());;
+		
+		String filekey="img";
+		UploadUtil uploadutil=UploadUtil.getInstance();
+		uploadutil.setOnUploadProcessListener(this);
+
+		Map<String, String >m=new HashMap<String, String>();
+		m.put("userid", userid);
+		m.put("catid", catid);
+		m.put("module", "content");
+		
+		uploadutil.uploadFile(f, filekey, RequestURL, m);
 	}
 	
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -353,6 +438,84 @@ public class ImageGrallyMain extends Activity{
 			System.exit(0);
 		}
 		return true;
+	}
+
+	@Override
+	public void uploadpicsuccess(List<UpLoadPic> pics) {
+		
+	}
+
+	@Override
+	public void uploadfail(String info){
+		
+	}
+
+	@Override
+	public void onUploadDone(int responseCode, String message) {
+		Pics p=new Pics();
+		try {
+			JSONObject j=new JSONObject(message);
+			String url=j.getString("url");
+			String o=j.getString("picname");
+			p.setUrl(url);
+			p.setAlt(o);
+			
+			this.pics.add(p);
+			Log.e("pics", "pics="+pics.toString());
+			
+			if(pics.size()==Bimp.tempSelectBitmap.size()){
+				//返回代码
+				switch (TAG) {
+				case 1:
+					Intent i1=new Intent(this, PuTongMyGuanZhuActivity.class);
+					i1.putExtra("pics", (Serializable)pics);
+					setResult(PTERSHOUPIC, i1);
+					finish();
+					break;
+				case 2:
+					Intent i2=new Intent(this, PuTongMyGuanZhuActivity.class);
+					i2.putExtra("pics", (Serializable)pics);
+					setResult(PTRentingPIC, i2);
+					finish();
+					break;
+					
+				case 3:
+					Intent i3=new Intent(this, AgentPersonalActivity.class);
+					i3.putExtra("pics", (Serializable)pics);
+					setResult(ATERSHOUPIC, i3);
+					finish();
+					break;
+				case 4:
+					Intent i4=new Intent(this, AgentPersonalActivity.class);
+					i4.putExtra("pics", (Serializable)pics);
+					setResult(ATRentingPIC, i4);
+					finish();
+					break;
+				}
+				
+				
+				
+				
+				
+			}
+			
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+	}
+
+	@Override
+	public void onUploadProcess(int uploadSize) {
+		
+	}
+
+	@Override
+	public void initUpload(int fileSize) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

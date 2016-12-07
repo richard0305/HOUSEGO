@@ -33,6 +33,7 @@ public class AGChengJiaohouseFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.fragment_chengjiaohouse, null);
 		initView(view);
+		rbChengJiaoErShou.setTextColor(getResources().getColor(R.color.button_ckeck));
 		setViewPagerAdapter();
 		setListener();
 		return view;

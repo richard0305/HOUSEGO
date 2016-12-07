@@ -129,7 +129,7 @@
                </RelativeLayout>
                
                <Button 
-                   android:layout_width="1dp"
+                   android:layout_width="@dimen/fengexian"
                    android:layout_height="match_parent"
                    android:layout_gravity="center"
                    android:background="#c9c9cb"
@@ -162,7 +162,7 @@
                        />
                </RelativeLayout>
                <Button 
-                   android:layout_width="1dp"
+                  android:layout_width="@dimen/fengexian"
                    android:layout_height="match_parent"
                    android:layout_gravity="center"
                    android:background="#c9c9cb"
@@ -200,7 +200,7 @@
            <Button 
                android:layout_width="match_parent"
                android:background="#c9c9cb"
-               android:layout_height="1dp"
+               android:layout_height="@dimen/fengexian"
                />
 
            <RelativeLayout
@@ -457,7 +457,7 @@
            <Button 
                android:layout_width="match_parent"
                android:background="#c9c9cb" 
-               android:layout_height="1dp"
+              android:layout_height="@dimen/fengexian"
                />
            
            <TextView 
@@ -476,7 +476,7 @@
                android:layout_width="match_parent"
                android:layout_marginTop="10dp"
                android:background="#c9c9cb"
-               android:layout_height="1dp"
+               android:layout_height="@dimen/fengexian"
                />
             
            <TextView 
@@ -489,7 +489,7 @@
            <Button 
                android:layout_width="match_parent"
                android:background="#c9c9cb"
-               android:layout_height="1dp"
+               android:layout_height="@dimen/fengexian"
                />
            
            <RelativeLayout 
@@ -550,7 +550,7 @@
               <Button 
                android:layout_width="match_parent"
                android:background="#c9c9cb"
-               android:layout_height="1dp"
+               android:layout_height="@dimen/fengexian"
                /> 
             
             <TextView
@@ -568,7 +568,7 @@
                android:layout_width="match_parent"
                android:layout_marginTop="10dp"
                android:background="#c9c9cb"
-               android:layout_height="1dp"
+              android:layout_height="@dimen/fengexian"
                />
            <TextView 
                android:layout_width="wrap_content"
@@ -580,7 +580,7 @@
              <Button 
                android:layout_width="match_parent"
                android:background="#c9c9cb"
-               android:layout_height="1dp"
+              android:layout_height="@dimen/fengexian"
                />
            
            <RelativeLayout
@@ -882,7 +882,7 @@
            <Button 
                android:layout_width="match_parent"
                android:background="#c9c9cb"
-               android:layout_height="1dp"
+               android:layout_height="@dimen/fengexian"
                />
            
         <LinearLayout 
@@ -973,7 +973,7 @@
            <Button 
                android:layout_width="match_parent"
                android:background="#c9c9cb"
-               android:layout_height="1dp"
+              android:layout_height="@dimen/fengexian"
                />
            
            <com.dumu.housego.util.ListViewForScrollView
@@ -985,7 +985,7 @@
             <Button 
                android:layout_width="match_parent"
                android:background="#c9c9cb"
-               android:layout_height="1dp"
+               android:layout_height="@dimen/fengexian"
                />
            <TextView
                 android:id="@+id/tv_morechengjiaojilu" 
@@ -1003,7 +1003,7 @@
                android:layout_width="match_parent"
                android:background="#c9c9cb"
                android:layout_marginTop="10dp"
-               android:layout_height="1dp"
+               android:layout_height="@dimen/fengexian"
                />
            <TextView 
                android:layout_width="wrap_content"
@@ -1015,7 +1015,7 @@
            <Button 
                android:layout_width="match_parent"
                android:background="#c9c9cb"
-               android:layout_height="1dp"
+              android:layout_height="@dimen/fengexian"
                />
            
            <RelativeLayout 
@@ -1037,7 +1037,7 @@
                android:layout_width="match_parent"
                android:background="#c9c9cb"
                android:layout_marginTop="10dp"
-               android:layout_height="1dp"
+              android:layout_height="@dimen/fengexian"
                />
            
            <Button 
@@ -1056,7 +1056,7 @@
            <Button 
                android:layout_width="match_parent"
                android:background="#c9c9cb"
-               android:layout_height="1dp"
+          android:layout_height="@dimen/fengexian"
                />
            
              <com.dumu.housego.util.ListViewForScrollView
@@ -1068,7 +1068,7 @@
             <Button 
                android:layout_width="match_parent"
                android:background="#c9c9cb"
-               android:layout_height="1dp"
+               android:layout_height="@dimen/fengexian"
                />
            
            <TextView

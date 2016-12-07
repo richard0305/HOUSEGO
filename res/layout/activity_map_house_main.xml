@@ -15,7 +15,7 @@
         <Button
             android:id="@+id/btn_line2"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+    android:layout_height="@dimen/fengexian"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:background="#c9c9cb" />
@@ -85,67 +85,13 @@
 
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_alignParentLeft="true"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:id="@+id/ll_map_house_spinner"
-        android:layout_below="@+id/rl_map_house_title" >
-         
-        <Spinner 
-            android:paddingLeft="20dp"
-            android:id="@+id/maphouse_sp1"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:background="#F2F2F2"
-            android:layout_gravity="center_vertical"
-            android:spinnerMode="dropdown"
-            android:layout_height="match_parent"
-            android:entries="@array/maphousearea"
-            />
-        
-        <Button 
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="#c9c9cb"
-            />
-        <Spinner 
-            android:id="@+id/maphouse_sp2"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:background="#F2F2F2"
-            android:paddingLeft="30dp"
-            
-            android:layout_gravity="center_vertical"
-            android:spinnerMode="dropdown"
-            android:layout_height="match_parent"
-            android:entries="@array/maphousesaixuan"
-            />
-         <Button 
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="#c9c9cb"
-            />
-         <Spinner 
-            android:id="@+id/maphouse_sp3"
-            android:layout_width="0dp"
-            android:spinnerMode="dropdown"
-            android:layout_weight="1"
-            android:background="#F2F2F2"
-             android:paddingLeft="30dp"
-            android:layout_height="match_parent"
-            android:entries="@array/maphousepaixun"
-            />
-        
-    </LinearLayout>
+
     
         <Button 
             android:id="@+id/lin1"
-           android:layout_below="@+id/ll_map_house_spinner"
+           android:layout_below="@+id/rl_map_house_title"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+           android:layout_height="@dimen/fengexian"
             android:background="#c9c9cb"
             />
     
@@ -181,7 +127,7 @@
             />
         <Button 
             android:id="@+id/btn1"
-            android:layout_width="1dp"
+            android:layout_width="@dimen/fengexian"
             android:layout_height="match_parent"
             android:background="#c9c9cb"
             android:layout_marginTop="5dp"
@@ -200,7 +146,7 @@
             />
          <Button 
             android:id="@+id/btn2"
-            android:layout_width="1dp"
+               android:layout_width="@dimen/fengexian"
             android:layout_height="match_parent"
             android:background="#c9c9cb"
             android:layout_marginTop="5dp"

@@ -49,6 +49,7 @@
                 android:layout_marginLeft="8dp"
                 android:layout_toRightOf="@+id/iv_chengjiaoershou"
                 android:text="深圳大鹏新区葵涌"
+                android:singleLine="true"
                 android:textColor="#333"
                 android:textSize="14sp" />
 

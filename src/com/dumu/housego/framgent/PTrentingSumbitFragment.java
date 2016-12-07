@@ -16,8 +16,10 @@ import com.baidu.mapapi.search.geocode.ReverseGeoCodeResult;
 import com.dumu.housego.GetLocationActivity;
 import com.dumu.housego.R;
 import com.dumu.housego.SearchActivity;
+import com.dumu.housego.activity.ImageGrallyMain;
 import com.dumu.housego.app.HouseGoApp;
 import com.dumu.housego.entity.Address;
+import com.dumu.housego.entity.Pics;
 import com.dumu.housego.entity.RentingDetail;
 import com.dumu.housego.entity.UserInfo;
 import com.dumu.housego.model.AddressModel;
@@ -100,6 +102,7 @@ public class PTrentingSumbitFragment extends Fragment implements IPTrentingSubmi
 	private RentingDetail r=new RentingDetail();
 	//
 	private IPTrentingSubmitPresenter presenter;
+	private List<Pics> pics=new ArrayList<Pics>();
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.fragment_pt_renting_sumbit, null);
@@ -139,6 +142,8 @@ public class PTrentingSumbitFragment extends Fragment implements IPTrentingSubmi
 		et_renting_housrprice=(EditText) view.findViewById(R.id.et_renting_housrprice);
 		
 		btn_renting_submit=(Button) view.findViewById(R.id.btn_renting_submit);
+		
+		tv_renting_uploadPic.setText("已经上传"+pics.size()+"张");
 	}
 
 	private void setListener() {
@@ -191,6 +196,7 @@ public class PTrentingSumbitFragment extends Fragment implements IPTrentingSubmi
 				String x=tv_renting_housearea.getText().toString().trim()+tv_renting_xiaoquname.getText().toString().trim()+tv_renting_huType.getText().toString().trim();
 		
 				r.setTitle(x);
+				r.setPics(pics);
 				presenter.PTrentingSubmit(r);
 				
 			}
@@ -259,6 +265,17 @@ public class PTrentingSumbitFragment extends Fragment implements IPTrentingSubmi
 			@Override
 			public void onClick(View v) {
 				WheelPickerOne(WheelpickerData.YINCANGPHONE, tv_renting_yincangphone, "是否隐藏手机号码");
+			}
+		});
+		
+		tv_renting_uploadPic.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent i=new Intent(getActivity(),ImageGrallyMain.class);
+				i.putExtra("TAG", 2);
+				startActivityForResult(i, ImageGrallyMain.PTRentingPIC);;
+				
 			}
 		});
 		
@@ -429,6 +446,7 @@ public class PTrentingSumbitFragment extends Fragment implements IPTrentingSubmi
 		
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if(data!=null){
@@ -464,6 +482,14 @@ public class PTrentingSumbitFragment extends Fragment implements IPTrentingSubmi
 				String xiaoquname = data.getStringExtra("XIAOQUNAME");
 				tv_renting_xiaoquname.setText(xiaoquname);
 				break;
+				
+				
+			case ImageGrallyMain.PTRentingPIC:
+				pics.clear();
+				this.pics=(List<Pics>) data.getSerializableExtra("pics");
+				tv_renting_uploadPic.setText("已经上传"+pics.size()+"张");
+				break;
+				
 			}
 		}
 		super.onActivityResult(requestCode, resultCode, data);

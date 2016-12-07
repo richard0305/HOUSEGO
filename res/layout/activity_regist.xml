@@ -64,7 +64,7 @@
     <Button
             android:id="@+id/btn_line3"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+             android:layout_height="@dimen/fengexian"
             android:layout_below="@+id/et_smscode"
             android:layout_alignParentLeft="true"
             android:background="#c9c9cb" />
@@ -83,7 +83,7 @@
     <Button
             android:id="@+id/btn_line4"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+           android:layout_height="@dimen/fengexian"
             android:layout_below="@+id/et_password"
             android:layout_alignParentLeft="true"
             android:background="#c9c9cb" />
@@ -101,7 +101,7 @@
     <Button
             android:id="@+id/btn_line5"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+            android:layout_height="@dimen/fengexian"
             android:layout_below="@+id/et_repassword"
             android:layout_alignParentLeft="true"
             android:background="#c9c9cb" />
@@ -151,7 +151,7 @@
     <Button
             android:id="@+id/btn_line2"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+             android:layout_height="@dimen/fengexian"
             android:layout_below="@+id/rl_regist_phonenumber"
             android:layout_alignParentLeft="true"
             android:background="#c9c9cb" />
@@ -213,7 +213,7 @@
       <Button
             android:id="@+id/btn_line6"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+               android:layout_height="@dimen/fengexian"
             android:layout_below="@+id/ll_regist_type"
             android:layout_alignParentLeft="true"
             android:background="#c9c9cb" />

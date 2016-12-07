@@ -3,6 +3,9 @@ package com.dumu.housego.framgent;
 import java.util.List;
 import java.util.Map;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import com.alipay.sdk.app.AuthTask;
 import com.alipay.sdk.app.PayTask;
 import com.dumu.housego.BlockTradeDetailActivity;
@@ -17,8 +20,11 @@ import com.dumu.housego.pay.PayResult;
 import com.dumu.housego.pay.util.OrderInfoUtil2_0;
 import com.dumu.housego.presenter.GoudiListPresenter;
 import com.dumu.housego.presenter.IGoudiListPresenter;
+import com.dumu.housego.presenter.IPaySuccessPresenter;
+import com.dumu.housego.presenter.PaySuccessPresenter;
 import com.dumu.housego.util.MyToastShowCenter;
 import com.dumu.housego.view.IGoudiListView;
+import com.dumu.housego.view.IPaySuccessView;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
@@ -41,7 +47,9 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class PTGouDiListFragment extends Fragment implements IGoudiListView{
+public class PTGouDiListFragment extends Fragment implements IPaySuccessView,IGoudiListView{
+	private String order_no;
+	private String trade_no;
 	/** 支付宝支付业务：入参app_id */
 	public static final String APPID = "2016072301657641";
 	
@@ -73,6 +81,20 @@ public class PTGouDiListFragment extends Fragment implements IGoudiListView{
 				if (TextUtils.equals(resultStatus, "9000")) {
 					// 该笔订单是否真实支付成功，需要依赖服务端的异步通知。
 					MyToastShowCenter.CenterToast(getActivity(), "支付成功");
+					
+					try {
+						JSONObject b=new JSONObject(resultInfo);
+						JSONObject j=b.getJSONObject("alipay_trade_app_pay_response");
+						trade_no=j.getString(trade_no);
+						Log.e("resultInfo", "resultInfo="+resultInfo);
+					} catch (JSONException e) {
+						e.printStackTrace();
+					}
+					
+					paypresenter.PayInfo(resultStatus,total_amount, order_no,trade_no);
+					
+					
+					
 				} else {
 					// 该笔订单真实的支付结果，需要依赖服务端的异步通知。
 					MyToastShowCenter.CenterToast(getActivity(), "支付失败");
@@ -115,9 +137,12 @@ public class PTGouDiListFragment extends Fragment implements IGoudiListView{
 	private String userid;
 	private UserInfo userinfo;
 	private int posi;
+	private IPaySuccessPresenter paypresenter;
+	private String total_amount;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View view=inflater.inflate(R.layout.fragment_goudi_list, null);
+		
 		initview(view);
 		setListener();
 		return view;
@@ -139,6 +164,7 @@ public class PTGouDiListFragment extends Fragment implements IGoudiListView{
 	@Override
 	public void onResume() {
 		listpresenter=new GoudiListPresenter(this);
+		paypresenter=new PaySuccessPresenter(this);
 		userinfo=HouseGoApp.getContext().getCurrentUserInfo();
 		userid=userinfo.getUserid();
 		listpresenter.GoudiList(userid);
@@ -270,6 +296,7 @@ public class PTGouDiListFragment extends Fragment implements IGoudiListView{
 						
 						@Override
 						public void onClick(View v) {
+							order_no=goudi.getOrder_no();
 							payV2(v);
 							
 						}
@@ -362,7 +389,9 @@ public class PTGouDiListFragment extends Fragment implements IGoudiListView{
 		 * 
 		 * orderInfo的获取必须来自服务端；
 		 */
-		Map<String, String> params = OrderInfoUtil2_0.buildOrderParamMap(APPID, goudis.get(posi).getJine(), goudis.get(posi).getTitle(), getSDKVersion(), goudis.get(posi).getOrder_no());
+
+		total_amount=goudis.get(posi).getJine();
+		Map<String, String> params = OrderInfoUtil2_0.buildOrderParamMap(APPID,total_amount , goudis.get(posi).getTitle(), getSDKVersion(), goudis.get(posi).getOrder_no());
 		String orderParam = OrderInfoUtil2_0.buildOrderParam(params);
 		String sign = OrderInfoUtil2_0.getSign(params, RSA_PRIVATE);
 		final String orderInfo = orderParam + "&" + sign;
@@ -463,6 +492,11 @@ public class PTGouDiListFragment extends Fragment implements IGoudiListView{
 		extras.putString("url", url);
 		intent.putExtras(extras);
 		startActivity(intent);
+	}
+	@Override
+	public void PayInfo(String info) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

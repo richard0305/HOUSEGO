@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -15,6 +16,7 @@ import com.android.volley.AuthFailureError;
 import com.android.volley.VolleyError;
 import com.dumu.housego.app.HouseGoApp;
 import com.dumu.housego.entity.ATerShouSubmit;
+import com.dumu.housego.entity.Pics;
 import com.dumu.housego.model.IModel.AsycnCallBack;
 import com.dumu.housego.util.CommonRequest;
 import com.dumu.housego.util.HttpUtils;
@@ -106,6 +108,20 @@ public class ATershousubmitModel implements IATershousubmitModel {
 				map.put("shi", at.getShi());
 				map.put("ting", at.getTing());
 				map.put("wei", at.getWei());
+				
+				//list集合转json
+				 JSONArray json = new JSONArray();
+				 try {
+					 for(Pics a : at.getPic()){
+			                JSONObject jo = new JSONObject();
+			                jo.put("url", a.getUrl());
+			                jo.put("alt", a.getAlt());
+			                json.put(jo);
+			            }
+				} catch (Exception e2) {
+				}
+				
+				map.put("pics", json.toString());
 				return map;
 			}
 		};

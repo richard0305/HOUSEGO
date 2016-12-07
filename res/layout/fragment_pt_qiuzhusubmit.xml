@@ -111,7 +111,7 @@
             <Button
                 android:id="@+id/btn_line2"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                  android:layout_height="@dimen/fengexian"
                 android:layout_marginLeft="10dp"
                 android:background="#c9c9cb" />
 
@@ -148,7 +148,7 @@
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="@dimen/fengexian"
                 android:layout_marginLeft="10dp"
                 android:background="#c9c9cb" />
 
@@ -189,7 +189,7 @@
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="@dimen/fengexian"
                 android:layout_marginLeft="10dp"
                 android:background="#c9c9cb" />
 
@@ -229,7 +229,7 @@
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="@dimen/fengexian"
                 android:layout_marginLeft="10dp"
                 android:background="#c9c9cb" />
 
@@ -269,7 +269,7 @@
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="@dimen/fengexian"
                 android:layout_marginLeft="10dp"
                 android:background="#c9c9cb" />
 
@@ -309,7 +309,7 @@
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                  android:layout_height="@dimen/fengexian"
                 android:background="#c9c9cb" />
 
             <Button

@@ -1,6 +1,8 @@
 package com.dumu.housego.entity;
 
-public class Pics {
+import java.io.Serializable;
+
+public class Pics implements Serializable{
 	private String url;
 	private String alt;
 	public Pics(String url, String alt) {

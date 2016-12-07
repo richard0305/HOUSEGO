@@ -1,6 +1,7 @@
 package com.dumu.housego.model;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,12 +13,15 @@ import org.json.JSONObject;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response.ErrorListener;
 import com.android.volley.Response.Listener;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.Volley;
 import com.dumu.housego.app.HouseGoApp;
 import com.dumu.housego.entity.UserInfo;
 import com.dumu.housego.util.CommonRequest;
+import com.dumu.housego.util.MultiPartStack;
 import com.dumu.housego.util.UrlFactory;
 
 import android.graphics.Bitmap;
@@ -27,112 +31,99 @@ import android.util.Log;
 
 public class ChangeHeadPhotoModel implements IChangeHeadPhotoModel {
 	private UserInfo userinfo;
-
+	private static RequestQueue mSingleQueue;
+	private static String TAG = "test";
+	
 	public ChangeHeadPhotoModel() {
 		super();
+
+		mSingleQueue = Volley.newRequestQueue(HouseGoApp.getContext(), new MultiPartStack());
 	}
 
 	@Override
 	public void changeHead(final String userid, final String imagePath, final AsycnCallBack back) {
 		String url = UrlFactory.PostChangeHeadPhotoUrl();
-		CommonRequest request = new CommonRequest(Request.Method.POST, url, new Listener<String>() {
+		
+		Log.e("imagePath", "imagePath=imagePath="+imagePath);
+		Map<String, File> files = new HashMap<String, File>();
+		files.put("__avatar1", new File(
+				imagePath));
 
-			@Override
-			public void onResponse(String response) {
-				Log.e("====================", "response" + response);
-				try {
-					JSONObject obj = new JSONObject(response);
-					if (obj.getBoolean("success") == true) {
-						String picurl = obj.getString("avatarUrls").toString();
-						Log.e("====================", "picurl" + picurl);
-						back.onSuccess(picurl);
-						userinfo = HouseGoApp.getContext().getCurrentUserInfo();
-						userinfo.setUserpic(picurl);
+		Map<String, String> params = new HashMap<String, String>();
+		params.put("userid", userid);
 
-						HouseGoApp app = HouseGoApp.getContext();
-						app.SaveCurrentUserInfo(userinfo);
-
-					}
-				} catch (JSONException e) {
-					e.printStackTrace();
-				}
-
-			}
-		}, new ErrorListener() {
-
-			@Override
-			public void onErrorResponse(VolleyError error) {
-				back.onError(error.getMessage());
-
-			}
-		}) {
-			private Bitmap bitmap;
-			private byte[] multipartBody;
-
-			@Override
-			protected Map<String, String> getParams() throws AuthFailureError {
-				Map<String, String> params = new HashMap<String, String>();
-				
-				bitmap = BitmapFactory.decodeFile(imagePath);
-				multipartBody =getImageBytes(bitmap);
-				String path=new String(multipartBody);
-//				String image = getImageStr(imagePath);
-				params.put("userid", userid);
-				params.put("__avatar1", path);
-				return params;
-			}
-		};
-
-		HouseGoApp.getQueue().add(request);
-	}
-
+//		String uri = "your_url";
+		addPutUploadFileRequest(
+				url,
+				files, params, mResonseListenerString, mErrorListener, null);
 	
-//	public static String getImageStr(String filePath) {
-//
-//		// 将图片文件转化为字节数组字符串，并对其进行Base64编码处理
-//
-//		InputStream in = null;
-//
-//		byte[] data = null;
-//
-//		// 读取图片字节数组
-//
-//		try {
-//
-//			in = new FileInputStream(filePath);
-//
-//			data = new byte[in.available()];
-//
-//			in.read(data);
-//
-//			in.close();
-//
-//		} catch (IOException e) {
-//
-//			e.printStackTrace();
-//
-//		}
-//
-//		// 对字节数组Base64编码
-//
-//		// 返回Base64编码过的字节数组字符串
-//
-//		return Base64.encodeToString(data, Base64.DEFAULT);
-//
-//	}
-	public byte[]getImageBytes(Bitmap bmp){
+	}
+	
+	
+	
+	Listener<JSONObject> mResonseListener = new Listener<JSONObject>() {
 
-		if(bmp==null)return null;
+		@Override
+		public void onResponse(JSONObject response) {
+			Log.i(TAG, " on response json" + response.toString());
+		}
+	};
 
-		ByteArrayOutputStream baos =new ByteArrayOutputStream();
+	Listener<String> mResonseListenerString = new Listener<String>() {
 
-		bmp.compress(Bitmap.CompressFormat.JPEG,100,baos);
+		@Override
+		public void onResponse(String response) {
+			Log.i(TAG, " on response String" + response.toString());
+		}
+	};
 
-		byte[] imageBytes = baos.toByteArray();
+	ErrorListener mErrorListener = new ErrorListener() {
 
-		return imageBytes;
+		@Override
+		public void onErrorResponse(VolleyError error) {
+			if (error != null) {
+				if (error.networkResponse != null)
+					Log.i(TAG, " error " + new String(error.networkResponse.data));
+			}
+		}
+	};
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
+	public static void addPutUploadFileRequest(final String url,
+			final Map<String, File> files, final Map<String, String> params,
+			final Listener<String> responseListener, final ErrorListener errorListener,
+			final Object tag) {
+		if (null == url || null == responseListener) {
+			return;
 		}
 
+		MultiPartStringRequest multiPartRequest = new MultiPartStringRequest(
+				Request.Method.PUT, url, responseListener, errorListener) {
+
+			@Override
+			public Map<String, File> getFileUploads() {
+				return files;
+			}
+
+			@Override
+			public Map<String, String> getStringUploads() {
+				return params;
+			}
+			
+		};
+
+		Log.i(TAG, " volley put : uploadFile " + url);
+
+		mSingleQueue.add(multiPartRequest);
+	}
+	
 
 }

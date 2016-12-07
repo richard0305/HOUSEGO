@@ -219,7 +219,7 @@
     <Button
         android:id="@+id/button1"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+       android:layout_height="@dimen/fengexian"
         android:layout_below="@+id/rl_zhuyishixiang_3"
         android:background="#c9c9cb" />
 

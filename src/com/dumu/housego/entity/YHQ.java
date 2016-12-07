@@ -12,9 +12,16 @@ public class YHQ {
     private String buytel;
     private String inputtime;
     private String id;
+    private String trade_status;
+    private String house_title;
+    private String pay_status;
+    
+    
 	public YHQ(String order_no, String house_id, String coupon_id, String coupon_name, String difu, String shifu,
-			String userid, String buyname, String buytel, String inputtime, String id) {
+			String userid, String buyname, String buytel, String inputtime, String id, String trade_status,
+			String house_title,String pay_status) {
 		super();
+		this.pay_status=pay_status;
 		this.order_no = order_no;
 		this.house_id = house_id;
 		this.coupon_id = coupon_id;
@@ -26,6 +33,19 @@ public class YHQ {
 		this.buytel = buytel;
 		this.inputtime = inputtime;
 		this.id = id;
+		this.trade_status = trade_status;
+		this.house_title = house_title;
+	}
+	public YHQ() {
+		super();
+	}
+	
+	
+	public String getPay_status() {
+		return pay_status;
+	}
+	public void setPay_status(String pay_status) {
+		this.pay_status = pay_status;
 	}
 	public String getOrder_no() {
 		return order_no;
@@ -93,15 +113,28 @@ public class YHQ {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public YHQ() {
-		super();
+	public String getTrade_status() {
+		return trade_status;
+	}
+	public void setTrade_status(String trade_status) {
+		this.trade_status = trade_status;
+	}
+	public String getHouse_title() {
+		return house_title;
+	}
+	public void setHouse_title(String house_title) {
+		this.house_title = house_title;
 	}
 	@Override
 	public String toString() {
 		return "YHQ [order_no=" + order_no + ", house_id=" + house_id + ", coupon_id=" + coupon_id + ", coupon_name="
 				+ coupon_name + ", difu=" + difu + ", shifu=" + shifu + ", userid=" + userid + ", buyname=" + buyname
-				+ ", buytel=" + buytel + ", inputtime=" + inputtime + ", id=" + id + "]";
+				+ ", buytel=" + buytel + ", inputtime=" + inputtime + ", id=" + id + ", trade_status=" + trade_status
+				+ ", house_title=" + house_title + ", pay_status=" + pay_status + "]";
 	}
+
+	
+    
     
     
     

@@ -17,8 +17,8 @@ public class PaySuccessPresenter implements IPaySuccessPresenter{
 	}
 
 	@Override
-	public void PayInfo(String resultStatus, String jine, String order_no) {
-		model.PayInfo(resultStatus, jine, order_no, new AsycnCallBack() {
+	public void PayInfo(String resultStatus, String jine, String order_no,String trade_no) {
+		model.PayInfo(resultStatus, jine, order_no, trade_no,new AsycnCallBack() {
 			
 			@Override
 			public void onSuccess(Object success) {

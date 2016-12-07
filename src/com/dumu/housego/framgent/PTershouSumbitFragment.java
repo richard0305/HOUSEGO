@@ -16,9 +16,11 @@ import com.baidu.mapapi.search.geocode.ReverseGeoCodeResult;
 import com.dumu.housego.GetLocationActivity;
 import com.dumu.housego.R;
 import com.dumu.housego.SearchActivity;
+import com.dumu.housego.activity.ImageGrallyMain;
 import com.dumu.housego.app.HouseGoApp;
 import com.dumu.housego.entity.Address;
 import com.dumu.housego.entity.ErShouFangDetails;
+import com.dumu.housego.entity.Pics;
 import com.dumu.housego.entity.UserInfo;
 import com.dumu.housego.model.AddressModel;
 import com.dumu.housego.model.IModel.AsycnCallBack;
@@ -46,7 +48,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 public class PTershouSumbitFragment extends Fragment implements IPTershouSubmitView{
 	private List<String> Area = new ArrayList<String>();
 	private List<String> MinArea = new ArrayList<String>();
@@ -98,6 +99,9 @@ public class PTershouSumbitFragment extends Fragment implements IPTershouSubmitV
 	
 	private IPTershouSubmitPresenter presenter;
 	
+	private String tag="";
+	private List<Pics> pics=new ArrayList<Pics>();
+	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.fragment_pt_ershou_sumbit, null);
@@ -124,27 +128,29 @@ public class PTershouSumbitFragment extends Fragment implements IPTershouSubmitV
 		
 		initView(view);
 		setListener();
+		
+		
 		return view;
 	}
 
 	private void initView(View view) {
-		ll_back_putongershou = (LinearLayout) view.findViewById(R.id.ll_back_putongershou);
-		tv_ershou_gongbufangshi=(TextView) view.findViewById(R.id.tv_ershou_gongbufangshi);
-		tv_ershou_housearea=(TextView) view.findViewById(R.id.tv_ptershou_housearea);
-		tv_ershou_jingweidu=(TextView) view.findViewById(R.id.tv_ershou_jingweidu);
-		tv_ershou_louceng=(TextView) view.findViewById(R.id.tv_ershou_louceng);
-		tv_ershou_loucengmenu=(TextView) view.findViewById(R.id.tv_ershou_loucengmenu);
-		tv_ershou_uploadPic=(TextView) view.findViewById(R.id.tv_ershou_uploadPic);
-		tv_ershou_xiaoquname=(TextView) view.findViewById(R.id.tv_ershou_xiaoquname);
-		tv_ershou_yincangphone=(TextView) view.findViewById(R.id.tv_ershou_yincangphone);
+	
+			ll_back_putongershou = (LinearLayout) view.findViewById(R.id.ll_back_putongershou);
+			tv_ershou_gongbufangshi=(TextView) view.findViewById(R.id.tv_ershou_gongbufangshi);
+			tv_ershou_housearea=(TextView) view.findViewById(R.id.tv_ptershou_housearea);
+			tv_ershou_jingweidu=(TextView) view.findViewById(R.id.tv_ershou_jingweidu);
+			tv_ershou_louceng=(TextView) view.findViewById(R.id.tv_ershou_louceng);
+			tv_ershou_loucengmenu=(TextView) view.findViewById(R.id.tv_ershou_loucengmenu);
+			tv_ershou_uploadPic=(TextView) view.findViewById(R.id.tv_ershou_uploadPic);
+			tv_ershou_xiaoquname=(TextView) view.findViewById(R.id.tv_ershou_xiaoquname);
+			tv_ershou_yincangphone=(TextView) view.findViewById(R.id.tv_ershou_yincangphone);
+			et_ershou_chenghu=(EditText) view.findViewById(R.id.et_ershou_chenghu);
+			et_ershou_housrprice=(EditText) view.findViewById(R.id.et_ershou_housrprice);
+			et_ershou_loudong=(EditText) view.findViewById(R.id.et_ershou_loudong);
+			et_ershou_menpai=(EditText) view.findViewById(R.id.et_ershou_menpai);
+			btn_ershou_submit=(Button) view.findViewById(R.id.btn_ershou_submit);	
 		
-		et_ershou_chenghu=(EditText) view.findViewById(R.id.et_ershou_chenghu);
-		et_ershou_housrprice=(EditText) view.findViewById(R.id.et_ershou_housrprice);
-		et_ershou_loudong=(EditText) view.findViewById(R.id.et_ershou_loudong);
-		et_ershou_menpai=(EditText) view.findViewById(R.id.et_ershou_menpai);
-		
-		btn_ershou_submit=(Button) view.findViewById(R.id.btn_ershou_submit);
-
+			tv_ershou_uploadPic.setText("已经上传"+pics.size()+"张");
 	}
 
 	private void setListener() {
@@ -196,7 +202,7 @@ public class PTershouSumbitFragment extends Fragment implements IPTershouSubmitV
 				
 				
 				e.setHidetel(tv_ershou_yincangphone.getText().toString());
-				
+				e.setPics(pics);
 				
 				
 				Log.e("eeeeeeeeeeeeeeeee", "eeeeeeeeeee"+e.toString());
@@ -209,11 +215,15 @@ public class PTershouSumbitFragment extends Fragment implements IPTershouSubmitV
 		ll_back_putongershou.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-
-				Fragment fragment = new PTershouListFragment();
-				FragmentTransaction trans = getActivity().getSupportFragmentManager().beginTransaction();
-				trans.replace(R.id.rl_container, fragment);
-				trans.commitAllowingStateLoss();
+				
+					
+					Fragment fragment = new PTershouListFragment();
+					FragmentTransaction trans = getActivity().getSupportFragmentManager().beginTransaction();
+					trans.replace(R.id.rl_container, fragment);
+					trans.commitAllowingStateLoss();
+					
+				
+				
 			}
 		});
 		
@@ -275,8 +285,19 @@ public class PTershouSumbitFragment extends Fragment implements IPTershouSubmitV
 			}
 		});
 		
+		tv_ershou_uploadPic.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent i=new Intent(getActivity(),ImageGrallyMain.class);
+				i.putExtra("TAG", 1);
+				startActivityForResult(i, ImageGrallyMain.PTERSHOUPIC);;
+			}
+		});
+		
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if(data!=null){
@@ -311,6 +332,13 @@ public class PTershouSumbitFragment extends Fragment implements IPTershouSubmitV
 			case XIAOQUNAME:
 				String xiaoquname = data.getStringExtra("XIAOQUNAME");
 				tv_ershou_xiaoquname.setText(xiaoquname);
+				break;
+				
+			case ImageGrallyMain.PTERSHOUPIC:
+				pics.clear();
+				this.pics=(List<Pics>) data.getSerializableExtra("pics");
+				tv_ershou_uploadPic.setText("已经上传"+pics.size()+"张");
+				Log.e("PT", "Ptershousubmit"+pics.toString());
 				break;
 			}
 		}
@@ -625,7 +653,7 @@ public class PTershouSumbitFragment extends Fragment implements IPTershouSubmitV
 	}
 
 	@Override
-	public void PTershouSubmit(String info) {
+	public void PTershouSubmit(String info){
 		MyToastShowCenter.CenterToast(getActivity(), info);
 		if(info.equals("发布成功")){
 			handler.postDelayed(new Runnable() {
@@ -644,3 +672,5 @@ public class PTershouSumbitFragment extends Fragment implements IPTershouSubmitV
 	
 	
 }
+
+

@@ -3,9 +3,11 @@ package com.dumu.housego.framgent;
 import java.util.List;
 
 import com.dumu.housego.R;
+import com.dumu.housego.adapter.ATQiuGouLsitAdapter;
 import com.dumu.housego.adapter.BuyHouseListAdapter;
 import com.dumu.housego.app.HouseGoApp;
 import com.dumu.housego.entity.QiuZuBuyHouseList;
+import com.dumu.housego.entity.QiuzuANDQiuGou;
 import com.dumu.housego.entity.UserInfo;
 import com.dumu.housego.presenter.BuyHouseDeletePresenter;
 import com.dumu.housego.presenter.BuyHouseListPresenter;
@@ -40,9 +42,9 @@ public class PTBuyHouseListFragment extends Fragment implements IBuyHouseListVie
 	private TextView tv_ptbuyhouse_submit;
 	private LinearLayout ll_back_pt_buyhouselist;
 	private ListView lv_buyhouse_list;
-	private List<QiuZuBuyHouseList> lists;
+	private List<QiuzuANDQiuGou> lists;
 	private IBuyHouseListPresenter listPresenter;
-	private BuyHouseListAdapter adapter;
+	private ATQiuGouLsitAdapter adapter;
 	private UserInfo userinfo;
 	private IBuyHouseDeletePresenter deletePresenter;
 	private PopupWindow pop;
@@ -168,9 +170,9 @@ public class PTBuyHouseListFragment extends Fragment implements IBuyHouseListVie
 	}
 
 	@Override
-	public void buyhouseSuccess(List<QiuZuBuyHouseList> lists) {
+	public void buyhouseSuccess(List<QiuzuANDQiuGou> lists) {
 		this.lists = lists;
-		adapter = new BuyHouseListAdapter(lists, getActivity());
+		adapter = new ATQiuGouLsitAdapter(lists, getActivity());
 		lv_buyhouse_list.setAdapter(adapter);
 
 	}

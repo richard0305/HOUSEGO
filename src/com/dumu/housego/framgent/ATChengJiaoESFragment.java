@@ -17,6 +17,7 @@ import com.dumu.housego.view.IChengJiaoErShouView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -77,6 +78,7 @@ public class ATChengJiaoESFragment extends Fragment implements IChengJiaoErShouV
 	@Override
 	public void ChengjiaoErShouSuccess(List<ErShouFangDetails> ershoudetails) {
 		this.ershoudetails = ershoudetails;
+		Log.e("FRAGMENT", "FRAGMENT="+ershoudetails);
 		adapter = new ChengJiaoErShouAdapter(ershoudetails, getActivity());
 
 		lvChengjiaoErshou.setAdapter(adapter);

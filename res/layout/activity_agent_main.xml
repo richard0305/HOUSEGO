@@ -46,7 +46,7 @@
     <Button
         android:id="@+id/btn_line"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+       android:layout_height="@dimen/fengexian"
         android:layout_below="@+id/rl_agent_title"
         android:background="#c9c9cb" />
 
@@ -88,7 +88,7 @@
     <Button
         android:id="@+id/btn_1"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+       android:layout_height="@dimen/fengexian"
         android:layout_below="@+id/ll_agent_search"
         android:background="#c9c9cb" />
 

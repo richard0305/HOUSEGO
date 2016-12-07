@@ -17,8 +17,10 @@ import com.dumu.housego.GetLocationActivity;
 import com.dumu.housego.R;
 import com.dumu.housego.SearchActivity;
 import com.dumu.housego.SubmitEdittextActivity;
+import com.dumu.housego.activity.ImageGrallyMain;
 import com.dumu.housego.app.HouseGoApp;
 import com.dumu.housego.entity.Address;
+import com.dumu.housego.entity.Pics;
 import com.dumu.housego.entity.RentingDetail;
 import com.dumu.housego.entity.UserInfo;
 import com.dumu.housego.model.AddressModel;
@@ -141,6 +143,7 @@ public class ATrentingSubmitFragment extends Fragment implements IATrentingSubmi
 	private UserInfo userinfo;
 	
 	private Handler handler=new Handler();
+	private List<Pics> pics=new ArrayList<Pics>();
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -223,7 +226,7 @@ public class ATrentingSubmitFragment extends Fragment implements IATrentingSubmi
 					m.setLeixing("");
 				}
 				
-				
+				m.setPics(pics);
 				m.setJianzhutype(tv_renting_jianzhuType.getText().toString());
 				m.setZulin(tv_renting_chuzutype.getText().toString());
 				m.setFukuan(tv_renting_zhifuType.getText().toString());
@@ -468,7 +471,16 @@ public class ATrentingSubmitFragment extends Fragment implements IATrentingSubmi
 				startActivityForResult(i, YEZHUSHUO);
 			}
 		});
-		
+		tv_renting_uploadPic.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent i = new Intent(getActivity(), ImageGrallyMain.class);
+				i.putExtra("TAG", 4);
+				startActivityForResult(i, ImageGrallyMain.ATRentingPIC);
+				
+			}
+		});
 		
 		
 		
@@ -512,6 +524,7 @@ public class ATrentingSubmitFragment extends Fragment implements IATrentingSubmi
 		tv_renting_yezhushuo=(TextView) view.findViewById(R.id.tv_renting_yezhushuo);
 		tv_renting_zhifuType=(TextView) view.findViewById(R.id.tv_renting_zhifuType);
 		
+		tv_renting_uploadPic.setText("已经上传"+pics.size()+"张");
 	}
 	
 	
@@ -678,6 +691,7 @@ public class ATrentingSubmitFragment extends Fragment implements IATrentingSubmi
 		btnTitle.setText("请选择房源区域");
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if(data!=null){
@@ -759,7 +773,11 @@ public class ATrentingSubmitFragment extends Fragment implements IATrentingSubmi
 			String str19 = data.getStringExtra("M19");
 			tv_renting_yezhushuo.setText(str19);
 			break;
-	
+		case ImageGrallyMain.ATRentingPIC:
+			pics.clear();
+			this.pics=(List<Pics>) data.getSerializableExtra("pics");
+			tv_renting_uploadPic.setText("已经上传"+pics.size()+"张");
+			break;
 		}
 		}
 		super.onActivityResult(requestCode, resultCode, data);

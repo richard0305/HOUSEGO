@@ -78,12 +78,15 @@ public class AlbumActivity extends Activity {
 		  
         @Override  
         public void onReceive(Context context, Intent intent) {  
-        	//mContext.unregisterReceiver(this);
+//        	mContext.unregisterReceiver(this);
             // TODO Auto-generated method stub  
         	gridImageAdapter.notifyDataSetChanged();
         }  
     };  
-
+    
+    
+    
+    
 	// 预览按钮的监听
 	private class PreviewListener implements OnClickListener {
 		public void onClick(View v) {

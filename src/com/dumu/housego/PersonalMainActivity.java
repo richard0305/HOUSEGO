@@ -1,10 +1,17 @@
 package com.dumu.housego;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.xutils.x;
 import org.xutils.common.util.MD5;
 
+import com.android.volley.RequestQueue;
 import com.bumptech.glide.Glide;
 import com.dumu.housego.activity.LoginActivity;
 import com.dumu.housego.activity.MainActivity;
@@ -20,9 +27,13 @@ import com.dumu.housego.util.CircleImageView;
 import com.dumu.housego.util.FontHelper;
 import com.dumu.housego.util.MyReboundScrollView;
 import com.dumu.housego.util.MyToastShowCenter;
+import com.dumu.housego.util.UrlFactory;
+import com.dumu.housego.utils.UploadUtil;
+import com.dumu.housego.utils.UploadUtil.OnUploadProcessListener;
 import com.dumu.housego.utils.Utils;
 import com.dumu.housego.view.IChangeHeadPhotoView;
 import com.dumu.housego.view.IChangeUserInfoView;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
 
 import android.Manifest;
 import android.app.Activity;
@@ -31,15 +42,22 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
+import android.os.Message;
 import android.provider.MediaStore;
+import android.provider.MediaStore.Images;
+import android.provider.MediaStore.Images.Media;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.provider.DocumentFile;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -57,12 +75,35 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class PersonalMainActivity extends Activity implements IChangeUserInfoView, IChangeHeadPhotoView {
+public class PersonalMainActivity extends Activity implements OnUploadProcessListener,IChangeUserInfoView, IChangeHeadPhotoView {
+	Button bt;
+	private static RequestQueue mSingleQueue;
+	private static String TAG = "test";
+	
+	/**
+	 * 请求裁剪码
+	 */
+	public static final int REQUEST_CODE_GETIMAGE_BYCROP = 1;
+	/**
+	 * 请求相机码
+	 */
+	public static final int REQUEST_CODE_GETIMAGE_BYCAMERA = 2;
+	/**
+	 * 请求相册
+	 */
+	public static final int REQUEST_CODE_GETIMAGE_BYSDCARD = 3;
 
-	protected static final int CHOOSE_PICTURE = 0;
-	protected static final int TAKE_PICTURE = 1;
-	protected static final int CROP_SMALL_PICTURE = 2;
-	protected static Uri tempUri;
+	/**
+	 * 去上传文件
+	 */
+	protected static final int TO_UPLOAD_FILE = 4;  
+
+	/**
+	 * 上传文件响应
+	 */
+	protected static final int UPLOAD_FILE_DONE = 5;  //
+
+	private Uri origUri;
 	// private static final int TAKE_PHOTO_REQUEST_CODE = 1;
 
 	private LoginUserInfoModel infomodel = new LoginUserInfoModel();
@@ -94,7 +135,7 @@ public class PersonalMainActivity extends Activity implements IChangeUserInfoVie
 	private LinearLayout llfenjihaojiebang;
 	private LinearLayout llfenjihaoshenqing;
 
-	Handler handler = new Handler();
+//	Handler handler = new Handler();
 	private PopupWindow pop;
 	private LinearLayout ll_popup;
 	private LinearLayout ll_cancle;
@@ -103,7 +144,7 @@ public class PersonalMainActivity extends Activity implements IChangeUserInfoVie
 	private LinearLayout ll_cancle_touxiang;
 	private LinearLayout ll_popup_touxiang;
 	protected TextView tv_realname;
-
+	private Uri imagwUri;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -117,7 +158,7 @@ public class PersonalMainActivity extends Activity implements IChangeUserInfoVie
 		userinfopresenter = new ChangeUserInfoPresenter(this);
 
 		setListeners();
-
+		
 		headpresenter = new ChangeHeadPhotoPresenter(this);
 
 	}
@@ -152,22 +193,9 @@ public class PersonalMainActivity extends Activity implements IChangeUserInfoVie
 		});
 		bt1.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				// 拍照,先判断SD卡是否存在
-				String SDState = Environment.getExternalStorageState();
-				if (SDState.equals(Environment.MEDIA_MOUNTED)) {
-
-					Intent openCameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-					tempUri = Uri.fromFile(new File(Environment.getExternalStorageDirectory(), "image.jpg"));
-					// ContentValues values=new ContentValues();
-
-					// 指定照片保存路径（SD卡），image.jpg为一个临时文本，每次拍照后这个图片都会被替换
-					openCameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, tempUri);
-					startActivityForResult(openCameraIntent, TAKE_PICTURE);
-
-				} else {
-					MyToastShowCenter.CenterToast(getApplicationContext(), "内存卡不存在!");
-				}
-
+				//照相
+				photo();
+				
 				popTouXiang.dismiss();
 				ll_popup_touxiang.clearAnimation();
 				ll_cancle_touxiang.clearAnimation();
@@ -176,11 +204,32 @@ public class PersonalMainActivity extends Activity implements IChangeUserInfoVie
 		bt2.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				// 选择本地照片
+				Intent intent;
+				// Android6.0以上，要动态申请读写权限
+				if (ContextCompat.checkSelfPermission(getApplicationContext(),
+						Manifest.permission.WRITE_EXTERNAL_STORAGE)
+						!= PackageManager.PERMISSION_GRANTED) {
+					//申请读写权限
+					ActivityCompat.requestPermissions(PersonalMainActivity.this,
+							new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.READ_EXTERNAL_STORAGE},
+							REQUEST_CODE_GETIMAGE_BYCROP);
+				} else{
 
-				Intent openAlbumIntent = new Intent(Intent.ACTION_PICK);
-				openAlbumIntent.setType("image/*");
-				startActivityForResult(openAlbumIntent, CHOOSE_PICTURE);
-
+					if (Build.VERSION.SDK_INT < 19) {
+						intent = new Intent();
+						intent.setAction(Intent.ACTION_GET_CONTENT);
+						intent.setType("image/*");
+						startActivityForResult(Intent.createChooser(intent, "选择图片"),
+								REQUEST_CODE_GETIMAGE_BYCROP);
+					} else {
+						intent = new Intent(Intent.ACTION_PICK,
+								Images.Media.EXTERNAL_CONTENT_URI);
+						intent.setType("image/*");
+						startActivityForResult(Intent.createChooser(intent, "选择图片"),
+								REQUEST_CODE_GETIMAGE_BYCROP);
+					}
+				}
+				
 				popTouXiang.dismiss();
 				ll_popup_touxiang.clearAnimation();
 				ll_cancle_touxiang.clearAnimation();
@@ -310,48 +359,6 @@ public class PersonalMainActivity extends Activity implements IChangeUserInfoVie
 			}
 		});
 
-		// rlMyTouxiang.setOnClickListener(new OnClickListener() {
-		//
-		// @Override
-		// public void onClick(View v) {
-		// new AlertDialog.Builder(PersonalMainActivity.this).setTitle("图片来源")
-		// .setItems(new String[]{"相册","相机"}, new
-		// DialogInterface.OnClickListener() {
-		//
-		// @Override
-		// public void onClick(DialogInterface dialog, int which) {
-		// switch(which){
-		// case 0:
-		// //���������ȡ��Ƭ
-		// Intent intent1 = new Intent(Intent.ACTION_PICK, null);
-		// intent1.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
-		// "image/*");
-		// startActivityForResult(intent1, 1);
-		// break;
-		// case 1://�����������
-		// Intent intent2 = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-		// intent2.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(new
-		// File(Environment.getExternalStorageDirectory(),
-		// "head.jpg")));
-		// startActivityForResult(intent2, 2);//����ForResult��
-		// break;
-		// }
-		//
-		// }
-		// }).setNegativeButton("取消", new DialogInterface.OnClickListener() {
-		//
-		// @Override
-		// public void onClick(DialogInterface dialog, int which) {
-		// switch(which){
-		// case 0:finish();
-		// break;
-		// }
-		//
-		// }
-		// }).show();
-		//
-		// }
-		// });
 
 		rl_person_realname.setOnClickListener(new OnClickListener() {
 			@Override
@@ -612,133 +619,54 @@ public class PersonalMainActivity extends Activity implements IChangeUserInfoVie
 		llchangepassword = (LinearLayout) findViewById(R.id.ll_person_changepassword);
 		llfenjihaojiebang = (LinearLayout) findViewById(R.id.fenjihao_jiebang);
 		llfenjihaoshenqing = (LinearLayout) findViewById(R.id.fenjihao_shenqing);
-		// Bitmap bt = BitmapFactory.decodeFile(path +
-		// "head.jpg");//��Sd����ͷ��ת����Bitmap
-		// if(bt!=null){
-		// @SuppressWarnings("deprecation")
-		// Drawable drawable = new BitmapDrawable(bt);//ת����drawable
-		// ivPersonalPhoto.setImageDrawable(drawable);
-		// }else{
-		// /**
-		// * ���SD����û������Ҫ�ӷ�����ȡͷ��ȡ������ͷ���ٱ�����SD��
-		// *
-		// */
-		// }
 		tv_realname=(TextView) findViewById(R.id.tv_realname);
 	}
 
-	// protected void onActivityResult(int requestCode, int resultCode, Intent
-	// data) {
-	// switch (requestCode) {
-	//
-	// case 1:
-	// if (resultCode == RESULT_OK) {
-	// cropPhoto(data.getData());//�ü�ͼƬ
-	// }
-	//
-	// break;
-	//
-	// case 2:
-	// if (resultCode == RESULT_OK) {
-	// File temp = new File(Environment.getExternalStorageDirectory()
-	// + "/head.jpg");
-	// cropPhoto(Uri.fromFile(temp));//�ü�ͼƬ
-	// }
-	//
-	// break;
-	//
-	// case 3:
-	// if (data != null) {
-	// Bundle extras = data.getExtras();
-	// head =
-	// extras.getParcelable("data");
-	// if(head!=null){
-	// /**
-	// * �ϴ�����������
-	// */
-	// String userid=userinfo.getUserid();
-	// headpresenter.ChangeHead(userid, head);
-	//
-	//
-	// setPicToView(head);//������SD����
-	// UserInfo userinfo1 = HouseGoApp.getContext().getCurrentUserInfo();
-	// String url1=userinfo.getUserpic();
-	// Glide.with(getApplicationContext()).load(url1).into(ivPersonalPhoto);
-	//// ivPersonalPhoto.setImageBitmap(head);//��ImageView��ʾ����
-	// }
-	// }
-	// break;
-	// default:
-	// break;
-	//
-	// }
-	// super.onActivityResult(requestCode, resultCode, data);
-	// }
-
 	/**
-	 * ����ϵͳ�Ĳü�
-	 * 
-	 * @param uri
-	 *            //
+	 * 照相
 	 */
-	// public void cropPhoto(Uri uri) {
-	//
-	// Intent intent = new Intent("com.android.camera.action.CROP");
-	// intent.setDataAndType(uri, "image/*");
-	// intent.putExtra("crop", "true");
-	// // aspectX aspectY �ǿ�ߵı���
-	// intent.putExtra("aspectX", 1);
-	// intent.putExtra("aspectY", 1);
-	// // outputX outputY �ǲü�ͼƬ���
-	// intent.putExtra("outputX", 150);
-	// intent.putExtra("outputY", 150);
-	// intent.putExtra("return-data", true);
-	// startActivityForResult(intent, 3);
-	//
-	// }
-	// private void setPicToView(Bitmap mBitmap) {
-	// String sdStatus = Environment.getExternalStorageState();
-	// if (!sdStatus.equals(Environment.MEDIA_MOUNTED)) { // ���sd�Ƿ����
-	// return;
-	// }
-	// FileOutputStream b = null;
-	// File file = new File(path);
-	// file.mkdirs();// �����ļ���
-	// String fileName =path + "head.jpg";//ͼƬ����
-	// try {
-	// b = new FileOutputStream(fileName);
-	// mBitmap.compress(Bitmap.CompressFormat.JPEG, 100, b);// ������д���ļ�
-	//
-	// } catch (FileNotFoundException e) {
-	// e.printStackTrace();
-	// } finally {
-	// try {
-	// //�ر���
-	// b.flush();
-	// b.close();
-	// } catch (IOException e) {
-	// e.printStackTrace();
-	// }
-	//
-	// }
-	//
-	//
-	// }
-	//
-	// @Override
-	// public void changeHeadFail(String errorMessage) {
-	// Toast.makeText(getApplicationContext(), "头像更换失败！",
-	// Toast.LENGTH_SHORT).show();
-	//
-	// }
-	//
-	// @Override
-	// public void changeHeadSuccess(String picUrl) {
-	//
-	// Glide.with(getApplicationContext()).load(picUrl).into(ivPersonalPhoto);
-	// Toast.makeText(getApplicationContext(), "头像更换成功！",
-	// Toast.LENGTH_SHORT).show();
-	// }
+	protected void photo() {
+		String savePath ="";
+		if(Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)){
+			//SD卡处于挂载状态,创建图片保存的文件夹路径
+			savePath = Environment.getExternalStorageDirectory().getAbsolutePath()
+					+"/image/";
+			File saveDir = new File(savePath);
+			if(!saveDir.exists()){
+				//文件夹不存在，创建文件夹
+				saveDir.mkdirs();
+			}
+		}else{
+			Toast.makeText(this, "无法保存照片，请检查SD卡是否挂载", Toast.LENGTH_SHORT).show();
+			return;
+		}
+
+		//创建图片名称
+		String timeStamp = new SimpleDateFormat("yyyyMMddHHmmss")
+		.format(new Date());
+		String fileName = "zhicuo_" + timeStamp + ".jpg";// 照片命名
+
+		//自定义图片保存路径
+		File out = new File(savePath, fileName);
+		Uri uri = Uri.fromFile(out);
+		origUri = uri;
+
+		// 动态申请照相权限和读写权限
+		if (ContextCompat.checkSelfPermission(getApplicationContext(),
+				Manifest.permission.CAMERA)
+				!= PackageManager.PERMISSION_GRANTED) {
+			ActivityCompat.requestPermissions(this,
+					new String[]{Manifest.permission.CAMERA,Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.READ_EXTERNAL_STORAGE},
+					REQUEST_CODE_GETIMAGE_BYCAMERA);
+		} else{
+			Intent openCameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+			Log.i("MainActivity", uri.toString());
+			openCameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, uri);
+			startActivityForResult(openCameraIntent,
+					REQUEST_CODE_GETIMAGE_BYCAMERA);
+		}
+
+	}
 
 	// 监听back键按下事件
 	@Override
@@ -776,82 +704,203 @@ public class PersonalMainActivity extends Activity implements IChangeUserInfoVie
 	}
 
 	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+	public void onActivityResult(int requestCode, int resultCode, Intent imageReturnIntent) {
+		//回调处理结果
+		if (resultCode != Activity.RESULT_OK)
+			return;
 
-		if (resultCode == RESULT_OK) {
-			super.onActivityResult(requestCode, resultCode, data);
-			switch (requestCode) {
-			case TAKE_PICTURE:
-				startPhotoZoom(tempUri);
+		switch (requestCode) {
+		case REQUEST_CODE_GETIMAGE_BYCAMERA :
+			startActionCrop(origUri);// 拍照后裁剪
+			break;
+		case REQUEST_CODE_GETIMAGE_BYCROP:
+			startActionCrop(imageReturnIntent.getData());// 选图后裁剪
+			break;
+		case REQUEST_CODE_GETIMAGE_BYSDCARD :
+			//发送上传头像的消息
+			handler.sendEmptyMessage(TO_UPLOAD_FILE);
+			break;
+		}
+
+	}
+
+	private Handler handler = new Handler(){
+		@Override
+		public void handleMessage(Message msg) {
+			switch (msg.what) {
+			case TO_UPLOAD_FILE:
+				toUploadFile();
 				break;
-			case CHOOSE_PICTURE:
-				startPhotoZoom(data.getData());
-				break;
-			case CROP_SMALL_PICTURE:
-				if (data != null) {
-					setImageToView(data);
+
+			case UPLOAD_FILE_DONE:
+				//响应返回的结果
+				if(msg.arg1 == UploadUtil.UPLOAD_SUCCESS_CODE ){
+					String result = (String) msg.obj;
+					try {
+						//上传成功之后，服务端返回的数据
+						JSONObject obj = new JSONObject(result);
+						//获取服务端返回的头像地址
+						String portrait = obj.getString("avatarUrls");
+						//根据自己业务做后续处理
+						Glide.with(getApplicationContext()).load(portrait).into(ivPersonalPhoto);
+						
+						
+					} catch (JSONException e) {
+						e.printStackTrace();
+					}
+				}else if(msg.arg1 == UploadUtil.UPLOAD_SERVER_ERROR_CODE){
+					Toast.makeText(PersonalMainActivity.this, "上传失败", Toast.LENGTH_SHORT).show();
 				}
 				break;
+			default:
+				break;
+			}
+			super.handleMessage(msg);
+		}
+	};
+
+	/**
+	 * 请求裁剪
+	 * @param origUri
+	 */
+	private void startActionCrop(Uri data) {
+		Intent intent = new Intent("com.android.camera.action.CROP");
+		intent.setDataAndType(data, "image/*");
+		intent.putExtra("output", this.getUploadTempFile(data));
+		intent.putExtra("crop", "true");
+		intent.putExtra("aspectX", 1);// 裁剪框比例
+		intent.putExtra("aspectY", 1);
+		intent.putExtra("outputX", 200);// 输出图片大小
+		intent.putExtra("outputY", 200);
+		intent.putExtra("scale", true);// 去黑边
+		intent.putExtra("scaleUpIfNeeded", true);// 去黑边
+		startActivityForResult(intent,
+				REQUEST_CODE_GETIMAGE_BYSDCARD);
+	}
+	/**
+	 * 上传头像到服务器
+	 */
+	protected void toUploadFile() {
+		String url=UrlFactory.PostChangeHeadPhotoUrl();
+		String fileKey = "img";
+		UploadUtil uploadUtil = UploadUtil.getInstance();
+		uploadUtil.setOnUploadProcessListener(this);  //设置监听器监听上传状态
+		//定义一个Map集合，封装请求服务端时需要的参数
+		Map<String, String> params = new HashMap<String, String>();
+		//在这里根据服务端需要的参数自己来定
+//		params.put("userId", user.getUserId());
+//		params.put("tocken", user.getTocken());
+		params.put("userid", userinfo.getUserid());
+		if(protraitFile.exists()){
+			//参数三：请求的url，这里我用到了公司的url
+			uploadUtil.uploadFile(protraitFile.getAbsolutePath() ,fileKey, url,params);
+		}
+	}
+	
+	//获取保存头像地址的Uri
+	private Uri getUploadTempFile(Uri uri) {
+		String portraitPath = "";
+		if(Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)){
+			//保存图像的文件夹路径
+			portraitPath = Environment.getExternalStorageDirectory().getAbsolutePath()
+					+"/image/Portrait";
+			File saveDir = new File(portraitPath);
+			if(!saveDir.exists()){
+				saveDir.mkdirs();
+			}
+		}else {
+			Toast.makeText(this, "无法保存照片，请检查SD卡是否挂载", Toast.LENGTH_SHORT).show();;
+			return null;
+		}
+
+		String timeStamp = new SimpleDateFormat("yyyyMMddHHmmss")
+		.format(new Date());
+
+		String thePath = getAbsolutePathFromNoStandardUri(uri);
+		if (thePath.isEmpty()) {
+			thePath = getAbsoluteImagePath(uri);
+		}
+
+		//获取图片路径的扩展名
+		String ext = thePath.substring(thePath.lastIndexOf('.') + 1);
+		ext = ext.isEmpty() ? "jpg" : ext;
+
+		// 照片命名
+		String cropFileName = "crop_" + timeStamp + "." + ext;
+		protraitFile = new File(portraitPath, cropFileName);
+		cropUri = Uri.fromFile(protraitFile);
+		return cropUri;
+	}
+
+
+
+
+	private String SDCARD_MNT = "/mnt/sdcard";
+	private String SDCARD = "/sdcard";
+	private Uri cropUri;
+	private File protraitFile;
+	private RelativeLayout parent;
+
+	/**
+	 * 判断当前Url是否标准的content://样式，如果不是，则返回绝对路径
+	 * @param uri
+	 * @return
+	 */
+	private String getAbsolutePathFromNoStandardUri(Uri mUri) {
+		String filePath = "";
+
+		String mUriString = mUri.toString();
+		mUriString = Uri.decode(mUriString);
+
+		String pre1 = "file://" + SDCARD + File.separator;
+		String pre2 = "file://" + SDCARD_MNT + File.separator;
+
+		if (mUriString.startsWith(pre1)) {
+			filePath = Environment.getExternalStorageDirectory().getPath()
+					+ File.separator + mUriString.substring(pre1.length());
+		} else if (mUriString.startsWith(pre2)) {
+			filePath = Environment.getExternalStorageDirectory().getPath()
+					+ File.separator + mUriString.substring(pre2.length());
+		}
+		return filePath;
+	}
+
+	/**
+	 * 通过uri获取文件的绝对路径
+	 * @param uri
+	 * @return
+	 */
+	@SuppressWarnings("deprecation")
+	private String getAbsoluteImagePath(Uri uri) {
+
+		String imagePath = "";
+		String[] proj = { MediaStore.Images.Media.DATA };
+		Cursor cursor = managedQuery(uri, proj, // Which columns to
+				// return
+				null, // WHERE clause; which rows to return (all rows)
+				null, // WHERE clause selection arguments (none)
+				null); // Order-by clause (ascending by name)
+
+		if (cursor != null) {
+			int column_index = cursor
+					.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+			if (cursor.getCount() > 0 && cursor.moveToFirst()) {
+				imagePath = cursor.getString(column_index);
 			}
 		}
-		super.onActivityResult(requestCode, resultCode, data);
+		return imagePath;
 	}
 
-	/**
-	 * 剪裁图片方法的实现
-	 */
-	protected void startPhotoZoom(Uri uri) {
 
-		if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-			ActivityCompat.requestPermissions((Activity) this, new String[] { Manifest.permission.CAMERA },
-					TAKE_PICTURE);
-		}
 
-		if (uri == null) {
-			Log.i("tag", "the uri is not exist");
-		}
-		tempUri = uri;
-		Intent intent = new Intent("com.android.camera.action.CROP");
-		intent.setDataAndType(uri, "image/*");
-		// 设置剪裁
-		intent.putExtra("crop", "true");
-		intent.putExtra("aspectX", "1");
-		intent.putExtra("aspectY", "1");
-		intent.putExtra("outputX", "150");
-		intent.putExtra("outputY", "150");
-		intent.putExtra("return-data", true);
-		startActivityForResult(intent, CROP_SMALL_PICTURE);
 
-	}
 
-	/**
-	 * 保存剪彩后的图片
-	 */
+	
+	
+	
+	
 
-	protected void setImageToView(Intent data) {
-		Bundle extras = data.getExtras();
-		if (extras != null) {
-			Bitmap photo = extras.getParcelable("data");
-			// photo=Utils //圆形处理图片
-			ivPersonalPhoto.setImageBitmap(photo);
-			uploadPic(photo);
-		}
-	}
 
-	// 上传服务器代码
-	private void uploadPic(Bitmap bitmap) {
-
-		String imagePath = Utils.savePhoto(bitmap, Environment.getExternalStorageDirectory().getAbsolutePath(),
-				String.valueOf(System.currentTimeMillis()));
-		Log.e("imagepath", imagePath);
-
-		if (imagePath != null) {
-			// 上传代码
-			String userid = userinfo.getUserid();
-			headpresenter.ChangeHead(userid, imagePath);
-		}
-
-	}
 
 	@Override
 	public void changeHeadFail(String errorMessage) {
@@ -863,7 +912,28 @@ public class PersonalMainActivity extends Activity implements IChangeUserInfoVie
 	public void changeHeadSuccess(String picUrl) {
 		MyToastShowCenter.CenterToast(getApplicationContext(), "头像更换成功！" + picUrl);
 		Glide.with(getApplicationContext()).load(picUrl).into(ivPersonalPhoto);
+	}
 
+	@Override
+	public void onUploadDone(int responseCode, String message) {
+		// TODO Auto-generated method stub
+		Message msg = Message.obtain();
+		msg.what = UPLOAD_FILE_DONE;
+		msg.arg1 = responseCode;
+		msg.obj = message;	
+		handler.sendMessage(msg);
+	}
+
+	@Override
+	public void onUploadProcess(int uploadSize) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void initUpload(int fileSize) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

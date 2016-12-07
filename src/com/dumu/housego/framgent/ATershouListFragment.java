@@ -25,15 +25,14 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.View.OnLongClickListener;
+import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupWindow;
@@ -107,20 +106,22 @@ public class ATershouListFragment extends Fragment implements ISubmitErShouListV
 				String catid = ershoudetails.get(position).getCatid();
 				String posid = ershoudetails.get(position).getPosid();
 
+				MyToastShowCenter.CenterToast(getActivity(), "点击了这个item");
 				i.putExtra("id", Id);
 				i.putExtra("catid", catid);
 				i.putExtra("posid", posid);
 				startActivity(i);
+				
 			}
 		});
+		
 		fragmentershoulist.setOnItemLongClickListener(new OnItemLongClickListener() {
 
 			@Override
 			public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-		
+				MyToastShowCenter.CenterToast(getActivity(), "长按了这个item");
 				ATershouListFragment.this.POSI=position;
 				Animation anim = AnimationUtils.loadAnimation(getActivity(), R.anim.activity_translate_in);
-
 				ll_popup_delete.setAnimation(anim);
 				pop.showAtLocation(view, Gravity.BOTTOM, 0, 0);
 				return true;

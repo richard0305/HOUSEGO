@@ -7,12 +7,14 @@ import com.android.volley.Response.Listener;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.VolleyError;
 import com.dumu.housego.app.HouseGoApp;
+import com.dumu.housego.entity.Pics;
 import com.dumu.housego.entity.RentingDetail;
 import com.dumu.housego.model.IModel.AsycnCallBack;
 import com.dumu.housego.util.CommonRequest;
@@ -88,6 +90,19 @@ public class ATrentingSubmitModel implements IATrentingSubmitModel{
 				m.put("jiaotong", r.getJiaotong());
 				m.put("yezhushuo", r.getYezhushuo());
 				
+				//list集合转json
+				 JSONArray json = new JSONArray();
+				 try {
+					 for(Pics a : r.getPics()){
+			                JSONObject jo = new JSONObject();
+			                jo.put("url", a.getUrl());
+			                jo.put("alt", a.getAlt());
+			                json.put(jo);
+			            }
+				} catch (Exception e2) {
+				}
+				
+				m.put("pics", json.toString());
 				
 				return m;
 			}
